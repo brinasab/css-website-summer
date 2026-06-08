@@ -1,0 +1,39 @@
+---
+title: "Lecture 11: Control Flow 1"
+date: 2025-11-03
+summary: "Writing conditionals with if, else, and else if"
+url_slides: 11-slides.qmd
+url_code: css-materials/if-else
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+
+## Learning Objectives
+
+Housekeeping and updates on:
+
+- Mid Course Survey Feedback and Changes
+- Exams and Assignment 3
+
+Control Structures Learning Objectives:
+
+- Define what control structures are and why they matter
+- Introduce one type of control structure: conditional statements
+
+
+
+## Readings
+
+- [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science" (Notice this is not our regular book!)

@@ -1,0 +1,44 @@
+---
+title: "Lecture 3: Intro to ggplot2, Coding Style"
+date: 2025-10-06
+summary: "Visualizing Data with ggplot2, Coding Style in R"
+url_slides: 03-slides.qmd
+url_code: css-materials/ggplot2
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+
+## Learning Objectives
+
+- Recognize the role of visualization in exploring and communicating data
+- Understand the basic principles of the "Layered Grammar of Graphics"
+- Create simple layered plots using `ggplot2`
+- Apply correct coding style practices when writing R code
+
+
+## Readings
+
+* [Chapter 1 "Data Visualization"](https://r4ds.hadley.nz/data-visualize) from "R for Data Science" 2nd Edition
+* [Chapter 9 "Layers"](https://r4ds.hadley.nz/layers.html) from "R for Data Science" 2nd Edition
+* [Chapter 4 "Workflow: Code Style"](https://r4ds.hadley.nz/workflow-style) from "R for Data Science" 2nd Edition 
+
+Additional Resources:
+
+* [ggplot2 Cheat Sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf)
+* [ggplot2 Official Documentation](https://ggplot2.tidyverse.org/index.html)
+* [ggplot2: Elegant Graphics for Data Analysis, 2nd Edition](https://ggplot2-book.org/) by Hadley Wickham, for more on `ggplot2`
+* [A Layered Grammar of Graphics](https://www.tandfonline.com/doi/pdf/10.1198/jcgs.2009.07098) by Hadley Wickham, for a theoretical introduction to the grammar of graphics
+* [R Graphics Cookbook, 2nd edition](https://r-graphics.org/) by Winston Chang, for practical guide with 150 examples to generate graphs
+* ["The `tidyverse` style guide"](https://style.tidyverse.org/index.html)

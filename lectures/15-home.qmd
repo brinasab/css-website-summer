@@ -1,0 +1,46 @@
+---
+title: "Lecture 15: Web-Scraping 1"
+date: 2025-11-17
+summary: "Web-Scraping 1"
+url_slides: 15-slides.qmd
+#url_code: css-materials/scraping-1
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No code
+
+<!--`usethis::use_course("css-materials/getting-data-from-the-web-scraping")` -->
+
+## Learning Objectives
+
+* Understand the difference between web-scraping and Application Program Interface (API)
+* Define HTML and CSS selectors
+* Introduce the `rvest` package for scraping in R
+* Practice using `rvest` to extract data from HTML pages
+
+
+## Readings
+
+Not required before class, use them to clarify the lectures on web-scraping or support your work.
+
+General Introductions:
+
+* Chapter 1 and 4 in [Web Scraping with R](https://steviep42.github.io/webscraping/book/)
+* [`rvest` documentation](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
+* [`httr` documentation](https://cran.r-project.org/web/packages/httr/)
+* [Web Scraping using R Cheat Sheet](https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md)
+
+Scraping workflow:
+
+  * [Web scraping with R](https://williammarble.co/files/webscraping_tutorial/webscraping_tutorial.pdf) by William Marble
+  * [Web scraping using R](https://journals.sagepub.com/doi/pdf/10.1177/2515245919859535) by Alex Bradley and Richard J. E. James

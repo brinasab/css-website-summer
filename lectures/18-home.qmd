@@ -1,0 +1,27 @@
+---
+title: "Lecture 18: Exam 2; Final Project Check-In"
+date: 2025-12-03
+summary: "Exam 2; Final Project Check-In"
+url_slides: 18-slides.qmd
+#url_code: css-materials/
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: No in-class code to download
+
+
+## Content
+
+* Final Exam 2
+* Final Project Check-Ins
+

@@ -1,0 +1,808 @@
+---
+title: "Computing for the Social Sciences: Lecture 1"
+subtitle: "Topics: Course Logistics, R, Markdown"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+#library(rcis)
+library(gapminder)
+library(countdown)
+library(here)
+library(ymlthis)
+library(ggplot2)
+```
+
+# Agenda {.center}
+
+::: agenda-list
+1.  Welcome to the Course!
+2.  Intro to R, RStudio, and Workbench
+3.  R Markdown
+:::
+
+<!--
+2026 info to add:
+- if you plan to transfer to MACSS (add link to info), consider taking the Python three course sequence
+- exams can create anxiety for some and I understand though research show u learn better and content sticks for longer; though im hearing you thus im committed to these things that will improve your exam performance 1. in class prep quizzes almost every class (will mirror exam questions, exams can also not studying if you follow the class and adhere to AI guidelines consistently) 2. talk to me if you need further accomodations, i can make a plan with you depending on what i hear and what is feasible 3. exams are designed to be worth it 30% so no need to get an A on exams to get an A on the course
+
+Three main topics, each 30ish minutes
+
+1. Welcome Course
+1:30 - 1:40 Intro and talk
+1:40 - 1:50 Activity Meet and Share Goals
+1:50 - 2:05 Answer question, more slides on Plagiarism and Expectations
+
+2. Intro R 
+2:05 - 2:10 Slides
+2:10 - 2:40 R coding live sessions (summer i planned 25 min)
+
+Break?
+
+3. R Markdown
+2:45 - 2:50 Slides
+2:50 - 3:15 play with Rmd (intro and demo first!)
+3:15 - close
+
+Today we will talk about some course logistics, including course objectives, assessment, etc. and do a group activity on your expectations and tips to succeed in this course, etc.
+
+But let me start by introducing myself and the TA... then will go around and introduce each other
+-->
+
+# 1. Welcome to the Course! {.slide .center .middle}
+
+---
+
+## Teaching Team
+
+| Role   | Name                                   | Email                        |
+|--------|----------------------------------------|------------------------------|
+| Instructor | Sabrina Nardin (she/her)           | [snardin@uchicago.edu](mailto:snardin@uchicago.edu) |
+| TA     | Zach Meyer (he/him)                         | [zmeyer@uchicago.edu](mailto:zmeyer@uchicago.edu) |
+| TA     | Zixuan Zhou (she/her)                  | [zixuanzhou@uchicago.edu](mailto:zixuanzhou@uchicago.edu) |
+
+
+<br>
+
+::: fragment
+**How to Reach Out**
+
+-   Ask questions during or after class
+-   Attend Office Hours (see website)
+-   Post on Ed Discussion course-related questions
+:::
+
+</br>
+
+---
+
+## Course Objectives {.no-fragment}
+
+The goal of this course is to acquire basic computational skills. Specifically:
+
+1.  Learning R, especially the "tidyverse"
+2.  Learning best practices for reproducible research
+
+::: fragment
+You won't become an R expert in a few weeks, BUT you will learn a lot:
+
+-   learn the basics and gain confidence to explore new techniques beyond this course
+
+-   use R as a tool for analyzing social science data
+:::
+
+---
+
+## Course Topics
+
+Main topics of this course:
+
+-   Git/GitHub via RStudio
+-   R Markdown
+-   Data Visualization
+-   Data Cleaning and Transformation
+-   Exploratory Data Analysis
+-   Web-Scraping
+-   Reproducible Research
+-   R Programming: Control Structures, Data Structures, etc.
+
+---
+
+## How We'll Do This
+
+We start simple and build toward more complex code
+
+```{r hello-world, echo = TRUE}
+# create a variable and print it
+x <- "Hello!"
+print(x)
+```
+
+<br>
+
+We use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown). 
+
+All course materials are free and accessible from our website.
+
+**Is this course for you?** 
+
+</br>
+
+---
+
+## Software Setup
+
+In this course we use RStudio Workbench, which is cloud-based version of RStudio that runs in your browser. 
+
+Next lecture we will learn the basics of Git and GitHub and complete the Software Setup with Workbench for the course. 
+
+Check our website under "Software Setup" for details.
+
+
+---
+
+## Assessment 
+
+See "Assessment" section of our Syllabus and the [Course Schedule](https://brinasab.github.io/css-website/lectures/):
+
+-   **Assessment and Evaluation:**  There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.
+
+-   **Submission Policies:** See Syllabus, especially for late or missed assignments.
+
+-   **Evaluation Philosophy and Rubric:** See Syllabus.
+
+**Tips**:
+
+<!-- think about tips for reading this next year, either remove or say use readings to deepen your undrestanding  or clarify slides, before or after class -->
+
+* do the readings before class, even if you do not understand everything
+* start early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
+* AI is powerful and excellent for debugging, but read our AI policy in the Syllabus
+* form a study group, and ask for help if you get stuck
+
+---
+
+## Course Expectations
+
+See [How to Succeed in this Course](https://brinasab.github.io/css-website/syllabus.html#how-to-succeed-in-this-course) from the Syllabus
+
+---
+
+## Tips from former students...
+
+::: fragment
+-   "One of the hardest things for me was remembering where I saw a concept or piece of code."<br>*Advice: Stay organized (e.g., customize slides and notes, and create your own system to retrieve info)!*
+:::
+
+::: fragment
+-   "Homework took more time and effort than I expected." <br>*Advice: Start early! You don’t need to know everything before you begin: just get started and review the materials as needed. Use pen and paper to write pseudo-code before you start.*
+:::
+
+::: fragment
+-   "I’m in week 4, and I feel lost."<br>*Advice: Reach out to us! Concepts build over time. The big picture will click by the end of the coure IF you stay consistent with your efforts every week.*
+:::
+
+::: fragment
+-   "I found code that worked but wasn’t covered in class, so I wasn’t sure whether to use it."<br>*Advice: Stick to class syntax and functions — they’re chosen for a reason. But you can show both approaches by comparing the function(s) covered in class with your own.*
+:::
+
+```{=html}
+<!-- IN CLASS: 
+Share some further tips to be successful
+
+say everyone who puts effort and works hard on this class has gotten at least a B+ and usually in the A range
+
+Add to point above a version of the following: HWs assignments are take-home with no limited time and open-books, as such they are designed to be more challenging that in-class exercises
+
+Add one question on Make at habit to go to Office Hours and post on Ed this is the type of class for which OHs are a key element. That's why we offer more OHs opportunities than the average class
+
+Use the drop-in and by appointment model as in Fall 2024 and ask TAs to schedule OHs before HW are due and aim at covering all days
+-->
+```
+
+<!-- 
+## Tips from instructional team...
+
+1. If you are not getting errors, many errors, you are not doing it right! Share story of CS friend spending days debugging a long code. Share point on delegating thinking to AI (missing out learning the most important think about programming: think how to best break down a big task into smaller tasks)
+
+2. If this is your very first programming class: be prepared for a thinking shift. 
+
+3. Topics are cumulative, review lectures as you go. Be patient and trust us: there is a reason why we introduce topics in the order we do. It's impossible to get a big picture right away. Share story of 2nd programming class making the cut, vs. first feeling a big overwhelming 
+
+-->
+
+---
+
+## Yes to Collaboration, No to Copying
+
+Researchers collaborate on projects. Developers work in teams to write programs. AI is becoming part of our daily and academic lives.
+
+::: fragment
+**→ Collaboration is good and encouraged, but in this course you are also expected to:**
+
+-   Complete your own work individually
+-   Write your code and fully understand it
+-   Be ready to explain your code line-by-line to someone else
+:::
+
+---
+
+## Collaboration vs. Plagiarism {.center}
+
+::::: columns
+::: {.column width="50%"}
+### ✅ DO:
+
+-   Discuss and debug with peers
+-   Rewrite code found online in your own style<br> and cite the source</br>
+-   Use AI to debug or clarify concepts *after* you try
+-   Submit code you wrote
+-   Submit code you fully understand
+-   Always, prioritize methods from class materials and readings
+:::
+
+::: {.column width="50%"}
+### 🚫 DON'T:
+
+-   Copy code from your classmates or others
+-   Simply copy and paste chunks of code from<br> the internet</br>
+-   Use AI beyond the AI-Policy of this course 
+-   Submit code you didn't write
+-   Submit code you can't explain
+-   Write code not taught in class or reading (even if it works) as primary solution
+:::
+:::::
+
+---
+
+## My take on AI for this course {.center}
+
+::: columns
+::: {.column width="50%"}
+**It is my responsibility to**  
+- Set expectations & boundaries  
+- Enforce them (via grading & AI statements)  
+:::
+
+::: {.column width="50%"}
+**It is your responsibility to**  
+- Respect the AI policy  
+- Ask questions if something is unclear  
+:::
+:::
+
+**In this course, AI is:**  
+
+- NOT allowed to brainstorm, write code for you, or replace course materials  
+
+- allowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.). 
+
+Make sure to read the [Academic Integrity & Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies)
+
+---
+
+## Activity: Meet & Share Goals
+
+**In groups of 3-5 people, please share:**
+
+-   Your name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)
+-   What you hope to learn or achieve in this course
+-   Any questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)
+
+::: {.callout-note title="Done early?"}
+If your group finishes early, please complete [this short survey](https://forms.gle/SrVxNwCAixZSFr1QA) if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course.
+:::
+
+```{=html}
+<!--
+## Is this course a Good Fit for me?
+
+See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-course-for/) under FAQ in our website
+--->
+```
+
+
+# 2. Intro to R, RStudio, and Workbench {.slide .center .middle}
+
+---
+
+## What Are These Tools?
+
+| Tool | What It Is |
+|------------------------------------|------------------------------------|
+| **R** | A programming language for data analysis, statistics, and visualization. |
+| **RStudio** | A user-friendly interface (IDE) for using R. |
+| **Workbench** | A cloud-based version of R/RStudio with everything pre-installed. We will use it in this course to minimize setup issues. |
+
+---
+
+## Let’s start by exploring our Software
+
+**Workbench:** <https://macss-r.uchicago.edu/>
+
+-   Log in
+-   Look at panels
+-   How to export/import files between Workbench and your machine
+-   Create an empty R Script
+
+```{=html}
+<!-- IN CLASS
+
+Open Workbench link: log in, start new session
+
+Describe the panels:
+Start from console, type in simple code, show it shows up in environment. 
+
+Move to file, say this is where you communicate btw your computer and workbench, for example import a file from my machine into R workbench (e.g. with class roster on desktop), create a class-materials folder to keep things organized
+
+Then create a R script, save it in class materials: show difference compared to previously typed code in console (now is saved)
+
+Create a Rmd as empty doc, stop here, move back to slides say: let's talk about R markdown first! I might go a bit fast on some of these slides but we ll be there for your reference. We ll do an in-class activity that ll review same content taught here
+-->
+```
+
+---
+
+## Getting Started with R
+
+Today we learn how to:
+
+-   Create and use variables\
+-   Understand variable types (e.g., number, text, logical, etc.)\
+-   Write comments and organize your code\
+-   Use scripts (vs. console) for reproducibility\
+-   Clear your environment\
+-   Group values using vectors
+
+---
+
+## 💻 Live Coding Activity to get Started with R
+
+We learn all of this via a live coding activity:
+
+-   Log into Workbench <https://macss-r.uchicago.edu/>
+-   Type along with me as we write and run code together
+-   Stop me anytime if you have questions
+
+```{=html}
+<!-- IN CLASS:
+You’ll run into errors and typos, that’s part of the process -->
+```
+
+# 3. R Markdown {.slide .center .middle}
+
+---
+
+## Deep Dive on R Markown
+
+R Markdown is a file format (with extension `.Rmd`) that combines R code, using code chunks, and text in a single document. It's very popular because it makes it easy to create reproducible reports, analyses, and presentations.
+
+You might hear about Quarto (with extension `.qmd`), which is a newer alternative to R Markdown. We won’t cover Quarto in this course, but if you learn R Markdown, you can quickly adjust to Quarto.
+
+---
+
+## Comparing R Scripts, R Markdown, and Markdown {.center}
+
+| File Type  | Extension | Key Differences                  |
+|------------|-----------|----------------------------------|
+| R Script   | `.R`      | Supports code                    |
+| R Markdown | `.Rmd`    | Supports code and formatted text |
+| Markdown   | `.md`     | Supports formatted text          |
+
+We use all three, but mainly `.Rmd` for assignments and `.md` for Git/GitHub documentation.
+
+```{=html}
+<!-- IN CLASS:
+Let's open each one and explore their key differences!
+Open Workbench and create a file of each type, see the difference 
+SAY: on md you can type code but it is not evaluated/executed, basically is text
+R Markdown: an extension of Markdown designed for R -->
+```
+
+---
+
+## R Markdown: Three Main Components
+
+1.  **YAML header** for document title, author, output format, etc. Insert it at the top between `---`
+
+2.  **Text** regular Markdown for headers, lists, links, etc.
+
+3.  **Code chunks** for code. Insert it with triple backticks ```` ``` ````
+
+::: {.fragment .setup-box .callout-tip title="Code Chunk Tips"}
+[<strong>Three ways to insert a code chunk in your R Markdown:</strong>]{style="font-size: 1.2em"}
+
+-   Use the RStudio toolbar\
+-   Type manually ```` ```{r} ```` and ```` ``` ````
+-   Use a shortcut
+    -   Mac: ⌘ + ⌥ + I\
+    -   Windows: Ctrl + Alt + I
+:::
+
+---
+
+## R Markdown: Example
+
+This is what we type (YAML, text, code):
+
+````{verbatim, echo = TRUE}
+---
+title: "Homework 1"
+author: "Sabrina Nardin"
+output: html_document
+---
+
+I write my homework description here. 
+I can format the text in many ways, for example, by bolding **key concepts**.
+
+```{r}
+# create a variable
+x <- 5
+```
+````
+
+
+```{=html}
+<!-- IN CLASS: 
+copy this on a blank Rmd document on Workbench and render it -->
+```
+
+---
+
+## YAML: **Y**et **A**nother **M**arkup **L**anguage
+
+The YAML header sits at the top of your `.Rmd` and tells R what the document is about and how to display it (e.g., as a html, PDF, Word, etc.). Spacing, indentation, and `---` all matters!
+
+The example below shows three fields but many more can be added:
+
+```{verbatim, echo = TRUE}
+---
+title: "Homework 1"
+author: "Sabrina Nardin"
+output: html_document
+---
+```
+
+<!-- IN CLASS: 
+Change output to word and observe diffrence. Say that pdf might give problems occasionally due to an additonal package needed which is latex
+
+title: "Homework 1"
+author: "Sabrina Nardin"
+output: 
+  html_document:
+    toc: true
+-->
+
+---
+
+## R Markdown: Formatting Text {.center}
+
+::::: columns
+::: {.column width="50%"}
+### Syntax
+
+``` markdown
+*Italics*  
+**Bold**  
+~~Strikethrough~~  
+`inline code`
+```
+:::
+
+::: {.column width="50%"}
+### Output
+
+*Italics*\
+**Bold**\
+~~Strikethrough~~\
+`inline code`
+:::
+:::::
+
+`````{=html}
+<!--
+
+## R Markdown: Basic Syntax
+
+**Use a backslash `\` to make R Markdown special characters visible, e.g., to interpret them literally:**
+
+--
+
+````
+I want to use \* for emphasis, not for italics: \*great\*
+````
+I want to use \* for emphasis, not for italics: \*great\*
+
+--
+
+````
+I do not want a list here, I want the literal number followed by a dot: 1\.
+````
+I do not want a list here, I want the literal number followed by a dot: 1\.
+-->
+`````
+
+---
+
+## R Markdown: Unordered Lists {.center}
+
+::::: columns
+::: {.column width="50%"}
+### Syntax
+
+``` markdown
++ item 1  
+  + sub  
+  + sub  
+- item 2  
+  - sub  
+  - sub  
++ item 3  
+  - sub  
+  * sub  
+```
+:::
+
+::: {.column width="50%"}
+### Output
+
+-   item 1
+    -   sub
+    -   sub
+-   item 2
+    -   sub
+    -   sub
+-   item 3
+    -   sub
+    -   sub
+:::
+:::::
+
+<!-- Note: you can use either `*`, `-`, or `+`, then a space, then the text -->
+
+---
+
+## R Markdown: Ordered Lists {.center}
+
+::::: columns
+::: {.column width="50%"}
+### Syntax
+
+``` markdown
+1. item 1  
+    + sub  
+      + sub  
+    + sub  
+
+1. item 2  
+    * sub  
+      * sub  
+    * sub  
+
+1. item 3  
+    - sub  
+```
+:::
+
+::: {.column width="50%"}
+### Output
+
+1.  item 1
+    -   sub
+        -   sub\
+    -   sub
+2.  item 2
+    -   sub
+        -   sub\
+    -   sub
+3.  item 3
+    -   sub
+:::
+:::::
+
+<!-- Write the number 1, followed by a period or a round bracket, then a space, then the text. For nested lists, indent once and use `+`, `*`, or `-` followed by a space: -->
+
+---
+
+## R Markdown: Formatting Headers {.center}
+
+``` markdown
+# Heading 1  
+## Heading 2  
+### Heading 3  
+```
+
+<h1>Heading 1</h1>
+
+<h2>Heading 2</h2>
+
+<h3>Heading 3</h3>
+
+---
+
+## Using \# in Code vs. Markdown Text
+
+::::: columns
+::: {.column width="50%"}
+### In Code
+
+``` r
+# Assign number to variable
+x <- 5 
+# Assign text to variable
+name <- "Sabrina"
+```
+
+-   `#` starts a **COMMENT** in R Scripts and R Markdown Code Chunks
+-   Comments are **ignored** when the code runs
+-   Use one single `#` for code explanations or debugging, space doesn't matter
+:::
+
+::: {.column width="50%"}
+### In R Markdown Text
+
+``` markdown
+# Title (h1)
+## Section (h2)
+### Subsection (h3)
+#### More Subsections (h4)
+```
+
+-   `#` creates a **HEADER** in Markdown or R Markdown Text
+-   The number of `#` signs = **heading level**
+-   Use as many `#` as needed for organizing document sections, space matters
+:::
+:::::
+
+---
+
+## R Markdown: Insert Links, Images, and Tables
+
+| Element | Syntax Example | Notes | Preview |
+|------------------|------------------|------------------|------------------|
+| **Link** | `[RStudio](https://www.rstudio.com/)` | Text in `[]`, URL in `()` | [Link](https://www.markdownguide.org/basic-syntax/#links) |
+| **Image** | `![Logo](images/logo.png "Optional title")` | Start with `!`, include optional `"title"` | [Image](https://www.markdownguide.org/basic-syntax/#images) |
+| **Table** | `| Tool    | Use     |`<br>`|---------|---------|`<br>`| R       | Stats   |` | Use `|` for columns and `---` for header | [Table](https://www.markdownguide.org/extended-syntax/#tables) |
+
+Note: 
+
+- Spacing always matters 
+- For images to display, the file (e.g., .png, .jpg) must be saved in your current working dir or project folder
+
+<!--
+
+:::::: columns
+::: {.column width="33%"}
+### **Link**
+
+-   Text in `[]`, URL in `()`
+-   [Example](https://www.markdownguide.org/basic-syntax/#links)
+:::
+
+::: {.column width="33%"}
+### **Image**
+
+-   Start with `!`
+-   Optional `"title"` in quotes\
+-   [Example](https://www.markdownguide.org/basic-syntax/#images)
+:::
+
+::: {.column width="33%"}
+### **Table**
+
+-   Use `|` for columns\
+-   `---` under the header\
+-   [Example](https://www.markdownguide.org/extended-syntax/#tables)
+:::
+::::::
+
+-->
+
+---
+
+## R Markdown: Handy Code Chunk Options {.center}
+
+::: small
+| Option | What it does | Default |
+|------------------------|------------------------|------------------------|
+| `eval = FALSE` | Code is not run, only shown; results do not appear. Useful for code examples or showing code with errors. | `eval = TRUE` |
+| `include = FALSE` | Code is run, but both code and results are hidden. Useful for setup code you don't want to display. | `include = TRUE` |
+| `echo = FALSE` | Code is run, results are shown, but code is hidden. Good when readers only need the output. | `echo = TRUE` |
+| `error = TRUE` | Code is run and shown, even if it throws an error. Useful when demonstrating broken code. | `error = FALSE` |
+| `message = FALSE` / `warning = FALSE` | Code is run, but messages and warnings are hidden from the output. | `message = TRUE` / `warning = TRUE` |
+:::
+
+Check [this table](https://r4ds.had.co.nz/r-markdown.html#chunk-options) and [options](http://yihui.name/knitr/options/) for more.
+
+<!--
+
+**`eval = FALSE`** code is not evaluated; code appears in the report, results do not appear in the report. Useful to show an example code in your report, or when code has an error you want to show. Default is `eval = TRUE`
+
+**`include = FALSE`** code is evaluated; code does not appear in the report, nor do results. Useful when you do not want to clutter your report with too much code. Default is `include = TRUE`
+
+**`echo = FALSE`** code is evaluated; code does not appear in the report, results appear in the report. Useful to show your output to people that are not interested in the code that produced it. Default is `echo = TRUE`
+
+**`error = TRUE`** code is evaluated and output appears in the report even if there is an error. Useful to knit with errors. Default is `error = FALSE`
+
+**`message = FALSE`** or **`warning = FALSE`** prevents messages or warnings from appearing in the report. Default is `message = TRUE` or `warning = TRUE`
+
+-->
+
+---
+
+## Rendering R Markdown Documents
+
+R Markdown lets you create documents that combine text, code, and output, and "render" or "knit" them in formats like html, pdf, word, and more.
+
+::: {.fragment .setup-box .callout-tip title="Rendering Tips"}
+[<strong>Three ways to render your R Markdown document:</strong>]{style="font-size: 1.2em"}
+
+-   **Click "Knit"** in RStudio and choose an output
+
+-   **Set the format in the YAML header** such as `html_document`,`word_document`, `pdf_document`, `github_document`, etc.
+
+-   **Use `render()`** in your console by typing `rmarkdown::render("my-document.Rmd", output_format: html_document`). More info [here](https://pkgs.rstudio.com/rmarkdown/reference/render.html)
+:::
+
+---
+
+## R Markdown: Knitting process
+
+When you "knit" your document, the following sequential things happen:
+
+1.  R Markdown sends the `.Rmd` file to `knitr` http://yihui.name/knitr/
+
+2.  Knitr executes all of the code chunks and creates a new plain Markdown `.md` file which includes the code and its output
+
+3.  This plain Markdown file is then converted by `pandoc` into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
+
+```{r}
+#include_graphics(path = "rmarkdownflow.png")
+```
+
+---
+
+## 💻 Practice R Markdown Syntax
+
+-   Log into Workbench <https://macss-r.uchicago.edu/>
+-   Download today’s code from Lecture 1 on our website
+-   Complete the R Markdown in-class practice
+-   Want more? Try this [interactive tutorial](https://commonmark.org/help/)
+
+---
+
+## Recap: What We Learned Today
+
+-   Familiarized with Workbench
+-   Wrote simple R code
+-   Key components of R Markdown
+-   How to run and render R Markdown Documents
+
+---
+
+## Reminders
+
+- Register for a GitHub account and share your GitHub username with us (see Lecture 1 on our website for details)
+- Review today’s materials to prep for the short quiz at the beginning of next class
+- Check Lecture 2 homepage
+
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf

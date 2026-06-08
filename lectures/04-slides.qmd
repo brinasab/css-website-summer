@@ -1,0 +1,391 @@
+---
+title: "Computing for the Social Sciences: Lecture 4"
+subtitle: "Topics: Graphs for Data Analysis"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. The `scorecard` Dataset  
+2. Match Graph Types to Variable Types  
+3. In-class Practice  
+:::
+
+<!--
+```{r, echo=FALSE, results='asis'}
+cat('<span style="font-size: 0.8em; color: #666;">These slides were last updated on', format(Sys.Date(), '%B %d, %Y'), '</span>')
+```
+-->
+
+---
+
+## Our Goal Today: Using Graphs for Exploratory Data Analysis
+
+- **Display variation and co-variation:** Learn how to visualize the distribution of a single variable (`cost` to attend a school) and of two or more variables (`cost` and `admrate`).
+
+- **Match graph type to variable type:** Choose appropriate graph types depending on whether variables are categorical (school `type`), continuous (`cost`), or both.
+
+- **Interpret the graph:** Practice describing what a graph reveals, such as trends, group differences, and outliers.
+
+
+# 1. The scorecard Dataset {.slide .center .middle}
+
+---
+
+## About the scorecard dataset
+
+The U.S. Department of Education collects annual statistics on colleges and universities in the United States: <https://collegescorecard.ed.gov/data>
+
+This dataset includes variables such as: 
+
+- `name`: name of the school 
+- `state`: state where the school is located  
+- `type`: school type (e.g., Public, Private Nonprofit, Private For-Profit)  
+- `admrate`: admission rate (e.g., 0.91 = 91%)  
+- `cost`: published cost of attendance  
+- `netcost`: net cost of attendance after financial aid  
+- `satavg`: average SAT score of admitted students  
+- `...`: many additional variables
+
+We’ll focus on a subset of this data from the 2018–2019 academic year.
+
+---
+
+## About the scorecard dataset
+
+```r
+library(tidyverse)
+library(rcis)
+data(scorecard)
+glimpse(scorecard)
+```
+
+```{r}
+library(tidyverse)
+library(rcis)
+data(scorecard)
+glimpse(scorecard)
+```
+
+---
+
+## The scorecard dataset: making a plot
+
+Given this question **"Which type of college has the highest average SAT score?"**, and the task of answering it by creating a `ggplot2` graph. 
+
+How would you approach this task?
+
+- identify the variable(s) you need
+- find them in the data
+- identify the variable(s) types (mainly: categorical or continuous)
+- use this info to select the most appropriate plot 
+- think about the code
+- generate the graph and interpret it
+
+---
+
+## Which type of college has the highest average SAT score?
+
+#### Answer using a boxplot
+
+```r
+ggplot(data = scorecard, mapping = aes(x = type, y = satavg)) +
+  geom_boxplot()
+```
+
+```{r}
+ggplot(data = scorecard, mapping = aes(x = type, y = satavg)) +
+  geom_boxplot()
+```
+
+#### [What's a boxplot?](https://datatab.net/tutorial/box-plot){target="_blank"}
+
+
+---
+
+## Which type of college has the highest average SAT score?
+
+#### Answer using a faceded histogram
+
+```r
+ggplot(data = scorecard, mapping = aes(x = satavg)) +
+  geom_histogram() + 
+  facet_wrap(facets = vars(type))
+```
+
+```{r}
+ggplot(data = scorecard, mapping = aes(x = satavg)) +
+  geom_histogram() + 
+  facet_wrap(facets = vars(type))
+```
+
+#### [What's a histogram?](https://datatab.net/tutorial/charts){target="_blank"}
+
+---
+
+## Which type of college has the highest average SAT score?
+
+Let's interpret these graphs:
+
+#### What do these graphs reveal about average SAT scores by type of college? Do they reveal the same info? 
+
+---
+
+## Which type of college has the highest average SAT score?
+
+::: {.callout-note title="Interpreting plots is as important as writing code"}
+
+**General interpretation:**
+
+Private nonprofit schools have the highest average SAT scores, closely followed by public schools, and then private for-profit schools.
+
+**More refined interpretation:**
+
+The histogram shows that each school type has a different number of colleges: private for-profit schools are much fewer than the others. This difference in sample size isn’t visible in the boxplot, but it matters: averages from small groups may not reflect the broader category. Seeing the full distribution gives a more complete picture.
+
+:::
+
+---
+
+## Asking More Questions with dplyr (sneak peek for next week!)
+
+
+How many schools are in **each type?** 
+```r
+scorecard %>% count(type) 
+```
+
+Which schools are categorized as **private for-profit?**
+```r
+scorecard %>%
+  filter(type == "Private, for-profit") %>%
+  select(name, state, type, satavg, cost)
+```
+
+What about the **University of Chicago?**
+```r
+scorecard %>% filter(name == "University of Chicago")
+```
+
+Etc. 
+
+<!--
+The code below creates a summary dataset with `type` of university as rows and the `satavg` mean as a column:
+
+```{r}
+scorecard %>% 
+  group_by(type) %>%
+  summarize(mean_type = mean(satavg, na.rm = TRUE))
+```
+-->
+
+---
+
+## Once you draw a plot, ask yourself:
+
+::: columns
+::: column
+
+#### Substantive questions:
+- What does this graph tell?
+- Are there patterns? Outliers?
+- What hypotheses can I generate?
+- What else I want to know?
+- Should I dig deeper with `dplyr`?
+- Should I wrangle my data and plot again?
+- Etc.
+
+:::
+::: column
+
+#### Stylistic questions:
+- Is the chosen plot appropriate (matches variable type)?
+- Is the plot clear and easy to understand?
+- Is it too busy or too simple?
+- Could it be improved? (titles, labels, colors, etc.)
+- Can I make an additional plot with these variables?
+- Etc.
+
+:::
+:::
+
+# 2. Match Graph Types to Variable Types {.slide .center .middle}
+
+---
+
+## Types of Visualizations and Best Graph Types
+
+### 1. Which kind of variation do I want to represent?
+
+- **Within single variable**
+- **Among Two variables**
+- **Among Three variables**
+
+<br>
+
+### 2. What type(s) are my variables?
+
+- **Continuous** (e.g., `satavg` average SAT score, `cost` published cost)
+- **Categorical** (e.g., `type` school type, `state` U.S. state)
+- Other types (often treated as categorical): ordinal, nominal, binary
+
+</br>
+
+*Tip: Ask yourself these two questions before jumping into the code!*
+
+---
+
+## Univariate (One Variable)
+
+**To show how values vary within a single variable**:
+
+- One **continuous** variable → **Histogram**
+- One **categorical** variable → **Bar Chart**
+
+<br>
+
+::: {.left}
+
+| Function           | What Gets Counted                                 | When to Use             |
+|--------------------|---------------------------------------------------|--------------------------|
+| `geom_histogram()` | How many values fall into each numeric bin        | When `x` is continuous   |
+| `geom_bar()`       | How many observations are in each category        | When `x` is categorical  |
+
+:::
+
+</br>
+
+---
+
+## Bivariate (Two Variables)
+
+**To show how two variables co-vary**:
+
+- Two **continuous** variables → **Scatterplot**
+- One **categorical** + one **continuous** → **Box Plot**
+- Two **categorical** variables → **Grouped or Stacked Bar Chart**
+
+---
+
+## Multivariate (Three Variables)
+
+**To compare patterns across subgroups**:
+
+- One **categorical** + two **continuous** → **Faceted Scatterplot**
+- Two **categorical** + one **continuous** → **Grouped Box Plot**
+
+
+---
+
+## Main Graph Types and When to Use Them
+
+| Type of Graph        | `ggplot2` Function                                                              | Input Variables                                                                 | Goal                                  |
+|----------------------|----------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------------------------------------|
+| Histogram            | [geom_histogram()](https://ggplot2.tidyverse.org/reference/geom_histogram.html)       | One **continuous** (e.g., age, income)                              | Show the **distribution** of values                     |
+| Bar Chart            | [geom_bar()](https://ggplot2.tidyverse.org/reference/geom_bar.html)                   | One **categorical** (e.g., region, gender)                           | Show **frequencies** or **counts** of categories        |
+| Stacked Bar Chart    | [geom_bar() + fill](https://ggplot2.tidyverse.org/reference/geom_bar.html)            | Two **categorical** variables (e.g., region by gender)                         | Compare **parts of a whole** across categories          |
+| Scatterplot          | [geom_point()](https://ggplot2.tidyverse.org/reference/geom_point.html)               | Two **continuous** variables (e.g., height vs. weight, price vs. rating)        | Show **relationship** or **correlation**                |
+| Box Plot             | [geom_boxplot()](https://ggplot2.tidyverse.org/reference/geom_boxplot.html)           | One **continuous** + one **categorical** (e.g., income by gender)           | Compare **distributions**, spot **outliers**            |
+| Faceted Scatterplot  | [facet_wrap() + geom_point()](https://ggplot2.tidyverse.org/reference/facet_wrap.html) | Two **continuous** + one **categorical** (e.g., by country or year)             | Compare **patterns across groups**                      |
+
+*These are the most common combinations. There are more options as you explore deeper!*
+
+
+# 3. Practice {.slide .center .middle}
+
+---
+
+## 💻 Practice: Make Graphs!
+
+On the next slide, there are a list of graphs to create. 
+
+In small groups, use the scorecard dataset to create the most appropriate graph for each one.
+
+- **Before plotting:** Think about the variable types and the kind of variation you want to represent. (Use the reference slides as a guide.)
+
+- **While plotting:** Keep it simple, as you would for an initial Exploratory Data Analysis (no need to add labels, legends, color, etc.). Look up the documentation for each graph: you do not need to remember all the code!
+
+- **After plotting:** Stare at your graph... look for patterns, outliers, or any notable features, and interpret what graph tells about the data.
+
+---
+
+## 💻 Practice
+
+<!-- For regular CSS class, add some dpyr commands in task and also bring back TASK 4  Display the total number of schools in the U.S. by school type (n = 3) and by state (n = 54). *Note: the initial graph you generate here may lack visual appeal. Focus on identifying potential improvements rather than implementing them for now.* -->
+
+Share your solutions here <https://codeshare.io/5z6PkW>
+
+Graph 1: Plot the annual total cost of school attendance across the U.S. (`cost`)
+
+Graph 2: Plot the total number of schools in the U.S. by school type (`type`)
+
+Graph 3: Plot the annual total cost and net cost of attendance to schools in the U.S. (`cost`, `netcost`)
+
+Graph 4: Plot the annual total cost of attendance by school type (`cost`, `type`)
+
+Graph 5: Plot the annual total cost of attendance and net cost of attendance by school type (`cost`, `netcost`, `type`)
+
+---
+
+## 💻 Download Today Materials
+
+Download today’s class materials from our website for: 
+
+- further insights into these tasks
+- additional practice exercises (optional)
+
+---
+
+## Takeaways and Tips
+
+Follow this approach to move from quick exploration to polished, communicative plots:
+
+::: columns
+::: column
+
+#### When exploring your data:
+- Start with simple and plots to get a sense of the distribution and relationships
+- Focus on interpretation first, not style
+- Ask questions: What stands out? Are there outliers, trends, or surprises? What else do you want to know?
+
+:::
+::: column
+
+#### Once you settle on a plot:
+- Refine the code to improve readability and aesthetics
+- Add styling elements (labels, scales, legends, and themes. etc. as needed)
+- Use polished plots for assignments, reports, or presentations
+
+:::
+:::
+
+*Typically, researchers create many exploratory plots and only a few make it to the final report.*
+
+---
+
+## Recap: What We Learned Today
+
+- Pick graph types that match the types of variables in your data
+- Read and interpret visualizations
+- Pracice using `ggplot` and `dplyr`
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+

@@ -1,0 +1,476 @@
+---
+title: "Computing for the Social Sciences: Lecture 17"
+subtitle: "Topics: Reproducible Workflow"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+# Agenda {.center}
+
+::: {.agenda-list}
+
+1. Exam 2 Overview + Final Project Check-in
+
+2. Tips to improve your R Workflow
+
+3. Deep-dive into R Markdown
+
+4. Reflections on AI and Programming
+:::
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **December 1, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+# 1. Exam 2 Overview + Final Project Check-in {.slide .center .middle}
+
+---
+
+## Exam Format
+
+### Identical to Exam 1 or very similar. Multiple-choice questions and short open-ended questions, such as:
+
+- *Classical multiple choice* — select the correct answer from several options  
+- *Spot the typo* — identify and fix syntax or logic errors
+- *Matching questions* — pair code snippets with their descriptions or outputs  
+- *Debugging questions* — code runs but gives unexpected results; explain *why*  
+- *Predict the output* — given a short R snippet determine what the code will return
+- *Open-ended questions or write code questions* — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)  
+
+---
+
+## Exam Logistics
+
+- Topics covered: Lectures 9-17 (inclusive)
+
+- Time: 60 minutes
+
+- It is closed-book, but you may bring pen and paper for scratch work. See Syllabus for details
+
+- Arrive on time: If you arrive late, you can still take the exam, but no additional time can be given
+
+- Make-up and absence policy: See Syllabus
+
+---
+
+## How to Prepare for the Exam
+
+1. **Review class materials:** slides, in-class code, and assigned readings  
+
+2. **Review previous homework (especially 3 and 4)** re-run your code and check you understand each step  
+
+3. **Review the in-class prep quizzes we have done** exam questions will be similar 
+
+4. **Use AI strategically:** once you’ve done all the above, ask AI to generate additional practice questions of different types and level of difficulty. Starting with AI before reviewing materials can backfires
+
+::: {.callout-tip}
+Preparation works best when you write and run code yourself, review your mistakes, and make sure you can explain *why* each answer is correct.
+:::
+
+---
+
+## Final Project Check-In
+
+### When: 
+Wednesday, December 3, 2025 after the exam (~2:30–3:20 PM)
+
+### What: 
+Optional 1:1 meetings (~10 minutes) with the instructor or TA to discuss your final project. Please come with whatever you’ve completed so far and any questions you’d like to go over.
+
+### Sign up:
+First come, first served. If many students plan to attend, a sign-up link will be provided.
+
+
+# 2. Tips to improve your R Workflow {.slide .center .middle}
+
+
+## Tip 1: Begin every session with a clean, empty workspace
+
+When you run an R session, your workspace includes everything created during that session: libraries that you loaded with `library()`, and several user-created objects (objects, data, functions, etc.)
+
+**Goal: Don’t preserve the workspace. Preserve the code that creates the workspace.** The next slides explain how and why! 
+
+---
+
+## Tip 1: Begin every session with a clean, empty workspace
+
+### How?
+
+When you close a session, by default R will prompt you to save your workspace with the question *“Do you want to save your workspace?”* If you choose to save it, R will reload that same workspace the next time you open it. **Instead, change the default settings:**
+  
+  * "Do you want to save your workspace?" No
+  
+  * Tools > Global Options > General 
+      * uncheck “Restore .Rdata into workspace at startup”
+      * set "Save workspace to .RData on exit" to Never
+
+---
+
+## Tip 1: Begin every session with a clean, empty workspace
+
+### Why? 
+
+**Reproducibility:**  
+Saving everything in the code allows others to reproduce your work and enables you to re-run the code to recreate the workspace.
+
+**Fewer Mistakes:**  
+Saved workspaces can hide objects you forgot about or didn’t create in this script. For example:
+  - Objects created in other scripts may still be lurking
+  - You may have loaded packages or data you don’t remember
+  - Objects may have been modified without updating the code
+
+---
+
+## Tip 2: Restart R often (Session → Restart R)
+
+Restart R when you want to ensure your script runs from a fresh session:
+
+- More reliable than `rm(list = ls())` or the broom icon
+(those remove objects but do not unload packages you loaded earlier)
+
+- Restarting keeps RStudio open, but clears everything underneath, giving you a clean workspace
+
+- Useful for debugging when other fixes don’t work and the code looks correct
+
+---
+
+## Tip 3: Use a Project-based workflow
+
+In this class, we have been using a project-based workflow for everything **by creating a project file `.Rproj` in every repo!** (Remember to create one for your final project, see [Lecture 7](https://brinasab.github.io/css-website/lectures/07-slides.html#/easier-solution-use-rstudio-projects))
+
+**Value of this approach:**
+
+* keeps materials organized
+
+* helps managing working directories (the working directory is the folder that R takes as *default directory* every time you try to access files, scripts, etc.)
+
+---
+
+## Article "Good enough practices in scientific computing"
+
+### Useful Article with more tips to improve your workflow: 
+<https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510>
+
+
+# 3. Deep-dive into R Markdown {.slide .center .middle}
+
+---
+
+## R Markdown Recap
+
+**R Markdown is a file format (with extension `.Rmd`) that:**
+
+- combines R code, using code chunks, and text in a single document
+- makes it easy to create reproducible reports, analyses, and presentations
+- you might hear about Quarto (with extension `.qmd`): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)
+
+---
+
+## R Markdown Recap
+
+### Three Main Components
+
+1.  **YAML header** for document title, author, output format, etc. Insert it at the top between `---`
+
+2.  **Text** regular Markdown for headers, lists, links, etc.
+
+3.  **Code chunks** for code. Insert it with triple backticks ```` ``` ````
+
+::: {.fragment .setup-box .callout-tip title="Code Chunk Tips"}
+[<strong>Three ways to insert a code chunk in your R Markdown:</strong>]{style="font-size: 1.2em"}
+
+-   Use the RStudio toolbar\
+-   Type manually ```` ```{r} ```` and ```` ``` ````
+-   Use a shortcut
+    -   Mac: ⌘ + ⌥ + I\
+    -   Windows: Ctrl + Alt + I
+:::
+
+---
+
+## R Markdown vs R Script
+
+### When to use a script vs. a Rmd
+
+- When you want to experiment, test functions, debug code
+
+- When you do not need to communicate output or results to others
+
+- For scripts that need to run top-to-bottom without narrative
+
+- For larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file
+
+---
+
+## R Markdown: What We Know
+
+* Inserting a YAML Header with basic elements
+* Formatting text (italics, bold, etc.)
+* Formatting titles 
+* Inserting lists (ordered and unordered)
+* Inserting images, tables, and hyperlinks
+* Rendering a Rmd into pdf, html, md, etc.
+
+---
+
+## R Markdown: What We Learn Today
+
+* How the knitting process works
+* Inline code
+* Code chunks names
+* Code chunks options
+* Global options
+* New YAML header elements
+
+---
+
+## R Markdown: The Knitting Process
+
+When you "knit" your document, the following sequential things happen, as [illustarated here](https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html)
+
+1.  R Markdown sends the `.Rmd` file to `knitr` http://yihui.name/knitr/
+
+2.  Knitr executes all of the code chunks and creates a new plain Markdown `.md` file which includes the code and its output
+
+3.  This plain Markdown file is then converted by `pandoc` into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/
+
+---
+
+## R Markdown: Inline Code
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(rcis)
+```
+
+## Gun deaths by age
+
+The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
+
+```{r youth, echo = FALSE}
+youth <- gun_deaths %>% filter(age <= 65)
+```
+
+We have `r nrow(youth)` individuals who are 65 or younger. 
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+
+````
+
+---
+
+## R Markdown: Inline Code
+
+```{r youth, include = FALSE}
+library(tidyverse)
+library(rcis)
+youth <- gun_deaths %>% filter(age <= 65)
+```
+
+The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.
+
+We have `r nrow(youth)` individuals who are 65 or younger. 
+Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+
+---
+
+## R Markdown: Code Chunks Names
+
+A named code chunk:
+````{verbatim, lang = 'markdown', echo = TRUE}
+```{r youth-distribution}
+# code goes here
+```
+````
+
+Advantages:
+
+1. Easier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.
+
+1. Graphics produced by the chunks have useful names
+
+1. Use it with `cache = TRUE` to set up cached chunks to avoid re-performing expensive computations on every run 
+
+::: {.callout-tip}
+`cache = TRUE` saves a chunk's output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)
+:::
+
+
+---
+
+## R Markdown: Code Chunk Options {.center}
+
+::: small
+| Option | What it does | Default |
+|------------------------|------------------------|------------------------|
+| `eval = FALSE` | Code is not run, only shown; results do not appear. Useful for code examples or showing code with errors. | `eval = TRUE` |
+| `include = FALSE` | Code is run, but both code and results are hidden. Useful for setup code you don't want to display. | `include = TRUE` |
+| `echo = FALSE` | Code is run, results are shown, but code is hidden. Good when readers only need the output. | `echo = TRUE` |
+| `error = TRUE` | Code is run and shown, even if it throws an error. Useful when demonstrating broken code. | `error = FALSE` |
+| `message = FALSE` / `warning = FALSE` | Code is run, but messages and warnings are hidden from the output. | `message = TRUE` / `warning = TRUE` |
+:::
+
+Check [this table](https://r4ds.had.co.nz/r-markdown.html#chunk-options) and [options](http://yihui.name/knitr/options/) for more.
+
+---
+
+## R Markdown: Global Options
+
+Use global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.
+
+Global options are defined in a code chunk at the top of your Rmd file with `knitr::opts_chunk$set()` 
+
+For example, if you want to hide the code by default:
+
+```r
+knitr::opts_chunk$set(
+  echo = FALSE    # shows results but hide codes 
+)
+```
+---
+
+## R Markdown: New YAML Header Elements
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: html_document
+---
+````
+
+---
+
+## YAML Header: Table of Contents
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    toc: true
+    toc_depth: 2
+---
+````
+
+---
+
+## YAML Header: Apparence and Style
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+author: "Sabrina Nardin"
+output: 
+  html_document
+    theme: readable
+    fig_width: 8
+    fig_height: 6
+---
+````
+
+---
+
+## YAML Header: Date as string
+
+We can add a date as a simple string, and manually modify it every time we modify our file:
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "December 1, 2025"
+---
+````
+
+But we can also add it automatically!
+
+---
+
+## YAML Header: Date with lubridate 
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r lubridate::today()`"
+---
+````
+
+For more on the `lubridate` package, see Chapter 16 of R for Data Science
+
+---
+
+## YAML Header: Date with Sys.Date
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r Sys.Date()`"
+---
+````
+
+`Sys.Date` returns the current day in the current time zone. The default uses the format year/month/day.
+
+---
+
+## YAML Header: Date with Sys.time
+
+````{verbatim, echo = TRUE}
+---
+title: "Gun deaths"
+output: html_document
+date: "`r format (Sys.time(), '%d, %B, %Y')`"
+---
+````
+
+`Sys.time` returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed
+
+---
+
+## 💻 Practice with Rmd
+
+Download today's class materials and complete the tutorial on Rmd
+
+---
+
+## R Markdown More Info and Tips
+
+For the final project, experiment with the R Markdown options we have seen today, in addition to the things you already know. 
+
+For more, see [R for Data Science 1st Edition](http://r4ds.had.co.nz):
+
+- Chapter 27 "R Markdown"
+- Chapter 28 "Graphics for communication"
+- Chapter 29 "R Markdown formats" 
+
+
+# 4. Reflections on AI and Programming {.slide .center .middle}
+
+---
+
+## Reflecting on AI Use for Programming
+
+One part of my job is teaching you R fundamentals. Another (new) part is helping you learn how to use AI as a learning tool, as I think AI is here to stay.
+
+I'd like to do an activity on reflecting on your AI use in this course using this [Google Doc](https://docs.google.com/document/d/1RyzfQ022OdChYVKWW6VPhEnJgjUmdyYmhtumHld-cso/edit?usp=sharing)
+

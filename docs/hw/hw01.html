@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>HW01: Test software setup and practice editing files – css-website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../style/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Computing for the Social Sciences</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../lectures/index.html"> 
+<span class="menu-text">Lectures</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../hw/index.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../setup/index.html"> 
+<span class="menu-text">Software Setup</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#accessing-and-cloning-your-hw01-repository" id="toc-accessing-and-cloning-your-hw01-repository" class="nav-link" data-scroll-target="#accessing-and-cloning-your-hw01-repository">Accessing and Cloning Your <code>hw01</code> Repository</a></li>
+  <li><a href="#general-homework-workflow" id="toc-general-homework-workflow" class="nav-link" data-scroll-target="#general-homework-workflow">General Homework Workflow</a></li>
+  <li><a href="#file-types-used-for-homework-assigments" id="toc-file-types-used-for-homework-assigments" class="nav-link" data-scroll-target="#file-types-used-for-homework-assigments">File Types Used for Homework Assigments</a></li>
+  <li><a href="#assignment-description" id="toc-assignment-description" class="nav-link" data-scroll-target="#assignment-description">Assignment Description</a>
+  <ul class="collapse">
+  <li><a href="#edit-the-readme.md-file" id="toc-edit-the-readme.md-file" class="nav-link" data-scroll-target="#edit-the-readme.md-file">Edit the <code>README.md</code> file</a></li>
+  <li><a href="#edit-the-code.rmd-file" id="toc-edit-the-code.rmd-file" class="nav-link" data-scroll-target="#edit-the-code.rmd-file">Edit the <code>code.rmd</code> file</a></li>
+  </ul></li>
+  <li><a href="#submit-the-assignment" id="toc-submit-the-assignment" class="nav-link" data-scroll-target="#submit-the-assignment">Submit the Assignment</a></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">HW01: Test software setup and practice editing files</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p><strong>Due: Tuesday, October 7 by 11:59 PM (Chicago Time)</strong></p>
+<p>This first homework assignment has two main goals: to verify your computer setup and to practice basic R syntax, Markdown, and R Markdown.</p>
+</section>
+<section id="accessing-and-cloning-your-hw01-repository" class="level1">
+<h1>Accessing and Cloning Your <code>hw01</code> Repository</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This will work only if you have submitted your GitHub username (see Lecture 1) and accepted the email invitation to join our GitHub organization (check the email linked to your GitHub account). Make sure you’ve completed the setup under <a href="../setup/index.html">Software Setup</a> and confirmed everything is working properly.</p>
+</div>
+</div>
+<p><strong>Accessing the repo:</strong></p>
+<ol type="1">
+<li><p>Go at <a href="https://classroom.github.com/a/FkiRz52I">this link</a> to accept the invitation and create your private <code>hw01</code> repository on GitHub. Your repository will be named <code>hw01-&lt;USERNAME&gt;</code> and will be ready within a few seconds. If this does not work, see the note in red above.</p></li>
+<li><p>Once the repository has been created, click the link provided to access it.</p></li>
+</ol>
+<p><strong>Cloning the repo into your Workbench:</strong></p>
+<ol type="1">
+<li><p>Log into <em>Workbench</em> and start a new project:<br>
+<em>File &gt; New Project &gt; Version Control &gt; Git</em></p></li>
+<li><p>In the <em>Repository URL</em> field:</p>
+<ul>
+<li>Paste the URL of your GitHub repository. To find the URL, go to your <code>hw01</code> repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).</li>
+<li>The project name should auto-fill. If not, type <code>hw01-&lt;USERNAME&gt;</code> manually.</li>
+</ul></li>
+<li><p>Choose where to save the project directory locally. <em>Tip:</em> Avoid moving folders after cloning them.</p></li>
+<li><p>Check the box <em>“Open in new session”</em> (recommended for keeping projects separate and organized)</p></li>
+<li><p>Click <em>Create Project</em>. This will:</p>
+<ul>
+<li>Create a new folder on your machine<br>
+</li>
+<li>Initialize a Git repository linked to GitHub<br>
+</li>
+<li>Open an RStudio Project in a new session</li>
+</ul></li>
+</ol>
+<p>You’ll use this same process to access and set up each homework assignment throughout the course.</p>
+</section>
+<section id="general-homework-workflow" class="level1">
+<h1>General Homework Workflow</h1>
+<p>Your workflow for <em>all</em> homework assignments will follow these steps:</p>
+<ol type="1">
+<li><em>Accept the GitHub repo invitation and clone the repo</em> (see above)</li>
+<li><em>Edit the files included in the repo</em></li>
+<li><em>Save your changes locally</em> in RStudio Workbench</li>
+<li><em>Pull – Stage – Commit – Push</em>:
+<ul>
+<li><em>Pull</em> from GitHub: this should not change anything if you’re the only one working on the repo, but it’s a good habit to always pull first</li>
+<li><em>Stage</em> and <em>commit</em> your changes to your local Git repository</li>
+<li><em>Push</em> your committed changes to your GitHub repository online</li>
+</ul></li>
+</ol>
+<p>For this course, I assume you’ll be using the Git interface built into RStudio. If you haven’t yet, complete the <a href="../setup/setup-test.html">Using Git within RStudio tutorial</a> to get comfortable with the process.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><em>Commit and push your work often</em>—multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.<br>
+</li>
+<li><em>Never edit files directly on GitHub</em>. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="file-types-used-for-homework-assigments" class="level1">
+<h1>File Types Used for Homework Assigments</h1>
+<p>All assignments in this course will be completed and submitted using <em>Markdown</em> and <em>R Markdown</em> files:</p>
+<ul>
+<li><a href="https://daringfireball.net/projects/markdown/"><em>Markdown</em></a> (<code>.md</code>) is a lightweight formatting language used to structure text.
+<ul>
+<li>GitHub README files are typically written in Markdown (<code>.md</code>) or plain text (<code>.txt</code>).</li>
+<li>In this course, we use Markdown files only for writing README files because GitHub renders them directly in the browser.</li>
+<li>You can reference R code in Markdown, but you cannot run and execute it.</li>
+</ul></li>
+<li><a href="https://rmarkdown.rstudio.com/"><em>R Markdown</em></a> (<code>.Rmd</code>) is a format that allows you to combine R code, output, and text in one file.
+<ul>
+<li>It’s an extension of Markdown designed for dynamic analysis and reproducible reports specifically for R.</li>
+<li>You’ll use R Markdown to complete most homework assignments.</li>
+</ul></li>
+</ul>
+<p>In short, for this course:</p>
+<ul>
+<li>Use <strong>Markdown</strong> (<code>.md</code>) only for writing a short summary in the <code>README.md</code> file</li>
+<li>Use <strong>R Markdown</strong> (<code>.Rmd</code>) for completing the bulk of your assignment, e.g., analysis and code-based work</li>
+</ul>
+</section>
+<section id="assignment-description" class="level1">
+<h1>Assignment Description</h1>
+<p>For this first assignment, you’ll edit and push the following two files to your GitHub repo: <code>README.md</code> and <code>code.rmd</code></p>
+<section id="edit-the-readme.md-file" class="level3">
+<h3 class="anchored" data-anchor-id="edit-the-readme.md-file">Edit the <code>README.md</code> file</h3>
+<p>You will see a file named <code>README.md</code> in your repository.</p>
+<p>A README is usually a plain text (<code>.txt</code>) or Markdown (<code>.md</code>) file that provides important information about a project—such as a summary, installation steps, or example output. In this course, you’ll use it to document your work and reflect on your process.</p>
+<p>Your Task: edit the <code>README.md</code> file by replacing the placeholder text with a short biography of yourself. To achieve a “pass”, your biography must include the following elements:</p>
+<ul>
+<li>At least one header</li>
+<li>Some emphasis (italic or bold text)</li>
+<li>At least one list</li>
+<li>An image (e.g., a photo of yourself or something meaningful to you)
+<ul>
+<li>Upload the image into your repo by importing it in Workbench<br>
+</li>
+<li>Embed it in the Markdown file using the correct syntax</li>
+</ul></li>
+<li>At least one link (e.g., to a website or profile)</li>
+</ul>
+<p>At the end of your README, add a short reflection that includes:</p>
+<ul>
+<li>A brief summary of your Git/GitHub workflow for this homework<br>
+<em>(Bullet points or a short narrative are both fine.)</em></li>
+<li>Your evaluation of the homework experience<br>
+<em>(E.g., something new you learned, what went well, what confused you, etc.)</em></li>
+<li>A list of resources you consulted and an AI narrative if you used AI to debug (see Syllabus for details)<br>
+<em>Include links, tools, names of any collaborators, and AI statement</em></li>
+</ul>
+</section>
+<section id="edit-the-code.rmd-file" class="level3">
+<h3 class="anchored" data-anchor-id="edit-the-code.rmd-file">Edit the <code>code.rmd</code> file</h3>
+<p>You will see a file named <code>code.rmd</code> in your repository.</p>
+<p>Your task: edit the <code>code.rmd</code> file by making the following changes (all must be included for a “pass”):</p>
+<ul>
+<li>Add <em>at least two new YAML header options</em>:
+<ul>
+<li>Do not delete or modify the existing ones</li>
+<li>Example additions: <code>author:</code>, <code>subtitle:</code>, <code>toc: true</code>, etc<br>
+</li>
+<li>Feel free to experiment, see readings and slides from Lecture 1 for ideas</li>
+</ul></li>
+<li>Add <em>at least two R code chunks</em> with a short explanation in plain text (not as code comment):
+<ul>
+<li>Your code can be simple (think at the examples from lecture 1), but it must run and produce the correct output</li>
+<li>Your final knitted <del><code>.html</code></del> <code>.md</code> file should show both code and output (we want the <code>md</code> as Github cannot read <code>html</code>, but if you submit both that’s fine)</li>
+<li>If your code generates plots (not required, but possible), make sure the output images are also pushed to GitHub</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="submit-the-assignment" class="level1">
+<h1>Submit the Assignment</h1>
+<p>To submit your assignment on Canvas, follow these steps:</p>
+<ol type="1">
+<li><p>Before the deadline, push the final version of your work to your GitHub repository. <em>Tip:</em> don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.</p>
+<p>Your GitHub repository should include:</p>
+<ul>
+<li>The updated <code>README.md</code></li>
+<li>The edited <code>code.rmd</code></li>
+<li>A knitted output file generated from <code>code.rmd</code> (this must be a <code>.md</code> document, not anything else)</li>
+</ul></li>
+<li><p>When you’re ready to submit:</p>
+<ul>
+<li>Copy the URL of your GitHub repository. It will look something like: <code>https://github.com/css-fall25/hw01-yourusername</code></li>
+<li>Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.</li>
+</ul></li>
+</ol>
+</section>
+<section id="assessment" class="level1">
+<h1>Assessment</h1>
+<p>This assignment is evaluated on a <em>Pass/Fail</em> basis. To earn a <em>Pass:</em></p>
+<p>Your <code>README.md</code> should include a clear introduction that meets all specified requirements. It should demonstrate your ability to use Markdown syntax, such as headers, emphasis, lists, links, and images. You should also include a short description of how you edited and committed your changes, along with reflections on your experience using Git/GitHub, Markdown, and R Markdown.</p>
+<p>Your <code>code.rmd</code> file must knit successfully. It should contain at least two new YAML header fields and two R code chunks, each introduced with a brief explanation written as plain text (not as code comments).</p>
+<p>All required files must be pushed to your GitHub repository.</p>
+<p>For more details, see the <em>Assessment</em> section of the Syllabus.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

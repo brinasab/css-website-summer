@@ -1,0 +1,196 @@
+---
+title: "Final Project"
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Overview
+
+**Due: Sunday, December 07 by 11:59 PM (Chicago Time)**
+
+# Accessing and Cloning Your `project` Repository
+
+**Accessing the repo:** 
+
+1. Go at [this link](https://classroom.github.com/a/G7TF9tmM) to accept the invitation and create your private `project` repository on GitHub. Your repository will be named `project-<USERNAME>` and will be ready within a few seconds. 
+
+2. Once the repository has been created, click the link provided to access it.
+
+
+**Cloning the repo into your Workbench:**
+
+1. Log into *Workbench* and start a new project:  
+   *File > New Project > Version Control > Git*
+
+2. In the *Repository URL* field:
+   - Paste the URL of your GitHub repository. To find the URL, go to your `project` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
+   - The project name should auto-fill. If not, type `project-<USERNAME>` manually.
+
+3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
+
+4. Check the box *"Open in new session"* (recommended for keeping projects separate and organized)
+
+5. Click *Create Project*. This will:
+   - Create a new folder on your machine  
+   - Initialize a Git repository linked to GitHub  
+   - Open an RStudio Project in a new session
+
+::: {.callout-note}
+The repo you clone for the final project is intentionally empty: you will need to add your own data and code, and push them. See the instructions below for what to submit. Remember to include the knitted `.md` file(s)!.
+:::
+
+# General Homework Workflow
+
+See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignments (e.g., accept the repo, edit the files, save, then Pull – Stage – Commit – Push).
+
+
+# Assignment Description
+
+### 1. Assigment Goals
+
+In this final assignment, you’ll apply the skills learned in the course to a research question of your choice. **Your task is to find data (through scraping or downloading or other sources), ask a research question, and answer it descriptively using data and code.** Your main deliverable is a report with your code, graphs/tables, and interpretation.
+
+The sections below walk you through the details of each part of the assignment.
+
+### 2. Report Instructions
+
+#### Format and Target
+
+- **Format:** the report must be written using a `.Rmd` file, and knitted to`.md` and to `.pdf`
+- **The report must include:**
+  - Written text
+  - Code chunks
+  - Code outputs (tables, plots, descriptive stats)
+  - Not all code you write is required to go in your report: you may place extra code in a separate R script or Rmd. If you do so, mention this in your `README.md`.
+- **Audience:** Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.
+- **Length:** Aim for *800-900 words* (minimum 700, maximum 1000).
+- **Use of R Markdown Syntax:** Use clear headings and subheadings and include a table of contents. Include some of the advanced R Markdown tools covered in Lecture 17.
+
+#### Required Sections
+
+Specifically, your report should include the following sections:
+
+- **Project description**  
+  - Start by explaining what your project is about, its goals, and why it matters.
+  - Describe the dataset (number of observations, time period, key variables, data source). Store the data in your repo, if smaller than 100 MB; if larger, see below.
+  - State one or more questions, ideally with social science relevance, and your hypothesis or describe what you expect to find and why.
+
+- **Descriptive statistics and plots**
+  - Include tables (format them with `kable`) and descriptive statistics (counts, percentages, contingency tables, etc.).
+  - Include 4 or 5 well-designed plots with clear titles, labels, scales, etc. Use different types of plots (do not use the same plot more than once) and ensure each one matches the underlying variable types.
+  - Use code to transform or prepare variables for your plots and analyses when needed (e.g., aggregating, recoding, standardizing, creating new variables, etc.).
+  - Describe the main findings of each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research. We want to hear your explanation and interpretation of the analyses!
+
+- **Modeling is optional** 
+  - You are not expected or required to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots you did in HW2 and HW3.
+  - If you choose to add models (e.g., regression, ANOVA, text analysis, etc.), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question.
+
+
+### 3. Code Instructions
+
+This course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:
+
+- **Library Loading and Data Import**  
+  - Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere. 
+  - If you are scraping data, place your scraper in a separate script or Rmd file (see below).
+
+- **Data Cleaning, Wrangling, and Tidying**  
+  - Include code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project. 
+  - If your code for data prep and cleaning is extensive, place it in a separate script or Rmd file (see below).
+
+- **Data Analysis and Plots**  
+  - Include code for descriptive statistics (tables, summaries, counts, percentages, contingency tables, etc.).
+  - Include code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations.
+
+- **Programming Techniques**  
+  - Include at least one user-defined function AND either a loop (or a map/across/apply alternative) OR a conditional statement. If these don’t naturally fit your project, check in with us and we’ll help you find the best approach.
+
+- **Code Organization**  
+  - Include only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions over base R, where applicable (e.g., use `read_csv()` instead of `read.csv()`).  
+  - Extensive cleaning steps or extra plots can go in a separate script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Let us know the location of any additional code in your `README.md`.
+
+
+### 4. Repository and `README.md` Instructions
+
+Your repository must include a `README.md` with the following information:
+
+- **Purpose of the repository:** A bullet point explanation of what the project is about (e.g., topic, data source, sample size).
+
+- **List of files:**  A list of all R scripts and `.Rmd` files in the repo, each with a one-sentence description.
+
+- **Required packages:** Any non-basic packages needed to run your code (no need to list `tidyverse` or `rmarkdown`).
+
+- **Additional information:** Anything else a user needs to understand or replicate your work.
+
+
+# FAQs
+
+### How do I know if I have "done enough"?
+
+- First, make sure you’ve met all requirements for the report, code, and `README.md`.
+- As a rough benchmark, this assignment should take about as much time as an average previous one. It’s worth 20 points instead of 15, since finding data and developing your own question typically require a bit more work. Please take this only as a guideline, actual time will vary by student, project, and working style.
+- Aim to review what you’ve learned and push a bit beyond your comfort zone. If you’re unsure whether your plan is sufficient, check in with us.
+- This assignment should reflect your own work. You may seek advice by humans or robots, but your code must be written by you, understandable to you, and aligned with our AI policy.
+
+
+### What data should I use?
+
+We encourage you to use social science data; other types of data can work too but check with us first. What matters most is applying the skills you learned to a topic that interests you: the best projects are the ones you are genuinely excited to work on.
+
+
+### I can’t think of anything to analyze!
+
+You may use any dataset from class not used in previous homework and not tied to teaching examples (e.g., penguins, cars, iris datasets are not appropriate). Some options to consider:
+
+- `gun_deaths` from `library(rcis)`, or the raw data from FiveThirtyEight (it's a similar topic but this is different dataset than HW2)
+- `scorecard` from `library(rcis)` or use the [`rscorecard`](https://github.com/btskinner/rscorecard) package to download your own subset
+- Explore the [**Data Is Plural** dataset archive](https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0)
+- Explore the [**#TidyTuesday** dataset archive](https://github.com/rfordatascience/tidytuesday)
+
+
+### What if my data file is too large?
+
+GitHub does not allow files larger than 100MB. If you try to push one, you’ll get an error and may have to remove the file from your Git history, which is a hassle. Thus:
+
+- If your data is well under 100MB, include it in your repo.  
+- If it is close to or above 100MB, **do not** include it in your repo. Instead, store it outside GitHub (e.g., Google Drive) and include a link to it in your `README.md`.
+
+
+### I want to scrape data 
+
+You may use already-collected data or collect your own, via scraping or download or other ways. If you want to scrape data but are unsure whether a website is appropriate, feel free to check with the instructor. Here are some guidelines:
+
+- **What to Scrape:**  
+  - If you plan to collect data through web-scraping, you can scrape any publicly available webpage that interests you. If you’re unsure where to start, past students have had success with: Wikipedia, University websites, Government sites, Examples mentioned in readings. If you build on in-class code, readings, tutorials, or AI-generated starter code, your work must go beyond simple edits.
+  - You can use an API (vs. direct scraping), check in with the instructor if unsure.
+
+- **What Not to Scrape:** 
+  - No private or restricted data: Do not scrape anything behind a login, password, or user account.  
+  - No social media sites: as they typically require log-ins.  
+  - No dynamic Javascript websites: that load content via scrolling or pop-ups—these require advanced techniques we do not cover.  
+
+# Submit the Assignment
+
+To submit your assignment on Canvas, follow these steps:
+
+1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.
+
+   Your GitHub repository should include (make sure to stage-commit-push all these files): 
+   
+   - everything you have done to collect the data and produce your analyses, e.g., R Markdown files or R scripts, graphs, data (unless they are too large, see above for details)
+   - your report should be a `Rmd` file. Knit this file in two ways: as `md`, and as `pdf`. Submit all three of them ( `Rmd`, `md`, `pdf`)
+   - the folder that contains all the graphs that you generated in your `.Rmd`
+
+2. When you're ready to submit:
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/project-yourusername`
+   - Submit that URL on Canvas. Do not upload any files to Canvas. We only need the repository link.
+
+
+# Assessment
+
+We’ll post the final project rubric here shortly. For more, see the *Assessment* section of the Syllabus.
+
+

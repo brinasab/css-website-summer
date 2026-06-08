@@ -1,0 +1,39 @@
+---
+title: "Lecture 5: Intro to dplyr, Pipes"
+date: 2025-10-13
+summary: "Wrangling Data with dplyr, Using R Pipes"
+url_slides: 05-slides.qmd
+url_code: css-materials/dplyr-pipes
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+
+## Learning Objectives
+
+- Approach coding tasks as problem-solving by thinking through the steps before writing code
+- Understand R logical operators
+- Apply key dplyr functions such as `filter()`, `group_by()`, and `summarize()`
+- Chain commands using the pipe `|>` and recognize mistakes to avoid
+
+
+## Readings
+
+* ["Chapter 3 Data transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition 
+
+Additional Resources:
+
+* [dplyr Cheat Sheet](https://rstudio.github.io/cheatsheets/html/data-transformation.html)
+* [dplyr Official Documentation](https://dplyr.tidyverse.org/)
+

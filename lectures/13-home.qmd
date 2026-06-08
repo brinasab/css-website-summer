@@ -1,0 +1,42 @@
+---
+title: "Lecture 13: Control Flow 2 (cont.); Functions 1"
+date: 2025-11-10
+summary: "Finish Loops; Introduce Functions"
+url_slides: 13-slides.qmd
+url_code: css-materials/functions
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+<!-- `usethis::use_course("css-materials/functions")` -->
+
+## Learning Objectives
+
+**Loops (cont. from last lecture):**
+
+- Using for loops within a data frame 
+- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
+- Introduce while loops
+
+**Functions:**  
+
+- Define functions and their purposes  
+- Understand the difference between built-in and user-written functions  
+- Learn the syntax of user-written functions  
+
+
+## Readings
+
+* Loops: Same readings as in previous lecture
+* Functions: [Chapter 15 "Functions"](https://r4ds.hadley.nz/functions) in "R for Data Science" 2nd Edition

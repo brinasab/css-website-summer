@@ -1,0 +1,29 @@
+---
+title: "Computing for the Social Sciences"
+format:
+  html:
+    toc: false
+    theme: cosmo
+---
+
+### Course Assignments Fall 2025
+
+<div class="my-4"></div>
+
+Assessment for this course consists of four take-home assignments, one take-home final project, and two in-class exams.
+
+The **four homework assignments** and the **final project** will be posted here once they are released:
+
+- [Homework 1](hw01.qmd)
+- [Homework 2](hw02.qmd)
+- [Homework 3](hw03.qmd)
+- [Homework 4](hw04.qmd)
+- [Final Project](hw05-project.qmd)
+
+The **two exams** will include a mix of multiple-choice and open-ended questions. They will be held in class and will be closed-book. More details will be shared during class.
+
+**Further info:**
+
+- Check our [Course Schedule](../lectures/index.qmd) for release and due dates of all assignments.
+
+- Refer to the [Syllabus](../syllabus.qmd) for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more.

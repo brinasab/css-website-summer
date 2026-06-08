@@ -1,0 +1,232 @@
+---
+title: "Git within RStudio Tutorial"
+format: html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+This tutorial verifies that everything is working as expected. Do this **after** the [RStudio Workbench Setup](setup-workbench.qmd).
+
+## Step 1: Make sure RStudio can find Git
+
+Log in to [RStudio Workbench](https://macss-r.uchicago.edu/) using your UChicago credentials. Then try the following:
+
+- Go to *File > New Project*. Do you see a *Version Control* option?  
+  - If yes, that’s good — but don’t select it. Instead, choose *New Directory > New Project*.
+- Do you see a checkbox that says *Create a git repository*?  
+  - If yes, that’s good — go ahead and check it.
+- Under *Directory name*, give this test project a name (e.g., `test`). Toward the bottom, check the box for *Open in new session*, and then click *Create Project*.
+- A new project should open. In the upper-right panel, do you see a *Git* tab next to *Environment*, *History*, etc.?  
+  - If yes, Git is properly connected
+
+::: {.callout-tip title="If this worked"}
+- Great! That means everything is set up correctly.
+- You can now delete the test project:
+  - Go to the *Files* tab in the lower-right panel.
+  - Navigate to the project folder (you may need to go to *Home*), select it, and click *Delete*.
+  - Then close the project by clicking *File > Close Project* (you’ll return to the default RStudio session).
+- Continue to Step 2.
+:::
+
+::: {.callout-warning title="If this didn’t work"}
+It may be that Git is not installed, or RStudio cannot find it.
+
+- Open the *Shell* from *Tools > Shell* and type: `git`.
+  - If you get an error that`git` is not found, it means Git is not installed or is not on your system's `PATH`
+  - Try typing one of the following in Shell `which git` (Mac, Linux) or `where git` (Windows). If Git is installed and appears in your output, try restarting RStudio and repeat the steps above. 
+  - If it still doesn’t work: from RStudio, go to *Tools > Global Options > Git/SVN* and make sure that the box *Git executable* points to the Git executable. It should read something like: `/usr/bin/git` (Mac, Linux) or `C:/Program Files (x86)/Git/bin/git.exe` (Windows). If you make any changes, *restart RStudio and try the steps at the top of the page again*
+  - Once this works, delete the test project (as described in the green box) and move to Step 2. Still stuck? Try searching online or reach out to the us for help.
+:::
+
+
+## Step 2: Create a New Repository on GitHub
+
+- Go to [GitHub](https://www.github.com) and log in (If you haven’t already, sign up for an account, and share your GitHub username with us using the Excel file linked in Lecture 1)
+
+- Go to *Repositories* and click the green *New* or *New Repository* button and fill in the following:
+  - *Repository name:* `myrepo`
+  - *Description:* you can leave it blank or add a short description of what the repo is about
+  - Set the repository visibility to *Public*
+  - *Check* the box to add a *README* file
+  - *Leave the default (None)* both the `.gitignore` and the license
+  - Click the green *Create repository* button
+
+- Once the repository is created, click the green *Code* button. You should see options to clone via *HTTPS* or *SSH*. Since we have configured Git with the SSH authentication method (see [RStudio Workbench Setup](setup-workbench.qmd)), copy the SSH URL (which should look like `git@github.com:<OWNER>/<REPO>.git`) to your clipboard.
+
+
+## Step 3: Clone the New GitHub Repo via RStudio
+
+Now you need to clone the newly created GitHub repository to your local computer (e.g., Workbench) using RStudio. Cloning means downloading a local copy of the repository.
+
+In Workbench, start a new Git Project with Version Control: *File \> New Project \> Version Control \> Git* 
+
+If the Version Control option is missing, return to Step 1 to ensure RStudio can find Git. Otherwise, fill out the following fields:
+
+-   *Repository URL:* paste the URL of your new GitHub repository (see Step 2)
+-   *Project directory name:* it should automatically populate, do not change it. If it does not automatically populate, type the same name you gave to your GitHub repository (e.g. `myrepo`)
+-   *Create project as subdirectory of:* click on "Browse..." and decide where to store the local directory for the project. It is OK to leave this test directory under Home (no changes needed)
+-   Before proceeding, check the *Open in new session* box situated toward the bottom, as that's what you'll usually do in real life
+-   Finally, click *Create Project.* The first time you do it, you might get the following message: *"The authenticity of host 'github.com (IP)' can't be established etc."* If so:
+    -   Ensure that the hash shown in the message matches one of those shown [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
+    -   If the hash matches (it should), type "yes" and you are done. If you do not see the hash, open the shell and type: `ssh -T git@github.com`
+    -   If you answered "yes" but get a message like\
+        `"Permission denied. fatal: Could not read from remote repository"`\
+        it likely means Git is not configured correctly — go back and configure it.
+
+Your Project has been created! 
+
+Look at your project in RStudio (e.g., Workbench) and the one on GitHub (go to your GitHub page which should already be open in your brownser and compare): the two should match! The visual presentation may look different, but the files and their content should always be the same. A Project will now be:
+
+-   a directory on your computer
+-   a Git repository, linked to a remote GitHub repository
+-   an RStudio Project
+
+::: callout-note
+Whenever possible, use this workflow — starting with GitHub and then connecting through RStudio — as your preferred method for setting up R projects.
+
+The advantage of this “GitHub first, then Git in RStudio” workflow is that your remote GitHub repository is automatically set as the upstream for your local repository. This means you can push and pull commits right away, without any extra configuration.
+
+It is also possibile to do the reverse setup (starting locally and connecting to GitHub later), see the **Alternative to Step 3** below for details.
+:::
+
+
+## Step 4: Make Local Changes, Save, Commit
+
+::: callout-tip
+Do this every time you finish a chunk of work, probably many times during a work session.
+:::
+
+From RStudio, check the file browser panel to find the `README.md` file of your project. Open and modify it by adding the following line (or any other line):
+    
+```
+This is a line written from R.
+```
+
+Save your changes. Next, commit these changes to your local repo using RStudio:
+
+- Open the *Git* tab in the upper right panel
+- In the *Staged* little box, select all files you want to commit. To do this, check the boxes next to each file listed. The first time you commit, this will usually include several new files: check all of them
+- Click *Commit*
+- A new window should open: in the *Commit message* box, enter a descriptive message. This should be short but explain what you changed. For example in this case you could write something like: "Added a test line to README"
+- Click *Commit*, wait for it to finish, then click *Close*
+
+
+## Step 5: Push Your Local Changes to GitHub
+
+::: callout-tip
+Do this a few times a day, but less often than you commit.
+:::
+
+Now you have new work in your local Git repository, but the changes are not yet on GitHub:
+
+- Go to the *Git* tab: you should see a message that says *"Your branch is ahead of origin/main by 1 commit"*
+- This means you need to push your recent changes to GitHub: click the green *Push* arrow under the *Git* tab
+  - *If this is your first time pushing to GitHub*, you may see a prompt to add your SSH key and/or enter your GitHub username and password. If prompted, go ahead and complete the steps. 
+  - When done, check your GitHub repo to confirm your changes were pushed there.
+  - *If this step failed* (e.g., you're unable to push), Git may not be properly configured, or you may have used the wrong authentication method (SSH or HTTPS). Check the [RStudio Workbench Setup](setup-workbench.qmd) page to troubleshoot.
+
+
+## Step 6: More Practice
+
+Now, repeat the process to reinforce the Git workflow. For example, you could:
+
+- Make another small change to the `README.md` file:
+  - Save the file
+  - Stage the change in the *Git* tab
+  - Write a short commit message describing the update
+  - Commit the change
+  - Pull from GitHub (nothing should happen, see the tip below for why we want to pull first!)
+  - Push it to GitHub 
+
+- Add a new R script (`.R`) or an R Markdown (`.Rmd`) file to the project:
+  - Add some basic content (e.g., a comment and a variable)
+  - Save the file
+  - Stage, commit, pull, and push the new file following the same steps
+
+Doing this a few times will help solidify the habit of tracking, committing, and syncing your work regularly. You've got this!
+
+::: {.callout-tip title="Always Pull Before You Push"}
+
+Before pushing changes from your local Git repository to GitHub, you should always pull from GitHub first. This might seem unnecessary if you’re working alone and only from your local machine — but it’s an important habit to build:
+
+- Pulling first ensures your local copy is up-to-date and avoids potential merge conflicts
+- You or a collaborator may have made changes on GitHub (e.g., editing files directly in the GitHub browser — not recommended!)
+- Pulling first helps prevent overwriting or missing someone else’s work
+- Establishing this habit early will save you a lot of headaches later
+
+**To pull:**
+
+1. Click the blue *Pull* arrow in the *Git* tab in RStudio
+2. You’ll usually see a message like `"Already up-to-date"` — that means nothing happens, no conflicts and you're good to go
+3. Now you’re safe to push your changes
+
+:::
+
+
+## Step 7 (The End): Delete this Test Repo
+
+Once you're done experimenting, delete the `myrepo` repository — this was just a test, and there's no need to keep it. We need to remove it from *both* your computer (e.g., here Workbench) and GitHub:
+
+- *Delete the local repository*: find where you stored it on your computer ( e.g., here Workbench) and delete the folder (click the red X labeled "Delete"). Sometimes on Workbench it looks like the folder has not been deleted: quit the current Workbench session and open a new one.
+- *Delete the repository from GitHub*:
+  - Open the repository in your browser
+  - Click on *Settings*
+  - Scroll to the bottom of the page and click *Delete this repository*
+  - Follow the confirmation instructions
+  
+Congrats—you made it to the end! Done early? Switch roles with your teammate, or read more about these tools here: [What are these Tools?](what.qmd)
+
+
+## Alternative to Step 3
+
+Remember, Step 3 is the recommended approach (i.e., start with GitHub, then clone in RStudio). You don’t need to follow this alternative for this course, but we include it here in case it’s helpful for future projects.
+
+Sometimes you cannot setup the GitHub repo first, or you already have an RStudio project you need to connect to a GitHub repo. This workflow is the reverse of the above and allows to connect a local RStudio project to a remote GitHub repository. 
+
+Unlike the GitHub-first method, this requires using the Shell or Terminal — it can't be completed entirely within RStudio.
+
+#### Create a Local RStudio Project
+
+In R Studio, start a new RStudio project: *File > New Project > New Directory > Empty Project* and fill out these fields:
+
+- *Directory name:* `myrepo` (or whatever your GitHub repo is named)
+- *Location:* Choose where to store the local folder
+- *Check:* "Create a git repository"
+  - If you do *not* see this option, return to Step 1 to confirm Git is configured correctly
+- *Check:* "Open in new session" (not required but good practice)
+- Click *Create Project* to create a new sub-directory, which will be all of these three things: a directory on your computer; a Git repository (not yet linked to GitHub, we do this next); an RStudio Project
+
+
+#### Link the project to GitHub
+
+Now you need to initiate the "upstream" or "tracking" relationship between Git and GitHub by adding the remote GitHub.
+
+In RStudio, open the Shell: *Tools > Shell*
+
+Run one of the following commands to set the *remote* origin (use the SSH for this course if you configured R with it, see previous tutorial):
+
+- *For HTTPS:*
+  ```bash
+  git remote add origin https://github.com/your-username/myrepo.git
+  ```
+
+- *For SSH (use this on Workbench):*
+  ```bash
+  git remote add origin git@github.com:your-username/myrepo.git
+  ```
+
+#### Sync with the GitHub repository
+
+- Pull (e.g. download) the current contents (right now it will be just the `README.md` file) from GitHub:
+  ```bash
+  git pull origin main
+  ```
+
+- Set the upstream and push your local files to GitHub:
+  ```bash
+  git push -u origin main
+  ```
+  
+Your local Git project is now fully linked to the remote GitHub repository!

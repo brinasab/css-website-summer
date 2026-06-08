@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Computing for the Social Sciences – css-website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Computing for the Social Sciences</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./syllabus.html" aria-current="page"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./lectures/index.html"> 
+<span class="menu-text">Lectures</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./hw/index.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./setup/index.html"> 
+<span class="menu-text">Software Setup</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#course-syllabus-fall-2025" id="toc-course-syllabus-fall-2025" class="nav-link active" data-scroll-target="#course-syllabus-fall-2025">Course Syllabus Fall 2025</a></li>
+  <li><a href="#course-description" id="toc-course-description" class="nav-link" data-scroll-target="#course-description">Course Description</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#materials-and-content" id="toc-materials-and-content" class="nav-link" data-scroll-target="#materials-and-content">Materials and Content</a></li>
+  <li><a href="#how-to-succeed-in-this-course" id="toc-how-to-succeed-in-this-course" class="nav-link" data-scroll-target="#how-to-succeed-in-this-course">How to Succeed in this Course</a></li>
+  <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  <li><a href="#academic-integrity-use-of-ai-policies" id="toc-academic-integrity-use-of-ai-policies" class="nav-link" data-scroll-target="#academic-integrity-use-of-ai-policies">Academic Integrity &amp; Use of AI Policies</a></li>
+  <li><a href="#accessibility-and-support" id="toc-accessibility-and-support" class="nav-link" data-scroll-target="#accessibility-and-support">Accessibility and Support</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Computing for the Social Sciences</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="course-syllabus-fall-2025" class="level2">
+<h2 class="anchored" data-anchor-id="course-syllabus-fall-2025">Course Syllabus Fall 2025</h2>
+<div class="my-4">
+
+</div>
+<p><em>Last updated: October 8, 2025 (minor typos)</em></p>
+<!-- 
+*Last updated:* March 03, 2026 
+-->
+</section>
+<section id="course-description" class="level2">
+<h2 class="anchored" data-anchor-id="course-description">Course Description</h2>
+<p>Welcome to “Computing for the Social Sciences”!</p>
+<p>For course information (Emails, Office Hours, etc.) see <a href="./index.html">Home</a>.</p>
+<p>This is an applied course for social scientists with little-to-no programming experience who wish to harness growing digital and computational resources. The focus is on learning the basics of programming in R and generating reproducible research. Topics include coding concepts (e.g., data structures, control structures. etc.), data visualization, data wrangling, web-scraping, version control software, exploratory data analysis, and more. Students will leave the course with basic programming skills for the social sciences and the ability to adapt and expand these skills as they encounter new questions, methods, and data beyond the course.</p>
+<p>Requirements: No prior experience with R is required, though it’s helpful to have completed a course involving a programming language (e.g., Python, Stata, SPSS, or others) in some capacity. If you’re unsure or have had informal exposure to programming, please email the instructor to see if the course is a good fit.</p>
+<p>Note: MACS 30500 is cross-listed with CHDV 30511/ENST 20550/MACS 20500/MAPS 30500/PLSC 30235/PSYC 30510/SOCI 20278/SOCI 40176/SOSC 26032</p>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<p>By the end of the course, students will be able to:</p>
+<ul>
+<li>Construct and execute basic programs in R using programming techniques and tidyverse packages</li>
+<li>Search for and use external libraries to enhance R’s base functions</li>
+<li>Apply Git and GitHub workflows for version control within RStudio</li>
+<li>Create and edit R Markdown documents to produce reproducible reports and presentations</li>
+<li>Import data from various sources</li>
+<li>Clean and transform raw data</li>
+<li>Transform data into a tidy format</li>
+<li>Visualize and interpret data using descriptive methods</li>
+<li>Manipulate strings and dates</li>
+<li>Scrape websites to collect data</li>
+</ul>
+</section>
+<section id="materials-and-content" class="level3">
+<h3 class="anchored" data-anchor-id="materials-and-content">Materials and Content</h3>
+<p>The main textbook for this course is the 2nd edition of <a href="https://r4ds.hadley.nz/">R for Data Science</a> by Garrett Grolemund and Hadley Wickham. The book is freely accessible online. All course materials and assignments will be available on the course website. Consulting the textbook and reviewing the in-class material is required.</p>
+<p>See <a href="./lectures/index.html">Course Content and Schedule</a> for details. Schedule and Content might be subject to change, but if changes occur students will be promptly informed.</p>
+</section>
+<section id="how-to-succeed-in-this-course" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-succeed-in-this-course">How to Succeed in this Course</h3>
+<p><strong>Intended Audience</strong><br>
+This course is for UChicago students who want to use R as a tool for analyzing data, typically in the social sciences. It is not a computer science course, but an introduction to programming for research. Many students who have taken it in the past were looking to build skills they could apply to their own research projects. If you have never programmed before, expect a new way of thinking—the course will be challenging but rewarding if you commit for the full quarter.<br>
+<!-- put students profiles in slides 1 --></p>
+<p><strong>Keep up with course materials</strong><br>
+Each class has readings and class materials posted on the course website. Review them before class, revisit them after, and especially go back to them before starting assignments. Come prepared with questions you’d like to raise—class time mixes lecture and practice, and questions are welcome. You can ask them in class, during Office Hours, or on Ed Discussion (preferred over email). Staying on top of class materials is key to success.</p>
+<p><strong>Attend class</strong><br>
+Regular attendance is expected. Please inform the instructor in advance if you must miss a class. It is fine to miss 1–2 lectures throughout the quarter, but no more than that, unless this is due to health or other serious issues. Bring a laptop to each class.</p>
+<p><strong>Own Your Learning Journey</strong><br>
+Adhere to the course-specific AI policies for assignments (see below). At this point, I am confident that state-of-the-art AI can by and large solve most of this course’s assignments. But this course is about learning to code in R, not learning to use AI to code in R. Assignments may feel challenging, but they are carefully designed and tested to be achievable without AI. Start early, meet deadlines, and reach out if you need help along the way.</p>
+<p><strong>Trust</strong><br>
+Our instructor–student relationship is based on trust. If that trust breaks down, our work shifts away from growth and feedback toward surveillance and control, which benefits no one. I ask you to trust that I have your best interests at heart and that I design this class to empower you. In turn, I trust that you are here to learn R with intrinsic motivation and will approach the course’s challenges with persistence and curiosity. I am also open to discussing and modeling how I use R (with and without AI) in my own work, and to explaining the rationale behind this course’s policies. You can also expect transparency in grading from me and the TAs (see Assessment below for details).</p>
+</section>
+<section id="assessment" class="level3">
+<h3 class="anchored" data-anchor-id="assessment">Assessment</h3>
+<section id="breakdown-and-grading-scheme" class="level4">
+<h4 class="anchored" data-anchor-id="breakdown-and-grading-scheme">Breakdown and Grading Scheme</h4>
+<p>Student learning in this course will be assessed as follows:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>What</th>
+<th>Points</th>
+<th>Grading Method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Assignment 1</td>
+<td>5</td>
+<td>Pass/Fail</td>
+</tr>
+<tr class="even">
+<td>Assignment 2</td>
+<td>15</td>
+<td>Points-Based</td>
+</tr>
+<tr class="odd">
+<td>Assignment 3</td>
+<td>15</td>
+<td>Points-Based</td>
+</tr>
+<tr class="even">
+<td>Assignment 4</td>
+<td>15</td>
+<td>Points-Based</td>
+</tr>
+<tr class="odd">
+<td>Final Project</td>
+<td>20</td>
+<td>Points-Based</td>
+</tr>
+<tr class="even">
+<td>In-Class Short Exam 1</td>
+<td>15</td>
+<td>Points-Based</td>
+</tr>
+<tr class="odd">
+<td>In-Class Short Exam 2</td>
+<td>15</td>
+<td>Points-Based</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>100</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Your final grade is the cumulative score of all submitted work throughout the course. We use the following grading scheme to determine your final grade: A (95-100), A- (90-94), B+ (87-89), B (83-86), B- (80-82), C+ (77-79), C (73-76), C- (70-72). Grades below 70 are dealt on a case-by-case basis.</p>
+</section>
+<section id="assigments-deadlines-and-late-submissions" class="level4">
+<h4 class="anchored" data-anchor-id="assigments-deadlines-and-late-submissions">Assigments: Deadlines and Late Submissions</h4>
+<p>All take-home assignments are due by 11:59 PM (Chicago time) via Canvas (submit a link to your GitHub repo):</p>
+<ul>
+<li><p><strong>Grace period</strong>: Each assignment includes a 24-hour grace period with no penalty.</p></li>
+<li><p><strong>Late penalty</strong>: After the grace period, 1 point is deducted for every 24 hours late. Example: An assignment worth 13 points submitted one day after the grace period ends will receive 12 points.</p></li>
+</ul>
+<p>Students are expected to submit all take-home assignments in full and on time:</p>
+<ul>
+<li><p><strong>Missed assignments</strong>: Assignments not submitted at all will receive a grade of 0%, which will impact your final grade. If you miss a deadline due to exceptional circumstances (e.g., <em>documented</em> illness or emergency), please contact me as soon as possible. Extensions may be granted on a case-by-case basis. Note: starting an assignment late or having a busy week does not qualify as an exceptional circumstance. The built-in grace period is meant to give you flexibility for unexpected issues, but it is not a substitute for starting on time.</p></li>
+<li><p><strong>Incomplete assignments</strong>: If more than 25% of an assignment is missing, it will not be graded and will be treated as a missed assignment. If less than 25% is missing, the assignment will be graded, with penalties for each incomplete element.</p></li>
+</ul>
+</section>
+<section id="exams-attendance-and-expectations" class="level4">
+<h4 class="anchored" data-anchor-id="exams-attendance-and-expectations">Exams: Attendance and Expectations</h4>
+<p>Students are expected to take in-class exams during scheduled class time.</p>
+<p>Exams are closed-book: no notes, textbooks, phones, or other materials are permitted. Only the exam and your computer may be used.</p>
+<p>Make-up exams will be considered only in cases of <em>documented</em> circumstances beyond the student’s control (e.g., serious illness, medical or family emergency). Note: personal travel, work commitments, or undocumented issues do not qualify as valid reasons. All requests for a make-up exam must be submitted as soon as possible and prior to the exam. Approval is at the discretion of the instructor.</p>
+</section>
+<section id="rubric" class="level4">
+<h4 class="anchored" data-anchor-id="rubric">Rubric</h4>
+<p>Grades are part of the system here, but a score reflects one assignment, not your overall worth or ability. To keep grading transparent, exams will include multiple-choice and other question formats. Whenever possible, I will share correct answers afterward. Assignments are evaluated using the rubric below so you know what’s expected. If you’d like more feedback—on what’s strong and what could be improved—just ask.</p>
+<p>Assignments are scored as <em>Excellent</em> (roughly A+/A), <em>Very Good</em> (A-), <em>Good</em> (B/B+), <em>Needs Improvement</em> (C), or <em>Not Sufficient</em> (below C) across five categories, weighted as follows:</p>
+<ul>
+<li><strong>Coding Strategy (20%)</strong>:
+<ul>
+<li>the logic of your code (how it solves the problem),<br>
+</li>
+<li>correctness (does it work?),<br>
+</li>
+<li>sophistication (depth of solution),<br>
+</li>
+<li>use of course tools/techniques (e.g., conditionals, functions, tidyverse, etc.),<br>
+</li>
+<li>efficiency (avoiding unnecessary repetition).</li>
+</ul></li>
+<li><strong>Presentation and Explanation (20%)</strong>:
+<ul>
+<li>effectiveness of visualizations, tables, or summaries,<br>
+</li>
+<li>clarity of conceptual choices in presenting data,<br>
+</li>
+<li>your ability to interpret results,<br>
+</li>
+<li>use of Markdown syntax.</li>
+</ul></li>
+<li><strong>Achievement (20%)</strong>:
+<ul>
+<li>your mastery of the required concepts/tools,<br>
+</li>
+<li>creativity and initiative,<br>
+</li>
+<li>ability to go beyond minimum requirements,<br>
+</li>
+<li>note that <em>Excellent</em> in this category indicates truly outstanding work.</li>
+</ul></li>
+<li><strong>Reproducibility (20%)</strong>:
+<ul>
+<li>compliance with course conventions (repo access, required files submitted),<br>
+</li>
+<li>clear use of Markdown/RMarkdown,<br>
+</li>
+<li>meaningful and rich history of commit messages,<br>
+</li>
+<li>etc.</li>
+</ul></li>
+<li><strong>Coding Style (10%)</strong>:
+<ul>
+<li>adherence to <a href="http://adv-r.had.co.nz/Style.html">R code conventions</a>,<br>
+</li>
+<li>clarity for others reading your code,<br>
+</li>
+<li>appropriate comments (neither too few nor too many),<br>
+</li>
+<li>logical organization,<br>
+</li>
+<li>use of descriptive variable names.<br>
+</li>
+<li>see <a href="https://www.smashingmagazine.com/2012/10/why-coding-style-matters/">Why Coding Style Matters</a>.</li>
+</ul></li>
+<li><strong>Resources and AI Narrative (10%)</strong>: Evaluates
+<ul>
+<li>proper citation of all external resources (links, page numbers, etc.),<br>
+</li>
+<li>clear and honest AI narrative (if AI was used), written by you,<br>
+</li>
+<li>reflection on what you learned.</li>
+</ul></li>
+</ul>
+<p>To achieve <em>Excellent</em> in a given category, all requirements described above must be met. For the other categories, it might be that only one, or more than one, elements are missing. For example, you could achieve <em>Very Good</em> on “Coding Style” if you are following all coding conventions, but the code is inconsistent, or overly or under commented.</p>
+<!--
+- **Coding Strategy (20%)**: evaluates the logic of your code (how it solves the problem); its correctness (whether it works or not); sophistication (depth of the solution); use of tools/techniques covered in-class (e.g., conditionals, functions, tidyverse); efficiency in minimizing repetitions.
+- **Presentation and Explanation (20%)**: for assignments involving data visualization or presentation (tables, graphs, descriptive stats, data analyses), this evaluates the effectiveness of the graphic execution, the conceptual choices in presenting data, and your ability to interpret them. In all assignments, this category also assesses your proficiency with Markdown syntax.
+- **Achievement (20%)**: evaluates your overall mastering of the concepts/tools required to complete the assignment (how well you understand them, your ability to deepen into them, etc.), your creativity, and ability to go above-and-beyond; an *"excellent"* in this category praises *outstanding* work produced in the assignment.
+- **Reproducibility (20%)**: how well the assignment is in compliance with the course convention for reproducibility in this course - whether we can access your repo, whether all required elements are submitted, your use of Markdown and RMarkdown, a rich history of informative commit messages, use of README, etc.
+- **Coding Style (10%)**: pertains to stylistic issues, not to whether your code works. It evaluates how well the code follows the [R code conventions](http://adv-r.had.co.nz/Style.html) and how consistent it is. Examples include clarity of the code to read for a person who has not written it, use of comments (code should never be over-commented, nor under-commented), proper variables names, understandable/logical code organization, etc. See [here](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/) for more and why this matters.
+- **Recources and AI Narrative (10%)**: 
+-->
+</section>
+</section>
+<section id="academic-integrity-use-of-ai-policies" class="level3">
+<h3 class="anchored" data-anchor-id="academic-integrity-use-of-ai-policies">Academic Integrity &amp; Use of AI Policies</h3>
+<section id="plagiarism-uchicago-policy" class="level4">
+<h4 class="anchored" data-anchor-id="plagiarism-uchicago-policy">Plagiarism: UChicago Policy</h4>
+<p>Each student in this course is expected to abide by the <a href="https://college.uchicago.edu/student-services/academic-integrity-student-conduct">University of Chicago Code of Academic Integrity</a>. Under the provisions of the Code, anyone who gives or receives unauthorized assistance in the preparation of work at home or during tests in class will be subject to disciplinary action. A student’s name on any piece of work is our assurance that they have neither given nor received any unauthorized help in its preparation.</p>
+</section>
+<section id="plagiarism-course-specific-policies" class="level4">
+<h4 class="anchored" data-anchor-id="plagiarism-course-specific-policies">Plagiarism: Course-Specific Policies</h4>
+<p><strong>1. Collaboration</strong>: Collaboration is permitted, but direct copying of someone’s else code is prohibited. Students in this course may help each other by answering questions, brainstorming approaches, and explaining concepts. We all benefit and learn from that. However, (a) you must acknowledge this in your assignment or work; and (b) each student must write, debug, and submit their own code and copy someone’s else code is prohibited.</p>
+<p><strong>2. Use of External Resources:</strong> External resources (e.g., beyond course readings, slides, and code shared in class) are permitted but only after having consulted course materials, and must be cited appropriately. If online, copy and paste the link; if offline (e.g., book, article), reference the page or section; if AI, explain how you used it (but see below on AI-specific policies). You are responsible for reporting the sources you consulted and for being able to explain any code or ideas incorporated from these sources.</p>
+<!--
+Idea: Use pool everywhere to pool students first on these questions. Discuss, then release this course AI policy and talk about it and why. 
+Question 1; What concerns do you have about AI usage in the classroom or assignments?
+Question 2: What excited you about AI usage in the classroom or assignments?
+Question 3: Do you think AI should be allowed or banned in completing assigments?
+-->
+<p><strong>3. Use of LLMs and AI</strong>: AI tools are powerful and easily accessible, but building a programming foundation is work you must do yourself, even if you plan to use AI after this course. Shortcuts won’t build lasting skills: real learning takes time, effort, and struggle. I think that over-reliance on AI undermines this process.</p>
+<p>For these reasons, AI use (e.g., ChatGPT, PhoenixAI, Copilot, etc.) in assignments and final projects is strictly limited to the uses outlined below:</p>
+<ul>
+<li><em>First try on your own.</em> Do not copy/paste prompts into AI to get preliminary solutions. You may consult AI only after at least ~15 minutes of independent effort and reviewing class materials.</li>
+<li><em>Use class methods and materials.</em> Your primary solution must use approaches taught in class (slides, book, in-class code). Alternative solutions may be included, and even encouraged, but only as additional work, properly cited, and compared against your primary solution.</li>
+<li><em>Disclose use.</em> Every assignment must include a statement, written exclusively by you (no AI-editing, etc.), describing how (if at all) you used AI, for which task, how you validated and integrated AI output with course sources, and what you learned in the process.</li>
+<li><em>No AI in class.</em> Use of AI during in-class sessions is prohibited unless explicitly authorized by the instructor. At times, we may incorporate AI examples or exercises in class as part of building AI literacy and understanding appropriate use.</li>
+</ul>
+<p>Any use of AI outside these conditions is considered an academic integrity violation and will receive zero credit. Examples include: submitting code not introduced in class as your primary solution (even if it works), failing to cite sources, omitting or writing an AI disclosure narrative that does not comply with instructions.</p>
+<p>The bottom line: You must be the author for all work submitted in your assignments. If you don’t understand what the program is doing and are not prepared to explain it in detail (we might ask), you should not submit it.</p>
+</section>
+</section>
+<section id="accessibility-and-support" class="level3">
+<h3 class="anchored" data-anchor-id="accessibility-and-support">Accessibility and Support</h3>
+<p>The University of Chicago is committed to diversity and rigorous inquiry from multiple perspectives. Services and reasonable accommodations are available to persons with temporary and permanent disabilities, to students with DACA or undocumented status, to students facing mental health or other personal challenges, and to students with other kinds of learning challenges. Please, contact me if there are circumstances affecting your ability to participate in class.</p>
+<p>If you have, or think you may have a disability, please contact Student Disability Services for a confidential discussion and for requesting accommodation: SDS. Once SDS approves your accommodation, it will be emailed to both you and me. Please, follow up with me to discuss the necessary logistics of your accommodations. If you need immediate accommodation, please speak with me after class or send an email message to me and SDS.</p>
+<p>Some resources that might be of use include: <a href="https://disabilities.uchicago.edu/">Office of Student Disability Services</a>, <a href="https://wellness.uchicago.edu/">UChicago Student Wellness</a>, <a href="https://inclusion.uchicago.edu/">Center for Identity and Inclusion</a>.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

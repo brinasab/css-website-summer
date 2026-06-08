@@ -1,0 +1,217 @@
+---
+title: "Computing for the Social Sciences"
+format:
+  html:
+    toc: true
+    theme: cosmo
+engine: knitr
+execute:
+  echo: false
+---
+
+## Course Syllabus Fall 2025
+
+<div class="my-4"></div>
+
+*Last updated: October 8, 2025 (minor typos)*
+
+<!-- 
+*Last updated:* `r format(Sys.Date(), "%B %d, %Y")` 
+-->
+
+## Course Description
+
+Welcome to "Computing for the Social Sciences"!
+
+For course information (Emails, Office Hours, etc.) see [Home](index.qmd).
+
+This is an applied course for social scientists with little-to-no programming experience who wish to harness growing digital and computational resources. The focus is on learning the basics of programming in R and generating reproducible research. Topics include coding concepts (e.g., data structures, control structures. etc.), data visualization, data wrangling, web-scraping, version control software, exploratory data analysis, and more. Students will leave the course with basic programming skills for the social sciences and the ability to adapt and expand these skills as they encounter new questions, methods, and data beyond the course.
+
+Requirements: No prior experience with R is required, though it’s helpful to have completed a course involving a programming language (e.g., Python, Stata, SPSS, or others) in some capacity. If you're unsure or have had informal exposure to programming, please email the instructor to see if the course is a good fit.
+
+Note: MACS 30500 is cross-listed with CHDV 30511/ENST 20550/MACS 20500/MAPS 30500/PLSC 30235/PSYC 30510/SOCI 20278/SOCI 40176/SOSC 26032
+
+
+### Learning Objectives
+
+By the end of the course, students will be able to:
+
+- Construct and execute basic programs in R using programming techniques and tidyverse packages
+- Search for and use external libraries to enhance R's base functions
+- Apply Git and GitHub workflows for version control within RStudio
+- Create and edit R Markdown documents to produce reproducible reports and presentations
+- Import data from various sources
+- Clean and transform raw data
+- Transform data into a tidy format
+- Visualize and interpret data using descriptive methods
+- Manipulate strings and dates
+- Scrape websites to collect data
+
+
+### Materials and Content
+
+The main textbook for this course is the 2nd edition of [R for Data Science](https://r4ds.hadley.nz/) by Garrett Grolemund and Hadley Wickham. The book is freely accessible online. All course materials and assignments will be available on the course website. Consulting the textbook and reviewing the in-class material is required. 
+
+See [Course Content and Schedule](lectures/index.qmd) for details. Schedule and Content might be subject to change, but if changes occur students will be promptly informed.
+
+
+### How to Succeed in this Course
+
+**Intended Audience**  
+This course is for UChicago students who want to use R as a tool for analyzing data, typically in the social sciences. It is not a computer science course, but an introduction to programming for research. Many students who have taken it in the past were looking to build skills they could apply to their own research projects. If you have never programmed before, expect a new way of thinking—the course will be challenging but rewarding if you commit for the full quarter.  
+<!-- put students profiles in slides 1 -->
+
+**Keep up with course materials**  
+Each class has readings and class materials posted on the course website. Review them before class, revisit them after, and especially go back to them before starting assignments. Come prepared with questions you’d like to raise—class time mixes lecture and practice, and questions are welcome. You can ask them in class, during Office Hours, or on Ed Discussion (preferred over email). Staying on top of class materials is key to success.  
+
+**Attend class**  
+Regular attendance is expected. Please inform the instructor in advance if you must miss a class. It is fine to miss 1–2 lectures throughout the quarter, but no more than that, unless this is due to health or other serious issues. Bring a laptop to each class.  
+
+**Own Your Learning Journey**  
+Adhere to the course-specific AI policies for assignments (see below). At this point, I am confident that state-of-the-art AI can by and large solve most of this course's assignments. But this course is about learning to code in R, not learning to use AI to code in R. Assignments may feel challenging, but they are carefully designed and tested to be achievable without AI. Start early, meet deadlines, and reach out if you need help along the way.
+
+**Trust**  
+Our instructor–student relationship is based on trust. If that trust breaks down, our work shifts away from growth and feedback toward surveillance and control, which benefits no one. I ask you to trust that I have your best interests at heart and that I design this class to empower you. In turn, I trust that you are here to learn R with intrinsic motivation and will approach the course’s challenges with persistence and curiosity. I am also open to discussing and modeling how I use R (with and without AI) in my own work, and to explaining the rationale behind this course’s policies. You can also expect transparency in grading from me and the TAs (see Assessment below for details).
+
+
+### Assessment
+
+#### Breakdown and Grading Scheme
+
+Student learning in this course will be assessed as follows:
+
+| What                               | Points  | Grading Method |
+|------------------------------------|---------|----------------|
+| Assignment 1                       | 5       | Pass/Fail      |
+| Assignment 2                       | 15      | Points-Based   |
+| Assignment 3                       | 15      | Points-Based   |
+| Assignment 4                       | 15      | Points-Based   |
+| Final Project                      | 20      | Points-Based   |
+| In-Class Short Exam 1              | 15      | Points-Based   |
+| In-Class Short Exam 2              | 15      | Points-Based   |
+| **Total**                          | **100** |                |
+
+Your final grade is the cumulative score of all submitted work throughout the course. We use the following grading scheme to determine your final grade: A (95-100), A- (90-94), B+ (87-89), B (83-86), B- (80-82), C+ (77-79), C (73-76), C- (70-72). Grades below 70 are dealt on a case-by-case basis.
+
+
+#### Assigments: Deadlines and Late Submissions
+
+All take-home assignments are due by 11:59 PM (Chicago time) via Canvas (submit a link to your GitHub repo):
+
+- **Grace period**: Each assignment includes a 24-hour grace period with no penalty.  
+
+- **Late penalty**: After the grace period, 1 point is deducted for every 24 hours late. Example: An assignment worth 13 points submitted one day after the grace period ends will receive 12 points.  
+
+Students are expected to submit all take-home assignments in full and on time:
+
+- **Missed assignments**: Assignments not submitted at all will receive a grade of 0%, which will impact your final grade. If you miss a deadline due to exceptional circumstances (e.g., *documented* illness or emergency), please contact me as soon as possible. Extensions may be granted on a case-by-case basis. Note: starting an assignment late or having a busy week does not qualify as an exceptional circumstance. The built-in grace period is meant to give you flexibility for unexpected issues, but it is not a substitute for starting on time.
+
+- **Incomplete assignments**: If more than 25% of an assignment is missing, it will not be graded and will be treated as a missed assignment. If less than 25% is missing, the assignment will be graded, with penalties for each incomplete element.
+
+
+#### Exams: Attendance and Expectations
+
+Students are expected to take in-class exams during scheduled class time. 
+
+Exams are closed-book: no notes, textbooks, phones, or other materials are permitted. Only the exam and your computer may be used. 
+
+Make-up exams will be considered only in cases of *documented* circumstances beyond the student’s control (e.g., serious illness, medical or family emergency). Note: personal travel, work commitments, or undocumented issues do not qualify as valid reasons. All requests for a make-up exam must be submitted as soon as possible and prior to the exam. Approval is at the discretion of the instructor.
+
+
+#### Rubric
+
+Grades are part of the system here, but a score reflects one assignment, not your overall worth or ability. To keep grading transparent, exams will include multiple-choice and other question formats. Whenever possible, I will share correct answers afterward. Assignments are evaluated using the rubric below so you know what’s expected. If you’d like more feedback—on what’s strong and what could be improved—just ask.
+
+Assignments are scored as *Excellent* (roughly A+/A), *Very Good* (A-), *Good* (B/B+), *Needs Improvement* (C), or *Not Sufficient* (below C) across five categories, weighted as follows:  
+
+- **Coding Strategy (20%)**:  
+  - the logic of your code (how it solves the problem),  
+  - correctness (does it work?),  
+  - sophistication (depth of solution),  
+  - use of course tools/techniques (e.g., conditionals, functions, tidyverse, etc.),  
+  - efficiency (avoiding unnecessary repetition).  
+
+- **Presentation and Explanation (20%)**:   
+  - effectiveness of visualizations, tables, or summaries,  
+  - clarity of conceptual choices in presenting data,  
+  - your ability to interpret results,  
+  - use of Markdown syntax.    
+
+- **Achievement (20%)**:  
+  - your mastery of the required concepts/tools,  
+  - creativity and initiative,  
+  - ability to go beyond minimum requirements,  
+  - note that *Excellent* in this category indicates truly outstanding work.  
+
+- **Reproducibility (20%)**:  
+  - compliance with course conventions (repo access, required files submitted),  
+  - clear use of Markdown/RMarkdown,  
+  - meaningful and rich history of commit messages,  
+  - etc. 
+
+- **Coding Style (10%)**:  
+  - adherence to [R code conventions](http://adv-r.had.co.nz/Style.html),  
+  - clarity for others reading your code,  
+  - appropriate comments (neither too few nor too many),  
+  - logical organization,  
+  - use of descriptive variable names.  
+  - see [Why Coding Style Matters](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/).  
+
+- **Resources and AI Narrative (10%)**: Evaluates  
+  - proper citation of all external resources (links, page numbers, etc.),  
+  - clear and honest AI narrative (if AI was used), written by you,  
+  - reflection on what you learned.  
+
+To achieve *Excellent* in a given category, all requirements described above must be met. For the other categories, it might be that only one, or more than one, elements are missing. For example, you could achieve *Very Good* on “Coding Style” if you are following all coding conventions, but the code is inconsistent, or overly or under commented.
+
+<!--
+- **Coding Strategy (20%)**: evaluates the logic of your code (how it solves the problem); its correctness (whether it works or not); sophistication (depth of the solution); use of tools/techniques covered in-class (e.g., conditionals, functions, tidyverse); efficiency in minimizing repetitions.
+- **Presentation and Explanation (20%)**: for assignments involving data visualization or presentation (tables, graphs, descriptive stats, data analyses), this evaluates the effectiveness of the graphic execution, the conceptual choices in presenting data, and your ability to interpret them. In all assignments, this category also assesses your proficiency with Markdown syntax.
+- **Achievement (20%)**: evaluates your overall mastering of the concepts/tools required to complete the assignment (how well you understand them, your ability to deepen into them, etc.), your creativity, and ability to go above-and-beyond; an *"excellent"* in this category praises *outstanding* work produced in the assignment.
+- **Reproducibility (20%)**: how well the assignment is in compliance with the course convention for reproducibility in this course - whether we can access your repo, whether all required elements are submitted, your use of Markdown and RMarkdown, a rich history of informative commit messages, use of README, etc.
+- **Coding Style (10%)**: pertains to stylistic issues, not to whether your code works. It evaluates how well the code follows the [R code conventions](http://adv-r.had.co.nz/Style.html) and how consistent it is. Examples include clarity of the code to read for a person who has not written it, use of comments (code should never be over-commented, nor under-commented), proper variables names, understandable/logical code organization, etc. See [here](https://www.smashingmagazine.com/2012/10/why-coding-style-matters/) for more and why this matters.
+- **Recources and AI Narrative (10%)**: 
+-->
+
+
+### Academic Integrity & Use of AI Policies
+
+#### Plagiarism: UChicago Policy
+
+Each student in this course is expected to abide by the [University of Chicago Code of Academic Integrity](https://college.uchicago.edu/student-services/academic-integrity-student-conduct). Under the provisions of the Code, anyone who gives or receives unauthorized assistance in the preparation of work at home or during tests in class will be subject to disciplinary action. A student’s name on any piece of work is our assurance that they have neither given nor received any unauthorized help in its preparation.
+
+#### Plagiarism: Course-Specific Policies
+
+**1. Collaboration**: Collaboration is permitted, but direct copying of someone's else code is prohibited. Students in this course may help each other by answering questions, brainstorming approaches, and explaining concepts. We all benefit and learn from that. However, (a) you must acknowledge this in your assignment or work; and (b) each student must write, debug, and submit their own code and copy someone's else code is prohibited.
+
+**2. Use of External Resources:** External resources (e.g., beyond course readings, slides, and code shared in class) are permitted but only after having consulted course materials, and must be cited appropriately. If online, copy and paste the link; if offline (e.g., book, article), reference the page or section; if AI, explain how you used it (but see below on AI-specific policies). You are responsible for reporting the sources you consulted and for being able to explain any code or ideas incorporated from these sources.
+
+<!--
+Idea: Use pool everywhere to pool students first on these questions. Discuss, then release this course AI policy and talk about it and why. 
+Question 1; What concerns do you have about AI usage in the classroom or assignments?
+Question 2: What excited you about AI usage in the classroom or assignments?
+Question 3: Do you think AI should be allowed or banned in completing assigments?
+-->
+
+**3. Use of LLMs and AI**: AI tools are powerful and easily accessible, but building a programming foundation is work you must do yourself, even if you plan to use AI after this course. Shortcuts won’t build lasting skills: real learning takes time, effort, and struggle. I think that over-reliance on AI undermines this process.
+
+For these reasons, AI use (e.g., ChatGPT, PhoenixAI, Copilot, etc.) in assignments and final projects is strictly limited to the uses outlined below:
+
+- *First try on your own.* Do not copy/paste prompts into AI to get preliminary solutions. You may consult AI only after at least ~15 minutes of independent effort and reviewing class materials.
+- *Use class methods and materials.* Your primary solution must use approaches taught in class (slides, book, in-class code). Alternative solutions may be included, and even encouraged, but only as additional work, properly cited, and compared against your primary solution.
+- *Disclose use.* Every assignment must include a statement, written exclusively by you (no AI-editing, etc.), describing how (if at all) you used AI, for which task, how you validated and integrated AI output with course sources, and what you learned in the process.
+- *No AI in class.* Use of AI during in-class sessions is prohibited unless explicitly authorized by the instructor. At times, we may incorporate AI examples or exercises in class as part of building AI literacy and understanding appropriate use.
+
+Any use of AI outside these conditions is considered an academic integrity violation and will receive zero credit. Examples include: submitting code not introduced in class as your primary solution (even if it works), failing to cite sources, omitting or writing an AI disclosure narrative that does not comply with instructions.
+
+The bottom line: You must be the author for all work submitted in your assignments. If you don’t understand what the program is doing and are not prepared to explain it in detail (we might ask), you should not submit it.
+
+
+### Accessibility and Support
+
+The University of Chicago is committed to diversity and rigorous inquiry from multiple perspectives. Services and reasonable accommodations are available to persons with temporary and permanent disabilities, to students with DACA or undocumented status, to students facing mental health or other personal challenges, and to students with other kinds of learning challenges. Please, contact me if there are circumstances affecting your ability to participate in class.
+
+If you have, or think you may have a disability, please contact Student Disability Services for a confidential discussion and for requesting accommodation: SDS. Once SDS approves your accommodation, it will be emailed to both you and me. Please, follow up with me to discuss the necessary logistics of your accommodations. If you need immediate accommodation, please speak with me after class or send an email message to me and SDS.
+
+Some resources that might be of use include: [Office of Student Disability Services](https://disabilities.uchicago.edu/), [UChicago Student Wellness](https://wellness.uchicago.edu/), [Center for Identity and Inclusion](https://inclusion.uchicago.edu/).
+

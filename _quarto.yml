@@ -1,0 +1,31 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "css-website"
+  page-navigation: true
+  navbar:
+    title: "Computing for the Social Sciences"
+    left:
+      - href: index.qmd
+        text: "Home"
+      - href: syllabus.qmd
+        text: "Syllabus"
+      - href: lectures/index.qmd
+        text: "Lectures"
+      - href: hw/index.qmd
+        text: "Assignments"
+      - href: setup/index.qmd
+        text: "Software Setup"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    css: style/styles.css
+    link-external-newwindow: true
+
+execute: 
+  echo: false
+  

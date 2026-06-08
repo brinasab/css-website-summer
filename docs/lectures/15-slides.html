@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <meta name="author" content="Sabrina Nardin, Fall 2025">
+  <title>css-website – Computing for the Social Sciences: Lecture 15</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
+  <link rel="stylesheet" href="../style/styles.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Computing for the Social Sciences: Lecture 15</h1>
+  <p class="subtitle">Topics: Web-Scraping 1</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Sabrina Nardin, Fall 2025 
+</div>
+</div>
+</div>
+
+</section>
+<section id="agenda" class="title-slide slide level1 center">
+<h1>Agenda</h1>
+<div class="agenda-list">
+<ol type="1">
+<li>Web Scraping Introduction</li>
+<li>Our Goal: Scrape U.S. Presidential Statements</li>
+<li>Two Key Concepts:<br>
+3.1 How the Web Works<br>
+3.2 What’s Behind a Website<br>
+</li>
+<li>The rvest Package</li>
+</ol>
+</div>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>November 17, 2025</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+</section>
+
+<section>
+<section id="web-scraping-introduction" class="title-slide slide level1 center middle">
+<h1>1. Web Scraping Introduction</h1>
+
+</section>
+<section id="what-is-web-scraping" class="slide level2 center">
+<h2>What is Web Scraping?</h2>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>Web Scraping: using code to automatically collect information from websites.</strong></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>If you’ve ever copied and pasted data from a webpage, you’ve done the same task as a scraper, just <strong>manually and on a tiny scale</strong>. Web scraping <strong>automates and scales up</strong>, so code does the collecting instead of you</p></li>
+<li><p>With a few R functions from <strong>rvest</strong> and some <strong>HTML knowledge</strong>, you can grab text, tables, links, and other content from a webpage at scale</p></li>
+</ul>
+</section>
+<section id="web-scraping-examples" class="slide level2 center">
+<h2>Web Scraping Examples</h2>
+<ul>
+<li><strong>Company info</strong> (names, emails, phone numbers)</li>
+<li><strong>Product details</strong> (prices, descriptions)<br>
+</li>
+<li><strong>Real estate listings</strong> (listings, rentals info)<br>
+</li>
+<li><strong>Government data</strong> (press releases, bills, reports)<br>
+</li>
+<li><strong>News articles</strong><br>
+</li>
+<li><strong>Online archives</strong> (historical docs, speeches)</li>
+<li><strong>Wikipedia pages</strong><br>
+</li>
+<li><strong>Forums</strong> (Reddit, StackOverflow)<br>
+</li>
+<li><strong>Online reviews</strong> (Yelp, Google)<br>
+</li>
+<li><strong>Marketplaces</strong> (Craigslist, FB Marketplace)<br>
+</li>
+<li><strong>Social media</strong> but harder today!</li>
+</ul>
+</section>
+<section id="why-we-are-learning-web-scraping-in-this-course" class="slide level2 center">
+<h2>Why We are Learning Web Scraping in this Course</h2>
+<ol type="1">
+<li><p><strong>Short applied module</strong> to show what R can do beyond charts and data wrangling.</p></li>
+<li><p><strong>Practical data collection skill you can use in projects</strong>. A lot of social science data is on the web, not in ready-made CSVs; scraping is especially great for text data.</p></li>
+</ol>
+</section>
+<section id="two-ways-to-scrape-data-from-the-web" class="slide level2 center">
+<h2>Two Ways to Scrape Data from the Web</h2>
+<div class="columns">
+<div class="column">
+<h3 id="directly-scraping-a-website">Directly Scraping a Website</h3>
+<p>Request data from a website directly,<br>
+<strong>by reading its HTML</strong> and extract the information you need (text, tables, links, etc.)</p>
+</div><div class="column">
+<h3 id="using-an-api">Using an API</h3>
+<p>Request data from a website indirectly,<br>
+<strong>by interacting with a dedicated interface</strong> that the website provides.</p>
+</div></div>
+</section>
+<section id="directly-scraping-a-website-1" class="slide level2 center">
+<h2>Directly Scraping a Website</h2>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>What this means:</strong> You read the HTML code behind a website and extract the pieces of information you need.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>How it works:</strong><br>
+- Websites are built using HTML, CSS, and sometimes JavaScript.<br>
+- R via <code>rvest</code> can download a webpage, and let you extract elements like titles, tables, links, paragraphs, etc.<br>
+- You can scrape almost anything that is publicly available.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>Good beginner projects:</strong><br>
+- <em>Wikipedia pages</em><br>
+- <em>Government websites</em> (press releases, data tables, reports)<br>
+- <em>News articles</em></p>
+</div>
+</div>
+</div>
+</section>
+<section id="using-a-web-api-application-programming-interface" class="slide level2 center">
+<h2>Using a Web API (Application Programming Interface)</h2>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>What this means:</strong> You request structured data from a website through a dedicated interface.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>How it works:</strong><br>
+- The website provides a URL-based system where you ask for data.<br>
+- You receive a clean, structured format (usually JSON).<br>
+- You must follow the API’s rules: parameters, keys, rate limits, etc.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>Good beginner projects:</strong><br>
+- <em>OMDb API</em> (Open Movie Database) — used in today’s reading<br>
+- <em>NYTimes API</em> (articles, comments)<br>
+- <em>Census Bureau API</em> (with tidycensus R wrapper package)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="direct-scraping-vs.-using-an-api-pros-and-cons" class="slide level2 center">
+<h2>Direct Scraping vs.&nbsp;Using an API: Pros and Cons</h2>
+<h3 id="directly-scraping-the-website"><strong>Directly Scraping the Website</strong></h3>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Works even when no API is available<br>
+</li>
+<li>Very flexible: you can extract almost anything shown on the page</li>
+<li>Great for text, tables, lists, articles, and public documents</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>HTML structure of webpages is often messy and inconsistent<br>
+</li>
+<li>HTML structure can change, breaking your code<br>
+</li>
+<li>JavaScript-heavy pages require extra tools</li>
+</ul>
+</section>
+<section id="direct-scraping-vs.-using-an-api-pros-and-cons-1" class="slide level2 center">
+<h2>Direct Scraping vs.&nbsp;Using an API : Pros and Cons</h2>
+<h3 id="using-a-web-api"><strong>Using a Web API</strong></h3>
+<p><strong>Pros</strong></p>
+<ul>
+<li>Data is clean, structured, predictable (usually JSON)<br>
+</li>
+<li>Documentation tells you exactly what you can request<br>
+</li>
+<li>More stable and less fragile than scraping HTML</li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul>
+<li>Only works if a website provides an API<br>
+</li>
+<li>You must follow the API’s rules (rate limits, keys, parameters)<br>
+</li>
+<li>API may not include everything shown on the webpage</li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>If an API exists, ideally with an R wrapper, use it instead of scraping HTML.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="our-goal-scrape-u.s.-presidential-statements" class="title-slide slide level1 center middle">
+<h1>2. Our Goal: Scrape U.S. Presidential Statements</h1>
+
+</section>
+<section id="our-goal-for-today" class="slide level2 center">
+<h2>Our Goal for Today</h2>
+<p><strong>I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do…</strong></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Goal for Today</strong></p>
+</div>
+<div class="callout-content">
+<p>Scrape a U.S. Presidential statement from the American Presidency Project. Specifically: speaker name, date, title, full text of the statement</p>
+<p><a href="https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration" class="uri">https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration</a></p>
+</div>
+</div>
+</div>
+</section>
+<section id="scrape-u.s.-presidential-statements" class="slide level2 center">
+<h2>Scrape U.S. Presidential Statements</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(rvest)</span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>scrape_doc <span class="ot">&lt;-</span> <span class="cf">function</span>(url) {</span>
+<span id="cb1-6"><a></a>  <span class="co"># Scrapes data from presidential pages pausing between requests</span></span>
+<span id="cb1-7"><a></a>  <span class="co"># Args:</span></span>
+<span id="cb1-8"><a></a>    <span class="co"># url (string): one presidential page </span></span>
+<span id="cb1-9"><a></a>  <span class="co"># Returns:</span></span>
+<span id="cb1-10"><a></a>    <span class="co"># tibble: a tibble with the date, speaker, title, full text from input url</span></span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a>  <span class="co"># get HTML page</span></span>
+<span id="cb1-13"><a></a>  <span class="fu">Sys.sleep</span>(<span class="dv">2</span>)</span>
+<span id="cb1-14"><a></a>  url_contents <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="at">x =</span> url)</span>
+<span id="cb1-15"><a></a></span>
+<span id="cb1-16"><a></a>  <span class="co"># extract elements</span></span>
+<span id="cb1-17"><a></a>  date <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">".date-display-single"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a></a>    <span class="fu">html_text2</span>() <span class="sc">%&gt;%</span> <span class="fu">mdy</span>()</span>
+<span id="cb1-19"><a></a></span>
+<span id="cb1-20"><a></a>  name <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">".diet-title a"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-21"><a></a>    <span class="fu">html_text2</span>()</span>
+<span id="cb1-22"><a></a>  </span>
+<span id="cb1-23"><a></a>  title <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">"h1"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-24"><a></a>    <span class="fu">html_text2</span>()</span>
+<span id="cb1-25"><a></a>  </span>
+<span id="cb1-26"><a></a>  text <span class="ot">&lt;-</span> <span class="fu">html_elements</span>(<span class="at">x =</span> url_contents, <span class="at">css =</span> <span class="st">"div.field-docs-content"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-27"><a></a>    <span class="fu">html_text2</span>()</span>
+<span id="cb1-28"><a></a>  </span>
+<span id="cb1-29"><a></a>  <span class="co"># store in a data frame and return it</span></span>
+<span id="cb1-30"><a></a>  url_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb1-31"><a></a>    <span class="at">date =</span> date,</span>
+<span id="cb1-32"><a></a>    <span class="at">name =</span> name,</span>
+<span id="cb1-33"><a></a>    <span class="at">title =</span> title,</span>
+<span id="cb1-34"><a></a>    <span class="at">text =</span> text</span>
+<span id="cb1-35"><a></a>  )</span>
+<span id="cb1-36"><a></a>  </span>
+<span id="cb1-37"><a></a>  <span class="fu">return</span>(url_data)</span>
+<span id="cb1-38"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="two-key-concepts" class="title-slide slide level1 center middle">
+<h1>3. Two Key Concepts</h1>
+<p>3.1 How the Web Works</p>
+<p>3.2 What’s Behind a Website</p>
+</section>
+<section id="how-the-web-works" class="slide level2 center">
+<h2>3.1 How the Web Works</h2>
+<p>Computers communicate on the web by sending and receiving <strong>data requests</strong> (GET) and <strong>data responses</strong> (POST). Every computer has an address that other computers can refer to.</p>
+<p>When you click on a webpage, your <strong>web browser</strong> (e.g., Chrome, Safari) sends a data request to the <strong>web server</strong> of that page (a database where all the info about that page are stored) and receives a response.</p>
+
+<img data-src="request_response.png" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"><p>Image Source <a href="https://www.linkedin.com/pulse/what-happens-when-you-enter-url-browser-he-asked-victor-ohachor">at this link</a></p>
+</section>
+<section id="how-the-web-works-1" class="slide level2 center">
+<h2>3.1 How the Web Works</h2>
+<p>Navigating the web basically means <strong>sending requests to different servers and receiving back various files</strong>, mainly written in HTML and other languages.</p>
+<p>For example, if you type <code>https://macss.uchicago.edu/current-student-resources</code> into your web browser and hit enter, these steps occur behind the scenes:</p>
+<ol type="1">
+<li><p>your web browser (Chrome, Safari, etc.) translates what you typed into a HTTP request. That request tells the web server that stores all <code>macss</code> info that you want to access the specific piece of info stored at <code>/current-student-resources</code></p></li>
+<li><p>the web server that hosts <code>macss</code> receives your request and sends back to your web browser a response code (200 for yes, etc.) and the response content (files written in HTML)</p></li>
+<li><p>your browser transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.</p></li>
+</ol>
+<p><strong>When we scrape data, we use R packages that perform these steps for us (via APIs or without)!</strong></p>
+</section>
+<section id="whats-behind-a-website" class="slide level2 center">
+<h2>3.2 What’s Behind a Website</h2>
+<p>A website is made of the following elements:</p>
+<ul>
+<li><p><strong>HTML</strong> <em>HyperText Markup Language</em>, is the core element of a website. HTML uses tags to organize the webpage (i.e., creates paragraphs, inserts hyperlinks, etc.), but when the page is displayed the markup language is hidden</p></li>
+<li><p><strong>CSS</strong> <em>Cascading Style Sheets</em>: improves the look of the page</p></li>
+<li><p><strong>Javascript</strong>: adds interactive elements to the page (you need “dynamic web scraping” techniques to scrape JS code, not covered in this course)</p></li>
+<li><p><strong>Other stuff</strong> such as images, hyperlinks, videos or multimedia</p></li>
+</ul>
+</section>
+<section id="whats-behind-a-website-1" class="slide level2 center">
+<h2>3.2 What’s Behind a Website</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>When scraping a website directly: knowing how read the HTML (and CSS) language, is fundamental</p>
+<p>When using an API and/or an API wrapper: less important, but still useful.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="html-hypertext-markup-language" class="slide level2 center">
+<h2>HTML: HyperText Markup Language</h2>
+<ul>
+<li>Important for web scraping: makes the “skeleton” or structure of a website</li>
+<li>Made of tags</li>
+<li>Looks messy, but follows a hierarchical tree-like structure of tags within tags</li>
+</ul>
+<p>Standard HTML syntax:</p>
+<pre><code>   &lt;html&gt;
+     &lt;head&gt;
+        &lt;title&gt;general info about the page&lt;/title&gt;
+     &lt;/head&gt;
+     &lt;body&gt;
+       &lt;p&gt;a paragraph with some text about the page&lt;/p&gt;
+       &lt;p&gt;another paragraph with more text&lt;/p&gt;
+       &lt;p&gt;ciao&lt;/p&gt;
+     &lt;/body&gt;
+   &lt;/html&gt;
+   </code></pre>
+</section>
+<section id="html-tags" class="slide level2 center">
+<h2>HTML Tags</h2>
+<ol type="1">
+<li><p>HTML tags are organized in a <strong><a href="https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108">tree-like structure</a></strong> and are nested</p></li>
+<li><p>HTML tags <strong>go in pairs</strong> one on each end of the content that they display. For example: <code>&lt;p&gt;ciao&lt;/p&gt;</code> only the word “ciao” shows up on the webpage, the <code>/</code> signals the end of the tag</p></li>
+<li><p>HTML tags can have <strong>attributes</strong> which provide additional info about the tag. For example: <code>&lt;p&gt;ciao id='first'&lt;/p&gt;</code></p>
+<ul>
+<li><code>&lt;p&gt;</code> is the tag</li>
+<li><code>&lt;id&gt;</code> is the attribute</li>
+<li><strong>two key attributes to remember for scraping:</strong> <code>id</code> and <code>class</code>; they are used by CSS elements to control the visual appearance of the page</li>
+</ul></li>
+</ol>
+<!-- add more info here
+https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
+* more frequently used tags
+* more on tags attributes
+* CSS 
+* CSS and HTML
+* see staff from my Python course, lecture 2 (e.g. every page is different, no perfect structure,etc.)
+-->
+</section>
+<section class="slide level2 center">
+
+<h3 id="most-common-html-tags">Most Common HTML Tags</h3>
+<ul>
+<li><code>html</code>
+<ul>
+<li><code>head</code>
+<ul>
+<li><code>title</code></li>
+<li><code>a href</code></li>
+<li><code>script</code></li>
+</ul></li>
+<li><code>body</code>
+<ul>
+<li><code>div</code>
+<ul>
+<li><code>p</code>
+<ul>
+<li><code>b</code></li>
+</ul></li>
+<li><code>span</code></li>
+</ul></li>
+<li><code>table</code>
+<ul>
+<li><code>tr</code>
+<ul>
+<li><code>td</code></li>
+<li><code>td</code></li>
+</ul></li>
+</ul></li>
+<li><code>img</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<h3 id="most-common-html-tags-1">Most Common HTML Tags</h3>
+<ul>
+<li><code>html</code>
+<ul>
+<li><code>head</code>
+<ul>
+<li><code>title</code> - title</li>
+<li><code>a href</code> - links</li>
+<li><code>script</code> - code</li>
+</ul></li>
+<li><code>body</code>
+<ul>
+<li><code>div</code> - generic container for content (block)
+<ul>
+<li><code>p</code> - paragraph
+<ul>
+<li><code>b</code> - bold formatting</li>
+</ul></li>
+<li><code>span</code> - generic container for content (in line)</li>
+</ul></li>
+<li><code>table</code>
+<ul>
+<li><code>tr</code> - row of cells
+<ul>
+<li><code>td</code> - actual cell element</li>
+</ul></li>
+</ul></li>
+<li><code>img</code> - image</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="html-tags-example" class="slide level2 center">
+<h2>HTML Tags: Example</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb3-1"><a></a># example of html code (this is not R code, won't run in R)</span>
+<span id="cb3-2"><a></a><span class="dt">&lt;</span><span class="kw">html</span><span class="dt">&gt;</span></span>
+<span id="cb3-3"><a></a>  <span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-4"><a></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>Title<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb3-5"><a></a>    <span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://github.com"</span><span class="dt">&gt;</span>GitHub<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span>
+<span id="cb3-6"><a></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">"https://c.js"</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb3-7"><a></a>  <span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb3-8"><a></a>  <span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-9"><a></a>    <span class="dt">&lt;</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb3-10"><a></a>      <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Click <span class="dt">&lt;</span><span class="kw">b</span><span class="dt">&gt;</span>here<span class="dt">&lt;/</span><span class="kw">b</span><span class="dt">&gt;</span> now.<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb3-11"><a></a>      <span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Frozen<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span>
+<span id="cb3-12"><a></a>    <span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span>
+<span id="cb3-13"><a></a>    <span class="dt">&lt;</span><span class="kw">table</span><span class="ot"> style</span><span class="op">=</span><span class="st">"width:100%"</span><span class="dt">&gt;</span></span>
+<span id="cb3-14"><a></a>      <span class="dt">&lt;</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb3-15"><a></a>        <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Kristen<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb3-16"><a></a>        <span class="dt">&lt;</span><span class="kw">td</span><span class="dt">&gt;</span>Bell<span class="dt">&lt;/</span><span class="kw">td</span><span class="dt">&gt;</span></span>
+<span id="cb3-17"><a></a>      <span class="dt">&lt;/</span><span class="kw">tr</span><span class="dt">&gt;</span></span>
+<span id="cb3-18"><a></a>    <span class="dt">&lt;/</span><span class="kw">table</span><span class="dt">&gt;</span></span>
+<span id="cb3-19"><a></a>  <span class="dt">&lt;</span><span class="kw">img</span><span class="ot"> src</span><span class="op">=</span><span class="st">"http://ia.media-imdb.com/images.png"</span><span class="dt">/&gt;</span></span>
+<span id="cb3-20"><a></a>  <span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb3-21"><a></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>💻 Practice: Find the text content <code>Frozen</code> and the GitHub link and the text content <code>GitHub</code></strong></p>
+</section>
+<section id="html-tags-example-1" class="slide level2 center">
+<h2>HTML Tags: Example</h2>
+<p><strong>Find the text content <code>Frozen</code></strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb4-1"><a></a><span class="dt">&lt;</span><span class="kw">span</span><span class="dt">&gt;</span>Frozen<span class="dt">&lt;/</span><span class="kw">span</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>&lt;span&gt;&lt;/span&gt;</code> - tag name</li>
+<li><code>Frozen</code> - content embedded in the tag as text</li>
+</ul>
+<!--In this ex. there is only one span tag: what if the HTML has multiple span tags?-->
+</section>
+<section id="html-tags-example-2" class="slide level2 center">
+<h2>HTML Tags: Example</h2>
+<p><strong>Find the GitHub link and text <code>GitHub</code> embedded within it</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource html number-lines code-with-copy"><code class="sourceCode html"><span id="cb5-1"><a></a><span class="dt">&lt;</span><span class="kw">a</span><span class="ot"> href</span><span class="op">=</span><span class="st">"http://github.com"</span><span class="dt">&gt;</span>GitHub<span class="dt">&lt;/</span><span class="kw">a</span><span class="dt">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>&lt;a&gt;&lt;/a&gt;</code> - tag name</li>
+<li><code>href</code> - tag attribute (argument)</li>
+<li><code>"http://github.com"</code> - tag attribute (value)</li>
+<li><code>GitHub</code> - content as text</li>
+</ul>
+</section>
+<section id="css-cascading-style-sheet" class="slide level2 center">
+<h2>CSS: Cascading Style Sheet</h2>
+<p>Often a website has HTML tags with attributes + CSS elements. This is an example of CSS code:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a></a>span {</span>
+<span id="cb6-2"><a></a>  <span class="kw">color</span><span class="ch">:</span> <span class="cn">#ffffff</span><span class="op">;</span> }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Most websites use HTML tags with <code>class</code> and <code>id</code> attributes to provide “hooks” for CSS</strong> so the CSS “knows” where to apply CSS stylistic elements. In the example above, the <code>span</code> HTML tag can be styled using CSS <code>color</code></p>
+<p>See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class</a></p>
+<!-- https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping 
+[CSS diner](http://flukeout.github.io) 
+
+### HTML + CSS: example 
+
+.pull-left[
+
+```html
+<body>
+    
+<table id="content" class="caption-top" data-quarto-postprocess="true">
+<tbody>
+<tr class="name odd">
+<td class="firstname">Kurtis</td>
+<td class="lastname">McCoy</td>
+</tr>
+<tr class="name even">
+<td class="firstname">Leah</td>
+<td class="lastname">Guerrero</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+```
+
+]
+
+.pull-right[
+
+Find the elements to use to extract:
+1. The entire table
+1. The general element(s) containing first names
+1. Just the specific element "Kurtis"
+
+]
+
+-->
+</section>
+<section id="example" class="slide level2 center">
+<h2>Example</h2>
+<p>Explore the HTML structure of the website we want to scrape today:</p>
+<p><a href="https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration" class="uri">https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration</a></p>
+</section></section>
+<section>
+<section id="the-rvest-package" class="title-slide slide level1 center middle">
+<h1>4. The rvest Package</h1>
+
+</section>
+<section id="using-rvest" class="slide level2 center">
+<h2>Using rvest</h2>
+<p>Rvest documentation: <a href="https://rvest.tidyverse.org/" class="uri">https://rvest.tidyverse.org/</a></p>
+<ul>
+<li><p>Read and save in an object the HTML source code of a webpage</p></li>
+<li><p>Find the specific HTLM and CSS elements from a webpage (using HTML tags or attributes, and using CSS selectors)</p></li>
+</ul>
+</section>
+<section id="main-functions-in-rvest" class="slide level2 center">
+<h2>Main functions in rvest</h2>
+<ul>
+<li><strong><code>read_html()</code></strong></li>
+<li><strong><code>html_elements()</code></strong></li>
+<li><strong><code>html_element()</code></strong></li>
+<li><strong><code>html_text2()</code></strong></li>
+<li><strong><code>html_attr()</code></strong></li>
+<li><strong><code>html_table()</code></strong></li>
+</ul>
+<h3 id="practice">💻 Practice</h3>
+<ul>
+<li>Open the documentation <a href="https://rvest.tidyverse.org/index.html#usage" class="uri">https://rvest.tidyverse.org/index.html#usage</a> and explore what each function does.</li>
+<li>Run the example code in your own R session, try modifying it, and note what changes.</li>
+<li>Bring at least one question to discuss after experimenting.</li>
+</ul>
+</section>
+<section id="main-functions-in-rvest-1" class="slide level2 center">
+<h2>Main functions in rvest</h2>
+<p>The following slides and code are from the documentation: <a href="https://rvest.tidyverse.org/index.html#usage" class="uri">https://rvest.tidyverse.org/index.html#usage</a></p>
+<p><strong><code>read_html()</code> reads an html page into R:</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">library</span>(rvest)</span>
+<span id="cb7-2"><a></a>starwars <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://rvest.tidyverse.org/articles/starwars.html"</span>)</span>
+<span id="cb7-3"><a></a>starwars <span class="sc">|&gt;</span> <span class="fu">as.character</span>() <span class="sc">|&gt;</span> <span class="fu">cat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="main-functions-in-rvest-2" class="slide level2 center">
+<h2>Main functions in rvest</h2>
+<p><strong><code>html_elements()</code> finds all elements in a HTML document that match a CSS selector or XPath expression.</strong></p>
+<p>Use when you expect multiple matches. Here each section corresponds to a different film:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>films <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span> <span class="fu">html_elements</span>(<span class="st">"section"</span>)</span>
+<span id="cb8-2"><a></a>films</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="main-functions-in-rvest-3" class="slide level2 center">
+<h2>Main functions in rvest</h2>
+<p><strong><code>html_element()</code> finds one specific element per film section.</strong></p>
+<p>Here we are saying: for each film section found before, extract one (the first, which is all we have here) <code>&lt;h2&gt;</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>title <span class="ot">&lt;-</span> films <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a></a>  <span class="fu">html_element</span>(<span class="st">"h2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">html_text2</span>()</span>
+<span id="cb9-4"><a></a>title</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Try running <code>starwars |&gt; html_element("section")</code> and <code>starwars |&gt; html_elements("h2")</code> and make sense of the results.</p>
+</section>
+<section id="main-functions-in-rvest-4" class="slide level2 center">
+<h2>Main functions in rvest</h2>
+<p><strong><code>html_text2()</code> extracts text embedded within tags.</strong></p>
+<p>Building on the code in the previous slide, here we can use it to get only the text as tring:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>title <span class="ot">&lt;-</span> films <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a></a>  <span class="fu">html_element</span>(<span class="st">"h2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a></a>  <span class="fu">html_text2</span>()</span>
+<span id="cb10-4"><a></a>title</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="main-functions-in-rvest-5" class="slide level2 center">
+<h2>Main functions in rvest</h2>
+<p><strong><code>html_attr()</code> gets data out of attributes.</strong></p>
+<p>It always returns a string so we convert it to an integer:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>episode <span class="ot">&lt;-</span> films <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">html_element</span>(<span class="st">"h2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-3"><a></a>  <span class="fu">html_attr</span>(<span class="st">"data-id"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-4"><a></a>  readr<span class="sc">::</span><span class="fu">parse_integer</span>()</span>
+<span id="cb11-5"><a></a>episode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="main-functions-in-rvest-6" class="slide level2 center">
+<h2>Main functions in rvest</h2>
+<p><strong><code>html_table()</code> extracts tabular data and converts it directly to a dataframe!</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://en.wikipedia.org/w/index.php?title=The_Lego_Movie&amp;oldid=998422565"</span>)</span>
+<span id="cb12-2"><a></a></span>
+<span id="cb12-3"><a></a>html <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a></a>  <span class="fu">html_element</span>(<span class="st">".tracklist"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb12-5"><a></a>  <span class="fu">html_table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note: some data cleaning is needed here (and generally to be expected with any scraping project)</p>
+</section>
+<section id="practice-all-of-this-in-r" class="slide level2 center">
+<h2>Practice all of this in R!</h2>
+<p><strong>We scrape this U.S. Presidential statements page: <a href="https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration" class="uri">https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration</a></strong></p>
+<p>What we learn through this example (today and next class):</p>
+<ul>
+<li>Use <code>rvest</code> functions to collect name, date, title, and text from that page</li>
+<li>Identify tags using two ways:
+<ul>
+<li>examining the webpage directly</li>
+<li>using helper tools like SelectorGadget</li>
+</ul></li>
+<li>Learn Scraping best practices</li>
+<li>Scale up our scraper to handle multiple pages</li>
+</ul>
+</section>
+<section id="selectorgadget" class="slide level2 center">
+<h2>SelectorGadget</h2>
+<p>Follow these steps to install and use the SelectorGadget…</p>
+<ul>
+<li>Go to <a href="https://selectorgadget.com/" class="uri">https://selectorgadget.com/</a> to install and watch a short video on how to use it</li>
+<li>Once installed drag the SelectorGadget link into your web browser’s bar</li>
+<li>Navigate to a webpage and open the SelectorGadget bookmark</li>
+<li>Go to <a href="https://rvest.tidyverse.org/articles/selectorgadget.html#use" class="uri">https://rvest.tidyverse.org/articles/selectorgadget.html#use</a> for step-by-step instructions on how to use it</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<h3 id="web-scraping-resources">Web Scraping Resources</h3>
+<ul>
+<li><p>Web scraping 101: <a href="https://rvest.tidyverse.org/articles/rvest.html" class="uri">https://rvest.tidyverse.org/articles/rvest.html</a></p></li>
+<li><p>Rvest tutorial: <a href="https://rvest.tidyverse.org/articles/rvest.html#html-basics" class="uri">https://rvest.tidyverse.org/articles/rvest.html#html-basics</a></p></li>
+<li><p>Using HTML and CSS for scraping: <a href="https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html" class="uri">https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html</a></p></li>
+<li><p>Handy references for your scraping projects:</p>
+<ul>
+<li>HTML overview: <a href="https://www.w3schools.com/html/html_intro.asp" class="uri">https://www.w3schools.com/html/html_intro.asp</a></li>
+<li>List of tags: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" class="uri">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a></li>
+</ul></li>
+</ul>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

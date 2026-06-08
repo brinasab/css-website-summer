@@ -1,0 +1,49 @@
+---
+title: "Computing for the Social Sciences"
+format:
+  html:
+    toc: false
+    theme: cosmo
+---
+
+### Sotfware Setup Fall 2025
+
+<div class="my-4"></div>
+
+This section of the website guides you through everything you need to set up for the course:
+
+**1. First, Configure your Setup: [RStudio Workbench Setup](setup-workbench.qmd)**
+
+**2. Second, Test your Setup: [Git within RStudio Tutorial](setup-test.qmd)**
+
+**3. Third, Learn More: [What are these Tools?](what.qmd)**
+
+::: {.callout-note}
+
+These instructions are for **RStudio Workbench**, which is the platform we use in this course. If you have prior programming experience and prefer to install R and RStudio on your own computer, reach out to discuss.
+
+:::
+
+<!--
+
+### First, Configure your Setup
+
+Go to the [RStudio Workbench Setup](setup-workbench.qmd) page and follow the instructions there. This includes three steps:
+
+- Create a (free) GitHub account  
+- Log into RStudio Workbench  
+- Configure Git inside RStudio Workbench  
+
+Take your time with each step, especially the third one. Everything you set up here will make your workflow smoother later in the course.
+
+### Then, Test Your Setup
+
+Once you've everything configured, test that it's working as expected by completing the [Git within RStudio Tutorial](setup-test.qmd). This will confirm that Git is properly connected and you are ready to go.
+
+::: {.callout-note}
+
+These instructions are specifically for using **RStudio Workbench**, which is the platform we'll be using throughout the course. If you have prior programming experience and prefer to install R and RStudio on your own computer, feel free to reach out to discuss.
+
+:::
+
+-->

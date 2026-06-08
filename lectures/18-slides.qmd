@@ -1,0 +1,80 @@
+---
+title: "Computing for the Social Sciences: Lecture 18"
+subtitle: "Topics: Exam 2 + Final Project Check-In"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Reminders
+
+2. Exam 2 Format
+
+:::
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **December 3, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+
+# 1. Course Final Reminders
+
+---
+
+### P/F Option
+Let me (Sabrina) know by sending an email (nardin@uchicago.edu) by this Friday, Dec 5, 2025. The required grade for Pass is  C-
+
+### Workbench After the Course
+Your access to RStudio Workbench will expire on January 5, 2026. After this date, all of your work stored there will be permanently deleted. Export and save anything you want to keep on your own machine before then (I will post on Ed how to do this).
+
+---
+
+### Final Project Check-In
+Optional 1:1 meetings (~10 minutes) with the instructor or TA to discuss your final project. Come with whatever you’ve completed so far and any questions you’d like to go over!
+
+### Final Project
+Due Sunday, December 7, 2025 11:59 PM (with 24h free penalty window)
+
+
+# 2. Exam 2 {.slide .center .middle}
+
+---
+
+## Exam Format
+
+<!-- Code: Exam2Dec3 --> 
+
+### Total 28 questions (15 points):
+
+- 26 multiple choice: 0.5 points each
+- 2 open questions: 1 point each
+
+### Time: 60 minutes 
+
+- You may use pen and paper to make notes or plan your answers
+- Once you submit, you may not reopen the quiz or view questions
+- Do not open R, notes, or class materials while others are still working
+- If you finish early, you can leave. Or if you want to check in about the final project, wait until the exam is over
+- Remember to sign the attendance sheet before leaving!
+
+---
+
+## Exam Grades 
+
+- Grades will be posted within one week
+- You won’t see feedback or correct answers after submitting, but you are welcome, and encouraged, to ask for feedback during office hours or by appointment
+
+### Good luck and thanks for this quarter together!

@@ -1,0 +1,188 @@
+---
+title: "Computing for the Social Sciences: Lecture 9"
+subtitle: "Topics: Strings and Regular Expressions"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Exam 1 Format
+
+2. Strings and Regular Expressions in R
+:::
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **October 27, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+
+# 1. Exam 1 {.slide .center .middle}
+
+---
+
+## Exam Format
+
+<!-- Code: WelcomeToExam1 --> 
+
+### Total 27 questions (15 points):
+
+- 23 multiple choice or matching questions: 0.5 points each
+- 2 write short code questions: 0.75 points each
+- 2 open questions (write code or pseudocode + explain): 1 point each
+
+### Time: 60 minutes 
+
+- Once you submit, you may not reopen the quiz or view questions
+- If you finish early, please stay quiet or leave the room. Do not open R, notes, or class materials while others are still working
+- During the exam, you may use pen and paper to make notes or plan your answers.
+- After everyone completed the exam, we start today's lecture (~2:30 pm)
+- Remember to sign the attendance sheet
+
+---
+
+## Exam Grades 
+
+- Grades will be posted within one week
+- Do not discuss exam questions with others until grades are posted
+- You won’t see feedback or correct answers after submitting, but we are welcome, and encouraged, to ask for feedback during office hours or by appointment
+
+
+# 2. Strings and Regular Expressions in R {.inverse .middle}
+
+--- 
+
+## Introduction
+
+These are strings: 
+
+```r
+string1 <- "This is a string"
+
+string2 <- 'If I want to include a "quote" inside a string, I use single quotes'
+```
+
+Today we focus on methods for manipulating strings: regular expressions!
+
+<!-- Not 1:1 allignment but haver focus on Reg Expr because super important to know them! 
+So formally a string is... -->
+
+--- 
+
+## String and Character Vector
+
+A **string** is a sequence of characters (a piece of text) enclosed in either double `"` or single quotes `'`. Strings can include letters, numbers, symbols, and whitespace characters.
+
+```r
+string <- "Ciao, my name is Sabrina and I am 99 years old!!"
+class(string)
+length(string)
+```
+
+--- 
+
+## String and Character Vector
+
+A **character vector** is a collection of strings: each element of the vector is a string! 
+
+```r
+char_vect <- c("Ciao come stai?", "Ciao", "Hello", "etc.") 
+class(char_vect)
+length(char_vect)
+```
+
+Thus single string, like in the previous examples, is also a character vector of length one.
+
+We use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings vs. only one).
+
+---
+
+## Regular Expressions: definitions and uses
+
+Regular expressions ("regex" or "regexes") **are strings containing normal characters and/or special meta-characters.** They describe a specific pattern to match in a given text.
+
+More formally, regex:
+* is a *language on its own right* 
+* used for *pattern matching* 
+* adopted by many programming languages, such as R, Python, and others!
+
+Example:
+
+```r
+email_pattern <- "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}"
+```
+
+<!--
+But then you might ask yourself...
+given our ability to manipulate strings and our ability to test for equivalence (with the == operator) 
+or to test whether some string contains another (with the %in% operator), we don't technically need regular expressions... Not exactly! We want to use regex becasue they are POWERFUL
+-->
+
+---
+
+## Regular Expressions: definitions and uses
+
+Regular expressions are powerful! They allow us to find patterns **in any task that deals with text,** such as NLP (Natural Language Processing) or data-cleaning tasks that involve text. 
+
+For example, you can use regular expressions to:
+
+* Extract specific elements from texts (e.g., find words that include a given set of letters, find all past tenses in a text, etc.)
+* Perform textual substitutions (e.g. find and replace HTML tags after you scraped a page)
+* Verify text format (e.g. "Is this email/phone-number/address valid?")
+
+
+---
+
+## The stringr() package in R
+
+Today we learn about the package `stringr` and regular expressions!
+
+When you use regular expressions, most likely you will need to use your them together with one of the functions from the `stringr()` package. 
+
+This package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc. 
+
+---
+
+## The stringr() package in R
+
+Fundamental `stringr()` functions and their use:
+
+* `str_view()` return the first regex match
+* `str_view_all()` return all regex matches (deprecated in the last version of `stringr`)
+* `str_detect()`: detect matches in a string
+* `str_count()`: count the number of matches
+* `str_extract()` and `str_extract_all()`: extract matches
+* `str_replace()` and `str_replace_all()`: replace matches
+* `str_split()`: split a string based on a match
+
+---
+
+## Resources
+
+* [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
+
+* [Chapter 15](https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex) by Rochelle Terman, explains `stringr()` (using the *R for Data Science* textbook)  
+
+* Read [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (read it all, but especially 14.4 "Extracting data from strings").
+
+* Read [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about `stringr()`
+
+* For more in-depth info on regular expressions check [this excellent tutorial](https://github.com/ziishaned/learn-regex/blob/master/README.md)
+
+---
+
+## 💻 Practice {.inverse .middle}
+
+Download today's class material from the website to learn more about regular expression and `stringr()`

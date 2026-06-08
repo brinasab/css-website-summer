@@ -1,0 +1,32 @@
+---
+title: "Lecture 6: More dplyr, Factors"
+date: 2025-10-15
+summary: "Deep Dive into dplyr, Using Factors in R"
+url_slides: 06-slides.qmd
+url_code: css-materials/factors-more-dplyr
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+
+## Learning Objectives
+
+- Understand what factors are in R and how to use them effectively
+- Strengthen and expand your ability to manipulate data using `dplyr` functions (“verbs”)
+
+
+## Readings
+
+- ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition
+- ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from Lecture 4)*

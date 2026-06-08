@@ -1,0 +1,253 @@
+---
+title: "Computing for the Social Sciences: Lecture 16"
+subtitle: "Topics: Web-Scraping 2"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Web Scraping Review
+2. Expanding Last Lecture’s Scraper
+3. Web Scraping: Challenges, Ethics, and Tips
+4. Intro to APIs
+:::
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **November 17, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+
+# 1. Web Scraping Review {.slide .center .middle}
+
+---
+
+## Last Class...
+
+#### Direct Scraping vs. APIs
+- Direct scraping: extract data from webpage HTML  
+- APIs: access to data through an interface provided by the website
+
+#### Two Key Concepts
+- How the web works (requests & responses)  
+- What’s behind a webpage (read and navigate HTML structure)
+
+#### Scraping in R with rvest:
+- [rvest Documentation](https://rvest.tidyverse.org)  
+- [rvest Main functions](https://rvest.tidyverse.org/index.html#usage)
+
+#### Finding the Right HTML Tags
+- Manual inspection of the HTML structure
+- Browser helpers like **SelectorGadget**
+
+---
+
+## SelectorGadget
+
+Follow these steps to install and use the SelectorGadget...
+
+**Note this works on Chrome!**
+
+* Go to <https://selectorgadget.com/> to install and watch a short video on how to use it
+* Once installed drag the SelectorGadget link into your web browser's bar (Chrome)
+* Navigate to a webpage and open the SelectorGadget bookmark
+* Go to <https://rvest.tidyverse.org/articles/selectorgadget.html#use> for step-by-step instructions on how to use it
+
+---
+
+## 💻 Practice
+
+Go to <https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>
+
+Write code (outside a function) to grab:
+
+- title
+- name (speaker)
+- date
+- full text
+
+1. First, write the code without using SelectorGadget (only by inspecting the HTML page)
+
+2. Then, write the code to grab the same info using the SelectorGadget.
+
+3. Compare the two approaches (e.g., how similar/different your selectors are, which one worked best, etc.).
+
+# 2. Expanding Last Lecture’s Scraper {.slide .center .middle}
+
+---
+
+## How Can We Scale Up Our Scraper?
+
+### 💻 Practice
+
+Download today’s class materials for a tutorial on using loops, functions, and HTML concepts to take your scraping project to the next level!
+
+
+# 3. Web Scraping: Challenges, Ethics, and Tips {.slide .center .middle}
+
+---
+
+## Scraping: Challenges & Solutions
+
+- **Variety:** every website is different, so each site requires a new mini-project.
+
+- **Bad formatting:** websites are *supposed* to use a clean, logical, hierarchical HTML structure…  but many don’t, which makes scraping a bit of an art.
+
+- **Change over time:** websites update their layout, so old code may break. The good news: fixes are usually small.
+
+- **Limits:** some sites cap requests (e.g., only 50 pages or 2,500 items), and after that they stop responding. You’ll need to scrape in smaller “chunks.”
+
+- **Messy data:** scraped content is rarely clean; expect to use R (`stringr` with regular expressions) for cleaning.
+  
+---
+
+## Static vs. Dynamic Scraping
+
+### Static Scraping  
+- `rvest` is for static scraping
+- This means it can only extract information that is already present in the **raw HTML** returned by the server.
+- Tip: always inspect what you get back from `read_html()` before writing more code.
+
+### Dynamic Scraping  
+- `rvest` is not for dynamic scraping
+- A page is dynamic when it uses **JavaScript** to load content after the initial HTML. That content won’t appear in the raw HTML from `read_html()`, which returns empty or incomplete results.
+- For dynamic sites, you typically need: an **API**, if available or a **browser automation tool** (e.g., Selenium)
+
+---
+
+## Scraping Ethics: What To Scrape
+
+### Public (OK) vs. private data (NOT OK)  
+  Anything you need to login or put a password counts as **private** and should not be scraped (e.g. online communities, personal accounts). If the site offers an **API**, use that instead.
+
+### Check the robots.txt file  
+  Add `/robots.txt` to a site's URL (e.g., `https://www.nytimes.com/robots.txt`). 
+ The star after "User-agent" means "the following is valid for all robots". Info you cannot scrape are under "Disallow". More [here](https://www.robotstxt.org/robotstxt.html)
+
+### Read the Terms of Service (ToS)  
+  Those are legal rules you agree to observe in order to use a service. Violating ToS + automated scraping can put you at risk of violating CFAA (Computer Fraud & Abuse Act).
+
+---
+
+## Scraping: Tips
+
+::: callout-tip
+
+1. Make sure your code scrapes **only the information you need** and minimizes the extra 
+
+2. **Slow down your scraper** with `Sys.sleep()` and/or use the `polite` package with `rvest` to avoid hitting the server too frequently
+
+3. **Save and store the raw HTML you scraped on your computer** with `writeLines()` to avoid re-sending a request every time you want to extract information from it.
+:::
+
+<!--
+page <- read_html(url)
+writeLines(as.character(page), "page.html")
+-->
+
+# 4. Intro to APIs {.slide .center .middle}
+
+---
+
+## APIs: Definition
+
+  > Interface provided by the website that allows users to collect data from that website. 
+
+The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for "Representational State Transfer." 
+
+**REST** allows to query the website database using URLs, just like you would construct an URL to view a web page.
+
+An **URL** (Uniform Resource Location), is a string of characters that uses HTTP (HyperText Transfer Protocol) to send request for data. 
+
+---
+
+## Sending Queries to an API  
+
+The process described in the `macss` example (last lecture) is very similar to how APIs work, with only a few changes:
+
+* The URL that you use for sending requests (queries) to an API will have two more things: search terms and/or filtering parameters, and specific references to that API
+
+* The response you get back from the API is not formatted as HTML, but it will likely be a raw text response
+
+* You need R to interact with the API 
+
+---
+
+## APIs: Wrappers vs. No Wrappers
+
+*When using an API in R, there are two approaches:*
+
+### 1. With an API wrapper 
+
+This means using an API through an R package that someone has specifically designed to interact with that API. The package acts as a "wrapper" for the API and you use R to interact with the wrapper.
+
+Each package should come with documentation (pdf, GitHub repo, or both) that explains how to use it and its main functions.
+
+Example: Wordbank API with `wbstats` R wrapper package which returns results in a tidy dataframe
+
+---
+
+## APIs: Wrappers vs. No Wrappers
+
+*When using an API in R, there are two approaches:*
+
+### 2. Without an API wrapper 
+
+If no R wrapper exists, you can directly use the API provided by the website. In this case, you use R to communicate directly with the website's API.
+
+Example: OMDb Movies example API without a wrapper ` https://www.omdbapi.com/`
+
+---
+
+## APIs: Wrappers vs. No Wrappers
+
+Sometimes both approaches are available. Other times, only approach 2 (direct API interaction) is available. 
+
+Scraping with an API, compared to direct scraping, can be a hit-or-miss experience. 
+
+The keys to success are using a well-designed R wrapper if available, relying on well-documented API documentation, or previous examples. 
+
+---
+
+## APIs: Access & Registration
+
+### Some APIs are open, but most require registration
+
+- Registration may be simple: create an account and receive an API key by email.  
+- Some APIs require an application and review process before granting access (e.g., Twitter)
+- Many are free, but some require a paid subscription or usage fees.
+
+### Why is registration required?  
+
+- It allows the API to track users, monitor query volume, manage server load, and prevent misuse.
+- If an API requires a username, password, or private key, you’ll need to supply the same credentials when using its corresponding R wrapper package.
+- Keep your credentials safe (e.g., do not push them on GitHub)
+
+---
+
+## Rectangling or Simplifying Lists
+
+In R this means **transforming non-rectangular data (often nested lists) into a rectangular format (often a data frame).**  The term is often associated with the `tidyverse` and its principles of tidy data.
+
+### In the context of web scraping... 
+
+Rectangling means transforming a deeply nested list (often obtained from raw JSON or XML data) into a tidy data set with rows and columns that is easier to work with!
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf

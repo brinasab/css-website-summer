@@ -1,0 +1,35 @@
+---
+title: "Lecture 8: Tidydata, Lubridate"
+date: 2025-10-22
+summary: "Intro to Tidydata and Lubridate"
+url_slides: 08-slides.qmd
+url_code: css-materials/tidydata
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+
+## Learning Objectives
+
+* Define the concept of tidy data and its characteristics
+* Practice tidying data with `tidyr`
+* Introduce `lubridate` to manipulate dates in R
+
+
+## Readings
+
+* ["Chapter 5 Data tidying"](https://r4ds.hadley.nz/data-tidy) from "R for Data Science" 2nd Edition
+* [tidyr Documentation](https://tidyr.tidyverse.org/)
+* [tidyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)
+* ["Chapter 17 Dates and times"](https://r4ds.hadley.nz/datetimes.html) from "R for Data Science" 2nd Edition

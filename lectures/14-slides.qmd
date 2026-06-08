@@ -1,0 +1,808 @@
+---
+title: "Computing for the Social Sciences: Lecture 14"
+subtitle: "Topics: Functions 2, Debugging"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Functions 
+2. Debugging
+:::
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **November 12, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+
+
+# 1. Functions {.slide .center .middle}
+
+---
+
+## From using to writing functions
+
+Last lecture we learned the following concepts:
+
+- Using existing functions
+- Writing your own function
+- The return statement
+- stop()
+
+Today we add:
+
+- Anonymous functions
+- Documenting your function
+- Writing functions with dplyr and ggplot
+
+---
+
+## Anonymous Functions
+
+Anonymous functions are **functions without a name**
+
+**When to use them:**
+
+* When the function is very short and you need it only once 
+
+* When another function (like those in the `apply()` family) expects another function as input
+
+Whenever you can: write the function explicitly instead!
+
+---
+
+## Anonymous Functions with a number as input
+
+Imagine we have the following function:
+
+```{r echo = TRUE, results = "hide"}
+add <- function(x) {
+  return(x + 3) }
+add(2)
+```
+
+Re-write it as an anonymous function. Note: one line, no name, and call it with `()`:
+```{r echo = TRUE, results = "hide"}
+(function(x) {x + 3}) (2)
+```
+
+Often anonymous functions are written without the `{}`, like this:
+```{r echo = TRUE, results = "hide"}
+(function(x) x + 3) (2)
+```
+
+<!--
+Here's an anonymous function for calculating the mean of a vector `x`. In the following example, the input `x` to the function is each element of the list `l`.
+```{r}
+l <- list(1:5, 5:7)
+lapply(l, FUN = function(x){sum(x)/length(x)})
+```
+
+see http://adv-r.had.co.nz/Functional-programming.html#anonymous-functions
+-->
+
+---
+
+## Anonymous Functions with a vector as input
+
+Same function as before but here we pass a vector as input rather than a single number:
+```{r echo = TRUE, results = "hide"}
+add <- function(x) {
+  return(x + 3) }
+add(c(1,2,3))
+```
+
+To rewrite it as anonymous function, the following two codes **won't work** because the vector isn't passed correctly:
+```r
+(function(x) x + 3) (1,2,3)
+(function(x) x + 3) c(1, 2, 3)
+```
+
+Instead, **either of these works correctly**, since the entire vector is passed as a single argument:
+```{r echo = TRUE, results = "hide"}
+(function(x) x + 3) (c(1, 2, 3))
+(function(x) x + 3) (1:3)
+```
+
+<!--
+So the problem isn’t that anonymous functions can’t handle multiple values — they can!
+The issue is the comma-separated syntax, which in R means multiple arguments, not a vector of values.
+-->
+
+---
+
+## Anonymous Functions with sapply() and lapply()
+
+You can also rewrite the previous code using `sapply()` or `lapply()`. Remember them from last time? They can be used to avoid writing for loops in R.
+
+Both belong to the `apply()` family and have the same basic structure:
+
+```r
+lapply(X, FUN)
+sapply(X, FUN)
+```
+
+- `X` is a vector or list (the input)
+- `FUN` is a function to apply to each element of X
+
+They both loop through the elements of `X`, apply `FUN` to each element...
+
+---
+
+## Anonymous Functions with sapply() and lapply()
+
+...But then differ in how they return the result:
+
+- `lapply`  means "list apply", always returns the output as a list
+- `sapply()` means "simplify apply", returns a simplified version of the list (usually a vector, sometimes a matrix)
+
+```{r echo = TRUE, results = "hide"}
+# previous anonymous function
+(function(x) x + 1) (c(1, 2, 3))
+
+# re-written with sapply
+sapply(c(1,2,3), function(x) x + 1)
+
+# re-written with lapply
+lapply(c(1,2,3), function(x) x + 1)
+```
+
+**Tip:** Using `sapply()` is more common because it returns a vector, which is easier to work with that a list!
+
+---
+
+## Anonymous Functions the purrr way
+
+The `purrr` package (remember the `map()`, `map_dbl()`, etc. functions from last lecture? they come from this same package!) provides another way to write anonymous functions.
+
+Same function as before that adds 1 to each element of thhe input:
+```{r echo = TRUE, results = "hide"}
+add <- function(x) {
+  x + 1
+}
+add(c(1,2,3))
+```
+
+Rewrite it as anonymous function in [`purrr`](https://purrr.tidyverse.org/reference/map.html) in two ways:
+```{r echo = TRUE, results = "hide"}
+library(purrr)
+map_dbl(c(1, 2, 3), function(x) x + 1)
+map_dbl(c(1,2,3), ~.x + 1)
+```
+
+**Tip:** `map()` has several versions like `map_dbl()`, `map_chr()`, and `map_df()` which let you control the output type directly, no guessing like with `sapply()`.
+
+---
+
+## 💻 Practice writing functions 
+
+### Download last class materials from the website. Complete question 3
+
+Last class we did question 1, 2, and 4. **Now: question 3 on anonymous functions!**
+
+---
+
+## Functions should be well-documented! How? 
+
+Each function should include the following:
+
+* a one-sentence description of the function summarizing what it does
+* all function's arguments, denoted as `Args:`, with their data types
+* a description of the return value, denoted by `Returns:` 
+
+**Do not use AI do generate your documentation: it tends to overly complicate things, and is not good** 
+
+---
+
+## Codying style: document your function
+
+```{r echo = TRUE, results = "hide"}
+
+my_sum <- function(vector) {
+  
+  # Calculates the sum of all numbers in a numeric vector using a `for` loop.
+  # Args:
+  #   vector (num): a numeric vector whose elements will be summed
+  # Returns:
+  #  value (num): single numeric value.
+  # Example use:
+  #   x <- c(3, 1, 4)
+  #   my_sum(x)
+    
+  total <- 0
+  for (i in seq_along(vector)) {
+    total <- total + vector[i]
+  }
+  total
+}
+```
+
+---
+
+## Example from Google's R Style Guide [here](https://web.stanford.edu/class/cs109l/unrestricted/resources/google-style.html#:~:text=Function%20Documentation,-Functions%20should%20contain&text=These%20comments%20should%20consist%20of,value%2C%20denoted%20by%20Returns%3A%20.)
+
+```{r echo = TRUE, results = "hide"}
+
+CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
+
+  # Computes the sample covariance between two vectors.
+  # Args:
+  #   x: One of two vectors whose sample covariance is to be calculated.
+  #   y: The other vector. x and y must have the same length, greater than one,
+  #      with no missing values.
+  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.
+  # Returns:
+  #   The sample covariance between x and y.
+  
+  n <- length(x)
+  if (n <= 1 || n != length(y)) {
+    stop("Arguments x and y have invalid lengths: ",
+         length(x), " and ", length(y), ".") }
+  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {
+    stop(" Arguments x and y must not have missing values.") }
+  covariance <- var(x, y)
+  if (verbose)
+    cat("Covariance = ", round(covariance, 4), ".\n", sep = "")
+  return(covariance)
+}
+```
+
+---
+
+## Functions and {{ }}
+
+You can write custom functions and use them together with `dplyr` or `ggplot` functions!
+
+You need the following: 
+
+* syntax to write a custom function
+* special operators that allows R to evaluate your custom functions correctly: 
+   * bang-bang `!!`  with `enquo()` (this is the old method)
+   * curly-curly or embracing `{{ }}` (this replaced the former method!)
+
+Check out Chapter 25 of our book for details <https://r4ds.hadley.nz/functions.html>
+
+---
+
+## Functions and {{ }}
+
+Example: create a data frame of age and height of 5 individuals:
+```{r echo = TRUE}
+library(dplyr)
+
+df <- tibble(age = c(10, 12, 13, 14, 10), 
+             height = c(110, 140, 155, 170, 130))
+df
+```
+
+---
+
+## Functions and {{ }}
+
+Use `summarize()` from `dplyr` to compute the mean and standard deviation on the column `age` of this data frame:
+
+```{r echo = TRUE}
+
+df %>%
+  summarize(mean_age = mean(age),
+            sd_age = sd(age))
+```
+
+---
+
+## Functions and {{ }}
+
+Rewrite the previous code using a function and the curly-curly operator (embracing): 
+
+```{r echo = TRUE}
+
+custom_summary <- function(data, col) {
+  data %>%
+    summarize(mean_value = mean({{ col }}),
+              sd_value = sd({{ col }}))
+}
+
+custom_summary(df, age)
+```
+
+The `{{ }}` operator tells `dplyr` not to treat "col" as the literal variable name, but instead to look inside it for the variable we actually need (here "age")
+
+---
+
+## Functions and {{ }}
+
+**Embracing a variable means to wrap it in braces so `var` becomes `{{ var }}` when using functions `dplyr` or `ggplot` code.**
+
+It tells `dplyr` to use the value stored inside the argument, not the argument as the literal variable name
+
+From the book: "one way to remember what’s happening is to think of `{{ }}` as looking down a tunnel — `{{ var }}` will make a `dplyr` function look inside of var rather than looking for a variable called var"
+
+---
+
+## Functions and {{ }}
+
+Rewrite it with multiple columns as arguments:
+
+```{r echo = TRUE}
+
+custom_summary <- function(data, col1, col2) {
+  results <- list(
+    summarise(data, 
+              mean_value = mean({{ col1 }}),
+              sd_value = sd({{ col1 }})),
+    summarise(data, 
+              mean_value = mean({{ col2 }}),
+              sd_value = sd({{ col2 }}))
+  )
+  # Combine output into a single data frame
+  bind_rows(results)
+}
+custom_summary(df, age, height)
+```
+
+---
+
+## Functions and {{ }}
+
+**When do you need to embrace when writing a function?**
+
+In all cases of tidy evaluation. Two main subtypes (see Chapter 25 for details): 
+
+* Data Masking: in functions such as `arrange()`, `filter()`, `summarize()` often when you need to pass a variable name; includes also `aes()` from `gglot2`
+
+* Tidy Selection: in functions such as `select()`, `relocate()`, `rename()` that select variables 
+
+<!--
+### Functions and `{{ }}`: additional resources
+
+**Using bang-bang `!!`**
+
+* Chapter ["7 Tidy evaluation"](https://krlmlr.github.io/tidyprog/tidy-evaluation.html): explanation with examples on how and why to use `!!` with `enquo`
+
+* Blog post ["Writing Custom Tidyverse Functions"](https://jonthegeek.com/2018/06/04/writing-custom-tidyverse-functions/): explanation with step-by-step example on how and when to use `!!` with `ensym` and with `enquo`
+
+* Another example [here](http://zevross.com/blog/2018/09/11/writing-efficient-and-streamlined-r-code-with-help-from-the-new-rlang-package/) 
+
+**Using curly-curly `{{ }}`**
+
+* Blog post ["Curly-Curly, the successor of Bang-Bang"](https://www.r-bloggers.com/2019/06/curly-curly-the-successor-of-bang-bang/)
+
+* Another example [here](https://agstats.io/post/writing-r-functions/) (under "Functions and Tidy Evaluation")
+-->
+
+---
+
+## 💻 Practice writing functions 
+
+### Download last class materials from the website. Complete question 7
+
+
+# 2. Debugging {.slide .center .middle}
+
+---
+
+## Bugs
+
+A **bug** is an error or flaw in a computer program that causes it to stop or to behave in unintended ways (e.g., produce an incorrect result).
+
+When we talk about bugs, we refer to **two main types:**
+
+* syntactic bugs (such as typos)
+* bugs resulting from a misunderstanding of R's rules
+
+We all encounter both types of bugs. Fixing the latter requires time and experience, but we can address syntactic bugs faster by improving our coding style!
+
+<!--
+## Debugging
+
+  * Define a computer bug
+  * Practice finding bugs in code
+  * Debugging 
+  * Defensive programming (preventing bugs)
+
+## 💻 Practice finding bugs in code
+
+### Download today's class materials from the website.
+-->
+
+---
+
+### Basic debugging techniques
+
+What debugging tips did you learn from working with R so far?
+
+1. Realize that you have a bug
+
+1. Figure out where it is
+   - read your code out loud
+   - use `print()` statements to check each line
+   - run a piece of code at a time 
+   - take a break!
+
+1. Fix it
+
+Review "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r), for more!
+
+<!--
+
+## The call stack
+
+**Often, the actual cause of a problem is not in the line of code we run.**
+
+For example, consider these two functions: `f` which processes an input `x`, and `g`, which calls function `f`. In our code, we call function `g` and we get an error, but the problem is actually in function `f`:
+
+```{r callstack, error = TRUE}
+
+f <- function(x) x + 1
+g <- function(x) f(x)
+g("a")
+```
+
+We cannot fix function `g`, because the problem does not occur there. We need to fix function `f` which triggers the call sequence! 
+
+--
+
+Use `traceback()`, which is often shown automatically in RStudio, and read it from bottom to top (the line at the top is where the error occurred)
+
+-->
+
+---
+
+## Defensive Programming
+
+**Defensive Programming means preventing bugs from occurring in the first place!** 
+
+This involves:
+
+#### 1. Coding Style
+
+#### 2. Condition handling
+
+---
+
+## 1. Defensive Programming with **Coding Style** 
+
+<!-- do this rather briefly as for the most part no new concepts; so we spend more time on the second tip for defensive programming: condition handling -->
+
+---
+
+### Writing code
+
+Programming |	Language
+------------|----------
+Scripts |	Essays
+Sections | Paragraphs
+Lines Breaks | Sentences
+Parentheses |	Punctuation
+Functions |	Verbs
+Variables |	Nouns
+
+---
+
+### A text with no syntax
+
+Text taken from a speech given by Ronald Reagan in 1987, after the spacial Challenger exploded on take off. Reagan's address: https://youtu.be/Qa7icmqgsow
+ 
+"weve grown used to wonders in this century its hard to dazzle us but for 25 years the united states space program has been doing just that weve grown used to the idea of space and perhaps we forget that weve only just begun were still pioneers they the members of the Challenger crew were pioneers and i want to say something to the school children of America who were watching the live coverage of the shuttles takeoff i know it is hard to understand but sometimes painful things like this happen its all part of the process of exploration and discovery its all part of taking a chance and expanding mans horizons the future doesnt belong to the fainthearted it belongs to the brave the challenger crew was pulling us into the future and well continue to follow them the crew of the space shuttle challenger honored us by the manner in which they lived their lives we will never forget them nor the last time we saw them this morning as they prepared for the journey and waved goodbye and slipped the surly bonds of earth to touch the face of god"
+
+
+---
+
+### A text with syntax
+
+"We've grown used to wonders in this century. It's hard to dazzle us. But for 25 years the United States space program has been doing just that. We've grown used to the idea of space, and perhaps we forget that we've only just begun. We're still pioneers. They, the members of the Challenger crew, were pioneers.
+
+And I want to say something to the school children of America who were watching the live coverage of the shuttle's takeoff. I know it is hard to understand, but sometimes painful things like this happen. It's all part of the process of exploration and discovery. It's all part of taking a chance and expanding man's horizons. The future doesn't belong to the fainthearted; it belongs to the brave. The Challenger crew was pulling us into the future, and we'll continue to follow them....
+
+The crew of the space shuttle Challenger honoured us by the manner in which they lived their lives. We will never forget them, nor the last time we saw them, this morning, as they prepared for the journey and waved goodbye and 'slipped the surly bonds of earth' to 'touch the face of God.'"
+
+---
+
+### Short and clear object names
+
+```r
+# ideal (short and use of snake case)
+day_one_month
+day_one
+
+# not ideal
+the_first_day_of_the_month
+dayone
+DayOneMonth
+dm1
+```
+
+<!--
+
+### Do not overwrite objects
+
+
+```r
+# examples of wrong code
+
+T <- FALSE
+
+x <- seq(from = 1, to = 10)
+mean <- function(x) sum(x)
+mean(x)
+```
+-->
+
+---
+
+### Break your lines and use indentation
+
+```r
+# ideal
+scdb_vote <- scdb_vote %>%
+  mutate(chief = factor(chief,
+                        levels = c("Jay", "Rutledge", "Ellsworth",
+                                   "Marshall", "Taney", "Chase",
+                                   "Waite", "Fuller", "White",
+                                   "Taft", "Hughes", "Stone",
+                                   "Vinson", "Warren", "Burger",
+                                   "Rehnquist", "Roberts")))
+
+# not ideal
+scdb_vote <- mutate(scdb_vote, chief = factor(chief, levels = c("Jay", "Rutledge", "Ellsworth", "Marshall", "Taney", "Chase", "Waite", "Fuller", "White", "Taft", "Hughes", "Stone", "Vinson", "Warren", "Burger", "Rehnquist", "Roberts")))
+```
+
+Review the [tidyverse style guide](https://style.tidyverse.org/) for more tips!
+
+---
+
+### Calling functions that have the same name 
+
+Sometimes functions have the same name in different packages. 
+
+For example the `map()` function is defined both in the `purrr` package (to work with vectors and functions) and `maps` package (to create maps, something completely different!)
+
+If you load both, by default R will use the function from the package most recently loaded which can lead to problems:
+
+```r
+library(purrr)
+library(maps)
+
+map()
+```
+
+---
+
+### Calling functions that have the same name 
+
+You can be intentional about which function to use with the `::` notation! 
+
+```r
+library(purrr)
+library(maps)
+
+purrr::map()    # use map() from the purrr library
+maps::map()     # use map() from the maps library
+```
+
+Or you can avoid loading a given package, and just load the specific function that you need from it:
+
+```r
+library(purrr)
+
+map()           # use map() from the purrr library
+maps::map()     # use map() from the maps library
+```
+
+<!--
+
+### Use functions correctly
+
+See assigned reading ["How to read an R help page"](https://socviz.co/appendix.html#how-to-read-an-r-help-page)
+
+-->
+
+---
+
+### Auto-formatting in R Studio
+
+R Studio helps out with these issues:
+
+* option 1: `Code > Reformat Code` (Shift + Cmd/Ctrl + A)
+* option 2: `Code > Reindent Lines` (Cmd/Ctrl + I)
+* option 3: install the package [`styler`](http://styler.r-lib.org/)
+
+Open an R script, and try it out:
+```r
+ y<-10
+  if (y < 20) {
+x <- "Too low" }   
+else {
+  x <-"Too high"}
+```
+
+<!-- * [This code example](/notes/style-guide/#exercise-style-this-code) -->
+
+---
+
+## 2. Defensive Programming with **Condition Handling** 
+
+<!-- need to teach try except! --> 
+
+---
+
+### Three types of conditions to handle
+
+Coding style is one way to practice defensive programming and prevent bugs. 
+
+The second way is condition handling: **set up our code in a way that it tells us if something is problematic.**
+
+Three types of conditions:
+
+* Errors (break your code)
+* Warnings
+* Messages
+
+---
+
+### Errors: Incorrect code or impossible requests in R
+
+For example, this `addition()` function takes two arguments and adds them together. The `if-else` condition checks if either `x` or `y` is not a number. If that's TRUE, the `stop()` function triggers a error and notifies the user:
+
+```{r echo = TRUE, error = TRUE, warning = FALSE}
+
+addition <- function(x, y) {
+  
+  if (!is_numeric(c(x, y))) {
+    stop("One of your inputs is not a number")
+  } else {
+    return(x + y)
+  }
+}
+
+addition(3, "2")
+```
+
+---
+
+### Errors: Incorrect code or impossible requests in R
+
+A function can test for more than one error; but you need to check each of them separately with `if-else` statements. The function stops at the first error it encounters.
+
+How to decide which errors to check for:
+
+1. More conditional tests make the function more robust against incorrect uses 
+1. Think about who is going to use that function, and how frequently
+1. Provide documentation to reduce the need for extensive testing
+
+*Try-Except Blocks: Use try-except blocks to manage exceptions*
+
+---
+
+### Warnings: Code runs but may have potential issues
+
+For example, this code defines a function that takes as input `x` a probability value (between 0 and 1) and converts it to a natural logarithm value.
+
+R will execute this code, but when the function is called with values outside the probability range, it gives a warning that says the result produces a “NaN” value ("Not a Number", impossible to calculate):
+
+```{r  echo = TRUE, error = TRUE}
+
+logit <- function(x) {
+  return(log(x / (1 - x)))
+}
+
+logit(-1)
+```
+
+---
+
+### Warnings: Code runs but may have potential issues
+
+To fix this warning, we can... 
+
+Option 1: add a condition that signals and triggers an error instead than a warning. For example, if `x` is not between 0 and 1, then stop the code:
+
+```{r  echo = TRUE, error = TRUE}
+
+logit <- function(x) {
+  if (x < 0 | x > 1) {
+    stop('x not between 0 and 1')
+  } else {
+    return(log(x / (1 - x)))
+    }
+}
+
+logit(-1)
+```
+
+<!--
+
+## Warnings
+
+Same code of the previous slide, written more compactly:
+
+```{r logit_error-compact, error = TRUE}
+
+logit <- function(x) {
+  if (x < 0 | x > 1) stop('x not between 0 and 1')
+  log(x / (1 - x))
+}
+
+logit(-1)
+```
+
+Notice here we can write `if` and the condition one the same line without the `{}` and still preserve code legibility of this single `if` statement; we can also remove `return`
+
+-->
+
+---
+
+### Warnings: Code runs but may have potential issues
+
+Option 2: 
+To avoid stopping the code, we can also fix a warning without triggering an error. For example, we can check if `x` is outside the given range; if so, replace it with a missing value and trigger a warning if `x` is a missing value.
+
+```{r  echo = TRUE, error = TRUE}
+
+logit <- function(x) {
+  x <- if_else(x < 0 | x > 1,
+               NA_real_,
+               x)
+  if (is.na(x)) {
+    warning('x not between 0 and 1') 
+    return(log(x / (1 - x)))
+    }
+}
+
+logit(-1)
+```
+
+---
+
+### Messages: Informative notices
+
+Messages do not indicate that something is wrong, but provide useful info to the user.
+
+For example, here we are plotting with `geom_smooth()` which automatically decides which smoothing algorithm to use (default is `gam` based on sample size):
+
+```{r echo = TRUE, out.width = "35%"}
+
+library(tidyverse)
+
+ggplot(diamonds, aes(carat, price)) +
+  geom_point() + 
+  geom_smooth()
+```
+
+---
+
+### Messages: Informative notices
+
+To write a message in your code, do not use the `print()` function, but the `message()` function"
+
+```{r, echo = TRUE}
+
+demo_message <- function() message("This is a message")
+demo_message()
+```
+
+You can also suppress a message with `suppressMessages()` but this won't work if you create a message using `print()`:
+```{r}
+suppressMessages(demo_message())  # no output
+```
+
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+

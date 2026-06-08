@@ -1,0 +1,163 @@
+---
+title: "HW01: Test software setup and practice editing files"
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Overview
+
+**Due: Tuesday, October 7 by 11:59 PM (Chicago Time)**
+
+This first homework assignment has two main goals: to verify your computer setup and to practice basic R syntax, Markdown, and R Markdown.
+
+
+# Accessing and Cloning Your `hw01` Repository
+
+::: {.callout-important}
+This will work only if you have submitted your GitHub username (see Lecture 1) and accepted the email invitation to join our GitHub organization (check the email linked to your GitHub account). Make sure you’ve completed the setup under [Software Setup](../setup/index.qmd) and confirmed everything is working properly.
+:::
+
+**Accessing the repo:** 
+
+1. Go at [this link](https://classroom.github.com/a/FkiRz52I) to accept the invitation and create your private `hw01` repository on GitHub. Your repository will be named `hw01-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
+
+2. Once the repository has been created, click the link provided to access it.
+
+
+**Cloning the repo into your Workbench:**
+
+1. Log into *Workbench* and start a new project:  
+   *File > New Project > Version Control > Git*
+
+2. In the *Repository URL* field:
+   - Paste the URL of your GitHub repository. To find the URL, go to your `hw01` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
+   - The project name should auto-fill. If not, type `hw01-<USERNAME>` manually.
+
+3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
+
+4. Check the box *"Open in new session"* (recommended for keeping projects separate and organized)
+
+5. Click *Create Project*. This will:
+   - Create a new folder on your machine  
+   - Initialize a Git repository linked to GitHub  
+   - Open an RStudio Project in a new session
+
+You’ll use this same process to access and set up each homework assignment throughout the course.
+
+
+# General Homework Workflow
+
+Your workflow for *all* homework assignments will follow these steps:
+
+1. *Accept the GitHub repo invitation and clone the repo* (see above)
+2. *Edit the files included in the repo*
+3. *Save your changes locally* in RStudio Workbench
+4. *Pull – Stage – Commit – Push*:
+   - *Pull* from GitHub: this should not change anything if you're the only one working on the repo, but it's a good habit to always pull first
+   - *Stage* and *commit* your changes to your local Git repository
+   - *Push* your committed changes to your GitHub repository online
+
+For this course, I assume you’ll be using the Git interface built into RStudio. If you haven’t yet, complete the [Using Git within RStudio tutorial](../setup/setup-test.qmd) to get comfortable with the process.
+
+::: {.callout-tip}
+- *Commit and push your work often*—multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.  
+- *Never edit files directly on GitHub*. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.
+:::
+
+
+# File Types Used for Homework Assigments
+
+All assignments in this course will be completed and submitted using *Markdown* and *R Markdown* files:
+
+- [*Markdown*](https://daringfireball.net/projects/markdown/) (`.md`) is a lightweight formatting language used to structure text.  
+  - GitHub README files are typically written in Markdown (`.md`) or plain text (`.txt`).
+  - In this course, we use Markdown files only for writing README files because GitHub renders them directly in the browser.
+  - You can reference R code in Markdown, but you cannot run and execute it.
+
+- [*R Markdown*](https://rmarkdown.rstudio.com/) (`.Rmd`) is a format that allows you to combine R code, output, and text in one file.  
+  - It’s an extension of Markdown designed for dynamic analysis and reproducible reports specifically for R.
+  - You’ll use R Markdown to complete most homework assignments.
+
+In short, for this course:
+
+- Use **Markdown** (`.md`) only for writing a short summary in the `README.md` file
+- Use **R Markdown** (`.Rmd`) for completing the bulk of your assignment, e.g., analysis and code-based work
+
+
+# Assignment Description 
+
+For this first assignment, you’ll edit and push the following two files to your GitHub repo: `README.md` and `code.rmd`
+
+### Edit the `README.md` file
+
+You will see a file named `README.md` in your repository. 
+
+A README is usually a plain text (`.txt`) or Markdown (`.md`) file that provides important information about a project—such as a summary, installation steps, or example output. In this course, you'll use it to document your work and reflect on your process.
+
+Your Task: edit the `README.md` file by replacing the placeholder text with a short biography of yourself. To achieve a "pass", your biography must include the following elements:
+
+- At least one header
+- Some emphasis (italic or bold text)
+- At least one list
+- An image (e.g., a photo of yourself or something meaningful to you)  
+  - Upload the image into your repo by importing it in Workbench  
+  - Embed it in the Markdown file using the correct syntax
+- At least one link (e.g., to a website or profile)
+
+At the end of your README, add a short reflection that includes:
+
+- A brief summary of your Git/GitHub workflow for this homework  
+  *(Bullet points or a short narrative are both fine.)*
+- Your evaluation of the homework experience  
+  *(E.g., something new you learned, what went well, what confused you, etc.)*
+- A list of resources you consulted and an AI narrative if you used AI to debug (see Syllabus for details)  
+  *Include links, tools, names of any collaborators, and AI statement*
+
+
+### Edit the `code.rmd` file
+
+You will see a file named `code.rmd` in your repository.
+
+Your task: edit the `code.rmd` file by making the following changes (all must be included for a "pass"):
+
+- Add *at least two new YAML header options*:  
+  - Do not delete or modify the existing ones
+  - Example additions: `author:`, `subtitle:`, `toc: true`, etc  
+  - Feel free to experiment, see readings and slides from Lecture 1 for ideas
+
+- Add *at least two R code chunks* with a short explanation in plain text (not as code comment):  
+  - Your code can be simple (think at the examples from lecture 1), but it must run and produce the correct output 
+  - Your final knitted ~~`.html`~~ `.md` file should show both code and output (we want the `md` as Github cannot read `html`, but if you submit both that's fine)
+  - If your code generates plots (not required, but possible), make sure the output images are also pushed to GitHub
+
+
+# Submit the Assignment
+
+To submit your assignment on Canvas, follow these steps:
+
+1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.
+
+   Your GitHub repository should include:
+   - The updated `README.md`
+   - The edited `code.rmd`
+   - A knitted output file generated from `code.rmd` (this must be a `.md` document, not anything else)
+
+2. When you're ready to submit:
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw01-yourusername`
+   - Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.
+
+
+# Assessment
+
+This assignment is evaluated on a *Pass/Fail* basis. To earn a *Pass:* 
+
+Your `README.md` should include a clear introduction that meets all specified requirements. It should demonstrate your ability to use Markdown syntax, such as headers, emphasis, lists, links, and images. You should also include a short description of how you edited and committed your changes, along with reflections on your experience using Git/GitHub, Markdown, and R Markdown.
+
+Your `code.rmd` file must knit successfully. It should contain at least two new YAML header fields and two R code chunks, each introduced with a brief explanation written as plain text (not as code comments). 
+
+All required files must be pushed to your GitHub repository.
+
+For more details, see the *Assessment* section of the Syllabus.

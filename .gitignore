@@ -1,0 +1,5 @@
+/.quarto/
+.Rproj.user
+code/
+/lectures/*libs
+/lectures/drafts

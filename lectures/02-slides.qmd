@@ -1,0 +1,506 @@
+---
+title: "Computing for the Social Sciences: Lecture 2"
+subtitle: "Topics: Git & GitHub with RStudio"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Motivation: Automation & Reproducibility  
+2. Introduction to Git & GitHub  
+3. Deeper Dive into Git & GitHub  
+:::
+
+<!--
+
+FALL 25 LECTURE 2 OUTLINE 
+
+LOGISTICS
+- Ed Discussion + Office hours updates
+- Ask for Questions
+- GitHub username reminder (check + add)
+- Workbench access ask
+
+1. MOTIVATION
+1:35 - 1:40 Slides intro
+
+2. INTRO GIT AND GITHUB
+1:40 - 1:50 Slides
+1:50 - 2:00 Tutorial Step 1 configure software (together)
+2:00 - 2:20 Tutorial Step 2 (in team of two)
+2:20 - 2:30 Wrap up and more questions 
+
+BREAK
+
+3. DEEP DIVE GIT AND GITHUB
+2:40 - 3:00 Slides + demo Git Conflict
+
+4. HW1 
+3:00 - 3:10 Accept together and overview
+
+-->
+
+
+# 1. Motivation {.slide .center .middle}
+
+---
+
+::: {.columns}
+
+::: {.column width="47%"}
+### Use point-and-click software for data analysis, and save multiple copies of your work by hand to track changes?
+:::
+
+::: {.column width="6%"}
+
+:::
+
+::: {.column width="47%"}
+### Use programming for data analysis, and use version control to automatically keep track of changes in your work?
+:::
+
+:::
+
+
+<!-- IN CLASS
+Unpack this question and define terms, then reason it out loud with
+-->
+
+---
+
+## Two Different Approaches
+
+**TASK:** Write a report on the relationship between income and crime rates in Chicago.
+
+**APPROACH:** Jane and Sally approach this task differently...
+
+<div class="fragment">
+
+::: columns
+::: {.column width="50%"}
+
+### Jane: GUI Workflow
+
+1. Searches for data files online  
+1. Cleans the data using Excel  
+1. Analyzes the data in Excel (or similar)  
+1. Writes her report in Google Docs
+1. Saves different versions of her work manually
+
+:::
+
+::: {.column width="50%"}
+
+### Sally: Programmatic Workflow
+
+1. Searches for data files online  
+1. Cleans the data using R  
+1. Analyzes the data in R  
+1. Writes her report in R Markdown
+1. Tracks changes automatically using Git
+:::
+:::
+
+</div>
+
+```{r, echo = FALSE, out.height = "70%", out.width = "70%", fig.width = 5}
+#include_graphics(path = "https://i.imgflip.com/1szkun.jpg")
+```
+
+---
+
+## Two Main Advantages of a Programmatic Workflow
+
+### 1. Automation
+
+- Uses programs (e.g., R) to perform tasks systematically  
+- In the long run, reduces manual effort and human errors  
+- Enables fast and consistent repetition of analyses
+
+::: {.fragment}
+
+### 2. Reproducibility
+
+- Scientific research should share both data and code used for analysis  
+- Allows verification and reuse by others  
+- Enables exact replication of results, even years later
+
+:::
+
+
+# 2. Introduction to Git & GitHub {.slide .center .middle}
+
+---
+
+## Often used together, but they are different tools
+
+::: {.columns}
+
+:::: {.column width="50%"}
+
+[![](https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png){width=80px}](https://git-scm.com)  
+
+### Git
+- Version control software  
+- Runs **locally** on your computer
+- Note locally = your Workbench for this course 
+
+::::
+
+:::: {.column width="50%"}
+
+[![](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png){width=80px}](https://github.com)  
+
+### GitHub
+- Cloud-based platform  
+- Runs **online** at https://github.com
+
+::::
+
+:::
+
+
+---
+
+## What is Version Control (e.g., Git)?
+
+### Version Control 
+
+Version Control is a system that records every change you make to your files in a folder and lets you restore previous versions of your files in that folder.  
+
+The folder lives on your computer (e.g., Workbench for this course) and becomes your local repository or local repo.
+
+<br>
+
+### Git
+
+Git is a specific software for version control: Git will record and save changes you make to the files in that folder.  
+
+Every change is saved by Git with a time stamp, author info, and a message (that you type in); you can restore them, if needed.  
+
+</br>
+
+---
+
+## Why using Version Control (e.g., Git)?
+
+Without Version Control you have to track changes *manually*, and rename the file every time, which can be messy and hard to manage, like:
+
+- `analysis-1.R`
+- `analysis-2.R`
+- `analysis-final.R`
+- `analysis-final-FINAL.R`
+
+---
+
+## How Version Control (e.g., Git) + GitHub Work Togheter
+
+You could only use Git and keep everything to your local computer. Often though, like in this class, people use Git + GitHub (e.g., you can link your local Git repository to an online GitHub repository). 
+
+With Git + GitHub you can:
+
+- Push your local changes to GitHub (think at this as having an online back up of your local files)
+- Share your work with others
+
+```{r echo = FALSE, out.width = "35%"}
+#include_graphics(path = "https://res.cloudinary.com/practicaldev/image/fetch/s--7MQClrRp--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7ce4oq75sia6ni6q46s3.png")
+```
+
+</br>
+
+---
+
+## Git & GitHub Comparison
+
+| Feature         | **Git**                          | **GitHub**                             |
+|----------------|-----------------------------------|----------------------------------------|
+| What it is     | Version control software          | Cloud platform for Git repos           |
+| Where it runs  | Locally (your computer)           | Online (web-based)                     |
+| What it does   | Tracks changes in your local repo | Stores & shares remote copies          |
+| Collaboration  | Not built-in                      | Pull, issues, code reviews              |
+| Use in RStudio | Git Tab     | Connect via setup or terminal          |
+| Repo      | **Local repo** = your folder      | **Remote repo** = copy on GitHub       |
+
+<br>
+
+Note: In this course, we use **Git + GitHub via RStudio** only, but other tools (vs. RStudio) exists like GitHub Desktop, terminal, etc.
+
+</br>
+
+---
+
+## Let’s put this into practice!
+
+We’ll practice in two steps:
+
+**Step 1: Configure your Setup:** Set up Git, GitHub, and RStudio so everything works well together
+
+**Step 2: Use Git and GitHub in RStudio Tutorial:** Complete tutorial to practice using version control in RStudio
+
+---
+
+## 💻 Step 1: Configure your Setup
+
+#### Complete <https://brinasab.github.io/css-website/setup/setup-workbench.html>
+
+---
+
+## 💻 Step 2: Use Git and GitHub in RStudio Tutorial
+
+#### Once Step 1 is done, complete  <https://brinasab.github.io/css-website/setup/setup-test.html>
+
+<br>
+
+#### Instructions:
+
+- Work in pairs: one person (the most experienced with programming) read the instructions and guide the other, who executes the commands. Switch roles at the end so both persons have completed the set up.
+
+- Keep track of your questions as you go and raise your hand if you need help! 
+</br>
+
+---
+
+## Recap: Beginner-Friendly Git & GitHub Workflow
+
+1. **Make & Save Changes Locally**  
+   Edit your files locally (e.g., Workbench) and save them.
+   <!--
+   <span class="fragment">Edit your files locally (e.g., in RStudio or Workbench) and save them.</span>
+   -->
+
+2. **Pull from GitHub**  
+   Refresh your local copy to get the latest changes (nothing should happen when you work alone, but this helps avoid conflicts).
+
+3. **Stage Changes**  
+   Select which files you want Git to track in the next snapshot.
+
+4. **Commit with a Message**  
+   Save a snapshot of your staged changes in your local Git repo. Add a short message.
+
+5. **Push to GitHub**  
+   Upload your committed changes to the online repository.
+
+::: {.callout-important}
+You will complete this workflow for all homework assignments!
+:::
+
+<!-- IN CLASS
+Most of the time you'll use this or similar sequences:  
+**`add` → `commit` → `push` → `pull`**
+But there is more to Git and GitHub. You'll leave this course ready to use the basics of Git confidently, and learn more when needed!
+-->
+
+---
+
+## Git Reminders
+
+- **Stage and commit often**  
+  Think of commits as snapshots of your work. Save, stage, and commit regularly during your workflow.
+
+- **Write clear, useful commit messages**  
+  Keep messages concise but descriptive. They should explain what changed and why.  Many tips online for "commit message best practices."
+
+- **Push regularly, but not necessarily every time you commit** 
+  Some people push every time they commit, while others push multiple commits at once. Experiment and find what works best for you.
+
+- **Work locally, and push on GitHub**  
+  Do not do the other way around (e.g., do not modify your GitHub repository directly; work on your local copy, and push changes to GitHub).
+
+
+# 3. Deeper Dive into Git & GitHub  {.slide .center .middle}
+
+<br>
+
+Come back here once you are familiar with the basic workflow! These slides might be handy if you run into problems in assignments and beyond.
+
+</br>
+
+---
+
+## What to Commit / Not to Commit
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+### ✅ What to Commit
+
+- Code files
+- Markdown or Quarto files
+- Small data files
+- README and documentation
+
+:::
+
+::: {.column width="50%"}
+
+### 🚫 What Not to Commit
+
+- Temporary files (e.g., `.Rproj.user/`)
+- Log or output files
+- Files with private information
+- Files larger than 100 MB
+
+:::
+
+:::
+
+<br>
+
+<div class="fragment">
+
+### What Not to Commit goes in the "gitignore" file
+
+- The "gitignore" file tells Git what to ignore from your folder
+- Use a [template](https://github.com/github/gitignore) (search for R-specific template, which works well for most class projects)
+
+</div>
+</br>
+
+---
+
+## Git Large File Storage (Git LFS)
+
+What if you need to track a file larger than 100 MB? GitHub **does not allow** pushing files over 100 MB. If you have such a file, **don’t try to push it directly.**
+
+Instead:
+
+- Use [Git Large File Storage (Git LFS)](https://git-lfs.github.com/)
+- A separate tool that integrates with Git
+- Designed specifically for large files (e.g., datasets, media)
+- Note: Git LFS storage on GitHub often comes with usage limits and may require a paid plan
+
+---
+
+## Git Conflicts
+
+**A Git conflict may happen when Git finds two competing versions of the same file:** one in your local repo (Git, on your computer) VS. one in the remote repo (GitHub, online).
+
+The local and remote repos are expected to match. If they don't, Git tries to merge them automatically, with two possibile outcomes:
+
+✅ If the changes are in different parts of the file, Git **merges automatically** and no action is needed.
+
+❌ If the same part of the file was changed in both versions, Git **cannot decide** what to keep. You must **manually review and resolve** the conflict.
+
+---
+
+## When Do Git Conflicts Happen?
+
+**Collaborative Work**  
+- You and a teammate edit the same file (or even the same line)  
+- You push changes without pulling the latest version from GitHub first 
+- Conflict: Git can’t tell which version to keep  
+- Tip: Always run `git pull` before `git push`
+
+<br>
+
+**Working Solo**  
+- You make changes locally and also edit the same file directly on GitHub  
+- Conflict: Git can’t tell which version to keep  
+- Tip: Always work in your local repository first, then push to GitHub
+
+---
+
+## What a Git Conflict Looks Like
+
+When a conflict happens, Git marks the file with special lines to show the two versions:
+
+```diff
+<<<<<<< HEAD
+This is your version (from your local repo)
+=======
+This is the other version (from GitHub or your teammate)
+>>>>>>> main
+```
+
+Unfortunately, you cannot solve a Git Conflict using the integrated Git from RStudio. To solve it, you need to use Git from the terminal.
+
+---
+
+## How to solve a Git Conflict
+
+1. Go to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing `git pull origin main` and by following the message that shows up on Git (which will tell you what to type)
+   
+2. Open the file or files and look for the conflict markers such as `<<<<<<<`, `=======`, `>>>>>>>`
+
+3. Decide which version to keep or manually combine them
+
+4. Delete the conflict markers
+
+5. Save the file
+
+6. Run the following commands from your terminal:  
+  `git add <filename>`  
+  `git commit -m "solved conflict"`  
+  `git push origin main`  
+
+---
+
+## Avoiding (Most) Git Conflicts
+
+### Rather than *solving* conflicts, we want to *avoid* them with good practices:
+
++ **Make changes locally**, then stage and commit 
++ **Push regularly** to keep your GitHub repo in sync  
++ **Always pull before you push** to avoid conflicts
+
+### Key Sequence to Use: 
+
+`git pull` → make changes → `git add` → `git commit` → `git push`
+
+<!--
+Want to practice? Complete the ["Using Git with RStudio"](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) tutorial on our course website for hands-on experience with the Git GUI in RStudio.
+-->
+
+---
+
+## Burn it All Down
+
+<div style="text-align: center;">
+  <img src="https://imgs.xkcd.com/comics/git.png" />
+</div>
+
+
+---
+
+## Recap: What We Learned Today
+
+- Familiarized with Git & GitHub
+- How to use Git & GitHub within RStudio
+
+---
+
+## 💻 Accept Homework 1 
+
+Accept Homework 1 from the course site and follow the instructions.
+
+Note: this will only work if we have your GitHub username and you accepted the invite to our GitHub organization (which was sent to the email linked to your GitHub account)!
+
+---
+
+## Reminders
+
+- Assignment 1 is now open and due next week. Check the Course Schedule on our website for the due date.
+- If you haven't completed these yet, please do so ASAP, as you won't be able to access and complete Assignment 1 otherwise:
+  - Register a GitHub account and submit your username (see Lecture 1)
+  - Setup your computer (see Lecture 2)
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf

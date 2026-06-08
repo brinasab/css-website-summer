@@ -1,0 +1,660 @@
+---
+title: "Computing for the Social Sciences: Lecture 10"
+subtitle: "Topics: Base R, Data Structures, Data Types"
+author: "Sabrina Nardin, Fall 2025"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Base R & the Tidyverse
+2. R Data Types and Data Structures
+3. A Closer Look at Vectors
+4. Subset Data Structures with Base R
+:::
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **October 29, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+
+<!-- NOTE TO IMPROVE THESE SLIDES FOR CSS:
+Add all data structures and data types
+More functions to explore them and key commands for each data str
+See https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures.html
+and https://libraryguides.mcgill.ca/c.php?g=699776&p=4968544
+-->
+
+# 1. Base R & the Tidyverse {.slide .center .middle}
+
+---
+
+## So far we learned several Tidyverse packages
+
+Tidyverse <https://tidyverse.org/>:
+
+- `ggplot2`
+- `dplyr`
+- `forcats`
+- `tidyr`
+- `readr`
+- `stringr`
+- `lubridate`
+
+The Tidyverse is often the most intuitive place to start before diving into Base R.
+
+You’ll keep using the Tidyverse long after this course, but Base R gives you a deeper understanding of how R works underneath.
+
+---
+
+## Today we start a new module on Base R
+
+Today we begin a **5-lecture module on [Base R](https://brinasab.github.io/css-website/lectures/)** What you will learn in these lectures:
+
+- Differences and similarities between Base R and Tidyverse
+- R data types and data structures
+- Vector recycling 
+- Control flow: conditionals (e.g., if-else structures) 
+- Control flow: loops
+- Functions
+
+---
+
+## What is Base R?
+
+When people say **Base R**, they are referring to the core or basic features of the R language (hence the name), developed **before the tidyverse**.
+
+These include:
+
+- **Data Types**: numeric, integer, character, logical, factor  
+- **Data Structures**: vectors, matrices, lists, data frames  
+- **Basic Operations**: indexing/subsetting, arithmetic/logical comparisons
+- **Programming Tools**: if-else statements, loops, functions  
+
+<!-- 
+ON DATA STRUCTURES AND DATA TYPES
+In many cases, the choice of data structure in R determines the data type(s) that can be stored within it. 
+Vectors and matrices typically hold elements of a single data type (e.g., numeric, character).
+Lists can hold elements of different data types within each list element. 
+
+TODAY
+we do the first three points today
+we come back to functions next week 
+-->
+
+---
+
+## Base R vs. the Tidyverse
+
+:::{.columns}
+
+::: {.column width="47%"}
+### Base R
+- Developed in the *early 1990s* as part of R's core language  
+- Includes built-in functions like `mean()`, `length()`, etc. 
+and key programming tools like loops, etc.
+- Offers more direct control, but code can be longer or harder to read    
+:::
+
+::: {.column width="6%"}
+&nbsp;  <!-- This is an empty spacer column -->
+:::
+
+::: {.column width="47%"}
+### Tidyverse
+- Formally introduced *after 2016* as a set of user-friendly packages 
+- Includes packages like `ggplot2`, `dplyr`, `forcats`, `tidyr`, `stringr`, `readr`, `lubridate` etc. 
+- Prioritizes readability and consistency, making code cleaner and easier to read
+:::
+
+:::
+
+<!--  Both use **CRAN** to share packages -->
+
+---
+
+## How Base R and the Tidyverse Work Together
+
+- The **tidyverse is built on base R** — it doesn’t replace it  
+- You can **combine base R and tidyverse** functions in your code  
+- Why we learn both? You'll often see **both styles** in real-world scripts and examples  
+
+<br>
+
+::: {.callout-tip}
+Goal: use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!
+:::
+
+</br>
+
+
+---
+
+## Example Code in Base R
+
+```r
+# create two dataframes
+
+twitter <- data.frame(
+  user     = c("alice","bob","carlos","diana","emily","lucia","gina", "rick"),
+  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),
+  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),
+  language = c("en","es","en","en","fr","en","en", "en"),
+  state    = c("CA","TX","TX","NY","IL","CA","IL", "AZ"),
+  stringsAsFactors = FALSE)
+
+state_lookup <- data.frame(
+  state  = c("CA","TX","NY","IL","AZ"),
+  region = c("West","South","Northeast","Midwest","West"),
+  vote = c("Dem", "Rep", "Dem", "Dem", "Rep"),
+  stringsAsFactors = FALSE)
+```
+
+---
+
+## Example Code in Base R
+
+```r
+# create new variables in twitter df
+twitter$tot_likes_retweets <- twitter$likes + twitter$retweets
+twitter$high_engagement    <- twitter$tot_likes_retweets >= 80
+
+# create a new df with only rows that match conditions
+tw <- twitter[twitter$language == "en" & twitter$high_engagement == TRUE, ]
+
+# bring in second df
+tw_full <- merge(tw, state_lookup, by = "state", all = FALSE)
+
+# compute sum of one variable
+sum_inter <- sum(tw_full$tot_likes_retweets)
+
+# compute sum of one variable by another
+sum_inter_by_vote <- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)
+```
+
+---
+
+## Rewriting the Same Code with the Tidyverse
+
+```r
+library(tidyverse)
+
+# create two dataframes
+
+twitter <- tibble(
+  user     = c("alice","bob","carlos","diana","emily","lucia","gina","rick"),
+  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),
+  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),
+  language = c("en","es","en","en","fr","en","en","en"),
+  state    = c("CA","TX","TX","NY","IL","CA","IL","AZ"))
+
+state_lookup <- tibble(
+  state  = c("CA","TX","NY","IL","AZ"),
+  region = c("West","South","Northeast","Midwest","West"),
+  vote   = c("Dem","Rep","Dem","Dem","Rep"))
+```
+
+---
+
+## Rewriting the Same Code with the Tidyverse
+
+```r
+tw_full <- twitter |>
+  mutate(
+    tot_likes_retweets = likes + retweets,
+    high_engagement = tot_likes_retweets >= 80) |>
+  filter(language == "en" & high_engagement == TRUE) |>
+  inner_join(state_lookup, by = "state")
+
+sum_inter <- tw_full |>
+  summarise(sum_inter = sum(tot_likes_retweets))
+
+sum_inter_by_vote <- tw_full |>
+  group_by(vote) |>
+  summarise(sum_inter_by_vote = sum(tot_likes_retweets))
+```
+
+
+# 2. R Data Types and Data Structures {.slide .center .middle}
+
+<!-- We start with an overview of data types and data structures. After that we dive deeper into data structures, especially vectors and lists -->
+
+---
+
+## R Data Types and Data Structures
+
+Data Types and Data Structures are the fundamentals of R: the "ABC" of how R stores and organizes data. They are part of Base R syntax.
+
+- **Data Type** — what kind of value it is  
+- **Data Structure** — how values are stored and organized  
+
+Now we look at each and at how they relate.
+
+---
+
+## R Data Types
+
+### Data Type: describes the kind of value you're working with.
+
+<br>
+
+> R has the following *main* data types (for more see [here](https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures.html)):
+>
+> - **Numeric** – numbers, either with or without decimals  
+>   - **Double** with decimals (default): `3.14`, `2.0`  
+>   - **Integer** whole numbers: `2L`, `100L`
+>
+> - **Character** – text or strings (always in quotes): `"hello"`  
+>
+> - **Logical** – TRUE or FALSE values: `TRUE`, `FALSE`  
+>
+> - **Factor** – categorical values with levels: `"low"`, `"medium"`
+
+</br>
+
+---
+
+## R Data Structures
+
+### Data Structure: like a container that holds one or more values.  
+
+<br>
+
+> R has the following *main* data structures (for more see [here](https://swcarpentry.github.io/r-novice-inflammation/13-supp-data-structures.html)):
+>
+> - **Vector** – one-dimensional, all elements same type  
+>   ```v <- c(1, 2, 3)```
+>
+> - **Matrix** – two-dimensional, all elements same type  
+>   ```m <- matrix(1:6, nrow = 2)```
+>
+> - **Dataframe** – two-dimensional, columns can have different types  
+>   ```df <- data.frame(name = c("A", "B"), age = c(25, 30))```
+>
+> - **List** – multi-dimensional, holds elements of any type, even mixed  
+>   ```l <- list(num = 1:3, name = c("Sabrina", "Laura"))```
+
+<!-- Vectors, also called (Atomic) Vectors are the most important data structure in R -->
+
+---
+
+## How Data Types and Data Structures Relate
+
+Every single element in R has a data type. That element is stored inside a larger data structure.
+
+Examples:  
+```r
+x <- c(1, 2, 3)      # a vector (structure) of three elements, all numeric values (type) 
+y <- list("a", 5)    # a list (structure) of two elements, one character value and one numeric value (type)
+```
+
+<!-- In R, every single value (like "apple" or 3.14 or TRUE) has exactly one data type — it might be a character, numeric, logical, etc. This stays true even when that value is part of a larger structure, like a vector, list, or data frame. <br>
+
+To work with data types (numeric, character, logical, etc.) in R, we need to store them inside a data structure (vector, list, etc.)!
+
+ -->
+
+<fragment>
+<br>
+
+::: {.callout-warning title="The data structure you use affects what data types you can store:"}
+Not all data structures support every combination of data types.
+Some allow only one type, while others can store many types together.
+:::
+
+</br>
+</fragment>
+
+
+---
+
+## How Data Types and Data Structures Relate
+
+
+| Structure      | Dimensions | Allow Mixed Types?   | Notes                                                                 |
+|----------------|------------|---------------------------|------------------------------------------------------------------------|
+| **Vector**     | 1D         | No                         | All elements must be the same data type                              |
+| **Matrix**     | 2D         | No                         | All elements must be the same data type                               |
+| **Dataframe**  | 2D         | Yes (by column)            | Each column is a vector; data types can vary by column                |
+| **List**       | Flexible   | Yes                        | Each element can be anything: numbers, text, vectors, even data frames |
+
+
+<!--
+- Vectors and matrices can only hold one type 
+  If you mix types, R will automatically convert (coerce) them  
+  Example: `c(1, "a", TRUE)` becomes `"1"`, `"a"`, `"TRUE"` (all character)
+
+- Lists and Df can hold multiple types  
+  Each list element or data frame column can be different  
+  Example: `list(1, "a", TRUE)` keeps all types as-is
+
+::: {.callout-tip}
+Use **vectors** and **matrices** when your data is uniform. Use **data frames** or **lists** when you need to store different types.
+:::
+-->
+
+---
+
+## 💻 Practice
+
+Run the code below to create different R objects. Then check their structure using `class()` and `str()` on each object.
+
+
+```r
+# create multiple vectors
+num_v <- c(1:9)
+char_v <- c("hello", "ciao", "hey")
+f_v <- factor(c("low", "medium", "high"))
+test <- c("hello", 1, 2)
+
+# create two matrices
+num_m <- matrix(1:15, nrow = 3, ncol = 5, byrow = TRUE)
+char_m <- matrix(c("a", "b", "c", "d"), nrow = 2, byrow = TRUE)
+
+# create one dataframe
+df <- data.frame(
+  id = 1:3,
+  name = c("Dave", "Ashley", "Rik"),
+  age = c(15, 17, 20)) 
+
+# create one list
+l <- list(
+  num_v = c(1:3),
+  m = matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE),
+  another_num_v = c(1,2,4),
+  char_v = c("Sabrina", "Zach"),
+  d = tibble(var_1 = c(1:4),
+              var_2 = c(2:5)))
+
+```
+<!-- explore code
+call it to see how it looks like 
+run class() for each to see the datadype
+create df also with tibble
+etc.
+-->
+
+---
+
+## Why This Matters: Understanding When to Use Each Data Structure
+
+###  Data Frames first!
+
+So far, we’ve been working mostly with data frames — technically with tibbles, the tidyverse version of them. 
+
+Data frames are the best structure for working with real-world tabular data in R, and you’ll keep using them throughout the course and beyond.
+
+Strengths of data frames:
+
+- Can store columns of different data types (e.g., character, numeric, logical)
+- Work easily with `dplyr`, `ggplot2`, and other tidyverse packages
+- Make your data easier to manipulate, filter, summarize, and visualize
+
+
+---
+
+## Why This Matters: Understanding When to Use Each Data Structure
+
+### Beyond Data Frames...
+
+But it’s helpful to understand the full set of R data structures, because each has its own strengths:
+
+- **Vectors**: The most basic structure in R; all elements must be the same type.  
+  *You are analyzing survey responses and want to store all participants' ages in a separate vector for further manipulation.*
+
+- **Matrices**: Two-dimensional, all elements must be the same type.  
+  *You have numeric data that you want to analyze using matrix algebra or linear models.*
+
+- **Lists**: Flexible containers that can hold anything — even other lists.  
+  *You are analyzing data and want to save multiple outputs (model results, plot, etc.) all in the same data structure.*
+
+- **Data Frames**: Two-dimensional, columns can have different types.  
+  *You are analyzing survey responses with dplyr, ggplot, or other tidyverse packages.*
+
+# 3. A Closer Look at Vectors {.slide .center .middle}
+
+---
+
+## Example of filtering rows in a dataframe using logical vectors
+
+```r
+# load libraries and data
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+
+# use dplyr filter() to get penguins where body mass is greater than 4000 grams
+filtered_penguins <- penguins |> filter(body_mass_g > 4000)
+head(filtered_penguins)
+```
+---
+
+## Example of filtering rows in a dataframe using logical vectors
+
+Let’s analyze the previous code to see what’s happening under the hood: R defines a logical vector and applies it to the `penguins` dataframe:
+
+```r
+# use base R to get the column we need: gives a logical vector
+filter_vector <- penguins$body_mass_g > 4000
+
+# check its structure
+is.vector(filter_vector)
+class(filter_vector) 
+
+# use this vector to manually filter the dataframe using base R
+# df[rows, columns]: code below says [rows to keep, all columns]
+filtered_p <- penguins[filter_vector, ] 
+```
+
+<!-- 
+sum(filter_vector, na.rm = T)
+sum(is.na(filter_vector)) 
+filtered_penguins
+
+filtered_p
+filtered_penguins
+
+filtered_p |> drop_na(body_mass_g)
+-->
+
+---
+
+## A particular vector: Scalar
+
+In math a scalar is defined as a single real number but **in R, a scalar is simply a vector of length one**
+
+Let's try this code: 
+
+```r
+# set up a vector x of length 10
+x <- sample(10)
+x
+
+# add 100 to x using the long way
+x + c(100, 100, 100, 100, 100, 100, 100, 100, 100, 100)
+
+# add 100 to x using the "R" way: vector recycling!
+x + 100
+```
+
+---
+
+## Vector Recycling in R
+
+Let's see another example. We define two numeric vectors `x1` and `x2`:
+
+```r
+# x1 is sequence of numbers from 1 to 2
+x1 <- seq(from = 1, to = 2)
+
+# x2 is a sequence of numbers from 1 to 10
+x2 <- seq(from = 1, to = 10)
+
+# what happens if we add them?
+x1 + x2
+```
+
+What happens? The shorter vector `x1` is duplicated five times in order to match the length of the longer vector `x2.` The same behavior happens for other operations like subtraction, multiplication, logical comparison, etc.
+
+::: {.callout-warning}
+If the shorter vector is not a multiple of the longer one, R will print a warning message!
+:::
+
+
+---
+
+## Vector Recycling in R
+
+::: {.callout-note}
+This behavior is called **Vector Recycling** and happens automatically in R: When two vectors of different lengths are used in an operation, R repeats (recycles) the elements of the shorter vector to match the longer vector!
+:::
+
+
+**Why It Matters:** Vector recycling can cause unexpected results. Check if recycling is what you want R to do — if not, adjust the vector lengths manually, like this:
+
+```r
+x1 <- c(1, 2, rep(0, 7))
+
+x1 + x2
+```
+
+
+# 4. Subset Data Structures with Base R {.slide .center .middle}
+
+---
+
+## Subsetting Data Structures in R
+
+There are different ways to access parts of data structures in R.
+
+We’ll cover:
+
+- Vectors
+- Matrices
+- Data Frames
+- Lists
+
+Each structure uses **square brackets `[ ]`**, but how you use them depends on the structure.
+
+---
+
+## Subsetting Vectors
+
+```r
+v <- c(10, 20, 30, 40)
+
+v[2]         # 20 (2nd element)
+v[c(1, 3)]   # 10 and 30
+v[-1]        # all but the first
+v[v > 25]    # elements greater than 25
+```
+
+Vectors are 1D — you just specify positions or logical tests in `[ ]`
+
+---
+
+## Subsetting Matrices
+
+```r
+m <- matrix(1:9, nrow = 3, byrow = TRUE)
+
+m[1, 2]           # value at row 1, column 2
+m[ , 3]           # entire 3rd column
+m[2,  ]           # entire 2nd row
+m[1:2, 2:3]       # top-right submatrix (rows 1–2, cols 2–3)
+m[ , c(1, 3)]     # columns 1 and 3
+```
+
+Matrices are 2D: use `[row, column]`  
+
+---
+
+## Subsetting Lists
+
+```r
+my_list <- list(
+  a = c(20, 30, 40),
+  b = c("hello", "ciao"),
+  c = TRUE)
+
+my_list[1]         # first element of my_list, by position; returns a list
+my_list[[1]]       # content of the first element: 20, 30, 40; returns a vector
+my_list[[1]][1]    # first value of the first element: 20
+
+my_list[2]         # second element of my_list, by position; returns a list
+my_list["b"]       # second element of my_list, by name; returns a list
+my_list$b          # content of the second element, only works by name not by position; returns a vector
+my_list[["c"]]     # returns content of "c": TRUE
+```
+
+Remember: use `[ ]` to extract a sublist from the original list, and `[[ ]]` or `$` to extract actual elements.
+
+What do `my_list[["b"]][1]` and `my_list[[2]][1]` return? And what about `my_list[["b"]][3]` and why?
+
+---
+
+## Subsetting Data Frames
+
+```r
+df <- data.frame(
+  name = c("Alex", "Betty", "Chad", "J"),
+  age = c(20, 21, 22, 23))
+
+df[1, ]            # first row (all columns)
+df[ , 1]           # first column by index
+df[ , "name"]      # first column by label
+df$name            # same as above
+df[["name"]]       # same as above
+
+df[1, 2]           # single value at row 1, column 2
+df[2:3, "name"]    # values in rows 2 and 3 of column name
+
+df[df$age > 20, ]            # filter rows where age > 20
+df[df$name == "J", ]         # filter rows where name is "J"
+df[df$age == max(df$age), ]  # filter rows with highest age
+```
+
+Each column of a data frame is a vector of a specific data type (e.g., numeric, character, etc.) 
+
+As a whole, a data frame behaves similarly to a list: it contains multiple elements of different data types (like a list), but all elements must be the same length (unlike a list).
+
+<!--
+### Subsetting vectors: slicing
+
+To subset a vector we use the index location of its elements:
+
+```{r subset-vec}
+x <- c("one", "two", "three", "four", "five")
+```
+
+```
+# keep the first element
+x[1]
+
+# keep the first through third elements
+x[c(1, 2, 3)]   # long code
+x[1:3]          # shorter code
+x[c(seq(1, 3))] # sequence 
+x[-c(4:5)]      # negative indexing (values that you do not want to keep)
+x[-c(4,5)]      # negative indexing
+x[c(-1,2,3)]   # error! do not mix negative and positive subscripts
+```
+-->
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf

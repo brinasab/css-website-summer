@@ -1,0 +1,98 @@
+---
+title: "Tools for R Programming and Collaboration"
+format: html
+---
+
+This page explains the key tools you’ll use throughout the course — R, RStudio, Git, GitHub, and the shell — and provides an overview of how they work together to support programming, collaboration, and reproducibility.
+
+## R and RStudio
+
+[R](https://www.r-project.org/) is an open-source programming. When people mention R, they might refer to the base R distribution or to its most popular IDE (Integrated Development Environment): RStudio. Most people do not use R in its bare distribution but through a IDE, which makes it easier to interact with R and write code. There are different IDEs that can be used with R, but the most popular is [RStudio](https://www.rstudio.com/products/RStudio/) and in this course we will use it. RStudio is open-source, expandable, and provides many useful tools and enhancements over the base R environment.
+
+## RStudio Workbench
+
+We will use “RStudio Workbench” throughout the course, which is the exact same thing as the regular R/RStudio but instead of being on your machine, it is online! 
+In practice, rather than installing your own copy of R and RStudio, you can access R and RStudio remotely hosted on a server: the [Social Sciences Computing Services](https://sscs.uchicago.edu/) hosts RStudio Workbench for us. To use it, you will open RStudio in your web browser. All the processing and computation is done on a remote server. This means that all of the software is pre-configured for you and the setup is minimal.
+
+The downside is that you only have access to this server for the duration of the class. If you intend to use R and RStudio in future classes/research projects, you will need to install and configure everything on your own computer after the course is completed.
+
+## Git and GitHub
+
+Git and GitHub are powerful tools for managing and sharing your work and code. They are often used together, but they are not the same thing: [Git](https://git-scm.com/) is a version control system, [GitHub](https://www.github.com) is a cloud-based hosting service that lets you manage your Git repositories. 
+
+Keep reading to learn more about them, and see the book [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture) for further info. 
+
+#### Git is a version control system
+
+Git is a version control system that *tracks changes in a project over time* so that there is always a comprehensive, structured record of that project. Each project is stored in a *repository* which contains all files that are part of the project (e.g., code scripts but also data files, reports, and source code).
+
+Why using Git?
+
+In this course (and in your own work), you will be writing lots of programs. Generally the first draft is not the final draft, be it a research paper or a computer script. We want a way to track our changes over time. Perhaps this is to make sure we have a record of what we've already done that doesn't work, so we can avoid doing it again. Or maybe we want to share our code with collaborators who are working on a project with us. How can we do this?
+
+One potential solution is to email copies of files back and forth as we make changes. But if we do this, we risk having lots of versions of files floating around. How do we know which is the most recent? What happens if someone edits a file and forgets to email it to us? How will we make sure all the changes are merged into the final version?
+
+Or perhaps instead we can do all of our work on a cloud-based storage solution such as [Dropbox](https://www.dropbox.com) or [Google Drive](https://drive.google.com). This ensures changes are synchronized between computers. But they are not specifically designed to share code, and we won't always know who made what changes to a file. And what happens if two people want to work on the same file at the same time? One person will have to wait for the other to finish before they can edit that file. Plus how will we track previous versions of the file? Dropbox and other cloud storage services have some [version control solutions](https://www.dropbox.com/en/help/113), but these are not comprehensive or only store versions for a limited time. Plus every time we save a new version of the program, the entire file has to be retained. On large projects, this will eat up storage space quickly.
+
+We want a solution (Git!) that:
+
+* Keeps old versions of files indefinitely. Since all these versions are stored, we can always go back and see who modified the file and what changes they made. Or if we make a mistake in the future that breaks the program, we can revert back to an older version to fix it.
+* Since we know who modified each file, if we have questions in the future we can go to that person with our questions.
+* When collaborating with multiple people on the same project, and when code is involved, we want any changes made by project members to be integrated to the most recent version. If I try to modify a file and don't incorporate another member's revisions, I need to be told there is a conflict so I can merge all the changes.
+
+
+#### GitHub is a hosting service
+
+GitHub is a cloud-based hosting service that *hosts and lets you manage your Git repositories*. See [GitHub on Wikipedia](https://en.wikipedia.org/wiki/GitHub) for more. 
+
+Although Git and GitHub are often used together, you *do not need GitHub to use Git*:
+* Git can be used locally by you on a single computer to track changes in a project. You do not need to be connected to the internet to use Git, and you do not need GitHub to use Git. But GitHub allows you to save your repositories online and share your work with a larger audience (you can host public or private repositories there) 
+* You could put your Git repositories somewhere else online: GitHub is not the only option to host and mange Git repositories, but its the most popular one. Alternatives include Bitbucket, TaraVault, GitLab, etc. 
+
+Professionally, you should know how to use Git and GitHub to manage projects and share code. This is why we will use Git and GitHub to host our course site, share code, and distribute/collect assignments.
+
+
+## Shell
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The `shell` (or `bash` or `terminal`) is a program on your computer whose job is to run other programs, rather than do calculations itself. The `shell` is a very old program and in a time before the mouse it was the only way to interact with a computer. It is still extremely popular among programmers because it is fast and powerful at automating repetitive tasks.
+
+Here we use the `shell` for a more modest goal: to navigate the file system, confirm the present working directory, and cement the `git` to `GitHub` connection.
+
+#### Starting the shell
+
+In RStudio, go to *Tools > Shell*. This should take you to the shell (on Mac: Terminal, on Windows: GitBash or equivalent). It should be a simple blinking cursor, waiting for input (white text on black background, or black text on white background)
+
+
+#### Using the shell
+
+The most basic commands are listed below:
+
+* [`pwd`](https://en.wikipedia.org/wiki/Pwd) (**p**rint **w**orking **d**irectory). Shows the folder (or directory) you are currently operating in. This is not necessarily the same as the `R` working directory you get from `getwd()`.
+* [`ls`](https://en.wikipedia.org/wiki/Ls) (**l**i**s**t all files). Shows all files in the current working directory. This is equivalent to looking at the files in your Finder/Explorer/File Manager. Use `ls -a` to also list hidden files, such as `.Rhistory` and `.git`.
+* [`cd`](https://en.wikipedia.org/wiki/Cd_(command)) (**c**hange **d**irectory). Allows you to navigate through your folders by changing the shell's working directory. You can navigate like so:
+    * go to subfolder `foo` of current working directory: `cd foo`
+    * go to parent folder of current working directory: `cd ..`
+    * go to home folder: [`cd ~`](http://tilde.club/~ford/tildepoint.jpg) or simply `cd`
+    * go to folder using absolute path, works regardless of your current working directory: `cd /home/my_username/Desktop`. Windows uses a slightly different syntax with the slashes between the folder names reversed, `\`, e.g. `cd C:\Users\MY_USERNAME\Desktop`.
+      * Tip 1: Dragging and dropping a file or folder into the terminal window will paste the absolute path into the window.
+      * Tip 2: Use the `tab` key to autocomplete unambiguous folder and file names. Hit `tab` twice to see all ambiguous options.
+* Use arrow-up and arrow-down to repeat previous commands. Or search for previous commands with `CTRL`+`r`.
+* `git status` is the most used git command and informs you of your current branch,  any changes or untracked files, and whether you are in sync with your remotes.
+* `git remote -v` lists all remotes. Very useful for making sure `git` knows about your remote and that the remote address is correct.
+* `git remote add origin GITHUB_URL` adds the remote `GITHUB_URL` with nickname `origin`.
+* `git remote set-url origin GITHUB_URL` changes the remote url of `origin` to `GITHUB_URL`. This way you can fix typos in the remote url.
+
+### A note for Windows users
+
+On Windows, the program that runs the shell is called *Command Prompt* or `cmd.exe`. 
+
+Unfortunately, the default Windows shell does not support all the commands that other operating systems do. This is where GitBash comes in handy: it installs a light version of a shell that does support all the above commands. When you access the shell through RStudio, RStudio actually tries to open GitBash if it can find it, but it will open the default Windows Command Prompt if GitBash is not found.
+
+If you get an error message such as ``pwd` is not recognized as an internal or external command, operable program or batch file.` from any of the previous commands, that means that RStudio could not find GitBash. The most likely cause of this is that you did not install git using the [recommended method](/setup/git/) so try re-installing git.
+
+If you followed the installation instructions and still cannot run GitBash, you should find it under "Menu > Git > Git Bash". If you're still confused, go back and watch the first three minutes of this [video tutorial on installing Git for Windows](https://www.youtube.com/watch?v=339AEqk9c-8).
+

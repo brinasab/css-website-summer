@@ -1,0 +1,35 @@
+---
+title: "Lecture 9: Exam 1; Strings and Regular Expressions"
+date: 2025-10-27
+summary: "Exam 1; Strings and Regular Expressions"
+url_slides: 09-slides.qmd
+url_code: css-materials/regular-expr
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+
+## Learning Objectives
+
+* Define Strings, Regular Expressions, and their uses
+* Introduce `stringr()`
+* Practice using Regular Expressions in R to extract info from strings
+
+
+## Readings
+
+* [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (especially 14.4 "Extracting data from strings")
+* [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. Focus on the `stringr()` section — that’s all we cover in class, but the full chapter is a good reference if you want to explore more
+* [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
+

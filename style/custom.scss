@@ -1,0 +1,189 @@
+/* -------------------------------------------
+  Hide YAML header info in website (lectures)
+----------------------------------------------*/
+.quarto-title-banner,
+.quarto-title-meta,
+.page-title {
+  display: none !important;
+}
+
+
+/* -------------------------------------------
+   Base Font Size + Code Font Size (Slides)
+-------------------------------------------- */
+.reveal {
+  font-size: 1.4rem;  // Previously 3.6rem, now more reasonable
+}
+
+.reveal code,
+.reveal pre {
+  font-size: 1rem;
+}
+
+
+/* -------------------------------------------
+   General Slides Headers Sizing and Color
+-------------------------------------------- */
+
+.reveal h1:not(.title) {
+  font-size: 2.6rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: darkblue;
+}
+
+.reveal h2 {
+  font-size: 2.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1.2rem;
+  }
+}
+
+.reveal h3 {
+  font-size: 1.8rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.reveal p,
+.reveal li {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+
+/* -------------------------------------------
+   First slide: YAML Sizing and Color
+-------------------------------------------- */
+.reveal h1.title {
+  font-size: 3.6rem;
+  color: darkblue;
+  margin-top: 2.5rem;
+}
+
+.reveal p.subtitle {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+
+/* -------------------------------------------
+   Agenda List Block Styling
+-------------------------------------------- */
+.reveal .agenda-list {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+  list-style-type: decimal;
+}
+
+.reveal .agenda-list li {
+  margin-bottom: 1rem;
+}
+
+
+/* -------------------------------------------
+   Font Size Utilities
+-------------------------------------------- */
+.reveal .tiny {
+  font-size: 70%;
+}
+.reveal .small {
+  font-size: 90%;
+}
+.reveal .midi {
+  font-size: 130%;
+}
+.reveal .large {
+  font-size: 160%;
+}
+.reveal .xlarge {
+  font-size: 300%;
+}
+.reveal .huge {
+  font-size: 400%;
+  font-weight: bold;
+}
+.reveal .hand {
+  font-size: 125%;
+}
+
+
+/* -------------------------------------------
+   Centered Box
+-------------------------------------------- */
+.center-box {
+  border: 1.5px solid #222222;
+  padding: 2em 2em;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+
+/* -------------------------------------------
+   Highlight Task Block
+-------------------------------------------- */
+.reveal .task {
+  padding: 3px 10px;
+  margin: 6px 0;
+  border-left: solid 5px #F1DE67;
+  background-color: #F3D03E;
+}
+
+
+/* -------------------------------------------
+   Two-Column Layout Helpers
+-------------------------------------------- */
+.reveal .pull-left {
+  width: 49%;
+  float: left;
+}
+.reveal .pull-right {
+  width: 49%;
+  float: right;
+}
+.reveal .pull-left-wide {
+  width: 70%;
+  float: left;
+}
+.reveal .pull-right-narrow {
+  width: 27%;
+  float: right;
+}
+.reveal .pull-left-narrow {
+  width: 27%;
+  float: left;
+}
+.reveal .pull-right-wide {
+  width: 70%;
+  float: right;
+}
+
+
+/* -------------------------------------------
+   Color Utilities
+-------------------------------------------- */
+.reveal .darkblue {
+  color: #00008B;
+}
+
+.reveal .blue {
+  color: #2A9BB7;
+}
+.reveal .purple {
+  color: #a493ba;
+}
+.reveal .yellow {
+  color: #f1de67;
+}
+.reveal .gray {
+  color: #222222;
+}
