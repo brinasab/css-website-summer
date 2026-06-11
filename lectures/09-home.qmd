@@ -1,9 +1,9 @@
 ---
-title: "Lecture 9: Exam 1; Strings and Regular Expressions"
-date: 2025-10-27
-summary: "Exam 1; Strings and Regular Expressions"
-url_slides: 09-slides.qmd
-url_code: css-materials/regular-expr
+title: "Lecture 9: Week 2 Review"
+date: 2026-06-29
+summary: "Week 2 Review and Q&A"
+url_slides:
+url_code:
 page-layout: full
 draft: false
 ---
@@ -16,20 +16,24 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: No slides for this session
+* **Code**: No in-class code for this session
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
+-->
 
 ## Learning Objectives
 
-* Define Strings, Regular Expressions, and their uses
-* Introduce `stringr()`
-* Practice using Regular Expressions in R to extract info from strings
+Today, we will review the following topics and answer any questions you may have:
+
+- Quiz 2 answers
+- Week 2 course content
+- Homework Assignment
 
 
-## Readings
+## Before Class
 
-* [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (especially 14.4 "Extracting data from strings")
-* [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. Focus on the `stringr()` section — that’s all we cover in class, but the full chapter is a good reference if you want to explore more
-* [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
-
+- Complete Quiz 2
+- Bring any questions you have about the Week 2 materials!

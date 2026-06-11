@@ -1,9 +1,9 @@
 ---
-title: "Lecture 15: Web-Scraping 1"
-date: 2025-11-17
-summary: "Web-Scraping 1"
+title: "Lecture 15: Control Flow with Conditionals"
+date: 2026-07-08
+summary: "Writing conditionals with if, else, and else if"
 url_slides: 15-slides.qmd
-#url_code: css-materials/scraping-1
+url_code: css-materials/if-else
 page-layout: full
 draft: false
 ---
@@ -16,31 +16,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No code
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
 
-<!--`usethis::use_course("css-materials/getting-data-from-the-web-scraping")` -->
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
+
 
 ## Learning Objectives
 
-* Understand the difference between web-scraping and Application Program Interface (API)
-* Define HTML and CSS selectors
-* Introduce the `rvest` package for scraping in R
-* Practice using `rvest` to extract data from HTML pages
+- Define what control structures are and why they matter
+- Introduce one type of control structure: conditional statements
 
 
 ## Readings
 
-Not required before class, use them to clarify the lectures on web-scraping or support your work.
-
-General Introductions:
-
-* Chapter 1 and 4 in [Web Scraping with R](https://steviep42.github.io/webscraping/book/)
-* [`rvest` documentation](https://rvest.tidyverse.org/articles/harvesting-the-web.html)
-* [`httr` documentation](https://cran.r-project.org/web/packages/httr/)
-* [Web Scraping using R Cheat Sheet](https://github.com/yusuzech/r-web-scraping-cheat-sheet/blob/master/README.md)
-
-Scraping workflow:
-
-  * [Web scraping with R](https://williammarble.co/files/webscraping_tutorial/webscraping_tutorial.pdf) by William Marble
-  * [Web scraping using R](https://journals.sagepub.com/doi/pdf/10.1177/2515245919859535) by Alex Bradley and Richard J. E. James
+- [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science" (Notice this is not our regular book!)

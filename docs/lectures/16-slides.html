@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.31">
 
-  <meta name="author" content="Sabrina Nardin, Fall 2025">
-  <title>css-website – Computing for the Social Sciences: Lecture 16</title>
+  <meta name="author" content="Sabrina Nardin, Summer 2026">
+  <title>css-website=summer – Computing for the Social Sciences: Lecture 16</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -131,230 +131,32 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Computing for the Social Sciences: Lecture 16</h1>
-  <p class="subtitle">Topics: Web-Scraping 2</p>
+  <p class="subtitle">Topics: Control Flow with Loops</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Sabrina Nardin, Fall 2025 
+Sabrina Nardin, Summer 2026 
 </div>
 </div>
 </div>
 
 </section>
+<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
 <ol type="1">
-<li>Web Scraping Review</li>
-<li>Expanding Last Lecture’s Scraper</li>
-<li>Web Scraping: Challenges, Ethics, and Tips</li>
-<li>Intro to APIs</li>
+<li>For Loops</li>
+<li>Tracking and Saving For Loops Output</li>
+<li>Looping Over Elements vs.&nbsp;Indexes</li>
+<li>Using For Loops with Dataframes</li>
 </ol>
 </div>
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>November 17, 2025</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 </section>
+<section class="slide level2 center">
 
-<section>
-<section id="web-scraping-review" class="title-slide slide level1 center middle">
-<h1>1. Web Scraping Review</h1>
-
-</section>
-<section id="last-class" class="slide level2 center">
-<h2>Last Class…</h2>
-<h4 id="direct-scraping-vs.-apis">Direct Scraping vs.&nbsp;APIs</h4>
-<ul>
-<li>Direct scraping: extract data from webpage HTML<br>
-</li>
-<li>APIs: access to data through an interface provided by the website</li>
-</ul>
-<h4 id="two-key-concepts">Two Key Concepts</h4>
-<ul>
-<li>How the web works (requests &amp; responses)<br>
-</li>
-<li>What’s behind a webpage (read and navigate HTML structure)</li>
-</ul>
-<h4 id="scraping-in-r-with-rvest">Scraping in R with rvest:</h4>
-<ul>
-<li><a href="https://rvest.tidyverse.org">rvest Documentation</a><br>
-</li>
-<li><a href="https://rvest.tidyverse.org/index.html#usage">rvest Main functions</a></li>
-</ul>
-<h4 id="finding-the-right-html-tags">Finding the Right HTML Tags</h4>
-<ul>
-<li>Manual inspection of the HTML structure</li>
-<li>Browser helpers like <strong>SelectorGadget</strong></li>
-</ul>
-</section>
-<section id="selectorgadget" class="slide level2 center">
-<h2>SelectorGadget</h2>
-<p>Follow these steps to install and use the SelectorGadget…</p>
-<p><strong>Note this works on Chrome!</strong></p>
-<ul>
-<li>Go to <a href="https://selectorgadget.com/" class="uri">https://selectorgadget.com/</a> to install and watch a short video on how to use it</li>
-<li>Once installed drag the SelectorGadget link into your web browser’s bar (Chrome)</li>
-<li>Navigate to a webpage and open the SelectorGadget bookmark</li>
-<li>Go to <a href="https://rvest.tidyverse.org/articles/selectorgadget.html#use" class="uri">https://rvest.tidyverse.org/articles/selectorgadget.html#use</a> for step-by-step instructions on how to use it</li>
-</ul>
-</section>
-<section id="practice" class="slide level2 center">
-<h2>💻 Practice</h2>
-<p>Go to <a href="https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration" class="uri">https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration</a></p>
-<p>Write code (outside a function) to grab:</p>
-<ul>
-<li>title</li>
-<li>name (speaker)</li>
-<li>date</li>
-<li>full text</li>
-</ul>
-<ol type="1">
-<li><p>First, write the code without using SelectorGadget (only by inspecting the HTML page)</p></li>
-<li><p>Then, write the code to grab the same info using the SelectorGadget.</p></li>
-<li><p>Compare the two approaches (e.g., how similar/different your selectors are, which one worked best, etc.).</p></li>
-</ol>
-</section></section>
-<section>
-<section id="expanding-last-lectures-scraper" class="title-slide slide level1 center middle">
-<h1>2. Expanding Last Lecture’s Scraper</h1>
-
-</section>
-<section id="how-can-we-scale-up-our-scraper" class="slide level2 center">
-<h2>How Can We Scale Up Our Scraper?</h2>
-<h3 id="practice-1">💻 Practice</h3>
-<p>Download today’s class materials for a tutorial on using loops, functions, and HTML concepts to take your scraping project to the next level!</p>
-</section></section>
-<section>
-<section id="web-scraping-challenges-ethics-and-tips" class="title-slide slide level1 center middle">
-<h1>3. Web Scraping: Challenges, Ethics, and Tips</h1>
-
-</section>
-<section id="scraping-challenges-solutions" class="slide level2 center">
-<h2>Scraping: Challenges &amp; Solutions</h2>
-<ul>
-<li><p><strong>Variety:</strong> every website is different, so each site requires a new mini-project.</p></li>
-<li><p><strong>Bad formatting:</strong> websites are <em>supposed</em> to use a clean, logical, hierarchical HTML structure… but many don’t, which makes scraping a bit of an art.</p></li>
-<li><p><strong>Change over time:</strong> websites update their layout, so old code may break. The good news: fixes are usually small.</p></li>
-<li><p><strong>Limits:</strong> some sites cap requests (e.g., only 50 pages or 2,500 items), and after that they stop responding. You’ll need to scrape in smaller “chunks.”</p></li>
-<li><p><strong>Messy data:</strong> scraped content is rarely clean; expect to use R (<code>stringr</code> with regular expressions) for cleaning.</p></li>
-</ul>
-</section>
-<section id="static-vs.-dynamic-scraping" class="slide level2 center">
-<h2>Static vs.&nbsp;Dynamic Scraping</h2>
-<h3 id="static-scraping">Static Scraping</h3>
-<ul>
-<li><code>rvest</code> is for static scraping</li>
-<li>This means it can only extract information that is already present in the <strong>raw HTML</strong> returned by the server.</li>
-<li>Tip: always inspect what you get back from <code>read_html()</code> before writing more code.</li>
-</ul>
-<h3 id="dynamic-scraping">Dynamic Scraping</h3>
-<ul>
-<li><code>rvest</code> is not for dynamic scraping</li>
-<li>A page is dynamic when it uses <strong>JavaScript</strong> to load content after the initial HTML. That content won’t appear in the raw HTML from <code>read_html()</code>, which returns empty or incomplete results.</li>
-<li>For dynamic sites, you typically need: an <strong>API</strong>, if available or a <strong>browser automation tool</strong> (e.g., Selenium)</li>
-</ul>
-</section>
-<section id="scraping-ethics-what-to-scrape" class="slide level2 center">
-<h2>Scraping Ethics: What To Scrape</h2>
-<h3 id="public-ok-vs.-private-data-not-ok">Public (OK) vs.&nbsp;private data (NOT OK)</h3>
-<p>Anything you need to login or put a password counts as <strong>private</strong> and should not be scraped (e.g.&nbsp;online communities, personal accounts). If the site offers an <strong>API</strong>, use that instead.</p>
-<h3 id="check-the-robots.txt-file">Check the robots.txt file</h3>
-<p>Add <code>/robots.txt</code> to a site’s URL (e.g., <code>https://www.nytimes.com/robots.txt</code>). The star after “User-agent” means “the following is valid for all robots”. Info you cannot scrape are under “Disallow”. More <a href="https://www.robotstxt.org/robotstxt.html">here</a></p>
-<h3 id="read-the-terms-of-service-tos">Read the Terms of Service (ToS)</h3>
-<p>Those are legal rules you agree to observe in order to use a service. Violating ToS + automated scraping can put you at risk of violating CFAA (Computer Fraud &amp; Abuse Act).</p>
-</section>
-<section id="scraping-tips" class="slide level2 center">
-<h2>Scraping: Tips</h2>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
-<ol type="1">
-<li><p>Make sure your code scrapes <strong>only the information you need</strong> and minimizes the extra</p></li>
-<li><p><strong>Slow down your scraper</strong> with <code>Sys.sleep()</code> and/or use the <code>polite</code> package with <code>rvest</code> to avoid hitting the server too frequently</p></li>
-<li><p><strong>Save and store the raw HTML you scraped on your computer</strong> with <code>writeLines()</code> to avoid re-sending a request every time you want to extract information from it.</p></li>
-</ol>
-</div>
-</div>
-</div>
-<!--
-page <- read_html(url)
-writeLines(as.character(page), "page.html")
--->
-</section></section>
-<section>
-<section id="intro-to-apis" class="title-slide slide level1 center middle">
-<h1>4. Intro to APIs</h1>
-
-</section>
-<section id="apis-definition" class="slide level2 center">
-<h2>APIs: Definition</h2>
-<blockquote>
-<p>Interface provided by the website that allows users to collect data from that website.</p>
-</blockquote>
-<p>The majority of web APIs use a particular style know as <strong>REST</strong> or <strong>RESTful</strong> which stays for “Representational State Transfer.”</p>
-<p><strong>REST</strong> allows to query the website database using URLs, just like you would construct an URL to view a web page.</p>
-<p>An <strong>URL</strong> (Uniform Resource Location), is a string of characters that uses HTTP (HyperText Transfer Protocol) to send request for data.</p>
-</section>
-<section id="sending-queries-to-an-api" class="slide level2 center">
-<h2>Sending Queries to an API</h2>
-<p>The process described in the <code>macss</code> example (last lecture) is very similar to how APIs work, with only a few changes:</p>
-<ul>
-<li><p>The URL that you use for sending requests (queries) to an API will have two more things: search terms and/or filtering parameters, and specific references to that API</p></li>
-<li><p>The response you get back from the API is not formatted as HTML, but it will likely be a raw text response</p></li>
-<li><p>You need R to interact with the API</p></li>
-</ul>
-</section>
-<section id="apis-wrappers-vs.-no-wrappers" class="slide level2 center">
-<h2>APIs: Wrappers vs.&nbsp;No Wrappers</h2>
-<p><em>When using an API in R, there are two approaches:</em></p>
-<h3 id="with-an-api-wrapper">1. With an API wrapper</h3>
-<p>This means using an API through an R package that someone has specifically designed to interact with that API. The package acts as a “wrapper” for the API and you use R to interact with the wrapper.</p>
-<p>Each package should come with documentation (pdf, GitHub repo, or both) that explains how to use it and its main functions.</p>
-<p>Example: Wordbank API with <code>wbstats</code> R wrapper package which returns results in a tidy dataframe</p>
-</section>
-<section id="apis-wrappers-vs.-no-wrappers-1" class="slide level2 center">
-<h2>APIs: Wrappers vs.&nbsp;No Wrappers</h2>
-<p><em>When using an API in R, there are two approaches:</em></p>
-<h3 id="without-an-api-wrapper">2. Without an API wrapper</h3>
-<p>If no R wrapper exists, you can directly use the API provided by the website. In this case, you use R to communicate directly with the website’s API.</p>
-<p>Example: OMDb Movies example API without a wrapper <code>https://www.omdbapi.com/</code></p>
-</section>
-<section id="apis-wrappers-vs.-no-wrappers-2" class="slide level2 center">
-<h2>APIs: Wrappers vs.&nbsp;No Wrappers</h2>
-<p>Sometimes both approaches are available. Other times, only approach 2 (direct API interaction) is available.</p>
-<p>Scraping with an API, compared to direct scraping, can be a hit-or-miss experience.</p>
-<p>The keys to success are using a well-designed R wrapper if available, relying on well-documented API documentation, or previous examples.</p>
-</section>
-<section id="apis-access-registration" class="slide level2 center">
-<h2>APIs: Access &amp; Registration</h2>
-<h3 id="some-apis-are-open-but-most-require-registration">Some APIs are open, but most require registration</h3>
-<ul>
-<li>Registration may be simple: create an account and receive an API key by email.<br>
-</li>
-<li>Some APIs require an application and review process before granting access (e.g., Twitter)</li>
-<li>Many are free, but some require a paid subscription or usage fees.</li>
-</ul>
-<h3 id="why-is-registration-required">Why is registration required?</h3>
-<ul>
-<li>It allows the API to track users, monitor query volume, manage server load, and prevent misuse.</li>
-<li>If an API requires a username, password, or private key, you’ll need to supply the same credentials when using its corresponding R wrapper package.</li>
-<li>Keep your credentials safe (e.g., do not push them on GitHub)</li>
-</ul>
-</section>
-<section id="rectangling-or-simplifying-lists" class="slide level2 center">
-<h2>Rectangling or Simplifying Lists</h2>
-<p>In R this means <strong>transforming non-rectangular data (often nested lists) into a rectangular format (often a data frame).</strong> The term is often associated with the <code>tidyverse</code> and its principles of tidy data.</p>
-<h3 id="in-the-context-of-web-scraping">In the context of web scraping…</h3>
-<p>Rectangling means transforming a deeply nested list (often obtained from raw JSON or XML data) into a tidy data set with rows and columns that is easier to work with!</p>
-</section>
-<section id="to-print-these-slides-as-pdf" class="slide level2 center">
-<h2>To print these slides as pdf</h2>
-<p>Click on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
+<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
 
 
 </section></section>
@@ -575,6 +377,82 @@ writeLines(as.character(page), "page.html")
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

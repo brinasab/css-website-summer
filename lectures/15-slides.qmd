@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 15"
-subtitle: "Topics: Web-Scraping 1"
-author: "Sabrina Nardin, Fall 2025"
+subtitle: "Topics: Conditional Statements with if, else, and else if"
+author: "Sabrina Nardin, Summer 2026"
 format:
   revealjs:
     theme: simple
@@ -20,656 +20,783 @@ format:
 # Agenda {.center}
 
 ::: {.agenda-list}
-1. Web Scraping Introduction 
-2. Our Goal: Scrape U.S. Presidential Statements
-3. Two Key Concepts:   
-  3.1 How the Web Works  
-  3.2 What's Behind a Website  
-4. The rvest Package 
+1. Overview of Control Structures: Conditional Statements and Loops
+2. Conditional Statements
 :::
+
+---
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **November 17, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **November 7, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
-# 1. Web Scraping Introduction {.slide .center .middle}
+<!--
+<span style="font-size: 0.8em; color: #666;">
+*These slides were last updated on **`r format(Sys.Date(), '%B %d, %Y')`***
+</span>
+-->
+
+<!--
+Tips for Family Program Class
+
+Prep
+- Print warm up (25 copies?)
+- Bring papers and markers 
+
+Intro
+- Start by introducing yourself
+- Instructor in MACSS Program, which is about
+- This is a lecture from a class called "CSS" 
+- Targets mix of undergraduate, PhD and MA students
+- They typically enroll because...
+- Most students are beginners
+- Show website, schedule, etc.
+
+Start lecture, show slides, say
+- By the time they arrive to this lecture they have learned...
+- We run this class and every class interacively (students bring their laptop and have access to R and code with me or do exercises diretly on R) -- we adjust this for today!
+- I am going to make you work a bit to give you a flavor of what classes look like, but also sollicit questions on anything unclear as I tell my students no stupid questions at all
+
+Remember
+- For each slide, check what audience might not know
+- All weird R signs 
+- dplyr syntax at point 4
+- Explain workbench (R interface) as soon as you log into it
+-->
+
+
+# 1. Overview of Control Structures {.slide .center .middle}
 
 ---
 
-## What is Web Scraping?
+## Control Structures: What's the Idea?
 
-::: {.callout}
-**Web Scraping: using code to automatically collect information from websites.**
+Up to this point, our R code has been running line by line following in a fixed sequence.
+
+<br>
+
+::: {.callout-tip title="**Now we ask: Can our code be dynamic vs fixed?**"}
+
+Example: Can our code skip some lines and run others depending on a condition? Can it repeat itself when needed?
+
+Yes, with control structures!
 :::
 
-- If you’ve ever copied and pasted data from a webpage, you’ve done the same task as a scraper, just **manually and on a tiny scale**. Web scraping **automates and scales up**, so code does the collecting instead of you
-
-- With a few R functions from **rvest** and some **HTML knowledge**, you can grab text, tables, links, and other content from a webpage at scale
+</br>
 
 ---
 
-## Web Scraping Examples
+## What Are Control Structures?
 
-- **Company info** (names, emails, phone numbers)
-- **Product details** (prices, descriptions)  
-- **Real estate listings** (listings, rentals info)  
-- **Government data** (press releases, bills, reports)  
-- **News articles**  
-- **Online archives** (historical docs, speeches)
-- **Wikipedia pages**  
-- **Forums** (Reddit, StackOverflow)  
-- **Online reviews** (Yelp, Google)  
-- **Marketplaces** (Craigslist, FB Marketplace)  
-- **Social media** but harder today!  
+Control structures let us write code that can:
 
----
+- **Make decisions** → with **conditional statements** like `if`, `if...else`, etc. (today's topic)
 
-## Why We are Learning Web Scraping in this Course
+- **Repeat actions**  → with **loops** like `for`, `while` (next lecture topic)
 
-1. **Short applied module** to show what R can do beyond charts and data wrangling.
+Conditional statements and loops (e.g., control structures) let our code responds dynamically to different situations!
 
-2. **Practical data collection skill you can use in projects**. A lot of social science data is on the web, not in ready-made CSVs; scraping is especially great for text data.
+<!-- 
+Make decisions: the code uses conditions, evaluates them, and chooses what to do  
+Repeat actions: the code runs certain lines multiple times when needed  
+
+*Today: Conditional Statements and Next time: Loops*
+-->
+
+# 2. Conditional Statements  {.slide .center .middle}
 
 ---
 
-## Two Ways to Scrape Data from the Web
+## Conditional Statements
 
-::: columns
+**Conditional statements translate into programming language our “if this, then that” logic**: the code checks conditions, evaluates them, and acts accordingly.
 
-::: column
-### Directly Scraping a Website
-Request data from a website directly,  
-**by reading its HTML** and extract the information you need (text, tables, links, etc.)
-:::
+1. Single test with `if... else`
 
-::: column
-### Using an API
-Request data from a website indirectly,  
-**by interacting with a dedicated interface** that the website provides.
-:::
+2. Multiple tests with `if... else if... else`
 
-:::
+3. Nested tests by placing one `if` inside another
 
----
+4. Vectorized tests with `ifelse()` to apply a condition to each element of a vector (not technically a conditional statement like the previous three, but more on this when we get there!)
 
-## Directly Scraping a Website
 
-::: {.callout}
-**What this means:** You read the HTML code behind a website and extract the pieces of information you need.
-:::
+<!--
+## Loops
 
-::: {.callout}
-**How it works:**  
-- Websites are built using HTML, CSS, and sometimes JavaScript.  
-- R via `rvest` can download a webpage, and let you extract elements like titles, tables, links, paragraphs, etc.  
-- You can scrape almost anything that is publicly available.
-:::
+**Loops let our code repeat actions by running certain lines multiple times when needed**
 
-::: {.callout}
-**Good beginner projects:**  
-- *Wikipedia pages*  
-- *Government websites* (press releases, data tables, reports)  
-- *News articles*  
-:::
+1. For Loop
+2. While Loops
+-->
 
 ---
 
-## Using a Web API (Application Programming Interface)
+## 💻 Practice
 
-::: {.callout}
-**What this means:** You request structured data from a website through a dedicated interface.
-:::
+1. Download today's class materials from the course website
 
-::: {.callout}
-**How it works:**  
-- The website provides a URL-based system where you ask for data.  
-- You receive a clean, structured format (usually JSON).  
-- You must follow the API’s rules: parameters, keys, rate limits, etc.
-:::
+2. Open the file called `if-else-warm-up.R`
 
-::: {.callout}
-**Good beginner projects:**  
-- *OMDb API* (Open Movie Database) — used in today's reading  
-- *NYTimes API* (articles, comments)  
-- *Census Bureau API* (with tidycensus R wrapper package)
-:::
+3. Before running the code: look over the syntax and try to predict what the code will output
+
+4. Run the code and compare it to your prediction
+
+5. Share your questions about this code on [Ed Discussion](https://edstem.org/us/courses/86758/discussion)
 
 ---
 
-## Direct Scraping vs. Using an API: Pros and Cons
+## 1. Single test with "if... else"
 
-### **Directly Scraping the Website**
+Use `if...else` when your code needs to test **one condition** and take one of two possible actions, depending on whether the condition is `TRUE` or `FALSE`.
 
-**Pros**  
-
-- Works even when no API is available  
-- Very flexible: you can extract almost anything shown on the page
-- Great for text, tables, lists, articles, and public documents  
-
-**Cons**  
-
-- HTML structure of webpages is often messy and inconsistent  
-- HTML structure can change, breaking your code  
-- JavaScript-heavy pages require extra tools  
-
----
-
-## Direct Scraping vs. Using an API : Pros and Cons
-
-### **Using a Web API**
-
-**Pros**
-
-- Data is clean, structured, predictable (usually JSON)  
-- Documentation tells you exactly what you can request  
-- More stable and less fragile than scraping HTML  
-
-**Cons**
-
-- Only works if a website provides an API  
-- You must follow the API’s rules (rate limits, keys, parameters)  
-- API may not include everything shown on the webpage  
-
-::: {.callout-tip}
-If an API exists, ideally with an R wrapper, use it instead of scraping HTML.
-:::
-
-
-# 2. Our Goal: Scrape U.S. Presidential Statements {.slide .center .middle}
-
----
-
-## Our Goal for Today
-
-**I mentioned that we’ll need a bit of theory for web scraping—how the web works, how websites are built, some HTML, and the main rvest functions—but before we get into that, let’s be clear about what we want to do…**
-
-::: {.callout-important}
-# Goal for Today
-
-Scrape a U.S. Presidential statement from the American Presidency Project. Specifically: speaker name,  date, title, full text of the statement 
-
-<https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>
-:::
-
----
-
-## Scrape U.S. Presidential Statements
-
+Syntax:
 ```r
-library(tidyverse)
-library(lubridate)
-library(rvest)
-
-scrape_doc <- function(url) {
-  # Scrapes data from presidential pages pausing between requests
-  # Args:
-    # url (string): one presidential page 
-  # Returns:
-    # tibble: a tibble with the date, speaker, title, full text from input url
-
-  # get HTML page
-  Sys.sleep(2)
-  url_contents <- read_html(x = url)
-
-  # extract elements
-  date <- html_elements(x = url_contents, css = ".date-display-single") %>%
-    html_text2() %>% mdy()
-
-  name <- html_elements(x = url_contents, css = ".diet-title a") %>%
-    html_text2()
-  
-  title <- html_elements(x = url_contents, css = "h1") %>%
-    html_text2()
-  
-  text <- html_elements(x = url_contents, css = "div.field-docs-content") %>%
-    html_text2()
-  
-  # store in a data frame and return it
-  url_data <- tibble(
-    date = date,
-    name = name,
-    title = title,
-    text = text
-  )
-  
-  return(url_data)
+if (condition) {
+    action1 # action performed when condition is TRUE
+} else {
+    action2 # action performed when condition is FALSE
 }
 ```
 
+Example:
+```{r echo = TRUE, results = "hide"}
+age <- 14
 
-# 3. Two Key Concepts {.slide .center .middle}
-
-3.1 How the Web Works
-
-3.2 What’s Behind a Website
-
----
-
-## 3.1 How the Web Works
-
-Computers communicate on the web by sending and receiving **data requests** (GET) and **data responses** (POST). Every computer has an address that other computers can refer to.
-
-When you click on a webpage, your **web browser** (e.g., Chrome, Safari) sends a data request to the **web server** of that page (a database where all the info about that page are stored) and receives a response.
-
-```{r fig.align = "center", echo = FALSE, out.width = "50%"}
-knitr::include_graphics(path = "request_response.png", error = FALSE)
+if (age > 16) {
+  print("You can get a driving license")
+} else {
+  print("You cannot drive")
+}
 ```
 
-Image Source [at this link](https://www.linkedin.com/pulse/what-happens-when-you-enter-url-browser-he-asked-victor-ohachor)
+---
+
+## 1. Single test with "if... else"
+
+::: {.callout-tip title="Style tip"}
+
+Do you need the space and `{}`?
+
+Technically, the code works without them, like this: 
+
+```r
+age <- 14
+
+if (age > 16) print("You can get a driving license") else print("You cannot drive")
+```
+
+But omitting spaces and `{}` is considered **bad style** as it hurts readability and makes errors more likely, especially for more complex statements!
+
+:::
 
 ---
 
-## 3.1 How the Web Works
+## 1. Single test with "if... else"
 
-Navigating the web basically means **sending requests to different servers and receiving back various files**, mainly written in HTML and other languages.
+Another example: What's the output of this code?
 
-For example, if you type `https://macss.uchicago.edu/current-student-resources` into your web browser and hit enter, these steps occur behind the scenes:
+```{r, echo = TRUE, results = "hide"}
+movie_rating <- c(4.5, 4.2, 5.0, 3.8, 2.9, 1.7)
 
-1. your web browser (Chrome, Safari, etc.) translates what you typed into a HTTP request. That request tells the web server that stores all `macss` info that you want to access the specific piece of info stored at `/current-student-resources`
+movie_rating_avg <- mean(movie_rating)
 
-1. the web server that hosts `macss` receives your request and sends back to your web browser a response code (200 for yes, etc.) and the response content (files written in HTML)
+if (movie_rating_avg >= 4) {
+  print("This movie is great!")
+} else {
+  print("Not a favorite.")
+}
+```
 
-1. your browser transforms the response content into a nice visual display that might include texts, graphics, hyperlinks, etc.
+Note conditional statements evaluate only one single element (in this example the mean of the vector movie_rating)
 
-**When we scrape data, we use R packages that perform these steps for us (via APIs or without)!**
-
----
-
-## 3.2 What’s Behind a Website
-
-A website is made of the following elements:
-
-+ **HTML** *HyperText Markup Language*, is the core element of a website. HTML uses tags to organize the webpage (i.e., creates paragraphs, inserts hyperlinks, etc.), but when the page is displayed the markup language is hidden
-
-+ **CSS** *Cascading Style Sheets*: improves the look of the page
-
-+ **Javascript**: adds interactive elements to the page (you need "dynamic web scraping" techniques to scrape JS code, not covered in this course)
-
-+ **Other stuff** such as images, hyperlinks, videos or multimedia
+<!--
+wont work to evaluate each element of the vector, you ll have to put it into a loop, or use a logical vector first and replace
+-->
 
 ---
 
-## 3.2 What’s Behind a Website
+## 2. Multiple tests with "if...", "else if...", "else"
 
-::: {.callout-important}
-When scraping a website directly: knowing how read the HTML (and CSS) language, is fundamental  
+Use `if...else if...else` when your code needs to test **multiple conditions** and take different actions depending on which condition is `TRUE`. To do so, ddd one or more **`else if`** statement(s) between the initial `if` and the final `else`
 
-When using an API and/or an API wrapper: less important, but still useful. 
+Syntax:
+```r
+if (condition1) {
+    action1   # action performed when condition 1 is TRUE
+} else if (condition2) {
+    action2   # action performed when condition 2 is TRUE
+} else {
+    action3   # action performed when conditions 1 and 2 are FALSE
+}
+```
 
+Example:
+
+```{r, echo = TRUE, results = "hide"}
+x <- 0
+
+if (x > 0) {
+  print("x is positive")
+} else if (x < 0) {
+  print("x is negative")
+} else {
+  print("x is zero")
+}
+```
+
+---
+
+## 2. Multiple tests with "if...", "else if...", "else"
+
+Another example with multiple `else if` statements:
+
+```r
+# Enter a temperature when prompted
+temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
+
+# Determine the variable weather based on temperature
+if (temperature >= 30) {
+  weather <- "Hot"
+} else if (temperature >= 20) {
+  weather <- "Cool"
+} else if (temperature >= 10) {
+  weather <- "Breezy"
+} else {
+  weather <- "Freezing"
+}
+print(weather)
+```
+
+---
+
+## Note: with conditional statements sequence matters!
+
+::: {.callout-warning title="Order matters"}
+Conditional statements are evaluated in order, so the sequence of your code matters:  
+
+- R checks each condition one by one, from top to bottom  
+- R stops checking once it finds a condition that is `TRUE`: it runs that block and skips the rest
+- As a rule of thumb: order your conditions from most specific to most general, ending with a default case `else`
 :::
 
 
 ---
 
-## HTML: HyperText Markup Language
+### 💻 Practice 1
 
-* Important for web scraping: makes the "skeleton" or structure of a website
-* Made of tags 
-* Looks messy, but follows a hierarchical tree-like structure of tags within tags 
+What happens if the conditions are out of order? 
 
-Standard HTML syntax:
+Copy the code below in your console and move the line `temperature >= 10` before the line `temperature >= 20`. Leave the input temperature set as 25. What do you notice?
+
+```r
+temperature <- 25
+
+if (temperature >= 30) {
+  weather <- "Hot"
+} else if (temperature >= 20) {
+  weather <- "Cool"
+} else if (temperature >= 10) {
+  weather <- "Breezy"
+} else {
+  weather <- "Freezing"
+}
+print(weather)
 ```
-   <html>
-     <head>
-        <title>general info about the page</title>
-     </head>
-     <body>
-       <p>a paragraph with some text about the page</p>
-       <p>another paragraph with more text</p>
-       <p>ciao</p>
-     </body>
-   </html>
-   
+
+Once done, [share your code here](https://codeshare.io/G8nxLD){target="_blank"}. Questions? post on [Ed Discussion](https://edstem.org/us/courses/86758/discussion) or ask us directly!
+ 
+<!--
+```r
+temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
+
+if (temperature >= 30) {
+  weather <- "Hot"
+} else if (temperature >= 10) {   # moved up
+  weather <- "Breezy"
+} else if (temperature >= 20) {
+  weather <- "Cool"
+} else {
+  weather <- "Freezing"
+}
+print(weather)
 ```
 
----
-
-## HTML Tags
-
-1. HTML tags are organized in a **[tree-like structure](https://www.researchgate.net/figure/HTML-source-code-represented-as-tree-structure_fig10_266611108)** and are nested
-
-2. HTML tags **go in pairs** one on each end of the content that they display. For example: `<p>ciao</p>` only the word "ciao" shows up on the webpage, the `/` signals the end of the tag
-
-3. HTML tags can have **attributes** which provide additional info about the tag. For example: `<p>ciao id='first'</p>`
-
-   * `<p>` is the tag
-   * `<id>` is the attribute
-   * **two key attributes to remember for scraping:** `id` and `class`; they are used by CSS elements to control the visual appearance of the page
-    
-<!-- add more info here
-https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping
-* more frequently used tags
-* more on tags attributes
-* CSS 
-* CSS and HTML
-* see staff from my Python course, lecture 2 (e.g. every page is different, no perfect structure,etc.)
+If temperature is 25, R hits temperature >= 10 first (which is TRUE) and never reaches temperature >= 20. So it assigns "Breezy" instead than "Cool".
 -->
 
 ---
 
-### Most Common HTML Tags
+### 💻 Practice 2
 
-* `html`
-    * `head`
-        * `title`
-        * `a href`
-        * `script`
-    * `body`
-        * `div`
-            * `p`
-                * `b`
-            * `span`
-        * `table`
-            * `tr`
-                * `td`
-                * `td`
-        * `img`
+Copy the code below into your console and add another `else if` statement that checks whether the temperature is between 0 (inclusive) and 10 (exclusive). If that condition is true, set weather to "Cold" (so the “Cold” range is 0–9°C). Leave the input temperature set as 4.
 
----
+```r
+temperature <- 4
 
-### Most Common HTML Tags
-
-
-* `html`
-    * `head`
-        * `title` - title
-        * `a href` - links
-        * `script` - code
-    * `body`
-        * `div` - generic container for content (block)
-            * `p` - paragraph
-                * `b` - bold formatting
-            * `span` - generic container for content (in line)
-        * `table`
-            * `tr` - row of cells
-                * `td` - actual cell element 
-        * `img` - image
-
-
----
-
-## HTML Tags: Example
-
-```html
-# example of html code (this is not R code, won't run in R)
-<html>
-  <head>
-    <title>Title</title>
-    <a href="http://github.com">GitHub</a>
-    <script src="https://c.js"></script>
-  </head>
-  <body>
-    <div>
-      <p>Click <b>here</b> now.</p>
-      <span>Frozen</span>
-    </div>
-    <table style="width:100%">
-      <tr>
-        <td>Kristen</td>
-        <td>Bell</td>
-      </tr>
-    </table>
-  <img src="http://ia.media-imdb.com/images.png"/>
-  </body>
-</html>
+if (temperature >= 30) {
+  weather <- "Hot"
+} else if (temperature >= 20) {
+  weather <- "Cool"
+} else if (temperature >= 10) {
+  weather <- "Breezy"
+} else {
+  weather <- "Freezing"
+}
+print(weather)
 ```
 
-**💻 Practice: Find the text content `Frozen` and the GitHub link and the text content `GitHub`**
+Once done, [share your code here](https://codeshare.io/G8nxLD){target="_blank"}. Questions? post on [Ed Discussion](https://edstem.org/us/courses/86758/discussion) or ask us directly!
+ 
+<!--
+```r
+# Take user input
+temperature <- as.integer(readline(prompt = "Enter today's temperature in Celsius: "))
 
----
-
-## HTML Tags: Example
-
-**Find the text content `Frozen`**
-
-```html
-<span>Frozen</span>
+# Determine weather based on temperature
+if (temperature >= 30) {
+  weather <- "Hot"
+} else if (temperature >= 20) {
+  weather <- "Cool"
+} else if (temperature >= 10) {
+  weather <- "Breezy"
+  
+  # NEW CODE
+} else if (temperature >= 0 & temperature < 10) {  
+  weather <- "Cold"
+  
+} else {
+  weather <- "Freezing"
+}
+print(weather)
 ```
 
-* `<span></span>` - tag name
-* `Frozen` - content embedded in the tag as text
+Takeaway: 
 
-<!--In this ex. there is only one span tag: what if the HTML has multiple span tags?-->
+Use AND (&) when both conditions must be TRUE (here, >= 0 and < 10) at the same time for the code inside the {} runs
 
----
+Here temperature must be greater than or equal to 0, and temperature must be less than 10. That’s what defines our “Cold” range (0–9°C).
 
-## HTML Tags: Example
+If you write OR only one must be TRUE, for the code to run. 
+So this condition is TOO BROAD would always be true, because every number is either ≥ 0 or < 10.
 
-**Find the GitHub link and text `GitHub` embedded within it**
-
-```html
-<a href="http://github.com">GitHub</a>
-```
-
-* `<a></a>` - tag name
-* `href` - tag attribute (argument)
-* `"http://github.com"` - tag attribute (value)
-* `GitHub` - content as text
-
----
-
-## CSS: Cascading Style Sheet
-
-Often a website has HTML tags with attributes + CSS elements. This is an example of CSS code:
-
-```css
-span {
-  color: #ffffff; }
-```
-
-**Most websites use HTML tags with `class` and `id` attributes to provide “hooks” for CSS** so the CSS "knows" where to apply CSS stylistic elements. In the example above, the `span` HTML tag can be styled using CSS `color`
-
-See <https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/class>
-
-<!-- https://plsc-31101.github.io/course/collecting-data-from-the-web.html#webscraping 
-[CSS diner](http://flukeout.github.io) 
-
-### HTML + CSS: example 
-
-.pull-left[
-
-```html
-<body>
-    <table id="content">
-        <tr class='name'>
-            <td class='firstname'>
-                Kurtis
-            </td>
-            <td class='lastname'>
-                McCoy
-            </td>
-        </tr>
-        <tr class='name'>
-            <td class='firstname'>
-                Leah
-            </td>
-            <td class='lastname'>
-                Guerrero
-            </td>
-        </tr>
-    </table>
-</body>
-```
-
-]
-
-.pull-right[
-
-Find the elements to use to extract:
-1. The entire table
-1. The general element(s) containing first names
-1. Just the specific element "Kurtis"
-
-]
+HERE YOU WON'T NOTICE IT THOUGH, BUT  USING OR IS STILL LOGICALLY INCORRECT
 
 -->
 
 ---
 
-## Example
+### 💻 Practice 3
 
-Explore the HTML structure of the website we want to scrape today:
+When do we use `&` (and) versus `|` (or) in conditional statements? Try these two examples, what do you notice and why?
 
-<https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>
+```{r, echo = TRUE, results = "hide"}
+# Set temperature (25°C, which equals 77°F)
+temperature <- 25
 
+# Example 1
+if (temperature >= 0 & temperature < 10) {
+  weather <- "Cold"
+} else {
+  weather <- "Warm"
+}
+print(weather)
 
-# 4. The rvest Package {.slide .center .middle}
-
----
-
-## Using rvest
-
-Rvest documentation: <https://rvest.tidyverse.org/>
-
-- Read and save in an object the HTML source code of a webpage
-
-- Find the specific HTLM and CSS elements from a webpage (using HTML tags or attributes, and using CSS selectors)
-
----
-
-## Main functions in rvest
-
-+ **`read_html()`**
-+ **`html_elements()`**
-+ **`html_element()`**
-+ **`html_text2()`**
-+ **`html_attr()`** 
-+ **`html_table()`** 
-
-### 💻 Practice
-
-- Open the documentation <https://rvest.tidyverse.org/index.html#usage> and explore what each function does.
-- Run the example code in your own R session, try modifying it, and note what changes.
-- Bring at least one question to discuss after experimenting.
-
----
-
-## Main functions in rvest
-
-The following slides and code are from the documentation: <https://rvest.tidyverse.org/index.html#usage> 
-
-**`read_html()` reads an html page into R:**
-
-```r
-library(rvest)
-starwars <- read_html("https://rvest.tidyverse.org/articles/starwars.html")
-starwars |> as.character() |> cat()
-
-```
----
-
-## Main functions in rvest
-
-**`html_elements()` finds all elements in a HTML document that match a CSS selector or XPath expression.** 
-
-Use when you expect multiple matches. Here each section corresponds to a different film:
-
-```r
-films <- starwars |> html_elements("section")
-films
+# Example 2
+if (temperature >= 0 | temperature < 10) {
+  weather <- "Cold"
+} else {
+  weather <- "Warm"
+}
+print(weather)
 ```
 
+<!--
+Use AND (&) when both conditions must be TRUE (here, >= 0 and < 10) at the same time for the code inside the {} runs
+
+Here temperature must be greater than or equal to 0, and temperature must be less than 10. That’s what defines our “Cold” range (0–9°C).
+
+If you write OR only one must be TRUE, for the code to run. 
+So this condition is TOO BROAD would always be true, because every number is either ≥ 0 or < 10.
+-->
+
 ---
 
-## Main functions in rvest
+## 3. Nested tests by placing one "if" inside another
 
-**`html_element()` finds one specific element per film section.**
+<!-- The %% modulo operator calculates the remainder from a division operation. Here 15 : 2 = 7, 1 is the reminder, thus the number is odd -->
 
-Here we are saying: for each film section found before, extract one (the first, which is all we have here) `<h2>`
+Use nested `if...else` statements when your code needs to check **conditions within conditions**. This allows you to make a second decision **only after** a first condition is met.
 
-```r
-title <- films |> 
-  html_element("h2") |> 
-  html_text2()
-title
+Example (the modulo `%%` returns the remainder after a division):
+
+```{r, echo = TRUE, results = "hide"}
+x <- 15
+
+if (x > 0) {
+  # Case 1: x is positive
+  if (x %% 2 == 0) {
+    print("x is a positive even number")
+  } else {
+    print("x is a positive odd number")
+  }
+
+} else {
+  # Case 2: x is negative
+  if (x %% 2 == 0) {
+    print("x is a negative even number")
+  } else {
+    print("x is a negative odd number")
+  }
+}
 ```
 
-Try running `starwars |> html_element("section")` and `starwars |> html_elements("h2")` and make sense of the results.
+What output do you expect if `x <- -6` and if `x <- 0`? 
+
+<!-- current places 0 as negative even number but incorrect, so we need to improve the code! -->
 
 ---
 
-## Main functions in rvest
+## 3. Nested tests by placing one "if" inside another
 
-**`html_text2()` extracts text embedded within tags.** 
+Same example, but this checks also the condition `x <- 0`
 
-Building on the code in the previous slide, here we can use it to get only the text as tring:
+```{r, echo = TRUE, results = "hide"}
+x <- 0
 
-```r
-title <- films |> 
-  html_element("h2") |> 
-  html_text2()
-title
+if (x > 0) {
+  # Case 1: x is positive
+  if (x %% 2 == 0) {
+    print("x is a positive even number")
+  } else {
+    print("x is a positive odd number")
+  }
+} else if (x < 0) {
+  # Case 2: x is negative
+  if (x %% 2 == 0) {
+    print("x is a negative even number")
+  } else {
+    print("x is a negative odd number")
+  }
+} else {
+  # Case 3: x is exactly zero
+  print("x is zero")
+}
 ```
 
 ---
 
-## Main functions in rvest
+## 4. Vectorized tests with ifelse() 
 
-**`html_attr()` gets data out of attributes.** 
+Our final case for today is `ifelse()`: it looks like a conditional statement, but it's actually a function that applies a condition to **each element of a vector**. 
 
-It always returns a string so we convert it to an integer: 
-
+Syntax:
 ```r
-episode <- films |> 
-  html_element("h2") |> 
-  html_attr("data-id") |> 
-  readr::parse_integer()
-episode
-```
----
-
-## Main functions in rvest
-
-**`html_table()` extracts tabular data and converts it directly to a dataframe!**
-
-```r
-html <- read_html("https://en.wikipedia.org/w/index.php?title=The_Lego_Movie&oldid=998422565")
-
-html |> 
-  html_element(".tracklist") |> 
-  html_table()
+ifelse (condition to be evaluated,
+        action performed when condition is TRUE,
+        action performed when condition is FALSE)
 ```
 
-Note: some data cleaning is needed here (and generally to be expected with any scraping project)
+Example:
+```{r, echo = TRUE, results = "hide"}
+ifelse(sqrt(16) > 3, 
+       sqrt(16),
+       0)
+```
+
+<!--
+if_else(): more flexibile and handles complex conditional logic; returns a scalar
+
+ifelse(): simpler and more suited for simple assignments or to transform variables in a dataframe; returns a vector
+-->
 
 ---
 
-## Practice all of this in R!
+## 4. Vectorized tests with ifelse() 
 
-**We scrape this U.S. Presidential statements page: <https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>**
+Another example, this time with a vector as input. What is the output of this code?
 
-What we learn through this example (today and next class):
+```{r, echo = TRUE, results = "hide"}
+numbers <- c(10, 6, 7)
+ifelse(numbers %% 2 == 1, 
+       "odd",
+       "even")
+```
 
-- Use `rvest` functions to collect name, date, title, and text from that page
-- Identify tags using two ways: 
-  - examining the webpage directly
-  - using helper tools like SelectorGadget
-- Learn Scraping best practices
-- Scale up our scraper to handle multiple pages
+<br>
+
+::: {.callout-note title="How ifelse() works"}
+
+- If the input of ifelse() is a vector, the output is also a vector: **ifelse() evaluates each element of the vector** and applies the corresponding action
+
+- This works because **ifelse() supports vectorized operations**: operations directly applied on entire vectors, rather than looping through individual elements one-by-one
+
+:::
+
+<!--
+How can we rewrite the same code using the standard `if-else` statement?
+
+```
+# won't work
+numbers <- c(10, 6, 7)
+if (numbers %% 2 == 1) { 
+  print("odd")
+} else {
+  print("even")
+}
+```
+
+```
+# need a loop
+numbers <- c(10, 6, 7)
+for (i in 1:length(numbers)) {
+  if (numbers[i] %% 2 == 1) {
+    print("odd")
+    } 
+else 
+  print("even")
+ }
+```
+-->
 
 ---
 
-## SelectorGadget
+## 4. Vectorized tests with ifelse() 
 
-Follow these steps to install and use the SelectorGadget...
+:::: {.columns}
+::: {.column width="50%"}
+### Regular if... else statements
+- Can only test **one value at a time** 
+- Think of them as asking **one yes/no question to one person at a time**
+:::
 
-* Go to <https://selectorgadget.com/> to install and watch a short video on how to use it
-* Once installed drag the SelectorGadget link into your web browser's bar
-* Navigate to a webpage and open the SelectorGadget bookmark
-* Go to <https://rvest.tidyverse.org/articles/selectorgadget.html#use> for step-by-step instructions on how to use it
+::: {.column width="50%"}
+### ifelse()
+- Can test a **whole vector at once**
+- Think of it as asking **the same question to everyone in a group at once**
+:::
+:::: 
+
+Examples:
+```r
+x <- c(5, 10, 15)
+
+# Using if / else: works only with a single value
+if (x > 10) {
+  "High"
+} else {
+  "Low"
+}
+
+# Using ifelse(): works element-wise (vectorized)
+ifelse(x > 10, "High", "Low")
+```
 
 ---
 
-### Web Scraping Resources
+## 4. Vectorized tests with ifelse() 
 
-* Web scraping 101: <https://rvest.tidyverse.org/articles/rvest.html>
+For this reason, `ifelse()` is often used to make changes in a data frame. Example: what is the output of this code?
 
-* Rvest tutorial: <https://rvest.tidyverse.org/articles/rvest.html#html-basics>
+```{r, echo = TRUE, results = "hide"}
+library(tidyverse)
 
-* Using HTML and CSS for scraping: <https://sscc.wisc.edu/sscc/pubs/webscraping-r/html.html>
+qualify <- tibble("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
+                  "Scores" = c(32, 37, 28, 30))
 
-* Handy references for your scraping projects:
+# using base R 
+ifelse(qualify$Scores > 30, 
+       "Admitted", 
+       "Rejected")
 
-  * HTML overview: <https://www.w3schools.com/html/html_intro.asp>
-  * List of tags: <https://developer.mozilla.org/en-US/docs/Web/HTML/Element> 
+# same using dplyr
+qualify %>%
+  mutate(status = ifelse(Scores > 30,
+                       "Admitted",
+                       "Rejected"))
+```
 
+<!--  FOR CSS CLASS IF THIS COMES AFTER DATA STRUCTURES, ADD THIS SLIDE IN
+AND EXPLICITLY CONNECT IT BACK TO PREVOIUS CLASS 
+
+You can also use double square bracket to access column Scores by position vs name 
+
+# using base R to access column Scores by position
+# double square brackets on a df return a vector
+ifelse(qualify[[2]] > 30, 
+       "Admitted", 
+       "Rejected")
+
+# single square brackets on a df return a tibble
+ifelse(qualify[2] > 30, 
+       "Admitted", 
+       "Rejected")
+
+
+# stick with [[]] for ector operations, safer always returns a vector
+-->
+
+---
+
+## 4. Vectorized tests with ifelse() 
+
+In the previous example, we only had two possible categories: "Admitted" and "Rejected"
+
+What happens to our code if we add a third category, say "Waitlisted"? We can write a **nested `ifelse()`** like this:
+
+```{r, echo = TRUE, results = "hide"}
+
+qualify <- tibble("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
+                  "Scores" = c(32, 37, 28, 30))
+
+qualify <- tibble(
+  Athlet = c("Noah", "Julio", "Nick", "Maria"), 
+  Scores = c(32, 37, 28, 30))
+
+qualify %>%
+  mutate(Status = ifelse(Scores > 35,            # First condition
+                         "Admitted",             # If TRUE, assign "Admitted"
+                         ifelse(Scores >= 30,    # Second condition (checked only if first is FALSE)
+                                "Waitlisted",    # If TRUE, assign "Waitlisted"
+                                "Rejected")))    # If both conditions are FALSE, assign "Rejected"
+
+```
+
+<!--
+# more formally...
+
+ifelse(condition1,
+       "Label1",           # used if condition1 is TRUE
+       ifelse(condition2,
+              "Label2",    # used if condition1 is FALSE and condition2 is TRUE
+              "Label3"))   # used if BOTH condition1 and condition2 are FALSE
+-->
+
+---
+
+## 4. Vectorized tests with ifelse() 
+
+Nested `ifelse()` statements work, but they make the code harder to read. 
+
+Compare the previous example with this version that avoids nesting:
+
+```{r, echo = TRUE, results = "hide"}
+
+qualify <- tibble("Athlet" = c("Noah", "Julio", "Nick", "Maria"), 
+                  "Scores" = c(32, 37, 28, 30))
+
+qualify %>%
+  mutate(Status = "Rejected") %>%                                  # Start with a default label
+  mutate(Status = ifelse(Scores >= 30, "Waitlisted", Status)) %>%  # Update if the condition is met
+  mutate(Status = ifelse(Scores > 35, "Admitted", Status))         # Update again if the higher condition met
+```
+
+<!--
+# or can also start from Admitted and down
+
+qualify %>%
+  mutate(Status = "Admitted") %>%                                   # start with highest category
+  mutate(Status = ifelse(Scores <= 30, "Waitlisted", Status)) %>%  # downgrade if below admission threshold
+  mutate(Status = ifelse(Scores < 25, "Rejected", Status))          # downgrade again if below waitlist threshold
+-->
+
+<br>
+
+::: {.callout-tip title="Tip"}
+When you have 2+ conditions: use separate `mutate()` + `ifelse()` steps (as shown here), instead of nesting.
+:::
+
+
+</br>
+
+<!--
+## When to Use `ifelse()` Instead of `case_when()`
+
+It depends but as a rule of thumb...
+
+Use `ifelse()` when:
+
+- You're checking **only one condition**
+- You want a **simple inline transformation**  
+  (e.g., `ifelse(x > 0, x * 2, x)`)
+- You're assigning `NA` for some values  
+  (e.g., `ifelse(x < 0, NA, x)`)
+
+Use `case_when()` when:
+
+- You have **3 or more conditions**
+- You want better readability for **categorical recoding**
+
+-->
+
+---
+
+## 4. Vectorized tests with ifelse() 
+
+People often use `ifelse()` to recode variables in a dataframe. 
+
+For example, the variable `decisionDirection` takes four values: 1 = Conservative, 2 = Liberal, 3 = Other, and NA.  
+Recode it to three values: 0 = Conservative, 1 = Liberal, and NA for both NA and Other.  
+
+```r
+data |>
+  mutate(decisionDirection = ifelse(
+    decisionDirection == 3, # condition to evaluate
+    NA,                     # if true, set to NA
+    decisionDirection - 1   # if false, subtract one to value
+    ))
+```
+
+<br>
+
+::: {.callout-tip title="Tip"}
+Tip: Prefer `case_when()` over `ifelse()` for recoding variables (see the recoding class): it is easier to read and scale. 
+:::
+
+</br>
+
+
+
+<!--
+More on this:
+https://docs.ycrc.yale.edu/r-novice-gapminder/07-control-flow/
+Comparing ifelse() and for loop:
+https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
+-->
+
+---
+
+## 4. Vectorized tests with ifelse() 
+
+**Note there is also a tidyverse version of the base R `ifelse()` function!**
+
+The tidyverse version is called `if_else()` <https://dplyr.tidyverse.org/reference/if_else.html>
+
+The two are very similar, hence I introduced only on here, pick the one you prefer.
+
+---
+
+## 💻 Practice
+
+More practice exercises in today's class materials (downloaded from the website)
+
+---
+
+## Recap: What We Learned Today
+
+- Control structures let us change the flow of execution in our code  
+- We focused on conditional statements: how to make decisions using `if`, `else`, and `else if`
+- We practiced different types of conditionals: single test, multiple tests, and nested tests  
+- Run vectorized tests with the function `ifelse()` and how this differs from standard conditional statements
+
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+
+:::

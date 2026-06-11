@@ -6,11 +6,11 @@ format:
     theme: cosmo
 ---
 
-### Sotfware Setup Fall 2025
+### Sotfware Setup Summer 2026
 
 <div class="my-4"></div>
 
-This section of the website guides you through everything you need to set up for the course:
+This section of the website helps you to set up your machine for the course:
 
 **1. First, Configure your Setup: [RStudio Workbench Setup](setup-workbench.qmd)**
 
@@ -20,7 +20,7 @@ This section of the website guides you through everything you need to set up for
 
 ::: {.callout-note}
 
-These instructions are for **RStudio Workbench**, which is the platform we use in this course. If you have prior programming experience and prefer to install R and RStudio on your own computer, reach out to discuss.
+These instructions are for **RStudio Workbench**, which is the platform we use in this course. We assume everyone will use it. If you have prior programming experience and prefer to install R and RStudio on your own computer, reach out to discuss.
 
 :::
 

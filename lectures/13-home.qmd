@@ -1,9 +1,9 @@
 ---
-title: "Lecture 13: Control Flow 2 (cont.); Functions 1"
-date: 2025-11-10
-summary: "Finish Loops; Introduce Functions"
-url_slides: 13-slides.qmd
-url_code: css-materials/functions
+title: "Lecture 13: Week 3 Review"
+date: 2026-07-06
+summary: "Week 3 Review and Q&A"
+url_slides: 
+url_code:
 page-layout: full
 draft: false
 ---
@@ -16,27 +16,27 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: No slides for this session
+* **Code**: No in-class code for this session
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
-<!-- `usethis::use_course("css-materials/functions")` -->
+-->
 
 ## Learning Objectives
 
-**Loops (cont. from last lecture):**
+Today, we will review the following topics and answer any questions you may have:
 
-- Using for loops within a data frame 
-- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
-- Introduce while loops
+- Quiz 3 answers
+- Week 3 course content
+- Homework Assignment
 
-**Functions:**  
-
-- Define functions and their purposes  
-- Understand the difference between built-in and user-written functions  
-- Learn the syntax of user-written functions  
+Today we will also start the in-class oral checks, which will continue throughout this and next week. I will share a sign-up sheet and more details ahead of time.
 
 
-## Readings
+## Before Class
 
-* Loops: Same readings as in previous lecture
-* Functions: [Chapter 15 "Functions"](https://r4ds.hadley.nz/functions) in "R for Data Science" 2nd Edition
+- Complete Quiz 3
+- Bring any questions you have about the Week 3 materials!
+

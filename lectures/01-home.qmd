@@ -1,12 +1,13 @@
 ---
-title: "Lecture 1: Course Logistics, R, Markdown"
-date: 2025-09-29
-summary: "Course Logistics, R, Markdown"
+title: "Lecture 1: Course Logistics; Intro to R & Markdown"
+date: 2026-06-15
+summary: "Course Logistics; Intro to R & Markdown"
 url_slides: 01-slides.qmd
 url_code: css-materials/r-markdown
 format: html
 page-layout: full
 draft: false
+
 ---
 
 ```{r setup, include=FALSE}
@@ -17,9 +18,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!-- 
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
+-->
 
 ## Learning Objectives
 
@@ -31,15 +36,14 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before Class
 
-- Go to <https://github.com> and follow the instructions to create a free GitHub account. Choose a professional username (see [these tips](https://happygitwithr.com/github-acct) for guidance)
-- Once you have created a GitHub account [submit your GitHub username here](https://docs.google.com/spreadsheets/d/1xdGlva9YWt7RS5VpnyRqAQMSayPczzY4l3-iSW-JXzk/edit?usp=sharing)
-- Complete this [short survey](https://forms.gle/SrVxNwCAixZSFr1QA)
-- Bring your laptop to every class
+- Go to <https://github.com> and follow the instructions to create a free GitHub account. Choose a professional username (see [these tips](https://happygitwithr.com/github-acct))
+- Once you have created a GitHub account [submit your GitHub username here](https://docs.google.com/spreadsheets/d/1U3O-97UKWiBmCuLWfJY6OaEtePz7Dqan5iVgxCXgImY/edit?usp=sharing)
+- Complete this [intro survey](https://forms.gle/pKXDLNP8T92bYY7T6)
 
 
 ## Readings
 
-Skim the readings before or after class to get the big picture, review them for the assignments and exams:
+Skim the readings before or after class to get the big picture, review them for the assignments:
 
 - [R Markdown, R4DS](https://r4ds.had.co.nz/r-markdown.html)
 - [R Markdown Cheatsheet](https://rmarkdown.rstudio.com/lesson-15.HTML)

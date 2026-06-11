@@ -6,41 +6,42 @@ format:
     theme: cosmo
 ---
 
-### Course Information Fall 2025
+### Course Information Summer 2026
 
 <div class="my-4"></div>
 
-**Lectures**: Mondays & Wednesdays, 1:30–3:20 PM, 1155 Building E. 60th St, Room 295 
+**Lectures**: Monday to Thursday, 9:30–11:30 AM, via Zoom. The Zoom link is accessible by enrolled students through [Canvas](https://canvas.uchicago.edu/courses/72552)
+
+<!--
+Join Zoom Meeting
+https://uchicago.zoom.us/j/96914317288?pwd=6IWBa75F5zDSaszslKV2bx29FlEOw8.1
+Meeting ID: 969 1431 7288
+Passcode: 667323
+-->
 
 <div class="my-4"></div>
 
 **Teaching Team**:  
 
 - Instructor: Sabrina Nardin (she/her) – [nardin@uchicago.edu](mailto:nardin@uchicago.edu)  
-- TA: Zach Meyer (he/him) – [zmeyer@uchicago.edu](mailto:zmeyer@uchicago.edu)
-- TA: Zixuan Zhou (she/her) – [zixuanzhou@uchicago.edu](mailto:zixuanzhou@uchicago.edu)
+- TA: Rubén Rodríguez Barron (he/him) – [rrodriguezbarron@uchicago.edu](mailto:rrodriguezbarron@uchicago.edu)
+- Grader: Xulan Jiang (he/him) – [xulanj@uchicago.edu](mailto:xulanj@uchicago.edu)
 
 <div class="my-4"></div>
 
-**Office Hours (all in-person)**:
+**Office Hours (all online)**:
 
-| Day & Time                     | Type                                                                 | Location              | Person |
-|--------------------------------|----------------------------------------------------------------------|-----------------------|------------|
-| Mon 3:20–3:30 PM (after class) | *Drop-in (short questions)*                                          | Same as classroom     | Sabrina    |
-| Tue 2:00–4:00 PM               | [*By appointment*](https://calendar.app.google/xtDH9Pnf8yJtP9jg6)    | 1155 Bldg, Room 221A  | Sabrina    |
-| Wed 11:00 AM–12:40 PM          | [*By appointment*](https://calendar.app.google/sXeZq7QVB349yMiJ7)    | 1155 Bldg, Room 222   | Zach       |
-| Wed 12:40–1:10 PM              | *Drop-in (short questions)*                                          | 1155 Bldg, Room 222   | Zach       |
-| Wed 3:20–3:30 PM (after class) | *Drop-in (short questions)*                                          | Same as classroom     | Sabrina    |
-| Thu 1:30–3:10 PM               | [*By appointment*](https://calendar.app.google/Gt8Bci5Ciw7n1uEA8)    | 1155 Bldg, Room 222   | Zixuan     |
-| Thu 3:10–3:40 PM               | *Drop-in (short questions)*                                          | 1155 Bldg, Room 222   | Zixuan     |
+- **Sabrina:** Monday to Thursday immediately after class (11:30 to noon) [Sabrina OHs Zoom link](https://uchicago.zoom.us/j/93525400792?pwd=L0JCdEdpTUlFemt3UnBNYmd4L0J2UT09)
+- **Rubén:** Monday 1:30-3:30 PM [Rubén OHs Zoom link]()
+
 
 <div class="my-4"></div>
 
 **Quick Links**:  
 
 - [R Workbench](https://macss-r.uchicago.edu/)  
-- [Canvas](https://canvas.uchicago.edu/courses/66343)  
-- [Ed Discussion](https://edstem.org/us/courses/86758/discussion)
+- [Canvas]()  
+- [Ed Discussion]()
 - [UChicago GenAI](https://genai.uchicago.edu/en)
 
 

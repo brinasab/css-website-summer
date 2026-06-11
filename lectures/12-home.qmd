@@ -1,9 +1,9 @@
 ---
-title: "Lecture 12: Control Flow 2"
-date: 2025-11-05
-summary: "Writing Loops"
+title: "Lecture 12: Strings and Regex with stringr; Dates with lubridate"
+date: 2026-07-02
+summary: "Strings and Regex with stringr; Dates with lubridate"
 url_slides: 12-slides.qmd
-url_code: css-materials/loops
+url_code: css-materials/regular-expr
 page-layout: full
 draft: false
 ---
@@ -16,19 +16,25 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
 
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
 
 ## Learning Objectives
 
-- Understand how for loops work
-- Learn how to track and save results during a loop (e.g., running totals)
-- Recognize the difference between looping over indexes and over elements
-- Observe how we can use for loop with if-else statements and within dataframes
+* Define Strings, Regular Expressions, and their uses
+* Introduce `stringr`
+* Practice using Regular Expressions in R to extract info from strings
+* Introduce `lubridate` to manipulate dates in R
 
 
 ## Readings
 
-- ["Chapter 27.5 For Loops"](https://r4ds.hadley.nz/base-R.html#for-loops) (high level intro here, slides unpack the details)
-- ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition
+* [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (especially 14.4 "Extracting data from strings")
+* [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. Focus on the `stringr()` section — that’s all we cover in class, but the full chapter is a good reference if you want more
+* [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
+* ["Chapter 17 Dates and times"](https://r4ds.hadley.nz/datetimes.html) from "R for Data Science" 2nd Edition

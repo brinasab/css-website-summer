@@ -1,9 +1,9 @@
 ---
-title: "Lecture 10: Data Structures, Base R"
-date: 2025-10-29
-summary: "Intro to Data Structures, Data Types, and Base R"
+title: "Lecture 10: Importing Data with readr; Relational Data with dplyr"
+date: 2026-06-30
+summary: "Importing Data; Relational Data"
 url_slides: 10-slides.qmd
-url_code: css-materials/subsetting
+url_code: css-materials/relational-data
 page-layout: full
 draft: false
 ---
@@ -16,20 +16,22 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
 
 
 ## Learning Objectives
 
-- Understand what Base R is, and how it differs from the Tidyverse
-- Identify R data types and structures  
-- Explore R vectors 
-- Subset data using Base R syntax
+- Importing and Exporting Data in R
+- Managing Relational Data (e.g., linking and merging related tables)
 
 
 ## Readings
 
-* [Chapter 20 “Vectors”](https://r4ds.had.co.nz/vectors.html) in "R for Data Science" 1st Edition. I assigned the 1st Edition because I find it a bit clearer on this topic than the 2nd Edition, but you might want to take a look also at [Chapter 12 "Logical Vectors"](https://r4ds.hadley.nz/logicals) and [Chapter 13 "Numbers"](https://r4ds.hadley.nz/numbers) of the 2nd Edition and decide what you prefer. Either works!
-* [Chapter 27 "A field guide to base R"](https://r4ds.hadley.nz/base-r) in "R for Data Science" 2nd Edition.
-
+- Importing data: ["Chapter 7 Data import"](https://r4ds.hadley.nz/data-import.html) from "R for Data Science" 2nd Edition and [readr Documentation](https://readr.tidyverse.org/index.html)
+- Relational data: ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition

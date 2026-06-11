@@ -1,9 +1,9 @@
 ---
-title: "Lecture 14: Functions 2, Debugging"
-date: 2025-11-12
-summary: "Functions 2, Debugging"
+title: "Lecture 14: Data Structures and Base R"
+date: 2026-07-07
+summary: "Intro to Data Structures, Data Types, and Base R"
 url_slides: 14-slides.qmd
-#url_code: css-materials/functions
+url_code: css-materials/subsetting  # check and expand?
 page-layout: full
 draft: false
 ---
@@ -16,25 +16,24 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
 
-<!-- `usethis::use_course("css-materials/functions-bugs")` -->
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
 
 ## Learning Objectives
 
-* Review and continue the lecture on Functions  
-* Practice debugging code  
-* Distinguish between errors, warnings, and messages  
+- Understand what Base R is, and how it differs from the Tidyverse
+- Identify R data types and structures  
+- Explore R vectors 
+- Subset data using Base R syntax
+
 
 ## Readings
 
-Functions:
+* [Chapter 20 “Vectors”](https://r4ds.had.co.nz/vectors.html) in "R for Data Science" 1st Edition. I assigned the 1st Edition because I find it a bit clearer on this topic than the 2nd Edition, but you might want to take a look also at [Chapter 12 "Logical Vectors"](https://r4ds.hadley.nz/logicals) and [Chapter 13 "Numbers"](https://r4ds.hadley.nz/numbers) of the 2nd Edition and decide what you prefer. Either works!
+* [Chapter 27 "A field guide to base R"](https://r4ds.hadley.nz/base-r) in "R for Data Science" 2nd Edition.
 
-* See the previous lecture for the reading on Functions
-
-Optional readings on debugging:
-
-* "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r)
-* [21.6 Dealing with failure in *R for Data Science*](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
-* [How to read an R help page](http://socviz.co/appendix.html#how-to-read-an-r-help-page)

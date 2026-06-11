@@ -1,7 +1,7 @@
 ---
-title: "Lecture 2: Git and GitHub"
-date: 2025-10-01
-summary: "Intro to Git and GitHub with RStudio"
+title: "Lecture 2: Git & GitHub with RStudio"
+date: 2026-06-16
+summary: "Intro to Git & GitHub with RStudio"
 url_slides: 02-slides.qmd
 #url_code: css-materials/git
 format: html
@@ -17,8 +17,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: No in-class code for this session
+
+<!-- 
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+-->
 
 
 ## Learning Objectives
@@ -33,7 +37,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - Complete the Lecture 1 "Before Class" activities, if you haven't already
 - Review Lecture 1 materials
-- *Optional:* Read the [Software Setup](../setup/index.qmd) page. We'll go through this together in class today
+- Read the [Software Setup](../setup/index.qmd) page. We'll go through this together in class today
 
 
 ## Readings

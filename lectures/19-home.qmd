@@ -1,0 +1,45 @@
+---
+title: "Lecture 19: Functions (cont.)"
+date: 2026-07-15
+summary: "Functions (cont.)"
+url_slides: 19-slides.qmd
+#url_code: css-materials/functions
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Materials
+
+* **Date**: {{< meta date >}}
+* **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: No in-class code to download
+
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
+
+<!-- `usethis::use_course("css-materials/functions-bugs")` -->
+
+## Learning Objectives
+
+* Review and continue the lecture on Functions  
+* Practice debugging code  
+* Distinguish between errors, warnings, and messages  
+
+## Readings
+
+* See the previous lecture for the readings on Functions
+
+<!--
+Optional readings on debugging:
+
+* "Debugging R code" in [What They Forgot to Teach You About R](https://rstats.wtf/debugging-r)
+* [21.6 Dealing with failure in *R for Data Science*](http://r4ds.had.co.nz/iteration.html#dealing-with-failure)
+* [How to read an R help page](http://socviz.co/appendix.html#how-to-read-an-r-help-page)
+-->

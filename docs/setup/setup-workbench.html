@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>RStudio Workbench Setup – css-website</title>
+<title>RStudio Workbench Setup – css-website=summer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -198,13 +198,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>If you have not yet, go to <a href="https://github.com" class="uri">https://github.com</a> and follow the instructions there to create a free GitHub account. Choose a professional username (see <a href="https://happygitwithr.com/github-acct">these tips</a>).</p></li>
 <li><p>Add your GitHub username to the Excel file linked on <a href="../lectures/01-home.html">Lecture 1</a>.</p></li>
-<li><p>We’ll use your username to invite you to our GitHub Course Organization, which is required to access and submit homework assignments. You’ll receive an invitation email from GitHub — make sure to open it and accept the invitation to join the organization.</p></li>
+<li><p>We will use your username to invite you to our GitHub Course Organization. Accessing it is required for homework assignments. You will receive an invitation email from GitHub — make sure to open it and accept the invitation to join the organization.</p></li>
 </ol>
 </section>
 <section id="step-2-log-into-rstudio-workbench" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-log-into-rstudio-workbench">Step 2: Log into RStudio Workbench</h2>
 <p>Go to <a href="https://macss-r.uchicago.edu/" class="uri">https://macss-r.uchicago.edu/</a></p>
-<p>Login with your UChicago <a href="https://uchicago.service-now.com/it?id=kb_article&amp;kb=KB06000393">CNetID</a> and password to login; this is the same username/password you use for other UChicago online services. You’re done. You should see a clean RStudio window in your browser.</p>
+<p>Login with your UChicago <a href="https://uchicago.service-now.com/it?id=kb_article&amp;kb=KB06000393">CNetID</a> and password to login; this is the same username/password you use for other UChicago online services. You should see a clean RStudio window in your browser.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -215,34 +215,33 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Only students approved by SSCS can access this server. If you can’t log in, chances are that you have not yet been added to the server. Email me at <a href="mailto:nardin@uchicago.edu">nardin@uchicago.edu</a>. For network or cVPN issues, contact <a href="https://its.uchicago.edu">ITS</a>.</p>
+<p>Only students approved by SSCS can access Workbench. If you can’t log in, chances are that you have not yet been added to the server. Email me at <a href="mailto:nardin@uchicago.edu">nardin@uchicago.edu</a>. For network or VPN issues, contact <a href="https://its.uchicago.edu">ITS</a>.</p>
 </div>
 </div>
 </section>
 <section id="step-3-configure-git-in-rstudio-workbench" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-configure-git-in-rstudio-workbench">Step 3: Configure Git in RStudio Workbench</h2>
-<p>To make Git work smoothly in this course, you’ll configure settings 3.1 and 3.2 below.</p>
+<p>To make Git work smoothly in this course, follow the instructions 3.1 and 3.2 below. You can also watch a <a href="https://drive.google.com/file/d/1O_uiyzVHKJOfGxaEDZ3TWWwkUm2qZpl-/view?usp=sharing">video walkthrough of the setup process</a>.</p>
 <p><strong>You only need to do this once per machine!</strong></p>
-<p>You can also watch a <a href="https://drive.google.com/file/d/1O_uiyzVHKJOfGxaEDZ3TWWwkUm2qZpl-/view?usp=sharing">video walkthrough of the setup process</a>.</p>
 <section id="identify-yourself-to-git" class="level3">
 <h3 class="anchored" data-anchor-id="identify-yourself-to-git">3.1 Identify yourself to Git</h3>
 <section id="what-is-this" class="level4">
 <h4 class="anchored" data-anchor-id="what-is-this">What is this?</h4>
-<p>To track your work and link changes to you, Git needs to know your name and email address. So, you need to tell them to Git. Use the same email you used to your set up your GitHub account (see Lecture 1 “Before class”).</p>
+<p>To track your work, Git needs to know your name and email address. So, you need to tell them to Git. The instructions below explain how.</p>
 </section>
-<section id="what-you-need-to-do-to" class="level4">
-<h4 class="anchored" data-anchor-id="what-you-need-to-do-to">What you need to do to</h4>
-<p>Go to the <strong>Console</strong> tab in RStudio and run the code below, replacing name and email with your own:</p>
+<section id="what-you-need-to-do" class="level4">
+<h4 class="anchored" data-anchor-id="what-you-need-to-do">What you need to do</h4>
+<p>Go to the <strong>Console</strong> tab in RStudio and run the code below, replacing name and email with your own (keep them wrapped in ““):</p>
 <ul>
 <li>your name can be your GitHub username or your actual first and last name</li>
-<li>your email must be the same email you used to sign up for GitHub when you created an account</li>
+<li>your email <em>must</em> be the same email you used to sign up for GitHub when you created an account</li>
 </ul>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Your GitHub Username"</span>, <span class="at">user.email =</span> <span class="st">"your@email.com"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To confirm it worked (e.g., that Git got your credentials), go to <em>Tools &gt; Terminal</em> and run the following command in the shell/terminal tab that opens up:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>git config <span class="sc">--</span>global <span class="sc">--</span>list</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>If you see your name and email, you’re all set.</p>
-<p>If something is off, like a typo in your name or the wrong email (you must use the email linked to your GitHub account): just re-run the R code with the correct information. It will overwrite the previous settings.</p>
+<p>If something is off, like a typo in your name or the wrong email (you must use the email linked to your GitHub account): just re-run the R code above with the correct information. It will overwrite the previous settings.</p>
 <!--
 # List all SSH key stored using Shell
 ls -l ~/.ssh
@@ -267,20 +266,20 @@ ls -l ~/.ssh
 <h3 class="anchored" data-anchor-id="set-up-ssh-authentication">3.2 Set Up SSH Authentication</h3>
 <section id="what-is-this-1" class="level4">
 <h4 class="anchored" data-anchor-id="what-is-this-1">What is this?</h4>
-<p>Now Git knows your name and email. But to send your work from Git (on your computer – in our case, Workbench) to GitHub (online), you need to prove to GitHub that’s really you — this is called authentication.</p>
-<p>There are two methods for authentication: either SSH keys or HTTPS with a personal access token. Both options allow Git to connect to GitHub securely, so you can push and pull changes smoothly. Since we are using RStudio Workbench for the class, <strong>you will need to use the SSH method to authenticate</strong>. The server that hosts our Workbench does not have the ability to cache your personal access token for the HTTPS method.</p>
-<p>SSH, or Secure Shell Protocol, is a secure way to prove your identity when connecting to GitHub. Unlike passwords, which can be vulnerable to brute-force attacks, SSH keys are much harder to crack.</p>
+<p>Now Git knows your name and email. But to send your work from Git on your computer (in our case, Workbench) to GitHub online, you need to prove to GitHub that is really you — this is called authentication.</p>
+<p>There are two methods for authentication: either SSH keys or HTTPS with a personal access token. Both options allow Git to connect to GitHub securely, so you can push and pull your work smoothly.</p>
+<p>Since we are using RStudio Workbench for this class, <strong>you will need to use the SSH method to authenticate</strong>. The server that hosts our Workbench does not have the ability to cache your personal access token for the HTTPS method. The SSH, or Secure Shell Protocol, method is a secure way to prove your identity when connecting to GitHub. Unlike passwords, which can be vulnerable to brute-force attacks, SSH keys are much harder to crack.</p>
 <p>When you generate an SSH key pair, you get two long strings of characters:</p>
 <ul>
-<li>a <strong>public key</strong>, which you upload to GitHub</li>
-<li>a <strong>private key</strong>, which stays safely on your computer (or in RStudio Workbench)</li>
+<li>a <strong>public key</strong>, which you store on GitHub</li>
+<li>a <strong>private key</strong>, which stays on your computer (or in RStudio Workbench)</li>
 </ul>
 <p>When you connect to GitHub, Git uses your private key to unlock the connection. If it matches the public key on GitHub, you’re authenticated!</p>
-<p>Note: on GitHub, the URL for SSH looks like <code>git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.git</code> Make sure you use this SSH URL to create a project or clone a repository. If you accidentally use the HTTPS version, the operation will not work.</p>
+<p><strong>Important Note:</strong> on GitHub, the URL for SSH looks like <code>git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.git</code> Make sure you use this SSH URL to create a project or clone a repository for homework assignments. If you accidentally use the HTTPS version, the operation will not work.</p>
 </section>
-<section id="what-you-need-to-do-to-1" class="level4">
-<h4 class="anchored" data-anchor-id="what-you-need-to-do-to-1">What you need to do to</h4>
-<p>You need to create and store an SSH key pair, by running the following code in your R Console:</p>
+<section id="what-you-need-to-do-1" class="level4">
+<h4 class="anchored" data-anchor-id="what-you-need-to-do-1">What you need to do</h4>
+<p>You need to create and store an SSH key pair. Start by running the following code in your R Console:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>credentials<span class="sc">::</span><span class="fu">ssh_setup_github</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once you do that, you’ll be guided through a few steps:</p>
 <ul>
@@ -289,25 +288,25 @@ ls -l ~/.ssh
 <li>You will be asked to <strong>open a browser</strong> → Select <strong>Yes</strong></li>
 <li>Before or after opening a new browser, <strong>copy</strong> the entire SSH key (including the <code>ssh-rsa</code> at the beginning) from your Console</li>
 </ul>
-<p>Once you are on the GitHub page:</p>
+<p>Once you are on the GitHub that opened in your new browser:</p>
 <ul>
 <li><strong>Paste</strong> your entire SSH key into the GitHub page that opened in your new browser (you can do this only if you registered a GitHub account, see step 1 above)</li>
-<li>Under <strong>“Title”</strong>, give the key an informative name, something like <code>csp-workbench-fall25</code> or similar</li>
+<li>Under <strong>“Title”</strong>, give the key an informative name, something like <code>csp-workbench-summer26</code> or similar</li>
 <li>Leave <strong>“Key type”</strong> set to <strong>Authentication Key</strong></li>
 <li>Click the green <strong>“Add SSH key”</strong> button</li>
 <li>If prompted, complete GitHub’s security steps (e.g., enter a verification code or password or anything else asked)</li>
 </ul>
 <p>You should now see your key listed in your GitHub account under the “SSH and GPG keys” page!</p>
-<p>To confirm it worked, go back R, then to <em>Tools &gt; Terminal</em> and run the following command in the shell/terminal tab that opens up:</p>
+<p>To confirm it worked, go back R, then to <em>Tools &gt; Terminal</em> and copy and paste the following command in the shell/terminal tab that opens up:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ls <span class="sc">-</span>l <span class="sc">~</span><span class="er">/</span>.ssh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You should see two lines showing the keys you just created: <code>id_rsa</code> is your private SSH key (do not share with others), your <code>id_rsa.pub</code> is your public SSH key (the one you put on GitHub).</p>
-<p>If you see more than these two files, it likely means you’ve set up extra SSH keys, which we want to avoid as it might create problems. You want to reset all keys, and start fresh (contact us if you need help with this).</p>
+<p>You should see two lines showing the keys you just created: <code>id_rsa</code> is your private SSH key (do not share it with others), your <code>id_rsa.pub</code> is your public SSH key (the one you put on GitHub).</p>
+<p><strong>Important Note:</strong> If you see more than these two keys, it likely means you have set up extra SSH keys, which you want to avoid as it might create problems: reset all keys and start fresh (contact us if you need help with this).</p>
 </section>
 </section>
 </section>
 <section id="whats-next" class="level2">
 <h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
-<p>If you completed this part successfully, you are ready to test your setup — go to the <a href="../setup/setup-test.html">Git within RStudio Tutorial</a> page and follow the instructions!</p>
+<p>If you completed this part successfully, you are ready to test your setup: go to the <a href="../setup/setup-test.html">Git within RStudio Tutorial</a> page and follow the instructions!</p>
 
 
 </section>

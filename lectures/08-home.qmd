@@ -1,9 +1,9 @@
 ---
-title: "Lecture 8: Tidydata, Lubridate"
-date: 2025-10-22
-summary: "Intro to Tidydata and Lubridate"
+title: "Lecture 8: Missing Data; Factors"
+date: 2026-06-25
+summary: "Missing Data; Factors"
 url_slides: 08-slides.qmd
-url_code: css-materials/tidydata
+url_code: css-materials/ # da rivedere /factors-more-dplyr
 page-layout: full
 draft: false
 ---
@@ -16,20 +16,21 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
+-->
 
 ## Learning Objectives
 
-* Define the concept of tidy data and its characteristics
-* Practice tidying data with `tidyr`
-* Introduce `lubridate` to manipulate dates in R
+- Detect, handle, and clean explicit missing data in R
+- Understand factors in R and how to use them effectively
 
 
 ## Readings
 
-* ["Chapter 5 Data tidying"](https://r4ds.hadley.nz/data-tidy) from "R for Data Science" 2nd Edition
-* [tidyr Documentation](https://tidyr.tidyverse.org/)
-* [tidyr Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/tidyr.pdf)
-* ["Chapter 17 Dates and times"](https://r4ds.hadley.nz/datetimes.html) from "R for Data Science" 2nd Edition
+- Missing data: ["Chapter 18 Missing values"](https://r4ds.hadley.nz/missing-values.html) from "R for Data Science" 2nd Edition
+- ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition

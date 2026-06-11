@@ -7,7 +7,10 @@ format: html
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-This tutorial verifies that everything is working as expected. Do this **after** the [RStudio Workbench Setup](setup-workbench.qmd).
+::: callout-note
+Complete this tutorial to verify that your setup is working as expected. Do this **after** completing the [RStudio Workbench Setup](setup-workbench.qmd) otherwise it won't work! If you are unsure whether you have completed the required steps, return to the [software setup page](index.qmd) and follow the instructions.
+:::
+
 
 ## Step 1: Make sure RStudio can find Git
 

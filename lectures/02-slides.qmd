@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 2"
 subtitle: "Topics: Git & GitHub with RStudio"
-author: "Sabrina Nardin, Fall 2025"
+author: "Sabrina Nardin, Summer 2026"
 format:
   revealjs:
     theme: simple
@@ -24,6 +24,12 @@ format:
 2. Introduction to Git & GitHub  
 3. Deeper Dive into Git & GitHub  
 :::
+
+---
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
 
 <!--
 
@@ -504,3 +510,5 @@ Note: this will only work if we have your GitHub username and you accepted the i
 ## To print these slides as pdf
 
 Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+
+:::

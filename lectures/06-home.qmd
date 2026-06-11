@@ -1,9 +1,9 @@
 ---
-title: "Lecture 6: More dplyr, Factors"
-date: 2025-10-15
-summary: "Deep Dive into dplyr, Using Factors in R"
+title: "Lecture 6: Intro to dplyr; Pipes"
+date: 2026-06-23
+summary: "Wrangling Data with dplyr; Using R Pipes"
 url_slides: 06-slides.qmd
-url_code: css-materials/factors-more-dplyr
+url_code: css-materials/dplyr-pipes
 page-layout: full
 draft: false
 ---
@@ -16,17 +16,28 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
+-->
 
 ## Learning Objectives
 
-- Understand what factors are in R and how to use them effectively
-- Strengthen and expand your ability to manipulate data using `dplyr` functions (“verbs”)
+- Approach coding tasks as problem-solving by thinking through the steps before writing code
+- Understand R logical operators
+- Apply key dplyr functions such as `filter()`, `group_by()`, and `summarize()`
+- Chain commands using the pipe `|>` and recognize mistakes to avoid
 
 
 ## Readings
 
-- ["Chapter 16 Factors"](https://r4ds.hadley.nz/factors) from "R for Data Science" 2nd Edition
-- ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from Lecture 4)*
+* ["Chapter 3 Data transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition 
+
+Additional Resources:
+
+* [dplyr Cheat Sheet](https://rstudio.github.io/cheatsheets/html/data-transformation.html)
+* [dplyr Official Documentation](https://dplyr.tidyverse.org/)
+

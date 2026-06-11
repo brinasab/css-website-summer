@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "css-website"
+  title: "css-website=summer"
   page-navigation: true
   navbar:
     title: "Computing for the Social Sciences"

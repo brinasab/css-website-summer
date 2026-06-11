@@ -1,7 +1,7 @@
 ---
-title: "Lecture 4: Graphs for Data Analysis"
-date: 2025-10-08
-summary: "Data Analysis and Graphs"
+title: "Lecture 4: Graphs for Data Analysis with ggplot2"
+date: 2026-06-18
+summary: "Graphs for Data Analysis"
 url_slides: 04-slides.qmd
 url_code: css-materials/eda
 page-layout: full
@@ -16,9 +16,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
-
+-->
 
 ## Learning Objectives
 
@@ -32,7 +36,7 @@ knitr::opts_chunk$set(echo = FALSE)
 - ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/EDA.html) from "R for Data Science" 2nd Edition
 - ["Chapter 11 Communication"](https://r4ds.hadley.nz/communication.html) from "R for Data Science" 2nd Edition
 
-For additional resources and intro to `ggplot2` readings, see Lecture 3
+For additional resources on `ggplot2` readings, see Lecture 3
 
 <!--
   * Cheat sheets and documentation for `ggplot2` and `dplyr` (from previous lectures)

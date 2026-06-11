@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 4"
-subtitle: "Topics: Graphs for Data Analysis"
-author: "Sabrina Nardin, Fall 2025"
+subtitle: "Topics: Graphs for Data Analysis with ggplot2"
+author: "Sabrina Nardin, Summer 2026"
 format:
   revealjs:
     theme: simple
@@ -20,10 +20,16 @@ format:
 # Agenda {.center}
 
 ::: {.agenda-list}
-1. The `scorecard` Dataset  
+1. The "scorecard" Dataset  
 2. Match Graph Types to Variable Types  
 3. In-class Practice  
 :::
+
+---
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
 
 <!--
 ```{r, echo=FALSE, results='asis'}
@@ -389,3 +395,4 @@ Follow this approach to move from quick exploration to polished, communicative p
 
 Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
 
+:::

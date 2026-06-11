@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 1"
 subtitle: "Topics: Course Logistics, R, Markdown"
-author: "Sabrina Nardin, Fall 2025"
+author: "Sabrina Nardin, Summer 2026"
 format:
   revealjs:
     theme: simple
@@ -35,8 +35,17 @@ library(ggplot2)
 3.  R Markdown
 :::
 
+---
+
+### Slides are in progress and will be updated before class.
+
+
+::: {.content-hidden}
+
 <!--
-2026 info to add:
+Summer 2026: add link to survey + be ready to talk about code checks
+
+Fall 2026 info to add:
 - if you plan to transfer to MACSS (add link to info), consider taking the Python three course sequence
 - exams can create anxiety for some and I understand though research show u learn better and content sticks for longer; though im hearing you thus im committed to these things that will improve your exam performance 1. in class prep quizzes almost every class (will mirror exam questions, exams can also not studying if you follow the class and adhere to AI guidelines consistently) 2. talk to me if you need further accomodations, i can make a plan with you depending on what i hear and what is feasible 3. exams are designed to be worth it 30% so no need to get an A on exams to get an A on the course
 
@@ -72,9 +81,8 @@ But let me start by introducing myself and the TA... then will go around and int
 | Role   | Name                                   | Email                        |
 |--------|----------------------------------------|------------------------------|
 | Instructor | Sabrina Nardin (she/her)           | [snardin@uchicago.edu](mailto:snardin@uchicago.edu) |
-| TA     | Zach Meyer (he/him)                         | [zmeyer@uchicago.edu](mailto:zmeyer@uchicago.edu) |
-| TA     | Zixuan Zhou (she/her)                  | [zixuanzhou@uchicago.edu](mailto:zixuanzhou@uchicago.edu) |
-
+| TA     | Rubén Rodríguez Barron (he/him)                         | [rrodriguezbarron@uchicago.edu](mailto:rrodriguezbarron@uchicago.edu) |
+| Grader     | Xulan Jiang (he/him)                  | [xulanj@uchicago.edu](mailto:xulanj@uchicago.edu) |
 
 <br>
 
@@ -138,9 +146,12 @@ We use a mix of lectures and in-class activities, and we rely on several platfor
 
 All course materials are free and accessible from our website.
 
-**Is this course for you?** 
-
 </br>
+
+---
+
+## Is this course for you? 
+
 
 ---
 
@@ -157,21 +168,20 @@ Check our website under "Software Setup" for details.
 
 ## Assessment 
 
-See "Assessment" section of our Syllabus and the [Course Schedule](https://brinasab.github.io/css-website/lectures/):
+See "Assessment" section of our Syllabus and the [Course Schedule](https://brinasab.github.io/css-website-summer/lectures/). It includes details n: 
 
--   **Assessment and Evaluation:**  There will be four take-home assignments, one final project, and two short in-class exams. Check the syllabus for details.
+-   **Assessment and Evaluation**
 
--   **Submission Policies:** See Syllabus, especially for late or missed assignments.
+-   **Submission Policies** (including late or missed assignments)
 
--   **Evaluation Philosophy and Rubric:** See Syllabus.
+-   **Evaluation Philosophy and Rubric**
 
 **Tips**:
 
 <!-- think about tips for reading this next year, either remove or say use readings to deepen your undrestanding  or clarify slides, before or after class -->
 
 * do the readings before class, even if you do not understand everything
-* start early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before: they won't tell you exactly what to do to solve the problem
-* AI is powerful and excellent for debugging, but read our AI policy in the Syllabus
+* start early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before
 * form a study group, and ask for help if you get stuck
 
 ---
@@ -193,7 +203,7 @@ See [How to Succeed in this Course](https://brinasab.github.io/css-website/sylla
 :::
 
 ::: fragment
--   "I’m in week 4, and I feel lost."<br>*Advice: Reach out to us! Concepts build over time. The big picture will click by the end of the coure IF you stay consistent with your efforts every week.*
+-   "I’m in week 3, and I feel lost."<br>*Advice: Reach out to us! Concepts build over time. The big picture will click by the end of the coure IF you stay consistent with your efforts every week.*
 :::
 
 ::: fragment
@@ -274,8 +284,8 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 ::: columns
 ::: {.column width="50%"}
 **It is my responsibility to**  
-- Set expectations & boundaries  
-- Enforce them (via grading & AI statements)  
+- Clarify expectations & be consistent 
+- Support your learning  
 :::
 
 ::: {.column width="50%"}
@@ -285,26 +295,26 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 :::
 :::
 
-**In this course, AI is:**  
+**In this course, AI:**  
 
-- NOT allowed to brainstorm, write code for you, or replace course materials  
+- IS NOT allowed to brainstorm, write code for you, or replace course materials  
 
-- allowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.). 
+- IS allowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.). 
 
-Make sure to read the [Academic Integrity & Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies)
+Read the [Academic Integrity & Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies)
 
 ---
 
 ## Activity: Meet & Share Goals
 
-**In groups of 3-5 people, please share:**
+**In small groups, please share:**
 
 -   Your name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)
 -   What you hope to learn or achieve in this course
 -   Any questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)
 
 ::: {.callout-note title="Done early?"}
-If your group finishes early, please complete [this short survey](https://forms.gle/SrVxNwCAixZSFr1QA) if you haven’t already. It only takes a minute and helps us better understand your background and what you’re hoping to learn in this course.
+If your group finishes early, please complete [this short survey](https://forms.gle/pKXDLNP8T92bYY7T6) if you haven’t already. It only takes a few minutes and helps us better understand your background and what you’re hoping to learn in this course.
 :::
 
 ```{=html}
@@ -330,14 +340,22 @@ See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-
 
 ---
 
-## Let’s start by exploring our Software
+## Getting Started...
 
-**Workbench:** <https://macss-r.uchicago.edu/>
+Today we learn how to:
 
--   Log in
--   Look at panels
+-   Log in into RStudio Workbench <https://macss-r.uchicago.edu/>
+-   Understand the panels you see there
 -   How to export/import files between Workbench and your machine
--   Create an empty R Script
+-   Create an empty R Script and:
+
+    -   Create and use variables\
+    -   Understand variable types (e.g., number, text, logical, etc.)\
+    -   Write comments and organize your code\
+    -   Use scripts (vs. console) for reproducibility\
+    -   Clear your environment\
+    -   Group values using vectors
+
 
 ```{=html}
 <!-- IN CLASS
@@ -354,19 +372,6 @@ Then create a R script, save it in class materials: show difference compared to 
 Create a Rmd as empty doc, stop here, move back to slides say: let's talk about R markdown first! I might go a bit fast on some of these slides but we ll be there for your reference. We ll do an in-class activity that ll review same content taught here
 -->
 ```
-
----
-
-## Getting Started with R
-
-Today we learn how to:
-
--   Create and use variables\
--   Understand variable types (e.g., number, text, logical, etc.)\
--   Write comments and organize your code\
--   Use scripts (vs. console) for reproducibility\
--   Clear your environment\
--   Group values using vectors
 
 ---
 
@@ -806,3 +811,5 @@ When you "knit" your document, the following sequential things happen:
 ## To print these slides as pdf
 
 Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+
+:::

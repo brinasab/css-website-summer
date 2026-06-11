@@ -9,42 +9,41 @@ format: html
 
 2. Add your GitHub username to the Excel file linked on [Lecture 1](../lectures/01-home.qmd). 
 
-3. We’ll use your username to invite you to our GitHub Course Organization, which is required to access and submit homework assignments. You’ll receive an invitation email from GitHub — make sure to open it and accept the invitation to join the organization.
+3. Accept the invitation to join this course GitHub organization. We will invite you by email using your GitHub username. Access to the organization is required for homework assignments, so please open the invitation email from GitHub and accept it.
+
  
 
 ## Step 2: Log into RStudio Workbench  
 
 Go to <https://macss-r.uchicago.edu/> 
 
-Login with your UChicago [CNetID](https://uchicago.service-now.com/it?id=kb_article&kb=KB06000393) and password to login; this is the same username/password you use for other UChicago online services. You're done. You should see a clean RStudio window in your browser.
+Login with your UChicago [CNetID](https://uchicago.service-now.com/it?id=kb_article&kb=KB06000393) and password to login; this is the same username/password you use for other UChicago online services. You should see a clean RStudio window in your browser.
 
 ::: {.callout-note}
-Only students approved by SSCS can access this server. If you can’t log in, chances are that you have not yet been added to the server. Email me at [nardin@uchicago.edu](mailto:nardin@uchicago.edu). For network or cVPN issues, contact [ITS](https://its.uchicago.edu).
+Only students approved by SSCS can access Workbench. If you can’t log in, chances are that you have not yet been added to the server. Email me at [nardin@uchicago.edu](mailto:nardin@uchicago.edu). For network or VPN issues, contact [ITS](https://its.uchicago.edu).
 :::
 
 
 ## Step 3: Configure Git in RStudio Workbench  
 
-To make Git work smoothly in this course, you'll configure settings 3.1 and 3.2 below. 
+To make Git work smoothly in this course, follow the instructions 3.1 (Identify Yourself to Git) and 3.2 (Set Up SSH Authentication) below. You can also watch a [video walkthrough of the setup process](https://drive.google.com/file/d/1O_uiyzVHKJOfGxaEDZ3TWWwkUm2qZpl-/view?usp=sharing).
 
-**You only need to do this once per machine!**
-
-You can also watch a [video walkthrough of the setup process](https://drive.google.com/file/d/1O_uiyzVHKJOfGxaEDZ3TWWwkUm2qZpl-/view?usp=sharing).
+**You only need to go thorugh this process once per machine!**
 
 
-### 3.1 Identify yourself to Git
+### 3.1 Identify Yourself to Git
 
 #### What is this?
 
-To track your work and link changes to you, Git needs to know your name and email address. So, you need to tell them to Git. Use the same email you used to your set up your GitHub account (see Lecture 1 "Before class"). 
+To track your work, Git needs to know your name and email address. So, you need to tell them to Git. The instructions below explain how.
 
 
-#### What you need to do to
+#### What you need to do 
 
-Go to the **Console** tab in RStudio and run the code below, replacing name and email with your own:
+Go to the **Console** tab in RStudio and run the code below, replacing name and email with your own (keep them wrapped in ""):
 
 - your name can be your GitHub username or your actual first and last name
-- your email must be the same email you used to sign up for GitHub when you created an account
+- your email *must* be the same email you used to sign up for GitHub when you created an account
 
 ```r
 library(usethis)
@@ -59,7 +58,7 @@ git config --global --list
 
 If you see your name and email, you're all set. 
 
-If something is off, like a typo in your name or the wrong email (you must use the email linked to your GitHub account): just re-run the R code with the correct information. It will overwrite the previous settings.
+If something is off, like a typo in your name or the wrong email (you must use the email linked to your GitHub account): just re-run the R code above with the correct information. It will overwrite the previous settings.
 
 <!--
 # List all SSH key stored using Shell
@@ -85,25 +84,25 @@ ls -l ~/.ssh
 
 #### What is this?
 
-Now Git knows your name and email. But to send your work from Git (on your computer -- in our case, Workbench) to GitHub (online), you need to prove to GitHub that's really you — this is called authentication.
+Now Git knows your name and email. But to send your work from Git on your computer (in our case, Workbench) to GitHub online, you need to prove to GitHub that is really you — this is called authentication.
 
-There are two methods for authentication: either SSH keys or HTTPS with a personal access token. Both options allow Git to connect to GitHub securely, so you can push and pull changes smoothly. Since we are using RStudio Workbench for the class, **you will need to use the SSH method to authenticate**. The server that hosts our Workbench does not have the ability to cache your personal access token for the HTTPS method.
+There are two methods for authentication: either SSH keys or HTTPS with a personal access token. Both options allow Git to connect to GitHub securely, so you can push and pull your work smoothly. 
 
-SSH, or Secure Shell Protocol, is a secure way to prove your identity when connecting to GitHub. Unlike passwords, which can be vulnerable to brute-force attacks, SSH keys are much harder to crack.
+Since we are using RStudio Workbench for this class, **you will need to use the SSH method to authenticate**. The server that hosts our Workbench does not have the ability to cache your personal access token for the HTTPS method. The SSH, or Secure Shell Protocol, method is a secure way to prove your identity when connecting to GitHub. Unlike passwords, which can be vulnerable to brute-force attacks, SSH keys are much harder to crack.
 
 When you generate an SSH key pair, you get two long strings of characters:
 
-* a **public key**, which you upload to GitHub
-* a **private key**, which stays safely on your computer (or in RStudio Workbench)
+* a **public key**, which you store on GitHub
+* a **private key**, which stays on your computer (or in RStudio Workbench)
 
 When you connect to GitHub, Git uses your private key to unlock the connection. If it matches the public key on GitHub, you're authenticated!
 
-Note: on GitHub, the URL for SSH looks like `git@github.com:<OWNER>/<REPO>.git` Make sure you use this SSH URL to create a project or clone a repository. If you accidentally use the HTTPS version, the operation will not work.
+**Important Note:** on GitHub, the URL for SSH looks like `git@github.com:<OWNER>/<REPO>.git` Make sure you use this SSH URL to create a project or clone a repository for homework assignments. If you accidentally use the HTTPS version, the operation will not work.
 
 
-#### What you need to do to
+#### What you need to do
 
-You need to create and store an SSH key pair, by running the following code in your R Console:
+You need to create and store an SSH key pair. Start by running the following code in your R Console:
 
 ```r
 credentials::ssh_setup_github()
@@ -116,27 +115,27 @@ Once you do that, you’ll be guided through a few steps:
 - You will be asked to **open a browser** → Select **Yes**
 - Before or after opening a new browser, **copy** the entire SSH key (including the `ssh-rsa` at the beginning) from your Console
 
-Once you are on the GitHub page:
+Once you are on the GitHub that opened in your new browser:
 
 - **Paste** your entire SSH key into the GitHub page that opened in your new browser (you can do this only if you registered a GitHub account, see step 1 above)
-- Under **"Title"**, give the key an informative name, something like `csp-workbench-fall25` or similar
+- Under **"Title"**, give the key an informative name, something like `csp-workbench-summer26` or similar
 - Leave **"Key type"** set to **Authentication Key**
 - Click the green **"Add SSH key"** button
 - If prompted, complete GitHub's security steps (e.g., enter a verification code or password or anything else asked)
 
 You should now see your key listed in your GitHub account under the "SSH and GPG keys" page!
 
-To confirm it worked, go back R, then to *Tools > Terminal* and run the following command in the shell/terminal tab that opens up:
+To confirm it worked, go back R, then to *Tools > Terminal* and copy and paste the following command in the shell/terminal tab that opens up:
 
 ```r
 ls -l ~/.ssh
 ```
 
-You should see two lines showing the keys you just created: `id_rsa` is your private SSH key (do not share with others), your `id_rsa.pub` is your public SSH key (the one you put on GitHub).
+You should see two lines showing the keys you just created: `id_rsa` is your private SSH key (do not share it with others), your `id_rsa.pub` is your public SSH key (the one you put on GitHub).
 
-If you see more than these two files, it likely means you’ve set up extra SSH keys, which we want to avoid as it might create problems. You want to reset all keys, and start fresh (contact us if you need help with this).
+**Important Note:** If you see more than these two keys, it likely means you have set up extra SSH keys, which you want to avoid as it might create problems: reset all keys and start fresh (contact us if you need help with this).
 
 
 ## What's next?
 
-If you completed this part successfully, you are ready to test your setup — go to the [Git within RStudio Tutorial](setup-test.qmd) page and follow the instructions!
+If you completed this part successfully, you are ready to test your setup: go to the [Git within RStudio Tutorial](setup-test.qmd) page and follow the instructions!

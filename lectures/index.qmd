@@ -6,7 +6,10 @@ format:
     theme: cosmo
 ---
 
-### Course Schedule Fall 2025
+### Course Schedule Summer 2026
+
+<a href="" target="_blank" rel="noopener">Download the Excel version of this schedule</a>
+
 
 <div class="my-4"></div>
 
@@ -28,6 +31,7 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 ```{r}
 #| label: schedule-table
+
 library(dplyr)
 library(tibble)
 library(knitr)
@@ -36,88 +40,103 @@ library(lubridate)
 
 # --- Input data ---
 lec <- tibble::tribble(
-  ~date,        ~event,                                                          ~page,
-  "2025-09-29", "Lecture 1: Course Logistics; R and Markdown",                   "01-home.qmd",
-  "2025-10-01", "Lecture 2: Git & GitHub with R Studio",                         "02-home.qmd",
-  "2025-10-01", "Homework 1 Released",                                           "",
-  "2025-10-06", "Lecture 3: Intro to `ggplot2`; Coding Style",                   "03-home.qmd",
-  "2025-10-07", "Homework 1 Due",                                                "",
-  "2025-10-08", "Lecture 4: Graphs for Data Analysis",                           "04-home.qmd",
-  "2025-10-13", "Lecture 5: Intro to `dplyr`; Pipes",                            "05-home.qmd",
-  "2025-10-15", "Lecture 6: More `dplyr`; Factors",                              "06-home.qmd",
-  "2025-10-15", "Homework 2 Released",                                           "",
-  "2025-10-20", "Lecture 7: Data Cleaning, Importing Data; Relational Data",     "07-home.qmd",
-  "2025-10-22", "Lecture 8: Tidydata with `tidyr`; Intro to `lubridate`",        "08-home.qmd",
-  "2025-10-23", "Homework 2 Due",                                                "",
-  "2025-10-27", "Lecture 9: Regular Expressions with `stringr`",                 "09-home.qmd",
-  "2025-10-27", "In-Class Exam 1",                                               "",
-  "2025-10-29", "Lecture 10: Data Structures and Base R",                        "10-home.qmd",
-  "2025-10-29", "Homework 3 Released",                                           "",
-  "2025-11-03", "Lecture 11: Control Flow 1 — Conditionals",                     "11-home.qmd",
-  "2025-11-05", "Lecture 12: Control Flow 2 — Loops",                            "12-home.qmd",
-  "2025-11-06", "Homework 3 Due",                                                "",
-  "2025-11-10", "Lecture 13: Control Flow 2 — Loops; Functions 1",              "13-home.qmd",
-  "2025-11-12", "Lecture 14: Functions 2; Debugging",                            "14-home.qmd",
-  "2025-11-12", "Homework 4 Released",                                           "",
-  "2025-11-17", "Lecture 15: Web-Scraping 1",                                    "15-home.qmd",
-  "2025-11-19", "Lecture 16: Web-Scraping 2",                                    "16-home.qmd",
-  "2025-11-20", "Homework 4 Due",                                                "",
-  "2025-12-01", "Lecture 17: Reproducible Workflow",                             "17-home.qmd",
-  "2025-12-03", "Lecture 18: Final Project Check-In",                            "18-home.qmd",
-  "2025-12-03", "In-Class Exam 2",                                               "",
-  "2025-12-07", "Final Project Due",                                             "",
+  ~date,        ~event,                                                                  ~page,
+  "2026-06-15", "Lecture 1: Course Logistics; Intro to R & Markdown",                    "01-home.qmd",
+  "2026-06-16", "Lecture 2: Git & GitHub with RStudio",                                  "02-home.qmd",
+  "2026-06-17", "Lecture 3: Intro to `ggplot2`; Coding Style",                           "03-home.qmd",
+  "2026-06-18", "Lecture 4: Graphs for Data Analysis with `ggplot2`",                    "04-home.qmd",
+
+  "2026-06-22", "Lecture 5: Week 1 Review",                                              "",
+  "2026-06-22", "Quiz 1 Due (before class)",                                             "05-home.qmd",
+  "2026-06-22", "Homework 1 Due",                                                        "",
+  "2026-06-23", "Lecture 6: Intro to `dplyr`; Pipes",                                    "06-home.qmd",
+  "2026-06-24", "Lecture 7: Intermediate `dplyr`; Renaming & Recoding Variables",        "07-home.qmd",
+  "2026-06-25", "Lecture 8: Missing Data; Factors",                                      "08-home.qmd",
+
+  "2026-06-29", "Lecture 9: Week 2 Review",                                              "09-home.qmd",
+  "2026-06-29", "Quiz 2 Due (before class)",                                             "",
+  "2026-06-30", "Lecture 10: Importing Data with `readr`; Relational Data with `dplyr`", "10-home.qmd",
+  "2026-07-01", "Lecture 11: Tidy Data with `tidyr`",                                    "11-home.qmd",
+  "2026-07-02", "Lecture 12: Strings and Regex with `stringr`; Dates with `lubridate`",  "12-home.qmd",
+  "2026-07-02", "Homework 2 Due",                                                        "",
+
+  "2026-07-06", "Lecture 13: Week 3 Review",                                             "13-home.qmd",
+  "2026-07-06", "Quiz 3 Due (before class)",                                             "",
+  "2026-07-06", "Oral checks begin (cont. through Week 4 and 5)",                        "",
+  "2026-07-07", "Lecture 14: Data Structures and Base R",                                "14-home.qmd",
+  "2026-07-08", "Lecture 15: Control Flow with Conditionals",                            "15-home.qmd",
+  "2026-07-09", "Lecture 16: Control Flow with Loops",                                   "16-home.qmd",
+  "2026-07-09", "Homework 3 Due",                                                        "",
+
+  "2026-07-13", "Lecture 17: Week 4 Review",                                             "17-home.qmd",
+  "2026-07-13", "Quiz 4 Due (before class)",                                             "",
+  "2026-07-14", "Lecture 18: Control Flow with Loops (cont.); Functions",                "18-home.qmd",
+  "2026-07-15", "Lecture 19: Functions (cont.)",                                         "19-home.qmd",
+  "2026-07-16", "Lecture 20: Reproducible Workflow",                                     "20-home.qmd",
+  "2026-07-16", "Homework 4 and 5 Due",                                                   ""
 )
 
-# --- Transform: classify, link lectures, collapse to one row per date ---
-lec2 <- lec |>
+# --- Transform: classify and create links ---
+schedule <- lec |>
   mutate(
-    date      = as.Date(date),
-    page      = as.character(page),
-    page_html = ifelse(is.na(page) | page == "", NA_character_, sub("\\.(qmd|Rmd)$", ".html", page)),
+    date = as.Date(date),
+    page = as.character(page),
+    page_html = ifelse(
+      is.na(page) | page == "",
+      NA_character_,
+      sub("\\.(qmd|Rmd)$", ".html", page)
+    ),
     week_start = floor_date(date, unit = "week", week_start = 1),
-    DateFull   = format(date, "%a, %b %d, %Y"),
-    # classification
-    is_lecture    = grepl("^Lecture", event, ignore.case = TRUE),
-    is_assessment = grepl("Homework|Exam|Final Project Due", event, ignore.case = TRUE),
-    # make lecture link if page exists and make it open in new page
-    lecture_html = case_when(
-      is_lecture & !is.na(page_html) ~ sprintf('<a href="%s" target="_blank" rel="noopener">%s</a>', page_html, event),
-      is_lecture ~ event, TRUE ~ ""
-      ),
-    assess_text = if_else(is_assessment, event, "")
-  ) |>
-  arrange(date)
+    DateFull = format(date, "%a, %b %d, %Y"),
 
-# Collapse to one row per date, combining multiple events
-by_date <- lec2 |>
-  group_by(date, week_start) |>
-  summarise(
-    Date = gsub(" ", "&nbsp;", first(DateFull)),
-    Lecture = paste0(lecture_html[lecture_html != ""], collapse = "<br>"),
-    Assessment = paste0(assess_text[assess_text != ""], collapse = "<br>"),
-    .groups = "drop"
+    # classification
+    is_lecture = grepl("^Lecture", event, ignore.case = TRUE),
+
+    # link lectures only
+    `Lecture & Assessment` = case_when(
+      is_lecture & !is.na(page_html) ~ sprintf(
+        '<a href="%s" target="_blank" rel="noopener">%s</a>',
+        page_html,
+        event
+      ),
+      TRUE ~ event
+    )
   ) |>
   arrange(date) |>
-  # number only the weeks that actually appear (skip empty weeks)
-  mutate(week_index = dplyr::dense_rank(week_start)) |>
+  mutate(
+    week_index = dplyr::dense_rank(week_start)
+  ) |>
   group_by(week_index) |>
-  mutate(Week = if_else(row_number() == 1, paste0("Week ", week_index), "")) |>
+  mutate(
+    Week = if_else(row_number() == 1, paste0("Week ", week_index), "")
+  ) |>
+  ungroup() |>
+  group_by(date) |>
+  mutate(
+    Date = if_else(row_number() == 1, gsub(" ", "&nbsp;", first(DateFull)), "")
+  ) |>
   ungroup()
 
-
-# Build table
-kbl <- by_date |>
-  select(Week, Date, Lecture, Assessment) |>
+# --- Build table ---
+kbl <- schedule |>
+  select(Week, Date, `Lecture & Assessment`) |>
   kable(
     format = "html",
     table.attr = 'id="schedule-table" class="table table-sm"',
     escape = FALSE
   ) |>
-  kable_styling(full_width = FALSE, bootstrap_options = c("condensed"), font_size = 14) |>
-  row_spec(0, background = "white")
+  kable_styling(
+    full_width = TRUE,
+    bootstrap_options = c("condensed"),
+    font_size = 16
+  ) |>
+  row_spec(0, background = "white") |>
+  column_spec(1, width = "12%") |>   # Week
+  column_spec(2, width = "18%") |>  # Date
+  column_spec(3, width = "60%")     # Lecture & Assessment
 
-# Add bold separators between weeks (thick border at the end of each week except the last)
-week_end_rows <- by_date |>
+# --- Add bold separators between weeks ---
+week_end_rows <- schedule |>
   group_by(week_index) |>
   summarise(end_row = max(row_number()), .groups = "drop") |>
   mutate(end_row_cum = cumsum(end_row)) |>
@@ -125,6 +144,7 @@ week_end_rows <- by_date |>
 
 if (length(week_end_rows) > 1) {
   week_end_rows <- head(week_end_rows, -1)  # exclude the very last week
+
   for (r in week_end_rows) {
     kbl <- kbl |>
       row_spec(r, extra_css = "border-bottom: 1px solid #000 !important;")
@@ -133,6 +153,4 @@ if (length(week_end_rows) > 1) {
 
 kbl
 ```
-
-<small><em>Note: No lecture the week of Nov 24, 2025 (Thanksgiving Break). <a href="https://docs.google.com/spreadsheets/d/17pWlvn71vs4SGSg6tLr8Ksd8s5Ke99bkL-F7hBetP5s/edit?usp=sharing" target="_blank" rel="noopener">Download the Schedule in Excel</a></em></small>
 

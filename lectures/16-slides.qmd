@@ -1,7 +1,7 @@
 ---
 title: "Computing for the Social Sciences: Lecture 16"
-subtitle: "Topics: Web-Scraping 2"
-author: "Sabrina Nardin, Fall 2025"
+subtitle: "Topics: Control Flow with Loops"
+author: "Sabrina Nardin, Summer 2026"
 format:
   revealjs:
     theme: simple
@@ -20,234 +20,735 @@ format:
 # Agenda {.center}
 
 ::: {.agenda-list}
-1. Web Scraping Review
-2. Expanding Last Lecture’s Scraper
-3. Web Scraping: Challenges, Ethics, and Tips
-4. Intro to APIs
+1. For Loops
+2. Tracking and Saving For Loops Output
+3. Looping Over Elements vs. Indexes
+4. Using For Loops with Dataframes
 :::
+
+---
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **November 17, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **November 5, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
+<!-- NOTES TO IMPROVE CURRENT LOOP SLIDES
 
-# 1. Web Scraping Review {.slide .center .middle}
+Add a few slides that show the differences of looping over indexes or looping over elements and 
+teach that concept form the slides; then leave the in-class demo code with the key and let students explore it in team and go around for questions. Total time 10 min slides and 10 go over code + 5 review
 
----
+In the demo for loop: add code on data structure, e.g. show how to access columns of a df and their elements with the double and single square brackets 
 
-## Last Class...
+Show difference of accessing single column in a df (that is a vector so use []) or elements of columns for which you need to use [[]]
 
-#### Direct Scraping vs. APIs
-- Direct scraping: extract data from webpage HTML  
-- APIs: access to data through an interface provided by the website
+When you teach for loops add the break and continue statements (currently not in slides!)
 
-#### Two Key Concepts
-- How the web works (requests & responses)  
-- What’s behind a webpage (read and navigate HTML structure)
-
-#### Scraping in R with rvest:
-- [rvest Documentation](https://rvest.tidyverse.org)  
-- [rvest Main functions](https://rvest.tidyverse.org/index.html#usage)
-
-#### Finding the Right HTML Tags
-- Manual inspection of the HTML structure
-- Browser helpers like **SelectorGadget**
-
----
-
-## SelectorGadget
-
-Follow these steps to install and use the SelectorGadget...
-
-**Note this works on Chrome!**
-
-* Go to <https://selectorgadget.com/> to install and watch a short video on how to use it
-* Once installed drag the SelectorGadget link into your web browser's bar (Chrome)
-* Navigate to a webpage and open the SelectorGadget bookmark
-* Go to <https://rvest.tidyverse.org/articles/selectorgadget.html#use> for step-by-step instructions on how to use it
-
----
-
-## 💻 Practice
-
-Go to <https://www.presidency.ucsb.edu/documents/special-message-the-congress-relative-space-science-and-exploration>
-
-Write code (outside a function) to grab:
-
-- title
-- name (speaker)
-- date
-- full text
-
-1. First, write the code without using SelectorGadget (only by inspecting the HTML page)
-
-2. Then, write the code to grab the same info using the SelectorGadget.
-
-3. Compare the two approaches (e.g., how similar/different your selectors are, which one worked best, etc.).
-
-# 2. Expanding Last Lecture’s Scraper {.slide .center .middle}
-
----
-
-## How Can We Scale Up Our Scraper?
-
-### 💻 Practice
-
-Download today’s class materials for a tutorial on using loops, functions, and HTML concepts to take your scraping project to the next level!
-
-
-# 3. Web Scraping: Challenges, Ethics, and Tips {.slide .center .middle}
-
----
-
-## Scraping: Challenges & Solutions
-
-- **Variety:** every website is different, so each site requires a new mini-project.
-
-- **Bad formatting:** websites are *supposed* to use a clean, logical, hierarchical HTML structure…  but many don’t, which makes scraping a bit of an art.
-
-- **Change over time:** websites update their layout, so old code may break. The good news: fixes are usually small.
-
-- **Limits:** some sites cap requests (e.g., only 50 pages or 2,500 items), and after that they stop responding. You’ll need to scrape in smaller “chunks.”
-
-- **Messy data:** scraped content is rarely clean; expect to use R (`stringr` with regular expressions) for cleaning.
-  
----
-
-## Static vs. Dynamic Scraping
-
-### Static Scraping  
-- `rvest` is for static scraping
-- This means it can only extract information that is already present in the **raw HTML** returned by the server.
-- Tip: always inspect what you get back from `read_html()` before writing more code.
-
-### Dynamic Scraping  
-- `rvest` is not for dynamic scraping
-- A page is dynamic when it uses **JavaScript** to load content after the initial HTML. That content won’t appear in the raw HTML from `read_html()`, which returns empty or incomplete results.
-- For dynamic sites, you typically need: an **API**, if available or a **browser automation tool** (e.g., Selenium)
-
----
-
-## Scraping Ethics: What To Scrape
-
-### Public (OK) vs. private data (NOT OK)  
-  Anything you need to login or put a password counts as **private** and should not be scraped (e.g. online communities, personal accounts). If the site offers an **API**, use that instead.
-
-### Check the robots.txt file  
-  Add `/robots.txt` to a site's URL (e.g., `https://www.nytimes.com/robots.txt`). 
- The star after "User-agent" means "the following is valid for all robots". Info you cannot scrape are under "Disallow". More [here](https://www.robotstxt.org/robotstxt.html)
-
-### Read the Terms of Service (ToS)  
-  Those are legal rules you agree to observe in order to use a service. Violating ToS + automated scraping can put you at risk of violating CFAA (Computer Fraud & Abuse Act).
-
----
-
-## Scraping: Tips
-
-::: callout-tip
-
-1. Make sure your code scrapes **only the information you need** and minimizes the extra 
-
-2. **Slow down your scraper** with `Sys.sleep()` and/or use the `polite` package with `rvest` to avoid hitting the server too frequently
-
-3. **Save and store the raw HTML you scraped on your computer** with `writeLines()` to avoid re-sending a request every time you want to extract information from it.
-:::
-
-<!--
-page <- read_html(url)
-writeLines(as.character(page), "page.html")
 -->
 
-# 4. Intro to APIs {.slide .center .middle}
+
+# 1. For Loops {.slide .center .middle}
 
 ---
 
-## APIs: Definition
+### What Are Control Structures?
 
-  > Interface provided by the website that allows users to collect data from that website. 
+Control structures let us write code that can:
 
-The majority of web APIs use a particular style know as **REST** or **RESTful** which stays for "Representational State Transfer." 
+- **Make decisions** → with **conditional statements** like `if`, `if...else`, etc.
 
-**REST** allows to query the website database using URLs, just like you would construct an URL to view a web page.
+- **Repeat actions**  → with **loops** like `for`, `while` (today's topic)
 
-An **URL** (Uniform Resource Location), is a string of characters that uses HTTP (HyperText Transfer Protocol) to send request for data. 
+Conditional statements and loops (e.g., control structures) let our code responds dynamically to different situations.
 
----
-
-## Sending Queries to an API  
-
-The process described in the `macss` example (last lecture) is very similar to how APIs work, with only a few changes:
-
-* The URL that you use for sending requests (queries) to an API will have two more things: search terms and/or filtering parameters, and specific references to that API
-
-* The response you get back from the API is not formatted as HTML, but it will likely be a raw text response
-
-* You need R to interact with the API 
+Today we focus on loops, and specifically on "For loops"!
 
 ---
 
-## APIs: Wrappers vs. No Wrappers
+## Definition of For Loops
 
-*When using an API in R, there are two approaches:*
+For loops let you repeat an action for each element of an object, usually a vector or list. They’re a common way to iterate in many programming languages.
 
-### 1. With an API wrapper 
+Syntax:
+```r
+for (item in sequence of items) {
+  action to be repeated for each item   
+}
+```
 
-This means using an API through an R package that someone has specifically designed to interact with that API. The package acts as a "wrapper" for the API and you use R to interact with the wrapper.
+Example:
+```r
+for (item in c(1,2,3)) {
+  print(item)
+}
+```
+What's the repeated action here? How many times? What's item? 
 
-Each package should come with documentation (pdf, GitHub repo, or both) that explains how to use it and its main functions.
+<!--
+Let's break this code down:
 
-Example: Wordbank API with `wbstats` R wrapper package which returns results in a tidy dataframe
+- The repeated action here is simple: `print(item)`
 
----
+- `item` is a placeholder: its value changes with each loop iteration
 
-## APIs: Wrappers vs. No Wrappers
-
-*When using an API in R, there are two approaches:*
-
-### 2. Without an API wrapper 
-
-If no R wrapper exists, you can directly use the API provided by the website. In this case, you use R to communicate directly with the website's API.
-
-Example: OMDb Movies example API without a wrapper ` https://www.omdbapi.com/`
-
----
-
-## APIs: Wrappers vs. No Wrappers
-
-Sometimes both approaches are available. Other times, only approach 2 (direct API interaction) is available. 
-
-Scraping with an API, compared to direct scraping, can be a hit-or-miss experience. 
-
-The keys to success are using a well-designed R wrapper if available, relying on well-documented API documentation, or previous examples. 
+- the number of times the statement block repeats depends on the number of items in the sequence — in this example: three items, thus three times
+-->
 
 ---
 
-## APIs: Access & Registration
+## Nested For Loops
 
-### Some APIs are open, but most require registration
+For loops can be nested, so the outer loop controls how many times the entire inner loop runs from start to finish: 
 
-- Registration may be simple: create an account and receive an API key by email.  
-- Some APIs require an application and review process before granting access (e.g., Twitter)
-- Many are free, but some require a paid subscription or usage fees.
+```{r echo = TRUE, results = "hide"}
 
-### Why is registration required?  
+for (i in c(1,2,3)) {
+  print(i)
+  for (j in c("cat", "dog", "squirrel", "rabbit")) {
+    print(j)
+  }
+}
+```
 
-- It allows the API to track users, monitor query volume, manage server load, and prevent misuse.
-- If an API requires a username, password, or private key, you’ll need to supply the same credentials when using its corresponding R wrapper package.
-- Keep your credentials safe (e.g., do not push them on GitHub)
+What's going on here?
+
+- The outer loop runs 3 times
+
+- For each execution of the outer loop, the inner loop runs 4 times
+
+<!--
+for (i in c(1,2,3)) {
+  print(i)
+  for (j in c("cat", "dog", "squirrel", "rabbit")) {
+    print(j)
+     for (x in c(10:11)) {
+        print(x)
+     }
+  }
+}
+-->
+
+# 2. Tracking and Saving For Loops Output {.slide .center .middle}
 
 ---
 
-## Rectangling or Simplifying Lists
+## Tracing Execution in a For Loop
 
-In R this means **transforming non-rectangular data (often nested lists) into a rectangular format (often a data frame).**  The term is often associated with the `tidyverse` and its principles of tidy data.
+Observe this code. What does it output in each run?
 
-### In the context of web scraping... 
+```{r echo = TRUE, results = "hide"}
 
-Rectangling means transforming a deeply nested list (often obtained from raw JSON or XML data) into a tidy data set with rows and columns that is easier to work with!
+for (i in c(1, 2, 3)) {
+  print(i)
+  print("Hello")
+  my_sum <- 100 + i
+  print(my_sum)
+  print(paste("End of Loop", i))
+}
+```
+
+<br>
+
+::: {.fragment}
+
+#### 💻 Change the code and predict what happens:
+
+- Add another `print(my_sum)` before the line `my_sum <- 100 + i`. *Clear the environment and run the code: What happens?*
+- Remove that line, and add these two lines `my_sum <- my_sum + i` and `print(my_sum)` right after the last `print(my_sum)`. *Clear the environment and run the code: What happens?*
+
+<!-- Learning goals, in order by bullet point:
+- Accessing a variable before assignment
+- Reassigning a value
+- Using a variable in its own reassignment
+- Explore
+-->
+
+:::
+
+</br>
+
+
+---
+
+## Tracing Execution in a For Loop
+
+This is similar to the previous code, BUT defines `my_sum` outside the loop and updates it inside with `my_sum <- my_sum + i`
+
+Clear the environment and run the code:
+
+```{r echo = TRUE, results = "hide"}
+
+my_sum <- 0
+
+for (i in c(1, 2, 3)) {
+  print(i)
+  print("Hello")
+  my_sum <- my_sum + i
+  print(my_sum)
+  print(paste("End of Loop", i))
+}
+
+```
+
+<br>
+
+::: {.fragment}
+
+#### 💻 Change the code and predict what happens:
+
+- Comment out `my_sum <- my_sum + i`. *Clear the environment and run the code: What happens?*
+- Go back the original code, then move `my_sum <- 0` inside the loop after `print("Hello")`. *Clear the environment and run the code: What happens?*
+
+:::
+
+</br>
+
+---
+
+## Accumulating a Running Total 
+
+Loops are very useful for accumulating a running total — for example, **when you are adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop**.
+
+This is the same code as in the previous slide, but with more informative print statements to make each step easier to follow. Clear the environment and run the code:
+
+```{r echo = TRUE, results = "hide"}
+
+my_sum <- 0
+
+for (i in c(1,2,3)) {
+  print(paste("Current i is", i))
+  print("Hello")
+  my_sum <- my_sum + i
+  print(paste("Current sum is", my_sum))
+  print(paste("End of Loop", i))
+}
+
+my_sum
+```
+
+---
+
+## Saving Results from a For Loop
+
+Our previous code printed the updated sum value each time, but only saved the final value! Like this:
+
+```{r echo = TRUE, results = "hide"}
+my_sum <- 0
+
+for (i in c(1,2,3)) {
+  my_sum <- my_sum + i
+  print(my_sum)
+}
+
+my_sum
+```
+
+To save all intermediate sum values, we need to store them in a vector (here `output`). Like this:
+
+```{r echo = TRUE, results = "hide"}
+
+my_sum <- 0
+output <- vector(mode = "integer", length = 3)  # new!
+
+for (i in c(1,2,3)) {
+  my_sum <- my_sum + i
+  print(my_sum)
+  output[i] <- my_sum     # new!
+}
+
+output
+```
+
+---
+
+## Saving Results from a For Loop
+
+To save all intermediate sum values, we need to store them in a vector (here `output`). Like this:
+
+```{r echo = TRUE, results = "hide"}
+
+my_sum <- 0
+output <- vector(mode = "integer", length = 3)  # new!
+
+for (i in c(1,2,3)) {
+  my_sum <- my_sum + i
+  print(my_sum)
+  output[i] <- my_sum     # new!
+}
+
+output
+
+```
+
+::: {.callout-note .fragment .small-text title="`output[i] <- my_sum`"}
+
+When `i = 1`, `my_sum = 0 + 1 = 1` → store `1` in `output[1]` → output becomes: `1 0 0`  
+When `i = 2`, `my_sum = 1 + 2 = 3` → store `3` in `output[2]` → output becomes: `1 3 0`  
+When `i = 3`, `my_sum = 3 + 3 = 6` → store `6` in `output[3]` → output becomes: `1 3 6`
+
+This saves the running total at each position `i` in the vector output!
+
+:::
+
+---
+
+## Saving Results from a For Loop
+
+**Our current code works but it’s NOT YET optimal:**
+
+- It only behaves correctly because the looping input vector is exactly `c(1, 2, 3)`
+- If the values in that vector change, the current code may produce incorrect or unexpected results
+
+**💻 Try this:** 
+
+Take the code from the previous slide and change the looping input vector to `c(1, 4, 6)`. Clear the environment and run the code. Observe what happens to `output`. Why?
+
+---
+
+## Saving Results from a For Loop
+
+```{r echo = TRUE, results = "hide"}
+my_sum <- 0
+output <- vector(mode = "integer", length = 3)
+
+for (i in c(1,4,6)) {
+  my_sum <- my_sum + i
+  print(my_sum)
+  output[i] <- my_sum 
+}
+
+output
+
+```
+
+::: {.callout-note .fragment .small title="What Happens in Each Iteration of this Loop"}
+
+When `i = 1` → `my_sum = 0 + 1 = 1` → store `1` in `output[1]` → output becomes: `1 0 0`
+
+When `i = 4` → `my_sum = 1 + 4 = 5` → store `5` in `output[4]` → output becomes: `1 0 0 5`
+
+When `i = 6` → `my_sum = 5 + 6 = 11` → store 11 in `output[6]` → output becomes: `1 0 0 5 NA 11`
+
+**This does not look right! Why the output is not [1, 5, 11]?**   
+To see why, we need to understand the difference between looping over elements vs. indexes...
+:::
+
+<!-- R won’t throw an error if you assign a value to an index beyond a vector’s original length: it silently extends the vector, which can lead to unexpected results.-->
+
+
+# 3. Looping Over Elements vs. Indexes {.slide .center .middle}
+
+---
+
+## Elements vs. Indexes: Why It Matters
+
+Run these examples and spot the differences:
+
+```{r echo = TRUE, results = "hide"}
+
+# Version A: Looping over values/elements
+x <- c(1, 4, 6)
+for (i in x) {
+  print(i)        # value
+}
+
+# Version B: Looping over indexes
+x <- c(1, 4, 6)
+for (i in 1:length(x)) {
+  print(i)        # index
+  print(x[i])     # value at that index
+}
+
+# Same as Version B just using seq_along (recommended)
+x <- c(1, 4, 6)
+for (i in seq_along(x)) {
+  print(i)
+  print(x[i])
+}
+```
+
+::: {.callout-note .fragment .small title="`i` and `x[i]`"}
+
+`i` is the loop **index** or "counter" and should always go 1, 2, 3, 4, etc.  
+`x[i]` is the **element** or value of the vector `x` at position `i` and can be any value
+
+:::
+
+---
+
+## Elements vs. Indexes: Why It Matters
+
+Let’s see what happens to our previous two codes when we save the output of them instead of just printing:
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+### ❌ Version A 
+
+```{r echo = TRUE, results = "hide"}
+
+x <- c(1, 4, 6)
+my_sum <- 0
+output <- vector(mode = "integer", 
+                 length = length(x))
+
+# looping over elements
+for (i in x) {
+  print(paste("Current i is:", i))
+  my_sum <- my_sum + i
+  print(paste("Current sum is:", my_sum))
+  output[i] <- my_sum
+}
+
+output
+```
+:::
+
+::: {.column width="50%"}
+
+### ✅ Version B
+
+```{r echo = TRUE, results = "hide"}
+
+x <- c(1, 4, 6)
+my_sum <- 0
+output <- vector(mode = "integer", 
+                 length = length(x))
+
+# looping over indexes
+for (i in seq_along(x)) {
+  print(paste("Current i is:", i))
+  my_sum <- my_sum + x[i]
+  print(paste("Current sum is:", my_sum))
+  output[i] <- my_sum
+}
+
+output
+
+```
+:::
+
+::::
+
+
+---
+
+## Best Practice: Loop Over Indexes
+
+::: {.callout-tip}
+
+Loop over indexes (preferably using `for (i in seq_along(x)`) instead of looping over elements/values. 
+
+Advantages of looping over indexes:
+
+- You can modify, save, or assign values by position  (e.g., `output[i] <- ...`) without writing extra code
+- Your loop works regardless of the values in the vector  `x`
+- You have full control over both: the position `i` and the value at that position `x[i]`
+- Looping over indexes followw R best practices
+
+:::
+
+---
+
+## 💻 Practice: Fix the Bug in this For Loop
+
+You are writing for loop to track `tomatoes` sold over three days. You want to add up the number of tomatoes sold and store the running total in the vector `output`. 
+
+But something is wrong with the code — can you fix it? First, *predict* what the `output` vector should be, then *check* the code to find the bug.
+
+```{r echo = TRUE, results = "hide"}
+
+tomatoes <- c(10, 2, 100) 
+s <- 0
+output <- vector(mode = "integer", length = length(tomatoes))
+
+for (i in seq_along(tomatoes)) {
+  print(paste("Current i is:", i))
+  s <- s + i
+  print(paste("Current sum is:", s))
+  output[i] <- s
+}
+
+output
+
+```
+
+<!--
+```{r echo = TRUE, results = "hide"}
+
+tomatoes <- c(10, 2, 100) 
+s <- 0
+output <- vector(mode = "integer", length = length(tomatoes))
+
+for (i in seq_along(tomatoes)) {
+  print(paste("Current i is:", i))
+  s <- s + tomatoes[i]
+  print(paste("Current sum is:", s))
+  output[i] <- s
+}
+
+output
+
+```
+
+```{r}
+# another student solutions form fall 25
+# works but more complicated as it forces to use a count
+
+tomatoes <- c(10, 2, 100) 
+s <- 0
+output <- vector(mode = "integer", length = length(tomatoes))
+count <- 1
+
+for (i in tomatoes) {
+  print(paste("Current i is:", i))
+  s <- s + i
+  print(paste("Current sum is:", s))
+  output[count] <- s
+  print(output[count])
+  count <- count + 1
+}
+output
+```
+
+## 💻 More Practice
+
+You run a store and want to keep track of how many items were sold each day: you sold 5 items in day 1, 3 items on day 2, and 7 items on day 3. 
+
+```r
+daily_sales <- c(5, 3, 7)
+```
+
+Your Task:
+
+- Use a for loop to go through each day’s sales 
+- For each day, print something like: "Day 2 - Items sold: 3" (the message should change accordingly)
+- Create an object called `total` to store a running total of all sales
+- Create an object called `output` to store the total after each day (e.g. `output[2]` should store the total sales after day 2)
+
+<!--
+daily_sales <- c(5, 3, 7)
+
+total <- 0
+output <- vector(mode = "integer", length = length(daily_sales))
+
+for (i in seq_along(daily_sales)) {
+  print(paste("Day", i, "- Items sold:", daily_sales[i]))
+  total <- total + daily_sales[i]
+  output[i] <- total
+}
+
+-->
+
+---
+
+## Loops + Conditional Statements
+
+This is code from our last lecture:
+```{r, echo = TRUE, results = "hide"}
+numbers <- c(10, 6, 7)
+ifelse(numbers %% 2 == 1, 
+       "odd",
+       "even")
+```
+
+We can try to rewrite it using `if-else` statement, but we will get an error (recall why?):
+```r
+numbers <- c(10, 6, 7)
+if (numbers %% 2 == 1) { 
+  print("odd")
+} else {
+  print("even")
+}
+```
+
+But now we know how to fix that error: with a for loop! This way, the `if-else` runs one element at a time:
+```{r, echo = TRUE, results = "hide"}
+numbers <- c(10, 6, 7)
+for (i in 1:length(numbers)) {
+  #print(i)
+  #print(numbers[i])
+  if (numbers[i] %% 2 == 1) {
+    print("odd")
+  } else {
+    print("even")
+  }
+}
+```
+
+# 4. Using For Loops with Dataframes {.slide .center .middle}
+
+---
+
+## Same Task With and Without a For Loop
+
+```{r echo = TRUE, results = "hide"}
+
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+```
+
+```{r}
+glimpse(penguins)
+```
+
+<br>
+
+#### Task: Calculate the mean value of several columns in this data
+
+</br>
+
+---
+
+## Calculate the mean value of several columns *without a loop*
+
+We can take the `mean()` function, and apply it to each column:
+
+```{r echo = TRUE, results = "hide"}
+
+penguins %>% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))
+penguins %>% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))
+penguins %>% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))
+penguins %>% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))
+                       
+```
+
+<!--
+```r
+mean(penguins_clean$bill_length_mm)
+mean(penguins_clean$bill_depth_mm)
+mean(penguins_clean$flipper_length_mm)
+mean(penguins_clean$body_mass_g)
+```
+-->
+
+This works, but requires a lot of copy/paste! How can we do the same thing with a for loop?
+
+---
+
+## Automate the same task *with a loop*
+
+First, initialize an empty vector to store the results. 
+
+Second, use a for loop to calculate the mean of each (numeric) column of this penguins dataframe. 
+
+Let's run this code:
+
+```{r echo = TRUE, results = "hide"}
+
+output <- vector(mode = "double", length = ncol(penguins))
+
+for (i in seq_along(penguins)) {
+  #print(i)
+  #print(penguins[i])
+  output[i] <- mean(penguins[[i]], na.rm = TRUE)
+}
+
+output
+```
+
+<!--
+
+```r
+output <- vector(mode = "double", length = ncol(penguins))
+
+for (i in seq_along(penguins)) {
+  if (is.numeric(penguins[[i]])) {
+    output[i] <- mean(penguins[[i]], na.rm = TRUE)
+  }
+}
+
+output
+```
+-->
+
+<!-- 
+
+### Let's unpack this example: open the **demo.Rmd** from today's class materials!
+
+### Benefits of preallocation
+
+This explains why we are pre-allocating in the first place, and why we do so with a vector:
+having an object that is already of the same length of the output, where we are just plugging in  individual values increases speed, rather the more naive approach in which we store reuslts using an  mpty vector or an empty other object (e.g. a dataframe) of length zero, and then append or add on each of the values as we calculate them
+
+For example, let's take this mpg data (built in dataframe in R about auto, we do not really care about the content of the data); here what we are doing is creating duplicates of that dataframe 100 times and we are then putting them together into a single data frame. 
+
+Without preallocation: we can create an empty dataframe (here with the tibble function), iterate over 100 times, take this empty dataframe and combine the rows of it with the rows of the original dataframe, and replace the original object with the new copy and save in output (so we are appending 100 rows every time we iterate!) 
+
+If we do proper preallocation: we create a list of 100 empty elements, every time we store the results in the list, then we use the bind_rows() functions at the end
+
+The first approach does not preallocate by creating an empty space to store the output, the second does. See the difference in time of execution. From 80 milliseconds to less than 3. So you can see how inefficient is not to allocate since most of our data will have more than 100 rows!
+
+.panelset[
+.panel[.panel-name[Code]
+```r
+# no preallocation
+mpg_no_preall <- tibble()
+for(i in 1:100){
+  mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
+}
+
+# with preallocation using a list
+mpg_preall <- vector(mode = "list", length = 100)
+for(i in 1:100){
+  mpg_preall[[i]] <- mpg
+}
+mpg_preall <- bind_rows(mpg_preall)
+```
+]
+
+.panel[.panel-name[Plot]
+```r
+#| out.width = "70%",
+#| echo = FALSE
+# load microbenchmark library to time code
+library(microbenchmark)
+# bind together 100 copies of mpg
+times <- microbenchmark(
+  `No preallocation` = {
+    mpg_no_preall <- tibble()
+    
+    for(i in 1:100){
+      mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
+    }
+  },
+  `Preallocation` = {
+    mpg_preall <- vector(mode = "list", length = 100)
+    
+    for(i in 1:100){
+      mpg_preall[[i]] <- mpg
+    }
+    
+    mpg_preall <- bind_rows(mpg_preall)
+  }
+)
+autoplot(times)
+```
+]
+]
+-->
+
+
+---
+
+## Recap: What We Learned Today
+
+- How for loops work and how to trace what happens at each iteration
+- How to track and save values (like running totals) during a for loop
+- Why it's important to loop over indexes instead of elements when saving or modifying values
+- Common mistakes with loop output and how to fix them
+- Combining if-else statements with for loops
+- Using for Loops within a Dataframes (more on this next time!)
 
 ---
 
 ## To print these slides as pdf
 
 Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+
+:::

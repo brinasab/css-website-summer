@@ -1,9 +1,9 @@
 ---
-title: "Lecture 16: Web-Scraping 2"
-date: 2025-11-19
-summary: "Web-Scraping 2"
+title: "Lecture 16: Control Flow with Loops"
+date: 2026-07-09
+summary: "Writing Loops"
 url_slides: 16-slides.qmd
-url_code: css-materials/scraping
+url_code: css-materials/loops
 page-layout: full
 draft: false
 ---
@@ -16,21 +16,23 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+* **Slides**: To be posted before class
+* **Code**: No in-class code to download
 
-<!-- `usethis::use_course("css-materials/getting-data-from-web-part2")` -->
+<!--
+* **Slides**: [View Slides]({{< meta url_slides >}})
+-->
 
 ## Learning Objectives
 
-* Continue the lecture on scraping
-* **Before Class:** Install the SelectorGadget as instructed in [last class slides](https://brinasab.github.io/css-website/lectures/15-slides.html#/selectorgadget)
-
-
-<!-- TO EVALUATE FALL 2025:
-* Introduce "rectangling" in R (e.g., unnesting nested lists) -->
+- Understand how for loops work
+- Learn how to track and save results during a loop (e.g., running totals)
+- Recognize the difference between looping over indexes and over elements
+- Use for loop with if-else statements and within dataframes
 
 
 ## Readings
 
-* See previous lecture
+- ["Chapter 27.5 For Loops"](https://r4ds.hadley.nz/base-R.html#for-loops) (high level intro here, slides unpack the details)
+- ["Chapter 26 Iteration"](https://r4ds.hadley.nz/iteration) from "R for Data Science" 2nd Edition
+

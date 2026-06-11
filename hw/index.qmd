@@ -6,24 +6,27 @@ format:
     theme: cosmo
 ---
 
-### Course Assignments Fall 2025
+### Course Assignments Summer 2026
 
 <div class="my-4"></div>
 
-Assessment for this course consists of four take-home assignments, one take-home final project, and two in-class exams.
+Assessment for this course consists of four take-home assignments (plus an optional one, see Syllabus for details), four quizzes, in-class participation, and oral code checks:
 
-The **four homework assignments** and the **final project** will be posted here once they are released:
+- **Quizzes** will be posted on Canvas 
+- **Take-home assignments** will be posted on this page once they are released 
+- **In-class participation** activities will be completed during class, with an asynchronous option available within 24 hours of the start of class
+- **Oral code checks** will be scheduled during the course (more info including the sign-up process and rubric, will be shared ahead of time)
 
+<!--
 - [Homework 1](hw01.qmd)
 - [Homework 2](hw02.qmd)
 - [Homework 3](hw03.qmd)
 - [Homework 4](hw04.qmd)
-- [Final Project](hw05-project.qmd)
-
-The **two exams** will include a mix of multiple-choice and open-ended questions. They will be held in class and will be closed-book. More details will be shared during class.
+- [Homework 5](hw05.qmd)
+-->
 
 **Further info:**
 
-- Check our [Course Schedule](../lectures/index.qmd) for release and due dates of all assignments.
+- Check our [Course Schedule](../lectures/index.qmd) for and Canvas due dates of all assignments.
 
 - Refer to the [Syllabus](../syllabus.qmd) for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more.

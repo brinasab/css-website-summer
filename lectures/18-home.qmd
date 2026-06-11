@@ -1,9 +1,9 @@
 ---
-title: "Lecture 18: Exam 2; Final Project Check-In"
-date: 2025-12-03
-summary: "Exam 2; Final Project Check-In"
+title: "Lecture 18: Control Flow with Loops (cont.); Functions"
+date: 2026-07-14
+summary: "Finish Loops; Introduce Functions"
 url_slides: 18-slides.qmd
-#url_code: css-materials/
+url_code: css-materials/functions
 page-layout: full
 draft: false
 ---
@@ -16,12 +16,32 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
+
+<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: No in-class code to download
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+-->
+
+<!-- `usethis::use_course("css-materials/functions")` -->
+
+## Learning Objectives
+
+**Loops (cont. from last lecture):**
+
+- Using for loops within a data frame 
+- Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
+- Introduce while loops
+
+**Functions:**  
+
+- Define functions and their purposes  
+- Understand the difference between built-in and user-written functions  
+- Learn the syntax of user-written functions  
 
 
-## Content
+## Readings
 
-* Final Exam 2
-* Final Project Check-Ins
-
+* Loops: See previous lecture
+* Functions: [Chapter 15 "Functions"](https://r4ds.hadley.nz/functions) in "R for Data Science" 2nd Edition

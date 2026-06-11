@@ -1,7 +1,7 @@
 ---
-title: "Computing for the Social Sciences: Lecture 17"
+title: "Computing for the Social Sciences: Lecture 20"
 subtitle: "Topics: Reproducible Workflow"
-author: "Sabrina Nardin, Fall 2025"
+author: "Sabrina Nardin, Summer 2026"
 format:
   revealjs:
     theme: simple
@@ -20,14 +20,17 @@ format:
 
 ::: {.agenda-list}
 
-1. Exam 2 Overview + Final Project Check-in
+1. Tips to improve your R Workflow
+2. Deep-dive into R Markdown
 
-2. Tips to improve your R Workflow
-
-3. Deep-dive into R Markdown
-
-4. Reflections on AI and Programming
 :::
+
+---
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+
 
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **December 1, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
@@ -474,3 +477,4 @@ One part of my job is teaching you R fundamentals. Another (new) part is helping
 
 I'd like to do an activity on reflecting on your AI use in this course using this [Google Doc](https://docs.google.com/document/d/1RyzfQ022OdChYVKWW6VPhEnJgjUmdyYmhtumHld-cso/edit?usp=sharing)
 
+:::
