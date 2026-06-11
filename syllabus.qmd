@@ -59,7 +59,7 @@ This course is for UChicago students who want to use R as a tool for analyzing d
 <!-- put students profiles in slides 1 -->
 
 **Own Your Learning Journey**  
-Each class has readings and class materials (slides and code) posted on this website. Come prepared with questions you’d like to raise: class time mixes lecture and practice, and questions are strongly encouraged. Regular attendance is expected. Please inform the instructor in advance if you must miss a class. Assignments may feel challenging, but they are carefully designed and tested to be achievable without AI (see our course-specific AI policies below). Start early, keep up with deadlines, and reach out if you need help along the way!
+Each class has readings and class materials (slides and code) posted on this website. Come prepared with questions you’d like to raise: class time mixes lecture and practice, and questions are strongly encouraged. Regular attendance is expected. Please inform the instructor in advance if you must miss a class. Assignments may feel challenging, but they are carefully designed and tested to be achievable using only course materials (see our course-specific AI policies below). Start early, keep up with deadlines, and reach out if you need help along the way!
 
 **Trust**  
 Our instructor–student relationship is based on trust. If that trust breaks down, our work shifts away from growth and feedback and toward surveillance and control, which benefits no one. I ask you to trust that I have your best interests at heart and that I have designed this class to support your learning. In turn, I trust that you are here to learn R and you will approach the course seriously. I am also open to discussing and modeling how I use R, with and without AI, in my own work, and to explaining the reasoning behind this course’s policies. You can also expect transparency in grading from me and the TAs. See the Assessment section below for details.
@@ -203,18 +203,18 @@ Question 2: What excited you about AI usage in the classroom or assignments?
 Question 3: Do you think AI should be allowed or banned in completing assigments?
 -->
 
-**Use of LLMs and AI:** AI tools are powerful, accessible, and increasingly good at writing code. At this point, I am confident that AI tools can solve most of the assignments in this course. But this is a foundational course, and building a programming foundation is work you need to do yourself. The goal is to learn how to think through problems, make mistakes, debug, revise, and understand why your code works or does not. If AI does too much work for you, you may finish the assignment, but you will miss out on much of the learning, as well as the satisfaction that comes from solving coding problems yourself.
+**Use of LLMs and AI:** AI tools are powerful, accessible, and increasingly good at writing code. At this point, I am confident that AI tools can solve most of the assignments in this course. But this is a foundational course, and building a programming foundation is work you need to do yourself. The goal is to learn how to think through problems, make mistakes, revise, and understand why your code works or does not. If AI does too much work for you, you may finish the assignment, but you will miss out on much of the learning, as well as the satisfaction that comes from solving coding problems yourself.
 
 For these reasons, AI use (e.g., ChatGPT, PhoenixAI, Copilot, Claude, etc.), is strictly limited to the uses outlined below:
 
-- *First try on your own.* Do not copy/paste prompts into AI to get preliminary solutions. You may consult AI only after at least ~15 minutes of independent effort and reviewing class materials.
-- *Use only class methods and materials.* Your primary solution must use approaches taught in class (slides, book, in-class code). Alternative solutions may be included, and even encouraged, but only as additional work, properly cited, and compared against your primary solution.
-- *Disclose use.* Every assignment must include a statement, written exclusively by you (no AI-editing, etc.), describing how (if at all) you used AI, for which task, how you validated and integrated AI output with course sources, and what you learned in the process.
-- *No AI in class.* Use of AI during in-class sessions is prohibited unless explicitly authorized by the instructor. At times, we may incorporate AI examples or exercises in class as part of building AI literacy and understanding appropriate use.
+- *First try on your own.* Do not copy/paste prompts into AI to get preliminary solutions. You may consult AI for targeted help after at least ~15 minutes of independent effort and reviewing class materials.
+- *Use only class content and materials.* Your primary solution must use approaches taught in class (mainly slides and in-class code). Alternative solutions may be included, and even encouraged, but as additional work, properly cited, and compared against your primary solution.
+- *Disclose use.* Every assignment must include a statement, written exclusively by you (no AI-editing, etc.), describing how (if at all) you used AI, for which task, and what you learned in the process.
+- *No AI in class.* Use of AI during in-class sessions is prohibited unless explicitly asked/authorized by the instructor. At times, we may incorporate AI examples or exercises in class as part of building AI literacy and understanding appropriate use.
 
-Any use of AI outside these conditions is considered an academic integrity violation and will receive zero credit. Examples include: submitting code not introduced in class as your primary solution (even if it works), failing to cite sources, omitting or writing an AI disclosure narrative that does not comply with instructions.
+Any use of AI outside these conditions is considered an academic integrity violation and will receive zero credit. Examples include: writing code written mainly by AI, submitting code not introduced in class as your primary solution (even if it works), failing to cite sources, omitting an AI disclosure narrative.
 
-The bottom line: You must be the author for all work submitted in your assignments. If you don’t understand what the program is doing and are not prepared to explain it in detail (we might ask), you should not submit it.
+The bottom line: You must be the author for all work submitted in your assignments. If you don’t understand what the program is doing and are not prepared to explain it, you should not submit it.
 
 
 ### UChicago Academic Integritiy Policy
