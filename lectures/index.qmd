@@ -8,9 +8,6 @@ format:
 
 ### Course Schedule Summer 2026
 
-<a href="" target="_blank" rel="noopener">Download the Excel version of this schedule</a>
-
-
 <div class="my-4"></div>
 
 ```{=html}
@@ -154,3 +151,5 @@ if (length(week_end_rows) > 1) {
 kbl
 ```
 
+
+<a href="https://docs.google.com/spreadsheets/d/1LoqTK4aWxl-20byuBKuDF7Fl7dsa-5r4PcHCr_6-lC4/edit?usp=sharing" target="_blank" rel="noopener">Download the Excel version of this schedule</a>

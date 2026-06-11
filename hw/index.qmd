@@ -10,12 +10,15 @@ format:
 
 <div class="my-4"></div>
 
-Assessment for this course consists of four take-home assignments (plus an optional one, see Syllabus for details), four quizzes, in-class participation, and oral code checks:
+The course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the [Syllabus](../syllabus.qmd). Below is an overview of what you can expect from each:
 
-- **Quizzes** will be posted on Canvas 
-- **Take-home assignments** will be posted on this page once they are released 
-- **In-class participation** activities will be completed during class, with an asynchronous option available within 24 hours of the start of class
-- **Oral code checks** will be scheduled during the course (more info including the sign-up process and rubric, will be shared ahead of time)
+- **Quizzes:** Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.
+
+- **In-Class Participation:** You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for *3 of the 4 class meetings each week* of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously within *24 hours of the start of class.* Late submissions will not be accepted.
+
+- **Oral Code Checks:** Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course.  More info, including the sign-up process and rubric, will be shared ahead of time.
+
+- **Take-Home Assignments:** This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the *optional fifth assignment*, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this website once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.
 
 <!--
 - [Homework 1](hw01.qmd)
@@ -25,8 +28,12 @@ Assessment for this course consists of four take-home assignments (plus an optio
 - [Homework 5](hw05.qmd)
 -->
 
-**Further info:**
+::: callout-note
 
-- Check our [Course Schedule](../lectures/index.qmd) for and Canvas due dates of all assignments.
+**Further Info:**
+
+- Check our [Course Schedule](../lectures/index.qmd) for details and due dates of all assignments.
 
 - Refer to the [Syllabus](../syllabus.qmd) for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more.
+
+:::

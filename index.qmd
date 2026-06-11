@@ -10,7 +10,7 @@ format:
 
 <div class="my-4"></div>
 
-**Lectures**: Monday to Thursday, 9:30–11:30 AM, via Zoom. The Zoom link is accessible by enrolled students through [Canvas](https://canvas.uchicago.edu/courses/72552)
+**Lectures**: Monday to Thursday, 9:30–11:30 AM, Synchronous lectures via Zoom. The Zoom link is accessible by enrolled students through [Canvas](https://canvas.uchicago.edu/courses/72552)
 
 <!--
 Join Zoom Meeting
@@ -40,8 +40,8 @@ Passcode: 667323
 **Quick Links**:  
 
 - [R Workbench](https://macss-r.uchicago.edu/)  
-- [Canvas]()  
-- [Ed Discussion]()
+- [Canvas](https://canvas.uchicago.edu/courses/72552)  
+- [Ed Discussion](https://edstem.org/us/courses/99633/discussion/8125270)
 - [UChicago GenAI](https://genai.uchicago.edu/en)
 
 
