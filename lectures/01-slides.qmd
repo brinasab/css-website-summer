@@ -35,14 +35,12 @@ library(ggplot2)
 3.  R Markdown
 :::
 
----
-
+<!--
 ### Slides are in progress and will be updated before class.
-
 
 ::: {.content-hidden}
 
-<!--
+
 Summer 2026: add link to survey + be ready to talk about code checks
 
 Fall 2026 info to add:
@@ -52,20 +50,20 @@ Fall 2026 info to add:
 Three main topics, each 30ish minutes
 
 1. Welcome Course
-1:30 - 1:40 Intro and talk
-1:40 - 1:50 Activity Meet and Share Goals
-1:50 - 2:05 Answer question, more slides on Plagiarism and Expectations
+9:30 - 9:40 Intro and talk
+9:40 - 9:50 Activity Meet and Share Goals
+9:50 - 10:05 Answer question, more slides on Plagiarism and Expectations
 
 2. Intro R 
-2:05 - 2:10 Slides
-2:10 - 2:40 R coding live sessions (summer i planned 25 min)
+10:05 - 10:10 Slides
+10:10 - 10:35 R coding live sessions (summer i planned 25 min)
 
 Break?
 
 3. R Markdown
-2:45 - 2:50 Slides
-2:50 - 3:15 play with Rmd (intro and demo first!)
-3:15 - close
+10:35 - 10:45 Slides
+1:45 - 11:15 play with Rmd (intro and demo first!)
+11:15 - close
 
 Today we will talk about some course logistics, including course objectives, assessment, etc. and do a group activity on your expectations and tips to succeed in this course, etc.
 
@@ -90,8 +88,9 @@ But let me start by introducing myself and the TA... then will go around and int
 **How to Reach Out**
 
 -   Ask questions during or after class
--   Attend Office Hours (see website)
--   Post on Ed Discussion course-related questions
+-   Attend Office Hours (see website for info)
+-   Please post course-related questions on [Ed Discussion](https://edstem.org/us/courses/99633/discussion/8125270)
+
 :::
 
 </br>
@@ -100,17 +99,17 @@ But let me start by introducing myself and the TA... then will go around and int
 
 ## Course Objectives {.no-fragment}
 
-The goal of this course is to acquire basic computational skills. Specifically:
+The goal of this course is to acquire basic programming and computational skills. Specifically:
 
-1.  Learning R, especially the "tidyverse"
+1.  Learning R
 2.  Learning best practices for reproducible research
 
 ::: fragment
-You won't become an R expert in a few weeks, BUT you will learn a lot:
+You won't become an R expert in a few weeks, BUT you will learn A LOT:
 
--   learn the basics and gain confidence to explore new techniques beyond this course
+-   You will learn the basics and gain confidence to explore new techniques beyond this course
 
--   use R as a tool for analyzing social science data
+-   You will use R as a tool for analyzing social science data
 :::
 
 ---
@@ -124,7 +123,6 @@ Main topics of this course:
 -   Data Visualization
 -   Data Cleaning and Transformation
 -   Exploratory Data Analysis
--   Web-Scraping
 -   Reproducible Research
 -   R Programming: Control Structures, Data Structures, etc.
 
@@ -142,7 +140,7 @@ print(x)
 
 <br>
 
-We use a mix of lectures and in-class activities, and we rely on several platforms (e.g., course website, Canvas, Ed Discussion, Workbench, Git/GitHub, and Markdown). 
+Class time will combine explanations, live coding, and hands-on practice. We will use several platforms (e.g., the course website, Canvas, Ed Discussion, Poll Everywhere, Workbench, Git/GitHub, and Markdown) and introduce each as needed.
 
 All course materials are free and accessible from our website.
 
@@ -152,6 +150,20 @@ All course materials are free and accessible from our website.
 
 ## Is this course for you? 
 
+This course is designed for students who want to use R for social science research, data analysis, and reproducible workflows.
+
+You may recognize yourself in one or more of the examples on the next slide. If none of them feel close to your situation, please reach out so we can decide whether this course is a good fit!
+
+---
+
+## Is this course for you? 
+
+| Student | Starting Point | Needs |
+|---|---|---|
+| **Jeri** | Sociology Ph.D.; uses Stata; comfortable with statistics; frustrated by Git | Move from Stata to R; analyze dissertation data; build a reproducible workflow |
+| **Ryan** | Entering MAPSS; journalism background; rusty on statistics; limited R use | Write a thesis in one year; analyze news articles; adapt code found online |
+| **Fernando** | Political science undergrad; some math/statistics; new to programming | Join an R-based research project; contribute to a paper; make strong visualizations |
+| **Fang** | First-year grad student; psychology background; used Excel/SPSS/Stata | Analyze lab data; create shareable notebooks; prepare for ML/statistics courses |
 
 ---
 
@@ -161,34 +173,33 @@ In this course we use RStudio Workbench, which is cloud-based version of RStudio
 
 Next lecture we will learn the basics of Git and GitHub and complete the Software Setup with Workbench for the course. 
 
-Check our website under "Software Setup" for details.
-
+Check our website under [Software Setup](https://brinasab.github.io/css-website-summer/setup/) for details.
 
 ---
 
 ## Assessment 
 
-See "Assessment" section of our Syllabus and the [Course Schedule](https://brinasab.github.io/css-website-summer/lectures/). It includes details n: 
+Let’s review how assessment works in this course. We will look together at the **Assessment** section of the Syllabus, specifically
 
--   **Assessment and Evaluation**
+* [Types of Assessment](https://brinasab.github.io/css-website-summer/syllabus.html#types-of-assessment)
+* [Rubric for Take-home Work](https://brinasab.github.io/css-website-summer/syllabus.html#rubric-for-take-home-assigments)
+* [Grading Scheme](https://brinasab.github.io/css-website-summer/syllabus.html#grading-scheme)
+* [Deadlines and Late Submissions](https://brinasab.github.io/css-website-summer/syllabus.html#deadlines-and-late-submissions-policies)
+* [Missed or Incomplete Work](https://brinasab.github.io/css-website-summer/syllabus.html#missed-or-incomplete-submissions)
 
--   **Submission Policies** (including late or missed assignments)
+See also the [Course Schedule](https://brinasab.github.io/css-website-summer/lectures/) for more details.
 
--   **Evaluation Philosophy and Rubric**
-
-**Tips**:
-
-<!-- think about tips for reading this next year, either remove or say use readings to deepen your undrestanding  or clarify slides, before or after class -->
-
-* do the readings before class, even if you do not understand everything
-* start early to work on the take-home assignments; (starting from the 2nd) they will be a bit challenging, especially if you have never programmed before
-* form a study group, and ask for help if you get stuck
-
----
+--- 
 
 ## Course Expectations
 
-See [How to Succeed in this Course](https://brinasab.github.io/css-website/syllabus.html#how-to-succeed-in-this-course) from the Syllabus
+**Our Tips:**
+
+*Tip 1:* Do the readings before class. After class, review the slides and any in-class code/tutorials. This will help you connect the readings to what we practice together in class. Assessments will draw directly from these materials.
+
+*Tip 2:* Start the take-home assignments early. Beginning with the 2nd assignment, they become more challenging, especially if you are new to programming. They are designed for you to fully succeed without relying on AI, but not if you treat them as last-minute tasks. Give yourself time to try things, run into errors, ask questions, and revise.
+
+For more guidance and our expectations, see [How to Succeed in this Course](https://brinasab.github.io/css-website/syllabus.html#how-to-succeed-in-this-course) from the Syllabus!
 
 ---
 
@@ -245,8 +256,8 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 **→ Collaboration is good and encouraged, but in this course you are also expected to:**
 
 -   Complete your own work individually
--   Write your code and fully understand it
--   Be ready to explain your code line-by-line to someone else
+-   Learn the basics of R on your own
+-   Write your code and be ready to explain it line-by-line
 :::
 
 ---
@@ -255,25 +266,23 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 
 ::::: columns
 ::: {.column width="50%"}
-### ✅ DO:
+### ✅ Collaboration
 
 -   Discuss and debug with peers
 -   Rewrite code found online in your own style<br> and cite the source</br>
 -   Use AI to debug or clarify concepts *after* you try
--   Submit code you wrote
--   Submit code you fully understand
+-   Submit code you wrote and fully understand
 -   Always, prioritize methods from class materials and readings
 :::
 
 ::: {.column width="50%"}
-### 🚫 DON'T:
+### 🚫 Plagiarism
 
 -   Copy code from your classmates or others
--   Simply copy and paste chunks of code from<br> the internet</br>
+-   Simply copy and paste chunks of code from<br> the internet or AI</br>
 -   Use AI beyond the AI-Policy of this course 
--   Submit code you didn't write
--   Submit code you can't explain
--   Write code not taught in class or reading (even if it works) as primary solution
+-   Submit as yours code you didn't write and can't explain
+-   Write code not taught in class or readings (even if it works) as primary solution
 :::
 :::::
 
@@ -281,27 +290,33 @@ Researchers collaborate on projects. Developers work in teams to write programs.
 
 ## My take on AI for this course {.center}
 
-::: columns
+My AI policies are not one-size-fits-all: they depend on the course and what I want you to learn. In this course, I want you to build your own programming skills. AI can support that process, but it should not take over the parts where learning happens.
+
+::::: columns
 ::: {.column width="50%"}
-**It is my responsibility to**  
-- Clarify expectations & be consistent 
-- Support your learning  
+### ✅ DO:
+
+**AI IS allowed to help you:**
+
+- clarify class material
+- ask for more examples to better understand
+- interpret an error message
 :::
 
 ::: {.column width="50%"}
-**It is your responsibility to**  
-- Respect the AI policy  
-- Ask questions if something is unclear  
+### 🚫 DON'T:
+**In this course, AI IS NOT allowed to:**
+
+- brainstorm assignment solutions for you
+- write code for you
+- replace readings, slides, tutorials, or in-class practice
 :::
+:::::
+
+::: {.callout-important title="Rule of thumb"}
+Use AI as a tutor, do not let it doing the work for you. 
+See our [Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies) for more.
 :::
-
-**In this course, AI:**  
-
-- IS NOT allowed to brainstorm, write code for you, or replace course materials  
-
-- IS allowed to debug and learn more (e.g., clarify class materials, ask for more explanations about a specific function, ask for examples, etc.). 
-
-Read the [Academic Integrity & Use of AI Policies](https://brinasab.github.io/css-website/syllabus.html#academic-integrity-use-of-ai-policies)
 
 ---
 
@@ -309,21 +324,17 @@ Read the [Academic Integrity & Use of AI Policies](https://brinasab.github.io/cs
 
 **In small groups, please share:**
 
+<!--
+Do breakout rooms, we’ll go around the room and answer questions
+-->
+
 -   Your name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)
 -   What you hope to learn or achieve in this course
--   Any questions you have, and strategies you plan to use to stay on track (we’ll go around the room and answer questions)
+-   Any questions you have, and strategies you plan to use to stay on track 
 
 ::: {.callout-note title="Done early?"}
-If your group finishes early, please complete [this short survey](https://forms.gle/pKXDLNP8T92bYY7T6) if you haven’t already. It only takes a few minutes and helps us better understand your background and what you’re hoping to learn in this course.
+If your group finishes early, please complete [this short survey](https://forms.gle/pKXDLNP8T92bYY7T6) if you haven’t already. It only takes a few minutes and helps us better understand your background and expectations for this course.
 :::
-
-```{=html}
-<!--
-## Is this course a Good Fit for me?
-
-See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-course-for/) under FAQ in our website
---->
-```
 
 
 # 2. Intro to R, RStudio, and Workbench {.slide .center .middle}
@@ -344,7 +355,7 @@ See [Should I take this course?](https://computing-soc-sci.netlify.app/faq/whom-
 
 Today we learn how to:
 
--   Log in into RStudio Workbench <https://macss-r.uchicago.edu/>
+-   Use RStudio Workbench
 -   Understand the panels you see there
 -   How to export/import files between Workbench and your machine
 -   Create an empty R Script and:
@@ -381,11 +392,12 @@ We learn all of this via a live coding activity:
 
 -   Log into Workbench <https://macss-r.uchicago.edu/>
 -   Type along with me as we write and run code together
--   Stop me anytime if you have questions
+-   Stop me anytime if you have questions or put them in the chat!
 
 ```{=html}
 <!-- IN CLASS:
-You’ll run into errors and typos, that’s part of the process -->
+You’ll run into errors and typos, that’s part of the process
+monitor chat -->
 ```
 
 # 3. R Markdown {.slide .center .middle}
@@ -394,7 +406,9 @@ You’ll run into errors and typos, that’s part of the process -->
 
 ## Deep Dive on R Markown
 
-R Markdown is a file format (with extension `.Rmd`) that combines R code, using code chunks, and text in a single document. It's very popular because it makes it easy to create reproducible reports, analyses, and presentations.
+For our live demo we used an R script with code.
+
+But we can also use an R Markdown file that combines code and standard text in a single document. It's very popular because it makes it easy to create reproducible reports, analyses, and presentations.
 
 You might hear about Quarto (with extension `.qmd`), which is a newer alternative to R Markdown. We won’t cover Quarto in this course, but if you learn R Markdown, you can quickly adjust to Quarto.
 
@@ -402,17 +416,14 @@ You might hear about Quarto (with extension `.qmd`), which is a newer alternativ
 
 ## Comparing R Scripts, R Markdown, and Markdown {.center}
 
-| File Type  | Extension | Key Differences                  |
-|------------|-----------|----------------------------------|
-| R Script   | `.R`      | Supports code                    |
-| R Markdown | `.Rmd`    | Supports code and formatted text |
-| Markdown   | `.md`     | Supports formatted text          |
-
-We use all three, but mainly `.Rmd` for assignments and `.md` for Git/GitHub documentation.
+| File Type  | Extension | Key Differences                  | How we use it in this course |
+|------------|-----------|----------------------------------|-------------------------------|
+| R Script   | `.R`      | Supports code                    | For writing and running quick R code |
+| R Markdown | `.Rmd`    | Supports code and formatted text | Mainly for assignments and reproducible analysis |
+| Markdown   | `.md`     | Supports formatted text          | Mainly for Git/GitHub documentation, such as README files |
 
 ```{=html}
 <!-- IN CLASS:
-Let's open each one and explore their key differences!
 Open Workbench and create a file of each type, see the difference 
 SAY: on md you can type code but it is not evaluated/executed, basically is text
 R Markdown: an extension of Markdown designed for R -->
@@ -428,21 +439,7 @@ R Markdown: an extension of Markdown designed for R -->
 
 3.  **Code chunks** for code. Insert it with triple backticks ```` ``` ````
 
-::: {.fragment .setup-box .callout-tip title="Code Chunk Tips"}
-[<strong>Three ways to insert a code chunk in your R Markdown:</strong>]{style="font-size: 1.2em"}
-
--   Use the RStudio toolbar\
--   Type manually ```` ```{r} ```` and ```` ``` ````
--   Use a shortcut
-    -   Mac: ⌘ + ⌥ + I\
-    -   Windows: Ctrl + Alt + I
-:::
-
----
-
-## R Markdown: Example
-
-This is what we type (YAML, text, code):
+::: {.fragment .setup-box .callout-tip title="Rmd Example"}
 
 ````{verbatim, echo = TRUE}
 ---
@@ -459,12 +456,25 @@ I can format the text in many ways, for example, by bolding **key concepts**.
 x <- 5
 ```
 ````
-
+:::
 
 ```{=html}
 <!-- IN CLASS: 
 copy this on a blank Rmd document on Workbench and render it -->
 ```
+
+---
+
+## R Markdown: Tips to insert a Code Chunk
+
+
+[<strong>Three ways to insert a code chunk in your R Markdown:</strong>]{style="font-size: 1.2em"}
+
+-   Use the RStudio toolbar\
+-   Type manually ```` ```{r} ```` and ```` ``` ````
+-   Use a shortcut
+    -   Mac: ⌘ + ⌥ + I\
+    -   Windows: Ctrl + Alt + I
 
 ---
 
@@ -639,36 +649,34 @@ I do not want a list here, I want the literal number followed by a dot: 1\.
 
 ---
 
-## Using \# in Code vs. Markdown Text
+## \# Same Symbol, Different Meanings
 
 ::::: columns
 ::: {.column width="50%"}
-### In Code
+### In Code: \# Comment
 
 ``` r
-# Assign number to variable
+# Assign number to variables
 x <- 5 
-# Assign text to variable
-name <- "Sabrina"
+y <- 3
 ```
 
--   `#` starts a **COMMENT** in R Scripts and R Markdown Code Chunks
+-   In R Scripts and R Markdown Code Chunks (*in code*) a pound starts a **comment**
 -   Comments are **ignored** when the code runs
 -   Use one single `#` for code explanations or debugging, space doesn't matter
 :::
 
 ::: {.column width="50%"}
-### In R Markdown Text
+### In R Markdown Text: \# Header
 
 ``` markdown
 # Title (h1)
 ## Section (h2)
-### Subsection (h3)
-#### More Subsections (h4)
+### More Subsections (h3)
 ```
 
--   `#` creates a **HEADER** in Markdown or R Markdown Text
--   The number of `#` signs = **heading level**
+-   In Markdown or R Markdown Text (*in text*) a pound creates a **header**
+-   The number of `#` = **heading level**
 -   Use as many `#` as needed for organizing document sections, space matters
 :::
 :::::
@@ -683,10 +691,13 @@ name <- "Sabrina"
 | **Image** | `![Logo](images/logo.png "Optional title")` | Start with `!`, include optional `"title"` | [Image](https://www.markdownguide.org/basic-syntax/#images) |
 | **Table** | `| Tool    | Use     |`<br>`|---------|---------|`<br>`| R       | Stats   |` | Use `|` for columns and `---` for header | [Table](https://www.markdownguide.org/extended-syntax/#tables) |
 
-Note: 
 
-- Spacing always matters 
-- For images to display, the file (e.g., .png, .jpg) must be saved in your current working dir or project folder
+::: {.callout-tip}
+
+- Spacing matters in Markdown. 
+
+- For images to display, the image file (`.png`, `.jpg`, etc.) must also be saved in your current working directory or project folder.
+:::
 
 <!--
 
@@ -811,5 +822,3 @@ When you "knit" your document, the following sequential things happen:
 ## To print these slides as pdf
 
 Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
-
-:::

@@ -20,12 +20,12 @@
    Base Font Size + Code Font Size (Slides)
 -------------------------------------------- */
 .reveal {
-  font-size: 1.3rem; /* Previously 3.6rem, now more reasonable */
+  font-size: 1.43rem; /* Previously 3.6rem, now more reasonable */
 }
 
 .reveal code,
 .reveal pre {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 
@@ -34,14 +34,14 @@
 -------------------------------------------- */
 
 .reveal h1:not(.title) {
-  font-size: 2.6rem;
+  font-size: 2.86rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
   color: darkblue;
 }
 
 .reveal h2 {
-  font-size: 2.2rem;
+  font-size: 2.42rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -53,14 +53,14 @@
 }
 
 .reveal h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-top: 1.2rem;
   margin-bottom: 1.2rem;
 }
 
 .reveal p,
 .reveal li {
-  font-size: 1.3rem;
+  font-size: 1.43rem;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -70,13 +70,13 @@
    First slide: YAML Sizing and Color
 -------------------------------------------- */
 .reveal h1.title {
-  font-size: 3.6rem;
+  font-size: 3.96rem;
   color: darkblue;
   margin-top: 2.5rem;
 }
 
 .reveal p.subtitle {
-  font-size: 1.4rem;
+  font-size: 1.54rem;
   margin-bottom: 0;
 }
 
@@ -85,7 +85,7 @@
    Agenda List Block Styling
 -------------------------------------------- */
 .reveal .agenda-list {
-  font-size: 1.4rem;
+  font-size: 1.54rem;
   line-height: 1.5;
   margin: 1.5rem 0;
   padding-left: 2rem;

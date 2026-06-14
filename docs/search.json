@@ -322,11 +322,256 @@
     "text": "Readings\n\n“Chapter 3 Data transformation” from “R for Data Science” 2nd Edition\n\nAdditional Resources:\n\ndplyr Cheat Sheet\ndplyr Official Documentation"
   },
   {
+    "objectID": "lectures/01-slides.html#teaching-team",
+    "href": "lectures/01-slides.html#teaching-team",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Teaching Team",
+    "text": "Teaching Team\n\n\n\nRole\nName\nEmail\n\n\n\n\nInstructor\nSabrina Nardin (she/her)\nsnardin@uchicago.edu\n\n\nTA\nRubén Rodríguez Barron (he/him)\nrrodriguezbarron@uchicago.edu\n\n\nGrader\nXulan Jiang (he/him)\nxulanj@uchicago.edu\n\n\n\n\n\nHow to Reach Out\n\nAsk questions during or after class\nAttend Office Hours (see website for info)\nPlease post course-related questions on Ed Discussion"
+  },
+  {
+    "objectID": "lectures/01-slides.html#course-objectives",
+    "href": "lectures/01-slides.html#course-objectives",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nThe goal of this course is to acquire basic programming and computational skills. Specifically:\n\nLearning R\nLearning best practices for reproducible research\n\n\nYou won’t become an R expert in a few weeks, BUT you will learn A LOT:\n\nYou will learn the basics and gain confidence to explore new techniques beyond this course\nYou will use R as a tool for analyzing social science data"
+  },
+  {
+    "objectID": "lectures/01-slides.html#course-topics",
+    "href": "lectures/01-slides.html#course-topics",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Topics",
+    "text": "Course Topics\nMain topics of this course:\n\nGit/GitHub via RStudio\nR Markdown\nData Visualization\nData Cleaning and Transformation\nExploratory Data Analysis\nReproducible Research\nR Programming: Control Structures, Data Structures, etc."
+  },
+  {
+    "objectID": "lectures/01-slides.html#how-well-do-this",
+    "href": "lectures/01-slides.html#how-well-do-this",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "How We’ll Do This",
+    "text": "How We’ll Do This\nWe start simple and build toward more complex code\n\n# create a variable and print it\nx &lt;- \"Hello!\"\nprint(x)\n\n[1] \"Hello!\"\n\n\n\nClass time will combine explanations, live coding, and hands-on practice. We will use several platforms (e.g., the course website, Canvas, Ed Discussion, Poll Everywhere, Workbench, Git/GitHub, and Markdown) and introduce each as needed.\nAll course materials are free and accessible from our website."
+  },
+  {
+    "objectID": "lectures/01-slides.html#is-this-course-for-you",
+    "href": "lectures/01-slides.html#is-this-course-for-you",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Is this course for you?",
+    "text": "Is this course for you?\nThis course is designed for students who want to use R for social science research, data analysis, and reproducible workflows.\nYou may recognize yourself in one or more of the examples on the next slide. If none of them feel close to your situation, please reach out so we can decide whether this course is a good fit!"
+  },
+  {
+    "objectID": "lectures/01-slides.html#is-this-course-for-you-1",
+    "href": "lectures/01-slides.html#is-this-course-for-you-1",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Is this course for you?",
+    "text": "Is this course for you?\n\n\n\n\n\n\n\n\nStudent\nStarting Point\nNeeds\n\n\n\n\nJeri\nSociology Ph.D.; uses Stata; comfortable with statistics; frustrated by Git\nMove from Stata to R; analyze dissertation data; build a reproducible workflow\n\n\nRyan\nEntering MAPSS; journalism background; rusty on statistics; limited R use\nWrite a thesis in one year; analyze news articles; adapt code found online\n\n\nFernando\nPolitical science undergrad; some math/statistics; new to programming\nJoin an R-based research project; contribute to a paper; make strong visualizations\n\n\nFang\nFirst-year grad student; psychology background; used Excel/SPSS/Stata\nAnalyze lab data; create shareable notebooks; prepare for ML/statistics courses"
+  },
+  {
+    "objectID": "lectures/01-slides.html#software-setup",
+    "href": "lectures/01-slides.html#software-setup",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Software Setup",
+    "text": "Software Setup\nIn this course we use RStudio Workbench, which is cloud-based version of RStudio that runs in your browser.\nNext lecture we will learn the basics of Git and GitHub and complete the Software Setup with Workbench for the course.\nCheck our website under Software Setup for details."
+  },
+  {
+    "objectID": "lectures/01-slides.html#assessment",
+    "href": "lectures/01-slides.html#assessment",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Assessment",
+    "text": "Assessment\nLet’s review how assessment works in this course. We will look together at the Assessment section of the Syllabus, specifically\n\nTypes of Assessment\nRubric for Take-home Work\nGrading Scheme\nDeadlines and Late Submissions\nMissed or Incomplete Work\n\nSee also the Course Schedule for more details."
+  },
+  {
+    "objectID": "lectures/01-slides.html#course-expectations",
+    "href": "lectures/01-slides.html#course-expectations",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Course Expectations",
+    "text": "Course Expectations\nOur Tips:\nTip 1: Do the readings before class. After class, review the slides and any in-class code/tutorials. This will help you connect the readings to what we practice together in class. Assessments will draw directly from these materials.\nTip 2: Start the take-home assignments early. Beginning with the 2nd assignment, they become more challenging, especially if you are new to programming. They are designed for you to fully succeed without relying on AI, but not if you treat them as last-minute tasks. Give yourself time to try things, run into errors, ask questions, and revise.\nFor more guidance and our expectations, see How to Succeed in this Course from the Syllabus!"
+  },
+  {
+    "objectID": "lectures/01-slides.html#tips-from-former-students",
+    "href": "lectures/01-slides.html#tips-from-former-students",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Tips from former students…",
+    "text": "Tips from former students…\n\n\n“One of the hardest things for me was remembering where I saw a concept or piece of code.”Advice: Stay organized (e.g., customize slides and notes, and create your own system to retrieve info)!\n\n\n\n\n“Homework took more time and effort than I expected.” Advice: Start early! You don’t need to know everything before you begin: just get started and review the materials as needed. Use pen and paper to write pseudo-code before you start.\n\n\n\n\n“I’m in week 3, and I feel lost.”Advice: Reach out to us! Concepts build over time. The big picture will click by the end of the coure IF you stay consistent with your efforts every week.\n\n\n\n\n“I found code that worked but wasn’t covered in class, so I wasn’t sure whether to use it.”Advice: Stick to class syntax and functions — they’re chosen for a reason. But you can show both approaches by comparing the function(s) covered in class with your own."
+  },
+  {
+    "objectID": "lectures/01-slides.html#yes-to-collaboration-no-to-copying",
+    "href": "lectures/01-slides.html#yes-to-collaboration-no-to-copying",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Yes to Collaboration, No to Copying",
+    "text": "Yes to Collaboration, No to Copying\nResearchers collaborate on projects. Developers work in teams to write programs. AI is becoming part of our daily and academic lives.\n\n→ Collaboration is good and encouraged, but in this course you are also expected to:\n\nComplete your own work individually\nLearn the basics of R on your own\nWrite your code and be ready to explain it line-by-line"
+  },
+  {
+    "objectID": "lectures/01-slides.html#collaboration-vs.-plagiarism",
+    "href": "lectures/01-slides.html#collaboration-vs.-plagiarism",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Collaboration vs. Plagiarism",
+    "text": "Collaboration vs. Plagiarism\n\n\n✅ Collaboration\n\nDiscuss and debug with peers\nRewrite code found online in your own style and cite the source\nUse AI to debug or clarify concepts after you try\nSubmit code you wrote and fully understand\nAlways, prioritize methods from class materials and readings\n\n\n🚫 Plagiarism\n\nCopy code from your classmates or others\nSimply copy and paste chunks of code from the internet or AI\nUse AI beyond the AI-Policy of this course\nSubmit as yours code you didn’t write and can’t explain\nWrite code not taught in class or readings (even if it works) as primary solution"
+  },
+  {
+    "objectID": "lectures/01-slides.html#my-take-on-ai-for-this-course",
+    "href": "lectures/01-slides.html#my-take-on-ai-for-this-course",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "My take on AI for this course",
+    "text": "My take on AI for this course\nMy AI policies are not one-size-fits-all: they depend on the course and what I want you to learn. In this course, I want you to build your own programming skills. AI can support that process, but it should not take over the parts where learning happens.\n\n\n✅ DO:\nAI IS allowed to help you:\n\nclarify class material\nask for more examples to better understand\ninterpret an error message\n\n\n🚫 DON’T:\nIn this course, AI IS NOT allowed to:\n\nbrainstorm assignment solutions for you\nwrite code for you\nreplace readings, slides, tutorials, or in-class practice\n\n\n\n\n\n\n\n\n\nRule of thumb\n\n\nUse AI as a tutor, do not let it doing the work for you. See our Use of AI Policies for more."
+  },
+  {
+    "objectID": "lectures/01-slides.html#activity-meet-share-goals",
+    "href": "lectures/01-slides.html#activity-meet-share-goals",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Activity: Meet & Share Goals",
+    "text": "Activity: Meet & Share Goals\nIn small groups, please share:\n\n\nYour name, plus something about yourself that you’re comfortable sharing (e.g., a hobby, your experience with programming, etc.)\nWhat you hope to learn or achieve in this course\nAny questions you have, and strategies you plan to use to stay on track\n\n\n\n\n\n\n\n\nDone early?\n\n\nIf your group finishes early, please complete this short survey if you haven’t already. It only takes a few minutes and helps us better understand your background and expectations for this course."
+  },
+  {
+    "objectID": "lectures/01-slides.html#what-are-these-tools",
+    "href": "lectures/01-slides.html#what-are-these-tools",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "What Are These Tools?",
+    "text": "What Are These Tools?\n\n\n\n\n\n\n\nTool\nWhat It Is\n\n\n\n\nR\nA programming language for data analysis, statistics, and visualization.\n\n\nRStudio\nA user-friendly interface (IDE) for using R.\n\n\nWorkbench\nA cloud-based version of R/RStudio with everything pre-installed. We will use it in this course to minimize setup issues."
+  },
+  {
+    "objectID": "lectures/01-slides.html#getting-started",
+    "href": "lectures/01-slides.html#getting-started",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Getting Started…",
+    "text": "Getting Started…\nToday we learn how to:\n\nUse RStudio Workbench\nUnderstand the panels you see there\nHow to export/import files between Workbench and your machine\nCreate an empty R Script and:\n\nCreate and use variables\n\nUnderstand variable types (e.g., number, text, logical, etc.)\n\nWrite comments and organize your code\n\nUse scripts (vs. console) for reproducibility\n\nClear your environment\n\nGroup values using vectors"
+  },
+  {
+    "objectID": "lectures/01-slides.html#live-coding-activity-to-get-started-with-r",
+    "href": "lectures/01-slides.html#live-coding-activity-to-get-started-with-r",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "💻 Live Coding Activity to get Started with R",
+    "text": "💻 Live Coding Activity to get Started with R\nWe learn all of this via a live coding activity:\n\nLog into Workbench https://macss-r.uchicago.edu/\nType along with me as we write and run code together\nStop me anytime if you have questions or put them in the chat!"
+  },
+  {
+    "objectID": "lectures/01-slides.html#deep-dive-on-r-markown",
+    "href": "lectures/01-slides.html#deep-dive-on-r-markown",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Deep Dive on R Markown",
+    "text": "Deep Dive on R Markown\nFor our live demo we used an R script with code.\nBut we can also use an R Markdown file that combines code and standard text in a single document. It’s very popular because it makes it easy to create reproducible reports, analyses, and presentations.\nYou might hear about Quarto (with extension .qmd), which is a newer alternative to R Markdown. We won’t cover Quarto in this course, but if you learn R Markdown, you can quickly adjust to Quarto."
+  },
+  {
+    "objectID": "lectures/01-slides.html#comparing-r-scripts-r-markdown-and-markdown",
+    "href": "lectures/01-slides.html#comparing-r-scripts-r-markdown-and-markdown",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Comparing R Scripts, R Markdown, and Markdown",
+    "text": "Comparing R Scripts, R Markdown, and Markdown\n\n\n\n\n\n\n\n\n\nFile Type\nExtension\nKey Differences\nHow we use it in this course\n\n\n\n\nR Script\n.R\nSupports code\nFor writing and running quick R code\n\n\nR Markdown\n.Rmd\nSupports code and formatted text\nMainly for assignments and reproducible analysis\n\n\nMarkdown\n.md\nSupports formatted text\nMainly for Git/GitHub documentation, such as README files"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-three-main-components",
+    "href": "lectures/01-slides.html#r-markdown-three-main-components",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Three Main Components",
+    "text": "R Markdown: Three Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nRmd Example\n\n\n---\ntitle: \"Homework 1\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---\n\nI write my homework description here. \nI can format the text in many ways, for example, by bolding **key concepts**.\n\n```{r}\n# create a variable\nx &lt;- 5\n```"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-tips-to-insert-a-code-chunk",
+    "href": "lectures/01-slides.html#r-markdown-tips-to-insert-a-code-chunk",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Tips to insert a Code Chunk",
+    "text": "R Markdown: Tips to insert a Code Chunk\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+  },
+  {
+    "objectID": "lectures/01-slides.html#yaml-yet-another-markup-language",
+    "href": "lectures/01-slides.html#yaml-yet-another-markup-language",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "YAML: Yet Another Markup Language",
+    "text": "YAML: Yet Another Markup Language\nThe YAML header sits at the top of your .Rmd and tells R what the document is about and how to display it (e.g., as a html, PDF, Word, etc.). Spacing, indentation, and --- all matters!\nThe example below shows three fields but many more can be added:\n---\ntitle: \"Homework 1\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-formatting-text",
+    "href": "lectures/01-slides.html#r-markdown-formatting-text",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Formatting Text",
+    "text": "R Markdown: Formatting Text\n\n\nSyntax\n*Italics*  \n**Bold**  \n~~Strikethrough~~  \n`inline code`\n\nOutput\nItalics\nBold\nStrikethrough\ninline code"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-unordered-lists",
+    "href": "lectures/01-slides.html#r-markdown-unordered-lists",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Unordered Lists",
+    "text": "R Markdown: Unordered Lists\n\n\nSyntax\n+ item 1  \n  + sub  \n  + sub  \n- item 2  \n  - sub  \n  - sub  \n+ item 3  \n  - sub  \n  * sub  \n\nOutput\n\nitem 1\n\nsub\nsub\n\nitem 2\n\nsub\nsub\n\nitem 3\n\nsub\nsub"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-ordered-lists",
+    "href": "lectures/01-slides.html#r-markdown-ordered-lists",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Ordered Lists",
+    "text": "R Markdown: Ordered Lists\n\n\nSyntax\n1. item 1  \n    + sub  \n      + sub  \n    + sub  \n\n1. item 2  \n    * sub  \n      * sub  \n    * sub  \n\n1. item 3  \n    - sub  \n\nOutput\n\nitem 1\n\nsub\n\nsub\n\n\nsub\n\nitem 2\n\nsub\n\nsub\n\n\nsub\n\nitem 3\n\nsub"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-formatting-headers",
+    "href": "lectures/01-slides.html#r-markdown-formatting-headers",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Formatting Headers",
+    "text": "R Markdown: Formatting Headers\n# Heading 1  \n## Heading 2  \n### Heading 3  \n\nHeading 1\n\n\nHeading 2\n\n\nHeading 3"
+  },
+  {
+    "objectID": "lectures/01-slides.html#same-symbol-different-meanings",
+    "href": "lectures/01-slides.html#same-symbol-different-meanings",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "# Same Symbol, Different Meanings",
+    "text": "# Same Symbol, Different Meanings\n\n\nIn Code: # Comment\n# Assign number to variables\nx &lt;- 5 \ny &lt;- 3\n\nIn R Scripts and R Markdown Code Chunks (in code) a pound starts a comment\nComments are ignored when the code runs\nUse one single # for code explanations or debugging, space doesn’t matter\n\n\nIn R Markdown Text: # Header\n# Title (h1)\n## Section (h2)\n### More Subsections (h3)\n\nIn Markdown or R Markdown Text (in text) a pound creates a header\nThe number of # = heading level\nUse as many # as needed for organizing document sections, space matters"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
+    "href": "lectures/01-slides.html#r-markdown-insert-links-images-and-tables",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Insert Links, Images, and Tables",
+    "text": "R Markdown: Insert Links, Images, and Tables\n\n\n\nElement\nSyntax Example\nNotes\nPreview\n\n\n\n\nLink\n[RStudio](https://www.rstudio.com/)\nText in [], URL in ()\nLink\n\n\nImage\n![Logo](images/logo.png \"Optional title\")\nStart with !, include optional \"title\"\nImage\n\n\nTable\n| Tool    | Use     ||---------|---------|| R       | Stats   |\nUse | for columns and --- for header\nTable\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nSpacing matters in Markdown.\nFor images to display, the image file (.png, .jpg, etc.) must also be saved in your current working directory or project folder."
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-handy-code-chunk-options",
+    "href": "lectures/01-slides.html#r-markdown-handy-code-chunk-options",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Handy Code Chunk Options",
+    "text": "R Markdown: Handy Code Chunk Options\n\n\n\n\n\n\n\n\n\nOption\nWhat it does\nDefault\n\n\n\n\neval = FALSE\nCode is not run, only shown; results do not appear. Useful for code examples or showing code with errors.\neval = TRUE\n\n\ninclude = FALSE\nCode is run, but both code and results are hidden. Useful for setup code you don’t want to display.\ninclude = TRUE\n\n\necho = FALSE\nCode is run, results are shown, but code is hidden. Good when readers only need the output.\necho = TRUE\n\n\nerror = TRUE\nCode is run and shown, even if it throws an error. Useful when demonstrating broken code.\nerror = FALSE\n\n\nmessage = FALSE / warning = FALSE\nCode is run, but messages and warnings are hidden from the output.\nmessage = TRUE / warning = TRUE\n\n\n\n\nCheck this table and options for more."
+  },
+  {
+    "objectID": "lectures/01-slides.html#rendering-r-markdown-documents",
+    "href": "lectures/01-slides.html#rendering-r-markdown-documents",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Rendering R Markdown Documents",
+    "text": "Rendering R Markdown Documents\nR Markdown lets you create documents that combine text, code, and output, and “render” or “knit” them in formats like html, pdf, word, and more.\n\n\n\n\n\n\n\nRendering Tips\n\n\nThree ways to render your R Markdown document:\n\nClick “Knit” in RStudio and choose an output\nSet the format in the YAML header such as html_document,word_document, pdf_document, github_document, etc.\nUse render() in your console by typing rmarkdown::render(\"my-document.Rmd\", output_format: html_document). More info here"
+  },
+  {
+    "objectID": "lectures/01-slides.html#r-markdown-knitting-process",
+    "href": "lectures/01-slides.html#r-markdown-knitting-process",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "R Markdown: Knitting process",
+    "text": "R Markdown: Knitting process\nWhen you “knit” your document, the following sequential things happen:\n\nR Markdown sends the .Rmd file to knitr http://yihui.name/knitr/\nKnitr executes all of the code chunks and creates a new plain Markdown .md file which includes the code and its output\nThis plain Markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/"
+  },
+  {
+    "objectID": "lectures/01-slides.html#practice-r-markdown-syntax",
+    "href": "lectures/01-slides.html#practice-r-markdown-syntax",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "💻 Practice R Markdown Syntax",
+    "text": "💻 Practice R Markdown Syntax\n\nLog into Workbench https://macss-r.uchicago.edu/\nDownload today’s code from Lecture 1 on our website\nComplete the R Markdown in-class practice\nWant more? Try this interactive tutorial"
+  },
+  {
+    "objectID": "lectures/01-slides.html#recap-what-we-learned-today",
+    "href": "lectures/01-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nFamiliarized with Workbench\nWrote simple R code\nKey components of R Markdown\nHow to run and render R Markdown Documents"
+  },
+  {
+    "objectID": "lectures/01-slides.html#reminders",
+    "href": "lectures/01-slides.html#reminders",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "Reminders",
+    "text": "Reminders\n\nRegister for a GitHub account and share your GitHub username with us (see Lecture 1 on our website for details)\nReview today’s materials to prep for the short quiz at the beginning of next class\nCheck Lecture 2 homepage"
+  },
+  {
+    "objectID": "lectures/01-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/01-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 1",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Information Summer 2026\n\n\n\nLectures: Monday to Thursday, 9:30–11:30 AM, Synchronous lectures via Zoom. The Zoom link is accessible by enrolled students through Canvas\n\n\n\n\nTeaching Team:\n\nInstructor: Sabrina Nardin (she/her) – nardin@uchicago.edu\n\nTA: Rubén Rodríguez Barron (he/him) – rrodriguezbarron@uchicago.edu\nGrader: Xulan Jiang (he/him) – xulanj@uchicago.edu\n\n\n\n\nOffice Hours (all online):\n\nSabrina: Monday to Thursday immediately after class (11:30 to noon) Sabrina OHs Zoom link\nRubén: Monday 1:30-3:30 PM Rubén OHs Zoom link\n\n\n\n\nQuick Links:\n\nR Workbench\n\nCanvas\n\nEd Discussion\nUChicago GenAI"
+    "text": "Course Information Summer 2026\n\n\n\nLectures: Monday to Thursday, 9:30–11:30 AM, Synchronous lectures via Zoom. The Zoom link is accessible by enrolled students through Canvas\n\n\n\n\nTeaching Team:\n\nInstructor: Sabrina Nardin (she/her) – nardin@uchicago.edu\n\nTA: Rubén Rodríguez Barron (he/him) – rrodriguezbarron@uchicago.edu\nGrader: Xulan Jiang (he/him) – xulanj@uchicago.edu\n\n\n\n\nOffice Hours:\n\nSabrina: Monday to Thursday immediately after class 11:30-noon; use Sabrina OHs Zoom link\nRubén: Monday 1:30-3:30 PM by appointment; use Rubén OHs Zoom link\n\nPlease use the scheduled OHs whenever possible; these are the main times reserved for course support. If you cannot attend during those times or prefer to meet in person, send us a private message on Ed Discussion to check availability.\n\n\n\nQuick Links:\n\nR Workbench\n\nCanvas\n\nEd Discussion\nUChicago GenAI"
   },
   {
     "objectID": "hw/hw05-project.html",
@@ -368,7 +613,7 @@
     "href": "hw/index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Assignments Summer 2026\n\n\n\nThe course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the Syllabus. Below is an overview of what you can expect from each:\n\nQuizzes: Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.\nIn-Class Participation: You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for 3 of the 4 class meetings each week of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously within 24 hours of the start of class. Late submissions will not be accepted.\nOral Code Checks: Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course. More info, including the sign-up process and rubric, will be shared ahead of time.\nTake-Home Assignments: This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the optional fifth assignment, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this website once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.\n\n\n\n\n\n\n\n\nNote\n\n\n\nFurther Info:\n\nCheck our Course Schedule for details and due dates of all assignments.\nRefer to the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
+    "text": "Course Assignments Summer 2026\n\n\n\nThe course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the Syllabus. Below is an overview of what you can expect from each:\n\nQuizzes: Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.\nIn-Class Participation: You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for 3 of the 4 class meetings each week of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously before the start of the next class. Late submissions will not be accepted.\nOral Code Checks: Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course. More info, including the sign-up process and rubric, will be shared ahead of time.\nTake-Home Assignments: This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the optional fifth assignment, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this website once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.\n\n\n\n\n\n\n\n\nNote\n\n\n\nFurther Info:\n\nCheck our Course Schedule for details and due dates of all assignments.\nRefer to the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
   },
   {
     "objectID": "lectures/01-home.html",
