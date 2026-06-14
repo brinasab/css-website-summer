@@ -16,7 +16,7 @@ execute:
 
 ## Course Syllabus Summer 2026
 
-*Last updated: June 11, 2026*
+*Last updated: June 14, 2026*
 
 Welcome to "Computing for the Social Sciences"!
 
@@ -88,7 +88,7 @@ The course includes several types of assessments, each designed to support a dif
 
 - **Quizzes:** Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted.
 
-- **In-Class Participation:** You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for *3 of the 4 class meetings each week* of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously within *24 hours of the start of class.* Late submissions will not be accepted.
+- **In-Class Participation:** You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete the participation activities for *3 of the 4 class meetings each week* of your choice. These activities are designed for live/synchronous participation. However, if you miss class, they may also be completed asynchronously *before the start of the next class* (in other words, you will generally have roughly 24 hours to submit them). Late submissions will not be accepted.
 
 - **Oral Code Checks:** Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. You will be evaluated using a rubric, which will be made available ahead of time. Further details will be provided during the course.
 
@@ -160,11 +160,13 @@ Your **final grade** is given by the cumulative score of all submitted work thro
 
 ### Deadlines and Late Submissions Policies
 
-Deadlines can be found in the [course schedule](lectures/index.qmd). Typically, all assigments are due at 11:59 PM Chicago time, beside quizzes which are due before class. Specifically: 
+Deadlines can be found in the [course schedule](lectures/index.qmd). Specifically: 
 
-- **All quizzes are due 1-hour before class** of the day the quiz is due (usually on Mondays). Quizzes can be found on Canvas. For quizzes, *no late submissions are accepted.*
+- **Quizzes are due 1-hour before class** of the day the quiz is due (once a week, usually on Mondays). Quizzes can be found on Canvas. For quizzes, *no late submissions are accepted.*
 
-- **All other assignments are due by 11:59 PM Chicago time.** Submit on Canvas the link to your GitHub repository. Each assignment (excluding quizzes) includes a *1-hour grace period* during which late submissions will not incur a penalty. After this period, a penalty of 1 point will be deducted for every additional 24-hour period the assignment is late. *If the assignment is graded as Pass/Fail, no late submissions will be accepted* after the 1-hour grace period.
+- **In-class activities** are designed to be completed during live/synchronous participation, but if you miss a class they may also be completed asynchronously *before the start of the next class*. In general, each day’s activities will open shortly before class begins and close shortly before class the following day. 
+
+- **Take-home assignments are due by 11:59 PM Chicago time.** Submit on Canvas the link to your GitHub repository. Each assignment (excluding quizzes) includes a *1-hour grace period* during which late submissions will not incur a penalty. After this period, a penalty of 1 point will be deducted for every additional 24-hour period the assignment is late. *If the assignment is graded as Pass/Fail, no late submissions will be accepted* after the 1-hour grace period.
 
 - **Oral code checks** will be held in Week 4 and 5 during class time. Students are responsible to sign-up for a slot and respect their sign-up time. Rescheduling requests will be considered only in cases of *documented* circumstances beyond the student’s control (e.g., serious illness, medical or family emergency) and approval is at the discretion of the instructor.
 
