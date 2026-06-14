@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: To be posted before class
+* **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: To be posted before class
 
 <!-- 
@@ -43,7 +43,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Readings
 
-Skim the readings before or after class to get the big picture, review them for the assignments:
+Skim the readings before and/or after class to get the big picture, review them for the assignments:
 
 - [R Markdown, R4DS](https://r4ds.had.co.nz/r-markdown.html)
 - [R Markdown Cheatsheet](https://rmarkdown.rstudio.com/lesson-15.HTML)
