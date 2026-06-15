@@ -35,11 +35,13 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before Class
 
-- Complete the Lecture 1 "Before Class" activities, if you haven't already
-- Review Lecture 1 materials
-- Read the [Software Setup](../setup/index.qmd) page. We'll go through this together in class today
+- Complete the Lecture 1 "Before Class" activities, if you haven't already. *You must have a GitHub account to be able to follow along today. Plan ahead: GitHub requires two-factor authentication (you can use an authentication app of your choice, or the university Duo system, but setup may require some time)*  
+- Review Lecture 1 materials.
+- Finish the R Markdown tutorial we started in Lecture 1 and complete the exercises. No submission is needed.
+- If you have not already done so, complete Lecture 1 participation questions. You can find them in the Lecture 1 Zoom chat (the recording is available on Canvas) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of Lecture 2.
 
 
 ## Readings
 
 - Chapter 1 of [Happy Git and GitHub for the useR](https://happygitwithr.com/big-picture)
+- Read the [Software Setup](../setup/index.qmd) page of this website. No need to do it: we'll go through this together in class today!
