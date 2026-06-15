@@ -571,7 +571,7 @@
     "href": "index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Information Summer 2026\n\n\n\nLectures: Monday to Thursday, 9:30–11:30 AM, Synchronous lectures via Zoom. The Zoom link is accessible by enrolled students through Canvas\n\n\n\n\nTeaching Team:\n\nInstructor: Sabrina Nardin (she/her) – nardin@uchicago.edu\n\nTA: Rubén Rodríguez Barron (he/him) – rrodriguezbarron@uchicago.edu\nGrader: Xulan Jiang (he/him) – xulanj@uchicago.edu\n\n\n\n\nOffice Hours:\n\nSabrina: Monday to Thursday immediately after class 11:30-noon; use Sabrina OHs Zoom link\nRubén: Monday 1:30-3:30 PM by appointment; use Rubén OHs Zoom link\n\nPlease use the scheduled OHs whenever possible; these are the main times reserved for course support. If you cannot attend during those times or prefer to meet in person, send us a private message on Ed Discussion to check availability.\n\n\n\nQuick Links:\n\nR Workbench\n\nCanvas\n\nEd Discussion\nUChicago GenAI"
+    "text": "Course Information Summer 2026\n\n\n\nLectures: Monday to Thursday, 9:30–11:30 AM, Synchronous lectures via Zoom. The Zoom link is accessible by enrolled students through Canvas\n\n\n\n\nTeaching Team:\n\nInstructor: Sabrina Nardin (she/her) – nardin@uchicago.edu\n\nTA: Rubén Rodríguez Barron (he/him) – rrodriguezbarron@uchicago.edu\nGrader: Xulan Jiang (he/him) – xulanj@uchicago.edu\n\n\n\n\nOffice Hours:\n\nSabrina: Monday to Thursday immediately after class 11:30-noon; use Sabrina OHs Zoom link\nRubén: Monday 1:30-3:30 PM by appointment; use Rubén OHs Zoom link\n\nPlease use the scheduled OHs whenever possible; they are the main times reserved for course support. If those times do not work or you prefer to meet in person, send us a private message on Ed Discussion to check availability.\n\n\n\nQuick Links:\n\nR Workbench\n\nCanvas\n\nEd Discussion\nUChicago GenAI"
   },
   {
     "objectID": "hw/hw05-project.html",
@@ -620,14 +620,14 @@
     "href": "lectures/01-home.html",
     "title": "Lecture 1: Course Logistics; Intro to R & Markdown",
     "section": "",
-    "text": "Date: June 15, 2026\nTopics: Course Logistics; Intro to R & Markdown\nSlides: View Slides\nCode: To be posted before class"
+    "text": "Date: June 15, 2026\nTopics: Course Logistics; Intro to R & Markdown\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/r-markdown\")"
   },
   {
     "objectID": "lectures/01-home.html#info-and-materials",
     "href": "lectures/01-home.html#info-and-materials",
     "title": "Lecture 1: Course Logistics; Intro to R & Markdown",
     "section": "",
-    "text": "Date: June 15, 2026\nTopics: Course Logistics; Intro to R & Markdown\nSlides: View Slides\nCode: To be posted before class"
+    "text": "Date: June 15, 2026\nTopics: Course Logistics; Intro to R & Markdown\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/r-markdown\")"
   },
   {
     "objectID": "lectures/01-home.html#learning-objectives",
