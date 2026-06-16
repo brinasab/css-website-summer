@@ -25,6 +25,9 @@ format:
 3. Deeper Dive into Git & GitHub  
 :::
 
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on `r format(Sys.Date(), '%B %d, %Y')` (fixed last slide). Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
 
 <!--
 # List all SSH key stored using Shell
@@ -515,4 +518,4 @@ Note: this will only work if you put your GitHub username on the Excel sheet (Le
 
 ## To print these slides as pdf
 
-Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf

@@ -686,7 +686,7 @@ Download today's in-class materials from the website (`relational-data.Rmd`)
 
 ## To print these slides as pdf
 
-Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 
 
 :::

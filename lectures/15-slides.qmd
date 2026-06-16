@@ -797,6 +797,6 @@ More practice exercises in today's class materials (downloaded from the website)
 
 ## To print these slides as pdf
 
-Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 
 :::

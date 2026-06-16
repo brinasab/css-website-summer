@@ -393,6 +393,6 @@ Follow this approach to move from quick exploration to polished, communicative p
 
 ## To print these slides as pdf
 
-Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 
 :::

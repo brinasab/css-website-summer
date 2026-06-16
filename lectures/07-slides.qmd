@@ -34,6 +34,8 @@ format:
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **October 15, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
+
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 -->
 
 :::

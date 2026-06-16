@@ -663,6 +663,6 @@ x[c(-1,2,3)]   # error! do not mix negative and positive subscripts
 
 ## To print these slides as pdf
 
-Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 
 :::
