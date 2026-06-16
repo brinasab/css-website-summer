@@ -24,7 +24,7 @@ This will work only if you have submitted your GitHub username (see Lecture 1) a
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/j2gOsj6i) to accept the invitation and create your private `hw01` repository on GitHub. Your repository will be named `hw01-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
+1. Go at [this new link](https://classroom.github.com/a/aDUCnyr4) to accept the invitation and create your private `hw01` repository on GitHub. Your repository will be named `hw01-new-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
 
 2. Once the repository has been created, click the link provided to access it.
 
@@ -36,7 +36,7 @@ This will work only if you have submitted your GitHub username (see Lecture 1) a
 
 2. In the *Repository URL* field:
    - Paste the URL of your GitHub repository. To find the URL, go to your `hw01` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
-   - The project name should auto-fill. If not, type `hw01-<USERNAME>` manually.
+   - The project name should auto-fill. If not, type `hw01-new-<USERNAME>` manually.
 
 3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
 
@@ -148,7 +148,7 @@ To submit your assignment on Canvas, follow these steps:
    - A knitted output file that you generated from `code.rmd` (this must be a `.md` document, not anything else)
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-summer26/hw01-yourusername`
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-summer26/hw01-new-yourusername`
    - Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.
 
 
