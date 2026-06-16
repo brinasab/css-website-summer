@@ -33,8 +33,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Before Class
 
-- Review Lecture 2 materials and make sure your setup works as expected! if not, stay after class and we will help you
-- If you have not already done so, complete Lecture 2 participation questions. You can find them in the Lecture 2 Zoom chat (the recording is available on Canvas) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of Lecture 3.
+- Review Lecture 2 materials and make sure your setup works as expected! If not, reach out for help
+- If you have not already done so, complete Lecture 2 participation questions. You can find them in the Lecture 2 Zoom chat; the recording, including the chat log, is available on Canvas (Canvas > UChicago Main Zoom > Cloud Recordings). The questions will remain open until the start of Lecture 3.
 - Check if take-home assignments or quizzes, etc. are open or due from our [website](https://brinasab.github.io/css-website-summer/lectures/) or [Excel Schedule](https://docs.google.com/spreadsheets/d/1LoqTK4aWxl-20byuBKuDF7Fl7dsa-5r4PcHCr_6-lC4/edit?usp=sharing) and come with questions!
 
 
