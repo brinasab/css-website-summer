@@ -118,7 +118,7 @@ Once you do that, you’ll be guided through a few steps:
 Once you are on the GitHub that opened in your new browser:
 
 - **Paste** your entire SSH key into the GitHub page that opened in your new browser (you can do this only if you registered a GitHub account, see step 1 above)
-- Under **"Title"**, give the key an informative name, something like `csp-workbench-summer26` or similar
+- Under **"Title"**, give the key an informative name, something like `css-workbench-summer26` or similar
 - Leave **"Key type"** set to **Authentication Key**
 - Click the green **"Add SSH key"** button
 - If prompted, complete GitHub's security steps (e.g., enter a verification code or password or anything else asked)
