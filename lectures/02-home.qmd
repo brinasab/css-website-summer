@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: To be posted before class
+* **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: No in-class code for this session
 
 <!-- 
