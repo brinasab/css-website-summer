@@ -10,6 +10,24 @@ format:
 
 <div class="my-4"></div>
 
+::: {.callout-important}
+## Access the take-home assigments 
+
+Take-home assignments will be posted here when they are released. Open each assignment page for the instructions on how to access the files, complete the work, and submit it:
+
+- [Homework 1](hw01.qmd) due Monday, June 22 (11:59 PM Chicago Time)
+
+<!--
+- [Homework 2](hw02.qmd)
+- [Homework 3](hw03.qmd)
+- [Homework 4](hw04.qmd)
+- [Homework 5](hw05.qmd)
+-->
+
+
+:::
+
+
 The course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the [Syllabus](../syllabus.qmd). Below is an overview of what you can expect from each:
 
 - **Quizzes:** Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.
@@ -18,15 +36,8 @@ The course includes several types of assignments, each designed to support a dif
 
 - **Oral Code Checks:** Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course.  More info, including the sign-up process and rubric, will be shared ahead of time.
 
-- **Take-Home Assignments:** This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the *optional fifth assignment*, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this website once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.
+- **Take-Home Assignments:** This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the *optional fifth assignment*, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this page (see top of the page) once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.
 
-<!--
-- [Homework 1](hw01.qmd)
-- [Homework 2](hw02.qmd)
-- [Homework 3](hw03.qmd)
-- [Homework 4](hw04.qmd)
-- [Homework 5](hw05.qmd)
--->
 
 ::: callout-note
 

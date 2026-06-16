@@ -9,9 +9,11 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due: Tuesday, October 7 by 11:59 PM (Chicago Time)**
+**Due: Monday, June 22 by 11:59 PM (Chicago Time)**
 
-This first homework assignment has two main goals: to verify your computer setup and to practice basic R syntax, Markdown, and R Markdown.
+This first homework assignment has three main goals: to make sure your computer setup works, practice the Git/GitHub workflow, and review the basics of R syntax, Markdown, and R Markdown.
+
+This assignment workflow has several steps by design. All future take-home assignments will use a similar structure, so you will build fluency through repeated practice.
 
 
 # Accessing and Cloning Your `hw01` Repository
@@ -22,7 +24,7 @@ This will work only if you have submitted your GitHub username (see Lecture 1) a
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/FkiRz52I) to accept the invitation and create your private `hw01` repository on GitHub. Your repository will be named `hw01-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
+1. Go at [this link](https://classroom.github.com/a/j2gOsj6i) to accept the invitation and create your private `hw01` repository on GitHub. Your repository will be named `hw01-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
 
 2. Once the repository has been created, click the link provided to access it.
 
@@ -63,14 +65,14 @@ Your workflow for *all* homework assignments will follow these steps:
 For this course, I assume you’ll be using the Git interface built into RStudio. If you haven’t yet, complete the [Using Git within RStudio tutorial](../setup/setup-test.qmd) to get comfortable with the process.
 
 ::: {.callout-tip}
-- *Commit and push your work often*—multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.  
+- *Commit and push your work often*, multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.  
 - *Never edit files directly on GitHub*. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.
 :::
 
 
-# File Types Used for Homework Assigments
+# File Types we use for Homework Assigments
 
-All assignments in this course will be completed and submitted using *Markdown* and *R Markdown* files:
+All assignments in this course will be completed and submitted using *Markdown* and *R Markdown* files (see Lecture 1 slides for details):
 
 - [*Markdown*](https://daringfireball.net/projects/markdown/) (`.md`) is a lightweight formatting language used to structure text.  
   - GitHub README files are typically written in Markdown (`.md`) or plain text (`.txt`).
@@ -87,9 +89,9 @@ In short, for this course:
 - Use **R Markdown** (`.Rmd`) for completing the bulk of your assignment, e.g., analysis and code-based work
 
 
-# Assignment Description 
+# HW1 Description
 
-For this first assignment, you’ll edit and push the following two files to your GitHub repo: `README.md` and `code.rmd`
+For this first assignment (HW1), you’ll edit and push the following two files to your GitHub repo: `README.md` and `code.rmd`
 
 ### Edit the `README.md` file
 
@@ -103,8 +105,8 @@ Your Task: edit the `README.md` file by replacing the placeholder text with a sh
 - Some emphasis (italic or bold text)
 - At least one list
 - An image (e.g., a photo of yourself or something meaningful to you)  
-  - Upload the image into your repo by importing it in Workbench  
-  - Embed it in the Markdown file using the correct syntax
+  - First, upload the image into your homework repo by importing it in Workbench
+  - Second, embed it in the Markdown file using the correct syntax
 - At least one link (e.g., to a website or profile)
 
 At the end of your README, add a short reflection that includes:
@@ -113,7 +115,7 @@ At the end of your README, add a short reflection that includes:
   *(Bullet points or a short narrative are both fine.)*
 - Your evaluation of the homework experience  
   *(E.g., something new you learned, what went well, what confused you, etc.)*
-- A list of resources you consulted and an AI narrative if you used AI to debug (see Syllabus for details)  
+- A list of resources you consulted and an AI narrative on how you used AI to debug (see Syllabus for details)  
   *Include links, tools, names of any collaborators, and AI statement*
 
 
@@ -131,22 +133,22 @@ Your task: edit the `code.rmd` file by making the following changes (all must be
 - Add *at least two R code chunks* with a short explanation in plain text (not as code comment):  
   - Your code can be simple (think at the examples from lecture 1), but it must run and produce the correct output 
   - Your final knitted ~~`.html`~~ `.md` file should show both code and output (we want the `md` as Github cannot read `html`, but if you submit both that's fine)
-  - If your code generates plots (not required, but possible), make sure the output images are also pushed to GitHub
+  - If your code generates plots (not required, but possible), make sure these plots are also pushed to GitHub, else they won't show up there 
 
 
-# Submit the Assignment
+# How to Submit this Assignment
 
 To submit your assignment on Canvas, follow these steps:
 
 1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.
 
-   Your GitHub repository should include:
+   Your GitHub repository should include at least these three files:
    - The updated `README.md`
    - The edited `code.rmd`
-   - A knitted output file generated from `code.rmd` (this must be a `.md` document, not anything else)
+   - A knitted output file that you generated from `code.rmd` (this must be a `.md` document, not anything else)
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw01-yourusername`
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-summer26/hw01-yourusername`
    - Submit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.
 
 
@@ -158,6 +160,6 @@ Your `README.md` should include a clear introduction that meets all specified re
 
 Your `code.rmd` file must knit successfully. It should contain at least two new YAML header fields and two R code chunks, each introduced with a brief explanation written as plain text (not as code comments). 
 
-All required files must be pushed to your GitHub repository.
+All required files must be pushed to your GitHub repository (see above). If you have graphs, ensure they are visible in your knitted `.md` document
 
 For more details, see the *Assessment* section of the Syllabus.
