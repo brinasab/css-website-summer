@@ -31,11 +31,12 @@ knitr::opts_chunk$set(echo = FALSE)
 - Create simple layered plots using `ggplot2`
 - Apply correct coding style practices when writing R code
 
+
 ## Before Class
 
-- Review Lecture 2 materials and make sure your setup works as expected! If not, reach out for help
-- If you have not already done so, complete Lecture 2 participation questions. You can find them in the Lecture 2 Zoom chat; the recording, including the chat log, is available on Canvas (Canvas > UChicago Main Zoom > Cloud Recordings). The questions will remain open until the start of Lecture 3.
-- Check if take-home assignments or quizzes, etc. are open or due from our [website](https://brinasab.github.io/css-website-summer/lectures/) or [Excel Schedule](https://docs.google.com/spreadsheets/d/1LoqTK4aWxl-20byuBKuDF7Fl7dsa-5r4PcHCr_6-lC4/edit?usp=sharing) and come with questions!
+- Review Lecture 2 materials and make sure your setup works as expected (see Lecture 1 and 2)! If not, reach out for help
+- If you have not already done so, complete Lecture 2 participation questions. You can find them in the Lecture 2 Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 3).
+- Accept HW1 from the [Assignments page](https://brinasab.github.io/css-website-summer/hw/). 
 
 
 ## Readings
