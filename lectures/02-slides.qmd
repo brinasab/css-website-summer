@@ -25,38 +25,45 @@ format:
 3. Deeper Dive into Git & GitHub  
 :::
 
----
-
-### Slides are in progress and will be updated before class.
-
-::: {.content-hidden}
 
 <!--
+# List all SSH key stored using Shell
+ls -l ~/.ssh
 
-FALL 25 LECTURE 2 OUTLINE 
+# View their content
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+
+# Delete all SSH keys
+rm ~/.ssh/id_*
+
+# Or delete everything in SSH folder
+rm -rf ~/.ssh
+
+# Verify deletion
+ls -l ~/.ssh
+
+
+SUMMER 26 LECTURE 2 OUTLINE 
 
 LOGISTICS
-- Ed Discussion + Office hours updates
-- Ask for Questions
-- GitHub username reminder (check + add)
-- Workbench access ask
 
 1. MOTIVATION
-1:35 - 1:40 Slides intro
+5 min Slides intro
 
 2. INTRO GIT AND GITHUB
-1:40 - 1:50 Slides
-1:50 - 2:00 Tutorial Step 1 configure software (together)
-2:00 - 2:20 Tutorial Step 2 (in team of two)
-2:20 - 2:30 Wrap up and more questions 
+9:40 - 9:50 Slides
+9:50 - 10:00 Tutorial Step 1 configure software (together)
+10:00 - 10:20 Tutorial Step 2 (in team of two, one instruction, the other types)
+10:20 - 10:30 Wrap up and more questions 
 
 BREAK
 
 3. DEEP DIVE GIT AND GITHUB
-2:40 - 3:00 Slides + demo Git Conflict
+10:40 - 11:00 Slides + demo Git Conflict
 
 4. HW1 
-3:00 - 3:10 Accept together and overview
+11:00 - 11:15 Accept together and overview
 
 -->
 
@@ -163,7 +170,7 @@ Unpack this question and define terms, then reason it out loud with
 ### Git
 - Version control software  
 - Runs **locally** on your computer
-- Note locally = your Workbench for this course 
+- locally = your Workbench (for this course) 
 
 ::::
 
@@ -182,11 +189,11 @@ Unpack this question and define terms, then reason it out loud with
 
 ---
 
-## What is Version Control (e.g., Git)?
+## What is Version Control?
 
 ### Version Control 
 
-Version Control is a system that records every change you make to your files in a folder and lets you restore previous versions of your files in that folder.  
+Version Control is the general name for a system that records every change you make to your files in a folder and lets you restore previous versions of your files in that folder.  
 
 The folder lives on your computer (e.g., Workbench for this course) and becomes your local repository or local repo.
 
@@ -204,7 +211,7 @@ Every change is saved by Git with a time stamp, author info, and a message (that
 
 ## Why using Version Control (e.g., Git)?
 
-Without Version Control you have to track changes *manually*, and rename the file every time, which can be messy and hard to manage, like:
+Without Version Control (e.g. Git) you have to track changes *manually*, and rename the file every time, which can be messy and hard to manage, like:
 
 - `analysis-1.R`
 - `analysis-2.R`
@@ -215,9 +222,11 @@ Without Version Control you have to track changes *manually*, and rename the fil
 
 ## How Version Control (e.g., Git) + GitHub Work Togheter
 
-You could only use Git and keep everything to your local computer. Often though, like in this class, people use Git + GitHub (e.g., you can link your local Git repository to an online GitHub repository). 
+You can use **Git** by itself to track changes on your own computer.
 
-With Git + GitHub you can:
+Most often though, Git s used together with a platform like **GitHub**, which keeps an online copy of your Git local repo and makes it easier to share, submit, and collaborate.
+
+With Git (local) + GitHub (online) you can:
 
 - Push your local changes to GitHub (think at this as having an online back up of your local files)
 - Share your work with others
@@ -253,21 +262,21 @@ Note: In this course, we use **Git + GitHub via RStudio** only, but other tools 
 
 We’ll practice in two steps:
 
-**Step 1: Configure your Setup:** Set up Git, GitHub, and RStudio so everything works well together
+**Step 1: Configure your Setup:** Set up Git, GitHub, and RStudio
 
-**Step 2: Use Git and GitHub in RStudio Tutorial:** Complete tutorial to practice using version control in RStudio
+**Step 2: Use Git and GitHub in RStudio Tutorial:** Complete the tutorial to practice using version control in RStudio
 
 ---
 
 ## 💻 Step 1: Configure your Setup
 
-#### Complete <https://brinasab.github.io/css-website/setup/setup-workbench.html>
+#### Complete <https://brinasab.github.io/css-website-summer/setup/setup-workbench.html>
 
 ---
 
 ## 💻 Step 2: Use Git and GitHub in RStudio Tutorial
 
-#### Once Step 1 is done, complete  <https://brinasab.github.io/css-website/setup/setup-test.html>
+#### Once Step 1 is done, complete  <https://brinasab.github.io/css-website-summer/setup/setup-test.html>
 
 <br>
 
@@ -275,12 +284,13 @@ We’ll practice in two steps:
 
 - Work in pairs: one person (the most experienced with programming) read the instructions and guide the other, who executes the commands. Switch roles at the end so both persons have completed the set up.
 
-- Keep track of your questions as you go and raise your hand if you need help! 
+- Keep track of your questions as you go and let us know if you need help! 
+
 </br>
 
 ---
 
-## Recap: Beginner-Friendly Git & GitHub Workflow
+## Recap: Git & GitHub Workflow (use it for all take-home assigments)
 
 1. **Make & Save Changes Locally**  
    Edit your files locally (e.g., Workbench) and save them.
@@ -299,10 +309,6 @@ We’ll practice in two steps:
 
 5. **Push to GitHub**  
    Upload your committed changes to the online repository.
-
-::: {.callout-important}
-You will complete this workflow for all homework assignments!
-:::
 
 <!-- IN CLASS
 Most of the time you'll use this or similar sequences:  
@@ -331,7 +337,9 @@ But there is more to Git and GitHub. You'll leave this course ready to use the b
 
 <br>
 
-Come back here once you are familiar with the basic workflow! These slides might be handy if you run into problems in assignments and beyond.
+Come back here once you are familiar with the basic workflow! 
+
+The following slides cover more advanced topics but might be handy if you run into problems in the assignments and beyond.
 
 </br>
 
@@ -394,11 +402,9 @@ Instead:
 
 ## Git Conflicts
 
-**A Git conflict may happen when Git finds two competing versions of the same file:** one in your local repo (Git, on your computer) VS. one in the remote repo (GitHub, online).
+The local (on your computer) and remote (online on GitHub) repos are expected to match (same identical content). If they don't, Git tries to merge them automatically, with two possible outcomes:
 
-The local and remote repos are expected to match. If they don't, Git tries to merge them automatically, with two possibile outcomes:
-
-✅ If the changes are in different parts of the file, Git **merges automatically** and no action is needed.
+✅ If the changes are in different parts of the file, Git **merges them automatically** and no action is needed.
 
 ❌ If the same part of the file was changed in both versions, Git **cannot decide** what to keep. You must **manually review and resolve** the conflict.
 
@@ -406,7 +412,7 @@ The local and remote repos are expected to match. If they don't, Git tries to me
 
 ## When Do Git Conflicts Happen?
 
-**Collaborative Work**  
+**Scenario 1: Collaborative Work**  
 - You and a teammate edit the same file (or even the same line)  
 - You push changes without pulling the latest version from GitHub first 
 - Conflict: Git can’t tell which version to keep  
@@ -414,10 +420,10 @@ The local and remote repos are expected to match. If they don't, Git tries to me
 
 <br>
 
-**Working Solo**  
+**Scenario 2: Working Solo**  
 - You make changes locally and also edit the same file directly on GitHub  
 - Conflict: Git can’t tell which version to keep  
-- Tip: Always work in your local repository first, then push to GitHub
+- Tip: DO NOT modify the Github (online) repo directly! Always work in your local repo first, then push to GitHub 
 
 ---
 
@@ -439,9 +445,9 @@ Unfortunately, you cannot solve a Git Conflict using the integrated Git from RSt
 
 ## How to solve a Git Conflict
 
-1. Go to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing `git pull origin main` and by following the message that shows up on Git (which will tell you what to type)
+1. Go to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing `git pull origin main`. Then read the message that shows up on Git: it will tell you what to do.
    
-2. Open the file or files and look for the conflict markers such as `<<<<<<<`, `=======`, `>>>>>>>`
+2. Open the file or files and look for the specific conflict markers such as `<<<<<<<`, `=======`, `>>>>>>>`
 
 3. Decide which version to keep or manually combine them
 
@@ -492,23 +498,21 @@ Want to practice? Complete the ["Using Git with RStudio"](https://computing-soc-
 
 ## 💻 Accept Homework 1 
 
-Accept Homework 1 from the course site and follow the instructions.
+Accept Homework 1 from the course website.
 
-Note: this will only work if we have your GitHub username and you accepted the invite to our GitHub organization (which was sent to the email linked to your GitHub account)!
+Note: this will only work if you put your GitHub username on the Excel sheet (Lecture 1) and you accepted the invite to our organization (which was sent to the email linked to your GitHub account)!
 
 ---
 
 ## Reminders
 
-- Assignment 1 is now open and due next week. Check the Course Schedule on our website for the due date.
-- If you haven't completed these yet, please do so ASAP, as you won't be able to access and complete Assignment 1 otherwise:
-  - Register a GitHub account and submit your username (see Lecture 1)
-  - Setup your computer (see Lecture 2)
+- To access and complete Homework 1, make sure you have:
+  - Registered a GitHub account and submitted your username (Lecture 1)
+  - Set up your computer (Lecture 2)
+- Check the Course Schedule for Homework 1 due date: this is the only P/F assignment and has a shorter turnaround because we need everyone’s setup ready ASAP.
 
 ---
 
 ## To print these slides as pdf
 
 Click on the icon bottom-right corner \> Tools \> PDF Export Mode \> Print as a Pdf
-
-:::

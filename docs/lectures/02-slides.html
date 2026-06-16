@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,7 +208,6 @@ Sabrina Nardin, Summer 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
@@ -155,10 +220,425 @@ Sabrina Nardin, Summer 2026
 </li>
 </ol>
 </div>
+<!--
+# List all SSH key stored using Shell
+ls -l ~/.ssh
+
+# View their content
+cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa
+
+# Delete all SSH keys
+rm ~/.ssh/id_*
+
+# Or delete everything in SSH folder
+rm -rf ~/.ssh
+
+# Verify deletion
+ls -l ~/.ssh
+
+
+SUMMER 26 LECTURE 2 OUTLINE 
+
+LOGISTICS
+
+1. MOTIVATION
+5 min Slides intro
+
+2. INTRO GIT AND GITHUB
+9:40 - 9:50 Slides
+9:50 - 10:00 Tutorial Step 1 configure software (together)
+10:00 - 10:20 Tutorial Step 2 (in team of two, one instruction, the other types)
+10:20 - 10:30 Wrap up and more questions 
+
+BREAK
+
+3. DEEP DIVE GIT AND GITHUB
+10:40 - 11:00 Slides + demo Git Conflict
+
+4. HW1 
+11:00 - 11:15 Accept together and overview
+
+-->
+</section>
+
+<section>
+<section id="motivation" class="title-slide slide level1 center middle">
+<h1>1. Motivation</h1>
+
 </section>
 <section class="slide level2 center">
 
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="use-point-and-click-software-for-data-analysis-and-save-multiple-copies-of-your-work-by-hand-to-track-changes">Use point-and-click software for data analysis, and save multiple copies of your work by hand to track changes?</h3>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="use-programming-for-data-analysis-and-use-version-control-to-automatically-keep-track-of-changes-in-your-work">Use programming for data analysis, and use version control to automatically keep track of changes in your work?</h3>
+</div></div>
+<!-- IN CLASS
+Unpack this question and define terms, then reason it out loud with
+-->
+</section>
+<section id="two-different-approaches" class="slide level2 center">
+<h2>Two Different Approaches</h2>
+<p><strong>TASK:</strong> Write a report on the relationship between income and crime rates in Chicago.</p>
+<p><strong>APPROACH:</strong> Jane and Sally approach this task differently…</p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="jane-gui-workflow">Jane: GUI Workflow</h3>
+<ol type="1">
+<li>Searches for data files online<br>
+</li>
+<li>Cleans the data using Excel<br>
+</li>
+<li>Analyzes the data in Excel (or similar)<br>
+</li>
+<li>Writes her report in Google Docs</li>
+<li>Saves different versions of her work manually</li>
+</ol>
+</div><div class="column" style="width:50%;">
+<h3 id="sally-programmatic-workflow">Sally: Programmatic Workflow</h3>
+<ol type="1">
+<li>Searches for data files online<br>
+</li>
+<li>Cleans the data using R<br>
+</li>
+<li>Analyzes the data in R<br>
+</li>
+<li>Writes her report in R Markdown</li>
+<li>Tracks changes automatically using Git</li>
+</ol>
+</div></div>
+</div>
+</section>
+<section id="two-main-advantages-of-a-programmatic-workflow" class="slide level2 center">
+<h2>Two Main Advantages of a Programmatic Workflow</h2>
+<h3 id="automation">1. Automation</h3>
+<ul>
+<li>Uses programs (e.g., R) to perform tasks systematically<br>
+</li>
+<li>In the long run, reduces manual effort and human errors<br>
+</li>
+<li>Enables fast and consistent repetition of analyses</li>
+</ul>
+<div class="fragment">
+<h3 id="reproducibility">2. Reproducibility</h3>
+<ul>
+<li>Scientific research should share both data and code used for analysis<br>
+</li>
+<li>Allows verification and reuse by others<br>
+</li>
+<li>Enables exact replication of results, even years later</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="introduction-to-git-github" class="title-slide slide level1 center middle">
+<h1>2. Introduction to Git &amp; GitHub</h1>
+
+</section>
+<section id="often-used-together-but-they-are-different-tools" class="slide level2 center">
+<h2>Often used together, but they are different tools</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><a href="https://git-scm.com"><img data-src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" width="80"></a></p>
+<h3 id="git">Git</h3>
+<ul>
+<li>Version control software<br>
+</li>
+<li>Runs <strong>locally</strong> on your computer</li>
+<li>locally = your Workbench (for this course)</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><a href="https://github.com"><img data-src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="80"></a></p>
+<h3 id="github">GitHub</h3>
+<ul>
+<li>Cloud-based platform<br>
+</li>
+<li>Runs <strong>online</strong> at https://github.com</li>
+</ul>
+</div></div>
+</section>
+<section id="what-is-version-control" class="slide level2 center">
+<h2>What is Version Control?</h2>
+<h3 id="version-control">Version Control</h3>
+<p>Version Control is the general name for a system that records every change you make to your files in a folder and lets you restore previous versions of your files in that folder.</p>
+<p>The folder lives on your computer (e.g., Workbench for this course) and becomes your local repository or local repo.</p>
+<p><br></p>
+<h3 id="git-1">Git</h3>
+<p>Git is a specific software for version control: Git will record and save changes you make to the files in that folder.</p>
+<p>Every change is saved by Git with a time stamp, author info, and a message (that you type in); you can restore them, if needed.</p>
+<p><br></p>
+</section>
+<section id="why-using-version-control-e.g.-git" class="slide level2 center">
+<h2>Why using Version Control (e.g., Git)?</h2>
+<p>Without Version Control (e.g.&nbsp;Git) you have to track changes <em>manually</em>, and rename the file every time, which can be messy and hard to manage, like:</p>
+<ul>
+<li><code>analysis-1.R</code></li>
+<li><code>analysis-2.R</code></li>
+<li><code>analysis-final.R</code></li>
+<li><code>analysis-final-FINAL.R</code></li>
+</ul>
+</section>
+<section id="how-version-control-e.g.-git-github-work-togheter" class="slide level2 center">
+<h2>How Version Control (e.g., Git) + GitHub Work Togheter</h2>
+<p>You can use <strong>Git</strong> by itself to track changes on your own computer.</p>
+<p>Most often though, Git s used together with a platform like <strong>GitHub</strong>, which keeps an online copy of your Git local repo and makes it easier to share, submit, and collaborate.</p>
+<p>With Git (local) + GitHub (online) you can:</p>
+<ul>
+<li>Push your local changes to GitHub (think at this as having an online back up of your local files)</li>
+<li>Share your work with others</li>
+</ul>
+<p><br></p>
+</section>
+<section id="git-github-comparison" class="slide level2 center">
+<h2>Git &amp; GitHub Comparison</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 38%">
+<col style="width: 43%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th><strong>Git</strong></th>
+<th><strong>GitHub</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>What it is</td>
+<td>Version control software</td>
+<td>Cloud platform for Git repos</td>
+</tr>
+<tr class="even">
+<td>Where it runs</td>
+<td>Locally (your computer)</td>
+<td>Online (web-based)</td>
+</tr>
+<tr class="odd">
+<td>What it does</td>
+<td>Tracks changes in your local repo</td>
+<td>Stores &amp; shares remote copies</td>
+</tr>
+<tr class="even">
+<td>Collaboration</td>
+<td>Not built-in</td>
+<td>Pull, issues, code reviews</td>
+</tr>
+<tr class="odd">
+<td>Use in RStudio</td>
+<td>Git Tab</td>
+<td>Connect via setup or terminal</td>
+</tr>
+<tr class="even">
+<td>Repo</td>
+<td><strong>Local repo</strong> = your folder</td>
+<td><strong>Remote repo</strong> = copy on GitHub</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>Note: In this course, we use <strong>Git + GitHub via RStudio</strong> only, but other tools (vs.&nbsp;RStudio) exists like GitHub Desktop, terminal, etc.</p>
+<p><br></p>
+</section>
+<section id="lets-put-this-into-practice" class="slide level2 center">
+<h2>Let’s put this into practice!</h2>
+<p>We’ll practice in two steps:</p>
+<p><strong>Step 1: Configure your Setup:</strong> Set up Git, GitHub, and RStudio</p>
+<p><strong>Step 2: Use Git and GitHub in RStudio Tutorial:</strong> Complete the tutorial to practice using version control in RStudio</p>
+</section>
+<section id="step-1-configure-your-setup" class="slide level2 center">
+<h2>💻 Step 1: Configure your Setup</h2>
+<h4 id="complete-httpsbrinasab.github.iocss-website-summersetupsetup-workbench.html">Complete <a href="https://brinasab.github.io/css-website-summer/setup/setup-workbench.html" class="uri">https://brinasab.github.io/css-website-summer/setup/setup-workbench.html</a></h4>
+</section>
+<section id="step-2-use-git-and-github-in-rstudio-tutorial" class="slide level2 center">
+<h2>💻 Step 2: Use Git and GitHub in RStudio Tutorial</h2>
+<h4 id="once-step-1-is-done-complete-httpsbrinasab.github.iocss-website-summersetupsetup-test.html">Once Step 1 is done, complete <a href="https://brinasab.github.io/css-website-summer/setup/setup-test.html" class="uri">https://brinasab.github.io/css-website-summer/setup/setup-test.html</a></h4>
+<p><br></p>
+<h4 id="instructions">Instructions:</h4>
+<ul>
+<li><p>Work in pairs: one person (the most experienced with programming) read the instructions and guide the other, who executes the commands. Switch roles at the end so both persons have completed the set up.</p></li>
+<li><p>Keep track of your questions as you go and let us know if you need help!</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="recap-git-github-workflow-use-it-for-all-take-home-assigments" class="slide level2 center">
+<h2>Recap: Git &amp; GitHub Workflow (use it for all take-home assigments)</h2>
+<ol type="1">
+<li><p><strong>Make &amp; Save Changes Locally</strong><br>
+Edit your files locally (e.g., Workbench) and save them. <!--
+   <span class="fragment">Edit your files locally (e.g., in RStudio or Workbench) and save them.</span>
+   --></p></li>
+<li><p><strong>Pull from GitHub</strong><br>
+Refresh your local copy to get the latest changes (nothing should happen when you work alone, but this helps avoid conflicts).</p></li>
+<li><p><strong>Stage Changes</strong><br>
+Select which files you want Git to track in the next snapshot.</p></li>
+<li><p><strong>Commit with a Message</strong><br>
+Save a snapshot of your staged changes in your local Git repo. Add a short message.</p></li>
+<li><p><strong>Push to GitHub</strong><br>
+Upload your committed changes to the online repository.</p></li>
+</ol>
+<!-- IN CLASS
+Most of the time you'll use this or similar sequences:  
+**`add` → `commit` → `push` → `pull`**
+But there is more to Git and GitHub. You'll leave this course ready to use the basics of Git confidently, and learn more when needed!
+-->
+</section>
+<section id="git-reminders" class="slide level2 center">
+<h2>Git Reminders</h2>
+<ul>
+<li><p><strong>Stage and commit often</strong><br>
+Think of commits as snapshots of your work. Save, stage, and commit regularly during your workflow.</p></li>
+<li><p><strong>Write clear, useful commit messages</strong><br>
+Keep messages concise but descriptive. They should explain what changed and why. Many tips online for “commit message best practices.”</p></li>
+<li><p><strong>Push regularly, but not necessarily every time you commit</strong> Some people push every time they commit, while others push multiple commits at once. Experiment and find what works best for you.</p></li>
+<li><p><strong>Work locally, and push on GitHub</strong><br>
+Do not do the other way around (e.g., do not modify your GitHub repository directly; work on your local copy, and push changes to GitHub).</p></li>
+</ul>
+</section></section>
+<section>
+<section id="deeper-dive-into-git-github" class="title-slide slide level1 center middle">
+<h1>3. Deeper Dive into Git &amp; GitHub</h1>
+<p><br></p>
+<p>Come back here once you are familiar with the basic workflow!</p>
+<p>The following slides cover more advanced topics but might be handy if you run into problems in the assignments and beyond.</p>
+<p><br></p>
+</section>
+<section id="what-to-commit-not-to-commit" class="slide level2 center">
+<h2>What to Commit / Not to Commit</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-to-commit">✅ What to Commit</h3>
+<ul>
+<li>Code files</li>
+<li>Markdown or Quarto files</li>
+<li>Small data files</li>
+<li>README and documentation</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="what-not-to-commit">🚫 What Not to Commit</h3>
+<ul>
+<li>Temporary files (e.g., <code>.Rproj.user/</code>)</li>
+<li>Log or output files</li>
+<li>Files with private information</li>
+<li>Files larger than 100 MB</li>
+</ul>
+</div></div>
+<p><br></p>
+<div class="fragment">
+<h3 id="what-not-to-commit-goes-in-the-gitignore-file">What Not to Commit goes in the “gitignore” file</h3>
+<ul>
+<li>The “gitignore” file tells Git what to ignore from your folder</li>
+<li>Use a <a href="https://github.com/github/gitignore">template</a> (search for R-specific template, which works well for most class projects)</li>
+</ul>
+</div>
+<p><br></p>
+</section>
+<section id="git-large-file-storage-git-lfs" class="slide level2 center">
+<h2>Git Large File Storage (Git LFS)</h2>
+<p>What if you need to track a file larger than 100 MB? GitHub <strong>does not allow</strong> pushing files over 100 MB. If you have such a file, <strong>don’t try to push it directly.</strong></p>
+<p>Instead:</p>
+<ul>
+<li>Use <a href="https://git-lfs.github.com/">Git Large File Storage (Git LFS)</a></li>
+<li>A separate tool that integrates with Git</li>
+<li>Designed specifically for large files (e.g., datasets, media)</li>
+<li>Note: Git LFS storage on GitHub often comes with usage limits and may require a paid plan</li>
+</ul>
+</section>
+<section id="git-conflicts" class="slide level2 center">
+<h2>Git Conflicts</h2>
+<p>The local (on your computer) and remote (online on GitHub) repos are expected to match (same identical content). If they don’t, Git tries to merge them automatically, with two possible outcomes:</p>
+<p>✅ If the changes are in different parts of the file, Git <strong>merges them automatically</strong> and no action is needed.</p>
+<p>❌ If the same part of the file was changed in both versions, Git <strong>cannot decide</strong> what to keep. You must <strong>manually review and resolve</strong> the conflict.</p>
+</section>
+<section id="when-do-git-conflicts-happen" class="slide level2 center">
+<h2>When Do Git Conflicts Happen?</h2>
+<p><strong>Scenario 1: Collaborative Work</strong><br>
+- You and a teammate edit the same file (or even the same line)<br>
+- You push changes without pulling the latest version from GitHub first - Conflict: Git can’t tell which version to keep<br>
+- Tip: Always run <code>git pull</code> before <code>git push</code></p>
+<p><br></p>
+<p><strong>Scenario 2: Working Solo</strong><br>
+- You make changes locally and also edit the same file directly on GitHub<br>
+- Conflict: Git can’t tell which version to keep<br>
+- Tip: DO NOT modify the Github (online) repo directly! Always work in your local repo first, then push to GitHub</p>
+</section>
+<section id="what-a-git-conflict-looks-like" class="slide level2 center">
+<h2>What a Git Conflict Looks Like</h2>
+<p>When a conflict happens, Git marks the file with special lines to show the two versions:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource diff number-lines code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a></a><span class="st">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span></span>
+<span id="cb1-2"><a></a>This is your version (from your local repo)</span>
+<span id="cb1-3"><a></a><span class="kw">=======</span></span>
+<span id="cb1-4"><a></a>This is the other version (from GitHub or your teammate)</span>
+<span id="cb1-5"><a></a><span class="va">&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Unfortunately, you cannot solve a Git Conflict using the integrated Git from RStudio. To solve it, you need to use Git from the terminal.</p>
+</section>
+<section id="how-to-solve-a-git-conflict" class="slide level2 center">
+<h2>How to solve a Git Conflict</h2>
+<ol type="1">
+<li><p>Go to R (Workbench) and open your terminal. Pull the latest changes from GitHub by typing <code>git pull origin main</code>. Then read the message that shows up on Git: it will tell you what to do.</p></li>
+<li><p>Open the file or files and look for the specific conflict markers such as <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></p></li>
+<li><p>Decide which version to keep or manually combine them</p></li>
+<li><p>Delete the conflict markers</p></li>
+<li><p>Save the file</p></li>
+<li><p>Run the following commands from your terminal:<br>
+<code>git add &lt;filename&gt;</code><br>
+<code>git commit -m "solved conflict"</code><br>
+<code>git push origin main</code></p></li>
+</ol>
+</section>
+<section id="avoiding-most-git-conflicts" class="slide level2 center">
+<h2>Avoiding (Most) Git Conflicts</h2>
+<h3 id="rather-than-solving-conflicts-we-want-to-avoid-them-with-good-practices">Rather than <em>solving</em> conflicts, we want to <em>avoid</em> them with good practices:</h3>
+<ul>
+<li><strong>Make changes locally</strong>, then stage and commit</li>
+<li><strong>Push regularly</strong> to keep your GitHub repo in sync<br>
+</li>
+<li><strong>Always pull before you push</strong> to avoid conflicts</li>
+</ul>
+<h3 id="key-sequence-to-use">Key Sequence to Use:</h3>
+<p><code>git pull</code> → make changes → <code>git add</code> → <code>git commit</code> → <code>git push</code></p>
+<!--
+Want to practice? Complete the ["Using Git with RStudio"](https://computing-soc-sci.netlify.app/setup/git/git-with-rstudio/) tutorial on our course website for hands-on experience with the Git GUI in RStudio.
+-->
+</section>
+<section id="burn-it-all-down" class="slide level2 center">
+<h2>Burn it All Down</h2>
+<div style="text-align: center;">
+<p><img src="https://imgs.xkcd.com/comics/git.png"></p>
+</div>
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>Familiarized with Git &amp; GitHub</li>
+<li>How to use Git &amp; GitHub within RStudio</li>
+</ul>
+</section>
+<section id="accept-homework-1" class="slide level2 center">
+<h2>💻 Accept Homework 1</h2>
+<p>Accept Homework 1 from the course website.</p>
+<p>Note: this will only work if you put your GitHub username on the Excel sheet (Lecture 1) and you accepted the invite to our organization (which was sent to the email linked to your GitHub account)!</p>
+</section>
+<section id="reminders" class="slide level2 center">
+<h2>Reminders</h2>
+<ul>
+<li>To access and complete Homework 1, make sure you have:
+<ul>
+<li>Registered a GitHub account and submitted your username (Lecture 1)</li>
+<li>Set up your computer (Lecture 2)</li>
+</ul></li>
+<li>Check the Course Schedule for Homework 1 due date: this is the only P/F assignment and has a shorter turnaround because we need everyone’s setup ready ASAP.</li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-right corner &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
 
 
 </section></section>
