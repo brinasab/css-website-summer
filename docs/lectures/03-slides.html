@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,7 +208,6 @@ Sabrina Nardin, Summer 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
@@ -154,10 +219,611 @@ Sabrina Nardin, Summer 2026
 <li>Practice: Gapminder Data</li>
 </ol>
 </div>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on June 17, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<!--
+### Slides are in progress and will be updated before class.
+
+Topics of today are both visualization with ggplot2 and coding styles.
+We are going to start with...
+For data viz, Much of today builds upon readings, go back chapter 1 and 9
+-->
+</section>
+
+<section>
+<section id="motivation-why-we-visualize-data" class="title-slide slide level1 center middle">
+<h1>1. Motivation: Why We Visualize Data</h1>
+
+</section>
+<section id="why-we-visualize-data" class="slide level2 center">
+<h2>Why We Visualize Data</h2>
+<ul>
+<li>Graphs help us identify patterns, relationships, and outliers<br>
+</li>
+<li>Graphs make data more understandable and shareable<br>
+</li>
+<li>Graphs allow us to explore questions more quickly (initial viz → data/models → more viz)</li>
+</ul>
+</section>
+<section id="example-mpg-dataset" class="slide level2 center">
+<h2>Example: mpg dataset</h2>
+<p>Imagine you are a data analyst for a car company, and have information on ~200 cars.<br>
+Paste this code into your R Console and run it to see the <code>mpg</code> dataset (use most recent R version):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a></a><span class="fu">data</span>(mpg)</span>
+<span id="cb1-3"><a></a><span class="fu">head</span>(mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p><strong>Reminders:</strong></p>
+<ul>
+<li>The code <code>library(ggplot2)</code> loads the <code>ggplot2</code> package in our current R session:</li>
+<li>A package is a collection of code, data, and documentation</li>
+<li>What’s the difference between loading and installing a package?</li>
+<li>Check your R version on Workbench: use the most recent for data viz!<br>
+</li>
+<li>Check your working directory on Workbench (“Project:”) and switch project as needed</li>
+</ul>
+<p><br></p>
+<!--
+
+To use external tools like `ggplot2`, you need to first **install** and then **load** the package. A package is a a collection of code, data, and documentation.
+
+**Install a package. Only once per computer:**
+```r
+install.packages("ggplot2")
+```
+
+**Load a package. Every time you use it, at the top of the script:**
+```r
+library(ggplot2)
+```
+
+In this course, we’re using RStudio Workbench, where everything is already installed. So you only need to **load** packages.
+
+**What's the difference?**
+- A **package** is a collection of code, data, and documentation
+- The **library()** function loads an installed package into your current session
+
+-->
+</section>
+<section id="example-mpg-dataset-1" class="slide level2 center">
+<h2>Example: mpg dataset</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
+  &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…
+2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…
+3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…
+4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…
+5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…
+6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…</code></pre>
+</div>
+</div>
+</section>
+<section id="key-dataset-terms" class="slide level2 center">
+<h2>Key Dataset Terms</h2>
+<p>The <code>mpg</code> dataset has <strong>234 observations</strong> (cars, in rows) and <strong>11 variables</strong> (properties, in columns)</p>
+<ul>
+<li><strong>Observation</strong> = each row = one car<br>
+</li>
+<li><strong>Variable</strong> = each column = a car property
+<ul>
+<li><code>hwy</code>: fuel efficiency on the highway, in miles per gallon<br>
+</li>
+<li><code>displ</code>: engine size or displacement, in liters<br>
+</li>
+<li><code>class</code>: type of car (compact, SUV…)</li>
+<li>etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="our-first-plot" class="slide level2 center">
+<h2>Our First Plot</h2>
+<p>Imagine you pick two pieces of information from this car dataset:</p>
+<ul>
+<li>variable 1 <code>hwy</code>: car fuel efficiency on the highway (in miles per gallon)</li>
+<li>variable 2 <code>displ</code>: car engine size or displacement (in liters)</li>
+</ul>
+<p>You want to visually inspect their relationship, so you start by creating a simple scatter plot…</p>
+</section>
+<section id="our-first-plot-1" class="slide level2 center">
+<h2>Our First Plot</h2>
+
+<img data-src="03-slides_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><ul>
+<li>What’s on the x-axis and y -axis? What does each dot in this scatterplot represent?</li>
+<li>You want a car with high fuel efficiency on the highway and a large engine size. Can you find one?</li>
+<li>Do larger engines tend to have higher or lower highway fuel efficiency?</li>
+</ul>
+</section>
+<section id="code-for-our-first-plot-with-ggplot2" class="slide level2 center">
+<h2>Code for our First Plot with ggplot2</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a></a><span class="fu">data</span>(mpg)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb3-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Car Fuel Efficiency on the Highway vs. Car Engine Size"</span>,</span>
+<span id="cb3-7"><a></a>       <span class="at">x =</span> <span class="st">"Car Engine Size in Liters"</span>,</span>
+<span id="cb3-8"><a></a>       <span class="at">y =</span> <span class="st">"Car Highway MPG (Fuel Efficiency)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What does this code do?</p>
+<!--
+What this code does:
+
+- Sets the data: `mpg`
+- Makes a scatterplot: `geom_point()`
+- Tells what to put on the axes: `aes()`
+- Maps the variable engine size to x-axis: `x = displ`
+- Maps the variable fuel efficiency to y-axis: `y = hwy`
+-->
+</section>
+<section id="practice" class="slide level2 center">
+<h2>💻 Practice</h2>
+<p>Below is a slight variation of the previous code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb4-2"><a></a><span class="fu">data</span>(mpg)</span>
+<span id="cb4-3"><a></a></span>
+<span id="cb4-4"><a></a><span class="fu">ggplot</span>(mpg) <span class="sc">+</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>Run the code, and answer these questions:</p>
+<ul>
+<li>What do you see? How is this new plot different from the previous one?</li>
+<li>What do the first two lines of code do?</li>
+<li>What does <code>aes()</code> do? And <code>color = class</code>?</li>
+<li>Replace the aesthetic <code>color</code> with <code>shape</code> and re-run the code. What happens?</li>
+<li>Check the <a href="https://ggplot2.tidyverse.org/reference/geom_point.html">documentation for <code>geom_point()</code></a> to learn about its aesthetics</li>
+</ul>
+<p><br></p>
+<!--
+here we have two numerical variables, displ and hwy mapped on the x and y
+and one categorical variable, class, mapped to the aesthetic color 
+class is the type of car, and we have 7 categories here
+-->
+</section></section>
+<section>
+<section id="the-grammar-of-graphics-and-ggplot2" class="title-slide slide level1 center middle">
+<h1>2. The Grammar of Graphics and ggplot2</h1>
+
+</section>
+<section id="grammar-of-graphics-and-ggplot2" class="slide level2 center">
+<h2>Grammar of Graphics and ggplot2</h2>
+<p>We’ve been creating our first plots intuitively. Let’s formally key concepts:</p>
+<ul>
+<li><code>ggplot2</code> is the name of the main R package for <strong>data visualization</strong> <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a></li>
+<li>It’s part of the <code>tidyverse</code>, a collection of packages for data analysis: <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></li>
+<li>Created by <strong>Hadley Wickham</strong>, who also wrote our course textbook</li>
+<li>Built using the theory called the <strong>Grammar of Graphics</strong> a system for creating layered plots (see <a href="https://www.tandfonline.com/doi/pdf/10.1198/jcgs.2009.07098">this paper</a> for an intro to it)</li>
+</ul>
+<!-- ggplot2 bcs is the second version
+We start today and use `ggplot2` throughout this course to explore and communicate data visually. We also learn several packages from the tidyverse -->
+</section>
+<section id="grammar-and-grammar-of-graphics" class="slide level2 center">
+<h2>Grammar and “Grammar of Graphics”</h2>
+<blockquote>
+<p>A <strong>grammar</strong> is a set of rules for combining words (syntax, morphology, etc.), that helps us structure a language and communicate clearly.</p>
+</blockquote>
+<p>Applied to R and ggplot2…</p>
+<blockquote>
+<p>A <strong>Grammar of Graphics</strong> is a set of rules for combining visual elements (data, aesthetics, geometries, etc.) that helps us structure plots and communicate clearly.</p>
+</blockquote>
+</section>
+<section id="main-components-of-the-grammar-of-graphics" class="slide level2 center">
+<h2>Main Components of the Grammar of Graphics</h2>
+<p>In ggplot2, a plot is made up of layers, and each layer combines several components that describe what to draw and how to draw it.</p>
+<p>The five main components are:</p>
+<ul>
+<li><strong>DATA</strong>: the dataset you are using (e.g.&nbsp;mpg data)</li>
+<li><strong>GEOM</strong>: the type of plot (e.g., points, bars, lines)</li>
+<li><strong>MAPPING</strong>: maps variables to aesthetics like x, y, color, etc.</li>
+<li><strong>STAT</strong>: whether the data should be transformed (e.g., counted) or not (e.g., identity)</li>
+<li><strong>POSITION</strong>: how things are arranged on the plot (e.g., stacked or jittered)</li>
+</ul>
+<!-- Other components: COORDINATE SYSTEM, FACET, SCALE -->
+</section>
+<section id="grammar-of-graphics-code-template" class="slide level2 center">
+<h2>Grammar of Graphics: Code Template</h2>
+<p>Let’s look at how these <strong>five main components</strong> show up in <code>ggplot2</code> code:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># code template</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
+<span id="cb5-4"><a></a>  <span class="er">&lt;</span>GEOM<span class="sc">&gt;</span>(</span>
+<span id="cb5-5"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPING<span class="sc">&gt;</span>),</span>
+<span id="cb5-6"><a></a>    <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>,</span>
+<span id="cb5-7"><a></a>    <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
+<span id="cb5-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You can also add more components, like:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="sc">+</span> <span class="er">&lt;</span>COORDINATE SYSTEM<span class="sc">&gt;</span></span>
+<span id="cb6-2"><a></a><span class="sc">+</span> <span class="er">&lt;</span>FACET<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+**Summary:**  
+> - The five components above (**DATA**, **MAPPING**, **GEOM**, **STAT**, **POSITION**) define each **layer**.  
+> - **Scales**, **coordinate systems**, **facets**, and **themes** operate at the **plot level** and shape how the final visualization is displayed.
+-->
+</section>
+<section id="grammar-of-graphics-code-template-with-the-mpg-dataset" class="slide level2 center">
+<h2>Grammar of Graphics: Code Template with the mpg Dataset</h2>
+<p>Now, we fill in this code template using the <code>mpg</code> data and plot it:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># code template (previosu slide)</span></span>
+<span id="cb7-2"><a></a></span>
+<span id="cb7-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="sc">&lt;</span>DATA<span class="sc">&gt;</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a></a>  <span class="er">&lt;</span>GEOM<span class="sc">&gt;</span>(</span>
+<span id="cb7-5"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="sc">&lt;</span>MAPPING<span class="sc">&gt;</span>),</span>
+<span id="cb7-6"><a></a>    <span class="at">stat =</span> <span class="sc">&lt;</span>STAT<span class="sc">&gt;</span>,</span>
+<span id="cb7-7"><a></a>    <span class="at">position =</span> <span class="sc">&lt;</span>POSITION<span class="sc">&gt;</span></span>
+<span id="cb7-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb7-9"><a></a>  <span class="er">&lt;</span>COORDINATE<span class="sc">&gt;</span> <span class="sc">+</span></span>
+<span id="cb7-10"><a></a>  <span class="er">&lt;</span>FACET<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># code template filled with mpg data</span></span>
+<span id="cb8-2"><a></a></span>
+<span id="cb8-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb8-5"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class),</span>
+<span id="cb8-6"><a></a>    <span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb8-7"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
+<span id="cb8-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb8-9"><a></a>  <span class="fu">coord_cartesian</span>() <span class="sc">+</span></span>
+<span id="cb8-10"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(class), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<!-- 
+Variables description:
+* `displ` (dbl): car’s engine size, in liters
+* `hwy` (int): car’s fuel efficiency on the highway
+* `class` (chr): categories of cars (e.g., compact, midsize, SUV, etc.)
+
+facet_wrap(~ class, nrow = 1) 
+
+stat = "identity" mean use the y-values exactly as they are in my data. Do not calculate them for me.
+This often comes up with bar plots with geom_bar
+
+By default, geom_bar() counts rows:
+
+Note: this template is a helpful starting point, but it's not the only way to write the code. We will explore alternatives later today. For now, let's demonstrate how to apply this template using the `mpg` cars dataset...
+-->
+</section>
+<section id="make-and-store-a-plot" class="slide level2 center">
+<h2>Make and Store a Plot</h2>
+<p>This code makes a plot and displays it, but does not store it</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a> <span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb9-2"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb9-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class),</span>
+<span id="cb9-4"><a></a>    <span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb9-5"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
+<span id="cb9-6"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb9-7"><a></a>  <span class="fu">coord_cartesian</span>() <span class="sc">+</span></span>
+<span id="cb9-8"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(class), <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This code makes a plot and stores it to an object that I named <code>fuel_plot</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>fuel_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb10-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class),</span>
+<span id="cb10-4"><a></a>    <span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb10-5"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
+<span id="cb10-6"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb10-7"><a></a>  <span class="fu">coord_cartesian</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(class), <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb10-9"><a></a>fuel_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="on-coding-style-in-r" class="slide level2 center">
+<h2>On Coding Style in R</h2>
+<p>Before continuing with the Grammar of Graphics, let’s take a moment to focus on <strong>coding style</strong> (parenthesis, signs, indentation, variable names, etc.)</p>
+<p><br></p>
+<h4 id="practice-1">💻 Practice</h4>
+<p>Here’s the code from the previous slide. This time, read it focusing on its <em>style</em>. What do you notice?</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>fuel_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb11-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class),</span>
+<span id="cb11-4"><a></a>    <span class="at">stat =</span> <span class="st">"identity"</span>,</span>
+<span id="cb11-5"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
+<span id="cb11-6"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb11-7"><a></a>  <span class="fu">coord_cartesian</span>() <span class="sc">+</span></span>
+<span id="cb11-8"><a></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(class), <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb11-9"><a></a>fuel_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<!--
+THINGS THAT STUDENTS MIGHT SAY
+- Parentheses: always open/close
+- Spacing and indentation
+- `<-` vs `=`
+- Use of quotes
+- Case matters in R
+-->
+</section>
+<section id="coding-style-checklist" class="slide level2 center">
+<h2>Coding Style Checklist</h2>
+<ul>
+<li>Use <code>&lt;-</code> to assign values to variables</li>
+<li>Use <code>=</code> to assign values to function arguments</li>
+<li>Use descriptive, meaningful variable names (<code>snake_case</code>, lowercase)</li>
+<li>Add spaces around operators (e.g., <code>+</code>, <code>-</code>, <code>&lt;-</code>) for readability</li>
+<li>Avoid spaces inside parentheses or brackets</li>
+<li>Close every opened parenthesis</li>
+<li>Break long lines and use indentation</li>
+<li>Use comments, but do not abuse them</li>
+</ul>
+</section>
+<section id="coding-style-resources" class="slide level2 center">
+<h2>Coding Style Resources</h2>
+<p>Resources to guide you:</p>
+<ul>
+<li><a href="https://r4ds.hadley.nz/workflow-style">R for Data Science, Chapter 4</a></li>
+<li><a href="https://style.tidyverse.org/">The <code>tidyverse</code> style guide</a></li>
+<li><a href="https://www.smashingmagazine.com/2012/10/why-coding-style-matters/">Why does coding style matter?</a></li>
+</ul>
+</section>
+<section id="back-to-the-grammar-of-graphics" class="slide level2 center">
+<h2>Back to the Grammar of Graphics</h2>
+<p>We have seen the code template with these main components:</p>
+<ul>
+<li>Key components of layers: <strong>data, geom, mapping, stat, position</strong></li>
+<li>Other plot-components: <strong>coordinate system, facets, scales, themes</strong></li>
+</ul>
+<p>In the next slides, we’ll take a closer look at a few <em>selected aspects</em> of these components. For more details, see today’s readings.</p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>💡 The following slides focus on the most common aspects you’ll encounter as you get started with ggplot2. Start from these. You’ll pick up the rest as you experiment and build more plots.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="pick-the-right-geometric-object" class="slide level2 center">
+<h2>Pick the Right Geometric Object</h2>
+<p><strong>Geom:</strong> the type of plot you make, which depends on your variables type. Most common (memorize them!):</p>
+<ul>
+<li><code>geom_point()</code> → scatterplot</li>
+<li><code>geom_line()</code> → line chart</li>
+<li><code>geom_bar()</code> → bar chart</li>
+<li><code>geom_histogram()</code> → histogram</li>
+<li><code>geom_boxplot()</code> → boxplot</li>
+</ul>
+<p>Each <code>geom</code> accepts certain aesthetics. How do you know which ones? Read the documentation, for example <a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point reference</a></p>
+<!--
+
+## How ggplot2 Controls Positioning
+
+Adjusts how elements are positioned to avoid overlap.
+
+- Scatterplot: often `position = "identity"`
+- Jitter: `position = "jitter"` spreads overlapping points
+- Bar plot: use `"stack"`, `"dodge"`, etc.
+
+::: {.callout-tip}
+Check `geom_*()` documentation to learn supported positions.
+:::
+
+## Coordinate System and Faceting
+
+**Coordinate System:**
+
+- Translates data into the plot space
+- Default: Cartesian system (`coord_cartesian()`)
+
+**Faceting:**
+
+- Splits data into subplots by a variable
+
+```r
+ggplot(data = mpg) + 
+  geom_point(aes(x = displ, y = hwy, color = class)) +
+  coord_cartesian() +
+  facet_wrap(vars(class), nrow = 1)
+```
+
+-->
+</section>
+<section id="statistical-transformations" class="slide level2 center">
+<h2>Statistical Transformations</h2>
+<p><strong>Stat:</strong> transforms your data for plotting and depends on which geometric object you are using (e.g., the type of graph).</p>
+<p>Scatterplot: <code>geom_point()</code> uses <code>stat = "identity"</code> by default</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb12-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Bar chart: <code>geom_bar()</code> uses <code>stat = "count"</code> by default</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">geom_bar</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> class)) <span class="co"># implicitly counts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="mapping-aesthetics" class="slide level2 center">
+<h2>Mapping Aesthetics</h2>
+<p><strong>Aes:</strong> defines how data variables are mapped to visual properties of a plot (e.g., x, y, color, size, shape).</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Especially when using <code>color</code> small mistakes can make the difference, let’s practice…</p>
 </section>
 <section class="slide level2 center">
 
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+<h3 id="practice-using-color-correctly-with-mapping-aesthetics">💻 Practice: Using Color Correctly with Mapping Aesthetics</h3>
+<p>Which of these three code blocks is correct? Run and compare them in R.</p>
+<p><br></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy), <span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section class="slide level2 center">
+
+<h3 id="practice-using-color-correctly-with-mapping-aesthetics-1">💻 Practice: Using Color Correctly with Mapping Aesthetics</h3>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>✅ Correct</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">aes</span>(<span class="at">color =</span> class)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Maps</em> a variable.</p>
+</div><div class="column" style="width:30%;">
+<p>✅ Correct</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>color <span class="ot">=</span> <span class="st">"blue"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>Sets</em> color manually (outside <code>aes</code>).</p>
+</div><div class="column" style="width:30%;">
+<p>❌Incorrect</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">aes</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Tries to map a fixed value (the string “blue”). Not useful.</p>
+</div></div>
+<div class="fragment">
+<h4 id="mapping-vs-setting-in-ggplot2">Mapping vs Setting in ggplot2</h4>
+<ul>
+<li><p><strong>Mapping</strong> means linking a variable inside <code>aes()</code><br>
+Example: <code>aes(color = class)</code> (comes from the data, from a variable)</p></li>
+<li><p><strong>Setting</strong> means assigning a fixed value outside <code>aes()</code><br>
+Example: <code>color = "blue"</code> (does not come from the data)</p></li>
+</ul>
+</div>
+<!--
+## Common Beginner Mistakes
+
+- Putting fixed values like "blue" inside `aes()` (e.g., `aes(color = "blue")`
+- Forgetting to close `aes()` or `geom_()` parentheses
+- Using `<-` inside `aes()` instead of `=`
+-->
+</section>
+<section id="adding-titles-labels-and-captions" class="slide level2 center">
+<h2>Adding Titles, Labels, and Captions</h2>
+<p>To add text elements to your plot, use <strong><code>labs()</code></strong>:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-4"><a></a>    <span class="at">title =</span> <span class="st">"Car Fuel Efficiency on the Highway vs. Car Engine Size"</span>,</span>
+<span id="cb21-5"><a></a>    <span class="at">subtitle =</span> <span class="st">"Colored by car type"</span>,</span>
+<span id="cb21-6"><a></a>    <span class="at">x =</span> <span class="st">"Car Engine Size in Liters"</span>,</span>
+<span id="cb21-7"><a></a>    <span class="at">y =</span> <span class="st">"Car Highway MPG (Fuel Efficiency)"</span>,</span>
+<span id="cb21-8"><a></a>    <span class="at">caption =</span> <span class="st">"Data: mpg dataset (n = 234)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For more control, combine it with <strong><code>theme()</code></strong>:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class)) <span class="sc">+</span></span>
+<span id="cb22-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">labs</span>(</span>
+<span id="cb22-4"><a></a>    <span class="at">title =</span> <span class="st">"Car Fuel Efficiency on the Highway vs. Car Engine Size"</span>,</span>
+<span id="cb22-5"><a></a>    <span class="at">subtitle =</span> <span class="st">"Colored by car type"</span>,</span>
+<span id="cb22-6"><a></a>    <span class="at">x =</span> <span class="st">"Car Engine Size in Liters"</span>,</span>
+<span id="cb22-7"><a></a>    <span class="at">y =</span> <span class="st">"Car Highway MPG (Fuel Efficiency)"</span>,</span>
+<span id="cb22-8"><a></a>    <span class="at">caption =</span> <span class="st">"Data: mpg dataset (n = 234)"</span>) <span class="sc">+</span></span>
+<span id="cb22-9"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">18</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="layers-can-overlap" class="slide level2 center">
+<h2>Layers can Overlap</h2>
+<p>Layers create the visual elements on a plot. Each layer adds something new to the visualization and can inherit components as shown below:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb23-2"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb23-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class),</span>
+<span id="cb23-4"><a></a>    <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
+<span id="cb23-5"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
+<span id="cb23-6"><a></a>  ) <span class="sc">+</span> </span>
+<span id="cb23-7"><a></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb23-8"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy),</span>
+<span id="cb23-9"><a></a>    <span class="at">method =</span> <span class="st">"lm"</span></span>
+<span id="cb23-10"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- In this example:
+
+The first layer (geom_point) draws data points, coloring them by car class.
+The second layer (geom_smooth) adds a fitted regression line.
+Because both layers use the same dataset (mpg) and the same x and y mappings, the second layer inherits these settings from the main ggplot() call.
+Only components that differ — such as color or statistical transformation — need to be specified again.
+
+Note can also rewrite as 
+ggplot(mpg, aes(x = displ, y = hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(method = "lm")
+
+-->
+</section></section>
+<section>
+<section id="simplifying-ggplot2-with-defaults" class="title-slide slide level1 center middle">
+<h1>3. Simplifying ggplot2 with Defaults</h1>
+<!--
+Remember I previously said that writing code using this template way is a great starting point but probably not your end point?
+
+We can rewrite the same code, simplified that way 
+(taking advantage of fact that layers share common features)
+
+We often repeat settings like `data = ...`, `aes()`, 
+`stat = ...`, but we can use defaults to simplify.
+-->
+</section>
+<section id="example-1" class="slide level2 center">
+<h2>Example 1</h2>
+<p>Example from the previous slide</p>
+<p><strong>Long version:</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg) <span class="sc">+</span> </span>
+<span id="cb24-2"><a></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb24-3"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">color =</span> class),</span>
+<span id="cb24-4"><a></a>    <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
+<span id="cb24-5"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span>) <span class="sc">+</span> </span>
+<span id="cb24-6"><a></a>  <span class="fu">geom_smooth</span>(</span>
+<span id="cb24-7"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy),</span>
+<span id="cb24-8"><a></a>    <span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p><strong>Short version:</strong></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span> </span>
+<span id="cb25-2"><a></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> class)) <span class="sc">+</span> </span>
+<span id="cb25-3"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="example-2" class="slide level2 center">
+<h2>Example 2</h2>
+<p>Scatterplot between cars’ engine size (<code>displ</code>) and highway fuel efficiency (<code>hwy</code>)</p>
+<p><strong>Long version:</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">layer</span>(</span>
+<span id="cb26-3"><a></a>    <span class="at">data =</span> mpg, </span>
+<span id="cb26-4"><a></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy),</span>
+<span id="cb26-5"><a></a>    <span class="at">geom =</span> <span class="st">"point"</span>, </span>
+<span id="cb26-6"><a></a>    <span class="at">stat =</span> <span class="st">"identity"</span>, </span>
+<span id="cb26-7"><a></a>    <span class="at">position =</span> <span class="st">"identity"</span></span>
+<span id="cb26-8"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb26-9"><a></a>  <span class="fu">coord_cartesian</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment">
+<p><strong>Short version:</strong></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> mpg, <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy)) <span class="sc">+</span></span>
+<span id="cb27-2"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quick-review" class="slide level2 center">
+<h2>Quick Review</h2>
+<ol type="1">
+<li>What does <code>geom_point()</code> do?</li>
+<li>What does <code>stat = "identity"</code> mean?</li>
+<li>When would you use <code>facet_wrap()</code>?</li>
+<li>What’s wrong with <code>aes(color = "blue")</code>?</li>
+<li>What does it mean that layers can inherit elements?</li>
+</ol>
+<p>Try answering these without peeking at the slides!</p>
+</section></section>
+<section>
+<section id="pratice-gapminder-data" class="title-slide slide level1 center middle">
+<h1>4. Pratice: Gapminder Data</h1>
+
+</section>
+<section id="practice-gapminder" class="slide level2 center">
+<h2>💻 Practice: Gapminder</h2>
+<p>Download today’s in-class materials from the website!</p>
+<p>The <code>gapminder</code> dataset:</p>
+<ul>
+<li>Data on various socio-economic indicators (e.g., life expectancy, GDP per capita, and population) for countries around the world over multiple years (1957-2008)</li>
+<li><a href="https://cran.r-project.org/web/packages/gapminder/readme/README.html" class="uri">https://cran.r-project.org/web/packages/gapminder/readme/README.html</a><br>
+</li>
+<li><a href="https://www.gapminder.org/" class="uri">https://www.gapminder.org/</a></li>
+</ul>
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>Core components of the Grammar of Graphics</li>
+<li>Generate simple graphs with ggplot2</li>
+<li>Use the Grammar of Graphics template and simplify it with defaults</li>
+<li>R Coding Style Best Practices</li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
 
 
 </section></section>

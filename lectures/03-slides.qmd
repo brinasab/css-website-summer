@@ -25,13 +25,13 @@ format:
 4. Practice: Gapminder Data
 :::
 
----
-
-### Slides are in progress and will be updated before class.
-
-::: {.content-hidden}
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on `r format(Sys.Date(), '%B %d, %Y')`. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
 
 <!--
+### Slides are in progress and will be updated before class.
+
 Topics of today are both visualization with ggplot2 and coding styles.
 We are going to start with...
 For data viz, Much of today builds upon readings, go back chapter 1 and 9
@@ -52,7 +52,7 @@ For data viz, Much of today builds upon readings, go back chapter 1 and 9
 ## Example: mpg dataset
 
 Imagine you are a data analyst for a car company, and have information on ~200 cars.   
-Paste this code into your R Console and run it to see the `mpg` dataset (use R version 4.5.1):
+Paste this code into your R Console and run it to see the `mpg` dataset (use most recent R version):
 
 ````r
 library(ggplot2)
@@ -64,10 +64,11 @@ head(mpg)
 
 **Reminders:**
 
-- Note `library(ggplot2)` loads the package in our current R session: What's a package? What's the difference between loading and installing a package?    
-- Check your R version on Workbench: use R 4.5.1 for data viz!   
+- The code `library(ggplot2)` loads the `ggplot2` package in our current R session: 
+ - A package is a collection of code, data, and documentation
+ - What's the difference between loading and installing a package?
+- Check your R version on Workbench: use the most recent for data viz!   
 - Check your working directory on Workbench ("Project: ") and switch project as needed
-
 
 </br>
 
@@ -141,10 +142,9 @@ ggplot(data = mpg) +
        y = "Car Highway MPG (Fuel Efficiency)")
 ```
 
-- What's on the x-axis? And on the y -axis?
-- What does each dot in this scatterplot represent?
-- You want a car that combines high fuel efficiency on the highway and a large engine size. Can you find one?
-- Do larger engines tend to have higher or lower highway fuel efficiency??
+- What's on the x-axis and y -axis? What does each dot in this scatterplot represent?
+- You want a car with high fuel efficiency on the highway and a large engine size. Can you find one?
+- Do larger engines tend to have higher or lower highway fuel efficiency?
 
 ---
 
@@ -152,6 +152,7 @@ ggplot(data = mpg) +
 
 ```r
 library(ggplot2)
+data(mpg)
 
 ggplot(data = mpg) +
   geom_point(aes(x = displ, y = hwy)) +
@@ -159,6 +160,8 @@ ggplot(data = mpg) +
        x = "Car Engine Size in Liters",
        y = "Car Highway MPG (Fuel Efficiency)")
 ```
+
+What does this code do?
 
 <!--
 What this code does:
@@ -174,7 +177,7 @@ What this code does:
 
 ## 💻 Practice
 
-Below is a slight variation of the original code:
+Below is a slight variation of the previous code:
 
 ````r
 library(ggplot2)
@@ -186,13 +189,13 @@ ggplot(mpg) +
 
 <br>
 
-Team up with someone, run the code, and answer these questions:
+Run the code, and answer these questions:
 
-- What do you see? How is this new plot different from the original one? 
+- What do you see? How is this new plot different from the previous one? 
 - What do the first two lines of code do?
 - What does `aes()` do? And `color = class`?
 - Replace the aesthetic `color` with `shape` and re-run the code. What happens?
-- Check the documentation for `geom_point()` to learn about its aesthetics (Google it or paste this prompt into AI)
+- Check the [documentation for `geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html) to learn about its aesthetics
 
 </br>
 
@@ -207,12 +210,12 @@ class is the type of car, and we have 7 categories here
 
 ## Grammar of Graphics and ggplot2
 
-We’ve been creating our first plot intuitively. Let’s formally introduce the grammar of graphics and ggplot2:
+We’ve been creating our first plots intuitively. Let’s formally key concepts:
 
-- `ggplot2` is the main R package used for **data visualization** <https://ggplot2.tidyverse.org/>
+- `ggplot2` is the name of the main R package for **data visualization** <https://ggplot2.tidyverse.org/>
 - It’s part of the `tidyverse`, a collection of packages for data analysis: <https://www.tidyverse.org/>
-- Created by **Hadley Wickham**, who also co-authored this course textbook
-- Built using the theory called the **Grammar of Graphics**, a system for creating layered plots (see <https://www.tandfonline.com/doi/pdf/10.1198/jcgs.2009.07098> for an intro to this theory)
+- Created by **Hadley Wickham**, who also wrote our course textbook
+- Built using the theory called the **Grammar of Graphics** a system for creating layered plots (see [this paper](https://www.tandfonline.com/doi/pdf/10.1198/jcgs.2009.07098) for an intro to it)
 
 <!-- ggplot2 bcs is the second version
 We start today and use `ggplot2` throughout this course to explore and communicate data visually. We also learn several packages from the tidyverse -->
@@ -248,7 +251,7 @@ The five main components are:
 
 ## Grammar of Graphics: Code Template
 
-Let’s look at how these five main components show up in `ggplot2` code:
+Let’s look at how these **five main components** show up in `ggplot2` code:
 
 ```r
 # code template
@@ -261,7 +264,8 @@ ggplot(data = <DATA>) +
   )
 ```
 
-At the plot level, you can also add more components, like:
+You can also add more components, like:
+
 ```r
 + <COORDINATE SYSTEM>
 + <FACET>
@@ -277,13 +281,13 @@ At the plot level, you can also add more components, like:
 
 ## Grammar of Graphics: Code Template with the mpg Dataset
 
-Now, fill in this code template using the `mpg` data and plot it:
+Now, we fill in this code template using the `mpg` data and plot it:
 
 :::{.columns}
 ::: {.column width="50%"}
 
 ```r
-# code template
+# code template (previosu slide)
 
 ggplot(data = <DATA>) +
   <GEOM>(
@@ -322,6 +326,11 @@ Variables description:
 * `class` (chr): categories of cars (e.g., compact, midsize, SUV, etc.)
 
 facet_wrap(~ class, nrow = 1) 
+
+stat = "identity" mean use the y-values exactly as they are in my data. Do not calculate them for me.
+This often comes up with bar plots with geom_bar
+
+By default, geom_bar() counts rows:
 
 Note: this template is a helpful starting point, but it's not the only way to write the code. We will explore alternatives later today. For now, let's demonstrate how to apply this template using the `mpg` cars dataset...
 -->
@@ -425,17 +434,17 @@ We have seen the code template with these main components:
 - Key components of layers: **data, geom, mapping, stat, position**
 - Other plot-components: **coordinate system, facets, scales, themes**
 
-In the next slides, we’ll take a closer look at a few *selected aspects* of these components. For the big picture, see today’s readings.
+In the next slides, we’ll take a closer look at a few *selected aspects* of these components. For more details, see today’s readings.
 
 ::: callout-important
-💡  The following slides focus on the most common aspects you’ll encounter as a beginner — not an exhaustive list. Start from these. You’ll pick up the rest as you experiment and build more plots.
+💡  The following slides focus on the most common aspects you’ll encounter as you get started with ggplot2. Start from these. You’ll pick up the rest as you experiment and build more plots.
 :::
 
 ---
 
 ## Pick the Right Geometric Object
 
-**Geom:** is the type of plot you make, which depends on your variables type. Most common:
+**Geom:** the type of plot you make, which depends on your variables type. Most common (memorize them!):
 
 - `geom_point()` →  scatterplot
 - `geom_line()` →  line chart
@@ -483,7 +492,7 @@ ggplot(data = mpg) +
 
 ## Statistical Transformations
 
-**Stat:** transforms your data for plotting and depends on which geometric object you are using (e.g. type of graph). 
+**Stat:** transforms your data for plotting and depends on which geometric object you are using (e.g., the type of graph). 
 
 Scatterplot: `geom_point()` uses `stat = "identity"` by default
 ```r
@@ -764,5 +773,3 @@ The `gapminder` dataset:
 ## To print these slides as pdf
 
 Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
-
-:::

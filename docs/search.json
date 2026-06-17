@@ -690,14 +690,14 @@
     "href": "lectures/03-home.html",
     "title": "Lecture 3: Intro to ggplot2; Coding Style",
     "section": "",
-    "text": "Date: June 17, 2026\nTopics: Intro to ggplot2, Coding Style in R\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 17, 2026\nTopics: Intro to ggplot2, Coding Style in R\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/ggplot2\")"
   },
   {
     "objectID": "lectures/03-home.html#info-and-materials",
     "href": "lectures/03-home.html#info-and-materials",
     "title": "Lecture 3: Intro to ggplot2; Coding Style",
     "section": "",
-    "text": "Date: June 17, 2026\nTopics: Intro to ggplot2, Coding Style in R\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 17, 2026\nTopics: Intro to ggplot2, Coding Style in R\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/ggplot2\")"
   },
   {
     "objectID": "lectures/03-home.html#learning-objectives",
@@ -1251,5 +1251,208 @@
     "title": "Computing for the Social Sciences: Lecture 2",
     "section": "What is Version Control?",
     "text": "What is Version Control?\nVersion Control\nVersion Control is the general name for a system that records every change you make to your files in a folder and lets you restore previous versions of your files in that folder.\nThe folder lives on your computer (e.g., Workbench for this course) and becomes your local repository or local repo.\n\nGit\nGit is a specific software for version control: Git will record and save changes you make to the files in that folder.\nEvery change is saved by Git with a time stamp, author info, and a message (that you type in); you can restore them, if needed."
+  },
+  {
+    "objectID": "lectures/03-slides.html#why-we-visualize-data",
+    "href": "lectures/03-slides.html#why-we-visualize-data",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Why We Visualize Data",
+    "text": "Why We Visualize Data\n\nGraphs help us identify patterns, relationships, and outliers\n\nGraphs make data more understandable and shareable\n\nGraphs allow us to explore questions more quickly (initial viz → data/models → more viz)"
+  },
+  {
+    "objectID": "lectures/03-slides.html#example-mpg-dataset",
+    "href": "lectures/03-slides.html#example-mpg-dataset",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Example: mpg dataset",
+    "text": "Example: mpg dataset\nImagine you are a data analyst for a car company, and have information on ~200 cars.\nPaste this code into your R Console and run it to see the mpg dataset (use most recent R version):\nlibrary(ggplot2)\ndata(mpg)\nhead(mpg)\n\nReminders:\n\nThe code library(ggplot2) loads the ggplot2 package in our current R session:\nA package is a collection of code, data, and documentation\nWhat’s the difference between loading and installing a package?\nCheck your R version on Workbench: use the most recent for data viz!\n\nCheck your working directory on Workbench (“Project:”) and switch project as needed"
+  },
+  {
+    "objectID": "lectures/03-slides.html#example-mpg-dataset-1",
+    "href": "lectures/03-slides.html#example-mpg-dataset-1",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Example: mpg dataset",
+    "text": "Example: mpg dataset\n\n\n# A tibble: 6 × 11\n  manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class \n  &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; \n1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…\n2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…\n3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…\n4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…\n5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…\n6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…"
+  },
+  {
+    "objectID": "lectures/03-slides.html#key-dataset-terms",
+    "href": "lectures/03-slides.html#key-dataset-terms",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Key Dataset Terms",
+    "text": "Key Dataset Terms\nThe mpg dataset has 234 observations (cars, in rows) and 11 variables (properties, in columns)\n\nObservation = each row = one car\n\nVariable = each column = a car property\n\nhwy: fuel efficiency on the highway, in miles per gallon\n\ndispl: engine size or displacement, in liters\n\nclass: type of car (compact, SUV…)\netc."
+  },
+  {
+    "objectID": "lectures/03-slides.html#our-first-plot",
+    "href": "lectures/03-slides.html#our-first-plot",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Our First Plot",
+    "text": "Our First Plot\nImagine you pick two pieces of information from this car dataset:\n\nvariable 1 hwy: car fuel efficiency on the highway (in miles per gallon)\nvariable 2 displ: car engine size or displacement (in liters)\n\nYou want to visually inspect their relationship, so you start by creating a simple scatter plot…"
+  },
+  {
+    "objectID": "lectures/03-slides.html#our-first-plot-1",
+    "href": "lectures/03-slides.html#our-first-plot-1",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Our First Plot",
+    "text": "Our First Plot\n\n\nWhat’s on the x-axis and y -axis? What does each dot in this scatterplot represent?\nYou want a car with high fuel efficiency on the highway and a large engine size. Can you find one?\nDo larger engines tend to have higher or lower highway fuel efficiency?"
+  },
+  {
+    "objectID": "lectures/03-slides.html#code-for-our-first-plot-with-ggplot2",
+    "href": "lectures/03-slides.html#code-for-our-first-plot-with-ggplot2",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Code for our First Plot with ggplot2",
+    "text": "Code for our First Plot with ggplot2\nlibrary(ggplot2)\ndata(mpg)\n\nggplot(data = mpg) +\n  geom_point(aes(x = displ, y = hwy)) +\n  labs(title = \"Car Fuel Efficiency on the Highway vs. Car Engine Size\",\n       x = \"Car Engine Size in Liters\",\n       y = \"Car Highway MPG (Fuel Efficiency)\")\nWhat does this code do?"
+  },
+  {
+    "objectID": "lectures/03-slides.html#practice",
+    "href": "lectures/03-slides.html#practice",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nBelow is a slight variation of the previous code:\nlibrary(ggplot2)\ndata(mpg)\n\nggplot(mpg) +\n  geom_point(aes(x = displ, y = hwy, color = class))\n\nRun the code, and answer these questions:\n\nWhat do you see? How is this new plot different from the previous one?\nWhat do the first two lines of code do?\nWhat does aes() do? And color = class?\nReplace the aesthetic color with shape and re-run the code. What happens?\nCheck the documentation for geom_point() to learn about its aesthetics"
+  },
+  {
+    "objectID": "lectures/03-slides.html#grammar-of-graphics-and-ggplot2",
+    "href": "lectures/03-slides.html#grammar-of-graphics-and-ggplot2",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Grammar of Graphics and ggplot2",
+    "text": "Grammar of Graphics and ggplot2\nWe’ve been creating our first plots intuitively. Let’s formally key concepts:\n\nggplot2 is the name of the main R package for data visualization https://ggplot2.tidyverse.org/\nIt’s part of the tidyverse, a collection of packages for data analysis: https://www.tidyverse.org/\nCreated by Hadley Wickham, who also wrote our course textbook\nBuilt using the theory called the Grammar of Graphics a system for creating layered plots (see this paper for an intro to it)"
+  },
+  {
+    "objectID": "lectures/03-slides.html#grammar-and-grammar-of-graphics",
+    "href": "lectures/03-slides.html#grammar-and-grammar-of-graphics",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Grammar and “Grammar of Graphics”",
+    "text": "Grammar and “Grammar of Graphics”\n\nA grammar is a set of rules for combining words (syntax, morphology, etc.), that helps us structure a language and communicate clearly.\n\nApplied to R and ggplot2…\n\nA Grammar of Graphics is a set of rules for combining visual elements (data, aesthetics, geometries, etc.) that helps us structure plots and communicate clearly."
+  },
+  {
+    "objectID": "lectures/03-slides.html#main-components-of-the-grammar-of-graphics",
+    "href": "lectures/03-slides.html#main-components-of-the-grammar-of-graphics",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Main Components of the Grammar of Graphics",
+    "text": "Main Components of the Grammar of Graphics\nIn ggplot2, a plot is made up of layers, and each layer combines several components that describe what to draw and how to draw it.\nThe five main components are:\n\nDATA: the dataset you are using (e.g. mpg data)\nGEOM: the type of plot (e.g., points, bars, lines)\nMAPPING: maps variables to aesthetics like x, y, color, etc.\nSTAT: whether the data should be transformed (e.g., counted) or not (e.g., identity)\nPOSITION: how things are arranged on the plot (e.g., stacked or jittered)"
+  },
+  {
+    "objectID": "lectures/03-slides.html#grammar-of-graphics-code-template",
+    "href": "lectures/03-slides.html#grammar-of-graphics-code-template",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Grammar of Graphics: Code Template",
+    "text": "Grammar of Graphics: Code Template\nLet’s look at how these five main components show up in ggplot2 code:\n# code template\n\nggplot(data = &lt;DATA&gt;) +\n  &lt;GEOM&gt;(\n    mapping = aes(&lt;MAPPING&gt;),\n    stat = &lt;STAT&gt;,\n    position = &lt;POSITION&gt;\n  )\nYou can also add more components, like:\n+ &lt;COORDINATE SYSTEM&gt;\n+ &lt;FACET&gt;"
+  },
+  {
+    "objectID": "lectures/03-slides.html#grammar-of-graphics-code-template-with-the-mpg-dataset",
+    "href": "lectures/03-slides.html#grammar-of-graphics-code-template-with-the-mpg-dataset",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Grammar of Graphics: Code Template with the mpg Dataset",
+    "text": "Grammar of Graphics: Code Template with the mpg Dataset\nNow, we fill in this code template using the mpg data and plot it:\n\n\n# code template (previosu slide)\n\nggplot(data = &lt;DATA&gt;) +\n  &lt;GEOM&gt;(\n    mapping = aes(&lt;MAPPING&gt;),\n    stat = &lt;STAT&gt;,\n    position = &lt;POSITION&gt;\n  ) +\n  &lt;COORDINATE&gt; +\n  &lt;FACET&gt;\n\n# code template filled with mpg data\n\nggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\",\n    position = \"identity\"\n  ) +\n  coord_cartesian() +\n  facet_wrap(vars(class), nrow = 1)"
+  },
+  {
+    "objectID": "lectures/03-slides.html#make-and-store-a-plot",
+    "href": "lectures/03-slides.html#make-and-store-a-plot",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Make and Store a Plot",
+    "text": "Make and Store a Plot\nThis code makes a plot and displays it, but does not store it\n ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\",\n    position = \"identity\"\n  ) +\n  coord_cartesian() +\n  facet_wrap(vars(class), nrow = 1)\nThis code makes a plot and stores it to an object that I named fuel_plot\nfuel_plot &lt;- ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\",\n    position = \"identity\"\n  ) +\n  coord_cartesian() +\n  facet_wrap(vars(class), nrow = 1)\nfuel_plot"
+  },
+  {
+    "objectID": "lectures/03-slides.html#on-coding-style-in-r",
+    "href": "lectures/03-slides.html#on-coding-style-in-r",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "On Coding Style in R",
+    "text": "On Coding Style in R\nBefore continuing with the Grammar of Graphics, let’s take a moment to focus on coding style (parenthesis, signs, indentation, variable names, etc.)\n\n💻 Practice\nHere’s the code from the previous slide. This time, read it focusing on its style. What do you notice?\nfuel_plot &lt;- ggplot(data = mpg) +\n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\",\n    position = \"identity\"\n  ) +\n  coord_cartesian() +\n  facet_wrap(vars(class), nrow = 1)\nfuel_plot"
+  },
+  {
+    "objectID": "lectures/03-slides.html#coding-style-checklist",
+    "href": "lectures/03-slides.html#coding-style-checklist",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Coding Style Checklist",
+    "text": "Coding Style Checklist\n\nUse &lt;- to assign values to variables\nUse = to assign values to function arguments\nUse descriptive, meaningful variable names (snake_case, lowercase)\nAdd spaces around operators (e.g., +, -, &lt;-) for readability\nAvoid spaces inside parentheses or brackets\nClose every opened parenthesis\nBreak long lines and use indentation\nUse comments, but do not abuse them"
+  },
+  {
+    "objectID": "lectures/03-slides.html#coding-style-resources",
+    "href": "lectures/03-slides.html#coding-style-resources",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Coding Style Resources",
+    "text": "Coding Style Resources\nResources to guide you:\n\nR for Data Science, Chapter 4\nThe tidyverse style guide\nWhy does coding style matter?"
+  },
+  {
+    "objectID": "lectures/03-slides.html#back-to-the-grammar-of-graphics",
+    "href": "lectures/03-slides.html#back-to-the-grammar-of-graphics",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Back to the Grammar of Graphics",
+    "text": "Back to the Grammar of Graphics\nWe have seen the code template with these main components:\n\nKey components of layers: data, geom, mapping, stat, position\nOther plot-components: coordinate system, facets, scales, themes\n\nIn the next slides, we’ll take a closer look at a few selected aspects of these components. For more details, see today’s readings.\n\n\n\n\n\n\nImportant\n\n\n💡 The following slides focus on the most common aspects you’ll encounter as you get started with ggplot2. Start from these. You’ll pick up the rest as you experiment and build more plots."
+  },
+  {
+    "objectID": "lectures/03-slides.html#pick-the-right-geometric-object",
+    "href": "lectures/03-slides.html#pick-the-right-geometric-object",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Pick the Right Geometric Object",
+    "text": "Pick the Right Geometric Object\nGeom: the type of plot you make, which depends on your variables type. Most common (memorize them!):\n\ngeom_point() → scatterplot\ngeom_line() → line chart\ngeom_bar() → bar chart\ngeom_histogram() → histogram\ngeom_boxplot() → boxplot\n\nEach geom accepts certain aesthetics. How do you know which ones? Read the documentation, for example geom_point reference"
+  },
+  {
+    "objectID": "lectures/03-slides.html#statistical-transformations",
+    "href": "lectures/03-slides.html#statistical-transformations",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Statistical Transformations",
+    "text": "Statistical Transformations\nStat: transforms your data for plotting and depends on which geometric object you are using (e.g., the type of graph).\nScatterplot: geom_point() uses stat = \"identity\" by default\nggplot(data = mpg) + \n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class))\nBar chart: geom_bar() uses stat = \"count\" by default\nggplot(data = mpg) + \n  geom_bar(mapping = aes(x = class)) # implicitly counts"
+  },
+  {
+    "objectID": "lectures/03-slides.html#mapping-aesthetics",
+    "href": "lectures/03-slides.html#mapping-aesthetics",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Mapping Aesthetics",
+    "text": "Mapping Aesthetics\nAes: defines how data variables are mapped to visual properties of a plot (e.g., x, y, color, size, shape).\nggplot(data = mpg) +\n  geom_point(mapping = aes(x = displ, y = hwy, color = class))\nEspecially when using color small mistakes can make the difference, let’s practice…"
+  },
+  {
+    "objectID": "lectures/03-slides.html#adding-titles-labels-and-captions",
+    "href": "lectures/03-slides.html#adding-titles-labels-and-captions",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Adding Titles, Labels, and Captions",
+    "text": "Adding Titles, Labels, and Captions\nTo add text elements to your plot, use labs():\nggplot(data = mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point() +\n  labs(\n    title = \"Car Fuel Efficiency on the Highway vs. Car Engine Size\",\n    subtitle = \"Colored by car type\",\n    x = \"Car Engine Size in Liters\",\n    y = \"Car Highway MPG (Fuel Efficiency)\",\n    caption = \"Data: mpg dataset (n = 234)\")\nFor more control, combine it with theme():\nggplot(data = mpg, aes(x = displ, y = hwy, color = class)) +\n  geom_point() +\n  labs(\n    title = \"Car Fuel Efficiency on the Highway vs. Car Engine Size\",\n    subtitle = \"Colored by car type\",\n    x = \"Car Engine Size in Liters\",\n    y = \"Car Highway MPG (Fuel Efficiency)\",\n    caption = \"Data: mpg dataset (n = 234)\") +\n  theme(plot.title = element_text(face = \"bold\", size = 18))"
+  },
+  {
+    "objectID": "lectures/03-slides.html#layers-can-overlap",
+    "href": "lectures/03-slides.html#layers-can-overlap",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Layers can Overlap",
+    "text": "Layers can Overlap\nLayers create the visual elements on a plot. Each layer adds something new to the visualization and can inherit components as shown below:\nggplot(data = mpg) + \n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\", \n    position = \"identity\"\n  ) + \n  geom_smooth(\n    mapping = aes(x = displ, y = hwy),\n    method = \"lm\"\n  )"
+  },
+  {
+    "objectID": "lectures/03-slides.html#example-1",
+    "href": "lectures/03-slides.html#example-1",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Example 1",
+    "text": "Example 1\nExample from the previous slide\nLong version:\nggplot(data = mpg) + \n  geom_point(\n    mapping = aes(x = displ, y = hwy, color = class),\n    stat = \"identity\", \n    position = \"identity\") + \n  geom_smooth(\n    mapping = aes(x = displ, y = hwy),\n    method = \"lm\")\n\nShort version:\nggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + \n  geom_point(aes(color = class)) + \n  geom_smooth(method = \"lm\")"
+  },
+  {
+    "objectID": "lectures/03-slides.html#example-2",
+    "href": "lectures/03-slides.html#example-2",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Example 2",
+    "text": "Example 2\nScatterplot between cars’ engine size (displ) and highway fuel efficiency (hwy)\nLong version:\nggplot() +\n  layer(\n    data = mpg, \n    mapping = aes(x = displ, y = hwy),\n    geom = \"point\", \n    stat = \"identity\", \n    position = \"identity\"\n  ) +\n  coord_cartesian()\n\nShort version:\nggplot(data = mpg, aes(x = displ, y = hwy)) +\n  geom_point()"
+  },
+  {
+    "objectID": "lectures/03-slides.html#quick-review",
+    "href": "lectures/03-slides.html#quick-review",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Quick Review",
+    "text": "Quick Review\n\nWhat does geom_point() do?\nWhat does stat = \"identity\" mean?\nWhen would you use facet_wrap()?\nWhat’s wrong with aes(color = \"blue\")?\nWhat does it mean that layers can inherit elements?\n\nTry answering these without peeking at the slides!"
+  },
+  {
+    "objectID": "lectures/03-slides.html#practice-gapminder",
+    "href": "lectures/03-slides.html#practice-gapminder",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "💻 Practice: Gapminder",
+    "text": "💻 Practice: Gapminder\nDownload today’s in-class materials from the website!\nThe gapminder dataset:\n\nData on various socio-economic indicators (e.g., life expectancy, GDP per capita, and population) for countries around the world over multiple years (1957-2008)\nhttps://cran.r-project.org/web/packages/gapminder/readme/README.html\n\nhttps://www.gapminder.org/"
+  },
+  {
+    "objectID": "lectures/03-slides.html#recap-what-we-learned-today",
+    "href": "lectures/03-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nCore components of the Grammar of Graphics\nGenerate simple graphs with ggplot2\nUse the Grammar of Graphics template and simplify it with defaults\nR Coding Style Best Practices"
+  },
+  {
+    "objectID": "lectures/03-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/03-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 3",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   }
 ]
