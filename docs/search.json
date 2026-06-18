@@ -1607,7 +1607,7 @@
     "href": "lectures/04-slides.html#recap-what-we-learned-today",
     "title": "Computing for the Social Sciences: Lecture 4",
     "section": "Recap: What We Learned Today",
-    "text": "Recap: What We Learned Today\n\nPick graph types that match the types of variables in your data\nRead and interpret visualizations\nPracice using ggplot and dplyr"
+    "text": "Recap: What We Learned Today\n\nPick graph types that match the types of variables in your data\nPractice using ggplot2\nRead and interpret visualizations"
   },
   {
     "objectID": "lectures/04-slides.html#to-print-these-slides-as-pdf",

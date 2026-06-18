@@ -470,8 +470,8 @@ Follow this approach to move from quick exploration to polished, communicative p
 ## Recap: What We Learned Today
 
 - Pick graph types that match the types of variables in your data
+- Practice using `ggplot2`
 - Read and interpret visualizations
-- Pracice using `ggplot` and `dplyr`
 
 ---
 
