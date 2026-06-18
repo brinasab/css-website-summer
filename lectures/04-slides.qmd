@@ -25,17 +25,73 @@ format:
 3. In-class Practice  
 :::
 
----
-
-### Slides are in progress and will be updated before class.
-
-::: {.content-hidden}
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on `r format(Sys.Date(), '%B %d, %Y')`. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
 
 <!--
+### Slides are in progress and will be updated before class.
+
 ```{r, echo=FALSE, results='asis'}
 cat('<span style="font-size: 0.8em; color: #666;">These slides were last updated on', format(Sys.Date(), '%B %d, %Y'), '</span>')
 ```
+
 -->
+
+---
+
+## Accessing Poll Everywhere Questions for Participation credits
+
+You have three ways to access Poll Everywhere questions:
+
+1. **Use the Zoom chat link**
+   I will post each individual question link in the Zoom chat during class.
+
+2. **Use the main Poll Everywhere link**
+   You can also go directly to: **https://pollev.com/nardin**
+   This link will not change. Once I activate a specific question, it should appear there automatically.
+
+3. **Use the weekly participation document after class**
+   I will add all Poll Everywhere links to the [weekly participation document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) (also linked under “Before Class” for each lecture). If you miss something, you can still submit your answers before the next class
+
+On Poll Everywhere: make sure your responses are submitted under your name, not as “Guest.”
+
+---
+
+## Our Goal Today: Graphs for Exploratory Data Analysis
+
+::: {.columns}
+
+::: {.column width="33%"}
+### 1. See patterns
+
+Use graphs to explore *variation* and *co-variation* in the data.
+:::
+
+<!-- Learn how to visualize the distribution of a single variable (`cost` to attend a school) and of two or more variables (`cost` and `admrate`).
+-->
+
+::: {.column width="33%"}
+### 2. Choose the graph
+
+Match the plot to the variable type:
+
+- categorical (e.g. school type)
+- continuous (e.g., cost of attending a school)
+- both
+:::
+
+::: {.column width="33%"}
+### 3. Explain the graph
+
+Describe what you see:
+
+- trends
+- differences
+- outliers
+:::
+
+:::
 
 ---
 
@@ -89,24 +145,41 @@ glimpse(scorecard)
 
 ---
 
-## The scorecard dataset: making a plot
+## The scorecard dataset: from question to graph
 
-Given this question **"Which type of college has the highest average SAT score?"**, and the task of answering it by creating a `ggplot2` graph. 
+**Question: "Which type of college has the highest average SAT score?"**
 
-How would you approach this task?
+When you see a question like this, use this method:
 
-- identify the variable(s) you need
-- find them in the data
-- identify the variable(s) types (mainly: categorical or continuous)
-- use this info to select the most appropriate plot 
-- think about the code
-- generate the graph and interpret it
+1. identify the variable(s) you need
+1. find them in the data
+1. check the variable(s) types (categorical or continuous?)
+1. use this info to choose the most appropriate plot 
+1. *only at this step* write the code for the plot 
+1. interpret the graph
+
+Let's try this out! 
+
+<!--
+- identify the variable(s) you need: college type and SAT scores
+
+- find them in the data: type glimpse(scorecard) to find out we need type and satavg 
+
+- check the variable(s) types: type is fct (categorical) and satavg is dbl (continuous, wit decimals)
+
+- use this info to choose the most appropriate plot: boxplot or faceted histogram 
+
+- *only at this step* write the code 
+
+- interpret the graph
+
+-->
 
 ---
 
 ## Which type of college has the highest average SAT score?
 
-#### Answer using a boxplot
+#### Option 1: answer using a boxplot
 
 ```r
 ggplot(data = scorecard, mapping = aes(x = type, y = satavg)) +
@@ -125,7 +198,7 @@ ggplot(data = scorecard, mapping = aes(x = type, y = satavg)) +
 
 ## Which type of college has the highest average SAT score?
 
-#### Answer using a faceded histogram
+#### Option 2: answer using a faceded histogram
 
 ```r
 ggplot(data = scorecard, mapping = aes(x = satavg)) +
@@ -145,9 +218,15 @@ ggplot(data = scorecard, mapping = aes(x = satavg)) +
 
 ## Which type of college has the highest average SAT score?
 
-Let's interpret these graphs:
+Now it's time to interpret these graphs:
 
-#### What do these graphs reveal about average SAT scores by type of college? Do they reveal the same info? 
+::: {.callout-note title="Interpreting plots is as important as writing code"}
+
+What do these two graphs we gerated reveal about average SAT scores by type of college? 
+
+Do they tell the same story? Kind of... 
+
+:::
 
 ---
 
@@ -155,20 +234,24 @@ Let's interpret these graphs:
 
 ::: {.callout-note title="Interpreting plots is as important as writing code"}
 
-**General interpretation:**
+**Main takeaway:**
 
-Private nonprofit schools have the highest average SAT scores, closely followed by public schools, and then private for-profit schools.
+Both plots show that private nonprofit schools tend to have the highest SAT scores, followed by public schools. Private for-profit schools tend to have lower SAT scores.
 
-**More refined interpretation:**
+**But...**
 
-The histogram shows that each school type has a different number of colleges: private for-profit schools are much fewer than the others. This difference in sample size isn’t visible in the boxplot, but it matters: averages from small groups may not reflect the broader category. Seeing the full distribution gives a more complete picture.
+The *boxplot* makes it easier to compare the typical SAT score and the spread of SAT scores across school types.
+
+The *faceted histogram* shows the full distribution within each school type. It also makes it easier to see that some groups have many more schools than others. This difference in sample size isn’t visible in the boxplot but is important.
+
+**Why use both?**
+
+The two graphs tell a similar story, but they highlight different things. The boxplot is better for comparing groups quickly. The histogram gives a fuller picture of the distribution and reminds us that group size matters.
 
 :::
 
----
-
+<!--
 ## Asking More Questions with dplyr (sneak peek for next week!)
-
 
 How many schools are in **each type?** 
 ```r
@@ -189,7 +272,6 @@ scorecard %>% filter(name == "University of Chicago")
 
 Etc. 
 
-<!--
 The code below creates a summary dataset with `type` of university as rows and the `satavg` mean as a column:
 
 ```{r}
@@ -237,9 +319,9 @@ scorecard %>%
 
 ### 1. Which kind of variation do I want to represent?
 
-- **Within single variable**
-- **Among Two variables**
-- **Among Three variables**
+- **Univariate:** within one single variable
+- **Bivariate:** among two variables
+- **Multivariate:** among three variables
 
 <br>
 
@@ -317,33 +399,35 @@ scorecard %>%
 
 ## 💻 Practice: Make Graphs!
 
-On the next slide, there are a list of graphs to create. 
+On the next slide, you will see list of graphs to create. 
 
-In small groups, use the scorecard dataset to create the most appropriate graph for each one.
+Use the scorecard dataset to choose and create the most appropriate graph for each prompt.
 
-- **Before plotting:** Think about the variable types and the kind of variation you want to represent. (Use the reference slides as a guide.)
+- **BEFORE plotting:** Identify the variables you need. Then ask: are they categorical, continuous, or both? Use these slides as a guide!
 
-- **While plotting:** Keep it simple, as you would for an initial Exploratory Data Analysis (no need to add labels, legends, color, etc.). Look up the documentation for each graph: you do not need to remember all the code!
+- **WHILE plotting:** Keep the graph simple. Focus on the basic code; do not add labels, colors, or other customizations yet. Use the documentation when needed: learning how to look things up is an important skill.
 
-- **After plotting:** Stare at your graph... look for patterns, outliers, or any notable features, and interpret what graph tells about the data.
+- **AFTER plotting:** Stare at your graph... What patterns, differences, outliers, or surprises do you notice? What does the graph tell us about the data?
 
 ---
 
 ## 💻 Practice
 
-<!-- For regular CSS class, add some dpyr commands in task and also bring back TASK 4  Display the total number of schools in the U.S. by school type (n = 3) and by state (n = 54). *Note: the initial graph you generate here may lack visual appeal. Focus on identifying potential improvements rather than implementing them for now.* -->
+<!-- For regular CSS class, add some dpyr commands in task and also bring back TASK 4  Display the total number of schools in the U.S. by school type (n = 3) and by state (n = 54). -->
 
-Share your solutions here <https://codeshare.io/5z6PkW>
+Write the code needed to generate the graphs below using what we have learned so far. The graphs will not look polished yet, and that is okay. The most important goal is to understand the basic structure of the code. Customization can always be added later.
 
-Graph 1: Plot the annual total cost of school attendance across the U.S. (`cost`)
+Share your solutions to each graph here <https://codeshare.io/5z6PkW>
 
-Graph 2: Plot the total number of schools in the U.S. by school type (`type`)
+**Graph 1:** Plot the total number of schools in the U.S. by school type (`type`)
 
-Graph 3: Plot the annual total cost and net cost of attendance to schools in the U.S. (`cost`, `netcost`)
+**Graph 2:** Plot the annual total cost of school attendance across the U.S. (`cost`)
 
-Graph 4: Plot the annual total cost of attendance by school type (`cost`, `type`)
+**Graph 3:** Plot the annual total cost and net cost of attendance to schools in the U.S. (`cost`, `netcost`)
 
-Graph 5: Plot the annual total cost of attendance and net cost of attendance by school type (`cost`, `netcost`, `type`)
+**Graph 4:** Plot the annual total cost of attendance by school type (`cost`, `type`)
+
+**Graph 5:** Plot the annual total cost of attendance and net cost of attendance by school type (`cost`, `netcost`, `type`)
 
 ---
 

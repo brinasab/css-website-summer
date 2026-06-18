@@ -31,6 +31,14 @@ knitr::opts_chunk$set(echo = FALSE)
 - Interpret what a graph shows about the data
 
 
+## Before Class
+
+- Make sure your setup works as expected (see Lecture 1 and 2). If not, reach out for help
+- Review Lecture 3 materials to familiarize with `ggplot2`
+- If you have not already done so, complete Lecture 3 participation questions. You can find them in the Lecture 3 Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 4).
+- HW1 is open and due next Monday (remember no late submissions allowed). Access it from the [Assignments page](https://brinasab.github.io/css-website-summer/hw/). 
+
+
 ## Readings
 
 - ["Chapter 10 Exploratory Data Analysis"](https://r4ds.hadley.nz/EDA.html) from "R for Data Science" 2nd Edition

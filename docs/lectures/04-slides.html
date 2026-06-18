@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -155,10 +221,465 @@ Sabrina Nardin, Summer 2026
 </li>
 </ol>
 </div>
-</section>
-<section class="slide level2 center">
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on June 17, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<!--
+### Slides are in progress and will be updated before class.
 
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+<span style="font-size: 0.8em; color: #666;">These slides were last updated on June 17, 2026 </span>
+
+-->
+</section>
+<section id="accessing-poll-everywhere-questions-for-participation-credits" class="slide level2 center">
+<h2>Accessing Poll Everywhere Questions for Participation credits</h2>
+<p>You have three ways to access Poll Everywhere questions:</p>
+<ol type="1">
+<li><p><strong>Use the Zoom chat link</strong> I will post each individual question link in the Zoom chat during class.</p></li>
+<li><p><strong>Use the main Poll Everywhere link</strong> You can also go directly to: <strong>https://pollev.com/nardin</strong> This link will not change. Once I activate a specific question, it should appear there automatically.</p></li>
+<li><p><strong>Use the weekly participation document after class</strong> I will add all Poll Everywhere links to the <a href="https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing">weekly participation document</a> (also linked under “Before Class” for each lecture). If you miss something, you can still submit your answers before the next class</p></li>
+</ol>
+<p>On Poll Everywhere: make sure your responses are submitted under your name, not as “Guest.”</p>
+</section>
+<section id="our-goal-today-graphs-for-exploratory-data-analysis" class="slide level2 center">
+<h2>Our Goal Today: Graphs for Exploratory Data Analysis</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<h3 id="see-patterns">1. See patterns</h3>
+<p>Use graphs to explore <em>variation</em> and <em>co-variation</em> in the data.</p>
+</div><!-- Learn how to visualize the distribution of a single variable (`cost` to attend a school) and of two or more variables (`cost` and `admrate`).
+--><div class="column" style="width:33%;">
+<h3 id="choose-the-graph">2. Choose the graph</h3>
+<p>Match the plot to the variable type:</p>
+<ul>
+<li>categorical (e.g.&nbsp;school type)</li>
+<li>continuous (e.g., cost of attending a school)</li>
+<li>both</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<h3 id="explain-the-graph">3. Explain the graph</h3>
+<p>Describe what you see:</p>
+<ul>
+<li>trends</li>
+<li>differences</li>
+<li>outliers</li>
+</ul>
+</div></div>
+</section>
+<section id="our-goal-today-using-graphs-for-exploratory-data-analysis" class="slide level2 center">
+<h2>Our Goal Today: Using Graphs for Exploratory Data Analysis</h2>
+<ul>
+<li><p><strong>Display variation and co-variation:</strong> Learn how to visualize the distribution of a single variable (<code>cost</code> to attend a school) and of two or more variables (<code>cost</code> and <code>admrate</code>).</p></li>
+<li><p><strong>Match graph type to variable type:</strong> Choose appropriate graph types depending on whether variables are categorical (school <code>type</code>), continuous (<code>cost</code>), or both.</p></li>
+<li><p><strong>Interpret the graph:</strong> Practice describing what a graph reveals, such as trends, group differences, and outliers.</p></li>
+</ul>
+</section></section>
+<section>
+<section id="the-scorecard-dataset" class="title-slide slide level1 center middle">
+<h1>1. The scorecard Dataset</h1>
+
+</section>
+<section id="about-the-scorecard-dataset" class="slide level2 center">
+<h2>About the scorecard dataset</h2>
+<p>The U.S. Department of Education collects annual statistics on colleges and universities in the United States: <a href="https://collegescorecard.ed.gov/data" class="uri">https://collegescorecard.ed.gov/data</a></p>
+<p>This dataset includes variables such as:</p>
+<ul>
+<li><code>name</code>: name of the school</li>
+<li><code>state</code>: state where the school is located<br>
+</li>
+<li><code>type</code>: school type (e.g., Public, Private Nonprofit, Private For-Profit)<br>
+</li>
+<li><code>admrate</code>: admission rate (e.g., 0.91 = 91%)<br>
+</li>
+<li><code>cost</code>: published cost of attendance<br>
+</li>
+<li><code>netcost</code>: net cost of attendance after financial aid<br>
+</li>
+<li><code>satavg</code>: average SAT score of admitted students<br>
+</li>
+<li><code>...</code>: many additional variables</li>
+</ul>
+<p>We’ll focus on a subset of this data from the 2018–2019 academic year.</p>
+</section>
+<section id="about-the-scorecard-dataset-1" class="slide level2 center">
+<h2>About the scorecard dataset</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(rcis)</span>
+<span id="cb1-3"><a></a><span class="fu">data</span>(scorecard)</span>
+<span id="cb1-4"><a></a><span class="fu">glimpse</span>(scorecard)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,732
+Columns: 14
+$ unitid    &lt;dbl&gt; 100654, 100663, 100706, 100724, 100751, 100830, 100858, 1009…
+$ name      &lt;chr&gt; "Alabama A &amp; M University", "University of Alabama at Birmin…
+$ state     &lt;chr&gt; "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", "AL", …
+$ type      &lt;fct&gt; "Public", "Public", "Public", "Public", "Public", "Public", …
+$ admrate   &lt;dbl&gt; 0.9175, 0.7366, 0.8257, 0.9690, 0.8268, 0.9044, 0.8067, 0.53…
+$ satavg    &lt;dbl&gt; 939, 1234, 1319, 946, 1261, 1082, 1300, 1230, 1066, NA, 1076…
+$ cost      &lt;dbl&gt; 23053, 24495, 23917, 21866, 29872, 19849, 31590, 32095, 3431…
+$ netcost   &lt;dbl&gt; 14990, 16953, 15860, 13650, 22597, 13987, 24104, 22107, 2071…
+$ avgfacsal &lt;dbl&gt; 69381, 99441, 87192, 64989, 92619, 71343, 96642, 56646, 5400…
+$ pctpell   &lt;dbl&gt; 0.7019, 0.3512, 0.2536, 0.7627, 0.1772, 0.4644, 0.1455, 0.23…
+$ comprate  &lt;dbl&gt; 0.2974, 0.6340, 0.5768, 0.3276, 0.7110, 0.3401, 0.7911, 0.69…
+$ firstgen  &lt;dbl&gt; 0.3658281, 0.3412237, 0.3101322, 0.3434343, 0.2257127, 0.381…
+$ debt      &lt;dbl&gt; 15250, 15085, 14000, 17500, 17671, 12000, 17500, 16000, 1425…
+$ locale    &lt;fct&gt; City, City, City, City, City, City, City, City, City, Suburb…</code></pre>
+</div>
+</div>
+</section>
+<section id="the-scorecard-dataset-from-question-to-graph" class="slide level2 center">
+<h2>The scorecard dataset: from question to graph</h2>
+<p><strong>Question: “Which type of college has the highest average SAT score?”</strong></p>
+<p>When you see a question like this, use this method:</p>
+<ol type="1">
+<li>identify the variable(s) you need</li>
+<li>find them in the data</li>
+<li>check the variable(s) types (categorical or continuous?)</li>
+<li>use this info to choose the most appropriate plot</li>
+<li><em>only at this step</em> write the code for the plot</li>
+<li>interpret the graph</li>
+</ol>
+<p>Let’s try this out!</p>
+<!--
+- identify the variable(s) you need: college type and SAT scores
+
+- find them in the data: type glimpse(scorecard) to find out we need type and satavg 
+
+- check the variable(s) types: type is fct (categorical) and satavg is dbl (continuous, wit decimals)
+
+- use this info to choose the most appropriate plot: boxplot or faceted histogram 
+
+- *only at this step* write the code 
+
+- interpret the graph
+
+-->
+</section>
+<section id="which-type-of-college-has-the-highest-average-sat-score" class="slide level2 center">
+<h2>Which type of college has the highest average SAT score?</h2>
+<h4 id="option-1-answer-using-a-boxplot">Option 1: answer using a boxplot</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> scorecard, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type, <span class="at">y =</span> satavg)) <span class="sc">+</span></span>
+<span id="cb3-2"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="04-slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><h4 id="whats-a-boxplot"><a href="https://datatab.net/tutorial/box-plot" target="_blank">What’s a boxplot?</a></h4>
+</section>
+<section id="which-type-of-college-has-the-highest-average-sat-score-1" class="slide level2 center">
+<h2>Which type of college has the highest average SAT score?</h2>
+<h4 id="option-2-answer-using-a-faceded-histogram">Option 2: answer using a faceded histogram</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> scorecard, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> satavg)) <span class="sc">+</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb4-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="at">facets =</span> <span class="fu">vars</span>(type))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<img data-src="04-slides_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"><h4 id="whats-a-histogram"><a href="https://datatab.net/tutorial/charts" target="_blank">What’s a histogram?</a></h4>
+</section>
+<section id="which-type-of-college-has-the-highest-average-sat-score-2" class="slide level2 center">
+<h2>Which type of college has the highest average SAT score?</h2>
+<p>Now it’s time to interpret these graphs:</p>
+<div title="Interpreting plots is as important as writing code">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Interpreting plots is as important as writing code</strong></p>
+</div>
+<div class="callout-content">
+<p>What do these two graphs we gerated reveal about average SAT scores by type of college?</p>
+<p>Do they tell the same story? Kind of…</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="which-type-of-college-has-the-highest-average-sat-score-3" class="slide level2 center">
+<h2>Which type of college has the highest average SAT score?</h2>
+<div title="Interpreting plots is as important as writing code">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Interpreting plots is as important as writing code</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Main takeaway:</strong></p>
+<p>Both plots show that private nonprofit schools tend to have the highest SAT scores, followed by public schools. Private for-profit schools tend to have lower SAT scores.</p>
+<p><strong>But…</strong></p>
+<p>The <em>boxplot</em> makes it easier to compare the typical SAT score and the spread of SAT scores across school types.</p>
+<p>The <em>faceted histogram</em> shows the full distribution within each school type. It also makes it easier to see that some groups have many more schools than others. This difference in sample size isn’t visible in the boxplot but is important.</p>
+<p><strong>Why use both?</strong></p>
+<p>The two graphs tell a similar story, but they highlight different things. The boxplot is better for comparing groups quickly. The histogram gives a fuller picture of the distribution and reminds us that group size matters.</p>
+</div>
+</div>
+</div>
+</div>
+<!--
+## Asking More Questions with dplyr (sneak peek for next week!)
+
+How many schools are in **each type?** 
+```r
+scorecard %>% count(type) 
+```
+
+Which schools are categorized as **private for-profit?**
+```r
+scorecard %>%
+  filter(type == "Private, for-profit") %>%
+  select(name, state, type, satavg, cost)
+```
+
+What about the **University of Chicago?**
+```r
+scorecard %>% filter(name == "University of Chicago")
+```
+
+Etc. 
+
+The code below creates a summary dataset with `type` of university as rows and the `satavg` mean as a column:
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 3 × 2
+  type                mean_type
+  <fct>                   <dbl>
+1 Public                  1126.
+2 Private, nonprofit      1152.
+3 Private, for-profit     1121.
+```
+
+
+:::
+:::
+
+-->
+</section>
+<section id="once-you-draw-a-plot-ask-yourself" class="slide level2 center">
+<h2>Once you draw a plot, ask yourself:</h2>
+<div class="columns">
+<div class="column">
+<h4 id="substantive-questions">Substantive questions:</h4>
+<ul>
+<li>What does this graph tell?</li>
+<li>Are there patterns? Outliers?</li>
+<li>What hypotheses can I generate?</li>
+<li>What else I want to know?</li>
+<li>Should I dig deeper with <code>dplyr</code>?</li>
+<li>Should I wrangle my data and plot again?</li>
+<li>Etc.</li>
+</ul>
+</div><div class="column">
+<h4 id="stylistic-questions">Stylistic questions:</h4>
+<ul>
+<li>Is the chosen plot appropriate (matches variable type)?</li>
+<li>Is the plot clear and easy to understand?</li>
+<li>Is it too busy or too simple?</li>
+<li>Could it be improved? (titles, labels, colors, etc.)</li>
+<li>Can I make an additional plot with these variables?</li>
+<li>Etc.</li>
+</ul>
+</div></div>
+</section></section>
+<section>
+<section id="match-graph-types-to-variable-types" class="title-slide slide level1 center middle">
+<h1>2. Match Graph Types to Variable Types</h1>
+
+</section>
+<section id="types-of-visualizations-and-best-graph-types" class="slide level2 center">
+<h2>Types of Visualizations and Best Graph Types</h2>
+<h3 id="which-kind-of-variation-do-i-want-to-represent">1. Which kind of variation do I want to represent?</h3>
+<ul>
+<li><strong>Univariate:</strong> within one single variable</li>
+<li><strong>Bivariate:</strong> among two variables</li>
+<li><strong>Multivariate:</strong> among three variables</li>
+</ul>
+<p><br></p>
+<h3 id="what-types-are-my-variables">2. What type(s) are my variables?</h3>
+<ul>
+<li><strong>Continuous</strong> (e.g., <code>satavg</code> average SAT score, <code>cost</code> published cost)</li>
+<li><strong>Categorical</strong> (e.g., <code>type</code> school type, <code>state</code> U.S. state)</li>
+<li>Other types (often treated as categorical): ordinal, nominal, binary</li>
+</ul>
+<p><br></p>
+<p><em>Tip: Ask yourself these two questions before jumping into the code!</em></p>
+</section>
+<section id="univariate-one-variable" class="slide level2 center">
+<h2>Univariate (One Variable)</h2>
+<p><strong>To show how values vary within a single variable</strong>:</p>
+<ul>
+<li>One <strong>continuous</strong> variable → <strong>Histogram</strong></li>
+<li>One <strong>categorical</strong> variable → <strong>Bar Chart</strong></li>
+</ul>
+<p><br></p>
+<div class="left">
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 52%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>What Gets Counted</th>
+<th>When to Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>geom_histogram()</code></td>
+<td>How many values fall into each numeric bin</td>
+<td>When <code>x</code> is continuous</td>
+</tr>
+<tr class="even">
+<td><code>geom_bar()</code></td>
+<td>How many observations are in each category</td>
+<td>When <code>x</code> is categorical</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</section>
+<section id="bivariate-two-variables" class="slide level2 center">
+<h2>Bivariate (Two Variables)</h2>
+<p><strong>To show how two variables co-vary</strong>:</p>
+<ul>
+<li>Two <strong>continuous</strong> variables → <strong>Scatterplot</strong></li>
+<li>One <strong>categorical</strong> + one <strong>continuous</strong> → <strong>Box Plot</strong></li>
+<li>Two <strong>categorical</strong> variables → <strong>Grouped or Stacked Bar Chart</strong></li>
+</ul>
+</section>
+<section id="multivariate-three-variables" class="slide level2 center">
+<h2>Multivariate (Three Variables)</h2>
+<p><strong>To compare patterns across subgroups</strong>:</p>
+<ul>
+<li>One <strong>categorical</strong> + two <strong>continuous</strong> → <strong>Faceted Scatterplot</strong></li>
+<li>Two <strong>categorical</strong> + one <strong>continuous</strong> → <strong>Grouped Box Plot</strong></li>
+</ul>
+</section>
+<section id="main-graph-types-and-when-to-use-them" class="slide level2 center">
+<h2>Main Graph Types and When to Use Them</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Type of Graph</th>
+<th><code>ggplot2</code> Function</th>
+<th>Input Variables</th>
+<th>Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Histogram</td>
+<td><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></td>
+<td>One <strong>continuous</strong> (e.g., age, income)</td>
+<td>Show the <strong>distribution</strong> of values</td>
+</tr>
+<tr class="even">
+<td>Bar Chart</td>
+<td><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar()</a></td>
+<td>One <strong>categorical</strong> (e.g., region, gender)</td>
+<td>Show <strong>frequencies</strong> or <strong>counts</strong> of categories</td>
+</tr>
+<tr class="odd">
+<td>Stacked Bar Chart</td>
+<td><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar() + fill</a></td>
+<td>Two <strong>categorical</strong> variables (e.g., region by gender)</td>
+<td>Compare <strong>parts of a whole</strong> across categories</td>
+</tr>
+<tr class="even">
+<td>Scatterplot</td>
+<td><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></td>
+<td>Two <strong>continuous</strong> variables (e.g., height vs.&nbsp;weight, price vs.&nbsp;rating)</td>
+<td>Show <strong>relationship</strong> or <strong>correlation</strong></td>
+</tr>
+<tr class="odd">
+<td>Box Plot</td>
+<td><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></td>
+<td>One <strong>continuous</strong> + one <strong>categorical</strong> (e.g., income by gender)</td>
+<td>Compare <strong>distributions</strong>, spot <strong>outliers</strong></td>
+</tr>
+<tr class="even">
+<td>Faceted Scatterplot</td>
+<td><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap() + geom_point()</a></td>
+<td>Two <strong>continuous</strong> + one <strong>categorical</strong> (e.g., by country or year)</td>
+<td>Compare <strong>patterns across groups</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>These are the most common combinations. There are more options as you explore deeper!</em></p>
+</section></section>
+<section>
+<section id="practice" class="title-slide slide level1 center middle">
+<h1>3. Practice</h1>
+
+</section>
+<section id="practice-make-graphs" class="slide level2 center">
+<h2>💻 Practice: Make Graphs!</h2>
+<p>On the next slide, you will see list of graphs to create.</p>
+<p>Use the scorecard dataset to choose and create the most appropriate graph for each prompt.</p>
+<ul>
+<li><p><strong>BEFORE plotting:</strong> Identify the variables you need. Then ask: are they categorical, continuous, or both? Use these slides as a guide!</p></li>
+<li><p><strong>WHILE plotting:</strong> Keep the graph simple. Focus on the basic code; do not add labels, colors, or other customizations yet. Use the documentation when needed: learning how to look things up is an important skill.</p></li>
+<li><p><strong>AFTER plotting:</strong> Stare at your graph… What patterns, differences, outliers, or surprises do you notice? What does the graph tell us about the data?</p></li>
+</ul>
+</section>
+<section id="practice-1" class="slide level2 center">
+<h2>💻 Practice</h2>
+<!-- For regular CSS class, add some dpyr commands in task and also bring back TASK 4  Display the total number of schools in the U.S. by school type (n = 3) and by state (n = 54). -->
+<p>Write the code needed to generate the graphs below using what we have learned so far. The graphs will not look polished yet, and that is okay. The most important goal is to understand the basic structure of the code. Customization can always be added later.</p>
+<p>Share your solutions to each graph here <a href="https://codeshare.io/5z6PkW" class="uri">https://codeshare.io/5z6PkW</a></p>
+<p><strong>Graph 1:</strong> Plot the total number of schools in the U.S. by school type (<code>type</code>)</p>
+<p><strong>Graph 2:</strong> Plot the annual total cost of school attendance across the U.S. (<code>cost</code>)</p>
+<p><strong>Graph 3:</strong> Plot the annual total cost and net cost of attendance to schools in the U.S. (<code>cost</code>, <code>netcost</code>)</p>
+<p><strong>Graph 4:</strong> Plot the annual total cost of attendance by school type (<code>cost</code>, <code>type</code>)</p>
+<p><strong>Graph 5:</strong> Plot the annual total cost of attendance and net cost of attendance by school type (<code>cost</code>, <code>netcost</code>, <code>type</code>)</p>
+</section>
+<section id="download-today-materials" class="slide level2 center">
+<h2>💻 Download Today Materials</h2>
+<p>Download today’s class materials from our website for:</p>
+<ul>
+<li>further insights into these tasks</li>
+<li>additional practice exercises (optional)</li>
+</ul>
+</section>
+<section id="takeaways-and-tips" class="slide level2 center">
+<h2>Takeaways and Tips</h2>
+<p>Follow this approach to move from quick exploration to polished, communicative plots:</p>
+<div class="columns">
+<div class="column">
+<h4 id="when-exploring-your-data">When exploring your data:</h4>
+<ul>
+<li>Start with simple and plots to get a sense of the distribution and relationships</li>
+<li>Focus on interpretation first, not style</li>
+<li>Ask questions: What stands out? Are there outliers, trends, or surprises? What else do you want to know?</li>
+</ul>
+</div><div class="column">
+<h4 id="once-you-settle-on-a-plot">Once you settle on a plot:</h4>
+<ul>
+<li>Refine the code to improve readability and aesthetics</li>
+<li>Add styling elements (labels, scales, legends, and themes. etc. as needed)</li>
+<li>Use polished plots for assignments, reports, or presentations</li>
+</ul>
+</div></div>
+<p><em>Typically, researchers create many exploratory plots and only a few make it to the final report.</em></p>
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>Pick graph types that match the types of variables in your data</li>
+<li>Read and interpret visualizations</li>
+<li>Pracice using <code>ggplot</code> and <code>dplyr</code></li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
+<p>:::</p>
 
 
 </section></section>
