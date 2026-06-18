@@ -30,12 +30,13 @@ Today, we will review the following topics and answer any questions you may have
 
 - Quiz 1 answers
 - Week 1 course content
-- Homework Assigment 1
+- Homework Assignment 1
 
 
 ## Before Class
 
-- Complete Quiz 1 from [Canvas](https://canvas.uchicago.edu/courses/72552). You have unlimited attempts; due 1h before class and no late submissions accepted
+- If you have not already done so, complete Lecture 4 participation questions. You can find them in the Lecture 4 Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 5).
+- HW1 is open and due today (11:59 PM Chicago time, remember no late submissions allowed). Access it from the [Assignments page](https://brinasab.github.io/css-website-summer/hw/). 
+- Complete Quiz 1 from [Canvas](https://canvas.uchicago.edu/courses/72552). You have unlimited attempts; due 1h before today's class and no late submissions accepted
 - Bring any questions you have about the Week 1 materials!
-
 

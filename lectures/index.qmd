@@ -43,8 +43,8 @@ lec <- tibble::tribble(
   "2026-06-17", "Lecture 3: Intro to `ggplot2`; Coding Style",                           "03-home.qmd",
   "2026-06-18", "Lecture 4: Graphs for Data Analysis with `ggplot2`",                    "04-home.qmd",
 
-  "2026-06-22", "Lecture 5: Week 1 Review",                                              "",
-  "2026-06-22", "Quiz 1 Due (before class)",                                             "05-home.qmd",
+  "2026-06-22", "Lecture 5: Week 1 Review",                                              "05-home.qmd",
+  "2026-06-22", "Quiz 1 Due (before class)",                                             "",
   "2026-06-22", "Homework 1 Due",                                                        "",
   "2026-06-23", "Lecture 6: Intro to `dplyr`; Pipes",                                    "06-home.qmd",
   "2026-06-24", "Lecture 7: Intermediate `dplyr`; Renaming & Recoding Variables",        "07-home.qmd",
