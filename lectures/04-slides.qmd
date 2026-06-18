@@ -479,4 +479,3 @@ Follow this approach to move from quick exploration to polished, communicative p
 
 Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 
-:::
