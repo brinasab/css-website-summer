@@ -1,0 +1,166 @@
+---
+title: "Computing for the Social Sciences: Lecture 5"
+subtitle: "Topics: Week 1 Review"
+author: "Sabrina Nardin, Summer 2026"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    incremental: false
+    css: ../style/styles.css
+    code-overflow: wrap
+    highlight-style: github
+    ratio: 16:9
+    chalkboard: true
+    toc: false
+    center: true
+---
+
+# Agenda {.center}
+
+::: {.agenda-list}
+1. Quiz 1 & HW 1 Q&A
+2. Breakout activity: Week 1 review teams
+3. Individual Q&A
+:::
+
+
+## Today's plan
+
+Today is a **review and troubleshooting class**.
+
+We will use Week 1 materials, your quiz responses, and group discussion to make the Week 1 tools feel more connected and manageable before we move on.
+
+Warm-up: Poll Everywhere [L05 Q2] What is one thing from Week 1 that still feels fuzzy? 
+
+<!--
+Examples:
+
+- Git vs GitHub
+- Commit / push / pull
+- Workbench
+- R Markdown chunks
+- Knitting/rendering
+- `ggplot()`
+- `aes()`
+- Choosing graph types
+-->
+
+
+# 1. Quiz 1 and HW1 Review
+
+<!--
+I looked at the quiz responses, and today we will go over it. 
+I’m not reviewing the quiz to catch mistakes. I’m using it as a diagnostic tool: 
+if many people missed something, that means it is worth reviewing together. 
+-->
+
+
+# 2. Breakout activity: Week 1 review teams
+
+---
+
+## Breakout rooms
+
+You will work in **breakout groups of 3-4 participants**. Each breakout room will focus on **one Week 1 lecture**. We will repeat lectures across rooms, so more than one group may review the same lecture.
+
+| Breakout room | Focus |
+|---|---|
+| Room 1 | Lecture 1: Course Logistics; Intro to R & Markdown |
+| Room 2 | Lecture 2: Git & GitHub with RStudio |
+| Room 3 | Lecture 3: Intro to `ggplot2`; Coding Style |
+| Room 4 | Lecture 4: Graphs for Data Analysis with `ggplot2` |
+| Room 5 | Lecture 1: Course Logistics; Intro to R & Markdown |
+| Room 6 | Lecture 2: Git & GitHub with RStudio |
+| Room 7 | Lecture 3: Intro to `ggplot2`; Coding Style |
+| Room 8 | Lecture 4: Graphs for Data Analysis with `ggplot2` |
+
+If we have additional rooms, we will keep repeating this pattern.
+
+---
+
+## What to do in your group
+
+Open [this Google Doc](https://docs.google.com/document/d/1cULyt1-FjGhsKF-dVg_Dy1bAJ1M6j_0LOhQudqfi2Do/edit?usp=sharing) and follow the instructions there.
+
+You will have about **10-15 minutes** in breakout rooms.
+
+By the end, your group should have a completed row in the Google Doc. When we return, each group will give a short teach-back.
+
+
+
+# 3. Individual Q&A
+
+Stay in this Zoom room after class if you have more questions or would like individual help!
+
+
+<!--
+
+### Lecture 1: Course Logistics; Intro to R & Markdown
+
+Possible topics:
+
+- How this course is organized
+- R as a programming language
+- Markdown vs R Markdown
+- Code chunks vs regular text
+- Knitting/rendering
+- File names and file organization
+- Asking questions and using course materials
+
+Possible common confusion:
+
+- Writing code in regular text instead of inside a code chunk
+- Thinking that knitting/rendering is the same as saving
+
+### Lecture 2: Git & GitHub with RStudio
+
+Possible topics:
+
+- Git vs GitHub
+- Local repository vs remote repository
+- Commit, push, and pull
+- Workbench/RStudio projects
+- Homework assignment workflow
+- Why we use version control
+
+Possible common confusion:
+
+- Git is not the same thing as GitHub
+- Commit saves a version locally; push sends it to GitHub
+
+### Lecture 3: Intro to `ggplot2`; Coding Style
+
+Possible topics:
+
+- `ggplot()` and layers
+- `geom_point()`
+- Mapping variables with `aes()`
+- Setting vs mapping aesthetics
+- The `+` sign in ggplot code
+- Coding style and readable code
+
+Possible common confusion:
+
+- `aes(color = class)` maps color to a variable
+- `color = "blue"` sets all points to blue
+- `aes(color = "blue")` is usually not what we want
+
+### Lecture 4: Graphs for Data Analysis with `ggplot2`
+
+Possible topics:
+
+- Exploratory data analysis
+- Choosing graphs based on variable types
+- Bar charts, histograms, boxplots, scatterplots
+- Looking for patterns, outliers, and differences
+- Keeping first plots simple
+- Interpreting graphs carefully
+
+Possible common confusion:
+
+- Bar charts are usually for categorical variables
+- Histograms are usually for continuous variables
+- Scatterplots show relationships between two continuous variables
+
+-->
