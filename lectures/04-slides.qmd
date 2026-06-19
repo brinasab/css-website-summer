@@ -26,7 +26,7 @@ format:
 :::
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on `r format(Sys.Date(), '%B %d, %Y')`. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on `r format(Sys.Date(), '%B %d, %Y')` (removed repetead slides; minor updates to activity questions). Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
 <!--
@@ -92,17 +92,6 @@ Describe what you see:
 :::
 
 :::
-
----
-
-## Our Goal Today: Using Graphs for Exploratory Data Analysis
-
-- **Display variation and co-variation:** Learn how to visualize the distribution of a single variable (`cost` to attend a school) and of two or more variables (`cost` and `admrate`).
-
-- **Match graph type to variable type:** Choose appropriate graph types depending on whether variables are categorical (school `type`), continuous (`cost`), or both.
-
-- **Interpret the graph:** Practice describing what a graph reveals, such as trends, group differences, and outliers.
-
 
 # 1. The scorecard Dataset {.slide .center .middle}
 
@@ -419,9 +408,9 @@ Write the code needed to generate the graphs below using what we have learned so
 
 Share your solutions to each graph here <https://codeshare.io/5z6PkW>
 
-**Graph 1:** Plot the total number of schools in the U.S. by school type (`type`)
+**Graph 1:** Plot the total number of schools by school type (`type`)
 
-**Graph 2:** Plot the annual total cost of school attendance across the U.S. (`cost`)
+**Graph 2:** Plot the annual total cost of school attendance (`cost`)
 
 **Graph 3:** Plot the annual total cost and net cost of attendance to schools in the U.S. (`cost`, `netcost`)
 
