@@ -27,11 +27,11 @@ format:
 
 ## Today's plan
 
-Today is a **review and troubleshooting class**.
+Today is a review class!
 
 We will use Week 1 materials, your quiz responses, and group discussion to make the Week 1 tools feel more connected and manageable before we move on.
 
-Warm-up: Poll Everywhere [L05 Q2] What is one thing from Week 1 that still feels fuzzy? 
+Warm-up Poll Everywhere: "What is one thing from Week 1 that still feels fuzzy?" 
 
 <!--
 Examples:
@@ -49,6 +49,7 @@ Examples:
 
 # 1. Quiz 1 and HW1 Review
 
+Let's go over Quiz 1 responses (from Canvas) and HW1 questions
 <!--
 I looked at the quiz responses, and today we will go over it. 
 I’m not reviewing the quiz to catch mistakes. I’m using it as a diagnostic tool: 
@@ -56,7 +57,8 @@ if many people missed something, that means it is worth reviewing together.
 -->
 
 
-# 2. Breakout activity: Week 1 review teams
+# 2. Breakout Activity: Week 1 Review
+
 
 ---
 
@@ -83,7 +85,7 @@ If we have additional rooms, we will keep repeating this pattern.
 
 Open [this Google Doc](https://docs.google.com/document/d/1cULyt1-FjGhsKF-dVg_Dy1bAJ1M6j_0LOhQudqfi2Do/edit?usp=sharing) and follow the instructions there.
 
-You will have about **10-15 minutes** in breakout rooms.
+You will have about **12-15 minutes** in breakout rooms.
 
 By the end, your group should have a completed row in the Google Doc. When we return, each group will give a short teach-back.
 

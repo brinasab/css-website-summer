@@ -22,14 +22,8 @@ format:
 1. Programming as Problem-Solving
 2. Operators
 3. Main `dplyr` functions
-4. Pipes (`%>%` or `|>`)
+4. Pipes written as `%>%` or `|>`
 :::
-
----
-
-### Slides are in progress and will be updated before class.
-
-::: {.content-hidden}
 
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
@@ -103,6 +97,7 @@ library(palmerpenguins)
 
 # explore data
 bind_rows(head(penguins, 5), tail(penguins, 5))
+# glimpse(penguins)
 ```
 
 <br>
@@ -111,6 +106,7 @@ bind_rows(head(penguins, 5), tail(penguins, 5))
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
+
 bind_rows(head(penguins, 5), tail(penguins, 5))
 ```
 :::
@@ -121,14 +117,13 @@ bind_rows(head(penguins, 5), tail(penguins, 5))
 
 ## Scatterplot: Flipper Length vs. Body Mass
 
-Start from what we know: **scatter plot with two numeric variables**
+Start from what we know... Make a **scatter plot with two numeric variables**
 
-Copy and paste this code in R (use R version 4.5.1):
+Copy and paste this code in R:
 
 ```r
 library(tidyverse)
 library(palmerpenguins)
-head(penguins)
 
 ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(color = species)) +
@@ -150,7 +145,7 @@ Interpret: **How does the relationship between flipper length and body mass diff
 
 Try a different plot: **bar plot with counts for one categorical variable** 
 
-Copy and paste this code in R (use R version 4.5.1):
+Copy and paste this code in R:
 
 ```r
 ggplot(data = penguins, aes(x = species)) +
@@ -198,27 +193,42 @@ ggsave("penguins-species-count.png", plot = species_count)
 **Note:** `ggsave()` saves the *last displayed plot* by default. You can also assign it to a variable and pass it explicitly.
 -->
 
-
 ---
 
 ## Data Manipulation with dplyr
 
-Today we introduce a second package from the tidyverse: **[dplyr](https://dplyr.tidyverse.org/) for data manipulation.**
+We generated these plots with ggplot2 but today we introduce a second key package from the tidyverse: **[dplyr](https://dplyr.tidyverse.org/) for data manipulation.**
 
-- Designed for **manipulating data frames and tibbles**  
+- Designed to **clean, organize, and summarize data**
 
-- Includes **intuitive, clearly named functions** for common tasks like:  
-  - `filter()` to keep rows based on conditions, 
-  - `summarize()` to calculate summaries (e.g., averages), 
-  - `group_by` for grouped operations, 
-  -  and many more functions
+- Makes it easier to prepare data for **better graphs**
 
-*Let's work together through two questions that require us to use these three dplyr functions!*
+- Includes several intuitive functions for common data tasks. We learn the most important ones this week.
 
 
 <!-- TEACHING NOTES:
 1. Ask what is data manipulation: process of changing or reshaping data to make it easier to understand, analyze, or visualize. Selecting columns or variables, filtering rows, summarizing data, etc. 
 2. Code the rest of the slides together, do not give time to students to think first, just show the logic by doing it and ask them to follow along -->
+
+---
+
+## Key dplyr functions we learn today
+
+
+| Task | Function |
+|---|---|
+| Keep or reorder columns | `select()` |
+| Keep rows based on conditions | `filter()` |
+| Calculate summaries by sub-groups | `group_by()` |
+| Calculate summaries, such as averages | `summarize()` |
+
+
+::: {.callout-tip}
+## Programming as problem solving
+
+We will work through two questions together that demonstrates what I mean by "programming as problem solving" and require us to use these dplyr functions!
+:::
+
 
 ---
 
@@ -232,17 +242,18 @@ head(penguins, 4)
 ```
 :::
 
-::: {.callout-note title="From Question to Code: Practice Translating Logic into R"}
+::: {.callout-note title="From Question to Code: Practice translating plain-language data questions into dplyr code."}
 
 **Q1:** What is the average body mass of an Adelie penguin?  
 
 **Q2:** What is the average body mass for each penguin species (we have three species)?
+:::
 
+<!--
 **Our Goals**  
 1. Identify the logical/conceptual steps you’d give R to answer these questions  
 2. Translate those steps into clear, executable code
-:::
-
+-->
 
 ---
 
@@ -258,13 +269,13 @@ head(penguins, 4)
 
 <br>
 
-**Instructions to answer the first question:**
+**Steps to answer Q1:**
 
-1. Identify the data and variables you need
-1. Filter only the observations (rows) where `species` is Adelie
-1. Calculate the mean of the variable `body_mass_g` for this group
+1. Identify the data and variables we need → `penguins`, `species`, `body_mass_g` 
+1. Keep only the observations (rows) where species is Adelie → `filter()` 
+1. Calculate the average body mass for this group → `summarize()` + `mean()`
 
-**Open R: let's turn to these steps into code using `dplyr`**
+**Open R: let's turn to these steps into code**
 
 </br>
 
@@ -294,13 +305,13 @@ head(penguins, 4)
 
 <br>
 
-**Instructions to answer the second question:**
+**Steps to answer the Q2:**
 
-1. Identify the data and variables you need
-1. Group the observations (rows) by `species`
-1. Calculate the mean of the variable `body_mass_g` for all groups
+1. Identify the data and variables we need → `penguins`, `species`, `body_mass_g` 
+1. Group the observations (rows) by species → `group_by()`
+1. Calculate the average body mass for all groups → `summarize()` + `mean()`
 
-**Open R: let's turn to these steps into code using `dplyr`**
+**Open R: let's turn to these steps into code**
 
 </br>
 
@@ -319,13 +330,16 @@ summarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
 
 ## Assignment Operators
 
-```
+```r
 x <- 5                # assign 5 to an object
 mean(x = c(1, 2, 3))  # use = to specify an argument inside a function
 ```
 
 <br>
 <fragment>
+
+Examples: 
+
 ```r
 penguins_species <- group_by(penguins, species)
 summarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
@@ -333,9 +347,59 @@ summarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
 </fragment>
 </br>
 
+
+::: {.tip}
+Use `<-` when you create an object, and use `=` when you name an argument inside a function
+:::
+
+---
+
+##  Logical Operators 
+
+::: {.left-table}
+
+R logical operators return `TRUE` or `FALSE`:
+
+| Code | Meaning |
+|:---|:---|
+| `x == y` | is `x` equal to `y`? |
+| `x != y` | is `x` different from `y`? |
+| `x < y` | is `x` less than `y`? |
+| `x <= y` | is `x` less than or equal to `y`? |
+| `y > x` | is `y` greater than `x`? |
+| `y >= x` | is `y` greater than or equal to `x`? |
+
+:::
+
+
+::: {.cell .fragment}
+```r
+adelie <- filter(penguins, species == "Adelie")
+```
+:::
+
+
+::: {.cell .fragment}
+```r
+no_adelie <- filter(penguins, species != "Adelie")
+```
+:::
+
+
+::: {.cell .fragment}
+```r
+heavy <- filter(penguins, body_mass_g > 4500)
+```
+:::
+
+
+
+
 ---
 
 ##  Logical Operators
+
+R logical operators return `TRUE` or `FALSE`
 
 ```
 x == x    # is equal (TRUE or FALSE)
@@ -374,14 +438,20 @@ heavy <- filter(penguins, body_mass_g > 4500)
 
 ---
 
-
 ## More Logical Operators
 
-```
-x | y     # EITHER x OR y has to be true
-x & y     # BOTH x AND y have to be true
-x &! y    # x AND NOT y (x is true AND y is false)
-```
+::: {.left-table}
+
+Logical operators combine multiple `TRUE`/`FALSE` conditions:
+
+| Code | Meaning |
+|:---|:---|
+| `x \| y` | Either `x` OR `y` has to be `TRUE`. |
+| `x & y` | Both `x` AND `y` have to be `TRUE`. |
+| `x &! y` | `x` is `TRUE` AND `y` is `FALSE`. |
+
+:::
+
 
 <br>
 
@@ -410,8 +480,7 @@ filter(penguins, species == "Adelie" & species == "Chinstrap")
 
 ```
 x | y     # EITHER x OR y has to be true
-x & y     # BOTH x AND y have to be true
-x &! y    # x AND NOT y (x is true AND y is false)
+
 ```
 <br>
 
@@ -454,6 +523,7 @@ Share your code here: <https://codeshare.io/5zlNLE>
 
 # 3. Main dplyr functions {.slide .center .middle}
 
+<!--
 ## Recap of What Learned so Far
 
 Conceptually, any data transformation using `dplyr` requires us to:
@@ -466,32 +536,31 @@ Conceptually, any data transformation using `dplyr` requires us to:
 
 1. Save the result, usually into a new object (a new dataframe)
 
----
+-->
 
 ## Key dplyr Functions
 
-The package `dplyr` has many functions, but you don’t need to memorize them all!
+The package `dplyr` has many functions. These functions:
+   - Act *like verbs* in a sentence: they express *what to do* with the data
+   - Can be *combined* to perform complex operations but you don’t need to memorize them all!
 
 **Our Goals: Memorize the key functions + Look up the rest  [dplyr.tidyverse.org](https://dplyr.tidyverse.org/)**
 
 ---
 
-## Key dplyr Functions
+## Key dplyr Functions for Today
 
 | `function()`   | What it does                                                       |
 |----------------|---------------------------------------------------------------------|
-| `filter()`     | Selects rows based on values in one or more columns                |
-| `arrange()`    | Reorders rows based on the values in specified columns             |
 | `select()`     | Chooses specific columns by name                                   |
-| `rename()`     | Renames one or more columns                                        |
-| `mutate()`     | Adds new columns or modifies existing ones                         |
+| `filter()`     | Selects rows based on values in one or more columns                |
 | `group_by()`   | Groups the data by one or more variables for grouped operations    |
 | `summarize()`  | Reduces each group to a single row using summary statistics (e.g., mean, sum, n) |
 
 <br>
 
 ::: {.callout-tip title="Tip for Remembering These Functions"}
-Each **row is an observation** (e.g., one penguin) and each **column is a variable** (e.g., species, body mass). Some functions works on rows like `filter()`, `arrange()` others on columns like `select()`, `mutate()`.
+Each **row is an observation** (e.g., one penguin) and each **column is a variable** (e.g., species, body mass). Some functions works on rows like `filter()` others on columns like `select()`.
 :::
 
 </br>
@@ -507,6 +576,16 @@ Each **row is an observation** (e.g., one penguin) and each **column is a variab
 `group_by()`  | Changes the unit of analysis from the complete data frame to individual groups
 `summarize()` | Collapses the data frame to a smaller number of rows to summarize the larger data (commonly used with mean, sum, n-distinct, etc.)
 
+| `function()`   | What it does                                                       |
+|----------------|---------------------------------------------------------------------|
+| `filter()`     | Selects rows based on values in one or more columns                |
+| `arrange()`    | Reorders rows based on the values in specified columns             |
+| `select()`     | Chooses specific columns by name                                   |
+| `rename()`     | Renames one or more columns                                        |
+| `mutate()`     | Adds new columns or modifies existing ones                         |
+| `group_by()`   | Groups the data by one or more variables for grouped operations    |
+| `summarize()`  | Reduces each group to a single row using summary statistics (e.g., mean, sum, n) |
+
 ---
 
 ## American vs. British English
@@ -516,6 +595,12 @@ Each **row is an observation** (e.g., one penguin) and each **column is a variab
 * US `color()` = UK `colour()`
 
 -->
+
+---
+
+## 
+
+Say some more on select, filter, summarize, then transition (next slides) to group_by
 
 ---
 
@@ -671,7 +756,7 @@ avg_bill_high <- filter(by_species, mean(bill_length_mm, na.rm = TRUE) > 40)
 result <- summarize(avg_bill_high, 
                     avg_mass = mean(body_mass_g, na.rm = TRUE))
 ```
----
+<!--
 
 ## In-class Code: Debugging Note
 
@@ -684,6 +769,7 @@ Therefore:
 - Use `group_by()` with **variable names** only (columns), not filtering conditions  
 - Use `filter()` with **logical conditions** to keep only selected rows
 
+-->
 
 # 4. Pipes %>% or |> {.slide .center .middle}
 
@@ -1261,6 +1347,4 @@ Download today's in-class exercises from the website for more practice on operat
 ## To print these slides as pdf
 
 Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
-
-:::
 
