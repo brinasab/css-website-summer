@@ -27,11 +27,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-- Review and expand your ability to manipulate data with `dplyr` functions (“verbs”)
+- Review and expand your ability to manipulate data with `dplyr` by learning new  “verbs”
 - Rename and recode variables using `rename()`, `recode()`, and `case_when()`
 - Identify syntactic vs. non-syntactic variable names and handle them correctly
 
 
+
+## Before Class
+
+- If you have not already done so, complete Lecture 6 participation questions. You can find them in the Lecture 6 Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 7). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
+- Check the reading below and come with questions!
+
+
 ## Readings
 
-- ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from Lecture 4)*
+- ["Chapter 3 Data Transformation"](https://r4ds.hadley.nz/data-transform) from "R for Data Science" 2nd Edition *(This is the same Chapter from the previus lecture!)*

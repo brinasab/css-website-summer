@@ -284,14 +284,14 @@
     "href": "lectures/07-home.html#learning-objectives",
     "title": "Lecture 7: Intermediate dplyr; Renaming & Recoding Variables",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nReview and expand your ability to manipulate data with dplyr functions (“verbs”)\nRename and recode variables using rename(), recode(), and case_when()\nIdentify syntactic vs. non-syntactic variable names and handle them correctly"
+    "text": "Learning Objectives\n\nReview and expand your ability to manipulate data with dplyr by learning new “verbs”\nRename and recode variables using rename(), recode(), and case_when()\nIdentify syntactic vs. non-syntactic variable names and handle them correctly"
   },
   {
     "objectID": "lectures/07-home.html#readings",
     "href": "lectures/07-home.html#readings",
     "title": "Lecture 7: Intermediate dplyr; Renaming & Recoding Variables",
     "section": "Readings",
-    "text": "Readings\n\n“Chapter 3 Data Transformation” from “R for Data Science” 2nd Edition (This is the same Chapter from Lecture 4)"
+    "text": "Readings\n\n“Chapter 3 Data Transformation” from “R for Data Science” 2nd Edition (This is the same Chapter from the previus lecture!)"
   },
   {
     "objectID": "lectures/06-home.html",
@@ -312,7 +312,7 @@
     "href": "lectures/06-home.html#learning-objectives",
     "title": "Lecture 6: Intro to dplyr; Pipes",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nApproach coding tasks as problem-solving by thinking through the steps before writing code\nUnderstand R logical operators\nApply key dplyr functions such as filter(), group_by(), and summarize()\nChain commands using the pipe |&gt; and recognize mistakes to avoid"
+    "text": "Learning Objectives\n\nApproach coding tasks as problem-solving by thinking through the steps before writing code\nUnderstand R logical operators\nUse the following dplyr functions: select(), filter(), group_by(), and summarize()\nChain commands using the pipe |&gt; and recognize mistakes to avoid"
   },
   {
     "objectID": "lectures/06-home.html#readings",
@@ -746,14 +746,14 @@
     "href": "lectures/05-home.html",
     "title": "Lecture 5: Week 1 Review",
     "section": "",
-    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session"
+    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session\n\n\n\n\npicture"
   },
   {
     "objectID": "lectures/05-home.html#info-and-materials",
     "href": "lectures/05-home.html#info-and-materials",
     "title": "Lecture 5: Week 1 Review",
     "section": "",
-    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session"
+    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session\n\n\n\n\npicture"
   },
   {
     "objectID": "lectures/05-home.html#learning-objectives",
@@ -2035,5 +2035,26 @@
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "",
     "text": "Say some more on select, filter, summarize, then transition (next slides) to group_by"
+  },
+  {
+    "objectID": "lectures/06-home.html#before-class",
+    "href": "lectures/06-home.html#before-class",
+    "title": "Lecture 6: Intro to dplyr; Pipes",
+    "section": "Before Class",
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 5 participation questions. You can find them in the Lecture 5 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 6). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the reading below and come with questions!"
+  },
+  {
+    "objectID": "lectures/07-home.html#before-class",
+    "href": "lectures/07-home.html#before-class",
+    "title": "Lecture 7: Intermediate dplyr; Renaming & Recoding Variables",
+    "section": "Before Class",
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 6 participation questions. You can find them in the Lecture 6 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 7). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the reading below and come with questions!"
+  },
+  {
+    "objectID": "lectures/08-home.html#before-class",
+    "href": "lectures/08-home.html#before-class",
+    "title": "Lecture 8: Missing Data; Factors",
+    "section": "Before Class",
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 7 participation questions. You can find them in the Lecture 7 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 8). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the reading below and come with questions!\nAssignments coming up:\n\nQuiz 2 will open right after this class, check Canvas and it’s due Monday of Week 3 before class\nAssignment 2 will open tomorrow (Friday 6/26) and it’s due next Thursday; you will find it under Assignments of this website as “Homework 2”"
   }
 ]

@@ -19,6 +19,9 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: No in-class code for this session
 
+
+![picture](title.jpeg "title")
+
 <!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Slides**: To be posted before class
