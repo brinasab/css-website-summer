@@ -2,7 +2,7 @@
 title: "Lecture 5: Week 1 Review"
 date: 2026-06-22
 summary: "Week 1 Review and Q&A"
-url_slides:
+url_slides: 05-slides.qmd
 url_code:
 page-layout: full
 draft: false
