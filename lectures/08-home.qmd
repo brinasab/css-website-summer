@@ -3,7 +3,7 @@ title: "Lecture 8: Missing Data; Factors"
 date: 2026-06-25
 summary: "Missing Data; Factors"
 url_slides: 08-slides.qmd
-url_code: css-materials/ # da rivedere /factors-more-dplyr
+url_code: css-materials/factors
 page-layout: full
 draft: false
 ---

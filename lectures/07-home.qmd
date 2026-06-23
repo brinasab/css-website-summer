@@ -3,7 +3,7 @@ title: "Lecture 7: Intermediate dplyr; Renaming & Recoding Variables"
 date: 2026-06-24
 summary: "Intermediate dplyr; Renaming & Recoding Variables"
 url_slides: 07-slides.qmd
-url_code: css-materials/  # da rivedere check /factors-more-dplyr
+url_code: css-materials/more-dplyr
 page-layout: full
 draft: false
 ---
