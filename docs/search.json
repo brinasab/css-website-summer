@@ -746,14 +746,14 @@
     "href": "lectures/05-home.html",
     "title": "Lecture 5: Week 1 Review",
     "section": "",
-    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session\n\n\n\n\npicture"
+    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session"
   },
   {
     "objectID": "lectures/05-home.html#info-and-materials",
     "href": "lectures/05-home.html#info-and-materials",
     "title": "Lecture 5: Week 1 Review",
     "section": "",
-    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session\n\n\n\n\npicture"
+    "text": "Date: June 22, 2026\nTopics: Week 1 Review and Q&A\nSlides: View Slides\nCode: No in-class code for this session"
   },
   {
     "objectID": "lectures/05-home.html#learning-objectives",
@@ -1691,7 +1691,7 @@
     "href": "lectures/06-slides.html#penguins-dataset-overview",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Penguins Dataset Overview",
-    "text": "Penguins Dataset Overview\n# load packages\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n# explore data\nbind_rows(head(penguins, 5), tail(penguins, 5))\n# glimpse(penguins)\n\n\n\n\n# A tibble: 10 × 8\n   species   island   bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;     &lt;fct&gt;             &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie    Torgers…           39.1          18.7               181        3750\n 2 Adelie    Torgers…           39.5          17.4               186        3800\n 3 Adelie    Torgers…           40.3          18                 195        3250\n 4 Adelie    Torgers…           NA            NA                  NA          NA\n 5 Adelie    Torgers…           36.7          19.3               193        3450\n 6 Chinstrap Dream              55.8          19.8               207        4000\n 7 Chinstrap Dream              43.5          18.1               202        3400\n 8 Chinstrap Dream              49.6          18.2               193        3775\n 9 Chinstrap Dream              50.8          19                 210        4100\n10 Chinstrap Dream              50.2          18.7               198        3775\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+    "text": "Penguins Dataset Overview\n# load packages\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\n# explore data\nbind_rows(head(penguins, 4), tail(penguins, 4))\n# glimpse(penguins)\n\n\n\n\n# A tibble: 8 × 8\n  species   island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;     &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie    Torgersen           39.1          18.7               181        3750\n2 Adelie    Torgersen           39.5          17.4               186        3800\n3 Adelie    Torgersen           40.3          18                 195        3250\n4 Adelie    Torgersen           NA            NA                  NA          NA\n5 Chinstrap Dream               43.5          18.1               202        3400\n6 Chinstrap Dream               49.6          18.2               193        3775\n7 Chinstrap Dream               50.8          19                 210        4100\n8 Chinstrap Dream               50.2          18.7               198        3775\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
   },
   {
     "objectID": "lectures/06-slides.html#scatterplot-flipper-length-vs.-body-mass",
@@ -1705,21 +1705,21 @@
     "href": "lectures/06-slides.html#bar-plot-number-of-penguins-by-species",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Bar Plot: Number of Penguins by Species",
-    "text": "Bar Plot: Number of Penguins by Species\nTry a different plot: bar plot with counts for one categorical variable\nCopy and paste this code in R:\nggplot(data = penguins, aes(x = species)) +\n  geom_bar() +\n  labs(title = \"Count of Penguins by Species\")\n\n\nInterpret: What does this bar plot tell us about penguin species frequency?"
+    "text": "Bar Plot: Number of Penguins by Species\n\nQuestion: how many penguins are there in each species?\nGraph: To answer this, we need to show the distribution of one categorical variable across its categories.\n\nggplot(data = penguins, aes(x = species)) +\n  geom_bar() +\n  labs(title = \"Count of Penguins by Species\")\n\nInterpret"
   },
   {
     "objectID": "lectures/06-slides.html#data-manipulation-with-dplyr",
     "href": "lectures/06-slides.html#data-manipulation-with-dplyr",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Data Manipulation with dplyr",
-    "text": "Data Manipulation with dplyr\nWe generated these plots with ggplot2 but today we introduce a second key package from the tidyverse: dplyr for data manipulation.\n\nDesigned to clean, organize, and summarize data\nMakes it easier to prepare data for better graphs\nIncludes several intuitive functions for common data tasks. We learn the most important ones this week."
+    "text": "Data Manipulation with dplyr\ndplyr https://dplyr.tidyverse.org/:\n(pronounced “d-ply-r” letter by letter or “dee-plyer”)\n\nDesigned to clean, organize, and summarize data\nMakes it easier to prepare data for better graphs\nIncludes several intuitive functions: we learn the most important ones this week"
   },
   {
     "objectID": "lectures/06-slides.html#programming-is-problem-solving",
     "href": "lectures/06-slides.html#programming-is-problem-solving",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Programming is Problem-Solving",
-    "text": "Programming is Problem-Solving\nPenguins Dataset:\n\n\n\n# A tibble: 4 × 8\n  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n1 Adelie  Torgersen           39.1          18.7               181        3750\n2 Adelie  Torgersen           39.5          17.4               186        3800\n3 Adelie  Torgersen           40.3          18                 195        3250\n4 Adelie  Torgersen           NA            NA                  NA          NA\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;\n\n\n\n\n\n\n\n\n\n\nFrom Question to Code: Practice translating plain-language data questions into dplyr code.\n\n\nQ1: What is the average body mass of an Adelie penguin?\nQ2: What is the average body mass for each penguin species (we have three species)?"
+    "text": "Programming is Problem-Solving\n\nQuestion → dplyr → interpretation. Choose the dplyr steps based on the question!\n\n\nFrom Question to Code: Practice translating plain-language data questions into dplyr code\nQ1: What is the average body mass of an Adelie penguin?\nQ2: What is the average body mass for each penguin species (we have three species)?"
   },
   {
     "objectID": "lectures/06-slides.html#q1-what-is-the-average-body-mass-of-an-adelie-penguin",
@@ -1747,28 +1747,28 @@
     "href": "lectures/06-slides.html#assignment-operators",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Assignment Operators",
-    "text": "Assignment Operators\nx &lt;- 5                # assign 5 to an object\nmean(x = c(1, 2, 3))  # use = to specify an argument inside a function\n \nExample:\npenguins_species &lt;- group_by(penguins, species)\nsummarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))\n \n\nUse &lt;- to create/save objects;; use = inside functions to name arguments."
+    "text": "Assignment Operators\n\nUse &lt;- when you create an object, and use = when you name an argument inside a function:\nx &lt;- 5                  # assign 5 to an object\nmean(x = c(1, 2, 3))    # use = to specify an argument inside a function\n\n \nExamples:\npenguins_species &lt;- group_by(penguins, species)\n\nsummarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))"
   },
   {
     "objectID": "lectures/06-slides.html#logical-operators",
     "href": "lectures/06-slides.html#logical-operators",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Logical Operators",
-    "text": "Logical Operators\n\nR logical operators return TRUE or FALSE:\n\n\n\nCode\nMeaning\n\n\n\n\nx == y\nis x equal to y?\n\n\nx != y\nis x different from y?\n\n\nx &lt; y\nis x less than y?\n\n\nx &lt;= y\nis x less than or equal to y?\n\n\ny &gt; x\nis y greater than x?\n\n\ny &gt;= x\nis y greater than or equal to x?\n\n\n\n\n\nadelie &lt;- filter(penguins, species == \"Adelie\")\n\n\nno_adelie &lt;- filter(penguins, species != \"Adelie\")\n\n\nheavy &lt;- filter(penguins, body_mass_g &gt; 4500)"
+    "text": "Logical Operators\n\nR logical operators return TRUE or FALSE:\nx == x    # is x equal to y? (TRUE or FALSE)\nx != y    # is x not equal to y? \nx &lt; y     # is x less than than y?\nx &lt;= y    # is x less than or equal to y?\ny &gt; x     # is y greater than x?\ny &gt;=      # is y greater than or equal y?\n\n\nExamples:\n\nadelie &lt;- filter(penguins, species == \"Adelie\")\n\n\nno_adelie &lt;- filter(penguins, species != \"Adelie\")\n\n\nheavy &lt;- filter(penguins, body_mass_g &gt; 4500)"
   },
   {
     "objectID": "lectures/06-slides.html#more-logical-operators",
     "href": "lectures/06-slides.html#more-logical-operators",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "More Logical Operators",
-    "text": "More Logical Operators\n\nLogical operators combine multiple TRUE/FALSE conditions:\n\n\n\nCode\nMeaning\n\n\n\n\nx \\| y\nEither x OR y has to be TRUE.\n\n\nx & y\nBoth x AND y have to be TRUE.\n\n\nx &! y\nx is TRUE AND y is FALSE.\n\n\n\n\n\n\nExample use of | operator. What does this code return?\nfilter(penguins, species == \"Adelie\" | species == \"Chinstrap\")\n\n\n\nExample use of & operator. What does this code return?\nfilter(penguins, species == \"Adelie\" & species == \"Chinstrap\")"
+    "text": "More Logical Operators\n\nR logical operators can combine multiple TRUE/FALSE conditions:\nx | y     # Either x OR y has to be TRUE\nx & y     # Both x AND y have to be TRUE \nx &! y    # x is TRUE AND y is FALSE\n\n\n\nExample use of | operator. What does this code return?\nfilter(penguins, species == \"Adelie\" | species == \"Chinstrap\")\n\n\n\nExample use of & operator. What does this code return?\nfilter(penguins, species == \"Adelie\" & species == \"Chinstrap\")"
   },
   {
     "objectID": "lectures/06-slides.html#the-or-operator-can-be-used-in-two-ways",
     "href": "lectures/06-slides.html#the-or-operator-can-be-used-in-two-ways",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "The OR operator can be used in two ways",
-    "text": "The OR operator can be used in two ways\nx | y     # EITHER x OR y has to be true\n\n\n\nExample use of | operator with the extended syntax:\npenguins_adelie_chin &lt;- filter(penguins, species == \"Adelie\" | species == \"Chinstrap\")\n\n\n\nSame code with the shorter syntax using %in%:\npenguins_adelie_chin &lt;- filter(penguins, species %in% c(\"Adelie\", \"Chinstrap\"))"
+    "text": "The OR operator can be used in two ways\nx | y     # Either x OR y has to be true\n\n\n\nExample use of | operator with the extended syntax:\npenguins_adelie_chin &lt;- filter(penguins, species == \"Adelie\" | species == \"Chinstrap\")\n\n\n\nSame code with the shorter syntax using %in%:\npenguins_adelie_chin &lt;- filter(penguins, species %in% c(\"Adelie\", \"Chinstrap\"))"
   },
   {
     "objectID": "lectures/06-slides.html#practice-logical-operators-with-filter",
@@ -1810,28 +1810,28 @@
     "href": "lectures/06-slides.html#practice",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "💻 Practice",
-    "text": "💻 Practice\nWhat is the average body mass for Adelie penguins by sex?\n\nFirst, think: How would you approach this question conceptually? Break it down into clear steps before coding.\nThen, code: Translate those steps into R using the appropriate dplyr functions.\nHint: You’ll need to use three dplyr functions here\nShare your code here: https://codeshare.io/5zlNLE"
+    "text": "💻 Practice\nDownload today’s in-class exercises from the website for more practice on operator, dplyr, and pipes."
   },
   {
     "objectID": "lectures/06-slides.html#filter-or-group-first",
     "href": "lectures/06-slides.html#filter-or-group-first",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "🧠 Filter or Group First?",
-    "text": "🧠 Filter or Group First?\nTask: Calculate the average body mass for Adelie penguins by sex.\n\n\n✅ Filter for Adelie, then group by sex, then summarize\nGroup by sex, then filter for Adelie, then summarize\n\nGroup by species, filter for Adelie, then group by sex, then summarize\n\nFilter by both species and sex, then group, then summarize\n\nGroup by both species and sex, then summarize, then filter\n\nThe first is the best approach in this case. The other approaches are all correct (try them out!), but are less readable or do more work than needed.\nThe next slide compares the first two, which are the most common."
+    "text": "🧠 Filter or Group First?\nTask: Calculate the average body mass for Adelie penguins by sex.\n\n\n✅ Filter for Adelie, then group by sex, then summarize\nGroup by sex, then filter for Adelie, then summarize\n\nGroup by species, filter for Adelie, then group by sex, then summarize\n\nFilter by both species and sex, then group, then summarize\n\nGroup by both species and sex, then summarize, then filter\n\nThe first is the best approach in this case. The other approaches are all correct (try them out!), but are less readable or do more work than needed.\nThe next slide compares the first two approaches, which are the most common."
   },
   {
     "objectID": "lectures/06-slides.html#filter-or-group-first-1",
     "href": "lectures/06-slides.html#filter-or-group-first-1",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "🧠 Filter or Group First?",
-    "text": "🧠 Filter or Group First?\nTask: Calculate the average body mass for Adelie penguins by sex.\n\n\n\nFilter → Group (Best Practice here)\n\nFilter first to keep only Adelie penguins\n→ reduces rows right away\nGroup the filtered data by sex\n→ only relevant data is grouped\n\nSummarize to get average\n\n\n\nGroup → Filter (Works but Not Ideal here)\n\nGroup all penguins by sex\n→ includes extra, unneeded data\n\nFilter to keep only Adelie penguins\n→ discards part of what was grouped\n\nSummarize to get average"
+    "text": "🧠 Filter or Group First?\nTask: Calculate the average body mass for Adelie penguins by sex.\n\n\n\nFilter → Group (Best here)\n\nFilter first to keep only Adelie penguins\n→ reduces rows right away\nGroup the filtered data by sex\n→ only relevant data is grouped\n\nSummarize to get average\n\n\n\nGroup → Filter (Works but not best here)\n\nGroup all penguins by sex\n→ includes extra, unneeded data\n\nFilter to keep only Adelie penguins\n→ discards part of what was grouped\n\nSummarize to get average"
   },
   {
     "objectID": "lectures/06-slides.html#filter-or-group-first-2",
     "href": "lectures/06-slides.html#filter-or-group-first-2",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "🧠 Filter or Group First?",
-    "text": "🧠 Filter or Group First?\nThe best order depends on the task (think first!) but here’s a rule of thumb:\n\nFilter first when you can reduce the data before grouping. Example: Calculate the average body mass for Adelie penguins by sex.\nadelie &lt;- filter(penguins, species == \"Adelie\")\nadelie_by_sex &lt;- group_by(adelie, sex)\nresult &lt;- summarize(adelie_by_sex, \n                    avg_mass = mean(body_mass_g, na.rm = TRUE))\n\nGroup first only when your filter depends on group-level summaries. Example: Calculate the average body mass only for species whose average bill length is over 40 mm.\nby_species &lt;- group_by(penguins, species)\navg_bill_high &lt;- filter(by_species, mean(bill_length_mm, na.rm = TRUE) &gt; 40)\nresult &lt;- summarize(avg_bill_high, \n                    avg_mass = mean(body_mass_g, na.rm = TRUE))"
+    "text": "🧠 Filter or Group First?\nThe best order depends on the task, but here’s a rule of thumb:\n\nFilter first when you can reduce the data before grouping. Example: Calculate the average body mass for Adelie penguins by sex.\nadelie &lt;- filter(penguins, species == \"Adelie\")\nadelie_by_sex &lt;- group_by(adelie, sex)\nresult &lt;- summarize(adelie_by_sex, \n                    avg_mass = mean(body_mass_g, na.rm = TRUE))\n\nGroup first when your filter depends on a group-level summary. Example: Keep only species whose average bill length is over 40 mm, then calculate their average body mass.\nby_species &lt;- group_by(penguins, species)\navg_bill_high &lt;- filter(by_species, mean(bill_length_mm, na.rm = TRUE) &gt; 40)\nresult &lt;- summarize(avg_bill_high, \n                    avg_mass = mean(body_mass_g, na.rm = TRUE))"
   },
   {
     "objectID": "lectures/06-slides.html#in-class-code-debugging-note",
@@ -1887,7 +1887,7 @@
     "href": "lectures/06-slides.html#option-4-pipes-the-winner",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Option 4: Pipes (The Winner!)",
-    "text": "Option 4: Pipes (The Winner!)\n\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  group_by(island) |&gt;\n  summarize(body_mass = mean(body_mass_g, na.rm = TRUE))\n\n# A tibble: 3 × 2\n  island    body_mass\n  &lt;fct&gt;         &lt;dbl&gt;\n1 Biscoe        3710.\n2 Dream         3688.\n3 Torgersen     3706.\n\n\n\n\n✅ This is valid and readable code — without the drawbacks of the previous options.\n💡 Why pipes? The pipe operator passes the result of one function to the next, making your code easier to read. Pipes emphasize actions, not object names and you can read the code like a recipe:\n\nStart with the dataset\nFilter for Adelie penguins\nGroup by island\nSummarize body mass"
+    "text": "Option 4: Pipes (The Winner!)\n\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  group_by(island) |&gt;\n  summarize(body_mass = mean(body_mass_g, na.rm = TRUE))\n\n# A tibble: 3 × 2\n  island    body_mass\n  &lt;fct&gt;         &lt;dbl&gt;\n1 Biscoe        3710.\n2 Dream         3688.\n3 Torgersen     3706.\n\n\n\n\n✅ This is valid and readable code — without the drawbacks of the previous options.\n💡 Why pipes? The pipe operator passes the result of one function to the next, making your code easier to read. Pipes emphasize actions, not object names and you can read the code like a recipe:\nStart with the dataset → filter for Adelie penguins → group by island → summarize body mass"
   },
   {
     "objectID": "lectures/06-slides.html#common-errors-with-pipes-examples-using-flights-data",
@@ -1908,14 +1908,14 @@
     "href": "lectures/06-slides.html#common-pipe-errors-example-1",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Common Pipe Errors: Example 1",
-    "text": "Common Pipe Errors: Example 1\nWhat’s wrong with this code?\nBefore we debug it, let’s first think through what the code is trying to do conceptually.\n\n\nInvalid code\n\ndelays &lt;- flights %&gt;% \n  by_dest &lt;- group_by(dest) %&gt;% \n  delay &lt;- summarize(\n    count = n(),\n    delay = mean(arr_delay, na.rm = TRUE)) %&gt;% \n  d &lt;- filter(count &gt; 20)"
+    "text": "Common Pipe Errors: Example 1\nWhat’s wrong with this code?\nBefore we debug it, let’s first explain what the code is trying to do conceptually.\n\n\nInvalid code\n\ndelays &lt;- flights %&gt;% \n  by_dest &lt;- group_by(dest) %&gt;% \n  delay &lt;- summarize(\n    count = n(),\n    delay = mean(arr_delay, na.rm = TRUE)) %&gt;% \n  d &lt;- filter(count &gt; 20)"
   },
   {
     "objectID": "lectures/06-slides.html#common-pipe-errors-example-1-1",
     "href": "lectures/06-slides.html#common-pipe-errors-example-1-1",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Common Pipe Errors: Example 1",
-    "text": "Common Pipe Errors: Example 1\nWhat’s wrong with this code?\nBefore we debug it, let’s first think through what the code is trying to do conceptually.\n\n\nInvalid code\n\ndelays &lt;- flights %&gt;% \n  by_dest &lt;- group_by(dest) %&gt;% \n  delay &lt;- summarize(\n    count = n(),\n    delay = mean(arr_delay, na.rm = TRUE)) %&gt;% \n  d &lt;- filter(count &gt; 20)\n\n\n\n\n\n\n\n\n\nTake the flights dataset\n\nGroup flights by destination, using the variable dest\n\nCount the delayed flights and store the result in a new variable called count\n\nCalculate the average arrival delay, using arr_delay, and store the result in a new variable called delay\n\nRemove destinations with less than 20 flights. Question: Why filter(count &gt; 20) to remove destinations with fewer than 20 flights?"
+    "text": "Common Pipe Errors: Example 1\n\n\nInvalid code\n\ndelays &lt;- flights %&gt;% \n  by_dest &lt;- group_by(dest) %&gt;% \n  delay &lt;- summarize(\n    count = n(),\n    delay = mean(arr_delay, na.rm = TRUE)) %&gt;% \n  d &lt;- filter(count &gt; 20)\n\n\n\n\n\n\n\n\n\nTake the flights dataset\n\nGroup flights by destination, using the variable dest\n\nCount the delayed flights and store the result in a new variable called count\n\nCalculate the average arrival delay, using arr_delay, and store the result in a new variable called delay\n\nRemove destinations with less than 20 flights. Question: Why filter(count &gt; 20) to remove destinations with fewer than 20 flights?"
   },
   {
     "objectID": "lectures/06-slides.html#common-pipe-errors-example-1-2",
@@ -1978,7 +1978,7 @@
     "href": "lectures/06-slides.html#recap-what-we-learned-today",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Recap: What We Learned Today",
-    "text": "Recap: What We Learned Today\n\nPracticed programming as problem-solving: think through tasks before coding\nLearned R operators\nKey dplyr functions like filter(), group_by(), summarize(), and more\nChained commands with pipes\nReviewed common mistakes when using pipes and how to avoid them"
+    "text": "Recap: What We Learned Today\n\nPracticed programming as problem-solving: think through tasks before coding\nLearned R operators\nKey dplyr functions like select(), filter(), group_by(), summarize()\nChained commands with pipes\nReviewed common mistakes when using pipes and how to avoid them"
   },
   {
     "objectID": "lectures/06-slides.html#to-print-these-slides-as-pdf",
@@ -2006,14 +2006,14 @@
     "href": "lectures/06-slides.html#key-dplyr-functions-we-learn-today",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Key dplyr functions we learn today",
-    "text": "Key dplyr functions we learn today\n\n\n\nTask\nFunction\n\n\n\n\nKeep or reorder columns\nselect()\n\n\nKeep rows based on conditions\nfilter()\n\n\nCalculate summaries by sub-groups\ngroup_by()\n\n\nCalculate summaries, such as averages\nsummarize()\n\n\n\n\n\n\n\n\n\nProgramming as problem solving\n\n\nWe will work through two questions together that demonstrates what I mean by “programming as problem solving” and require us to use these dplyr functions!"
+    "text": "Key dplyr functions we learn today\n\n\n\nTask\nFunction\n\n\n\n\nKeep or reorder columns\nselect()\n\n\nKeep rows based on conditions\nfilter()\n\n\nCalculate summaries by sub-groups\ngroup_by()\n\n\nCalculate summaries, such as averages\nsummarize()"
   },
   {
     "objectID": "lectures/06-slides.html#logical-operators-1",
     "href": "lectures/06-slides.html#logical-operators-1",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Logical Operators",
-    "text": "Logical Operators\nR logical operators return TRUE or FALSE\nx == x    # is equal (TRUE or FALSE)\nx != y    # is not equal (TRUE or FALSE) \nx &lt; y     # less than\nx &lt;= y    # less than or equal to \ny &gt; x     # more than\ny &gt;=      # more than or equal to\n\n\nadelie &lt;- filter(penguins, species == \"Adelie\")\n\n\n\nno_adelie &lt;- filter(penguins, species != \"Adelie\")\n\n\n\nheavy &lt;- filter(penguins, body_mass_g &gt; 4500)"
+    "text": "Logical Operators\n\nR logical operators return TRUE or FALSE:\nx == x    # is x equal to y? (TRUE or FALSE)\nx != y    # is x not equal to y? \nx &lt; y     # is x less than than y?\nx &lt;= y    # is x less than or equal to y?\ny &gt; x     # is y greater than x?\ny &gt;=      # is y greater than or equal y?\n\nExamples: \n\nadelie &lt;- filter(penguins, species == \"Adelie\")\n\n\n\nno_adelie &lt;- filter(penguins, species != \"Adelie\")\n\n\n\nheavy &lt;- filter(penguins, body_mass_g &gt; 4500)"
   },
   {
     "objectID": "lectures/06-slides.html#assignment-operators-1",
@@ -2027,7 +2027,7 @@
     "href": "lectures/06-slides.html#key-dplyr-functions-for-today",
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Key dplyr Functions for Today",
-    "text": "Key dplyr Functions for Today\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nselect()\nChooses specific columns by name\n\n\nfilter()\nSelects rows based on values in one or more columns\n\n\ngroup_by()\nGroups the data by one or more variables for grouped operations\n\n\nsummarize()\nReduces each group to a single row using summary statistics (e.g., mean, sum, n)\n\n\n\n\n\n\n\n\n\n\n\nTip for Remembering These Functions\n\n\nEach row is an observation (e.g., one penguin) and each column is a variable (e.g., species, body mass). Some functions works on rows like filter() others on columns like select()."
+    "text": "Key dplyr Functions for Today\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nselect()\nChooses (keeps or reorders) specific columns by name\n\n\nfilter()\nKeeps rows based on conditions\n\n\n\n\n\n\ngroup_by()\nGroups the data by one or more variables for grouped operations\n\n\nsummarize()\nReduces each group to a single row using summary statistics (e.g., mean, sum, n)\n\n\n\n\n\n\n\n\n\n\n\nTip for Remembering These Functions\n\n\nEach row is an observation (e.g., one penguin) and each column is a variable (e.g., species, body mass). Some functions works on rows like filter() others on columns like select()."
   },
   {
     "objectID": "lectures/06-slides.html#section",
@@ -2056,5 +2056,159 @@
     "title": "Lecture 8: Missing Data; Factors",
     "section": "Before Class",
     "text": "Before Class\n\nIf you have not already done so, complete Lecture 7 participation questions. You can find them in the Lecture 7 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 8). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the reading below and come with questions!\nAssignments coming up:\n\nQuiz 2 will open right after this class, check Canvas and it’s due Monday of Week 3 before class\nAssignment 2 will open tomorrow (Friday 6/26) and it’s due next Thursday; you will find it under Assignments of this website as “Homework 2”"
+  },
+  {
+    "objectID": "lectures/06-slides.html",
+    "href": "lectures/06-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "",
+    "text": "Programming as Problem-Solving\nOperators\nMain dplyr functions\nPipes written as %&gt;% or |&gt;\n\n\n Slides last updated on June 22, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
+  },
+  {
+    "objectID": "lectures/06-slides.html#scatterplot-flipper-length-body-mass-and-species",
+    "href": "lectures/06-slides.html#scatterplot-flipper-length-body-mass-and-species",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Scatterplot: Flipper Length, Body Mass, and Species",
+    "text": "Scatterplot: Flipper Length, Body Mass, and Species\n\nQuestion → ggplot2 → interpretation.\n\n\n\nQuestion: How does the relationship between flipper length and body mass differ across species?\nGraph: To answer this, we need to show the relationship between two numeric variables and compare it across a categorical variable\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\nggplot(data = penguins, \n       aes(x = flipper_length_mm, y = body_mass_g, color = species)) +\n  geom_point() +\n  labs(title = \"Penguins: Body Mass vs. Flipper Length by Species\")\n\nInterpret"
+  },
+  {
+    "objectID": "lectures/06-slides.html#scatterplot-flipper-length-body-mass-and-species-1",
+    "href": "lectures/06-slides.html#scatterplot-flipper-length-body-mass-and-species-1",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Scatterplot: Flipper Length, Body Mass, and Species",
+    "text": "Scatterplot: Flipper Length, Body Mass, and Species\n\n\n\n\n\n\nTip\n\n\nQuestion → ggplot2 → interpretation. The best graph depends on what we want to answer!\n\n\n\n\nQuestion: How does the relationship between flipper length and body mass differ across species?\nGraph: we need to show the relationship between two numeric variables across a categorical variable\n\nlibrary(tidyverse)\nlibrary(palmerpenguins)\n\nggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +\n  geom_point(aes(color = species)) +\n  labs(title = \"Penguins: Body Mass vs. Flipper Length\")\n\nInterpret"
+  },
+  {
+    "objectID": "lectures/06-slides.html#from-graphs-to-numbers",
+    "href": "lectures/06-slides.html#from-graphs-to-numbers",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "From Graphs to Numbers",
+    "text": "From Graphs to Numbers\nSo far, we have used ggplot2 to explore data visually. Today, we add dplyr to manipulate data:\n\nggplot2 helps us answer questions with graphs\ndplyr helps us answer questions with numbers\n\n\nOften, we use them together:\nQuestion → dplyr → ggplot2 → interpretation"
+  },
+  {
+    "objectID": "lectures/06-slides.html#programming-as-problem-solving-1",
+    "href": "lectures/06-slides.html#programming-as-problem-solving-1",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Programming as Problem-Solving",
+    "text": "Programming as Problem-Solving\n\nQuestion → dplyr → interpretation.\nNow we will use two questions to practice choosing the right dplyr steps and translating plain-language data questions into code.\n\n\nQ1: What is the average body mass of an Adelie penguin?\nQ2: What is the average body mass for each penguin species (we have three species)?"
+  },
+  {
+    "objectID": "lectures/06-slides.html#two-ways-to-write-or",
+    "href": "lectures/06-slides.html#two-ways-to-write-or",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Two Ways to Write “OR”",
+    "text": "Two Ways to Write “OR”\nSometimes we want to keep rows where a variable is equal to one value OR another value.\nIn R, we can write this in two ways:\n\nuse | to spell out each condition\n\npenguins_adelie_chin &lt;- filter(penguins, species == \"Adelie\" | species == \"Chinstrap\")\n\nuse %in% to check whether a value is in a list of allowed values\n\npenguins_adelie_chin &lt;- filter(penguins, species %in% c(\"Adelie\", \"Chinstrap\"))"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-using-logical-operators-with-filter",
+    "href": "lectures/06-slides.html#practice-using-logical-operators-with-filter",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice: Using Logical Operators with filter()",
+    "text": "💻 Practice: Using Logical Operators with filter()\nLogical operators are often used together with the filter() function from dplyr\nNow we practice with the penguins dataset:\n\nTask 1: Get all Adelie penguins with flipper length greater than or equal to 180 mm\nTask 2: Get all penguins on Dream and Torgersen islands that are not female\n\nShare your code here: https://codeshare.io/5zlNLE and answer the poll everywhere question from the chat once done"
+  },
+  {
+    "objectID": "lectures/06-slides.html#main-dplyr-functions-1",
+    "href": "lectures/06-slides.html#main-dplyr-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Main dplyr Functions",
+    "text": "Main dplyr Functions\nThe package dplyr has many functions. These functions:\n\nAct like verbs in a sentence: they express what to do with the data\nCan be combined to perform complex operations but you don’t need to memorize them all!\n\nOur Goals: Memorize the key functions + Look up the rest at https://dplyr.tidyverse.org/"
+  },
+  {
+    "objectID": "lectures/06-slides.html#today-we-learn-four-main-dplyr-functions",
+    "href": "lectures/06-slides.html#today-we-learn-four-main-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Today we learn four main dplyr functions",
+    "text": "Today we learn four main dplyr functions\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nselect()\nChooses (keeps or reorders) specific columns by name\n\n\nfilter()\nKeeps rows based on conditions\n\n\ngroup_by()\nGroups the data by one or more variables for grouped operations\n\n\nsummarize()\nReduces each group to a single row using summary statistics (e.g., mean, sum, n)"
+  },
+  {
+    "objectID": "lectures/06-slides.html#today-we-learn-four-main-dplyr-functions-1",
+    "href": "lectures/06-slides.html#today-we-learn-four-main-dplyr-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Today we learn four main dplyr functions",
+    "text": "Today we learn four main dplyr functions\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nselect()\nChooses (keeps or reorders) specific columns by name\n\n\nfilter()\nKeeps rows based on conditions\n\n\ngroup_by()\nGroups the data by one or more variables for grouped operations\n\n\nsummarize()\nReduces each group to a single row using summary statistics (e.g., mean, sum, n)\n\n\n\n\n\n\n\n\n\n\n\nTip for Remembering These Functions\n\n\nEach row is an observation (e.g., one penguin) and each column is a variable (e.g., species, body mass). Some functions works on rows like filter() others on columns like select()."
+  },
+  {
+    "objectID": "lectures/06-slides.html#dplyr-functions",
+    "href": "lectures/06-slides.html#dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "dplyr Functions",
+    "text": "dplyr Functions\nThe package dplyr has many functions. These functions:\n\nAct like verbs in a sentence: they express what to do with the data\nCan be combined to perform complex operations but you don’t need to memorize them all!\n\nOur Goal: Memorize the main functions + Look up the rest at https://dplyr.tidyverse.org/"
+  },
+  {
+    "objectID": "lectures/06-slides.html#today-we-learn-four-main-dplyr-functions-2",
+    "href": "lectures/06-slides.html#today-we-learn-four-main-dplyr-functions-2",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Today we learn four main dplyr functions",
+    "text": "Today we learn four main dplyr functions\n\n\n\n\n\n\n\nFunction\nWhat it does\n\n\n\n\nselect()\nChooses columns by name\n\n\nfilter()\nKeeps rows based on conditions\n\n\ngroup_by()\nGroups rows by one or more variables\n\n\nsummarize()\nCalculates summaries, such as mean(), sum(), or n()\n\n\n\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nselect()\nChooses (keeps or reorders) specific columns by name\n\n\nfilter()\nKeeps rows based on conditions\n\n\n\n\n\n\ngroup_by()\nGroups the data by one or more variables for grouped operations\n\n\nsummarize()\nReduces each group to a single row using summary statistics (e.g., mean, sum, n)\n\n\n\n\n\n\n\n\n\n\n\nTip for Remembering These Functions\n\n\nEach row is an observation (e.g., one penguin) and each column is a variable (e.g., species, body mass). Some functions works on rows like filter() others on columns like select()."
+  },
+  {
+    "objectID": "lectures/06-slides.html#filter",
+    "href": "lectures/06-slides.html#filter",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "filter()",
+    "text": "filter()\nKeeps only the rows that match a condition\nFor example, this code keeps only penguins whose species is Adelie:\nadelie &lt;- filter(penguins, species == \"Adelie\")\n\n\n\n\n\n\n\n\nfilter()\n\n\n\nworks on rows\nkeeps rows where the condition is TRUE\nis often used with logical operators like ==, !=, &gt;, &lt;, &, |"
+  },
+  {
+    "objectID": "lectures/06-slides.html#select",
+    "href": "lectures/06-slides.html#select",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "select()",
+    "text": "select()\nKeeps only the columns (e.g., variables) we want\nFor example, this code keeps only species, island, and body_mass_g:\npenguin_subset &lt;- select(penguins, species, island, body_mass_g)\n\n\n\n\n\n\n\n\nselect()”\n\n\n\nworks on columns\nkeeps variables\nuseful when a dataset has more columns than we need, else you can skip it"
+  },
+  {
+    "objectID": "lectures/06-slides.html#summarize",
+    "href": "lectures/06-slides.html#summarize",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "summarize()",
+    "text": "summarize()\nReduces the data to summary values\nFor example, this code calculates the average body mass across all penguins:\nsummarize(penguins, avg_mass = mean(body_mass_g, na.rm = TRUE))\n\n\n\n\n\n\n\n\nsummarize()\n\n\n\ncalculates summary statistics\nusually returns fewer rows than the original data\noften uses functions like mean(), median(), sum(), or n()"
+  },
+  {
+    "objectID": "lectures/06-slides.html#group_by",
+    "href": "lectures/06-slides.html#group_by",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "group_by()",
+    "text": "group_by()\nTemporarily group the data, so the next function runs within each group\nFor example, this code groups the data by species, so summarize() calculates the average body mass for each species separately:\ngrouped &lt;- group_by(penguins, species)\nsummarize(grouped, avg_mass = mean(body_mass_g, na.rm = TRUE))\n\n\n\n\n\n\n\n\ngroup_by()\n\n\n\nuses one or more columns (e.g., variables) to define groups\ndoes not change the data itself: changes how the next function treats the data\noften used before summarize()and fiter()"
+  },
+  {
+    "objectID": "lectures/06-slides.html#practice-using-these-functions",
+    "href": "lectures/06-slides.html#practice-using-these-functions",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "💻 Practice using these functions",
+    "text": "💻 Practice using these functions\nWhat is the average body mass for Adelie penguins by sex?\n\nFirst think: Break down this question into steps before coding.\nThen code: Translate those steps into R using the appropriate dplyr functions.\nHint: You’ll need to use at least three dplyr functions here\nShare your code here: https://codeshare.io/5zlNLE"
+  },
+  {
+    "objectID": "lectures/06-slides.html#should-we-filter-or-group-first",
+    "href": "lectures/06-slides.html#should-we-filter-or-group-first",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Should we Filter or Group First?",
+    "text": "Should we Filter or Group First?\nTask: Calculate the average body mass for Adelie penguins by sex.\n\n\n✅ Filter for Adelie, then group by sex, then summarize\nGroup by sex, then filter for Adelie, then summarize\n\nGroup by species, filter for Adelie, then group by sex, then summarize\n\nFilter by both species and sex, then group, then summarize\n\nGroup by both species and sex, then summarize, then filter\n\nThe first is the best approach in this case. The other approaches are all correct (try them out!), but are less readable or do more work than needed.\nThe next slide compares the first two approaches, which are the most common."
+  },
+  {
+    "objectID": "lectures/06-slides.html#should-we-filter-or-group-first-1",
+    "href": "lectures/06-slides.html#should-we-filter-or-group-first-1",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Should we Filter or Group First?",
+    "text": "Should we Filter or Group First?\nTask: Calculate the average body mass for Adelie penguins by sex.\n\n\n\nFilter → Group (Best here)\n\nFilter first to keep only Adelie penguins\n→ reduces rows right away\nGroup the filtered data by sex\n→ only relevant data is grouped\n\nSummarize to get average\n\n\n\nGroup → Filter (Works but not best here)\n\nGroup all penguins by sex\n→ includes extra, unneeded data\n\nFilter to keep only Adelie penguins\n→ discards part of what was grouped\n\nSummarize to get average"
+  },
+  {
+    "objectID": "lectures/06-slides.html#multiple-ways-to-write-r-code-but-pipes-are-often-the-best-choice",
+    "href": "lectures/06-slides.html#multiple-ways-to-write-r-code-but-pipes-are-often-the-best-choice",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Multiple Ways to Write R Code but Pipes Are Often the Best Choice",
+    "text": "Multiple Ways to Write R Code but Pipes Are Often the Best Choice\nPipes are great and our ultimate goal. But there are several ways to write the same R code.\nIn fact, R didn’t have pipes for a long time!\nLet’s compare different ways to write the same code…"
+  },
+  {
+    "objectID": "lectures/06-slides.html#wrapping-up-on-todays-dplyr-functions",
+    "href": "lectures/06-slides.html#wrapping-up-on-todays-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "Wrapping Up on Today’s dplyr Functions",
+    "text": "Wrapping Up on Today’s dplyr Functions\nToday, we introduced the following dplyr tools for working with data:\n\nselect() to choose columns\nfilter() to keep rows\ngroup_by() to create groups (using columns)\nsummarize() to calculate summaries\n\nNext lecture, we will learn more functions and practice combining them in longer workflows.\nTo get ready for that, we need to introduce one last topic today: pipes."
+  },
+  {
+    "objectID": "lectures/06-slides.html#the-package-dplyr-has-many-functions.",
+    "href": "lectures/06-slides.html#the-package-dplyr-has-many-functions.",
+    "title": "Computing for the Social Sciences: Lecture 6",
+    "section": "The package dplyr has many functions.",
+    "text": "The package dplyr has many functions.\nThese functions:\n\nAct like verbs in a sentence: they express what to do with the data\nCan be combined to perform complex operations but you don’t need to memorize them all!\n\nOur Goal this week: Memorize the main functions + Look up the rest at https://dplyr.tidyverse.org/"
   }
 ]

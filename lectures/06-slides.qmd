@@ -96,10 +96,9 @@ library(tidyverse)
 library(palmerpenguins)
 
 # explore data
-bind_rows(head(penguins, 5), tail(penguins, 5))
+bind_rows(head(penguins, 4), tail(penguins, 4))
 # glimpse(penguins)
 ```
-
 <br>
 
 ::: {.cell}
@@ -107,7 +106,7 @@ bind_rows(head(penguins, 5), tail(penguins, 5))
 library(tidyverse)
 library(palmerpenguins)
 
-bind_rows(head(penguins, 5), tail(penguins, 5))
+bind_rows(head(penguins, 4), tail(penguins, 4))
 ```
 :::
 
@@ -115,52 +114,80 @@ bind_rows(head(penguins, 5), tail(penguins, 5))
 
 ---
 
-## Scatterplot: Flipper Length vs. Body Mass
+## Scatterplot: Flipper Length, Body Mass, and Species
 
-Start from what we know... Make a **scatter plot with two numeric variables**
+::: {style="border: 2px solid #999; padding: 0.8em;"}
+**Question → ggplot2 → interpretation.**  
+:::
 
-Copy and paste this code in R:
+<!--
+Choose the graph based on the question:the best graph depends on what you want to answer!
+-->
+
+1. **Question:** How does the relationship between flipper length and body mass differ across species?
+
+2. **Graph:** To answer this, we need to show the relationship between *two numeric variables* and compare it across a *categorical variable*
 
 ```r
 library(tidyverse)
 library(palmerpenguins)
 
-ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
-  geom_point(aes(color = species)) +
-  labs(title = "Penguins: Body Mass vs. Flipper Length")
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  geom_point() +
+  labs(title = "Penguins: Body Mass vs. Flipper Length by Species")
 ```
+3. **Interpret**
 
-<br>
+<!-- 
+CHALLANGE
 
-::: {.fragment}
-Interpret: **How does the relationship between flipper length and body mass differ across species?**
-:::
+4. Think at alternatives graphs: What else could work here?
 
-</br>
+A **faceted scatterplot** would also work well with these three variables. It separates the graph by `species`, making the categorical variable more visible while still showing the relationship between flipper length and body mass. How would you code it?
 
+FACETED SCATTERPLOT SOLUTION
+
+ggplot(data = penguins, 
+  aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point() +
+  facet_wrap(~ species) OR facet_wrap(vars(species))
+
+CHALLANGE: HOW TO MAKE THIS FACETED SCATTERPLOT COLORED BY SPECIES USING WHAT WE KNOW?
+
+OPTION 1
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species)) +
+  facet_wrap(~ species)
+
+OPTION 2
+ggplot(data = penguins, 
+       aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+  geom_point() +
+  facet_wrap(~ species)
+
+-->
 
 ---
 
 ## Bar Plot: Number of Penguins by Species
 
-Try a different plot: **bar plot with counts for one categorical variable** 
+1. **Question:** how many penguins are there in each species?
 
-Copy and paste this code in R:
+2. **Graph:** To answer this, we need to show the distribution of *one categorical variable* across its categories.
 
 ```r
 ggplot(data = penguins, aes(x = species)) +
   geom_bar() +
   labs(title = "Count of Penguins by Species")
 ```
-<br>
 
-::: {.fragment}
-Interpret: **What does this bar plot tell us about penguin species frequency?**
-:::
-
-</br>
+3. **Interpret**
 
 <!--
+REMEMBER: geom_bar() counts rows automatically, so students do not need to calculate counts first.
+
 ## Make, Store, Save a Plot
 
 Only **make** a plot
@@ -195,15 +222,33 @@ ggsave("penguins-species-count.png", plot = species_count)
 
 ---
 
+## From Graphs to Numbers
+
+So far, we have used **ggplot2** to explore data visually. Today, we add **dplyr** to manipulate data:
+
+- **ggplot2** helps us answer questions with graphs
+
+- **dplyr** helps us answer questions with numbers
+
+::: {style="border: 2px solid #999; padding: 0.8em;"}
+Often, we use them together:
+
+**Question → dplyr → ggplot2 → interpretation**
+:::
+
+---
+
 ## Data Manipulation with dplyr
 
-We generated these plots with ggplot2 but today we introduce a second key package from the tidyverse: **[dplyr](https://dplyr.tidyverse.org/) for data manipulation.**
+### dplyr <https://dplyr.tidyverse.org/>:
+
+(pronounced “d-ply-r” letter by letter or “dee-plyer”)
 
 - Designed to **clean, organize, and summarize data**
 
 - Makes it easier to prepare data for **better graphs**
 
-- Includes several intuitive functions for common data tasks. We learn the most important ones this week.
+- Includes several intuitive functions: we learn the most important ones this week
 
 
 <!-- TEACHING NOTES:
@@ -212,44 +257,42 @@ We generated these plots with ggplot2 but today we introduce a second key packag
 
 ---
 
-## Key dplyr functions we learn today
+## Today we learn four main dplyr functions
+
+| `function()`   | What it does                                                       |
+|----------------|---------------------------------------------------------------------|
+| `select()`     | Chooses (keeps or reorders) specific columns by name                                   |
+| `filter()`     | Keeps rows based on conditions     |
+| `group_by()`   | Groups the data by one or more variables for grouped operations                   |
+| `summarize()`  | Reduces each group to a single row using summary statistics (e.g., mean, sum, n) |
 
 
-| Task | Function |
-|---|---|
-| Keep or reorder columns | `select()` |
-| Keep rows based on conditions | `filter()` |
-| Calculate summaries by sub-groups | `group_by()` |
-| Calculate summaries, such as averages | `summarize()` |
-
-
-::: {.callout-tip}
-## Programming as problem solving
-
-We will work through two questions together that demonstrates what I mean by "programming as problem solving" and require us to use these dplyr functions!
-:::
-
+<!--
+We will work through two questions together that require these dplyr functions and demonstrates what I mean by "programming as problem solving"!
+-->
 
 ---
 
-## Programming is Problem-Solving
+## Programming as Problem-Solving
 
-**Penguins Dataset:**
+::: {style="border: 2px solid #999; padding: 0.8em;"}
+**Question → dplyr → interpretation.** 
 
-::: {.cell}
-```{r}
-head(penguins, 4)
-```
+Now we will use two questions to practice choosing the right `dplyr` steps and translating plain-language data questions into code.
+
 :::
 
-::: {.callout-note title="From Question to Code: Practice translating plain-language data questions into dplyr code."}
+<br>
+
 
 **Q1:** What is the average body mass of an Adelie penguin?  
 
 **Q2:** What is the average body mass for each penguin species (we have three species)?
-:::
+
+</br>
 
 <!--
+So far we only answered questions with graphs, today we answer them by producing numbers
 **Our Goals**  
 1. Identify the logical/conceptual steps you’d give R to answer these questions  
 2. Translate those steps into clear, executable code
@@ -330,10 +373,16 @@ summarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
 
 ## Assignment Operators
 
-```r
-x <- 5                # assign 5 to an object
-mean(x = c(1, 2, 3))  # use = to specify an argument inside a function
+::: {style="border: 2px solid red; padding: 0.8em;"}
+
+Use `<-` when you create an object, and use `=` when you name an argument inside a function:
+
 ```
+x <- 5                  # assign 5 to an object
+mean(x = c(1, 2, 3))    # use = to specify an argument inside a function
+```
+
+:::
 
 <br>
 <fragment>
@@ -342,75 +391,33 @@ Examples:
 
 ```r
 penguins_species <- group_by(penguins, species)
+
 summarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
 ```
 </fragment>
 </br>
 
-
-::: {.tip}
-Use `<-` when you create an object, and use `=` when you name an argument inside a function
-:::
-
----
-
-##  Logical Operators 
-
-::: {.left-table}
-
-R logical operators return `TRUE` or `FALSE`:
-
-| Code | Meaning |
-|:---|:---|
-| `x == y` | is `x` equal to `y`? |
-| `x != y` | is `x` different from `y`? |
-| `x < y` | is `x` less than `y`? |
-| `x <= y` | is `x` less than or equal to `y`? |
-| `y > x` | is `y` greater than `x`? |
-| `y >= x` | is `y` greater than or equal to `x`? |
-
-:::
-
-
-::: {.cell .fragment}
-```r
-adelie <- filter(penguins, species == "Adelie")
-```
-:::
-
-
-::: {.cell .fragment}
-```r
-no_adelie <- filter(penguins, species != "Adelie")
-```
-:::
-
-
-::: {.cell .fragment}
-```r
-heavy <- filter(penguins, body_mass_g > 4500)
-```
-:::
-
-
-
-
 ---
 
 ##  Logical Operators
 
-R logical operators return `TRUE` or `FALSE`
+::: {style="border: 2px solid red; padding: 0.8em;"}
+
+R logical operators return `TRUE` or `FALSE`:
 
 ```
-x == x    # is equal (TRUE or FALSE)
-x != y    # is not equal (TRUE or FALSE) 
-x < y     # less than
-x <= y    # less than or equal to 
-y > x     # more than
-y >=      # more than or equal to
+x == x    # is x equal to y? (TRUE or FALSE)
+x != y    # is x not equal to y? 
+x < y     # is x less than than y?
+x <= y    # is x less than or equal to y?
+y > x     # is y greater than x?
+y >=      # is y greater than or equal y?
 ```
+:::
 
 <br>
+
+Examples:
 
 ::: {.cell .fragment}
 ```r
@@ -418,15 +425,12 @@ adelie <- filter(penguins, species == "Adelie")
 ```
 :::
 
-<br>
-
 ::: {.cell .fragment}
 ```r
 no_adelie <- filter(penguins, species != "Adelie")
 ```
 :::
 
-<br>
 
 ::: {.cell .fragment}
 ```r
@@ -434,24 +438,21 @@ heavy <- filter(penguins, body_mass_g > 4500)
 ```
 :::
 
-</br>
 
 ---
 
 ## More Logical Operators
 
-::: {.left-table}
+::: {style="border: 2px solid red; padding: 0.8em;"}
 
-Logical operators combine multiple `TRUE`/`FALSE` conditions:
+R logical operators can combine multiple `TRUE`/`FALSE` conditions:
 
-| Code | Meaning |
-|:---|:---|
-| `x \| y` | Either `x` OR `y` has to be `TRUE`. |
-| `x & y` | Both `x` AND `y` have to be `TRUE`. |
-| `x &! y` | `x` is `TRUE` AND `y` is `FALSE`. |
-
+```
+x | y     # Either x OR y has to be TRUE
+x & y     # Both x AND y have to be TRUE 
+x &! y    # x is TRUE AND y is FALSE
+```
 :::
-
 
 <br>
 
@@ -476,47 +477,55 @@ filter(penguins, species == "Adelie" & species == "Chinstrap")
 
 ---
 
-## The OR operator can be used in two ways
+## Two Ways to Write “OR”
 
-```
-x | y     # EITHER x OR y has to be true
+Sometimes we want to keep rows where a variable is equal to **one value OR another value**.
 
-```
-<br>
+In R, we can write this in two ways:
 
-::: {.cell .fragment}
-Example use of `|` operator with the extended syntax:
+- use `|` to spell out each condition
+
 ```r
 penguins_adelie_chin <- filter(penguins, species == "Adelie" | species == "Chinstrap")
 ```
-:::
 
-<br>
+- use `%in%` to check whether a value is in a list of allowed values
 
-::: {.cell .fragment}
-Same code with the shorter syntax using `%in%`:
 ```r
 penguins_adelie_chin <- filter(penguins, species %in% c("Adelie", "Chinstrap"))
 ```
-:::
 
-</br>
+<!-- Both lines keep only penguins whose species is Adelie or Chinstrap -->
 
 ---
 
-## 💻 Practice: Logical Operators with filter()
+## 💻 Practice: Using Logical Operators with filter()
 
 Logical operators are often used together with the `filter()` function from `dplyr`  
 
-Practice using them with the penguins dataset:
+Now we practice with the penguins dataset:
 
 - **Task 1:** Get all Adelie penguins with flipper length greater than or equal to 180 mm
 
 - **Task 2:** Get all penguins on Dream and Torgersen islands that are not female
 
-Share your code here: <https://codeshare.io/5zlNLE>
+Share your code here: <https://codeshare.io/5zlNLE> and answer the poll everywhere question from the chat once done
 
-<!--
+<!-- SEE ALSO SOLUTION FILE!
+
+# Task 1: Adelie penguins with flipper length >= 180 mm
+adelie_long_flipper <- filter(penguins,
+  species == "Adelie" & flipper_length_mm >= 180)
+
+# Task 2: Penguins on Dream and Torgersen islands that are not female
+dream_torgersen_not_female <- filter(penguins,
+  island %in% c("Dream", "Torgersen") & sex != "female")
+
+filter(penguins,
+  (island == "Dream" | island == "Torgersen") & sex != "female")
+
+
+
 - **Task 3:** Get all female penguins on Dream Island with body mass between 3000 and 4000 grams inclusive
 -->
 
@@ -538,23 +547,24 @@ Conceptually, any data transformation using `dplyr` requires us to:
 
 -->
 
-## Key dplyr Functions
+## The package dplyr has many functions.
 
-The package `dplyr` has many functions. These functions:
+These functions:
+
    - Act *like verbs* in a sentence: they express *what to do* with the data
    - Can be *combined* to perform complex operations but you don’t need to memorize them all!
 
-**Our Goals: Memorize the key functions + Look up the rest  [dplyr.tidyverse.org](https://dplyr.tidyverse.org/)**
+#### Our Goal this week: Memorize the main functions + Look up the rest at <https://dplyr.tidyverse.org/>
 
 ---
 
-## Key dplyr Functions for Today
+## Today we learn four main dplyr functions
 
 | `function()`   | What it does                                                       |
 |----------------|---------------------------------------------------------------------|
-| `select()`     | Chooses specific columns by name                                   |
-| `filter()`     | Selects rows based on values in one or more columns                |
-| `group_by()`   | Groups the data by one or more variables for grouped operations    |
+| `select()`     | Chooses (keeps or reorders) specific columns by name                                   |
+| `filter()`     | Keeps rows based on conditions     |
+| `group_by()`   | Groups the data by one or more variables for grouped operations                   |
 | `summarize()`  | Reduces each group to a single row using summary statistics (e.g., mean, sum, n) |
 
 <br>
@@ -598,15 +608,74 @@ Each **row is an observation** (e.g., one penguin) and each **column is a variab
 
 ---
 
-## 
+## filter()
 
-Say some more on select, filter, summarize, then transition (next slides) to group_by
+**Keeps only the rows that match a condition**
+
+For example, this code keeps only penguins whose species is `Adelie`:
+
+```r
+adelie <- filter(penguins, species == "Adelie")
+```
+
+::: {.cell .fragment}
+::: {.callout-note title="`filter()`"}
+
+- works on rows
+- keeps rows where the condition is `TRUE`
+- is often used with logical operators like `==`, `!=`, `>`, `<`, `&`, `|`
+:::
+:::
 
 ---
 
-## Unpacking group_by()
+## select()
 
-This function tells R to **temporarily group the data** by one or more variables, so the **next function runs within each group**. For example, this code groups the data by species, so whatever runs next (here summarize) happens for each species separately:
+**Keeps only the columns (e.g., variables) we want**
+
+For example, this code keeps only `species`, `island`, and `body_mass_g`:
+
+```r
+penguin_subset <- select(penguins, species, island, body_mass_g)
+```
+
+::: {.cell .fragment}
+::: {.callout-note title=`select()`"}
+
+- works on columns
+- keeps variables
+- useful when a dataset has more columns than we need, else you can skip it
+:::
+:::
+
+---
+
+## summarize()
+
+**Reduces the data to summary values**
+
+For example, this code calculates the average body mass across all penguins:
+
+```r
+summarize(penguins, avg_mass = mean(body_mass_g, na.rm = TRUE))
+```
+
+::: {.cell .fragment}
+::: {.callout-note title="`summarize()`"}
+
+- calculates summary statistics
+- usually returns fewer rows than the original data
+- often uses functions like mean(), median(), sum(), or n()
+:::
+:::
+
+---
+
+## group_by() 
+
+**Temporarily group the data, so the next function runs within each group**
+
+For example, this code groups the data by `species`, so `summarize()` calculates the average body mass for each species separately:
 
 ```r
 grouped <- group_by(penguins, species)
@@ -614,30 +683,27 @@ summarize(grouped, avg_mass = mean(body_mass_g, na.rm = TRUE))
 ```
 
 ::: {.cell .fragment}
+::: {.callout-note title="`group_by()`"}
 
-::: {.callout-note title="group_by() does not change the data"}
-
-`group_by()` doesn’t change your data: it changes how the next function treats the data. Typically, it is used before `summarize()`, `fiter()`, `mutate()`, or `arrange()` to make those functions run once per group, not across the whole dataset.
+- uses one or more columns (e.g., variables) to define groups 
+- does not change the data itself: changes how the next function treats the data 
+- often used before `summarize()`and `fiter()` 
 :::
-
 :::
-
-</fragment>
 
 ---
 
-## 💻 Practice
+## 💻 Practice using these functions
 
 ### What is the average body mass for Adelie penguins by sex?
 
 <br>
 
-**First, think:** How would you approach this question conceptually?
-Break it down into clear steps before coding.
+**First think:** Break down this question into steps before coding.
 
-**Then, code:** Translate those steps into R using the appropriate `dplyr` functions.
+**Then code:** Translate those steps into R using the appropriate `dplyr` functions.
 
-**Hint:** You'll need to use *three* `dplyr` functions here
+**Hint:** You'll need to use at least *three* `dplyr` functions here
 
 Share your code here: <https://codeshare.io/5zlNLE>
 
@@ -671,11 +737,18 @@ results <- summarize(
 print(results)
 ```
 
+# also with select
+adelie_mass_by_sex <- penguins |>
+  select(species, sex, body_mass_g) |>
+  filter(species == "Adelie") |>
+  group_by(sex) |>
+  summarize(avg_mass = mean(body_mass_g, na.rm = TRUE))
+
 -->
 
 ---
 
-## 🧠 Filter or Group First?
+## Should we Filter or Group First?
 
 ### Task: Calculate the average body mass for Adelie penguins by sex.
 
@@ -689,13 +762,13 @@ print(results)
 
 The first is the best approach in this case. The other approaches are all correct (try them out!), but are less readable or do more work than needed. 
 
-The next slide compares the first two, which are the most common.
+The next slide compares the first two approaches, which are the most common.
 
 </br>
 
 ---
 
-## 🧠 Filter or Group First?
+## Should we Filter or Group First?
 
 ### Task: Calculate the average body mass for Adelie penguins by sex.
 
@@ -704,7 +777,7 @@ The next slide compares the first two, which are the most common.
 ::: {.columns}
 
 ::: {.column width="50%"}
-#### Filter → Group (Best Practice here)
+#### Filter → Group (Best here)
 
 - Filter first to keep only Adelie penguins  
 → reduces rows right away 
@@ -714,7 +787,7 @@ The next slide compares the first two, which are the most common.
 :::
 
 ::: {.column width="50%"}
-#### Group → Filter (Works but Not Ideal here)
+#### Group → Filter (Works but not best here)
 
 - Group all penguins by sex   
 → includes extra, unneeded data  
@@ -727,11 +800,11 @@ The next slide compares the first two, which are the most common.
 
 </br>
 
----
+<!--
 
-## 🧠 Filter or Group First?
+## Should we Filter or Group First?
 
-### The best order depends on the task *(think first!)* but here’s a rule of thumb:
+### The best order depends on the task, but here’s a rule of thumb:
 
 <br>
 
@@ -747,8 +820,8 @@ result <- summarize(adelie_by_sex,
 
 <br>
 
-**Group first only when your filter depends on group-level summaries.**
-*Example: Calculate the average body mass only for species whose average bill length is over 40 mm.*
+**Group first when your filter depends on a group-level summary.**
+*Example: Keep only species whose average bill length is over 40 mm, then calculate their average body mass.*
   
 ```r
 by_species <- group_by(penguins, species)
@@ -756,6 +829,8 @@ avg_bill_high <- filter(by_species, mean(bill_length_mm, na.rm = TRUE) > 40)
 result <- summarize(avg_bill_high, 
                     avg_mass = mean(body_mass_g, na.rm = TRUE))
 ```
+-->
+
 <!--
 
 ## In-class Code: Debugging Note
@@ -770,6 +845,22 @@ Therefore:
 - Use `filter()` with **logical conditions** to keep only selected rows
 
 -->
+
+---
+
+## Wrapping Up on Today's dplyr Functions
+
+Today, we introduced the following `dplyr` tools for working with data:
+
+- `select()` to choose columns
+- `filter()` to keep rows
+- `group_by()` to create groups (using columns)
+- `summarize()` to calculate summaries
+
+Next lecture, we will learn more functions and practice combining them in longer workflows.
+
+To get ready for that, we need to introduce one last topic today: **pipes**.
+
 
 # 4. Pipes %>% or |> {.slide .center .middle}
 
@@ -794,7 +885,7 @@ adelie_avg_mass_island <- penguins |>
 
 ---
 
-## Multiple Ways to Write R Code — Pipes Are Often the Best Choice
+## Multiple Ways to Write R Code but Pipes Are Often the Best Choice
 
 Pipes are great and our ultimate goal. But there are several ways to write the same R code. 
 
@@ -908,10 +999,8 @@ penguins |>
 
 **💡 Why pipes?** The pipe operator passes the result of one function to the next, making your code easier to read. Pipes emphasize **actions**, not object names and you can read the code like a recipe:
 
-- Start with the dataset
-- Filter for Adelie penguins
-- Group by island
-- Summarize body mass
+Start with the dataset → filter for Adelie penguins → group by island → summarize body mass
+
 :::
 
 </br>
@@ -956,7 +1045,7 @@ glimpse(flights)
 
 #### What's wrong with this code?
 
-Before we debug it, let’s first think through what the code is trying to do conceptually.
+Before we debug it, let’s first explain what the code is trying to do conceptually.
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -975,6 +1064,15 @@ delays <- flights %>%
   d <- filter(count > 20)
 ```
 
+<!--
+Start with flights
+Group flights by destination airport
+For each destination, calculate:
+count = n() = number of flights to that destination
+delay = mean(arr_delay, na.rm = TRUE) = average arrival delay
+Keep only destinations with more than 20 flights
+-->
+
 :::
 
 ::: {.column width="50%"}
@@ -986,11 +1084,6 @@ delays <- flights %>%
 ---
 
 ## Common Pipe Errors: Example 1
-
-
-#### What's wrong with this code?
-
-Before we debug it, let’s first think through what the code is trying to do conceptually.
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -1338,7 +1431,7 @@ Download today's in-class exercises from the website for more practice on operat
 
 - Practiced programming as problem-solving: think through tasks before coding
 - Learned R operators
-- Key `dplyr` functions like `filter()`, `group_by()`, `summarize()`, and more
+- Key `dplyr` functions like `select()`, `filter()`, `group_by()`, `summarize()`
 - Chained commands with pipes
 - Reviewed common mistakes when using pipes and how to avoid them
 
