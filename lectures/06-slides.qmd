@@ -117,7 +117,7 @@ bind_rows(head(penguins, 4), tail(penguins, 4))
 ## Scatterplot: Flipper Length, Body Mass, and Species
 
 ::: {style="border: 2px solid #999; padding: 0.8em;"}
-**Question → ggplot2 → interpretation.**  
+**Question → ggplot2 → interpretation**  
 :::
 
 <!--
@@ -126,14 +126,13 @@ Choose the graph based on the question:the best graph depends on what you want t
 
 1. **Question:** How does the relationship between flipper length and body mass differ across species?
 
-2. **Graph:** To answer this, we need to show the relationship between *two numeric variables* and compare it across a *categorical variable*
+2. **Graph:** To answer this, we need to show the relationship between *two numeric variables* and compare it across *one categorical variable*
 
 ```r
 library(tidyverse)
 library(palmerpenguins)
 
-ggplot(data = penguins, 
-       aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g, color = species)) +
   geom_point() +
   labs(title = "Penguins: Body Mass vs. Flipper Length by Species")
 ```
@@ -173,9 +172,9 @@ ggplot(data = penguins,
 
 ## Bar Plot: Number of Penguins by Species
 
-1. **Question:** how many penguins are there in each species?
+1. **Question:** How many penguins are there in each species?
 
-2. **Graph:** To answer this, we need to show the distribution of *one categorical variable* across its categories.
+2. **Graph:** To answer this, we need to show the distribution of *one categorical variable* across its categories
 
 ```r
 ggplot(data = penguins, aes(x = species)) +
@@ -238,17 +237,15 @@ Often, we use them together:
 
 ---
 
-## Data Manipulation with dplyr
+## Data Manipulation with dplyr <https://dplyr.tidyverse.org/>
 
-### dplyr <https://dplyr.tidyverse.org/>:
-
-(pronounced “d-ply-r” letter by letter or “dee-plyer”)
+### dplyr (pronounced “d-ply-r” letter by letter or “dee-plyer”):
 
 - Designed to **clean, organize, and summarize data**
 
 - Makes it easier to prepare data for **better graphs**
 
-- Includes several intuitive functions: we learn the most important ones this week
+- Includes several functions or **verbs**: we learn the most important this week
 
 
 <!-- TEACHING NOTES:
@@ -276,9 +273,9 @@ We will work through two questions together that require these dplyr functions a
 ## Programming as Problem-Solving
 
 ::: {style="border: 2px solid #999; padding: 0.8em;"}
-**Question → dplyr → interpretation.** 
+**Question → dplyr → interpretation** 
 
-Now we will use two questions to practice choosing the right `dplyr` steps and translating plain-language data questions into code.
+Now we will use two questions to practice choosing the right `dplyr` functions and translating plain-language data questions into code.
 
 :::
 
@@ -314,7 +311,7 @@ head(penguins, 4)
 
 **Steps to answer Q1:**
 
-1. Identify the data and variables we need → `penguins`, `species`, `body_mass_g` 
+1. Identify the data and variables (columns) we need → `penguins`, `species`, `body_mass_g` 
 1. Keep only the observations (rows) where species is Adelie → `filter()` 
 1. Calculate the average body mass for this group → `summarize()` + `mean()`
 
@@ -350,7 +347,7 @@ head(penguins, 4)
 
 **Steps to answer the Q2:**
 
-1. Identify the data and variables we need → `penguins`, `species`, `body_mass_g` 
+1. Identify the data and variables (columns) we need → `penguins`, `species`, `body_mass_g` 
 1. Group the observations (rows) by species → `group_by()`
 1. Calculate the average body mass for all groups → `summarize()` + `mean()`
 
@@ -378,7 +375,7 @@ summarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
 Use `<-` when you create an object, and use `=` when you name an argument inside a function:
 
 ```
-x <- 5                  # assign 5 to an object
+x <- 5                  # use <- to assign 5 to an object
 mean(x = c(1, 2, 3))    # use = to specify an argument inside a function
 ```
 
@@ -406,7 +403,7 @@ summarize(penguins_species, avg_mass = mean(body_mass_g, na.rm = TRUE))
 R logical operators return `TRUE` or `FALSE`:
 
 ```
-x == x    # is x equal to y? (TRUE or FALSE)
+x == y    # is x equal to y? (TRUE or FALSE)
 x != y    # is x not equal to y? 
 x < y     # is x less than than y?
 x <= y    # is x less than or equal to y?
@@ -479,21 +476,25 @@ filter(penguins, species == "Adelie" & species == "Chinstrap")
 
 ## Two Ways to Write “OR”
 
-Sometimes we want to keep rows where a variable is equal to **one value OR another value**.
+We use OR to keep rows where a variable is equal to **one value OR another value**. In R, we can write this in two equivalent ways:
 
-In R, we can write this in two ways:
-
-- use `|` to spell out each condition
+<br>
+Option 1: use `|` to spell out each condition
 
 ```r
 penguins_adelie_chin <- filter(penguins, species == "Adelie" | species == "Chinstrap")
 ```
 
-- use `%in%` to check whether a value is in a list of allowed values
+<br>
+
+Option 2: use `%in%` to check whether a value is in a list of allowed values
 
 ```r
 penguins_adelie_chin <- filter(penguins, species %in% c("Adelie", "Chinstrap"))
+
 ```
+
+</br>
 
 <!-- Both lines keep only penguins whose species is Adelie or Chinstrap -->
 
@@ -509,7 +510,7 @@ Now we practice with the penguins dataset:
 
 - **Task 2:** Get all penguins on Dream and Torgersen islands that are not female
 
-Share your code here: <https://codeshare.io/5zlNLE> and answer the poll everywhere question from the chat once done
+Share your code here: <https://codeshare.io/5zlNLE> and answer the poll everywhere question from the chat once you are done
 
 <!-- SEE ALSO SOLUTION FILE!
 
@@ -547,7 +548,7 @@ Conceptually, any data transformation using `dplyr` requires us to:
 
 -->
 
-## The package dplyr has many functions.
+## The package dplyr has many functions
 
 These functions:
 
@@ -640,7 +641,7 @@ penguin_subset <- select(penguins, species, island, body_mass_g)
 ```
 
 ::: {.cell .fragment}
-::: {.callout-note title=`select()`"}
+::: {.callout-note title="`select()`"}
 
 - works on columns
 - keeps variables
@@ -688,12 +689,13 @@ summarize(grouped, avg_mass = mean(body_mass_g, na.rm = TRUE))
 - uses one or more columns (e.g., variables) to define groups 
 - does not change the data itself: changes how the next function treats the data 
 - often used before `summarize()`and `fiter()` 
+- often used with categorical variables
 :::
 :::
 
 ---
 
-## 💻 Practice using these functions
+## 💻 Practice using these Functions
 
 ### What is the average body mass for Adelie penguins by sex?
 
@@ -703,7 +705,7 @@ summarize(grouped, avg_mass = mean(body_mass_g, na.rm = TRUE))
 
 **Then code:** Translate those steps into R using the appropriate `dplyr` functions.
 
-**Hint:** You'll need to use at least *three* `dplyr` functions here
+*Hint:* You'll need to use at least *three* `dplyr` functions here
 
 Share your code here: <https://codeshare.io/5zlNLE>
 
@@ -862,6 +864,8 @@ Next lecture, we will learn more functions and practice combining them in longer
 To get ready for that, we need to introduce one last topic today: **pipes**.
 
 
+<!-- POLL EVERWhERE Q4 -->
+
 # 4. Pipes %>% or |> {.slide .center .middle}
 
 ## Pipes to Chain Commands
@@ -875,7 +879,7 @@ adelie_island <- group_by(adelie, island)
 adelie_avg_mass_island <- summarize(adelie_island, body_mass = mean(body_mass_g, na.rm = TRUE))
 ```
 
-**With pipes %>% or |>:**
+**With pipes:**
 ```r
 adelie_avg_mass_island <- penguins |>
   filter(species == "Adelie") |>
@@ -885,7 +889,7 @@ adelie_avg_mass_island <- penguins |>
 
 ---
 
-## Multiple Ways to Write R Code but Pipes Are Often the Best Choice
+## Pipes are the best but there are multiple ways to write R code
 
 Pipes are great and our ultimate goal. But there are several ways to write the same R code. 
 
@@ -928,7 +932,7 @@ print(penguins_final)
 ::: {.fragment}
 ✅ This is valid code.
 
-⚠️ **Drawback: You must save each intermediate object.** This can clutter your environment, increase R memory usage with large datasets, and make your code more prone to typos. Shorter names for each step might reduce typos but sacrifice clarity, which is not good for self-documentation.
+⚠️ **Drawback: You must save each intermediate object.** This can clutter your environment, increase R memory usage, and make your code more prone to typos. Shorter names for each step might reduce typos but sacrifice readability.
 
 </br>
 :::
@@ -950,7 +954,7 @@ print(penguins)
 ::: {.fragment}
 ✅ This also works, but it’s not good practice.
 
-**⚠️ Drawback: It overwrites the original dataset.** If something goes wrong midway, you need to re-run everything.
+**⚠️ Drawback: It overwrites the original dataset.** If something goes wrong, you need to re-run everything.
 
 ::: {.callout-warning}
 This approach is risky — especially when working with important datasets. Always keep a copy of your original data before modifying it.
@@ -995,9 +999,9 @@ penguins |>
 <br>
 
 ::: {.fragment}
-✅ This is valid and readable code — without the drawbacks of the previous options.
+✅ This is valid and readable code without the drawbacks of the previous options.
 
-**💡 Why pipes?** The pipe operator passes the result of one function to the next, making your code easier to read. Pipes emphasize **actions**, not object names and you can read the code like a recipe:
+**💡 Why pipes?** The pipe operator passes the result of one function to the next, making your code easier to read. Pipes emphasize **actions**, not object names and you can read the code **like a recipe:**
 
 Start with the dataset → filter for Adelie penguins → group by island → summarize body mass
 
