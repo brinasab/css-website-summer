@@ -219,7 +219,7 @@ Sabrina Nardin, Summer 2026
 <p>3.2 Syntactic vs.&nbsp;Non-syntactic Variable Names</p></li>
 </ol>
 </div>
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>June 24, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>June 24, 2026</strong>. Updates: minor clarifications. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 </section>
 
 <section>
@@ -421,12 +421,12 @@ penguins |>
 <tr class="even">
 <td><strong>Columns</strong></td>
 <td><code>rename()</code> renames columns; <code>relocate()</code> reorders columns</td>
-<td><code>mutate()</code> adds or changes column values — as central as <code>filter()</code>, <code>group_by()</code>, <code>summarize()</code>; <code>across()</code> applies one operation to many columns at once</td>
+<td><code>mutate()</code> adds or changes column values (as central as the verbs we learned last time); <code>across()</code> applies one operation to many columns at once</td>
 </tr>
 <tr class="odd">
 <td><strong>Groups</strong></td>
 <td><code>group_by()</code> defines groups; <code>summarize()</code> summarizes each group</td>
-<td><code>count()</code> — shortcut for <code>group_by()</code> + <code>summarize(n())</code></td>
+<td><code>count()</code> (a shortcut for group_by + summarize)</td>
 </tr>
 </tbody>
 </table>
@@ -757,7 +757,7 @@ p <- penguins_raw %>%
 p %>% count(Species)
 
 
-# Method 2: CASE_WHEN
+# Method 2: CASE_WHEN SAY MOST POPULAR AND FLEXIBLE, SO WE FOCUS ON THIS 
 
 penguins_raw %>% count(Species)
 
@@ -791,6 +791,7 @@ p2 %>% count(Species)
 </li>
 <li>Method 2: <code>mutate(Sex = case_when(sex == "MALE" ~ 1, sex == "FEMALE" ~ 0))</code></li>
 </ul>
+<h4 id="which-method-is-best-method-2-is-more-popular-in-r-more-flexiblepowerful">Which method is “best”? Method 2 is more popular in R (more flexible/powerful)</h4>
 </div>
 </div>
 </div>

@@ -2398,7 +2398,7 @@
     "href": "lectures/07-slides.html#the-role-of-mutate-in-recoding",
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "The Role of mutate in Recoding",
-    "text": "The Role of mutate in Recoding\nThe dplry verb mutate has many uses: create new columns or modify existing columns values.\n\n\n\n\n\n\nNote\n\n\nFor recoding, use mutate + recode or mutate + case_when, because the goal is changing the column’s values:\n\nMethod 1: mutate(Sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\nMethod 2: mutate(Sex = case_when(sex == \"MALE\" ~ 1, sex == \"FEMALE\" ~ 0))"
+    "text": "The Role of mutate in Recoding\nThe dplry verb mutate has many uses: create new columns or modify existing columns values.\n\n\n\n\n\n\nNote\n\n\nFor recoding, use mutate + recode or mutate + case_when, because the goal is changing the column’s values:\n\nMethod 1: mutate(Sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\nMethod 2: mutate(Sex = case_when(sex == \"MALE\" ~ 1, sex == \"FEMALE\" ~ 0))\n\nWhich method is “best”? Method 2 is more popular in R (more flexible/powerful)"
   },
   {
     "objectID": "lectures/07-slides.html#rename-vs-recode-syntax-reference",
@@ -2517,7 +2517,7 @@
     "href": "lectures/07-slides.html#today-we-learn-more-dplyr-functions",
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "Today we learn more dplyr functions",
-    "text": "Today we learn more dplyr functions\ndplyr verbs group naturally by what they operate on: columns, rows, groups. Here’s how today’s new functions connect to what you already know:\n\n\n\n\n\n\n\n\nFocus\nLast time (review)\nToday (new)\n\n\n\n\nRows\nfilter() keeps rows by condition\narrange() reorders rows by value; distinct() keeps only unique rows\n\n\nColumns\nrename() renames columns; relocate() reorders columns\nmutate() adds or changes column values — as central as filter(), group_by(), summarize(); across() applies one operation to many columns at once\n\n\nGroups\ngroup_by() defines groups; summarize() summarizes each group\ncount() — shortcut for group_by() + summarize(n())"
+    "text": "Today we learn more dplyr functions\ndplyr verbs group naturally by what they operate on: columns, rows, groups. Here’s how today’s new functions connect to what you already know:\n\n\n\n\n\n\n\n\nFocus\nLast time (review)\nToday (new)\n\n\n\n\nRows\nfilter() keeps rows by condition\narrange() reorders rows by value; distinct() keeps only unique rows\n\n\nColumns\nrename() renames columns; relocate() reorders columns\nmutate() adds or changes column values (as central as the verbs we learned last time); across() applies one operation to many columns at once\n\n\nGroups\ngroup_by() defines groups; summarize() summarizes each group\ncount() (a shortcut for group_by + summarize)"
   },
   {
     "objectID": "lectures/07-slides.html#practice-2",

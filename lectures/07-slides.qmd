@@ -31,7 +31,7 @@ format:
 :::
 
 <span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Updates: minor clarifications. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
 ```{r pkgs, include = FALSE, cache = FALSE}
@@ -230,8 +230,8 @@ dplyr verbs group naturally by **what they operate on**: columns, rows, groups. 
 | Focus | Last time (review) | Today (new) |
 |----------------|---------------------------------------------------------------------|---------------------------------------------------------------------|
 | **Rows** | `filter()` keeps rows by condition | `arrange()` reorders rows by value; `distinct()` keeps only unique rows |
-| **Columns** | `rename()` renames columns; `relocate()` reorders columns | `mutate()` adds or changes column values — as central as `filter()`, `group_by()`, `summarize()`; `across()` applies one operation to many columns at once |
-| **Groups** | `group_by()` defines groups; `summarize()` summarizes each group | `count()` — shortcut for `group_by()` + `summarize(n())` |
+| **Columns** | `rename()` renames columns; `relocate()` reorders columns | `mutate()` adds or changes column values (as central as the verbs we learned last time); `across()` applies one operation to many columns at once |
+| **Groups** | `group_by()` defines groups; `summarize()` summarizes each group | `count()` (a shortcut for group_by + summarize) |
 
 <!--
 
@@ -587,7 +587,7 @@ p <- penguins_raw %>%
 p %>% count(Species)
 
 
-# Method 2: CASE_WHEN
+# Method 2: CASE_WHEN SAY MOST POPULAR AND FLEXIBLE, SO WE FOCUS ON THIS 
 
 penguins_raw %>% count(Species)
 
@@ -614,6 +614,8 @@ For recoding, use `mutate + recode` or `mutate + case_when`, because the goal is
 
 - Method 1: `mutate(Sex = recode(Sex, "MALE" = 1, "FEMALE" = 0))`  
 - Method 2: `mutate(Sex = case_when(sex == "MALE" ~ 1, sex == "FEMALE" ~ 0))`
+
+#### Which method is "best"? Method 2 is more popular in R (more flexible/powerful)
 :::
 
 ---
