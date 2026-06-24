@@ -2398,7 +2398,7 @@
     "href": "lectures/07-slides.html#the-role-of-mutate-in-recoding",
     "title": "Computing for the Social Sciences: Lecture 7",
     "section": "The Role of mutate in Recoding",
-    "text": "The Role of mutate in Recoding\nThe dplry verb mutate has many uses: create new columns or modify existing columns values.\n\n\n\n\n\n\nNote\n\n\nFor recoding, use mutate + recode or mutate + case_when, because the goal is changing the column’s values:\n\nMethod 1: mutate(Sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\nMethod 2: mutate(Sex = case_when(sex == \"MALE\" ~ 1, sex == \"FEMALE\" ~ 0))\n\nWhich method is “best”? Method 2 is more popular in R (more flexible/powerful)"
+    "text": "The Role of mutate in Recoding\nThe dplry verb mutate has many uses: create new columns or modify existing columns values.\n\n\n\n\n\n\nNote\n\n\nFor recoding, use mutate + recode or mutate + case_when, because the goal is changing the column’s values:\n\nMethod 1: mutate(Sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\nMethod 2: mutate(Sex = case_when(sex == \"MALE\" ~ 1, sex == \"FEMALE\" ~ 0))\n\nWhich method is “best”? It depends, but method 2 is more popular (flexible/powerful)!"
   },
   {
     "objectID": "lectures/07-slides.html#rename-vs-recode-syntax-reference",
