@@ -270,14 +270,14 @@
     "href": "lectures/07-home.html",
     "title": "Lecture 7: Intermediate dplyr; Renaming & Recoding Variables",
     "section": "",
-    "text": "Date: June 24, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 24, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/more-dplyr\")"
   },
   {
     "objectID": "lectures/07-home.html#info-and-materials",
     "href": "lectures/07-home.html#info-and-materials",
     "title": "Lecture 7: Intermediate dplyr; Renaming & Recoding Variables",
     "section": "",
-    "text": "Date: June 24, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 24, 2026\nTopics: Intermediate dplyr; Renaming & Recoding Variables\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/more-dplyr\")"
   },
   {
     "objectID": "lectures/07-home.html#learning-objectives",
@@ -2231,5 +2231,649 @@
     "title": "Computing for the Social Sciences: Lecture 6",
     "section": "Pipes are the best but there are multiple ways to write R code",
     "text": "Pipes are the best but there are multiple ways to write R code\nPipes are great and our ultimate goal. But there are several ways to write the same R code.\nIn fact, R didn’t have pipes for a long time!\nLet’s compare different ways to write the same code…"
+  },
+  {
+    "objectID": "lectures/07-slides.html#most-important-dplyr-functions-definitions",
+    "href": "lectures/07-slides.html#most-important-dplyr-functions-definitions",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Most Important dplyr Functions: Definitions",
+    "text": "Most Important dplyr Functions: Definitions\n\n\n\n\n\n\n\nfunction()\nWhat it does\n\n\n\n\nselect()\nChooses specific columns\n\n\nrename()\nRenames columns\n\n\nrelocate()\nReorders columns\n\n\nfilter()\nSelects rows based on values on columns\n\n\narrange()\nReorders rows based on values in specified columns\n\n\nmutate()\nAdds new columns or modifies existing ones\n\n\ndistinct()\nReturns unique rows based on columns\n\n\ngroup_by()\nGroups the data by one or more variables for grouped operations\n\n\ncount()\nCounts observations by group\n\n\nsummarize()\nReduces each group to a single row using summary statistics (e.g., mean, sum, n)\n\n\nacross()\nApplies the same operation to multiple columns at once"
+  },
+  {
+    "objectID": "lectures/07-slides.html#most-important-dplyr-functions-tips-to-rememeber-and-examples",
+    "href": "lectures/07-slides.html#most-important-dplyr-functions-tips-to-rememeber-and-examples",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Most important dplyr Functions: Tips to Rememeber and Examples",
+    "text": "Most important dplyr Functions: Tips to Rememeber and Examples\n\n\n\n\n\n\n\n\nFocus\nConcept\nFunction\n\n\n\n\nColumns\nStructure\nselect() chooses specific columns — select(penguins, species, island)rename() renames columns — rename(penguins, flip_mm = flipper_length_mm)relocate() reorders columns — relocate(penguins, island, .before = species)\n\n\nRows\nFiltering & sorting\nfilter() selects rows by values — filter(penguins, species == \"Adelie\")arrange() orders rows by column values — arrange(penguins, desc(body_mass_g))\n\n\nValues\nTransformation\nmutate() adds or changes columns — mutate(penguins, flip_cm = flipper_length_mm / 10)distinct() keeps unique rows — distinct(penguins, species, island)\n\n\nGroups\nAggregation\ngroup_by() defines groups — group_by(penguins, species)count() counts rows per group — count(penguins, island)  summarize() creates summaries per group — summarize(penguins, avg_flip = mean(flipper_length_mm, na.rm = TRUE))\n\n\nAcross columns\nAutomation\nacross() applies an operation to multiple columns — summarize(across(ends_with(\"_mm\"), mean, na.rm = TRUE))\n\n\n\n\n\nData flows top → bottom just like in a pipeline: penguins |&gt; select() |&gt; filter() |&gt; group_by() |&gt; summarize()"
+  },
+  {
+    "objectID": "lectures/07-slides.html#penguins-data",
+    "href": "lectures/07-slides.html#penguins-data",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Penguins data",
+    "text": "Penguins data\nLoad libraries and data:\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\nExplore data (pick one of these):\nrbind(head(penguins, 5), tail(penguins, 5))\nglimpse(penguins)\nstr(penguins)\nsummary(penguins)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#select-extracts-variables-operates-on-columns",
+    "href": "lectures/07-slides.html#select-extracts-variables-operates-on-columns",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "select() extracts variables, operates on columns",
+    "text": "select() extracts variables, operates on columns\n# select two specific variables using their names\nselect(penguins, species, body_mass_g)\n\n# select all variables except two using the minus sign\nselect(penguins, -year, -island)\n\n# select a range of contiguous/adjacent variables\nselect(penguins, species:bill_length_mm)\n\n# select all variables except a range of contiguous ones\nselect(penguins, -(species:island))\n\n# select all variables that start with\nselect(penguins, starts_with(\"bill\"))\n\n# select all variables that end with\nselect(penguins, ends_with(\"mm\"))"
+  },
+  {
+    "objectID": "lectures/07-slides.html#filter-extract-observations-operates-on-rows",
+    "href": "lectures/07-slides.html#filter-extract-observations-operates-on-rows",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "filter() extract observations, operates on rows",
+    "text": "filter() extract observations, operates on rows\n# check variable values\nlevels(penguins$species) \nunique(penguins$species)\ncount(penguins, species)\npenguins |&gt; count(species)\n\n# filter by island and species\nfilter(penguins, island == \"Biscoe\", species == \"Gentoo\")\nfilter(penguins, (island == \"Biscoe\" & species == \"Gentoo\"))\n\n# filter by multiple conditions\nfilter(penguins, species %in% c(\"Adelie\", \"Gentoo\"), island != \"Biscoe\")"
+  },
+  {
+    "objectID": "lectures/07-slides.html#select-plus-filter",
+    "href": "lectures/07-slides.html#select-plus-filter",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "select() plus filter()",
+    "text": "select() plus filter()\nCLAUDE: this slide needs improvement or change: it is good to put a few examples where we concatenate the verbs from the prevoius slide (e.g. those we are reviewing from yesterday (like select, filter, group by, summarize) but the example i have not is not not complete; i want at least 3 examples concatenate all of them (from yesterday) or some of them, and hihglight some common combinations of these four verbs as teaching point and title the slide as such (e.g. how to combine them with pipes)\npenguins |&gt; \n  select(species, sex, year, island) |&gt; \n  filter(island == \"Torgersen\")"
+  },
+  {
+    "objectID": "lectures/07-slides.html#arrange-changes-order-of-observations",
+    "href": "lectures/07-slides.html#arrange-changes-order-of-observations",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "arrange() changes order of observations",
+    "text": "arrange() changes order of observations\n# basic idea: arrange() sorts rows by one variable \n# here: largest bill length first\npenguins |&gt; \n  arrange(desc(bill_length_mm))\n\n# more complex: arrange() can sort by more than one variable\n# here: sort by species first, then by bill length within each species\npenguins |&gt;\n  select(species, contains(\"bill\")) |&gt;\n  filter(species != \"Adelie\") |&gt; \n  arrange(species, bill_length_mm)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#relocate-changes-order-of-variable",
+    "href": "lectures/07-slides.html#relocate-changes-order-of-variable",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "relocate() changes order of variable",
+    "text": "relocate() changes order of variable\n# move two variables to the front of the dataset\npenguins |&gt; \n  relocate(year, sex)\n\n# move year to a specific position: after island\npenguins |&gt; \n  relocate(year, .after = island)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#mutate-modify-or-create-new-columns",
+    "href": "lectures/07-slides.html#mutate-modify-or-create-new-columns",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "mutate() modify or create new columns",
+    "text": "mutate() modify or create new columns\n\n\n\n\n\n\n\nOne of the Most-Used Verbs in dplyr\n\n\nmutate https://dplyr.tidyverse.org/reference/mutate.html is one of the most used dplyr verbs, together with filter, group_by, summarize\n\n\n\n\n# create a new column using existing columns\npenguins |&gt; \n  mutate(bill_ratio = bill_length_mm / bill_depth_mm)\n  \n# create a new column by converting body mass from grams to kilograms\npenguins |&gt; \n  mutate(body_mass_kg = body_mass_g / 1000)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#summarize-summary-of-data",
+    "href": "lectures/07-slides.html#summarize-summary-of-data",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "summarize() summary of data",
+    "text": "summarize() summary of data\npenguins |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE),\n            body_mass_sd = sd(body_mass_g, na.rm = TRUE),\n            n = n())  # n = nrow(penguins)\n\npenguins | \n  filter(species == \"Gentoo\") |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE),\n            body_mass_sd = sd(body_mass_g, na.rm = TRUE),\n            n = n())\nNote: collapses the original data to a smaller number of rows, you can use summarize to create all sort of summary statistics https://dplyr.tidyverse.org/reference/summarise.html"
+  },
+  {
+    "objectID": "lectures/07-slides.html#group_by-aggregates-data-for-next-function",
+    "href": "lectures/07-slides.html#group_by-aggregates-data-for-next-function",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "group_by() aggregates data for next function",
+    "text": "group_by() aggregates data for next function\n# group by alone? not that useful\npenguins |&gt; \n  group_by(island, sex)\n\n# group by and count\npenguins |&gt; \n  group_by(island, sex) |&gt; \n  count()\n\n# group by and calculate mean body mass\npenguins |&gt; \n  group_by(island, sex) |&gt;\n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "lectures/07-slides.html#count-counts-tot-obs.-by-group",
+    "href": "lectures/07-slides.html#count-counts-tot-obs.-by-group",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "count() counts tot obs. by group",
+    "text": "count() counts tot obs. by group\n# option 1: count penguins by sex the long way\npenguins |&gt; \n  group_by(sex) |&gt; \n  summarize(total = n())\n\n# option 2: do the same with count (shortcut!)\npenguins |&gt;\n  count(sex)\n  \n# more complex Option 1: count penguins by island-sex combinations\npenguins |&gt; \n  group_by(island, sex) |&gt; \n  summarize(total = n())\n\n# more complex Option 2: do the same thing with count\npenguins |&gt; \n  count(island, sex)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#distinct-returns-unique-rows-based-on-given-columns",
+    "href": "lectures/07-slides.html#distinct-returns-unique-rows-based-on-given-columns",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "distinct() returns unique rows based on given columns",
+    "text": "distinct() returns unique rows based on given columns\n# unique combinations of species and island\npenguins |&gt;\n  distinct(species, island)\n\n# same but keep all columns in the resulting data frame\npenguins |&gt;\n  distinct(species, island, .keep_all = TRUE)\nNote: returns a dataframe with only unique combinations of your input columns https://dplyr.tidyverse.org/reference/distinct.html"
+  },
+  {
+    "objectID": "lectures/07-slides.html#across",
+    "href": "lectures/07-slides.html#across",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "across()",
+    "text": "across()\nExamples with and without across() with numerical variables:\n# mean for several variables without across\npenguins |&gt;\n  summarize(\n    mean_bill_length_mm = mean(bill_length_mm, na.rm = TRUE),\n    mean_bill_depth_mm = mean(bill_depth_mm, na.rm = TRUE),\n    mean_flipper_length_mm = mean(flipper_length_mm, na.rm = TRUE),\n    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)\n  )\n\n# same operation with across\npenguins |&gt;\n  summarize(\n    across(\n      c(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g), \n      ~ mean(.x, na.rm = TRUE)  # function(x) mean(x, na.rm = TRUE)\n    ))"
+  },
+  {
+    "objectID": "lectures/07-slides.html#across-1",
+    "href": "lectures/07-slides.html#across-1",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "across()",
+    "text": "across()\nExamples with and without across() with categorical variables:\n# number of distinct entries without across\npenguins |&gt;\n  summarise(distinct_species = n_distinct(species),\n            distinct_island = n_distinct(island),\n            distinct_year = n_distinct(year))\n\n# number of distinct entries with across\npenguins |&gt;\n  summarise(across(c(species, island, year), \n                   n_distinct))\n\n# the opposite\npenguins |&gt;\n  summarise(across(-c(species, island, year), \n                   n_distinct))\n\n# everything\npenguins |&gt;\n  summarise(across(everything(), \n                   n_distinct))"
+  },
+  {
+    "objectID": "lectures/07-slides.html#definitions",
+    "href": "lectures/07-slides.html#definitions",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Definitions",
+    "text": "Definitions\nRenaming: change variable names (column names)\nRecoding: change values/levels of categorical variables (column values; e.g., inside a column)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#uses",
+    "href": "lectures/07-slides.html#uses",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Uses",
+    "text": "Uses\nWhen might you need to rename variables or recode their values?\n\nYou are cleaning data\n\nThe variable name has issues: Flipper Length (mm) → flipper_length_mm\nYou need to standardize values: \"Good\" and \"GOOD\" → \"good\"\nEtc.\n\nYou are preparing data for modeling or visualization\n\nYou want to recode \"FEMALE\"/\"MALE\" to 0/1 for a regression model\n\nEtc."
+  },
+  {
+    "objectID": "lectures/07-slides.html#we-work-with-the-penguins-raw-data",
+    "href": "lectures/07-slides.html#we-work-with-the-penguins-raw-data",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "We work with the Penguins (raw) Data!",
+    "text": "We work with the Penguins (raw) Data!\n# Load libraries and data\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\n\n# Explore data\nhead(penguins_raw)\ntail(penguins_raw)\nrbind(head(penguins_raw, 3), tail(penguins_raw, 3))\nglimpse(penguins_raw)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#renaming-variables-with-rename",
+    "href": "lectures/07-slides.html#renaming-variables-with-rename",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Renaming Variables with rename",
+    "text": "Renaming Variables with rename\nTo change variable names (column names) the most common way is by using rename()\nChange the name of the variable studyName to study_name:\n# check before renaming\nstr(penguins_raw)\npenguins_raw %&gt;% select(studyName)\n\n# rename\npenguins_raw %&gt;% rename(study_name = studyName)   # new = old\n\n# remember to save to keep changes\np &lt;- penguins_raw %&gt;% rename(study_name = studyName)\np %&gt;% select(study_name)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-renaming-variables",
+    "href": "lectures/07-slides.html#practice-renaming-variables",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice Renaming Variables",
+    "text": "💻 Practice Renaming Variables\n\nUse select() to check the variable Comments in penguins_raw\nUse rename() to rename Comments to notes\nSave the result to a new object\nUse select() to check again\n\nOnce done, copy your code here to share it."
+  },
+  {
+    "objectID": "lectures/07-slides.html#recoding-variables-method-1-with-mutate-recode",
+    "href": "lectures/07-slides.html#recoding-variables-method-1-with-mutate-recode",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Recoding Variables Method 1: with mutate + recode",
+    "text": "Recoding Variables Method 1: with mutate + recode\nTo change variable values (usually levels of categorical variables), we learn two approaches. We take the variable Sex and turn MALE into 1, FEMALE into 0.\nMethod 1:\n# check before recoding\npenguins_raw %&gt;% count(Sex)\n\n# mutate + recode\np &lt;- penguins_raw %&gt;%\n  mutate(sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\n# compare\npenguins_raw %&gt;% count(Sex)\np %&gt;% count(sex)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#recoding-variables-method-2-with-mutate-case_when",
+    "href": "lectures/07-slides.html#recoding-variables-method-2-with-mutate-case_when",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Recoding Variables Method 2: with mutate + case_when",
+    "text": "Recoding Variables Method 2: with mutate + case_when\nMethod 2:\n# mutate + case_when\npenguins_raw %&gt;%\n  mutate(Sex = case_when(Sex == \"MALE\" ~ 1,\n                         Sex == \"FEMALE\" ~ 0,\n                         TRUE ~ NA_real_))\n  \n# like for method 1 (previous code) save results to keep changes and compare\n\n\n\n\n\n\nNote\n\n\nWith case_when() each logical condition ~ value pair acts like if → then:\n\nfor each row, R looks if the condition is TRUE: “If you find the value MALE in Sex, then convert it to 1”\nTRUE ~ NA_real_ tells R: “If no previous condition was met, then return NA as as a number”"
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-recoding-variables",
+    "href": "lectures/07-slides.html#practice-recoding-variables",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice Recoding Variables",
+    "text": "💻 Practice Recoding Variables\n\nUse count() to check the variable Species in penguins_raw\nPick method 1 or method 2 to recode the values of that variable into Adelie, Chinstrap, Gentoo\nSave the result to a new object\nUse count() to verify both results\n\nOnce done, copy your code here to share it."
+  },
+  {
+    "objectID": "lectures/07-slides.html#the-role-of-mutate-in-recoding",
+    "href": "lectures/07-slides.html#the-role-of-mutate-in-recoding",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "The Role of mutate in Recoding",
+    "text": "The Role of mutate in Recoding\nThe dplry verb mutate has many uses: create new columns or modify existing columns values.\n\n\n\n\n\n\nNote\n\n\nFor recoding, use mutate + recode or mutate + case_when, because the goal is changing the column’s values:\n\nMethod 1: mutate(Sex = recode(Sex, \"MALE\" = 1, \"FEMALE\" = 0))\n\nMethod 2: mutate(Sex = case_when(sex == \"MALE\" ~ 1, sex == \"FEMALE\" ~ 0))"
+  },
+  {
+    "objectID": "lectures/07-slides.html#rename-vs-recode-syntax-reference",
+    "href": "lectures/07-slides.html#rename-vs-recode-syntax-reference",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Rename vs Recode: Syntax Reference",
+    "text": "Rename vs Recode: Syntax Reference\n\n\n\n\n\n\n\n\n\n\nFunction\nWhat It Changes\nSyntax + Example\nTips\n\n\n\n\nrename()\nColumn names\nrename(new_name = old_name)  rename(notes = Comments)\nNo quotes around variable names\n\n\nrecode()\nColumn values\nrecode(variable, \"old\" = new)  recode(Sex, \"MALE\" = 1)\nCheck function doc to see when quotes are needed\n\n\ncase_when()\nColumn values\ncase_when(variable == \"old\" ~ new)  case_when(Sex == \"MALE\" ~ 1)\nCheck function doc to see when quotes are needed"
+  },
+  {
+    "objectID": "lectures/07-slides.html#syntactic-valid-variable-names-in-r",
+    "href": "lectures/07-slides.html#syntactic-valid-variable-names-in-r",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Syntactic (Valid) Variable Names in R",
+    "text": "Syntactic (Valid) Variable Names in R\n\n\nValid Names in R:\n\nUse letters, numbers, and the symbols . or _\nBut cannot start with a number or symbol\n\n\nExamples of Valid Names:\nflipper_length_mm\nflipper.length.mm\nflipper.length_mm     # valid but poor style\nFlipperLengthMm       # valid but poor style"
+  },
+  {
+    "objectID": "lectures/07-slides.html#non-syntactic-invalid-variable-names-in-r",
+    "href": "lectures/07-slides.html#non-syntactic-invalid-variable-names-in-r",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Non-Syntactic (Invalid) Variable Names in R",
+    "text": "Non-Syntactic (Invalid) Variable Names in R\n\n\nWhat Makes a Name Invalid:\n\nContains spaces or symbols\nStarts with a number or symbol\nUses reserved words (e.g., TRUE, NULL, if, function)\nType ?Reserved in the Console for the full list\n\n\nExamples of Invalid Names:\nFlipper Length (mm)\n@_flipper_length_mm\nflipper_ length_mm\nflipper-length-mm\n.flipper.length.mm"
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-syntactic-and-non-syntactic-names",
+    "href": "lectures/07-slides.html#practice-syntactic-and-non-syntactic-names",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice: Syntactic and Non-Syntactic Names",
+    "text": "💻 Practice: Syntactic and Non-Syntactic Names\nWhich of the following are valid names?\n\n3_religion\n#3_religion\nq3_religion\nq3.religion\nq3-religion\nq3 religion\nTRUE\n\n\n\n\n\n\n\nTip\n\n\nFor best coding style, use snake_case for all your variables names and keep them to three words maximum. Example: q3_religion"
+  },
+  {
+    "objectID": "lectures/07-slides.html#how-to-handle-non-syntactic-names-and-why-it-matters",
+    "href": "lectures/07-slides.html#how-to-handle-non-syntactic-names-and-why-it-matters",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "How to Handle Non-syntactic Names, and Why It Matters",
+    "text": "How to Handle Non-syntactic Names, and Why It Matters\nYou should avoid creating non-syntactic names, BUT you’ll often encounter them, especially in datasets not created in R (Excel or other sources). If you don’t handle them properly, R will throw errors when you try to use them.\nWhat to Do:\n1. Use backticks to refer to them (e.g., `Flipper Length (mm)`)\n2. Use rename() to change them to syntactic names\nNon-syntactic names will break code if you forget to wrape them in backticks, so renaming avoids issues."
+  },
+  {
+    "objectID": "lectures/07-slides.html#working-with-non-syntactic-names-in-practice",
+    "href": "lectures/07-slides.html#working-with-non-syntactic-names-in-practice",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Working with Non-syntactic Names in Practice",
+    "text": "Working with Non-syntactic Names in Practice\nImagine you are working on political ideology by country, assembled by someone else. The data are in Excel and when you imported them in R they look like this:\ndf &lt;- tibble(country = c(\"Italy\", \"Germany\", \"France\", \"Italy\", \"United States\"),\n                  `4 ideology` = c(\"communism\", \"fascism\", \"anarchism\", \"fascism\", \"capitalism\"))\n\nTo use the non-syntactic variable name without changing it and without errors, you must use backticks:\nselect(df, `4 ideology`)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-syntactic-non-syntactic-variable-names",
+    "href": "lectures/07-slides.html#practice-syntactic-non-syntactic-variable-names",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice: Syntactic & Non-Syntactic Variable Names",
+    "text": "💻 Practice: Syntactic & Non-Syntactic Variable Names\nTry this in R:\n\nUse glimpse(penguins_raw) or str(penguins_raw) and identify non-syntactic variables names in this raw dataset\nPick one of them, and try accessing it with select() without backticks: what happens?\nUse rename() to give the variable a syntactic valid name\nSave the result to a new object\nVerify the name was changed and you can now access it\n\nOnce done, copy your code here to share it."
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice",
+    "href": "lectures/07-slides.html#practice",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nLet’s put all of this into practice.\nDownload today’s class materials. Open practice-dplyr-1 and work through the exercises on these dplyr functions."
+  },
+  {
+    "objectID": "lectures/07-slides.html#recap-what-we-learned-today",
+    "href": "lectures/07-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nReviewed and expanded our data manipulation skills using key dplyr verbs\nHow to rename and recode variables with rename(), recode(), and case_when()\nRecognize syntactic vs. non-syntactic variable names and use them correctly in R"
+  },
+  {
+    "objectID": "lectures/07-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/07-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/07-slides.html#back-to-our-penguins",
+    "href": "lectures/07-slides.html#back-to-our-penguins",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Back to our Penguins",
+    "text": "Back to our Penguins\nLoad libraries and data:\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\nExplore data (pick one of these, note we have two new ones):\nrbind(head(penguins, 5), tail(penguins, 5))\nglimpse(penguins)\nstr(penguins)\nsummary(penguins)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#group_by-aggregates-data-for-the-next-function",
+    "href": "lectures/07-slides.html#group_by-aggregates-data-for-the-next-function",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "group_by() aggregates data for the next function",
+    "text": "group_by() aggregates data for the next function\n# group by alone? not that useful\npenguins |&gt; \n  group_by(island, sex)\n\n# group by one variable: summarize by island\npenguins |&gt; \n  group_by(island) |&gt;\n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))\n\n# group by two variables: summarize by island-sex combinations\npenguins |&gt; \n  group_by(island, sex) |&gt;\n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))\n\n# filter, group_by, summarize\npenguins |&gt;\n  filter(species == \"Adelie\") |&gt;\n  group_by(island, sex) |&gt;\n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "lectures/07-slides.html#summarize-creates-summary-of-data",
+    "href": "lectures/07-slides.html#summarize-creates-summary-of-data",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "summarize() creates summary of data",
+    "text": "summarize() creates summary of data\n# summarize the full dataset\npenguins |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE),\n            body_mass_sd = sd(body_mass_g, na.rm = TRUE),\n            n = n())  # n = nrow(penguins)\n\n# filter first, then summarize only for one species \npenguins |&gt; \n  filter(species == \"Gentoo\") |&gt; \n  summarize(\n    body_mass_mean = mean(body_mass_g, na.rm = TRUE),\n    body_mass_sd = sd(body_mass_g, na.rm = TRUE),\n    n = n()  # counting rows\n  )\nNote: summarize() collapses the data into a smaller summary table. You can use summarize() to calculate many kinds of summary statistics, such as means, standard deviations, counts, minimums, maximums, and more. https://dplyr.tidyverse.org/reference/summarise.html"
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-challange",
+    "href": "lectures/07-slides.html#practice-challange",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice: Challange",
+    "text": "💻 Practice: Challange\nCLAUDE: tutorial 2"
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-1",
+    "href": "lectures/07-slides.html#practice-1",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nCLAUDE: Make a slide with a take home exercise suggestion on craete a typology of these functions we have learned that would make it easire for you to memorize and provide these explanations (maybe first start with explanation below on what R for Data Scienc does, then add the task as suggestion, kind of: We have learned these functions, which I suggest you to memorize and here is one taks you could do to practice )\nThe current R for Data Science, 2nd edition organizes the same idea slightly differently: row verbs include filter() and arrange(), while column verbs include mutate(), select(), rename(), and relocate().\nThe official dplyr package index also groups the most central verbs by what they operate on: rows (filter(), arrange()), columns (mutate(), rename(), select()), and groups (group_by(), summarise(), count())."
+  },
+  {
+    "objectID": "lectures/07-slides.html#last-lecture-we-learned-four-main-dplyr-functions",
+    "href": "lectures/07-slides.html#last-lecture-we-learned-four-main-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Last lecture we learned four main dplyr functions",
+    "text": "Last lecture we learned four main dplyr functions\n\n\n\n\n\n\n\nFunction\nWhat it does\n\n\n\n\nselect()\nChooses (keeps or reorders) specific columns by name\n\n\nfilter()\nKeeps rows based on conditions\n\n\ngroup_by()\nGroups the data by one or more variables for grouped operations\n\n\nsummarize()\nReduces each group to a single row using summary statistics (e.g., mean, sum, n)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#today-we-learn-more-dplyr-functions",
+    "href": "lectures/07-slides.html#today-we-learn-more-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Today we learn more dplyr functions",
+    "text": "Today we learn more dplyr functions\ndplyr verbs group naturally by what they operate on: columns, rows, groups. Here’s how today’s new functions connect to what you already know:\n\n\n\n\n\n\n\n\nFocus\nLast time (review)\nToday (new)\n\n\n\n\nRows\nfilter() keeps rows by condition\narrange() reorders rows by value; distinct() keeps only unique rows\n\n\nColumns\nrename() renames columns; relocate() reorders columns\nmutate() adds or changes column values — as central as filter(), group_by(), summarize(); across() applies one operation to many columns at once\n\n\nGroups\ngroup_by() defines groups; summarize() summarizes each group\ncount() — shortcut for group_by() + summarize(n())"
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-2",
+    "href": "lectures/07-slides.html#practice-2",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nDownload today’s in-class exercises from the website for more practice."
+  },
+  {
+    "objectID": "lectures/07-slides.html#combining-verbs-with-the-pipe",
+    "href": "lectures/07-slides.html#combining-verbs-with-the-pipe",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Combining Verbs with the Pipe",
+    "text": "Combining Verbs with the Pipe\nKey point: in practice you rarely use one verb alone but you chain verbs together with the pipe |&gt;.\nSome combinations come up again and again:\n# combo 1: filter() + group_by() + summarize() -- subset, then summarize by group\npenguins |&gt; \n  filter(species != \"Gentoo\") |&gt; \n  group_by(island) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))\n\n# combo 2: select() + filter() + group_by() + summarize() -- narrow down columns first\npenguins |&gt; \n  select(species, island, sex, body_mass_g) |&gt; \n  filter(sex == \"female\") |&gt; \n  group_by(species) |&gt; \n  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))"
+  },
+  {
+    "objectID": "lectures/07-slides.html#take-home-exercise-build-your-own-typology",
+    "href": "lectures/07-slides.html#take-home-exercise-build-your-own-typology",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Take-Home Exercise: Build Your Own Typology",
+    "text": "💻 Take-Home Exercise: Build Your Own Typology\nWe’ve now learned the most importnat dplyr functions, I suggest you memorize them. Different sources group them differently, and there’s no single right answer:\n\nR for Data Science (2nd ed.) groups by row verbs (filter(), arrange()) vs. column verbs (mutate(), select(), rename(), relocate())\nThe official dplyr documentation groups by rows (filter(), arrange()), columns (mutate(), rename(), select()), and groups (group_by(), summarize(), count())\n\nTip: Build your own one-page typology / cheat sheet. Group them in whatever way helps you remember them best — by what they operate on, by how often you’ll use them, by similarity in syntax, or something else entirely. Add a one-line example for each function."
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-challenge",
+    "href": "lectures/07-slides.html#practice-challenge",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice: Challenge",
+    "text": "💻 Practice: Challenge\nIf you haven’t yet, downlod the class materials for today.\nOpen practice-dplyr-2 which includes a real-data cleaning challenge that requires you to use mutate() and case_when() to recode messy values, combine dplyr verbs, and then build a ggplot2 chart."
+  },
+  {
+    "objectID": "lectures/07-slides.html#for-this-part-we-work-with-the-penguins-raw-data",
+    "href": "lectures/07-slides.html#for-this-part-we-work-with-the-penguins-raw-data",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "For this part, we work with the Penguins (raw) Data!",
+    "text": "For this part, we work with the Penguins (raw) Data!\n# Load libraries and data\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\n\n# Explore data\nhead(penguins_raw)\ntail(penguins_raw)\nrbind(head(penguins_raw, 3), tail(penguins_raw, 3))\nglimpse(penguins_raw)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#take-home-exercise-build-your-own-verbs-typology",
+    "href": "lectures/07-slides.html#take-home-exercise-build-your-own-verbs-typology",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Take-Home Exercise: Build Your Own Verbs Typology",
+    "text": "💻 Take-Home Exercise: Build Your Own Verbs Typology\nWe have now learned the most important dplyr verbs. I recommend memorizing them.\nFor example, verbs can be grouped by whether they work on:\n\nrows: filter(), arrange()\ncolumns: select(), rename(), relocate(), mutate()\ngroups/summaries: group_by(), summarize(), count()\n\nTip: Make your own one-page cheat sheet. Group the verbs in a way that helps you remember them, and add one short example for each."
+  },
+  {
+    "objectID": "lectures/07-slides.html#a-few-more-dplyr-functions",
+    "href": "lectures/07-slides.html#a-few-more-dplyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "A Few More dplyr Functions",
+    "text": "A Few More dplyr Functions\nWe now introduce a few more dplyr functions: rename(), recode(), and case_when().\nWe introduce them here, in the context of renaming and recoding variables, because that’s how they’re typically used in practice.\n\n\n\n\n\n\nNote\n\n\nrecode() and case_when() only work on a single column’s values, so they’re always used inside mutate()"
+  },
+  {
+    "objectID": "lectures/07-slides.html#definitions-of-rename-and-recode",
+    "href": "lectures/07-slides.html#definitions-of-rename-and-recode",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Definitions of Rename and Recode",
+    "text": "Definitions of Rename and Recode\nRename: change variable names (column names)\nRecode: change values/levels of categorical variables (column values; e.g., inside a column)"
+  },
+  {
+    "objectID": "lectures/07-slides.html#uses-of-rename-and-recode",
+    "href": "lectures/07-slides.html#uses-of-rename-and-recode",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "Uses of Rename and Recode",
+    "text": "Uses of Rename and Recode\nWhen might you need to rename variables or recode their values?\n\nYou are cleaning data\n\nThe variable name has issues: Flipper Length (mm) → flipper_length_mm\nYou need to standardize values: \"Good\" and \"GOOD\" → \"good\"\nEtc.\n\nYou are preparing data for modeling or visualization\n\nYou want to recode \"FEMALE\"/\"MALE\" to 0/1 for a regression model\n\nEtc."
+  },
+  {
+    "objectID": "lectures/07-slides.html#practice-build-your-own-verbs-typology",
+    "href": "lectures/07-slides.html#practice-build-your-own-verbs-typology",
+    "title": "Computing for the Social Sciences: Lecture 7",
+    "section": "💻 Practice: Build Your Own Verbs Typology",
+    "text": "💻 Practice: Build Your Own Verbs Typology\nWe have now learned the most important dplyr verbs. I recommend memorizing them.\nFor example, verbs can be grouped by whether they work on:\n\nrows: filter(), arrange()\ncolumns: select(), rename(), relocate(), mutate()\ngroups/summaries: group_by(), summarize(), count()\n\nTip: Make your own one-page cheat sheet. Group the verbs in a way that helps you remember them, and add one short example for each."
+  },
+  {
+    "objectID": "lectures/10-slides.html",
+    "href": "lectures/10-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "",
+    "text": "Agenda\n\n\nImporting & Exporting Data in R\nRelational Data\n\n\n\n\nSlides are in progress and will be updated before class."
+  },
+  {
+    "objectID": "lectures/08-slides.html",
+    "href": "lectures/08-slides.html",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "",
+    "text": "Missing Data\nFactors in R\n\n\n Slides last updated on June 24, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
+  },
+  {
+    "objectID": "lectures/08-slides.html#what-are-missing-data",
+    "href": "lectures/08-slides.html#what-are-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "What Are Missing Data?",
+    "text": "What Are Missing Data?\nR distinguishes two types of missing data:\n\nExplicit missing data: visible NA or NaN values in the dataset\nImplicit missing data: data that was never recorded\n\nIn this course, we focus on explicit missing data. For implicit missing data, see R for Data Science Chapter 18\n\n\n\n\n\n\nNote\n\n\n\nExplicit = value is missing as NA (Not Available) or NaN (Not a Number)\nImplicit = value was never recorded (row or cell is absent)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#how-missing-data-behave",
+    "href": "lectures/08-slides.html#how-missing-data-behave",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "How Missing Data Behave",
+    "text": "How Missing Data Behave\nAny operation involving a missing value will also return a missing value (see Chapter 12.2.2 Missing values for more):\nNA &gt; 5\n\nsum(c(3, 1, 4, NA)\nsum(c(3, 1, 4, NA), na.rm = TRUE)\n\nmean(c(3,1,4,NA))\nmean(c(3, 1, 4, NA), na.rm = TRUE)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#common-ways-to-handle-missing-data",
+    "href": "lectures/08-slides.html#common-ways-to-handle-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Common Ways to Handle Missing Data",
+    "text": "Common Ways to Handle Missing Data\nWe’ll review three main tools:\nA. is.na() – to detect missing values\nB. na.rm = TRUE – to ignore missing values\nC. drop_na() – to remove missing values"
+  },
+  {
+    "objectID": "lectures/08-slides.html#a.-detect-missing-data-with-is.na",
+    "href": "lectures/08-slides.html#a.-detect-missing-data-with-is.na",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "A. Detect Missing Data with is.na():",
+    "text": "A. Detect Missing Data with is.na():\nUse is.na() to find the missing values in a specific variable. It returns TRUE for missing values, and FALSE otherwise.\nCheck for missing values in the penguins_raw dataset:\n# using base R syntax\nsum(is.na(penguins_raw$Sex))\ntable(is.na(penguins_raw$Sex))\n\n# using tidyverse syntax\npenguins_raw %&gt;% summarize(sum(is.na(Sex)))\npenguins_raw  %&gt;% count(is.na(Sex)) \n\n# keep rows where sex is missing\nfilter(penguins_raw, is.na(Sex))    # correct  \nfilter(penguins_raw, Sex == NA)     # incorrect\n\n# keep rows where sex is NOT missing\nfilter(penguins_raw, !is.na(sex))"
+  },
+  {
+    "objectID": "lectures/08-slides.html#b.-ignore-missing-data-with-na.rm-true",
+    "href": "lectures/08-slides.html#b.-ignore-missing-data-with-na.rm-true",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "B. Ignore Missing Data with na.rm = TRUE",
+    "text": "B. Ignore Missing Data with na.rm = TRUE\nUse na.rm = TRUE to exclude missing values when performing calculations. Often used with summarize() when calculating things like mean, sum, standard deviation.\npenguins_raw %&gt;% summarize(avg_mass = mean(`Body Mass (g)`, na.rm = TRUE))\npenguins_raw %&gt;% summarize(sum_mass = sum(`Body Mass (g)`, na.rm = TRUE))\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe command na.rm = TRUE does not remove missing data from the variable(s), it just skips them for that operation, but they are not dropped!"
+  },
+  {
+    "objectID": "lectures/08-slides.html#c.-remove-missing-data-with-drop_na",
+    "href": "lectures/08-slides.html#c.-remove-missing-data-with-drop_na",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "C. Remove Missing Data with drop_na()",
+    "text": "C. Remove Missing Data with drop_na()\nUse drop_na() to remove rows with missing values. Either across all columns or in a specific column.\nDrop missing values in one specific column (preferred):\npenguins_raw %&gt;%\n  drop_na(`Body Mass (g)`) %&gt;%\n  summarize(avg_mass = mean(`Body Mass (g)`))\n\n\n\n\n\n\n\n\nWarning\n\n\n\nBe careful with drop_na() as it removes entire rows, which may unintentionally filter out relevant data. Check which variable(s) you are dropping, and avoid using it blindly across all columns."
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-handling-missing-data",
+    "href": "lectures/08-slides.html#practice-handling-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice: Handling Missing Data",
+    "text": "💻 Practice: Handling Missing Data\n\nRename: use the penguins_raw dataset and rename Flipper Length (mm) to flipper_length_mm. Save the result as a new dataframe, e.g., penguins_clean or p\n\nUse the new dataframe with the renamed variable for the tasks below:\n\nDetect missing values: use is.na() and sum() to count how many are missing in the variable flipper length\nExclude missing from calculations: use na.rm = TRUE inside mean() to calculate the average flipper length\nDrop missing values: use drop_na() to remove rows with missing values in flipper length\n\nOnce done, share your code here."
+  },
+  {
+    "objectID": "lectures/08-slides.html#ways-to-fill-or-replace-missing-data",
+    "href": "lectures/08-slides.html#ways-to-fill-or-replace-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Ways to Fill or Replace Missing Data",
+    "text": "Ways to Fill or Replace Missing Data\nMain functions to replace or fill missing values:\n\nreplace_na() – replace missing values with a specified value\n\nfill() – carry values forward or backward (from the package tidyr)\n\ncoalesce() – return the first non-missing value across multiple columns\n\nSee Chapter 18 of R for Data Science for more."
+  },
+  {
+    "objectID": "lectures/08-slides.html#what-are-factors-in-r",
+    "href": "lectures/08-slides.html#what-are-factors-in-r",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "What are Factors in R?",
+    "text": "What are Factors in R?\nA factor is a specific data structure in R.\nTo understand factors, and why we use them, we need to start from categorical data or variables: variables with a fixed set of possible values. For example, the variable species in the penguins data can only take one of three values (“Adelie”, “Chinstrap”, or “Gentoo”)."
+  },
+  {
+    "objectID": "lectures/08-slides.html#what-are-factors-in-r-1",
+    "href": "lectures/08-slides.html#what-are-factors-in-r-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "What are Factors in R?",
+    "text": "What are Factors in R?\n\n\n\n\n\n\nR Data Structures to Store Categorical Data\n\n\n\n\nCharacter vector (default): Data type for storing categorical data as plain strings (e.g., variable months with “Jan”, “Feb”, “Mar”, etc.). Values have no built-in order or grouping.\nNumeric vector (occasionally): Sometimes these are used to store categorical data as numbers (e.g., variable months with 1, 2, 3), but lacks category labels or order.\nFactor (preferred when order matters): Data type for storing categorical data with defined levels. Values can be ordered according to the researcher needs."
+  },
+  {
+    "objectID": "lectures/08-slides.html#real-world-examples-of-categorical-data",
+    "href": "lectures/08-slides.html#real-world-examples-of-categorical-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Real-world examples of categorical data",
+    "text": "Real-world examples of categorical data\nYou often need factors in R. Why? They let you sort categorical variables in your desired order whether that order reflects a natural sequence or you define it for analytic purposes. Examples:\n\nMonths of the year (January → December)\nLikert scales (Strongly Agree → Strongly Disagree)\nEducational attainment levels (High School → Graduate)\nPolitical parties\nRace/ethnicity categories\nInstitution type\nMovies categories\nEtc."
+  },
+  {
+    "objectID": "lectures/08-slides.html#why-use-factors",
+    "href": "lectures/08-slides.html#why-use-factors",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Why use Factors?",
+    "text": "Why use Factors?\nLet’s define a character vector with four months and sort it.\nCopy and paste this code in R and run it. What do you notice?\n# Define\nx1 &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\n\n# Check\nx1\nclass(x1)\n\n# Sort\nsort(x1)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#why-use-factors-1",
+    "href": "lectures/08-slides.html#why-use-factors-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Why use Factors?",
+    "text": "Why use Factors?\nFrom the previous example we observe that by default, R sorts character vectors alphabetically!\nHowever, alphabetical order isn’t ideal to sort months. We usually want them sorted in chronological order. To do that in R, we need factors.\n\n\n\n\n\n\nIn the next slides, we learn two cases that you will likely encounter when working with factors:\n\nConverting a Character Vector to a Factor (most common)\nConverting a Numeric Vector to a Factor (sometimes needed when categories are stored as numbers)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#converting-a-character-vector-to-a-factor",
+    "href": "lectures/08-slides.html#converting-a-character-vector-to-a-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "1. Converting a Character Vector to a Factor",
+    "text": "1. Converting a Character Vector to a Factor\nOften categorical data is stored in character vectors. Character vectors sort alphabetically by default. To change the order, convert them to a factor using factor() and assign the desired levels.\n# Character vector with month names\nx1 &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\nclass(x1)\n\n# Define all set of possibile levels in desired order\nmonth_levels &lt;- c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \n                  \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\")\n\n# Convert to factor using those levels\ny1 &lt;- factor(x1, levels = month_levels)\n\n# Check\ny1\nclass(y1)\nlevels(y1)\n\n# Compare sorting\nsort(x1)  # Alphabetical\nsort(y1)  # Chronological (by factor levels)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#converting-a-numeric-vector-to-a-factor",
+    "href": "lectures/08-slides.html#converting-a-numeric-vector-to-a-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "2. Converting a Numeric Vector to a Factor",
+    "text": "2. Converting a Numeric Vector to a Factor\nSometimes categorical data is stored as numbers (e.g., months as 1, 2, 12) in numeric vectors. To convert them to a factor with factor(), you need to specify both levels and labels.\n# Numeric vector with values representing months\nx2 &lt;- c(12, 4, 1, 3)\nclass(x2)\n\n# Define all set of possibile numeric values we expect\nmonth_levels &lt;- 1:12\n\n# Define all labels we want to show for each value\nmonth_labels &lt;- c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \n                  \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\") \n\n# Convert to factor using levels and labels\ny2 &lt;- factor(x2, \n            levels = month_levels,\n            labels = month_labels)\n\n# Check\ny2\nclass(y2)\nlevels(y2)\n\n# Compare sorting\nsort(x2)  # Numeric\nsort(y2)  # Chronological (by factor levels)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#levels-and-labels-in-factors",
+    "href": "lectures/08-slides.html#levels-and-labels-in-factors",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Levels and Labels in Factors",
+    "text": "Levels and Labels in Factors\n\n\n\nLevels\n\nDefine the set of distinct categories a factor can take\n\nUse to tell R the order of each category\nUse only levels when your input data is already human readable, as in our first example (e.g., \"Jan\", \"Feb\", etc.)\n\n\n\n\nLabels\n\nDefine optional names for each distinct category\nUse to tell R what to display for each category\n\nUse labels and levels when your input data uses codes, as in our second example (e.g., 1 to mean \"Jan\"), and you want to display more human readable labels. Labels are matched to levels, not to raw values"
+  },
+  {
+    "objectID": "lectures/08-slides.html#levels-and-labels-in-factors-1",
+    "href": "lectures/08-slides.html#levels-and-labels-in-factors-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Levels and Labels in Factors",
+    "text": "Levels and Labels in Factors\n\n\n\nWhen you input is a Character Vector\nExample values: \"Jan\", \"May\", \"Oct\"\n\nAlready human-readable\n(Often) only want to control the order\n\nConvert to factor using only levels to order and label\nExample: \"May\" stays \"May\"\n\n\n\n\nWhen you input is a Numeric Vector\nExample values: 1, 7, 12\n\nNot already human-readable\nWant to control the order & add readable labels\nConvert to factor using levels to order & labels to label\nExample: 1 becomes \"Jan\", 2 becomes \"Feb\", etc."
+  },
+  {
+    "objectID": "lectures/08-slides.html#levels-and-labels-in-factors-examples",
+    "href": "lectures/08-slides.html#levels-and-labels-in-factors-examples",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Levels and Labels in Factors: Examples",
+    "text": "Levels and Labels in Factors: Examples\nBefore you run the code below in R, take a moment to predict the output. What do you expect each code chunk to return, and why?\n# Example 1 with Input as Character Vector\na &lt;- c(\"Low\", \"High\", \"Medium\", \"Low\")\nb &lt;- factor(a, levels = c(\"Low\", \"Medium\", \"High\"))\nb\nsort(b)\n\n# Example 2 with Input as Numeric vector\ni &lt;- c(1, 3, 2, 1)\nj &lt;- factor(i, levels = c(1, 2, 3),\n               labels = c(\"Low\", \"Medium\", \"High\"))\nj\nsort(j)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-character-vector-factor",
+    "href": "lectures/08-slides.html#practice-character-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice: Character Vector → Factor",
+    "text": "💻 Practice: Character Vector → Factor\nYou are working with a character vector. Your goal is to convert it into a factor so, when you sort it, months follow their chronological order rather than alphabetical order.\nThe code below is not correct. Run it in R, identify the problem, and fix it.\n# Define a character vector representing months\nm &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\nclass(m)\n\n# Attempt\nmf &lt;- factor(m, \n            levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),\n            labels = c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\",\n                       \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\nmf\n\n# Compare sorting\nsort(m)  \nsort(mf)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#solution-character-vector-factor",
+    "href": "lectures/08-slides.html#solution-character-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Solution: Character Vector → Factor",
+    "text": "Solution: Character Vector → Factor\nThe input vector is made of characters (“Jan”, “Feb”…) but the levels provided are numbers (1–12). R can’t match them: levels must match the type of your input data.\nmf &lt;- factor(m, \n             levels = c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\",\n                        \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\nmf\nsort(mf)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-numeric-vector-factor",
+    "href": "lectures/08-slides.html#practice-numeric-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice: Numeric Vector → Factor",
+    "text": "💻 Practice: Numeric Vector → Factor\nYou are working with a numeric vector representing months as numbers. Your goal is the same: convert it into a factor, so when you sort it, months are in chronological order.\nNone of the attempts below is correct. Run each in R, explain why each does not work, and write one solution that works.\n# Define a numeric vector representing months\nx &lt;- c(12, 4, 1, 3, 1)\nclass(x)\n\n# Attempt 1\ny1 &lt;- factor(x, levels = x,\n                labels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\"))\n                \n# Attempt 2\ny2 &lt;- factor(x, levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), \n                labels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\"))\n              \n# Attempt 3\ny3 &lt;- factor(x, levels = c(1, 2, 3, 4),\n                labels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\"))"
+  },
+  {
+    "objectID": "lectures/08-slides.html#solution-numeric-vector-factor",
+    "href": "lectures/08-slides.html#solution-numeric-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Solution: Numeric Vector → Factor",
+    "text": "Solution: Numeric Vector → Factor\n\nAttempts 1 and 2: mismatch between the number of labels and the levels. R throws an error.\nAttempt 3: R doesn’t throw an error, but the code is incorrect because it forces levels 1 to 4, even though the input vector has values like 12. Since 12 isn’t among the defined levels, it becomes NA, leading to incorrect matches.\n\nYou can fix the code from the previous slide in the following ways:\n# Numeric vector representing months\nx &lt;- c(12, 4, 1, 3, 1)\nclass(x)\n\n# Option 1 (reccomended)\nmonth_labels &lt;- c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"June\", \"July\", \"Aug\", \"Sept\", \"Oct\", \"Nov\", \"Dec\")\nmonth_levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\ny1 &lt;- factor(x, levels = month_levels,  \n                labels = month_labels)\nclass(y1)\n\n# Option 2 (works but not reccomended, why?)\ny2 &lt;- factor(x, levels = c(1, 3, 4, 12),\n                labels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\"))"
+  },
+  {
+    "objectID": "lectures/08-slides.html#apply-these-concpets-to-a-dataframe-scorecard-example",
+    "href": "lectures/08-slides.html#apply-these-concpets-to-a-dataframe-scorecard-example",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Apply these concpets to a dataframe: scorecard example",
+    "text": "Apply these concpets to a dataframe: scorecard example\nIn most of your work, you deal with dataframes. Last week we worked with the scorecard data to practice ggplot2. Now we use the same data to see how we can use factors in a dataframe.\nLoad libraries and data:\nlibrary(tidyverse)\nlibrary(rcis)\ndata(scorecard)\nExplore data:\nglimpse(scorecard)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type",
+    "href": "lectures/08-slides.html#example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Example: Plot the total number of schools in the U.S. by school type",
+    "text": "Example: Plot the total number of schools in the U.S. by school type\nThis is the same question we did in class (see in-class tutorial, lecture 4).\nSince type is a categorical varialbe, we use bar chart, which takes each category \"Public\", \"Private nonprofit\", \"Private for profit\" and automatically applies a frequency count to aggregate the data.\nggplot(scorecard, mapping = aes(x = type)) +\n  geom_bar() \n\n\nOur goal: reorder the bars!"
+  },
+  {
+    "objectID": "lectures/08-slides.html#method-1-reorder-bars-manually-with-factor",
+    "href": "lectures/08-slides.html#method-1-reorder-bars-manually-with-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Method 1: Reorder bars manually with factor()",
+    "text": "Method 1: Reorder bars manually with factor()\ns &lt;- scorecard |&gt;\n  mutate(type = factor(type,\n                       levels = c(\"Private, nonprofit\", \"Public\", \"Private, for-profit\")))\n\nggplot(s, aes(x = type)) +\n  geom_bar()\nThis method gives you full control of the order by manually defining factor levels.\nRemember to check the column type (character or numeric) before transforming to factor. Use mutate since we are working on column of a dataframe (and not a standalone vector like in the previous examples)."
+  },
+  {
+    "objectID": "lectures/08-slides.html#method-2-reorder-the-bars-using-tidyverse-fct_relevel",
+    "href": "lectures/08-slides.html#method-2-reorder-the-bars-using-tidyverse-fct_relevel",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Method 2: Reorder the bars using tidyverse fct_relevel()",
+    "text": "Method 2: Reorder the bars using tidyverse fct_relevel()\nfct_relevel(): allows to reorder factor levels by hand; this function behave similarly to factor()\nscorecard |&gt; \n  mutate(type = fct_relevel(type, \n                           \"Private, nonprofit\", \"Public\", \"Private, for-profit\")) |&gt;\nggplot(mapping = aes(x = type)) +\n  geom_bar()\nNote: you can write code also by “piping” the results of the dplyr code into ggplot2 code, as illustrated here."
+  },
+  {
+    "objectID": "lectures/08-slides.html#method-3-reorder-the-bars-using-tidyverse-fct_infreq",
+    "href": "lectures/08-slides.html#method-3-reorder-the-bars-using-tidyverse-fct_infreq",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Method 3: Reorder the bars using tidyverse fct_infreq()",
+    "text": "Method 3: Reorder the bars using tidyverse fct_infreq()\nfct_infreq() sorts bars automatically by how common each category is (most to least frequent)\nscorecard |&gt;\n  mutate(type = fct_infreq(type)) |&gt;\nggplot(aes(x = type)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "lectures/08-slides.html#the-forcats-package",
+    "href": "lectures/08-slides.html#the-forcats-package",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "The “forcats” Package",
+    "text": "The “forcats” Package\n\n\n\n\n\n\nUsing factor() or a function from forcats?\n\n\n\nThe function factor() is the base R way to create and manage factors. It’s a foundational tool: worth understanding because many R functions depend on it!\nSince working with factors is key in R, people developed a specific package called forcats (part of the tidyverse) provides a set of simpler but powerful functions for working with categorical data.\nYou can use these, but knowing factor() helps you understand what’s happening behind the scenes."
+  },
+  {
+    "objectID": "lectures/08-slides.html#the-forcats-package-1",
+    "href": "lectures/08-slides.html#the-forcats-package-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "The “forcats” Package",
+    "text": "The “forcats” Package\n\n\n\n\n\n\n\n\nFunction\nWhat it does\nWhen to use\n\n\n\n\nfct_relevel()\nManually sets the order of levels\nWhen you need full manual control (similar to factor(..., levels = ...) in base R)\n\n\nfct_infreq()\nReorders factor levels by frequency (most to least common)\nWhen you want categories ordered by how often they appear\n\n\nfct_reorder()\nReorders levels based on another variable (e.g., a numeric value)\nIdeal for ordering bars by a summary statistic in ggplot2\n\n\n\nFor more functions, see the forcats documentation"
+  },
+  {
+    "objectID": "lectures/08-slides.html#challenge-exercise-plot-tips-by-weekday",
+    "href": "lectures/08-slides.html#challenge-exercise-plot-tips-by-weekday",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Challenge Exercise: Plot Tips by Weekday",
+    "text": "💻 Challenge Exercise: Plot Tips by Weekday\nIn this exercise, you learn two things:\n\nto correctly use stat = identity with bar plots\nto control the order of categories in bar plots, using both factor() and the forcats function called fct_relevel()"
+  },
+  {
+    "objectID": "lectures/08-slides.html#create-the-data",
+    "href": "lectures/08-slides.html#create-the-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Create the Data",
+    "text": "Create the Data\nCopy and run the code below to create this dataset:\nlibrary(tidyverse)\n\ndf &lt;- tibble(\n  week = c(\"Mon\", \"Wed\", \"Fri\", \"Wed\", \"Thu\", \"Sat\", \"Sat\"),\n  tip = c(10, 12, 20, 8, 25, 25, 30)\n)\n\ndf\nOur Goal: Create a bar plot with days of the week on the x-axis and the total tip amount on the y-axis (e.g., Saturday should display a bar with a height of $55, etc.)."
+  },
+  {
+    "objectID": "lectures/08-slides.html#whats-wrong-with-this-plot",
+    "href": "lectures/08-slides.html#whats-wrong-with-this-plot",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "What’s Wrong With This Plot?",
+    "text": "What’s Wrong With This Plot?\nTry this code. What does the height of each bar represent?\nggplot(df, aes(x = week)) +\n  geom_bar()\n\n\n\n\n\n\n\nWarning\n\n\n\nWhy aren’t the bars showing the actual tip amounts?\n- Because by default, geom_bar() uses stat = \"count\" to counts row and plot them on the y-axis\n- To plot the actual values (not counts), use stat = \"identity\" with both a x and y"
+  },
+  {
+    "objectID": "lectures/08-slides.html#fix-the-y-axis-on-this-bar-plot",
+    "href": "lectures/08-slides.html#fix-the-y-axis-on-this-bar-plot",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Fix the y-axis on this bar plot",
+    "text": "Fix the y-axis on this bar plot\nTo fix this plot, we need to change the default stat from count to identity and manually specify both the x and y aesthetics. See the documentation or type ?geom_bar in your R Console.\nggplot(df, aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")\nThis is much better, but we still do not have the bars nicely ordered…."
+  },
+  {
+    "objectID": "lectures/08-slides.html#fix-the-order-of-the-bars-using-factor",
+    "href": "lectures/08-slides.html#fix-the-order-of-the-bars-using-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Fix the order of the bars using factor()",
+    "text": "Fix the order of the bars using factor()\nWe use base R’s factor() to control the order of weekdays.\nReplace the blank with the correct weekday order in the code below:\ndf |&gt;\n  mutate(week = factor(week, levels = _____ )) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")"
+  },
+  {
+    "objectID": "lectures/08-slides.html#do-the-same-but-using-fct_relevel",
+    "href": "lectures/08-slides.html#do-the-same-but-using-fct_relevel",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Do the same but using fct_relevel()",
+    "text": "Do the same but using fct_relevel()\nNow we make the same plot using fct_relevel()\nReplace the correct weekday order in the code below:\ndf |&gt;\n  mutate(week = fct_relevel(week, ______ )) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")"
+  },
+  {
+    "objectID": "lectures/08-slides.html#solutions",
+    "href": "lectures/08-slides.html#solutions",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Solutions",
+    "text": "Solutions\n# With factor\ndays &lt;- c(\"Mon\", \"Wed\", \"Thu\", \"Fri\", \"Sat\")\ndf |&gt;\n  mutate(week = factor(week, levels = c(\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\"))) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")\n\n# With fct_relevel\ndays &lt;- c(\"Mon\", \"Wed\", \"Thu\", \"Fri\", \"Sat\")\ndf |&gt;\n  mutate(week = fct_relevel(week, days)) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")\n\n\n\n\n\n\nQ: Why don’t we use labels in factor()? Because the values (\"Mon\", etc.) are already readable. You don’t need to change them, unless you want different names (e.g., \"Monday\", etc.).\nQ: Why doesn’t days include all 7 days of the week? We should include all possible levels when using factor(). But fct_relevel() behave differently and may not add missing levels if those values aren’t present in the input data."
+  },
+  {
+    "objectID": "lectures/08-slides.html#reflections",
+    "href": "lectures/08-slides.html#reflections",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Reflections",
+    "text": "Reflections\n\n\n\n\n\n\nTip\n\n\n\n\nWhat happens when you don’t set the factor order?\nWhich method (factor() or fct_relevel()) do you prefer and why? Check the forcats package documentation for more functions, especially fct_reorder() which is straightforward to use\nWhy is stat = \"identity\" necessary for this kind of plot?\nAlways match the number of provided levels and labels inside `factor()``\n\n\n\nWant more practice? Download today’s in-class materials for more practice exercises on working with factors!"
+  },
+  {
+    "objectID": "lectures/08-slides.html#recap-what-we-learned-today",
+    "href": "lectures/08-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nWhat factors are and how to convert character or numeric vectors to factors\n\nHow to control the order of categories using levels and labels\n\nHow to fix common geom_bar() plotting issues (e.g., bar heights and order)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/08-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   }
 ]

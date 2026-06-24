@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,20 +208,779 @@ Sabrina Nardin, Summer 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
 <ol type="1">
-<li>Review and expand your ability to manipulate data with <code>dplyr</code> functions (“verbs”)</li>
-<li>Rename and recode variables using <code>rename()</code>, <code>recode()</code>, and <code>case_when()</code></li>
-<li>Identify syntactic vs.&nbsp;non-syntactic variable names and handle them correctly</li>
+<li><p>Review of core dplyr functions (aka “verbs”)</p></li>
+<li><p>More dplyr verbs</p></li>
+<li><p>Data Cleaning</p>
+<p>3.1 Renaming &amp; Recoding Variables</p>
+<p>3.2 Syntactic vs.&nbsp;Non-syntactic Variable Names</p></li>
 </ol>
 </div>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>June 24, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 </section>
-<section class="slide level2 center">
 
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+<section>
+<section id="review-of-core-dplyr-verbs" class="title-slide slide level1 center middle">
+<h1>1. Review of core dplyr verbs</h1>
+
+</section>
+<section id="last-lecture-we-learned-four-main-dplyr-functions" class="slide level2 center">
+<h2>Last lecture we learned four main dplyr functions</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 81%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>select()</code></td>
+<td>Chooses (keeps or reorders) specific columns by name</td>
+</tr>
+<tr class="even">
+<td><code>filter()</code></td>
+<td>Keeps rows based on conditions</td>
+</tr>
+<tr class="odd">
+<td><code>group_by()</code></td>
+<td>Groups the data by one or more variables for grouped operations</td>
+</tr>
+<tr class="even">
+<td><code>summarize()</code></td>
+<td>Reduces each group to a single row using summary statistics (e.g., mean, sum, n)</td>
+</tr>
+</tbody>
+</table>
+<!--
+<br>
+
+::: {.callout-tip title="Tip for Remembering These Functions"}
+Each **row is an observation** (e.g., one penguin) and each **column is a variable** (e.g., species, body mass). Some functions work on rows like `filter()` others work on columns like `select()`.
+:::
+
+</br>
+-->
+</section>
+<section id="back-to-our-penguins" class="slide level2 center">
+<h2>Back to our Penguins</h2>
+<p>Load libraries and data:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-3"><a></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Explore data (pick one of these, note we have two new ones):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">rbind</span>(<span class="fu">head</span>(penguins, <span class="dv">5</span>), <span class="fu">tail</span>(penguins, <span class="dv">5</span>))</span>
+<span id="cb2-2"><a></a><span class="fu">glimpse</span>(penguins)</span>
+<span id="cb2-3"><a></a><span class="fu">str</span>(penguins)</span>
+<span id="cb2-4"><a></a><span class="fu">summary</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="select-extracts-variables-operates-on-columns" class="slide level2 center">
+<h2>select() extracts variables, operates on columns</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># select two specific variables using their names</span></span>
+<span id="cb3-2"><a></a><span class="fu">select</span>(penguins, species, body_mass_g)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a><span class="co"># select all variables except two using the minus sign</span></span>
+<span id="cb3-5"><a></a><span class="fu">select</span>(penguins, <span class="sc">-</span>year, <span class="sc">-</span>island)</span>
+<span id="cb3-6"><a></a></span>
+<span id="cb3-7"><a></a><span class="co"># select a range of contiguous/adjacent variables</span></span>
+<span id="cb3-8"><a></a><span class="fu">select</span>(penguins, species<span class="sc">:</span>bill_length_mm)</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a><span class="co"># select all variables except a range of contiguous ones</span></span>
+<span id="cb3-11"><a></a><span class="fu">select</span>(penguins, <span class="sc">-</span>(species<span class="sc">:</span>island))</span>
+<span id="cb3-12"><a></a></span>
+<span id="cb3-13"><a></a><span class="co"># select all variables that start with</span></span>
+<span id="cb3-14"><a></a><span class="fu">select</span>(penguins, <span class="fu">starts_with</span>(<span class="st">"bill"</span>))</span>
+<span id="cb3-15"><a></a></span>
+<span id="cb3-16"><a></a><span class="co"># select all variables that end with</span></span>
+<span id="cb3-17"><a></a><span class="fu">select</span>(penguins, <span class="fu">ends_with</span>(<span class="st">"mm"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="filter-extract-observations-operates-on-rows" class="slide level2 center">
+<h2>filter() extract observations, operates on rows</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># check variable values</span></span>
+<span id="cb4-2"><a></a><span class="fu">levels</span>(penguins<span class="sc">$</span>species) </span>
+<span id="cb4-3"><a></a><span class="fu">unique</span>(penguins<span class="sc">$</span>species)</span>
+<span id="cb4-4"><a></a><span class="fu">count</span>(penguins, species)</span>
+<span id="cb4-5"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">count</span>(species)</span>
+<span id="cb4-6"><a></a></span>
+<span id="cb4-7"><a></a><span class="co"># filter by island and species</span></span>
+<span id="cb4-8"><a></a><span class="fu">filter</span>(penguins, island <span class="sc">==</span> <span class="st">"Biscoe"</span>, species <span class="sc">==</span> <span class="st">"Gentoo"</span>)</span>
+<span id="cb4-9"><a></a><span class="fu">filter</span>(penguins, (island <span class="sc">==</span> <span class="st">"Biscoe"</span> <span class="sc">&amp;</span> species <span class="sc">==</span> <span class="st">"Gentoo"</span>))</span>
+<span id="cb4-10"><a></a></span>
+<span id="cb4-11"><a></a><span class="co"># filter by multiple conditions</span></span>
+<span id="cb4-12"><a></a><span class="fu">filter</span>(penguins, species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Gentoo"</span>), island <span class="sc">!=</span> <span class="st">"Biscoe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="group_by-aggregates-data-for-the-next-function" class="slide level2 center">
+<h2>group_by() aggregates data for the next function</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># group by alone? not that useful</span></span>
+<span id="cb5-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb5-3"><a></a>  <span class="fu">group_by</span>(island, sex)</span>
+<span id="cb5-4"><a></a></span>
+<span id="cb5-5"><a></a><span class="co"># group by one variable: summarize by island</span></span>
+<span id="cb5-6"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb5-7"><a></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a></a>  <span class="fu">summarize</span>(<span class="at">body_mass_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-9"><a></a></span>
+<span id="cb5-10"><a></a><span class="co"># group by two variables: summarize by island-sex combinations</span></span>
+<span id="cb5-11"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb5-12"><a></a>  <span class="fu">group_by</span>(island, sex) <span class="sc">|&gt;</span></span>
+<span id="cb5-13"><a></a>  <span class="fu">summarize</span>(<span class="at">body_mass_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-14"><a></a></span>
+<span id="cb5-15"><a></a><span class="co"># filter, group_by, summarize</span></span>
+<span id="cb5-16"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb5-17"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-18"><a></a>  <span class="fu">group_by</span>(island, sex) <span class="sc">|&gt;</span></span>
+<span id="cb5-19"><a></a>  <span class="fu">summarize</span>(<span class="at">body_mass_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="summarize-creates-summary-of-data" class="slide level2 center">
+<h2>summarize() creates summary of data</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># summarize the full dataset</span></span>
+<span id="cb6-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a></a>  <span class="fu">summarize</span>(<span class="at">body_mass_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-4"><a></a>            <span class="at">body_mass_sd =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-5"><a></a>            <span class="at">n =</span> <span class="fu">n</span>())  <span class="co"># n = nrow(penguins)</span></span>
+<span id="cb6-6"><a></a></span>
+<span id="cb6-7"><a></a><span class="co"># filter first, then summarize only for one species </span></span>
+<span id="cb6-8"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb6-9"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-10"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-11"><a></a>    <span class="at">body_mass_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-12"><a></a>    <span class="at">body_mass_sd =</span> <span class="fu">sd</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-13"><a></a>    <span class="at">n =</span> <span class="fu">n</span>()  <span class="co"># counting rows</span></span>
+<span id="cb6-14"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note: summarize() collapses the data into a smaller summary table. You can use summarize() to calculate many kinds of summary statistics, such as means, standard deviations, counts, minimums, maximums, and more. https://dplyr.tidyverse.org/reference/summarise.html</p>
+<!-- STEPS TO EXPLAIN n()
+
+# How many rows are in the full dataset?
+penguins |> 
+  summarize(n = n())
+  
+
+# How many rows are left after filtering to Gentoo penguins?
+penguins |> 
+  filter(species == "Gentoo") |> 
+  summarize(n = n())  
+
+# Then show that with group_by(), n() counts within each group:
+# How many penguins are there in each species?
+penguins |> 
+  group_by(species) |> 
+  summarize(n = n())
+-->
+</section>
+<section id="combining-verbs-with-the-pipe" class="slide level2 center">
+<h2>Combining Verbs with the Pipe</h2>
+<p>Key point: in practice you rarely use one verb alone but you <strong>chain verbs together</strong> with the pipe <code>|&gt;</code>.</p>
+<p>Some combinations come up again and again:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># combo 1: filter() + group_by() + summarize() -- subset, then summarize by group</span></span>
+<span id="cb7-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">"Gentoo"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span> </span>
+<span id="cb7-5"><a></a>  <span class="fu">summarize</span>(<span class="at">body_mass_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb7-6"><a></a></span>
+<span id="cb7-7"><a></a><span class="co"># combo 2: select() + filter() + group_by() + summarize() -- narrow down columns first</span></span>
+<span id="cb7-8"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb7-9"><a></a>  <span class="fu">select</span>(species, island, sex, body_mass_g) <span class="sc">|&gt;</span> </span>
+<span id="cb7-10"><a></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb7-11"><a></a>  <span class="fu">group_by</span>(species) <span class="sc">|&gt;</span> </span>
+<span id="cb7-12"><a></a>  <span class="fu">summarize</span>(<span class="at">body_mass_mean =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section></section>
+<section>
+<section id="more-dplyr-verbs" class="title-slide slide level1 center middle">
+<h1>2. More dplyr verbs</h1>
+
+</section>
+<section id="today-we-learn-more-dplyr-functions" class="slide level2 center">
+<h2>Today we learn more dplyr functions</h2>
+<p>dplyr verbs group naturally by <strong>what they operate on</strong>: columns, rows, groups. Here’s how today’s new functions connect to what you already know:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 44%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Focus</th>
+<th>Last time (review)</th>
+<th>Today (new)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Rows</strong></td>
+<td><code>filter()</code> keeps rows by condition</td>
+<td><code>arrange()</code> reorders rows by value; <code>distinct()</code> keeps only unique rows</td>
+</tr>
+<tr class="even">
+<td><strong>Columns</strong></td>
+<td><code>rename()</code> renames columns; <code>relocate()</code> reorders columns</td>
+<td><code>mutate()</code> adds or changes column values — as central as <code>filter()</code>, <code>group_by()</code>, <code>summarize()</code>; <code>across()</code> applies one operation to many columns at once</td>
+</tr>
+<tr class="odd">
+<td><strong>Groups</strong></td>
+<td><code>group_by()</code> defines groups; <code>summarize()</code> summarizes each group</td>
+<td><code>count()</code> — shortcut for <code>group_by()</code> + <code>summarize(n())</code></td>
+</tr>
+</tbody>
+</table>
+<!--
+
+KEEP THIS HIDDEN AS IT IS TOO MUCH FOR STUDENTS TO DIGEST
+
+## Most important dplyr Functions: Tips to Rememeber and Examples
+
+| Focus | Concept | Function |
+|:----|:--|:-------------------------------------------------------------|
+| **Columns** | Structure | `select()` chooses specific columns — `select(penguins, species, island)`<br>`rename()` renames columns — `rename(penguins, flip_mm = flipper_length_mm)`<br>`relocate()` reorders columns — `relocate(penguins, island, .before = species)` |
+| **Rows** | Filtering & sorting | `filter()` selects rows by values — `filter(penguins, species == "Adelie")`<br>`arrange()` orders rows by column values — `arrange(penguins, desc(body_mass_g))` |
+| **Values** | Transformation | `mutate()` adds or changes columns — `mutate(penguins, flip_cm = flipper_length_mm / 10)`<br>`distinct()` keeps unique rows — `distinct(penguins, species, island)` |
+| **Groups** | Aggregation | `group_by()` defines groups — `group_by(penguins, species)`<br>`count()` counts rows per group — `count(penguins, island)` <br> `summarize()` creates summaries per group — `summarize(penguins, avg_flip = mean(flipper_length_mm, na.rm = TRUE))` |
+| **Across columns** | Automation | `across()` applies an operation to multiple columns — `summarize(across(ends_with("_mm"), mean, na.rm = TRUE))` |
+
+<br>
+
+<div style="font-size:0.8em; color:#666; text-align:center; margin-top:0.5em;">Data flows top → bottom just like in a pipeline: penguins |> select() |> filter() |> group_by() |> summarize()</div>
+
+-->
+<!-- NOTE (Claude, not in original CLAUDE marker): reordered the following slides from
+arrange -> relocate -> mutate -> count -> distinct -> across -> across
+to
+arrange -> relocate -> count -> distinct -> mutate -> across -> across
+Rationale: arrange()/relocate() are simple structural reorders (easy, build on
+filter() already known); count()/distinct() are similarly low-complexity and
+build on group_by()/summarize() already known; mutate() is placed right before
+across() because it is the more important, higher-stakes verb (see emphasis box)
+and because across() is most often used *inside* mutate()/summarize(), so it
+makes sense to teach mutate() immediately before across(). across() (numeric,
+then categorical) is last because it is the most abstract/advanced verb. -->
+</section>
+<section id="arrange-changes-order-of-observations" class="slide level2 center">
+<h2>arrange() changes order of observations</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># basic idea: arrange() sorts rows by one variable </span></span>
+<span id="cb8-2"><a></a><span class="co"># here: largest bill length first</span></span>
+<span id="cb8-3"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(bill_length_mm))</span>
+<span id="cb8-5"><a></a></span>
+<span id="cb8-6"><a></a><span class="co"># more complex: arrange() can sort by more than one variable</span></span>
+<span id="cb8-7"><a></a><span class="co"># here: sort by species first, then by bill length within each species</span></span>
+<span id="cb8-8"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb8-9"><a></a>  <span class="fu">select</span>(species, <span class="fu">contains</span>(<span class="st">"bill"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb8-10"><a></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">"Adelie"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-11"><a></a>  <span class="fu">arrange</span>(species, bill_length_mm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="relocate-changes-order-of-variable" class="slide level2 center">
+<h2>relocate() changes order of variable</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># move two variables to the front of the dataset</span></span>
+<span id="cb9-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a></a>  <span class="fu">relocate</span>(year, sex)</span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a><span class="co"># move year to a specific position: after island</span></span>
+<span id="cb9-6"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb9-7"><a></a>  <span class="fu">relocate</span>(year, <span class="at">.after =</span> island)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="count-counts-tot-obs.-by-group" class="slide level2 center">
+<h2>count() counts tot obs. by group</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># option 1: count penguins by sex the long way</span></span>
+<span id="cb10-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a></a>  <span class="fu">group_by</span>(sex) <span class="sc">|&gt;</span> </span>
+<span id="cb10-4"><a></a>  <span class="fu">summarize</span>(<span class="at">total =</span> <span class="fu">n</span>())</span>
+<span id="cb10-5"><a></a></span>
+<span id="cb10-6"><a></a><span class="co"># option 2: do the same with count (shortcut!)</span></span>
+<span id="cb10-7"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb10-8"><a></a>  <span class="fu">count</span>(sex)</span>
+<span id="cb10-9"><a></a>  </span>
+<span id="cb10-10"><a></a><span class="co"># more complex Option 1: count penguins by island-sex combinations</span></span>
+<span id="cb10-11"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb10-12"><a></a>  <span class="fu">group_by</span>(island, sex) <span class="sc">|&gt;</span> </span>
+<span id="cb10-13"><a></a>  <span class="fu">summarize</span>(<span class="at">total =</span> <span class="fu">n</span>())</span>
+<span id="cb10-14"><a></a></span>
+<span id="cb10-15"><a></a><span class="co"># more complex Option 2: do the same thing with count</span></span>
+<span id="cb10-16"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb10-17"><a></a>  <span class="fu">count</span>(island, sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="distinct-returns-unique-rows-based-on-given-columns" class="slide level2 center">
+<h2>distinct() returns unique rows based on given columns</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co"># unique combinations of species and island</span></span>
+<span id="cb11-2"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">distinct</span>(species, island)</span>
+<span id="cb11-4"><a></a></span>
+<span id="cb11-5"><a></a><span class="co"># same but keep all columns in the resulting data frame</span></span>
+<span id="cb11-6"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb11-7"><a></a>  <span class="fu">distinct</span>(species, island, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note: returns a dataframe with only unique combinations of your input columns https://dplyr.tidyverse.org/reference/distinct.html</p>
+</section>
+<section id="mutate-modify-or-create-new-columns" class="slide level2 center">
+<h2>mutate() modify or create new columns</h2>
+<div title="One of the Most-Used Verbs in dplyr">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>One of the Most-Used Verbs in dplyr</strong></p>
+</div>
+<div class="callout-content">
+<p>mutate <a href="https://dplyr.tidyverse.org/reference/mutate.html" class="uri">https://dplyr.tidyverse.org/reference/mutate.html</a> is one of the most used <code>dplyr</code> verbs, together with filter, group_by, summarize</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># create a new column using existing columns</span></span>
+<span id="cb12-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a></a>  <span class="fu">mutate</span>(<span class="at">bill_ratio =</span> bill_length_mm <span class="sc">/</span> bill_depth_mm)</span>
+<span id="cb12-4"><a></a>  </span>
+<span id="cb12-5"><a></a><span class="co"># create a new column by converting body mass from grams to kilograms</span></span>
+<span id="cb12-6"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb12-7"><a></a>  <span class="fu">mutate</span>(<span class="at">body_mass_kg =</span> body_mass_g <span class="sc">/</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="across" class="slide level2 center">
+<h2>across()</h2>
+<p>Examples with and without <code>across()</code> with numerical variables:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># mean for several variables without across</span></span>
+<span id="cb13-2"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb13-4"><a></a>    <span class="at">mean_bill_length_mm =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-5"><a></a>    <span class="at">mean_bill_depth_mm =</span> <span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-6"><a></a>    <span class="at">mean_flipper_length_mm =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-7"><a></a>    <span class="at">mean_body_mass_g =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb13-8"><a></a>  )</span>
+<span id="cb13-9"><a></a></span>
+<span id="cb13-10"><a></a><span class="co"># same operation with across</span></span>
+<span id="cb13-11"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb13-12"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb13-13"><a></a>    <span class="fu">across</span>(</span>
+<span id="cb13-14"><a></a>      <span class="fu">c</span>(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g), </span>
+<span id="cb13-15"><a></a>      <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  <span class="co"># function(x) mean(x, na.rm = TRUE)</span></span>
+<span id="cb13-16"><a></a>    ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="across-1" class="slide level2 center">
+<h2>across()</h2>
+<p>Examples with and without <code>across()</code> with categorical variables:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># number of distinct entries without across</span></span>
+<span id="cb14-2"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">summarise</span>(<span class="at">distinct_species =</span> <span class="fu">n_distinct</span>(species),</span>
+<span id="cb14-4"><a></a>            <span class="at">distinct_island =</span> <span class="fu">n_distinct</span>(island),</span>
+<span id="cb14-5"><a></a>            <span class="at">distinct_year =</span> <span class="fu">n_distinct</span>(year))</span>
+<span id="cb14-6"><a></a></span>
+<span id="cb14-7"><a></a><span class="co"># number of distinct entries with across</span></span>
+<span id="cb14-8"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">c</span>(species, island, year), </span>
+<span id="cb14-10"><a></a>                   n_distinct))</span>
+<span id="cb14-11"><a></a></span>
+<span id="cb14-12"><a></a><span class="co"># the opposite</span></span>
+<span id="cb14-13"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb14-14"><a></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="sc">-</span><span class="fu">c</span>(species, island, year), </span>
+<span id="cb14-15"><a></a>                   n_distinct))</span>
+<span id="cb14-16"><a></a></span>
+<span id="cb14-17"><a></a><span class="co"># everything</span></span>
+<span id="cb14-18"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb14-19"><a></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), </span>
+<span id="cb14-20"><a></a>                   n_distinct))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="practice" class="slide level2 center">
+<h2>💻 Practice</h2>
+<p>Let’s put all of this into practice.</p>
+<p>Download today’s class materials. Open <strong>practice-dplyr-1</strong> and work through the exercises on these dplyr functions.</p>
+</section></section>
+<section id="data-cleaning" class="title-slide slide level1 center middle">
+<h1>3. Data Cleaning</h1>
+
+</section>
+
+<section>
+<section id="data-cleaning-renaming-recoding-variables" class="title-slide slide level1 center middle">
+<h1>3.1 Data Cleaning: Renaming &amp; Recoding Variables</h1>
+
+</section>
+<section id="a-few-more-dplyr-functions" class="slide level2 center">
+<h2>A Few More dplyr Functions</h2>
+<p>We now introduce a few more dplyr functions: <code>rename()</code>, <code>recode()</code>, and <code>case_when()</code>.</p>
+<p>We introduce them here, in the context of renaming and recoding variables, because that’s how they’re typically used in practice.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><em><code>recode()</code> and <code>case_when()</code> only work on a single column’s values, so they’re always used inside <code>mutate()</code></em></p>
+</div>
+</div>
+</div>
+<!--
+If a function takes a whole data frame and returns a data frame, it's a **verb** and you can pipe straight into them. 
+If it only makes sense applied to a single single column's values, it needs a verb — almost always `mutate()` — to attach the result back onto the data frame.
+-->
+</section>
+<section id="definitions-of-rename-and-recode" class="slide level2 center">
+<h2>Definitions of Rename and Recode</h2>
+<p><strong>Rename</strong>: change variable names (column names)</p>
+<p><strong>Recode</strong>: change values/levels of categorical variables (column values; e.g., inside a column)</p>
+</section>
+<section id="uses-of-rename-and-recode" class="slide level2 center">
+<h2>Uses of Rename and Recode</h2>
+<p><strong>When might you need to rename variables or recode their values?</strong></p>
+<ul>
+<li>You are cleaning data
+<ul>
+<li>The variable name has issues: <code>Flipper Length (mm)</code> → <code>flipper_length_mm</code></li>
+<li>You need to standardize values: <code>"Good"</code> and <code>"GOOD"</code> → <code>"good"</code></li>
+<li>Etc.</li>
+</ul></li>
+<li>You are preparing data for modeling or visualization
+<ul>
+<li>You want to recode <code>"FEMALE"</code>/<code>"MALE"</code> to <code>0</code>/<code>1</code> for a regression model<br>
+</li>
+<li>Etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="for-this-part-we-work-with-the-penguins-raw-data" class="slide level2 center">
+<h2>For this part, we work with the Penguins (raw) Data!</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Load libraries and data</span></span>
+<span id="cb15-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-3"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb15-4"><a></a><span class="fu">data</span>(penguins)</span>
+<span id="cb15-5"><a></a></span>
+<span id="cb15-6"><a></a><span class="co"># Explore data</span></span>
+<span id="cb15-7"><a></a><span class="fu">head</span>(penguins_raw)</span>
+<span id="cb15-8"><a></a><span class="fu">tail</span>(penguins_raw)</span>
+<span id="cb15-9"><a></a><span class="fu">rbind</span>(<span class="fu">head</span>(penguins_raw, <span class="dv">3</span>), <span class="fu">tail</span>(penguins_raw, <span class="dv">3</span>))</span>
+<span id="cb15-10"><a></a><span class="fu">glimpse</span>(penguins_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="renaming-variables-with-rename" class="slide level2 center">
+<h2>Renaming Variables with rename</h2>
+<p>To change variable names (column names) the most common way is by using <code>rename()</code></p>
+<p>Change the name of the variable <code>studyName</code> to <code>study_name</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># check before renaming</span></span>
+<span id="cb16-2"><a></a><span class="fu">str</span>(penguins_raw)</span>
+<span id="cb16-3"><a></a>penguins_raw <span class="sc">%&gt;%</span> <span class="fu">select</span>(studyName)</span>
+<span id="cb16-4"><a></a></span>
+<span id="cb16-5"><a></a><span class="co"># rename</span></span>
+<span id="cb16-6"><a></a>penguins_raw <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">study_name =</span> studyName)   <span class="co"># new = old</span></span>
+<span id="cb16-7"><a></a></span>
+<span id="cb16-8"><a></a><span class="co"># remember to save to keep changes</span></span>
+<span id="cb16-9"><a></a>p <span class="ot">&lt;-</span> penguins_raw <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">study_name =</span> studyName)</span>
+<span id="cb16-10"><a></a>p <span class="sc">%&gt;%</span> <span class="fu">select</span>(study_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="practice-renaming-variables" class="slide level2 center">
+<h2>💻 Practice Renaming Variables</h2>
+<ul>
+<li>Use <code>select()</code> to check the variable <code>Comments</code> in <code>penguins_raw</code></li>
+<li>Use <code>rename()</code> to rename <code>Comments</code> to <code>notes</code></li>
+<li>Save the result to a new object</li>
+<li>Use <code>select()</code> to check again</li>
+</ul>
+<p>Once done, copy your code <a href="https://codeshare.io/29X3QM" target="_blank">here</a> to share it.</p>
+<!--
+select(penguins_raw, Comments)
+penguins_raw |> rename(notes = Comments)
+-->
+</section>
+<section id="recoding-variables-method-1-with-mutate-recode" class="slide level2 center">
+<h2>Recoding Variables Method 1: with mutate + recode</h2>
+<p>To change variable values (usually levels of categorical variables), we learn two approaches. We take the variable <code>Sex</code> and turn MALE into 1, FEMALE into 0.</p>
+<p>Method 1:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># check before recoding</span></span>
+<span id="cb17-2"><a></a>penguins_raw <span class="sc">%&gt;%</span> <span class="fu">count</span>(Sex)</span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a><span class="co"># mutate + recode</span></span>
+<span id="cb17-5"><a></a>p <span class="ot">&lt;-</span> penguins_raw <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">recode</span>(Sex, <span class="st">"MALE"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"FEMALE"</span> <span class="ot">=</span> <span class="dv">0</span>))</span>
+<span id="cb17-7"><a></a></span>
+<span id="cb17-8"><a></a><span class="co"># compare</span></span>
+<span id="cb17-9"><a></a>penguins_raw <span class="sc">%&gt;%</span> <span class="fu">count</span>(Sex)</span>
+<span id="cb17-10"><a></a>p <span class="sc">%&gt;%</span> <span class="fu">count</span>(sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- Here we could have unquoted (e.g., `MALE = 1`) but only works if: 
+the variable is a factor or there are no spaces or punctuation in the variable name -->
+</section>
+<section id="recoding-variables-method-2-with-mutate-case_when" class="slide level2 center">
+<h2>Recoding Variables Method 2: with mutate + case_when</h2>
+<p>Method 2:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="co"># mutate + case_when</span></span>
+<span id="cb18-2"><a></a>penguins_raw <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">mutate</span>(<span class="at">Sex =</span> <span class="fu">case_when</span>(Sex <span class="sc">==</span> <span class="st">"MALE"</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb18-4"><a></a>                         Sex <span class="sc">==</span> <span class="st">"FEMALE"</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
+<span id="cb18-5"><a></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span>))</span>
+<span id="cb18-6"><a></a>  </span>
+<span id="cb18-7"><a></a><span class="co"># like for method 1 (previous code) save results to keep changes and compare</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>With <code>case_when()</code> each <code>logical condition ~ value</code> pair acts like <em>if → then</em>:</p>
+<ul>
+<li>for each row, R looks if the condition is TRUE: “<em>If</em> you find the value MALE in Sex, <em>then</em> convert it to 1”</li>
+<li><code>TRUE ~ NA_real_</code> tells R: “<em>If</em> no previous condition was met, <em>then</em> return NA as as a number”</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="practice-recoding-variables" class="slide level2 center">
+<h2>💻 Practice Recoding Variables</h2>
+<ul>
+<li>Use <code>count()</code> to check the variable <code>Species</code> in <code>penguins_raw</code></li>
+<li>Pick method 1 or method 2 to recode the values of that variable into Adelie, Chinstrap, Gentoo</li>
+<li>Save the result to a new object</li>
+<li>Use <code>count()</code> to verify both results</li>
+</ul>
+<p>Once done, copy your code <a href="https://codeshare.io/29X3QM" target="_blank">here</a> to share it.</p>
+<!--
+
+# Method 1: RECODE
+
+penguins_raw %>% count(Species)
+
+p <- penguins_raw %>%
+  mutate(Species = recode(Species,
+    "Adelie Penguin (Pygoscelis adeliae)" = "Adelie",
+    "Chinstrap penguin (Pygoscelis antarctica)" = "Chinstrap",
+    "Gentoo penguin (Pygoscelis papua)" = "Gentoo"
+  ))
+
+p %>% count(Species)
+
+
+# Method 2: CASE_WHEN
+
+penguins_raw %>% count(Species)
+
+p2 <- penguins_raw %>%
+  mutate(Species = case_when(
+    Species == "Adelie Penguin (Pygoscelis adeliae)" ~ "Adelie",
+    Species == "Chinstrap penguin (Pygoscelis antarctica)" ~ "Chinstrap",
+    Species == "Gentoo penguin (Pygoscelis papua)" ~ "Gentoo",
+    TRUE ~ NA_character_
+  ))
+
+p2 %>% count(Species)
+
+-->
+</section>
+<section id="the-role-of-mutate-in-recoding" class="slide level2 center">
+<h2>The Role of mutate in Recoding</h2>
+<h4 id="the-dplry-verb-mutate-has-many-uses-create-new-columns-or-modify-existing-columns-values.">The dplry verb mutate has many uses: create new columns or modify existing columns values.</h4>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>For recoding, use <code>mutate + recode</code> or <code>mutate + case_when</code>, because the goal is changing the <em>column’s values</em>:</p>
+<ul>
+<li>Method 1: <code>mutate(Sex = recode(Sex, "MALE" = 1, "FEMALE" = 0))</code><br>
+</li>
+<li>Method 2: <code>mutate(Sex = case_when(sex == "MALE" ~ 1, sex == "FEMALE" ~ 0))</code></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="rename-vs-recode-syntax-reference" class="slide level2 center">
+<h2>Rename vs Recode: Syntax Reference</h2>
+<!--
+DOUBLE CHECK TIPS WITH REAL R CODE
+| Function       | What It Changes    | Syntax + Example                                                | Tips                                                             |
+|----------------|--------------------|------------------------------------------------------------------|------------------------------------------------------------------|
+| `rename()`     | Column names       | `rename(new_name = old_name)`  <br> `rename(notes = Comments)` | No quotes around variable names                                  |
+| `recode()`     | Column values      | `recode(variable, "old" = new)`  <br> `recode(Sex, "MALE" = 1)` | Use quotes around variable values if they are character             |
+| `case_when()`  | Column values      | `case_when(variable == "old" ~ new)` <br> `case_when(Sex == "MALE" ~ 1)` | Use quotes around variable values if they are character |
+-->
+<table class="caption-top">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 39%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>What It Changes</th>
+<th>Syntax + Example</th>
+<th>Tips</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rename()</code></td>
+<td>Column names</td>
+<td><code>rename(new_name = old_name)</code> <br> <code>rename(notes = Comments)</code></td>
+<td>No quotes around variable names</td>
+</tr>
+<tr class="even">
+<td><code>recode()</code></td>
+<td>Column values</td>
+<td><code>recode(variable, "old" = new)</code> <br> <code>recode(Sex, "MALE" = 1)</code></td>
+<td>Check function doc to see when quotes are needed</td>
+</tr>
+<tr class="odd">
+<td><code>case_when()</code></td>
+<td>Column values</td>
+<td><code>case_when(variable == "old" ~ new)</code> <br> <code>case_when(Sex == "MALE" ~ 1)</code></td>
+<td>Check function doc to see when quotes are needed</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="practice-challenge" class="slide level2 center">
+<h2>💻 Practice: Challenge</h2>
+<p>If you haven’t yet, downlod the class materials for today.</p>
+<p>Open <strong>practice-dplyr-2</strong> which includes a real-data cleaning challenge that requires you to use <code>mutate()</code> and <code>case_when()</code> to recode messy values, combine dplyr verbs, and then build a <code>ggplot2</code> chart.</p>
+</section>
+<section id="practice-build-your-own-verbs-typology" class="slide level2 center">
+<h2>💻 Practice: Build Your Own Verbs Typology</h2>
+<p>We have now learned the most important <code>dplyr</code> verbs. I recommend memorizing them.</p>
+<p>For example, verbs can be grouped by whether they work on:</p>
+<ul>
+<li><strong>rows</strong>: <code>filter()</code>, <code>arrange()</code></li>
+<li><strong>columns</strong>: <code>select()</code>, <code>rename()</code>, <code>relocate()</code>, <code>mutate()</code></li>
+<li><strong>groups/summaries</strong>: <code>group_by()</code>, <code>summarize()</code>, <code>count()</code></li>
+</ul>
+<p><strong>Tip:</strong> Make your own one-page cheat sheet. Group the verbs in a way that helps <em>you</em> remember them, and add one short example for each.</p>
+</section></section>
+<section>
+<section id="data-cleaning-syntactic-vs.-non-syntactic-variable-names" class="title-slide slide level1 center middle">
+<h1>3.2 Data Cleaning: Syntactic vs.&nbsp;Non-syntactic Variable Names</h1>
+
+</section>
+<section id="syntactic-valid-variable-names-in-r" class="slide level2 center">
+<h2>Syntactic (Valid) Variable Names in R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="valid-names-in-r">Valid Names in R:</h3>
+<ul>
+<li>Use letters, numbers, and the symbols <code>.</code> or <code>_</code></li>
+<li>But cannot start with a number or symbol</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="examples-of-valid-names">Examples of Valid Names:</h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>flipper_length_mm</span>
+<span id="cb19-2"><a></a>flipper.length.mm</span>
+<span id="cb19-3"><a></a>flipper.length_mm     <span class="co"># valid but poor style</span></span>
+<span id="cb19-4"><a></a>FlipperLengthMm       <span class="co"># valid but poor style</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="non-syntactic-invalid-variable-names-in-r" class="slide level2 center">
+<h2>Non-Syntactic (Invalid) Variable Names in R</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-makes-a-name-invalid">What Makes a Name Invalid:</h3>
+<ul>
+<li>Contains spaces or symbols</li>
+<li>Starts with a number or symbol</li>
+<li>Uses reserved words (e.g., <code>TRUE</code>, <code>NULL</code>, <code>if</code>, <code>function</code>)</li>
+<li>Type <code>?Reserved</code> in the Console for the full list</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="examples-of-invalid-names">Examples of Invalid Names:</h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>Flipper <span class="fu">Length</span> (mm)</span>
+<span id="cb20-2"><a></a><span class="sc">@</span>_flipper_length_mm</span>
+<span id="cb20-3"><a></a>flipper_ length_mm</span>
+<span id="cb20-4"><a></a>flipper<span class="sc">-</span>length<span class="sc">-</span>mm</span>
+<span id="cb20-5"><a></a>.flipper.length.mm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+</section>
+<section id="practice-syntactic-and-non-syntactic-names" class="slide level2 center">
+<h2>💻 Practice: Syntactic and Non-Syntactic Names</h2>
+<p>Which of the following are valid names?</p>
+<ul>
+<li><code>3_religion</code></li>
+<li><code>#3_religion</code></li>
+<li><code>q3_religion</code></li>
+<li><code>q3.religion</code></li>
+<li><code>q3-religion</code></li>
+<li><code>q3 religion</code></li>
+<li><code>TRUE</code></li>
+</ul>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>For best coding style, use snake_case for all your variables names and keep them to three words maximum. Example: <code>q3_religion</code> <!-- Check using `make.names()` in R or try using them in a `select()` call. --></p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-handle-non-syntactic-names-and-why-it-matters" class="slide level2 center">
+<h2>How to Handle Non-syntactic Names, and Why It Matters</h2>
+<p><strong>You should avoid creating non-syntactic names</strong>, BUT you’ll often encounter them, especially in datasets not created in R (Excel or other sources). If you don’t handle them properly, R will throw errors when you try to use them.</p>
+<h4 id="what-to-do">What to Do:</h4>
+<p><strong>1. Use backticks to refer to them (e.g., <code>`Flipper Length (mm)`</code>)</strong><br>
+<strong>2. Use <code>rename()</code> to change them to syntactic names</strong></p>
+<p><em>Non-syntactic names will break code if you forget to wrape them in backticks, so renaming avoids issues.</em></p>
+</section>
+<section id="working-with-non-syntactic-names-in-practice" class="slide level2 center">
+<h2>Working with Non-syntactic Names in Practice</h2>
+<p>Imagine you are working on political ideology by country, assembled by someone else. The data are in Excel and when you imported them in R they look like this:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Italy"</span>, <span class="st">"Germany"</span>, <span class="st">"France"</span>, <span class="st">"Italy"</span>, <span class="st">"United States"</span>),</span>
+<span id="cb21-2"><a></a>                  <span class="st">`</span><span class="at">4 ideology</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"communism"</span>, <span class="st">"fascism"</span>, <span class="st">"anarchism"</span>, <span class="st">"fascism"</span>, <span class="st">"capitalism"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+<p>To use the non-syntactic variable name without changing it and without errors, you must use backticks:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">select</span>(df, <span class="st">`</span><span class="at">4 ideology</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+<section id="practice-syntactic-non-syntactic-variable-names" class="slide level2 center">
+<h2>💻 Practice: Syntactic &amp; Non-Syntactic Variable Names</h2>
+<p>Try this in R:</p>
+<ul>
+<li>Use <code>glimpse(penguins_raw)</code> or <code>str(penguins_raw)</code> and identify non-syntactic variables names in this raw dataset</li>
+<li>Pick one of them, and try accessing it with <code>select()</code> without backticks: what happens?</li>
+<li>Use <code>rename()</code> to give the variable a syntactic valid name</li>
+<li>Save the result to a new object</li>
+<li>Verify the name was changed and you can now access it</li>
+</ul>
+<p>Once done, copy your code <a href="https://codeshare.io/29X3QM" target="_blank">here</a> to share it.</p>
+<!--
+
+glimpse(penguins_raw)
+select(penguins_raw, `Flipper Length (mm)`)
+x <- rename(penguins_raw, flipper_length_mm = `Flipper Length (mm)`)
+glimpse(x)
+
+
+# 1.
+select(df, 4 ideology)
+select(df, "4 ideology")
+# 2. 
+rename(df, ideology = `4 ideology`)
+-->
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>Reviewed and expanded our data manipulation skills using key dplyr verbs</li>
+<li>How to rename and recode variables with <code>rename()</code>, <code>recode()</code>, and <code>case_when()</code></li>
+<li>Recognize syntactic vs.&nbsp;non-syntactic variable names and use them correctly in R</li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
 
 
 </section></section>
@@ -376,6 +1201,82 @@ Sabrina Nardin, Summer 2026
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -19,23 +19,787 @@ format:
 # Agenda {.center}
 
 ::: {.agenda-list}
-1. Review and expand your ability to manipulate data with `dplyr` functions (“verbs”)
-2. Rename and recode variables using `rename()`, `recode()`, and `case_when()`
-3. Identify syntactic vs. non-syntactic variable names and handle them correctly
+1. Review of core dplyr functions (aka “verbs”)
+
+2. More dplyr verbs
+
+3. Data Cleaning  
+   
+   3.1 Renaming & Recoding Variables
+   
+   3.2 Syntactic vs. Non-syntactic Variable Names 
+:::
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+```{r pkgs, include = FALSE, cache = FALSE}
+library(tidyverse)
+library(rcis)
+library(knitr)
+#library(here)
+```
+
+
+# 1. Review of core dplyr verbs {.slide .center .middle}
+
+---
+
+## Last lecture we learned four main dplyr functions
+
+| Function   | What it does                                                       |
+|----------------|---------------------------------------------------------------------|
+| `select()`     | Chooses (keeps or reorders) specific columns by name                                   |
+| `filter()`     | Keeps rows based on conditions     |
+| `group_by()`   | Groups the data by one or more variables for grouped operations                   |
+| `summarize()`  | Reduces each group to a single row using summary statistics (e.g., mean, sum, n) |
+
+<!--
+<br>
+
+::: {.callout-tip title="Tip for Remembering These Functions"}
+Each **row is an observation** (e.g., one penguin) and each **column is a variable** (e.g., species, body mass). Some functions work on rows like `filter()` others work on columns like `select()`.
+:::
+
+</br>
+-->
+
+---
+
+## Back to our Penguins
+
+Load libraries and data:
+```r
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+```
+
+Explore data (pick one of these, note we have two new ones):
+```r
+rbind(head(penguins, 5), tail(penguins, 5))
+glimpse(penguins)
+str(penguins)
+summary(penguins)
+```
+
+---
+
+## select() extracts variables, operates on columns
+
+```r
+# select two specific variables using their names
+select(penguins, species, body_mass_g)
+
+# select all variables except two using the minus sign
+select(penguins, -year, -island)
+
+# select a range of contiguous/adjacent variables
+select(penguins, species:bill_length_mm)
+
+# select all variables except a range of contiguous ones
+select(penguins, -(species:island))
+
+# select all variables that start with
+select(penguins, starts_with("bill"))
+
+# select all variables that end with
+select(penguins, ends_with("mm"))
+```
+---
+
+## filter() extract observations, operates on rows
+
+```r
+# check variable values
+levels(penguins$species) 
+unique(penguins$species)
+count(penguins, species)
+penguins |> count(species)
+
+# filter by island and species
+filter(penguins, island == "Biscoe", species == "Gentoo")
+filter(penguins, (island == "Biscoe" & species == "Gentoo"))
+
+# filter by multiple conditions
+filter(penguins, species %in% c("Adelie", "Gentoo"), island != "Biscoe")
+
+```
+
+---
+
+## group_by() aggregates data for the next function
+
+```r
+# group by alone? not that useful
+penguins |> 
+  group_by(island, sex)
+
+# group by one variable: summarize by island
+penguins |> 
+  group_by(island) |>
+  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))
+
+# group by two variables: summarize by island-sex combinations
+penguins |> 
+  group_by(island, sex) |>
+  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))
+
+# filter, group_by, summarize
+penguins |>
+  filter(species == "Adelie") |>
+  group_by(island, sex) |>
+  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))
+```
+
+---
+
+## summarize() creates summary of data
+
+```r
+# summarize the full dataset
+penguins |> 
+  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE),
+            body_mass_sd = sd(body_mass_g, na.rm = TRUE),
+            n = n())  # n = nrow(penguins)
+
+# filter first, then summarize only for one species 
+penguins |> 
+  filter(species == "Gentoo") |> 
+  summarize(
+    body_mass_mean = mean(body_mass_g, na.rm = TRUE),
+    body_mass_sd = sd(body_mass_g, na.rm = TRUE),
+    n = n()  # counting rows
+  )
+```
+
+Note: summarize() collapses the data into a smaller summary table. You can use summarize() to calculate many kinds of summary statistics, such as means, standard deviations, counts, minimums, maximums, and more.
+https://dplyr.tidyverse.org/reference/summarise.html
+
+<!-- STEPS TO EXPLAIN n()
+
+# How many rows are in the full dataset?
+penguins |> 
+  summarize(n = n())
+  
+
+# How many rows are left after filtering to Gentoo penguins?
+penguins |> 
+  filter(species == "Gentoo") |> 
+  summarize(n = n())  
+
+# Then show that with group_by(), n() counts within each group:
+# How many penguins are there in each species?
+penguins |> 
+  group_by(species) |> 
+  summarize(n = n())
+-->
+
+---
+
+## Combining Verbs with the Pipe
+
+Key point: in practice you rarely use one verb alone but you **chain verbs together** with the pipe `|>`. 
+
+Some combinations come up again and again:
+
+```r
+# combo 1: filter() + group_by() + summarize() -- subset, then summarize by group
+penguins |> 
+  filter(species != "Gentoo") |> 
+  group_by(island) |> 
+  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))
+
+# combo 2: select() + filter() + group_by() + summarize() -- narrow down columns first
+penguins |> 
+  select(species, island, sex, body_mass_g) |> 
+  filter(sex == "female") |> 
+  group_by(species) |> 
+  summarize(body_mass_mean = mean(body_mass_g, na.rm = TRUE))
+```
+
+# 2. More dplyr verbs {.slide .center .middle}
+
+---
+
+## Today we learn more dplyr functions
+
+dplyr verbs group naturally by **what they operate on**: columns, rows, groups. Here's how today's new functions connect to what you already know:
+
+| Focus | Last time (review) | Today (new) |
+|----------------|---------------------------------------------------------------------|---------------------------------------------------------------------|
+| **Rows** | `filter()` keeps rows by condition | `arrange()` reorders rows by value; `distinct()` keeps only unique rows |
+| **Columns** | `rename()` renames columns; `relocate()` reorders columns | `mutate()` adds or changes column values — as central as `filter()`, `group_by()`, `summarize()`; `across()` applies one operation to many columns at once |
+| **Groups** | `group_by()` defines groups; `summarize()` summarizes each group | `count()` — shortcut for `group_by()` + `summarize(n())` |
+
+<!--
+
+KEEP THIS HIDDEN AS IT IS TOO MUCH FOR STUDENTS TO DIGEST
+
+## Most important dplyr Functions: Tips to Rememeber and Examples
+
+| Focus | Concept | Function |
+|:----|:--|:-------------------------------------------------------------|
+| **Columns** | Structure | `select()` chooses specific columns — `select(penguins, species, island)`<br>`rename()` renames columns — `rename(penguins, flip_mm = flipper_length_mm)`<br>`relocate()` reorders columns — `relocate(penguins, island, .before = species)` |
+| **Rows** | Filtering & sorting | `filter()` selects rows by values — `filter(penguins, species == "Adelie")`<br>`arrange()` orders rows by column values — `arrange(penguins, desc(body_mass_g))` |
+| **Values** | Transformation | `mutate()` adds or changes columns — `mutate(penguins, flip_cm = flipper_length_mm / 10)`<br>`distinct()` keeps unique rows — `distinct(penguins, species, island)` |
+| **Groups** | Aggregation | `group_by()` defines groups — `group_by(penguins, species)`<br>`count()` counts rows per group — `count(penguins, island)` <br> `summarize()` creates summaries per group — `summarize(penguins, avg_flip = mean(flipper_length_mm, na.rm = TRUE))` |
+| **Across columns** | Automation | `across()` applies an operation to multiple columns — `summarize(across(ends_with("_mm"), mean, na.rm = TRUE))` |
+
+<br>
+
+<div style="font-size:0.8em; color:#666; text-align:center; margin-top:0.5em;">Data flows top → bottom just like in a pipeline: penguins |> select() |> filter() |> group_by() |> summarize()</div>
+
+-->
+
+<!-- NOTE (Claude, not in original CLAUDE marker): reordered the following slides from
+arrange -> relocate -> mutate -> count -> distinct -> across -> across
+to
+arrange -> relocate -> count -> distinct -> mutate -> across -> across
+Rationale: arrange()/relocate() are simple structural reorders (easy, build on
+filter() already known); count()/distinct() are similarly low-complexity and
+build on group_by()/summarize() already known; mutate() is placed right before
+across() because it is the more important, higher-stakes verb (see emphasis box)
+and because across() is most often used *inside* mutate()/summarize(), so it
+makes sense to teach mutate() immediately before across(). across() (numeric,
+then categorical) is last because it is the most abstract/advanced verb. -->
+
+---
+
+## arrange() changes order of observations
+
+```r
+# basic idea: arrange() sorts rows by one variable 
+# here: largest bill length first
+penguins |> 
+  arrange(desc(bill_length_mm))
+
+# more complex: arrange() can sort by more than one variable
+# here: sort by species first, then by bill length within each species
+penguins |>
+  select(species, contains("bill")) |>
+  filter(species != "Adelie") |> 
+  arrange(species, bill_length_mm)
+```
+
+---
+
+## relocate() changes order of variable 
+
+```r
+# move two variables to the front of the dataset
+penguins |> 
+  relocate(year, sex)
+
+# move year to a specific position: after island
+penguins |> 
+  relocate(year, .after = island)
+```
+
+---
+
+## count() counts tot obs. by group
+
+```r
+# option 1: count penguins by sex the long way
+penguins |> 
+  group_by(sex) |> 
+  summarize(total = n())
+
+# option 2: do the same with count (shortcut!)
+penguins |>
+  count(sex)
+  
+# more complex Option 1: count penguins by island-sex combinations
+penguins |> 
+  group_by(island, sex) |> 
+  summarize(total = n())
+
+# more complex Option 2: do the same thing with count
+penguins |> 
+  count(island, sex)
+```
+
+---
+
+## distinct() returns unique rows based on given columns
+
+```r
+# unique combinations of species and island
+penguins |>
+  distinct(species, island)
+
+# same but keep all columns in the resulting data frame
+penguins |>
+  distinct(species, island, .keep_all = TRUE)
+```
+
+Note: returns a dataframe with only unique combinations of your input columns https://dplyr.tidyverse.org/reference/distinct.html 
+
+---
+
+## mutate() modify or create new columns
+
+:::{.callout-important title="One of the Most-Used Verbs in dplyr"}
+mutate <https://dplyr.tidyverse.org/reference/mutate.html> is one of the most used `dplyr` verbs, together with filter, group_by, summarize 
+:::
+
+
+```r
+# create a new column using existing columns
+penguins |> 
+  mutate(bill_ratio = bill_length_mm / bill_depth_mm)
+  
+# create a new column by converting body mass from grams to kilograms
+penguins |> 
+  mutate(body_mass_kg = body_mass_g / 1000)
+```
+
+---
+
+## across()
+
+Examples with and without `across()` with numerical variables:
+
+```r
+# mean for several variables without across
+penguins |>
+  summarize(
+    mean_bill_length_mm = mean(bill_length_mm, na.rm = TRUE),
+    mean_bill_depth_mm = mean(bill_depth_mm, na.rm = TRUE),
+    mean_flipper_length_mm = mean(flipper_length_mm, na.rm = TRUE),
+    mean_body_mass_g = mean(body_mass_g, na.rm = TRUE)
+  )
+
+# same operation with across
+penguins |>
+  summarize(
+    across(
+      c(bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g), 
+      ~ mean(.x, na.rm = TRUE)  # function(x) mean(x, na.rm = TRUE)
+    ))
+```
+
+---
+
+## across()
+
+Examples with and without `across()` with categorical variables:
+
+```r
+# number of distinct entries without across
+penguins |>
+  summarise(distinct_species = n_distinct(species),
+            distinct_island = n_distinct(island),
+            distinct_year = n_distinct(year))
+
+# number of distinct entries with across
+penguins |>
+  summarise(across(c(species, island, year), 
+                   n_distinct))
+
+# the opposite
+penguins |>
+  summarise(across(-c(species, island, year), 
+                   n_distinct))
+
+# everything
+penguins |>
+  summarise(across(everything(), 
+                   n_distinct))
+```
+---
+
+## 💻 Practice
+
+Let's put all of this into practice.
+
+Download today's class materials. Open **practice-dplyr-1** and work through the exercises on these dplyr functions.
+
+# 3. Data Cleaning {.slide .center .middle}
+
+# 3.1 Data Cleaning: Renaming & Recoding Variables {.slide .center .middle}
+
+---
+
+## A Few More dplyr Functions
+
+We now introduce a few more dplyr functions: `rename()`, `recode()`, and `case_when()`.
+
+We introduce them here, in the context of renaming and recoding variables, because that's how they're typically used in practice.
+
+:::{.callout-note}
+*`recode()` and `case_when()` only work on a single column's values, so they're always used inside `mutate()`*
+:::
+
+<!--
+If a function takes a whole data frame and returns a data frame, it's a **verb** and you can pipe straight into them. 
+If it only makes sense applied to a single single column's values, it needs a verb — almost always `mutate()` — to attach the result back onto the data frame.
+-->
+
+---
+
+## Definitions of Rename and Recode
+
+**Rename**: change variable names (column names)
+
+**Recode**: change values/levels of categorical variables (column values; e.g., inside a column)
+
+---
+
+## Uses of Rename and Recode
+
+**When might you need to rename variables or recode their values?**
+
+- You are cleaning data 
+  - The variable name has issues: `Flipper Length (mm)` → `flipper_length_mm`
+  - You need to standardize values: `"Good"` and `"GOOD"` → `"good"`
+  - Etc.
+- You are preparing data for modeling or visualization
+  - You want to recode `"FEMALE"`/`"MALE"` to `0`/`1` for a regression model  
+  - Etc.
+
+---
+
+## For this part, we work with the Penguins (raw) Data!
+
+```r
+# Load libraries and data
+library(tidyverse)
+library(palmerpenguins)
+data(penguins)
+
+# Explore data
+head(penguins_raw)
+tail(penguins_raw)
+rbind(head(penguins_raw, 3), tail(penguins_raw, 3))
+glimpse(penguins_raw)
+```
+---
+
+## Renaming Variables with rename
+
+To change variable names (column names) the most common way is by using `rename()` 
+
+Change the name of the variable `studyName` to `study_name`:
+
+```r
+# check before renaming
+str(penguins_raw)
+penguins_raw %>% select(studyName)
+
+# rename
+penguins_raw %>% rename(study_name = studyName)   # new = old
+
+# remember to save to keep changes
+p <- penguins_raw %>% rename(study_name = studyName)
+p %>% select(study_name)
+```
+---
+
+## 💻 Practice Renaming Variables
+
+- Use `select()` to check the variable `Comments` in `penguins_raw` 
+- Use `rename()` to rename `Comments` to `notes`
+- Save the result to a new object
+- Use `select()` to check again
+
+Once done, copy your code [here](https://codeshare.io/29X3QM){target="_blank"} to share it.
+
+<!--
+select(penguins_raw, Comments)
+penguins_raw |> rename(notes = Comments)
+-->
+
+---
+
+## Recoding Variables Method 1: with mutate + recode
+
+To change variable values (usually levels of categorical variables), we learn two approaches. We take the variable `Sex` and turn MALE into 1, FEMALE into 0.
+
+Method 1:
+
+```r
+# check before recoding
+penguins_raw %>% count(Sex)
+
+# mutate + recode
+p <- penguins_raw %>%
+  mutate(sex = recode(Sex, "MALE" = 1, "FEMALE" = 0))
+
+# compare
+penguins_raw %>% count(Sex)
+p %>% count(sex)
+
+```
+
+<!-- Here we could have unquoted (e.g., `MALE = 1`) but only works if: 
+the variable is a factor or there are no spaces or punctuation in the variable name -->
+
+---
+
+## Recoding Variables Method 2: with mutate + case_when
+
+Method 2:
+
+```r
+# mutate + case_when
+penguins_raw %>%
+  mutate(Sex = case_when(Sex == "MALE" ~ 1,
+                         Sex == "FEMALE" ~ 0,
+                         TRUE ~ NA_real_))
+  
+# like for method 1 (previous code) save results to keep changes and compare
+```
+
+:::{.callout-note}
+With `case_when()` each `logical condition ~ value` pair acts like *if → then*:
+
+- for each row, R looks if the condition is TRUE: "*If* you find the value MALE in Sex, *then* convert it to 1"
+- `TRUE ~ NA_real_` tells R: “*If* no previous condition was met, *then* return NA as as a number"
 :::
 
 ---
 
-### Slides are in progress and will be updated before class.
+## 💻 Practice Recoding Variables
 
-::: {.content-hidden}
+- Use `count()` to check the variable `Species` in `penguins_raw` 
+- Pick method 1 or method 2 to recode the values of that variable into Adelie, Chinstrap, Gentoo 
+- Save the result to a new object
+- Use `count()` to verify both results
+
+Once done, copy your code [here](https://codeshare.io/29X3QM){target="_blank"} to share it.
 
 <!--
-<span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **October 15, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
-</span>
 
-Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
+# Method 1: RECODE
+
+penguins_raw %>% count(Species)
+
+p <- penguins_raw %>%
+  mutate(Species = recode(Species,
+    "Adelie Penguin (Pygoscelis adeliae)" = "Adelie",
+    "Chinstrap penguin (Pygoscelis antarctica)" = "Chinstrap",
+    "Gentoo penguin (Pygoscelis papua)" = "Gentoo"
+  ))
+
+p %>% count(Species)
+
+
+# Method 2: CASE_WHEN
+
+penguins_raw %>% count(Species)
+
+p2 <- penguins_raw %>%
+  mutate(Species = case_when(
+    Species == "Adelie Penguin (Pygoscelis adeliae)" ~ "Adelie",
+    Species == "Chinstrap penguin (Pygoscelis antarctica)" ~ "Chinstrap",
+    Species == "Gentoo penguin (Pygoscelis papua)" ~ "Gentoo",
+    TRUE ~ NA_character_
+  ))
+
+p2 %>% count(Species)
+
 -->
 
+---
+
+## The Role of mutate in Recoding
+
+#### The dplry verb mutate has many uses: create new columns or modify existing columns values.
+
+:::{.callout-note}
+For recoding, use `mutate + recode` or `mutate + case_when`, because the goal is changing the *column's values*:
+
+- Method 1: `mutate(Sex = recode(Sex, "MALE" = 1, "FEMALE" = 0))`  
+- Method 2: `mutate(Sex = case_when(sex == "MALE" ~ 1, sex == "FEMALE" ~ 0))`
 :::
+
+---
+
+## Rename vs Recode: Syntax Reference
+
+<!--
+DOUBLE CHECK TIPS WITH REAL R CODE
+| Function       | What It Changes    | Syntax + Example                                                | Tips                                                             |
+|----------------|--------------------|------------------------------------------------------------------|------------------------------------------------------------------|
+| `rename()`     | Column names       | `rename(new_name = old_name)`  <br> `rename(notes = Comments)` | No quotes around variable names                                  |
+| `recode()`     | Column values      | `recode(variable, "old" = new)`  <br> `recode(Sex, "MALE" = 1)` | Use quotes around variable values if they are character             |
+| `case_when()`  | Column values      | `case_when(variable == "old" ~ new)` <br> `case_when(Sex == "MALE" ~ 1)` | Use quotes around variable values if they are character |
+-->
+
+| Function       | What It Changes    | Syntax + Example                                                | Tips                                                             |
+|----------------|--------------------|------------------------------------------------------------------|------------------------------------------------------------------|
+| `rename()`     | Column names       | `rename(new_name = old_name)`  <br> `rename(notes = Comments)` | No quotes around variable names                                  |
+| `recode()`     | Column values      | `recode(variable, "old" = new)`  <br> `recode(Sex, "MALE" = 1)` | Check function doc to see when quotes are needed             |
+| `case_when()`  | Column values      | `case_when(variable == "old" ~ new)` <br> `case_when(Sex == "MALE" ~ 1)` |  Check function doc to see when quotes are needed   |
+
+---
+
+## 💻 Practice: Challenge
+
+If you haven't yet, downlod the class materials for today. 
+
+Open **practice-dplyr-2** which includes a real-data cleaning challenge that requires you to use `mutate()` and `case_when()` to recode messy values, combine dplyr verbs, and then build a `ggplot2` chart.
+
+---
+
+## 💻 Practice: Build Your Own Verbs Typology
+
+We have now learned the most important `dplyr` verbs. I recommend memorizing them.
+
+For example, verbs can be grouped by whether they work on:
+
+- **rows**: `filter()`, `arrange()`
+- **columns**: `select()`, `rename()`, `relocate()`, `mutate()`
+- **groups/summaries**: `group_by()`, `summarize()`, `count()`
+
+**Tip:** Make your own one-page cheat sheet. Group the verbs in a way that helps *you* remember them, and add one short example for each.
+
+# 3.2 Data Cleaning: Syntactic vs. Non-syntactic Variable Names {.slide .center .middle}
+
+---
+
+## Syntactic (Valid) Variable Names in R
+
+::: {.columns}
+
+::: {.column width="50%"}
+### Valid Names in R:
+- Use letters, numbers, and the symbols `.` or `_`
+- But cannot start with a number or symbol
+
+:::
+
+::: {.column width="50%"}
+### Examples of Valid Names:
+```r
+flipper_length_mm
+flipper.length.mm
+flipper.length_mm     # valid but poor style
+FlipperLengthMm       # valid but poor style
+```
+:::
+:::
+
+---
+
+## Non-Syntactic (Invalid) Variable Names in R
+
+::: {.columns}
+
+::: {.column width="50%"}
+### What Makes a Name Invalid:
+- Contains spaces or symbols
+- Starts with a number or symbol
+- Uses reserved words (e.g., `TRUE`, `NULL`, `if`, `function`)
+- Type `?Reserved` in the Console for the full list
+:::
+
+::: {.column width="50%"}
+### Examples of Invalid Names:
+```r
+Flipper Length (mm)
+@_flipper_length_mm
+flipper_ length_mm
+flipper-length-mm
+.flipper.length.mm
+```
+:::
+:::
+
+---
+
+## 💻 Practice: Syntactic and Non-Syntactic Names
+
+Which of the following are valid names?
+
+- `3_religion`
+- `#3_religion`
+- `q3_religion`
+- `q3.religion`
+- `q3-religion`
+- `q3 religion`
+- `TRUE`
+
+:::{.callout-tip}
+For best coding style, use snake_case for all your variables names and keep them to three words maximum. Example: `q3_religion`
+<!-- Check using `make.names()` in R or try using them in a `select()` call. -->
+:::
+
+---
+
+## How to Handle Non-syntactic Names, and Why It Matters
+
+**You should avoid creating non-syntactic names**, BUT you’ll often encounter them,  especially in datasets not created in R (Excel or other sources). If you don’t handle them properly, R will throw errors when you try to use them.
+
+#### What to Do:
+
+**1. Use backticks to refer to them (e.g., `` `Flipper Length (mm)` ``)**  
+**2. Use `rename()` to change them to syntactic names**
+
+*Non-syntactic names will break code if you forget to wrape them in backticks, so renaming avoids issues.*
+
+---
+
+## Working with Non-syntactic Names in Practice
+
+Imagine you are working on political ideology by country, assembled by someone else. The data are in Excel and when you imported them in R they look like this:
+
+```r
+df <- tibble(country = c("Italy", "Germany", "France", "Italy", "United States"),
+                  `4 ideology` = c("communism", "fascism", "anarchism", "fascism", "capitalism"))
+```
+
+<br>
+
+To use the non-syntactic variable name without changing it and without errors, you must use backticks:
+
+```r
+select(df, `4 ideology`)
+```
+</br>
+
+---
+
+## 💻 Practice: Syntactic & Non-Syntactic Variable Names
+
+Try this in R:
+
+- Use `glimpse(penguins_raw)` or `str(penguins_raw)` and identify non-syntactic variables names in this raw dataset
+- Pick one of them, and try accessing it with `select()` without backticks: what happens?
+- Use `rename()` to give the variable a syntactic valid name
+- Save the result to a new object
+- Verify the name was changed and you can now access it
+
+Once done, copy your code [here](https://codeshare.io/29X3QM){target="_blank"} to share it.
+
+<!--
+
+glimpse(penguins_raw)
+select(penguins_raw, `Flipper Length (mm)`)
+x <- rename(penguins_raw, flipper_length_mm = `Flipper Length (mm)`)
+glimpse(x)
+
+
+# 1.
+select(df, 4 ideology)
+select(df, "4 ideology")
+# 2. 
+rename(df, ideology = `4 ideology`)
+-->
+
+---
+
+## Recap: What We Learned Today
+
+- Reviewed and expanded our data manipulation skills using key dplyr verbs
+- How to rename and recode variables with `rename()`, `recode()`, and `case_when()`
+- Recognize syntactic vs. non-syntactic variable names and use them correctly in R
+
+---
+
+## To print these slides as pdf
+
+Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
