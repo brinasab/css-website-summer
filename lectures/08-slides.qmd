@@ -44,15 +44,10 @@ library(knitr)
 
 R distinguishes two types of missing data:
 
-- **Explicit missing data**: visible `NA` or `NaN` values in the dataset
-- **Implicit missing data**: data that was never recorded
+- **Explicit missing data**: the missing value is recorded in the data, typically as `NA` (Not Available) 
+- **Implicit missing data**: the missing value was never recorded in the data
 
-In this course, we focus on **explicit missing data**. For implicit missing data, see [R for Data Science Ch. 18](https://r4ds.hadley.nz/missing-values)
-
-:::{.callout-note title="Definitions"}
-Explicit = the missing value is recorded in the data, ideally as `NA` (Not Available)  
-Implicit = value was never recorded in the data
-:::
+We focus on explicit missing data. For implicit missing data, see [R for Data Science Ch. 18](https://r4ds.hadley.nz/missing-values)
 
 <!--
 - `NA` = Not Available (general-purpose missing value)  
@@ -66,12 +61,12 @@ See [Ch. 12.2.2](https://r4ds.hadley.nz/logicals#sec-na-comparison) for how `NA`
 
 ## How Missing Data Behave
 
-Any operation involving a missing value will return a missing value (see [Ch. 12.2.2 Missing values](https://r4ds.hadley.nz/logicals#sec-na-comparison) for more):
+Any operation involving a missing value will return a missing value (see [Ch. 12.2.2 Missing values](https://r4ds.hadley.nz/logicals#sec-na-comparison)):
 
 ```r
 NA > 5
 
-sum(c(3, 1, 4, NA)
+sum(c(3, 1, 4, NA))
 sum(c(3, 1, 4, NA), na.rm = TRUE)
 
 mean(c(3,1,4,NA))
@@ -82,7 +77,7 @@ mean(c(3, 1, 4, NA), na.rm = TRUE)
 
 ## Common Ways to Handle Missing Data
 
-Working with (explicit) missing data is usually a **decision process*:** 
+Working with (explicit) missing data is usually a **decision process:** 
 
 <!--
 Before deciding what to do with missing data, we first need to find it. Then we can choose whether to ignore it in calculations or remove it from the dataset.
@@ -92,14 +87,15 @@ A. `is.na()` to find missing values
 B. `na.rm = TRUE` to ignore missing values in calculations  
 C. `drop_na()` to remove missing values; use carefully 
 
+Let's examine each step...
 
 ---
 
 ## A. Find Missing Data with is.na()
 
-**The most common way to check for missing values in R is with `is.na()`**, which returns `TRUE` when a value is missing, and `FALSE` when a value is present.
+**Use `is.na()` to find missing values.** It returns `TRUE` when a value is missing, and `FALSE` when is present.
 
-For example, this code uses `is.na()` to check for missing values in one variable from `penguins_raw`:
+For example, this code uses `is.na()` to check for missing values in one variable from `penguins_raw`
 
 ```r
 # load libries and data
@@ -138,7 +134,7 @@ penguins_raw |>
 
 ## A. Find Missing Data with is.na()
 
-To pull out and check the rows where a value is missing: use `is.na()` inside `filter()` to keep rows where a value *is missing* or *is not missing*, as follows:
+To pull out the rows where a value is missing, **use `is.na()` inside `filter()`** to keep rows where a value is missing or is not missing, as follows:
 
 ```r
 # keep rows where sex is missing
@@ -149,12 +145,18 @@ filter(penguins_raw, Sex == NA)  |> View()   # incorrect
 filter(penguins_raw, !is.na(sex))
 ```
 
-Remember: we cannot use `== NA` to check for missing values (`NA` means “unknown,” so R cannot evaluate it). Use `is.na()` instead.
+<br>
+
+:::{.callout-note}
+You cannot use `== NA` to check for missing values: `NA` means “unknown,” so R cannot evaluate it. Use `is.na()` instead.
+:::
 
 <!--
 ``==` compares two known values, but `NA` means the value is unknown or missing.  
 Because R does not know what the missing value is, it cannot say whether another value is equal to it.
 -->
+
+</br>
 
 ---
 
@@ -196,8 +198,8 @@ drop_na(`Body Mass (g)`, Sex)
 <br>
 
 :::{.callout-warning}
-Be careful: `drop_na()` actually removes rows from the data you are working with.
-It removes the entire row, not just the missing cell. This can accidentally remove useful data from other variables in the same row. Before using it, check (see previous slides).
+Be careful, `drop_na()` removes rows from the data you are working with.
+It removes the entire row, not just the missing cell. This can accidentally remove useful data from other variables in the same row. Before using it, check the variable (see previous slides).
 :::
 
 </br>
@@ -206,15 +208,14 @@ It removes the entire row, not just the missing cell. This can accidentally remo
 
 ## 💻 Practice: Handling Missing Data
 
-0. **Rename:** use the `penguins_raw` dataset and rename `Flipper Length (mm)` to `flipper_length_mm`. Save the result as a new dataframe (call it `penguins_clean` or `p`)
+Let's practice...
 
-Use the new dataframe with the renamed variable for the tasks below (copy/adapt code from these slides):
+- First, **rename:** use the `penguins_raw` dataset and rename `Flipper Length (mm)` to `flipper_length_mm`. Save the result as a new dataframe (call it `penguins_clean` or `p`)
 
-1. **Detect missing values:** use `is.na()` and `sum()` to count how many are missing in the variable flipper length
-
-2. **Exclude missing from calculations:** use `na.rm = TRUE` inside `mean()` to calculate the average flipper length
-
-3. **Drop missing values:** use `drop_na()` to remove rows with missing values in flipper length
+- Then, use the new dataframe for the steps below (copy/adapt code from these slides):  
+  - **Detect missing values:** use `is.na()` and `sum()` to count how many are missing in flipper length
+  - **Exclude from calculations:** use `na.rm = TRUE` inside `mean()` to calculate the average flipper length
+  - **Drop missing values:** use `drop_na()` to remove rows with missing values in flipper length
 
 Once done, [share your code here](https://codeshare.io/29X3QM){target="_blank"}.
 
@@ -237,7 +238,7 @@ p |> drop_na(flipper_length_mm)
 
 ## Ways to Fill or Replace Missing Data
 
-Main functions to replace or fill missing values:
+Beloa are the main functions in R to replace or fill missing values:
 
 - `replace_na()` – replace missing values with a specified value  
 - `fill()` – carry values forward or backward (from the package `tidyr`)  
@@ -682,7 +683,7 @@ glimpse(scorecard)
 ```
 ---
 
-## Example: Plot the total number of schools in the U.S. by school type
+## Task: Plot the total number of schools in the U.S. by school type
 
 This is the same question we did in class.
  
@@ -695,7 +696,7 @@ ggplot(scorecard, mapping = aes(x = type)) +
 
 <br>
 
-#### Our goal: reorder the bars!
+### Our goal: reorder the bars!
 
 </br>
 

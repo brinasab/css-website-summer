@@ -2608,21 +2608,21 @@
     "href": "lectures/08-slides.html#what-are-missing-data",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "What Are Missing Data?",
-    "text": "What Are Missing Data?\nR distinguishes two types of missing data:\n\nExplicit missing data: visible NA or NaN values in the dataset\nImplicit missing data: data that was never recorded\n\nIn this course, we focus on explicit missing data. For implicit missing data, see R for Data Science Ch. 18\n\n\n\n\n\n\n\nDefinitions\n\n\nExplicit = the missing value is recorded in the data, ideally as NA (Not Available)\nImplicit = value was never recorded in the data"
+    "text": "What Are Missing Data?\nR distinguishes two types of missing data:\n\nExplicit missing data: the missing value is recorded in the data, typically as NA (Not Available)\nImplicit missing data: the missing value was never recorded in the data\n\nWe focus on explicit missing data. For implicit missing data, see R for Data Science Ch. 18"
   },
   {
     "objectID": "lectures/08-slides.html#how-missing-data-behave",
     "href": "lectures/08-slides.html#how-missing-data-behave",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "How Missing Data Behave",
-    "text": "How Missing Data Behave\nAny operation involving a missing value will return a missing value (see Ch. 12.2.2 Missing values for more):\nNA &gt; 5\n\nsum(c(3, 1, 4, NA)\nsum(c(3, 1, 4, NA), na.rm = TRUE)\n\nmean(c(3,1,4,NA))\nmean(c(3, 1, 4, NA), na.rm = TRUE)"
+    "text": "How Missing Data Behave\nAny operation involving a missing value will return a missing value (see Ch. 12.2.2 Missing values):\nNA &gt; 5\n\nsum(c(3, 1, 4, NA))\nsum(c(3, 1, 4, NA), na.rm = TRUE)\n\nmean(c(3,1,4,NA))\nmean(c(3, 1, 4, NA), na.rm = TRUE)"
   },
   {
     "objectID": "lectures/08-slides.html#common-ways-to-handle-missing-data",
     "href": "lectures/08-slides.html#common-ways-to-handle-missing-data",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "Common Ways to Handle Missing Data",
-    "text": "Common Ways to Handle Missing Data\nWorking with (explicit) missing data is usually a **decision process*:**\n\nA. is.na() to find missing values\nB. na.rm = TRUE to ignore missing values in calculations\nC. drop_na() to remove missing values; use carefully"
+    "text": "Common Ways to Handle Missing Data\nWorking with (explicit) missing data is usually a decision process:\n\nA. is.na() to find missing values\nB. na.rm = TRUE to ignore missing values in calculations\nC. drop_na() to remove missing values; use carefully\nLet’s examine each step…"
   },
   {
     "objectID": "lectures/08-slides.html#a.-detect-missing-data-with-is.na",
@@ -2643,21 +2643,21 @@
     "href": "lectures/08-slides.html#c.-remove-missing-data-with-drop_na",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "C. Remove Missing Data with drop_na()",
-    "text": "C. Remove Missing Data with drop_na()\nUse drop_na() to remove rows with missing values. Either across all columns or in specific columns (safer/most common):\npenguins_raw |&gt;\n  drop_na(`Body Mass (g)`) |&gt;\n  summarize(avg_mass = mean(`Body Mass (g)`))\n\n\n\n\n\n\n\n\nWarning\n\n\nBe careful: drop_na() actually removes rows from the data you are working with. It removes the entire row, not just the missing cell. This can accidentally remove useful data from other variables in the same row. Before using it, check (see previous slides)."
+    "text": "C. Remove Missing Data with drop_na()\nUse drop_na() to remove rows with missing values. Either across all columns or in specific columns (safer/most common):\npenguins_raw |&gt;\n  drop_na(`Body Mass (g)`) |&gt;\n  summarize(avg_mass = mean(`Body Mass (g)`))\n\n\n\n\n\n\n\n\nWarning\n\n\nBe careful, drop_na() removes rows from the data you are working with. It removes the entire row, not just the missing cell. This can accidentally remove useful data from other variables in the same row. Before using it, check the variable (see previous slides)."
   },
   {
     "objectID": "lectures/08-slides.html#practice-handling-missing-data",
     "href": "lectures/08-slides.html#practice-handling-missing-data",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "💻 Practice: Handling Missing Data",
-    "text": "💻 Practice: Handling Missing Data\n\nRename: use the penguins_raw dataset and rename Flipper Length (mm) to flipper_length_mm. Save the result as a new dataframe (call it penguins_clean or p)\n\nUse the new dataframe with the renamed variable for the tasks below (copy/adapt code from these slides):\n\nDetect missing values: use is.na() and sum() to count how many are missing in the variable flipper length\nExclude missing from calculations: use na.rm = TRUE inside mean() to calculate the average flipper length\nDrop missing values: use drop_na() to remove rows with missing values in flipper length\n\nOnce done, share your code here."
+    "text": "💻 Practice: Handling Missing Data\nLet’s practice…\n\nFirst, rename: use the penguins_raw dataset and rename Flipper Length (mm) to flipper_length_mm. Save the result as a new dataframe (call it penguins_clean or p)\nThen, use the new dataframe for the steps below (copy/adapt code from these slides):\n\nDetect missing values: use is.na() and sum() to count how many are missing in flipper length\nExclude from calculations: use na.rm = TRUE inside mean() to calculate the average flipper length\nDrop missing values: use drop_na() to remove rows with missing values in flipper length\n\n\nOnce done, share your code here."
   },
   {
     "objectID": "lectures/08-slides.html#ways-to-fill-or-replace-missing-data",
     "href": "lectures/08-slides.html#ways-to-fill-or-replace-missing-data",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "Ways to Fill or Replace Missing Data",
-    "text": "Ways to Fill or Replace Missing Data\nMain functions to replace or fill missing values:\n\nreplace_na() – replace missing values with a specified value\n\nfill() – carry values forward or backward (from the package tidyr)\n\ncoalesce() – return the first non-missing value across multiple columns\n\nSee Chapter 18 of R for Data Science for more."
+    "text": "Ways to Fill or Replace Missing Data\nBeloa are the main functions in R to replace or fill missing values:\n\nreplace_na() – replace missing values with a specified value\n\nfill() – carry values forward or backward (from the package tidyr)\n\ncoalesce() – return the first non-missing value across multiple columns\n\nSee Chapter 18 of R for Data Science for more."
   },
   {
     "objectID": "lectures/08-slides.html#what-are-factors-in-r",
@@ -2881,14 +2881,14 @@
     "href": "lectures/08-slides.html#a.-find-missing-data-with-is.na",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "A. Find Missing Data with is.na()",
-    "text": "A. Find Missing Data with is.na()\nThe most common way to check for missing values in R is with is.na(), which returns TRUE when a value is missing, and FALSE when a value is present.\nFor example, this code uses is.na() to check for missing values in one variable from penguins_raw:\n# load libries and data\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins_raw)\n\n# check for missing using base R syntax\nis.na(penguins_raw$Sex)\nsum(is.na(penguins_raw$Sex))\ntable(is.na(penguins_raw$Sex))\n\n# check for missing data using tidyverse syntax\npenguins_raw |&gt; summarize(sum(is.na(Sex)))\npenguins_raw |&gt; count(is.na(Sex)) \npenguins_raw |&gt; summarize(across(everything(), ~ sum(is.na(.)))) |&gt; print(width = Inf)"
+    "text": "A. Find Missing Data with is.na()\nUse is.na() to find missing values. It returns TRUE when a value is missing, and FALSE when is present.\nFor example, this code uses is.na() to check for missing values in one variable from penguins_raw\n# load libries and data\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins_raw)\n\n# check for missing using base R syntax\nis.na(penguins_raw$Sex)\nsum(is.na(penguins_raw$Sex))\ntable(is.na(penguins_raw$Sex))\n\n# check for missing data using tidyverse syntax\npenguins_raw |&gt; summarize(sum(is.na(Sex)))\npenguins_raw |&gt; count(is.na(Sex)) \npenguins_raw |&gt; summarize(across(everything(), ~ sum(is.na(.)))) |&gt; print(width = Inf)"
   },
   {
     "objectID": "lectures/08-slides.html#a.-find-missing-data-with-is.na-1",
     "href": "lectures/08-slides.html#a.-find-missing-data-with-is.na-1",
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "A. Find Missing Data with is.na()",
-    "text": "A. Find Missing Data with is.na()\nTo pull out and check the rows where a value is missing: use is.na() inside filter() to keep rows where a value is missing or is not missing, as follows:\n# keep rows where sex is missing\nfilter(penguins_raw, is.na(Sex)) |&gt; View()   # correct  \nfilter(penguins_raw, Sex == NA)  |&gt; View()   # incorrect\n\n# keep rows where sex is NOT missing\nfilter(penguins_raw, !is.na(sex))\nRemember: we cannot use == NA to check for missing values (NA means “unknown,” so R cannot evaluate it). Use is.na() instead."
+    "text": "A. Find Missing Data with is.na()\nTo pull out the rows where a value is missing, use is.na() inside filter() to keep rows where a value is missing or is not missing, as follows:\n# keep rows where sex is missing\nfilter(penguins_raw, is.na(Sex)) |&gt; View()   # correct  \nfilter(penguins_raw, Sex == NA)  |&gt; View()   # incorrect\n\n# keep rows where sex is NOT missing\nfilter(penguins_raw, !is.na(sex))\n\n\n\n\n\n\n\nNote\n\n\nYou cannot use == NA to check for missing values: NA means “unknown,” so R cannot evaluate it. Use is.na() instead."
   },
   {
     "objectID": "lectures/08-slides.html#how-r-stores-variables-with-categories",
@@ -2945,5 +2945,12 @@
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "Apply these concepts to a dataframe: scorecard",
     "text": "Apply these concepts to a dataframe: scorecard\nIn most of your work, you deal with dataframes. We worked with the scorecard data to practice ggplot2. Now we use the same data to learn how we can use factors in a dataframe.\nLoad libraries and explore data:\nlibrary(tidyverse)\nlibrary(rcis)\ndata(scorecard)\n\nglimpse(scorecard)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#task-plot-the-total-number-of-schools-in-the-u.s.-by-school-type",
+    "href": "lectures/08-slides.html#task-plot-the-total-number-of-schools-in-the-u.s.-by-school-type",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Task: Plot the total number of schools in the U.S. by school type",
+    "text": "Task: Plot the total number of schools in the U.S. by school type\nThis is the same question we did in class.\nSince type is a categorical variable, we use a bar chart, which takes each category \"Public\", \"Private nonprofit\", \"Private for profit\" and automatically applies a frequency count to aggregate the data.\nggplot(scorecard, mapping = aes(x = type)) +\n  geom_bar() \n\nOur goal: reorder the bars!"
   }
 ]
