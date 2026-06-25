@@ -1,246 +1,215 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Sabrina Nardin, Summer 2026">
-
-<title>Computing for the Social Sciences: Lecture 8 – css-website=summer</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<html lang="en"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
 
-
-<link rel="stylesheet" href="../style/styles.css">
+  <meta name="author" content="Sabrina Nardin, Summer 2026">
+  <title>css-website=summer – Computing for the Social Sciences: Lecture 8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
+  <link rel="stylesheet" href="../style/styles.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
 </head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-fixed quarto-light">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Computing for the Social Sciences: Lecture 8</h1>
+  <p class="subtitle">Topics: Missing Data; Factors</p>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Computing for the Social Sciences</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../syllabus.html"> 
-<span class="menu-text">Syllabus</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../lectures/index.html"> 
-<span class="menu-text">Lectures</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../hw/index.html"> 
-<span class="menu-text">Assignments</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../setup/index.html"> 
-<span class="menu-text">Software Setup</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Sabrina Nardin, Summer 2026 
 </div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a></li>
-  <li><a href="#missing-data" id="toc-missing-data" class="nav-link" data-scroll-target="#missing-data">1. Missing Data</a>
-  <ul class="collapse">
-  <li><a href="#what-are-missing-data" id="toc-what-are-missing-data" class="nav-link" data-scroll-target="#what-are-missing-data">What Are Missing Data?</a></li>
-  <li><a href="#how-missing-data-behave" id="toc-how-missing-data-behave" class="nav-link" data-scroll-target="#how-missing-data-behave">How Missing Data Behave</a></li>
-  <li><a href="#common-ways-to-handle-missing-data" id="toc-common-ways-to-handle-missing-data" class="nav-link" data-scroll-target="#common-ways-to-handle-missing-data">Common Ways to Handle Missing Data</a></li>
-  <li><a href="#a.-detect-missing-data-with-is.na" id="toc-a.-detect-missing-data-with-is.na" class="nav-link" data-scroll-target="#a.-detect-missing-data-with-is.na">A. Detect Missing Data with is.na():</a></li>
-  <li><a href="#b.-ignore-missing-data-with-na.rm-true" id="toc-b.-ignore-missing-data-with-na.rm-true" class="nav-link" data-scroll-target="#b.-ignore-missing-data-with-na.rm-true">B. Ignore Missing Data with na.rm = TRUE</a></li>
-  <li><a href="#c.-remove-missing-data-with-drop_na" id="toc-c.-remove-missing-data-with-drop_na" class="nav-link" data-scroll-target="#c.-remove-missing-data-with-drop_na">C. Remove Missing Data with drop_na()</a></li>
-  <li><a href="#practice-handling-missing-data" id="toc-practice-handling-missing-data" class="nav-link" data-scroll-target="#practice-handling-missing-data">💻 Practice: Handling Missing Data</a></li>
-  <li><a href="#ways-to-fill-or-replace-missing-data" id="toc-ways-to-fill-or-replace-missing-data" class="nav-link" data-scroll-target="#ways-to-fill-or-replace-missing-data">Ways to Fill or Replace Missing Data</a></li>
-  </ul></li>
-  <li><a href="#factors-in-r" id="toc-factors-in-r" class="nav-link" data-scroll-target="#factors-in-r">2. Factors in R</a>
-  <ul class="collapse">
-  <li><a href="#what-are-factors-in-r" id="toc-what-are-factors-in-r" class="nav-link" data-scroll-target="#what-are-factors-in-r">What are Factors in R?</a></li>
-  <li><a href="#what-are-factors-in-r-1" id="toc-what-are-factors-in-r-1" class="nav-link" data-scroll-target="#what-are-factors-in-r-1">What are Factors in R?</a></li>
-  <li><a href="#real-world-examples-of-categorical-data" id="toc-real-world-examples-of-categorical-data" class="nav-link" data-scroll-target="#real-world-examples-of-categorical-data">Real-world examples of categorical data</a></li>
-  <li><a href="#why-use-factors" id="toc-why-use-factors" class="nav-link" data-scroll-target="#why-use-factors">Why use Factors?</a></li>
-  <li><a href="#why-use-factors-1" id="toc-why-use-factors-1" class="nav-link" data-scroll-target="#why-use-factors-1">Why use Factors?</a></li>
-  <li><a href="#converting-a-character-vector-to-a-factor" id="toc-converting-a-character-vector-to-a-factor" class="nav-link" data-scroll-target="#converting-a-character-vector-to-a-factor">1. Converting a Character Vector to a Factor</a></li>
-  <li><a href="#converting-a-numeric-vector-to-a-factor" id="toc-converting-a-numeric-vector-to-a-factor" class="nav-link" data-scroll-target="#converting-a-numeric-vector-to-a-factor">2. Converting a Numeric Vector to a Factor</a></li>
-  <li><a href="#levels-and-labels-in-factors" id="toc-levels-and-labels-in-factors" class="nav-link" data-scroll-target="#levels-and-labels-in-factors">Levels and Labels in Factors</a></li>
-  <li><a href="#levels-and-labels-in-factors-1" id="toc-levels-and-labels-in-factors-1" class="nav-link" data-scroll-target="#levels-and-labels-in-factors-1">Levels and Labels in Factors</a></li>
-  <li><a href="#levels-and-labels-in-factors-examples" id="toc-levels-and-labels-in-factors-examples" class="nav-link" data-scroll-target="#levels-and-labels-in-factors-examples">Levels and Labels in Factors: Examples</a></li>
-  <li><a href="#practice-character-vector-factor" id="toc-practice-character-vector-factor" class="nav-link" data-scroll-target="#practice-character-vector-factor">💻 Practice: Character Vector → Factor</a></li>
-  <li><a href="#solution-character-vector-factor" id="toc-solution-character-vector-factor" class="nav-link" data-scroll-target="#solution-character-vector-factor">Solution: Character Vector → Factor</a></li>
-  <li><a href="#practice-numeric-vector-factor" id="toc-practice-numeric-vector-factor" class="nav-link" data-scroll-target="#practice-numeric-vector-factor">💻 Practice: Numeric Vector → Factor</a></li>
-  <li><a href="#solution-numeric-vector-factor" id="toc-solution-numeric-vector-factor" class="nav-link" data-scroll-target="#solution-numeric-vector-factor">Solution: Numeric Vector → Factor</a></li>
-  <li><a href="#apply-these-concpets-to-a-dataframe-scorecard-example" id="toc-apply-these-concpets-to-a-dataframe-scorecard-example" class="nav-link" data-scroll-target="#apply-these-concpets-to-a-dataframe-scorecard-example">Apply these concpets to a dataframe: scorecard example</a></li>
-  <li><a href="#example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type" id="toc-example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type" class="nav-link" data-scroll-target="#example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type">Example: Plot the total number of schools in the U.S. by school type</a></li>
-  <li><a href="#method-1-reorder-bars-manually-with-factor" id="toc-method-1-reorder-bars-manually-with-factor" class="nav-link" data-scroll-target="#method-1-reorder-bars-manually-with-factor">Method 1: Reorder bars manually with <em>factor()</em></a></li>
-  <li><a href="#method-2-reorder-the-bars-using-tidyverse-fct_relevel" id="toc-method-2-reorder-the-bars-using-tidyverse-fct_relevel" class="nav-link" data-scroll-target="#method-2-reorder-the-bars-using-tidyverse-fct_relevel">Method 2: Reorder the bars using tidyverse <em>fct_relevel()</em></a></li>
-  <li><a href="#method-3-reorder-the-bars-using-tidyverse-fct_infreq" id="toc-method-3-reorder-the-bars-using-tidyverse-fct_infreq" class="nav-link" data-scroll-target="#method-3-reorder-the-bars-using-tidyverse-fct_infreq">Method 3: Reorder the bars using tidyverse <em>fct_infreq()</em></a></li>
-  <li><a href="#the-forcats-package" id="toc-the-forcats-package" class="nav-link" data-scroll-target="#the-forcats-package">The “forcats” Package</a></li>
-  <li><a href="#the-forcats-package-1" id="toc-the-forcats-package-1" class="nav-link" data-scroll-target="#the-forcats-package-1">The “forcats” Package</a></li>
-  <li><a href="#challenge-exercise-plot-tips-by-weekday" id="toc-challenge-exercise-plot-tips-by-weekday" class="nav-link" data-scroll-target="#challenge-exercise-plot-tips-by-weekday">💻 Challenge Exercise: Plot Tips by Weekday</a></li>
-  <li><a href="#create-the-data" id="toc-create-the-data" class="nav-link" data-scroll-target="#create-the-data">Create the Data</a></li>
-  <li><a href="#whats-wrong-with-this-plot" id="toc-whats-wrong-with-this-plot" class="nav-link" data-scroll-target="#whats-wrong-with-this-plot">What’s Wrong With This Plot?</a></li>
-  <li><a href="#fix-the-y-axis-on-this-bar-plot" id="toc-fix-the-y-axis-on-this-bar-plot" class="nav-link" data-scroll-target="#fix-the-y-axis-on-this-bar-plot">Fix the y-axis on this bar plot</a></li>
-  <li><a href="#fix-the-order-of-the-bars-using-factor" id="toc-fix-the-order-of-the-bars-using-factor" class="nav-link" data-scroll-target="#fix-the-order-of-the-bars-using-factor">Fix the order of the bars using factor()</a></li>
-  <li><a href="#do-the-same-but-using-fct_relevel" id="toc-do-the-same-but-using-fct_relevel" class="nav-link" data-scroll-target="#do-the-same-but-using-fct_relevel">Do the same but using fct_relevel()</a></li>
-  <li><a href="#solutions" id="toc-solutions" class="nav-link" data-scroll-target="#solutions">Solutions</a></li>
-  <li><a href="#reflections" id="toc-reflections" class="nav-link" data-scroll-target="#reflections">Reflections</a></li>
-  <li><a href="#recap-what-we-learned-today" id="toc-recap-what-we-learned-today" class="nav-link" data-scroll-target="#recap-what-we-learned-today">Recap: What We Learned Today</a></li>
-  <li><a href="#to-print-these-slides-as-pdf" id="toc-to-print-these-slides-as-pdf" class="nav-link" data-scroll-target="#to-print-these-slides-as-pdf">To print these slides as pdf</a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="08-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Computing for the Social Sciences: Lecture 8</h1>
-<p class="subtitle lead">Topics: Missing Data; Factors</p>
+</div>
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sabrina Nardin, Summer 2026 </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="agenda" class="level1 center">
-<h1 class="center">Agenda</h1>
+</section>
+<section id="agenda" class="title-slide slide level1 center">
+<h1>Agenda</h1>
 <div class="agenda-list">
 <ol type="1">
 <li>Missing Data</li>
@@ -249,29 +218,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>June 24, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 </section>
-<section id="missing-data" class="level1 slide center middle">
-<h1 class="slide center middle">1. Missing Data</h1>
-<hr>
-<section id="what-are-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-missing-data">What Are Missing Data?</h2>
+
+<section>
+<section id="missing-data" class="title-slide slide level1 center middle">
+<h1>1. Missing Data</h1>
+
+</section>
+<section id="what-are-missing-data" class="slide level2 center">
+<h2>What Are Missing Data?</h2>
 <p>R distinguishes two types of missing data:</p>
 <ul>
 <li><strong>Explicit missing data</strong>: visible <code>NA</code> or <code>NaN</code> values in the dataset</li>
 <li><strong>Implicit missing data</strong>: data that was never recorded</li>
 </ul>
-<p>In this course, we focus on <strong>explicit missing data</strong>. For implicit missing data, see <a href="https://r4ds.hadley.nz/missing-values">R for Data Science Chapter 18</a></p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<p>In this course, we focus on <strong>explicit missing data</strong>. For implicit missing data, see <a href="https://r4ds.hadley.nz/missing-values">R for Data Science Ch. 18</a></p>
+<div title="Definitions">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<p><strong>Definitions</strong></p>
+</div>
+<div class="callout-content">
+<p>Explicit = the missing value is recorded in the data, ideally as <code>NA</code> (Not Available)<br>
+Implicit = value was never recorded in the data</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Explicit = value is missing as <code>NA</code> (Not Available) or <code>NaN</code> (Not a Number)<br>
-Implicit = value was never recorded (row or cell is absent)</p>
 </div>
 </div>
 <!--
@@ -281,105 +255,131 @@ Implicit = value was never recorded (row or cell is absent)</p>
 See [Ch. 12.2.2](https://r4ds.hadley.nz/logicals#sec-na-comparison) for how `NA` behaves in comparisons.
 :::
 -->
-<hr>
 </section>
-<section id="how-missing-data-behave" class="level2">
-<h2 class="anchored" data-anchor-id="how-missing-data-behave">How Missing Data Behave</h2>
-<p>Any operation involving a missing value will also return a missing value (see <a href="https://r4ds.hadley.nz/logicals#sec-na-comparison">Chapter 12.2.2 Missing values</a> for more):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="cn">NA</span>))</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<section id="how-missing-data-behave" class="slide level2 center">
+<h2>How Missing Data Behave</h2>
+<p>Any operation involving a missing value will return a missing value (see <a href="https://r4ds.hadley.nz/logicals#sec-na-comparison">Ch. 12.2.2 Missing values</a> for more):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="cn">NA</span> <span class="sc">&gt;</span> <span class="dv">5</span></span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>)</span>
+<span id="cb1-4"><a></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="cn">NA</span>))</span>
+<span id="cb1-7"><a></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="common-ways-to-handle-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="common-ways-to-handle-missing-data">Common Ways to Handle Missing Data</h2>
-<p>We’ll review three main tools:</p>
-<p>A. <code>is.na()</code> – to detect missing values<br>
-B. <code>na.rm = TRUE</code> – to ignore missing values<br>
-C. <code>drop_na()</code> – to remove missing values</p>
-<!-- All are for working with **explicit** missing values -->
-<hr>
+<section id="common-ways-to-handle-missing-data" class="slide level2 center">
+<h2>Common Ways to Handle Missing Data</h2>
+<p>Working with (explicit) missing data is usually a **decision process*:**</p>
+<!--
+Before deciding what to do with missing data, we first need to find it. Then we can choose whether to ignore it in calculations or remove it from the dataset.
+-->
+<p>A. <code>is.na()</code> to find missing values<br>
+B. <code>na.rm = TRUE</code> to ignore missing values in calculations<br>
+C. <code>drop_na()</code> to remove missing values; use carefully</p>
 </section>
-<section id="a.-detect-missing-data-with-is.na" class="level2">
-<h2 class="anchored" data-anchor-id="a.-detect-missing-data-with-is.na">A. Detect Missing Data with is.na():</h2>
-<p><strong>Use <code>is.na()</code> to find the missing values in a specific variable.</strong> It returns <code>TRUE</code> for missing values, and <code>FALSE</code> otherwise.</p>
-<p>Check for missing values in the <code>penguins_raw</code> dataset:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using base R syntax</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex))</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># using tidyverse syntax</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>penguins_raw <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(Sex)))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>penguins_raw  <span class="sc">%&gt;%</span> <span class="fu">count</span>(<span class="fu">is.na</span>(Sex)) </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># keep rows where sex is missing</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins_raw, <span class="fu">is.na</span>(Sex))    <span class="co"># correct  </span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins_raw, Sex <span class="sc">==</span> <span class="cn">NA</span>)     <span class="co"># incorrect</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># keep rows where sex is NOT missing</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(penguins_raw, <span class="sc">!</span><span class="fu">is.na</span>(sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- spend time on this code, add variable names, change df order, etc. -->
-<hr>
+<section id="a.-find-missing-data-with-is.na" class="slide level2 center">
+<h2>A. Find Missing Data with is.na()</h2>
+<p><strong>The most common way to check for missing values in R is with <code>is.na()</code></strong>, which returns <code>TRUE</code> when a value is missing, and <code>FALSE</code> when a value is present.</p>
+<p>For example, this code uses <code>is.na()</code> to check for missing values in one variable from <code>penguins_raw</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># load libries and data</span></span>
+<span id="cb2-2"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb2-4"><a></a><span class="fu">data</span>(penguins_raw)</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a><span class="co"># check for missing using base R syntax</span></span>
+<span id="cb2-7"><a></a><span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex)</span>
+<span id="cb2-8"><a></a><span class="fu">sum</span>(<span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex))</span>
+<span id="cb2-9"><a></a><span class="fu">table</span>(<span class="fu">is.na</span>(penguins_raw<span class="sc">$</span>Sex))</span>
+<span id="cb2-10"><a></a></span>
+<span id="cb2-11"><a></a><span class="co"># check for missing data using tidyverse syntax</span></span>
+<span id="cb2-12"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">sum</span>(<span class="fu">is.na</span>(Sex)))</span>
+<span id="cb2-13"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">count</span>(<span class="fu">is.na</span>(Sex)) </span>
+<span id="cb2-14"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="sc">~</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(.)))) <span class="sc">|&gt;</span> <span class="fu">print</span>(<span class="at">width =</span> <span class="cn">Inf</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- spend time on this code
+
+POINT 1: you can also name the resulting output
+
+POINT 2:`is.na(penguins_raw, Sex)` won't work
+`is.na()` is a base R function, not a dplyr verb. It checks the object you give it.
+So this works: `is.na(penguins_raw$Sex)` works bcs R interprets it as an object because `penguins_raw$Sex` directly selects one column
+This does not work: `is.na(penguins_raw, Sex)` because `is.na()` does not have a second argument for choosing a column.
+That's why in tidyverse code, we usually use `is.na()` inside a dplyr verb
+
+POINT 3
+penguins_raw |>
+     summarize(across(everything(), function(x) sum(is.na(x))) |>
+     print(width = Inf)
+-->
 </section>
-<section id="b.-ignore-missing-data-with-na.rm-true" class="level2">
-<h2 class="anchored" data-anchor-id="b.-ignore-missing-data-with-na.rm-true">B. Ignore Missing Data with na.rm = TRUE</h2>
-<p><strong>Use <code>na.rm = TRUE</code> to exclude missing values when performing calculations.</strong> Often used with <code>summarize()</code> when calculating things like mean, sum, standard deviation.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins_raw <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">avg_mass =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>penguins_raw <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">sum_mass =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- show the difference with and without the na.rm = TRUE and try change it to FALSE-->
+<section id="a.-find-missing-data-with-is.na-1" class="slide level2 center">
+<h2>A. Find Missing Data with is.na()</h2>
+<p>To pull out and check the rows where a value is missing: use <code>is.na()</code> inside <code>filter()</code> to keep rows where a value <em>is missing</em> or <em>is not missing</em>, as follows:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># keep rows where sex is missing</span></span>
+<span id="cb3-2"><a></a><span class="fu">filter</span>(penguins_raw, <span class="fu">is.na</span>(Sex)) <span class="sc">|&gt;</span> <span class="fu">View</span>()   <span class="co"># correct  </span></span>
+<span id="cb3-3"><a></a><span class="fu">filter</span>(penguins_raw, Sex <span class="sc">==</span> <span class="cn">NA</span>)  <span class="sc">|&gt;</span> <span class="fu">View</span>()   <span class="co"># incorrect</span></span>
+<span id="cb3-4"><a></a></span>
+<span id="cb3-5"><a></a><span class="co"># keep rows where sex is NOT missing</span></span>
+<span id="cb3-6"><a></a><span class="fu">filter</span>(penguins_raw, <span class="sc">!</span><span class="fu">is.na</span>(sex))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Remember: we cannot use <code>== NA</code> to check for missing values (<code>NA</code> means “unknown,” so R cannot evaluate it). Use <code>is.na()</code> instead.</p>
+<!--
+``==` compares two known values, but `NA` means the value is unknown or missing.  
+Because R does not know what the missing value is, it cannot say whether another value is equal to it.
+-->
+</section>
+<section id="b.-ignore-missing-data-with-na.rm-true" class="slide level2 center">
+<h2>B. Ignore Missing Data with na.rm = TRUE</h2>
+<p><strong>Use <code>na.rm = TRUE</code> to exclude missing values when performing calculations.</strong> Often used together with <code>summarize()</code> when calculating things like mean, sum, standard deviation:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_mass =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-2"><a></a>penguins_raw <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">sum_mass =</span> <span class="fu">sum</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- show the difference with and without the na.rm = TRUE and try change it to FALSE -->
 <p><br></p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
+<p><strong>Tip</strong></p>
 </div>
+<div class="callout-content">
+<p>The command <code>na.rm = TRUE</code> does not remove missing data from the variable(s), It only tells R to <strong>skip missing values for that specific calculation</strong>.</p>
 </div>
-<div class="callout-body-container callout-body">
-<p>The command <code>na.rm = TRUE</code> does not remove missing data from the variable(s), it just skips them for that operation, but they are not dropped!</p>
 </div>
 </div>
 <p><br></p>
-<hr>
 </section>
-<section id="c.-remove-missing-data-with-drop_na" class="level2">
-<h2 class="anchored" data-anchor-id="c.-remove-missing-data-with-drop_na">C. Remove Missing Data with drop_na()</h2>
-<p><strong>Use <code>drop_na()</code> to remove rows with missing values.</strong> Either across all columns or in a specific column.</p>
-<p>Drop missing values in one specific column (preferred):</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins_raw <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_mass =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- show you can drop_na() all or you can add more variables like 
-drop_na(`Body Mass (g)`, Sex) etc. -->
+<section id="c.-remove-missing-data-with-drop_na" class="slide level2 center">
+<h2>C. Remove Missing Data with drop_na()</h2>
+<p><strong>Use <code>drop_na()</code> to remove rows with missing values.</strong> Either across all columns or in specific columns (safer/most common):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>penguins_raw <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a></a>  <span class="fu">drop_na</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a></a>  <span class="fu">summarize</span>(<span class="at">avg_mass =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">Body Mass (g)</span><span class="st">`</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- 
+drop_na()  
+drop_na(`Body Mass (g)`, Sex) 
+-->
 <p><br></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
+<p><strong>Warning</strong></p>
 </div>
+<div class="callout-content">
+<p>Be careful: <code>drop_na()</code> actually removes rows from the data you are working with. It removes the entire row, not just the missing cell. This can accidentally remove useful data from other variables in the same row. Before using it, check (see previous slides).</p>
 </div>
-<div class="callout-body-container callout-body">
-<p>Be careful with <code>drop_na()</code> as it removes entire rows, which may unintentionally filter out relevant data. Check which variable(s) you are dropping, and avoid using it blindly across all columns.</p>
 </div>
 </div>
 <p><br></p>
-<hr>
 </section>
-<section id="practice-handling-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="practice-handling-missing-data">💻 Practice: Handling Missing Data</h2>
+<section id="practice-handling-missing-data" class="slide level2 center">
+<h2>💻 Practice: Handling Missing Data</h2>
 <ol start="0" type="1">
-<li><strong>Rename:</strong> use the <code>penguins_raw</code> dataset and rename <code>Flipper Length (mm)</code> to <code>flipper_length_mm</code>. Save the result as a new dataframe, e.g., <code>penguins_clean</code> or <code>p</code></li>
+<li><strong>Rename:</strong> use the <code>penguins_raw</code> dataset and rename <code>Flipper Length (mm)</code> to <code>flipper_length_mm</code>. Save the result as a new dataframe (call it <code>penguins_clean</code> or <code>p</code>)</li>
 </ol>
-<p>Use the new dataframe with the renamed variable for the tasks below:</p>
+<p>Use the new dataframe with the renamed variable for the tasks below (copy/adapt code from these slides):</p>
 <ol type="1">
 <li><p><strong>Detect missing values:</strong> use <code>is.na()</code> and <code>sum()</code> to count how many are missing in the variable flipper length</p></li>
 <li><p><strong>Exclude missing from calculations:</strong> use <code>na.rm = TRUE</code> inside <code>mean()</code> to calculate the average flipper length</p></li>
@@ -388,21 +388,20 @@ Warning
 <p>Once done, <a href="https://codeshare.io/29X3QM" target="_blank">share your code here</a>.</p>
 <!--
 # 0. Rename
-p <- penguins_raw %>% rename(flipper_length_mm = `Flipper Length (mm)`)
+p <- penguins_raw |> rename(flipper_length_mm = `Flipper Length (mm)`)
 
 # 1. Detect missing values
-p %>% summarize(n_missing = sum(is.na(flipper_length_mm)))
+p |> summarize(n_missing = sum(is.na(flipper_length_mm)))
 
 # 2. Exclude missing values from calculation
-p %>% summarize(avg_flipper = mean(flipper_length_mm, na.rm = TRUE))
+p |> summarize(avg_flipper = mean(flipper_length_mm, na.rm = TRUE))
 
 # 3. Drop missing values and calculate again
-p %>% drop_na(flipper_length_mm)
+p |> drop_na(flipper_length_mm)
 -->
-<hr>
 </section>
-<section id="ways-to-fill-or-replace-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="ways-to-fill-or-replace-missing-data">Ways to Fill or Replace Missing Data</h2>
+<section id="ways-to-fill-or-replace-missing-data" class="slide level2 center">
+<h2>Ways to Fill or Replace Missing Data</h2>
 <p>Main functions to replace or fill missing values:</p>
 <ul>
 <li><code>replace_na()</code> – replace missing values with a specified value<br>
@@ -466,79 +465,82 @@ ggplot(health, aes(x = smoker)) +
   scale_x_discrete(drop = FALSE)
 ```
 -->
-<hr>
+</section></section>
+<section>
+<section id="factors-in-r" class="title-slide slide level1 center middle">
+<h1>2. Factors in R</h1>
+
 </section>
+<section id="what-are-factors-in-r" class="slide level2 center">
+<h2>What are Factors in R?</h2>
+<p>At the most basic level <strong>a factor is a specific data structure in R</strong>.</p>
+<p>But to fully understand factors, we first need to think about <strong>variables with categories</strong>: variables whose values come from a limited set of labels.</p>
+<p>For example, the variable <code>species</code> in the <code>penguins</code> data has three possible labels or categories: <code>"Adelie"</code>, <code>"Chinstrap"</code>, and <code>"Gentoo"</code>.</p>
 </section>
-<section id="factors-in-r" class="level1 slide center middle">
-<h1 class="slide center middle">2. Factors in R</h1>
-<section id="what-are-factors-in-r" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-factors-in-r">What are Factors in R?</h2>
-<p><strong>A factor is a specific data structure in R.</strong></p>
-<p>To understand factors, and why we use them, we need to start from categorical data or variables: variables with a fixed set of possible values. For example, the variable <code>species</code> in the <code>penguins</code> data can only take one of three values (“Adelie”, “Chinstrap”, or “Gentoo”).</p>
-<hr>
-</section>
-<section id="what-are-factors-in-r-1" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-factors-in-r-1">What are Factors in R?</h2>
-<div class="callout callout-style-default callout-note callout-titled" title="R Data Structures to Store Categorical Data">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-R Data Structures to Store Categorical Data
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>Character vector (default):</strong> Data type for storing categorical data as plain strings (e.g., variable <code>months</code> with “Jan”, “Feb”, “Mar”, etc.). Values have no built-in order or grouping.</p></li>
-<li><p><strong>Numeric vector (occasionally):</strong> Sometimes these are used to store categorical data as numbers (e.g., variable <code>months</code> with 1, 2, 3), but lacks category labels or order.</p></li>
-<li><p><strong>Factor (preferred when order matters):</strong> Data type for storing categorical data with defined levels. Values can be ordered according to the researcher needs.</p></li>
-</ul>
-</div>
-</div>
-<hr>
-</section>
-<section id="real-world-examples-of-categorical-data" class="level2">
-<h2 class="anchored" data-anchor-id="real-world-examples-of-categorical-data">Real-world examples of categorical data</h2>
-<p>You often need factors in R. Why? They let you sort categorical variables in <strong>your desired order</strong> whether that order reflects a natural sequence or you define it for analytic purposes. Examples:</p>
+<section id="real-world-examples-of-variables-with-categories" class="slide level2 center">
+<h2>Real-world Examples of Variables with Categories</h2>
+<p>Some common examples of variables with categories are:</p>
 <ul>
 <li>Months of the year (January → December)</li>
 <li>Likert scales (Strongly Agree → Strongly Disagree)</li>
 <li>Educational attainment levels (High School → Graduate)</li>
 <li>Political parties</li>
 <li>Race/ethnicity categories</li>
-<li>Institution type</li>
-<li>Movies categories</li>
+<li>Movies genre</li>
 <li>Etc.</li>
 </ul>
-<hr>
+<p>When we analyze data, we often want these categories to appear in a specific order. Sometimes that order is natural, such as months of the year. Other times, we define the order based on our analytic purpose. <strong>Factors in R allow us to control such order!</strong></p>
 </section>
-<section id="why-use-factors" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-factors">Why use Factors?</h2>
-<p>Let’s define a character vector with four months and sort it.<br>
-Copy and paste this code in R and run it. What do you notice?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Check</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>x1</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x1)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-</section>
-<section id="why-use-factors-1" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-factors-1">Why use Factors?</h2>
-<p>From the previous example we observe that <strong>by default, R sorts character vectors alphabetically!</strong></p>
-<p>However, alphabetical order isn’t ideal to sort months. We usually want them sorted in chronological order. To do that in R, we need factors.</p>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
+<section id="how-r-stores-variables-with-categories" class="slide level2 center">
+<h2>How R Stores Variables with Categories</h2>
+<div title="R Data Structures for Categorical Data">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p>In the next slides, we learn two cases that you will likely encounter when working with factors:</p>
+<p><strong>R Data Structures for Categorical Data</strong></p>
+</div>
+<div class="callout-content">
+<p>R has three main data structures to store variables with categories:</p>
+<ul>
+<li><p><strong>Character vector (default):</strong> Data type for storing categorical data as plain strings (e.g., variable <code>months</code> with values “Jan”, “Feb”, “Mar”, etc.). Values have no built-in order or grouping.</p></li>
+<li><p><strong>Numeric vector (occasionally):</strong> Sometimes these are used to store categorical data as numbers (e.g., variable <code>months</code> with values 1, 2, 3), but lacks category labels or order.</p></li>
+<li><p><strong>Factor (preferred when order matters):</strong> Data type for storing categorical data with defined levels. Values can be ordered according to the researcher needs.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-use-factors" class="slide level2 center">
+<h2>Why use Factors?</h2>
+<p>Let’s define a character vector (e.g., the first of the three data structures mentioned in the previous slide) with four months and sort it. Run this code in R. What do you notice?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Define</span></span>
+<span id="cb6-2"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a><span class="co"># Check</span></span>
+<span id="cb6-5"><a></a>x1</span>
+<span id="cb6-6"><a></a><span class="fu">class</span>(x1)</span>
+<span id="cb6-7"><a></a></span>
+<span id="cb6-8"><a></a><span class="co"># Sort</span></span>
+<span id="cb6-9"><a></a><span class="fu">sort</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="why-use-factors-1" class="slide level2 center">
+<h2>Why use Factors?</h2>
+<p>From the output of the previous code we can see that <strong>by default, R sorts character vectors alphabetically!</strong></p>
+<p>That works in some cases, but it is not ideal for months. Months have a meaningful chronological order: January, February, March, etc. and we want to preserve it.</p>
+<p><strong>To tell R to use that order, we need to convert that character vector into a factor.</strong></p>
+</section>
+<section id="why-use-factors-2" class="slide level2 center">
+<h2>Why use Factors?</h2>
+<div class="callout callout-none no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>In the next slides, we learn two cases that you will likely encounter when working with factors:</strong></p>
+</div>
+<div class="callout-content">
 <ol type="1">
 <li>Converting a <strong>Character Vector to a Factor</strong> (most common)</li>
 <li>Converting a <strong>Numeric Vector to a Factor</strong> (sometimes needed when categories are stored as numbers)</li>
@@ -546,30 +548,29 @@ Copy and paste this code in R and run it. What do you notice?</p>
 </div>
 </div>
 </div>
-<hr>
 </section>
-<section id="converting-a-character-vector-to-a-factor" class="level2">
-<h2 class="anchored" data-anchor-id="converting-a-character-vector-to-a-factor">1. Converting a Character Vector to a Factor</h2>
-<p>Often categorical data is stored in character vectors. Character vectors sort alphabetically by default. To change the order, convert them to a factor using <code>factor()</code> and assign the desired <strong>levels.</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Character vector with month names</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x1)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define all set of possibile levels in desired order</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to factor using those levels</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x1, <span class="at">levels =</span> month_levels)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Check</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>y1</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y1)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y1)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare sorting</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x1)  <span class="co"># Alphabetical</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(y1)  <span class="co"># Chronological (by factor levels)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="converting-a-character-vector-to-a-factor" class="slide level2 center">
+<h2>1. Converting a Character Vector to a Factor</h2>
+<p>Variables with categories are often stored in R as character vectors. By default, R sorts character vectors alphabetically. To use a different order, convert the character vector to a <em>factor</em> and define its <em>levels</em> in the order you want:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Character vector with month names</span></span>
+<span id="cb7-2"><a></a>x1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
+<span id="cb7-3"><a></a><span class="fu">class</span>(x1)</span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a><span class="co"># Define all set of possibile levels in desired order</span></span>
+<span id="cb7-6"><a></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, </span>
+<span id="cb7-7"><a></a>                  <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>)</span>
+<span id="cb7-8"><a></a></span>
+<span id="cb7-9"><a></a><span class="co"># Convert to factor using those levels</span></span>
+<span id="cb7-10"><a></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x1, <span class="at">levels =</span> month_levels)</span>
+<span id="cb7-11"><a></a></span>
+<span id="cb7-12"><a></a><span class="co"># Check</span></span>
+<span id="cb7-13"><a></a>y1</span>
+<span id="cb7-14"><a></a><span class="fu">class</span>(y1)</span>
+<span id="cb7-15"><a></a><span class="fu">levels</span>(y1)</span>
+<span id="cb7-16"><a></a></span>
+<span id="cb7-17"><a></a><span class="co"># Compare sorting</span></span>
+<span id="cb7-18"><a></a><span class="fu">sort</span>(x1)  <span class="co"># Alphabetical</span></span>
+<span id="cb7-19"><a></a><span class="fu">sort</span>(y1)  <span class="co"># Chronological (by factor levels)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- 
 # SHORTER CODE
 
@@ -582,35 +583,33 @@ y1 <- factor(x1, levels = c("Jan", "Mar", "Apr", "Dec"))
 
 # if you pick another order, it will follow that one!
 -->
-<hr>
 </section>
-<section id="converting-a-numeric-vector-to-a-factor" class="level2">
-<h2 class="anchored" data-anchor-id="converting-a-numeric-vector-to-a-factor">2. Converting a Numeric Vector to a Factor</h2>
-<p>Sometimes categorical data is stored as numbers (e.g., months as 1, 2, 12) in numeric vectors. To convert them to a factor with <code>factor()</code>, you need to specify <strong>both levels and labels.</strong></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Numeric vector with values representing months</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x2)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define all set of possibile numeric values we expect</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>month_levels <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define all labels we want to show for each value</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>month_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>) </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to factor using levels and labels</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x2, </span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels =</span> month_levels,</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> month_labels)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Check</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>y2</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y2)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(y2)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare sorting</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(x2)  <span class="co"># Numeric</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(y2)  <span class="co"># Chronological (by factor levels)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="converting-a-numeric-vector-to-a-factor" class="slide level2 center">
+<h2>2. Converting a Numeric Vector to a Factor</h2>
+<p>Sometimes variables with categories are stored in numeric vectors (as numbers, e.g., months as 1, 2, 12). To convert a numeric vector to a factor you need to specify <em>both levels and labels</em>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Numeric vector with values representing months</span></span>
+<span id="cb8-2"><a></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb8-3"><a></a><span class="fu">class</span>(x2)</span>
+<span id="cb8-4"><a></a></span>
+<span id="cb8-5"><a></a><span class="co"># Define all set of possibile numeric values we expect</span></span>
+<span id="cb8-6"><a></a>month_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>)</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a><span class="co"># Define all labels we want to show for each value</span></span>
+<span id="cb8-9"><a></a>month_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>, </span>
+<span id="cb8-10"><a></a>                  <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>) </span>
+<span id="cb8-11"><a></a></span>
+<span id="cb8-12"><a></a><span class="co"># Convert to factor using levels and labels</span></span>
+<span id="cb8-13"><a></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x2, <span class="at">levels =</span> month_levels,</span>
+<span id="cb8-14"><a></a>                 <span class="at">labels =</span> month_labels)</span>
+<span id="cb8-15"><a></a></span>
+<span id="cb8-16"><a></a><span class="co"># Check</span></span>
+<span id="cb8-17"><a></a>y2</span>
+<span id="cb8-18"><a></a><span class="fu">class</span>(y2)</span>
+<span id="cb8-19"><a></a><span class="fu">levels</span>(y2)</span>
+<span id="cb8-20"><a></a></span>
+<span id="cb8-21"><a></a><span class="co"># Compare sorting</span></span>
+<span id="cb8-22"><a></a><span class="fu">sort</span>(x2)  <span class="co"># Numeric</span></span>
+<span id="cb8-23"><a></a><span class="fu">sort</span>(y2)  <span class="co"># Chronological (by factor levels)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- 
 **Question:** Why we are defining all possible levels and labels when only four are needed here? It will work either way, but it's good practice to define the full set and order of categories.
 
@@ -624,41 +623,32 @@ y2 <- factor(x2,
              levels = x2,
              labels = month_labels)
 -->
-<hr>
 </section>
-<section id="levels-and-labels-in-factors" class="level2">
-<h2 class="anchored" data-anchor-id="levels-and-labels-in-factors">Levels and Labels in Factors</h2>
+<section id="levels-and-labels-in-factors" class="slide level2 center">
+<h2>Levels and Labels in Factors</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<section id="levels" class="level3">
-<h3 class="anchored" data-anchor-id="levels">Levels</h3>
+<h3 id="levels">Levels</h3>
 <ul>
-<li>Define the set of distinct categories a factor can take<br>
-</li>
+<li>Define all possible factor categories</li>
 <li>Use to tell R the <strong>order</strong> of each category</li>
 <li>Use <strong>only levels</strong> when your input data is already human readable, as in our first example (e.g., <code>"Jan"</code>, <code>"Feb"</code>, etc.)</li>
 </ul>
-</section>
 </div><div class="column" style="width:50%;">
-<section id="labels" class="level3">
-<h3 class="anchored" data-anchor-id="labels">Labels</h3>
+<h3 id="labels">Labels</h3>
 <ul>
-<li>Define optional names for each distinct category</li>
+<li>Define optional names for each category</li>
 <li>Use to tell R <strong>what to display</strong> for each category<br>
 </li>
-<li>Use <strong>labels and levels</strong> when your input data uses codes, as in our second example (e.g., <code>1</code> to mean <code>"Jan"</code>), and you want to display more human readable labels. Labels are matched to levels, not to raw values</li>
+<li>Use <strong>labels and levels</strong> when your input data uses codes, as in our second example (e.g., <code>1</code> to mean <code>"Jan"</code>), and you want to see more human readable labels. Labels are matched to levels.</li>
 </ul>
+</div></div>
 </section>
-</div>
-</div>
-<hr>
-</section>
-<section id="levels-and-labels-in-factors-1" class="level2">
-<h2 class="anchored" data-anchor-id="levels-and-labels-in-factors-1">Levels and Labels in Factors</h2>
+<section id="levels-and-labels-in-factors-1" class="slide level2 center">
+<h2>Levels and Labels in Factors</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<section id="when-you-input-is-a-character-vector" class="level3">
-<h3 class="anchored" data-anchor-id="when-you-input-is-a-character-vector">When you input is a Character Vector</h3>
+<h3 id="when-you-input-is-a-character-vector">When you input is a Character Vector</h3>
 <p><strong>Example values</strong>: <code>"Jan"</code>, <code>"May"</code>, <code>"Oct"</code></p>
 <ul>
 <li>Already human-readable</li>
@@ -667,10 +657,8 @@ y2 <- factor(x2,
 <li>Convert to factor using only <strong><code>levels</code></strong> to order and label</li>
 <li>Example: <code>"May"</code> stays <code>"May"</code></li>
 </ul>
-</section>
 </div><div class="column" style="width:50%;">
-<section id="when-you-input-is-a-numeric-vector" class="level3">
-<h3 class="anchored" data-anchor-id="when-you-input-is-a-numeric-vector">When you input is a Numeric Vector</h3>
+<h3 id="when-you-input-is-a-numeric-vector">When you input is a Numeric Vector</h3>
 <p><strong>Example values</strong>: <code>1</code>, <code>7</code>, <code>12</code></p>
 <ul>
 <li>Not already human-readable</li>
@@ -678,9 +666,7 @@ y2 <- factor(x2,
 <li>Convert to factor using <strong><code>levels</code></strong> to order &amp; <strong><code>labels</code></strong> to label</li>
 <li>Example: <code>1</code> becomes <code>"Jan"</code>, <code>2</code> becomes <code>"Feb"</code>, etc.</li>
 </ul>
-</section>
-</div>
-</div>
+</div></div>
 <!--
 ## Summary of Levels and Labels in Factors
 
@@ -691,108 +677,100 @@ y2 <- factor(x2,
 | Numeric Vector     | Coded categories (`1`)   | To match internal codes (e.g., 1 = Jan,..., 12 = Dec) | To assign readable labels to codes (e.g., "Jan", ...) | `factor(x2, levels = 1:12, labels = month_names)`       |
 
 -->
-<hr>
 </section>
-<section id="levels-and-labels-in-factors-examples" class="level2">
-<h2 class="anchored" data-anchor-id="levels-and-labels-in-factors-examples">Levels and Labels in Factors: Examples</h2>
-<p>Before you run the code below in R, take a moment to predict the output. What do you expect each code chunk to return, and why?</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 1 with Input as Character Vector</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"High"</span>, <span class="st">"Medium"</span>, <span class="st">"Low"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">factor</span>(a, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>b</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(b)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Example 2 with Input as Numeric vector</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>j <span class="ot">&lt;-</span> <span class="fu">factor</span>(i, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>j</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="levels-and-labels-in-factors-examples" class="slide level2 center">
+<h2>Levels and Labels in Factors: Examples</h2>
+<p>Before you run the code below in R, take a moment to guess the output of lines 5 and 12). What do you expect each code chunk to return, and why?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Example 1 with Input as Character Vector</span></span>
+<span id="cb9-2"><a></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"High"</span>, <span class="st">"Medium"</span>, <span class="st">"Low"</span>)</span>
+<span id="cb9-3"><a></a>b <span class="ot">&lt;-</span> <span class="fu">factor</span>(a, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb9-4"><a></a>b</span>
+<span id="cb9-5"><a></a><span class="fu">sort</span>(b)</span>
+<span id="cb9-6"><a></a></span>
+<span id="cb9-7"><a></a><span class="co"># Example 2 with Input as Numeric vector</span></span>
+<span id="cb9-8"><a></a>i <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb9-9"><a></a>j <span class="ot">&lt;-</span> <span class="fu">factor</span>(i, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb9-10"><a></a>               <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb9-11"><a></a>j</span>
+<span id="cb9-12"><a></a><span class="fu">sort</span>(j)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
 # Note on Example 1
 
 If you write labels rather then levels you get a wrong output!
-# you can use both levels and labels also here but not needed
+And you can use both levels and labels also here but not needed
 c <- factor(a, levels = c("Low", "Medium", "High"),
                labels = c("L", "M", "H"))
                
 - Clear mapping: 1 → "Low", 2 → "Medium", 3 → "High"
 - Labels are matched to levels, not to raw values
 -->
-<hr>
 </section>
-<section id="practice-character-vector-factor" class="level2">
-<h2 class="anchored" data-anchor-id="practice-character-vector-factor">💻 Practice: Character Vector → Factor</h2>
+<section id="practice-1-character-vector-factor" class="slide level2 center">
+<h2>💻 Practice 1: Character Vector → Factor</h2>
 <p>You are working with a <strong>character vector</strong>. Your goal is to convert it into a factor so, when you sort it, months follow their chronological order rather than alphabetical order.</p>
-<p>The code below is not correct. Run it in R, identify the problem, and fix it.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a character vector representing months</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(m)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempt</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>mf <span class="ot">&lt;-</span> <span class="fu">factor</span>(m, </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>),</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>))</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>mf</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare sorting</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(m)  </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(mf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<p>The code below is not correct. Run it in R, identify the problem, and fix it:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Define a character vector representing months</span></span>
+<span id="cb10-2"><a></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Dec"</span>, <span class="st">"Apr"</span>, <span class="st">"Jan"</span>, <span class="st">"Mar"</span>)</span>
+<span id="cb10-3"><a></a><span class="fu">class</span>(m)</span>
+<span id="cb10-4"><a></a></span>
+<span id="cb10-5"><a></a><span class="co"># Attempt</span></span>
+<span id="cb10-6"><a></a>mf <span class="ot">&lt;-</span> <span class="fu">factor</span>(m, </span>
+<span id="cb10-7"><a></a>            <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>),</span>
+<span id="cb10-8"><a></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
+<span id="cb10-9"><a></a>                       <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>))</span>
+<span id="cb10-10"><a></a>mf</span>
+<span id="cb10-11"><a></a></span>
+<span id="cb10-12"><a></a><span class="co"># Compare sorting</span></span>
+<span id="cb10-13"><a></a><span class="fu">sort</span>(m)  </span>
+<span id="cb10-14"><a></a><span class="fu">sort</span>(mf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="solution-character-vector-factor" class="level2">
-<h2 class="anchored" data-anchor-id="solution-character-vector-factor">Solution: Character Vector → Factor</h2>
-<p>The input vector is made of characters (“Jan”, “Feb”…) but the levels provided are numbers (1–12). R can’t match them: levels must match the type of your input data.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mf <span class="ot">&lt;-</span> <span class="fu">factor</span>(m, </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>mf</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(mf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<section id="solution-1-character-vector-factor" class="slide level2 center">
+<h2>Solution 1: Character Vector → Factor</h2>
+<p>The input vector is made of characters (“Jan”, “Feb”…) but the levels are given as numbers (1 to 12). R cannot match character values to numeric levels. The levels must match the actual values in the input vector.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>mf <span class="ot">&lt;-</span> <span class="fu">factor</span>(m, </span>
+<span id="cb11-2"><a></a>             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"Jun"</span>,</span>
+<span id="cb11-3"><a></a>                        <span class="st">"Jul"</span>, <span class="st">"Aug"</span>, <span class="st">"Sep"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>))</span>
+<span id="cb11-4"><a></a>mf</span>
+<span id="cb11-5"><a></a><span class="fu">sort</span>(mf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="practice-numeric-vector-factor" class="level2">
-<h2 class="anchored" data-anchor-id="practice-numeric-vector-factor">💻 Practice: Numeric Vector → Factor</h2>
+<section id="practice-2-numeric-vector-factor" class="slide level2 center">
+<h2>💻 Practice 2: Numeric Vector → Factor</h2>
 <p>You are working with a <strong>numeric vector</strong> representing months as numbers. Your goal is the same: convert it into a factor, so when you sort it, months are in chronological order.</p>
-<p>None of the attempts below is correct. Run each in R, explain why each does not work, and write one solution that works.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a numeric vector representing months</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempt 1</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> x,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempt 2</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>), </span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>              </span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Attempt 3</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<p>None of the attempts below is correct. Run each in R, explain why each does not work, and write one solution that works:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Define a numeric vector representing months</span></span>
+<span id="cb12-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb12-3"><a></a><span class="fu">class</span>(x)</span>
+<span id="cb12-4"><a></a></span>
+<span id="cb12-5"><a></a>   </span>
+<span id="cb12-6"><a></a><span class="co"># Attempt 1</span></span>
+<span id="cb12-7"><a></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>), </span>
+<span id="cb12-8"><a></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span>
+<span id="cb12-9"><a></a>              </span>
+<span id="cb12-10"><a></a><span class="co"># Attempt 2</span></span>
+<span id="cb12-11"><a></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb12-12"><a></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="solution-numeric-vector-factor" class="level2">
-<h2 class="anchored" data-anchor-id="solution-numeric-vector-factor">Solution: Numeric Vector → Factor</h2>
+<section id="solution-2-numeric-vector-factor" class="slide level2 center">
+<h2>Solution 2: Numeric Vector → Factor</h2>
 <ul>
-<li><p>Attempts 1 and 2: mismatch between the number of labels and the levels. R throws an error.</p></li>
-<li><p>Attempt 3: R doesn’t throw an error, but the code is incorrect because it forces levels 1 to 4, even though the input vector has values like 12. Since 12 isn’t among the defined levels, it becomes <code>NA</code>, leading to incorrect matches.</p></li>
+<li><p>Attempt 1: mismatch between the number of labels and the levels. R throws an error.</p></li>
+<li><p>Attempt 2: R doesn’t throw an error, but the code is incorrect because it forces levels 1 to 4, even though the input vector has values like 12. Since 12 isn’t among the defined levels, it becomes <code>NA</code>, leading to incorrect matches.</p></li>
 </ul>
 <p>You can fix the code from the previous slide in the following ways:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Numeric vector representing months</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(x)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1 (reccomended)</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>month_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"June"</span>, <span class="st">"July"</span>, <span class="st">"Aug"</span>, <span class="st">"Sept"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>month_levels <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> month_levels,  </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> month_labels)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(y1)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2 (works but not reccomended, why?)</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">12</span>),</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Numeric vector representing months</span></span>
+<span id="cb13-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb13-3"><a></a><span class="fu">class</span>(x)</span>
+<span id="cb13-4"><a></a></span>
+<span id="cb13-5"><a></a><span class="co"># Option 1 (reccomended)</span></span>
+<span id="cb13-6"><a></a>month_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Feb"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"May"</span>, <span class="st">"June"</span>, <span class="st">"July"</span>, <span class="st">"Aug"</span>, <span class="st">"Sept"</span>, <span class="st">"Oct"</span>, <span class="st">"Nov"</span>, <span class="st">"Dec"</span>)</span>
+<span id="cb13-7"><a></a>month_levels <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>)</span>
+<span id="cb13-8"><a></a>y1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> month_levels,  </span>
+<span id="cb13-9"><a></a>                <span class="at">labels =</span> month_labels)</span>
+<span id="cb13-10"><a></a><span class="fu">class</span>(y1)</span>
+<span id="cb13-11"><a></a></span>
+<span id="cb13-12"><a></a><span class="co"># Option 2 (works but not reccomended, why?)</span></span>
+<span id="cb13-13"><a></a>y2 <span class="ot">&lt;-</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">12</span>),</span>
+<span id="cb13-14"><a></a>                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Jan"</span>, <span class="st">"Mar"</span>, <span class="st">"Apr"</span>, <span class="st">"Dec"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
 
 Option 1: creates a factor with all 12 months as possible levels, even if only 4 are used. Best option because it preserves the full structure of the variable.
@@ -803,86 +781,83 @@ If you don’t specify `levels`, R will use the unique values in the data — so
 
 Tip: to avoid problems, specify both `levels` and `labels` explicitly.
 -->
-<hr>
 </section>
-<section id="apply-these-concpets-to-a-dataframe-scorecard-example" class="level2">
-<h2 class="anchored" data-anchor-id="apply-these-concpets-to-a-dataframe-scorecard-example">Apply these concpets to a dataframe: scorecard example</h2>
-<p>In most of your work, you deal with dataframes. Last week we worked with the <code>scorecard</code> data to practice <code>ggplot2</code>. Now we use the same data to see how we can use factors in a dataframe.</p>
-<p>Load libraries and data:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rcis)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(scorecard)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Explore data:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(scorecard)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<section id="apply-these-concepts-to-a-dataframe-scorecard" class="slide level2 center">
+<h2>Apply these concepts to a dataframe: scorecard</h2>
+<p>In most of your work, you deal with dataframes. We worked with the <code>scorecard</code> data to practice <code>ggplot2</code>. Now we use the same data to learn how we can use factors in a dataframe.</p>
+<p>Load libraries and explore data:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb14-2"><a></a><span class="fu">library</span>(rcis)</span>
+<span id="cb14-3"><a></a><span class="fu">data</span>(scorecard)</span>
+<span id="cb14-4"><a></a></span>
+<span id="cb14-5"><a></a><span class="fu">glimpse</span>(scorecard)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type" class="level2">
-<h2 class="anchored" data-anchor-id="example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type">Example: Plot the total number of schools in the U.S. by school type</h2>
-<p>This is the same question we did in class (see in-class tutorial, lecture 4).</p>
-<p>Since <code>type</code> is a categorical varialbe, we use bar chart, which takes each category <code>"Public"</code>, <code>"Private nonprofit"</code>, <code>"Private for profit"</code> and automatically applies a frequency count to aggregate the data.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scorecard, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-plot-the-total-number-of-schools-in-the-u.s.-by-school-type" class="slide level2 center">
+<h2>Example: Plot the total number of schools in the U.S. by school type</h2>
+<p>This is the same question we did in class.</p>
+<p>Since <code>type</code> is a categorical variable, we use a bar chart, which takes each category <code>"Public"</code>, <code>"Private nonprofit"</code>, <code>"Private for profit"</code> and automatically applies a frequency count to aggregate the data.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(scorecard, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">geom_bar</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
-<section id="our-goal-reorder-the-bars" class="level4">
-<h4 class="anchored" data-anchor-id="our-goal-reorder-the-bars">Our goal: reorder the bars!</h4>
+<h4 id="our-goal-reorder-the-bars">Our goal: reorder the bars!</h4>
 <p><br></p>
-<hr>
 </section>
+<section id="method-1-reorder-bars-manually-with-factor" class="slide level2 center">
+<h2>Method 1: Reorder bars manually with <em>factor()</em></h2>
+<p>This is the method we used in the previous slide. It more technical, but it gives you full control because you manually define the order of the factor levels.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>s <span class="ot">&lt;-</span> scorecard <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">factor</span>(type,</span>
+<span id="cb16-3"><a></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)))</span>
+<span id="cb16-4"><a></a></span>
+<span id="cb16-5"><a></a><span class="fu">ggplot</span>(s, <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb16-6"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Remember:</p>
+<ul>
+<li>check the column type (character or numeric) before transforming to factor using <code>factor()</code> as shown in the previous examples</li>
+<li>use it inside <code>mutate()</code> since you are working on column of a dataframe (and not a standalone vector like in the previous examples)</li>
+</ul>
 </section>
-<section id="method-1-reorder-bars-manually-with-factor" class="level2">
-<h2 class="anchored" data-anchor-id="method-1-reorder-bars-manually-with-factor">Method 1: Reorder bars manually with <em>factor()</em></h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> scorecard <span class="sc">|&gt;</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">factor</span>(type,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)))</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(s, <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This method gives you full control of the order by manually defining factor levels.</p>
-<p>Remember to check the column type (character or numeric) before transforming to factor. Use mutate since we are working on column of a dataframe (and not a standalone vector like in the previous examples).</p>
-<hr>
-</section>
-<section id="method-2-reorder-the-bars-using-tidyverse-fct_relevel" class="level2">
-<h2 class="anchored" data-anchor-id="method-2-reorder-the-bars-using-tidyverse-fct_relevel">Method 2: Reorder the bars using tidyverse <em>fct_relevel()</em></h2>
+<section id="method-2-reorder-the-bars-using-tidyverse-fct_relevel" class="slide level2 center">
+<h2>Method 2: Reorder the bars using tidyverse <em>fct_relevel()</em></h2>
 <p><a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a>: allows to reorder factor levels by hand; this function behave similarly to <code>factor()</code></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>scorecard <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_relevel</span>(type, </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>scorecard <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_relevel</span>(type, </span>
+<span id="cb17-3"><a></a>                           <span class="st">"Private, nonprofit"</span>, <span class="st">"Public"</span>, <span class="st">"Private, for-profit"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb17-5"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note: you can write code also by “piping” the results of the <code>dplyr</code> code into <code>ggplot2</code> code, as illustrated here.</p>
-<hr>
 </section>
-<section id="method-3-reorder-the-bars-using-tidyverse-fct_infreq" class="level2">
-<h2 class="anchored" data-anchor-id="method-3-reorder-the-bars-using-tidyverse-fct_infreq">Method 3: Reorder the bars using tidyverse <em>fct_infreq()</em></h2>
+<section id="method-3-reorder-the-bars-using-tidyverse-fct_infreq" class="slide level2 center">
+<h2>Method 3: Reorder the bars using tidyverse <em>fct_infreq()</em></h2>
 <p><a href="https://forcats.tidyverse.org/reference/fct_inorder.html"><code>fct_infreq()</code></a> sorts bars automatically by how common each category is (most to least frequent)</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>scorecard <span class="sc">|&gt;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_infreq</span>(type)) <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>scorecard <span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">fct_infreq</span>(type)) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> type)) <span class="sc">+</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="the-forcats-package" class="level2">
-<h2 class="anchored" data-anchor-id="the-forcats-package">The “forcats” Package</h2>
-<div class="callout callout-style-default callout-note callout-titled" title="Using factor() or a function from forcats?">
-<div class="callout-header d-flex align-content-center">
+<section id="the-forcats-package" class="slide level2 center">
+<h2>The “forcats” Package</h2>
+<div title="Using factor() or a function from forcats?">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Using factor() or a function from forcats?
+<p><strong>Using factor() or a function from forcats?</strong></p>
+</div>
+<div class="callout-content">
+<p>The example from Method 1 uses <code>factor()</code>, the base R function for creating and managing factors. It is worth understanding because it shows the basic logic: a factor stores category labels together with an order of levels.</p>
+<p>But because factors are so common in data analysis, the tidyverse includes a package called <code>forcats</code>, which provides simpler and more flexible tools for working with factors. Methods 2 and 3 from the previous slides use two <code>forcats</code> functions.</p>
+<p>You are welcome to use the <code>forcats</code> tools, but learning <code>factor()</code> first helps you understand what’s happening behind the scenes.</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>The function <code>factor()</code> is the base R way to create and manage factors. It’s a foundational tool: worth understanding because many R functions depend on it!</p>
-<p>Since working with factors is key in R, people developed a specific package called <code>forcats</code> (part of the <code>tidyverse</code>) provides a set of simpler but powerful functions for working with categorical data.</p>
-<p>You can use these, but knowing <code>factor()</code> helps you understand what’s happening behind the scenes.</p>
 </div>
 </div>
-<hr>
 </section>
-<section id="the-forcats-package-1" class="level2">
-<h2 class="anchored" data-anchor-id="the-forcats-package-1">The “forcats” Package</h2>
-<table class="caption-top table">
+<section id="the-forcats-package-1" class="slide level2 center">
+<h2>The “forcats” Package</h2>
+<table class="caption-top">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 42%">
@@ -914,84 +889,79 @@ Using factor() or a function from forcats?
 </tbody>
 </table>
 <p>For more functions, see the <a href="https://forcats.tidyverse.org/">forcats documentation</a></p>
-<hr>
 </section>
-<section id="challenge-exercise-plot-tips-by-weekday" class="level2">
-<h2 class="anchored" data-anchor-id="challenge-exercise-plot-tips-by-weekday">💻 Challenge Exercise: Plot Tips by Weekday</h2>
+<section id="challenge-exercise-plot-tips-by-weekday" class="slide level2 center">
+<h2>💻 Challenge Exercise: Plot Tips by Weekday</h2>
 <p>In this exercise, you learn two things:</p>
 <ul>
-<li><p>to correctly use <code>stat = identity</code> with bar plots</p></li>
+<li><p>to correctly use <code>stat = identity</code> with bar plots in <code>ggplot2</code></p></li>
 <li><p>to control the order of categories in bar plots, using both <code>factor()</code> and the <code>forcats</code> function called <code>fct_relevel()</code></p></li>
 </ul>
-<hr>
 </section>
-<section id="create-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="create-the-data">Create the Data</h2>
+<section id="create-the-data" class="slide level2 center">
+<h2>Create the Data</h2>
 <p>Copy and run the code below to create this dataset:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">week =</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Fri"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Sat"</span>, <span class="st">"Sat"</span>),</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">tip =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">8</span>, <span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">30</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb19-4"><a></a>  <span class="at">week =</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Fri"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Sat"</span>, <span class="st">"Sat"</span>),</span>
+<span id="cb19-5"><a></a>  <span class="at">tip =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">8</span>, <span class="dv">25</span>, <span class="dv">25</span>, <span class="dv">30</span>)</span>
+<span id="cb19-6"><a></a>)</span>
+<span id="cb19-7"><a></a></span>
+<span id="cb19-8"><a></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Our Goal:</strong> Create a bar plot with days of the <code>week</code> on the x-axis and the total <code>tip</code> amount on the y-axis (e.g., Saturday should display a bar with a height of $55, etc.).</p>
-<hr>
 </section>
-<section id="whats-wrong-with-this-plot" class="level2">
-<h2 class="anchored" data-anchor-id="whats-wrong-with-this-plot">What’s Wrong With This Plot?</h2>
+<section id="whats-wrong-with-this-plot" class="slide level2 center">
+<h2>What’s Wrong With This Plot?</h2>
 <p>Try this code. What does the height of each bar represent?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> week)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> week)) <span class="sc">+</span></span>
+<span id="cb20-2"><a></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><fragment></fragment></p>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div title="Why the bars do not show the actual tip amounts?">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Warning
+<p><strong>Why the bars do not show the actual tip amounts?</strong></p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <p>Why aren’t the bars showing the actual tip amounts?<br>
-- Because by default, <code>geom_bar()</code> uses <code>stat = "count"</code> to counts row and plot them on the y-axis<br>
-- To plot the actual values (not counts), use <code>stat = "identity"</code> with both a x and y</p>
+- Because by default, <code>geom_bar()</code> uses <code>stat = "count"</code> to count how many rows fall into each category and puts those counts on the y-axis - To plot the actual values (not counts), use <code>stat = "identity"</code> with both a x and y</p>
+</div>
+</div>
 </div>
 </div>
 <p></p>
-<hr>
 </section>
-<section id="fix-the-y-axis-on-this-bar-plot" class="level2">
-<h2 class="anchored" data-anchor-id="fix-the-y-axis-on-this-bar-plot">Fix the y-axis on this bar plot</h2>
+<section id="fix-the-y-axis-on-this-bar-plot" class="slide level2 center">
+<h2>Fix the y-axis on this bar plot</h2>
 <p>To fix this plot, we need to change the default <code>stat</code> from count to identity and manually specify both the <code>x</code> and <code>y</code> aesthetics. <em>See the <a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">documentation</a> or type <code>?geom_bar</code> in your R Console.</em></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is much better, but we still do not have the bars nicely ordered….</p>
-<hr>
 </section>
-<section id="fix-the-order-of-the-bars-using-factor" class="level2">
-<h2 class="anchored" data-anchor-id="fix-the-order-of-the-bars-using-factor">Fix the order of the bars using factor()</h2>
-<p>We use base R’s <code>factor()</code> to control the order of weekdays.</p>
+<section id="fix-the-order-of-the-bars-using-factor" class="slide level2 center">
+<h2>Fix the order of the bars using factor()</h2>
+<p>First, use base R’s <code>factor()</code> to control the order of weekdays.</p>
 <p>Replace the blank with the correct weekday order in the code below:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">factor</span>(week, <span class="at">levels =</span> _____ )) <span class="sc">|&gt;</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">factor</span>(week, <span class="at">levels =</span> _____ )) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb22-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="do-the-same-but-using-fct_relevel" class="level2">
-<h2 class="anchored" data-anchor-id="do-the-same-but-using-fct_relevel">Do the same but using fct_relevel()</h2>
-<p>Now we make the same plot using <a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a></p>
+<section id="do-the-same-but-using-fct_relevel" class="slide level2 center">
+<h2>Do the same but using fct_relevel()</h2>
+<p>Now, make the same plot using <a href="https://forcats.tidyverse.org/reference/fct_relevel.html"><code>fct_relevel()</code></a></p>
 <p>Replace the correct weekday order in the code below:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">fct_relevel</span>(week, ______ )) <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">fct_relevel</span>(week, ______ )) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb23-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
 
 Note: Leave out for CSP, bring back for CSS class. The actual code gives what I want (Sat is 55 etc) so unsure this is actually needed
@@ -1001,10 +971,10 @@ Note: Leave out for CSP, bring back for CSS class. The actual code gives what I 
 Now try grouping by weekday and summing the tips before plotting. Use either `factor()` or `fct_relevel()`.
 
 ```r
-df %>%
-  mutate(week = factor(week, days)) %>%   # factor() or fct_relevel()
-  group_by(week) %>%
-  summarize(total_tip = sum(tip)) %>%
+df |>
+  mutate(week = factor(week, days)) |>   # factor() or fct_relevel()
+  group_by(week) |>
+  summarize(total_tip = sum(tip)) |>
   ggplot(aes(x = week, y = total_tip)) +
   geom_bar(stat = "identity") +
   labs(title = "Total Tips by Weekday", x = "Weekday", y = "Total Tip ($)")
@@ -1016,33 +986,29 @@ Consider putting this challenge in the practice exercises for today as well
 
 For the dplyr part: add in the Rmd file demo an example of what happens if you calculate the mean of a boolean or logical vectors (T and F), say that T are interpreted as 1 and F are 0 for R; this is useful again for HW3!  
 -->
-<hr>
 </section>
-<section id="solutions" class="level2">
-<h2 class="anchored" data-anchor-id="solutions">Solutions</h2>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With factor</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">factor</span>(week, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Tue"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>, <span class="st">"Sun"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># With fct_relevel</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>)</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">fct_relevel</span>(week, days)) <span class="sc">|&gt;</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-simple callout-none no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
+<section id="solutions" class="slide level2 center">
+<h2>Solutions</h2>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># With factor</span></span>
+<span id="cb24-2"><a></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>)</span>
+<span id="cb24-3"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">factor</span>(week, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Tue"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>, <span class="st">"Sun"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb24-6"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb24-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span>
+<span id="cb24-8"><a></a></span>
+<span id="cb24-9"><a></a><span class="co"># With fct_relevel</span></span>
+<span id="cb24-10"><a></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mon"</span>, <span class="st">"Wed"</span>, <span class="st">"Thu"</span>, <span class="st">"Fri"</span>, <span class="st">"Sat"</span>)</span>
+<span id="cb24-11"><a></a>df <span class="sc">|&gt;</span></span>
+<span id="cb24-12"><a></a>  <span class="fu">mutate</span>(<span class="at">week =</span> <span class="fu">fct_relevel</span>(week, days)) <span class="sc">|&gt;</span></span>
+<span id="cb24-13"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> week, <span class="at">y =</span> tip)) <span class="sc">+</span></span>
+<span id="cb24-14"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb24-15"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tips by Weekday"</span>, <span class="at">x =</span> <span class="st">"Weekday"</span>, <span class="at">y =</span> <span class="st">"Tip ($)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
 <p><strong>Q: Why don’t we use <code>labels</code> in <code>factor()</code>?</strong> Because the values (<code>"Mon"</code>, etc.) are already readable. You don’t need to change them, unless you want different names (e.g., <code>"Monday"</code>, etc.).</p>
-<p><strong>Q: Why doesn’t <code>days</code> include all 7 days of the week?</strong> We should include all possible levels when using <code>factor()</code>. But <code>fct_relevel()</code> behave differently and may not add missing levels if those values aren’t present in the input data.</p>
+<p><strong>Q: Why doesn’t <code>days</code> include all 7 days of the week?</strong> We should include all possible levels when using <code>factor()</code>. But <code>fct_relevel()</code> behave differently and does not need it.</p>
 </div>
 </div>
 </div>
@@ -1053,33 +1019,30 @@ Both versions are valid
 
 FOR CSS CLASS: add one example with fct_reorder() as it is the most straightforward application
 -->
-<hr>
 </section>
-<section id="reflections" class="level2">
-<h2 class="anchored" data-anchor-id="reflections">Reflections</h2>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<section id="reflections" class="slide level2 center">
+<h2>Reflections</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
+<p><strong>Tip</strong></p>
 </div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-content">
 <ul>
 <li>What happens when you don’t set the factor order?</li>
-<li>Which method (<code>factor()</code> or <code>fct_relevel()</code>) do you prefer and why? Check the <code>forcats</code> package documentation for more functions, especially <code>fct_reorder()</code> which is straightforward to use</li>
-<li>Why is <code>stat = "identity"</code> necessary for this kind of plot?</li>
-<li>Always match the number of provided <code>levels</code> and <code>labels</code> inside `factor()``</li>
+<li>Which method among <code>factor()</code> or <code>fct_relevel()</code> do you prefer and why? Check the <code>forcats</code> package documentation for more functions, especially <code>fct_reorder()</code> which is straightforward to use</li>
+<li>Why was <code>stat = "identity"</code> necessary for this kind of plot?</li>
 </ul>
 </div>
 </div>
+</div>
 <p>Want more practice? Download today’s in-class materials for more practice exercises on working with factors!</p>
-<hr>
 </section>
-<section id="recap-what-we-learned-today" class="level2">
-<h2 class="anchored" data-anchor-id="recap-what-we-learned-today">Recap: What We Learned Today</h2>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
 <ul>
 <li>What factors are and how to convert character or numeric vectors to factors<br>
 </li>
@@ -1087,424 +1050,473 @@ Tip
 </li>
 <li>How to fix common <code>geom_bar()</code> plotting issues (e.g., bar heights and order)</li>
 </ul>
-<hr>
 </section>
-<section id="to-print-these-slides-as-pdf" class="level2">
-<h2 class="anchored" data-anchor-id="to-print-these-slides-as-pdf">To print these slides as pdf</h2>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
 <p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
 
 
-</section>
-</section>
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
 
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
         },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
       });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
         }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
             }
           }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
-          return note.innerHTML;
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
             }
           } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
             });
           }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
         }
-      }, function(instance) {
       });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
-
-
-
+      </script>
+    
 
 </body></html>
