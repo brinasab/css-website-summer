@@ -242,14 +242,14 @@
     "href": "lectures/08-home.html",
     "title": "Lecture 8: Missing Data; Factors",
     "section": "",
-    "text": "Date: June 25, 2026\nTopics: Missing Data; Factors\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 25, 2026\nTopics: Missing Data; Factors\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/factors\")"
   },
   {
     "objectID": "lectures/08-home.html#info-and-materials",
     "href": "lectures/08-home.html#info-and-materials",
     "title": "Lecture 8: Missing Data; Factors",
     "section": "",
-    "text": "Date: June 25, 2026\nTopics: Missing Data; Factors\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 25, 2026\nTopics: Missing Data; Factors\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/factors\")"
   },
   {
     "objectID": "lectures/08-home.html#learning-objectives",
