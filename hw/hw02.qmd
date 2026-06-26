@@ -8,10 +8,10 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 # Overview
-*
-**Due: ~~Thursday, October 23~~ Friday, October 24 by 11:59 PM (Chicago Time)**
 
-In the first assignment you have demonstrated knowledge of your software setup, Git/GitHub via RStudio, and R Markdown. The goal of this second assignment is to practice transforming and exploring data with `dplyr` and `ggplot2`.
+**Due: Thursday, July 2nd (11:59 PM Chicago Time)**
+
+In the first assignment you worked with your software setup, Git/GitHub via RStudio, and R Markdown. The goal of this second assignment is to practice transforming and exploring data with `dplyr` and `ggplot2`.
 
 
 # Accessing and Cloning Your `hw02` Repository
@@ -22,7 +22,7 @@ This will work only if you have submitted your GitHub username (see Lecture 1) a
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/pky4Murt) to accept the invitation and create your private `hw02` repository on GitHub. Your repository will be named `hw02-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
+1. Go at [this link](https://classroom.github.com/a/eII6Nn23) to accept the invitation and create your private `hw02` repository on GitHub. Your repository will be named `hw02-<USERNAME>` and will be ready within a few seconds. If this does not work, see the note in red above.
 
 2. Once the repository has been created, click the link provided to access it.
 
@@ -76,11 +76,11 @@ Your repository includes specific and open-ended questions. Answer all of them.
 
 ::: {.callout-note}
 
-- The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this exercise
+- The questions, especially the open-ended ones, are designed to help you think like a programmer and researcher: they won’t walk you through every step but encourage you to apply what you’ve learned independently. Translating what a question asks into code by breaking it down in smaller pieces is one of the learning goals of this exercise.
 
 - This homework is designed to be completed over multiple sessions. Start early, and remember to save, commit, and push your work regularly.
 
-- Do not use AI tools to generate R code from scratch or think for you. You may use it to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!
+- Do not use AI tools to generate R code from scratch or to think for you. You may use it to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!
 :::
 
 
@@ -137,13 +137,13 @@ To submit your assignment on Canvas, follow these steps:
    - `mass-shootings_files/`: this folder contains all the graphs that you generated in your `.Rmd`
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw02-yourusername`
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-summer26/hw02-yourusername`
    - Submit that URL on Canvas under HW02. Do not upload any files to Canvas. We only need the repository link.
 
 
 # Assessment
 
-All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). For more, see the *Assessment* section of the Syllabus. 
+All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1gm2bbrG4hriL6Y9XZXZzyn0c_QSCSaLR/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). For more, see the *Assessment* section of the Syllabus. 
 
 Below are further guidelines for this specific homework to help you assess your work before submitting it. In the past, **"Excellent"** or **"Very Good"** work included submissions that:
 
