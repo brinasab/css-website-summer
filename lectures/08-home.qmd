@@ -3,7 +3,7 @@ title: "Lecture 8: Missing Data; Factors"
 date: 2026-06-25
 summary: "Missing Data; Factors"
 url_slides: 08-slides.qmd
-url_code: css-materials/factors
+url_code: #css-materials/factors
 page-layout: full
 draft: false
 ---
@@ -17,11 +17,11 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
 * **Slides**: [View Slides]({{< meta url_slides >}})
-* **Code**: `usethis::use_course("{{< meta url_code >}}")`
+* **Code**: See the in-class code for Lecture 9 (Monday 6/29 Review)
 
 <!--
 * **Slides**: To be posted before class
-* **Code**: To be posted before class
+* **Code**: `usethis::use_course("{{< meta url_code >}}")`
 -->
 
 ## Learning Objectives
