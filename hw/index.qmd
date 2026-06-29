@@ -44,8 +44,8 @@ The course includes several types of assignments, each designed to support a dif
 
 **Further Info:**
 
-- Check our [Course Schedule](../lectures/index.qmd) for details and due dates of all assignments.
+- See the [Course Schedule](../lectures/index.qmd) for details and due dates of all assignments.
 
-- Refer to the [Syllabus](../syllabus.qmd) for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more.
+- See the [Syllabus](../syllabus.qmd) for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more.
 
 :::

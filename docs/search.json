@@ -613,7 +613,7 @@
     "href": "hw/index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Assignments Summer 2026\n\n\n\n\n\n\n\n\n\nAccess the take-home assigments\n\n\n\nTake-home assignments will be posted here when they are released. Open each assignment page for the instructions on how to access the files, complete the work, and submit it:\n\nHomework 1 due Monday, June 22 (11:59 PM Chicago Time)\nHomework 2 due Thursday, July 2nd (11:59 PM Chicago Time)\n\n\n\n\nThe course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the Syllabus. Below is an overview of what you can expect from each:\n\nQuizzes: Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.\nIn-Class Participation: You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for 3 of the 4 class meetings each week of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously before the start of the next class. Late submissions will not be accepted.\nOral Code Checks: Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course. More info, including the sign-up process and rubric, will be shared ahead of time.\nTake-Home Assignments: This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the optional fifth assignment, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this page (see top of the page) once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.\n\n\n\n\n\n\n\nNote\n\n\n\nFurther Info:\n\nCheck our Course Schedule for details and due dates of all assignments.\nRefer to the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
+    "text": "Course Assignments Summer 2026\n\n\n\n\n\n\n\n\n\nAccess the take-home assigments\n\n\n\nTake-home assignments will be posted here when they are released. Open each assignment page for the instructions on how to access the files, complete the work, and submit it:\n\nHomework 1 due Monday, June 22 (11:59 PM Chicago Time)\nHomework 2 due Thursday, July 2nd (11:59 PM Chicago Time)\n\n\n\n\nThe course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the Syllabus. Below is an overview of what you can expect from each:\n\nQuizzes: Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.\nIn-Class Participation: You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for 3 of the 4 class meetings each week of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously before the start of the next class. Late submissions will not be accepted.\nOral Code Checks: Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course. More info, including the sign-up process and rubric, will be shared ahead of time.\nTake-Home Assignments: This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the optional fifth assignment, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this page (see top of the page) once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.\n\n\n\n\n\n\n\nNote\n\n\n\nFurther Info:\n\nSee the Course Schedule for details and due dates of all assignments.\nSee the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
   },
   {
     "objectID": "lectures/01-home.html",
@@ -2973,5 +2973,215 @@
     "title": "Lecture 11: Tidydata with tidyr",
     "section": "Before Class",
     "text": "Before Class\n\nIf you have not already done so, complete Lecture 10 participation questions. You can find them in the Lecture 10 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 11). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!"
+  },
+  {
+    "objectID": "lectures/10-slides.html#importing-csv-files",
+    "href": "lectures/10-slides.html#importing-csv-files",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Importing CSV files",
+    "text": "Importing CSV files\nTo load data into R we need importing functions. There are several of them depending on the type of file we want to import. See “R for Data Science” 2nd Ed. Chapter 7 for details.\nThe most common importing functions read comma-separated values (csv) files. Two main versions:\n\nfrom base-R we have read.csv()\nfrom readr we have read_csv()\n\nThey are similar, but we use read_csv() in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically). Type ?read.csv() and ?read_csv() in your Console for info."
+  },
+  {
+    "objectID": "lectures/10-slides.html#the-function-read_csv",
+    "href": "lectures/10-slides.html#the-function-read_csv",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "The function read_csv()",
+    "text": "The function read_csv()\nThis function takes several arguments, all listed in the documentation. Some of the most common arguments are:\nread_csv(file, col_names = TRUE, col_types = NULL, na = c(\"\", \"NA\"))\nThe file argument must always be passed, the other arguments can be left as default:\nlibrary(readr)\n\n# load data into my local R Studio, specifying the path\nread_csv(file = \"/Users/Sabrina Nardin/Desktop/testdata.csv\")\n\n# load data into my Workbench, specifying the path\nread_csv(file = \"/home/nardin/testdata.csv\")\n\n# load data (local R Studio or Workbench) without specifying the path \n# where does R look for this file?\nread_csv(\"testdata.csv\")\n\n# load data if you are not sure where it is located (not reccomended)\nread_csv(file = file.choose())"
+  },
+  {
+    "objectID": "lectures/10-slides.html#practice-load-data-in-r",
+    "href": "lectures/10-slides.html#practice-load-data-in-r",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "💻 Practice: Load Data in R",
+    "text": "💻 Practice: Load Data in R\n\nCreate a testdata.csv file with four columns (id, name, age, food) with different data types and some missing data. Save it on your desktop with a csv extension.\nOpen Workbench: upload the file to the server. Skip this step if you are using R on your machine.\nLook at your current working directory by typing getwd() in the console. That’s where R looks at files by default.\nLoad library(tidyverse) and import the data into R using read_csv(). If you do not provide a path, R looks in your working directory."
+  },
+  {
+    "objectID": "lectures/10-slides.html#takehome",
+    "href": "lectures/10-slides.html#takehome",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Takehome",
+    "text": "Takehome\nImporting files correctly is important as it prevents problems that might emerge later!\nCheck the function arguments: there are many of them available that can help you accomplish almost anything you need!\nLet’s clarify a few additional concepts related to importing and exporting data…"
+  },
+  {
+    "objectID": "lectures/10-slides.html#working-directory",
+    "href": "lectures/10-slides.html#working-directory",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Working Directory",
+    "text": "Working Directory\nThe working directory is the folder that R takes as default directory every time you try to load a file, script, etc.\nTo check your current working directory: start a new session of R and type getwd(). In Workbench it should be \"/home/your_cnetid\""
+  },
+  {
+    "objectID": "lectures/10-slides.html#relative-path-vs.-absolute-path",
+    "href": "lectures/10-slides.html#relative-path-vs.-absolute-path",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Relative Path vs. Absolute Path",
+    "text": "Relative Path vs. Absolute Path\nWhen you import a file (for example, from the Workbench “Files” tab) into R, you should use a relative path instead of a full (absolute) path.\n\n\nRelative Path\n\nMeans relative to your R project folder (the one containing your .Rproj file)\n\nRecommended approach: easier and makes your code portable\n\nWorks only if the file is inside R’s default working directory\n\nread_csv(\"testdata.csv\")\n\nAbsolute Path\n\nMeans you specify the entire path to reach the file, independent from specific folders\n\nAvoid this: it breaks if someone runs your code from another machine or folder\n\nIndependent on R’s default working directory\n\nread_csv(\"/home/nardin/testdata.csv\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#easier-solution-use-rstudio-projects",
+    "href": "lectures/10-slides.html#easier-solution-use-rstudio-projects",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Easier Solution: Use RStudio Projects",
+    "text": "Easier Solution: Use RStudio Projects\n\n\n\n\n\n\nRStudio Projects .Rproj\n\n\nRStudio Projects automatically set the working directory for you, based on the active project:\n\nensures portability across computers and a reliable behavior!\nyou do not need to set the working directory manually\nbut you need to check in which project you are working\n\n\n\n\nExample: Each homework and in-class exercise folder in this course contains a .Rproj file. When you open that project in RStudio, the working directory is automatically set to that folder.\nTip: If you switch to another project, RStudio automatically updates the default working directory for you. Always check which project you’re working in."
+  },
+  {
+    "objectID": "lectures/10-slides.html#practice-create-an-rstudio-project",
+    "href": "lectures/10-slides.html#practice-create-an-rstudio-project",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "💻 Practice: Create an RStudio Project",
+    "text": "💻 Practice: Create an RStudio Project\nStep 1: Open RStudio and navigate to the top-left menu. Then File &gt; New Project…\nStep 2: Choose New Directory, then select New Project\nStep 3: Name your project and save it.\nStep 4: Click Create Project. RStudio will open a new session within your project environment. Done!\nStep 5: Let’s test it! In your new project, create a new R script or R Markdown document and inside it type and run getwd(). What do you notice?"
+  },
+  {
+    "objectID": "lectures/10-slides.html#other-readr-functions-to-import-data",
+    "href": "lectures/10-slides.html#other-readr-functions-to-import-data",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Other readr functions to import data",
+    "text": "Other readr functions to import data\nThe readr package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a csv over other formats).\nFor example:\n\nComma separated csv use read_csv() from the readr package\nSemi column separated csv use read_csv2()from the readr package\nTab separated files use read_tsv()from the readr package\nRDS use readRDS() or read_rds()\nExcel use read_excel() from the readxl package\nSAS/SPSS/Stata use the haven package (several functions)\n\nCheat Sheet for readr: Help &gt; Cheat Sheets &gt; Browse Cheat Sheets"
+  },
+  {
+    "objectID": "lectures/10-slides.html#using-haven-with-sas",
+    "href": "lectures/10-slides.html#using-haven-with-sas",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Using haven with SAS",
+    "text": "Using haven with SAS\nlibrary(haven)\n\nread_sas(data_file = system.file(\"examples\", \"iris.sas7bdat\",\n  package = \"haven\"\n))"
+  },
+  {
+    "objectID": "lectures/10-slides.html#using-haven-with-spss",
+    "href": "lectures/10-slides.html#using-haven-with-spss",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Using haven with SPSS",
+    "text": "Using haven with SPSS\nread_sav(file = system.file(\"examples\", \"iris.sav\",\n  package = \"haven\"\n))"
+  },
+  {
+    "objectID": "lectures/10-slides.html#using-haven-with-stata",
+    "href": "lectures/10-slides.html#using-haven-with-stata",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Using haven with Stata",
+    "text": "Using haven with Stata\nread_dta(file = system.file(\"examples\", \"iris.dta\",\n  package = \"haven\"\n))"
+  },
+  {
+    "objectID": "lectures/10-slides.html#exporting-data-with-write_csv",
+    "href": "lectures/10-slides.html#exporting-data-with-write_csv",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Exporting data with write_csv()",
+    "text": "Exporting data with write_csv()\nSo far we talked about IMPORTING DATA with read_csv() from readr\nButreadr has also several functions for EXPORTING DATA. The most common is write_csv() which generates csv files from R data frames: https://readr.tidyverse.org/reference/write_delim.html\n# import\ntest &lt;- read_csv(\"testdata.csv\", col_types = (\"icic\"), na = c(\"\", \"NA\", \"na\", \"None\"))\n\n# write your data analysis and visualization code etc.\n\n# export \nwrite_csv(test, file = \"testdata_cleaned.csv\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#definition-of-relational-data",
+    "href": "lectures/10-slides.html#definition-of-relational-data",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Definition of Relational Data",
+    "text": "Definition of Relational Data\nRelational Database: set of multiple “tables” that are linked based on data common to them. You can think of a “table” as a dataframe.\nThese tables provide meaningful insights only when combined together!\nAnswers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables."
+  },
+  {
+    "objectID": "lectures/10-slides.html#our-focus",
+    "href": "lectures/10-slides.html#our-focus",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Our Focus",
+    "text": "Our Focus\nThere are several software and languages to deal with relational databases. The most common is SQL but that’s beyond our course. For more on this, see “Chapter 21 Databases” from our book.\nR also allows you to join tables using the dplyr package. That’s our focus!"
+  },
+  {
+    "objectID": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings",
+    "href": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "We use the flights example from the readings",
+    "text": "We use the flights example from the readings\nlibrary(nycflights13) in “Chapter 19 Joins” from “R for Data Science” 2nd Edition.\nWe have five tables (e.g., five distinct datasets):\n\nflights info about flights, identified by multiple variables\n\nairlines each airplane company name, identified by the abbreviated career code\n\nairports info about each airport, identified by the faa code\n\nplanes info about each plane, identified by its tailnum number\n\nweather info about the weather at each NYC airport for each hour, identified by various variables\n\nLoad the data into R (package already installed on Workbench): library(nycflights13)"
+  },
+  {
+    "objectID": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings-1",
+    "href": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings-1",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "We use the flights example from the Readings",
+    "text": "We use the flights example from the Readings\nVisual representation of the relations among the 5 tables in nycflights13:\n\nTo understand diagrams like this, remember that each relation concerns a pair of tables."
+  },
+  {
+    "objectID": "lectures/10-slides.html#in-pratice-when-using-dplyr-to-work-with-relational-data-we-have",
+    "href": "lectures/10-slides.html#in-pratice-when-using-dplyr-to-work-with-relational-data-we-have",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "In pratice… when using dplyr to work with relational data, we have:",
+    "text": "In pratice… when using dplyr to work with relational data, we have:\n1. Mutating joins\n2. Filtering joins"
+  },
+  {
+    "objectID": "lectures/10-slides.html#mutating-joins-1",
+    "href": "lectures/10-slides.html#mutating-joins-1",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "1. Mutating joins",
+    "text": "1. Mutating joins\nThis group includes:\n\ninner join: keeps observations that appear in both tables\nouter join: keeps observations that appear in at least one of the tables\n\nleft join: keeps all observations in left table\n\nright join: keeps all observations in right table\n\nfull join: keeps all observations"
+  },
+  {
+    "objectID": "lectures/10-slides.html#inner_join",
+    "href": "lectures/10-slides.html#inner_join",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "inner_join()",
+    "text": "inner_join()\nKeeps obs. that appear in both tables, identified by keys (colored numbers). Unmatched rows are dropped.\n\n\n\n\n    \n\n\n# inner_join example\ninner_join(x, y, by = \"key\")\n\n# with pipes\nx %&gt;% inner_join(y, by = \"key\")\n\n# if the join columns have different names\ninner_join(x, y, by = c(\"a\" = \"b\"))"
+  },
+  {
+    "objectID": "lectures/10-slides.html#left_join",
+    "href": "lectures/10-slides.html#left_join",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "left_join()",
+    "text": "left_join()\nKeeps all obs. in the left table (x), even if there is not a match in the right table (y).\n\n\n\n\n  \n\n\nleft_join(x, y, by = \"key\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#right_join",
+    "href": "lectures/10-slides.html#right_join",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "right_join()",
+    "text": "right_join()\nKeeps all obse. in the right table (y), even if there is not a match in the left table (x).\n\n\n\n\n  \n\n\nright_join(x, y, by = \"key\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#full_join",
+    "href": "lectures/10-slides.html#full_join",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "full_join()",
+    "text": "full_join()\nKeeps all obs., matches and non-matches (e.g., more missing values).\n\n\n\n\n  \n\n\nfull_join(x, y, by = \"key\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#venn-diagram",
+    "href": "lectures/10-slides.html#venn-diagram",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Venn Diagram",
+    "text": "Venn Diagram"
+  },
+  {
+    "objectID": "lectures/10-slides.html#filtering-joins-1",
+    "href": "lectures/10-slides.html#filtering-joins-1",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Filtering joins",
+    "text": "Filtering joins\nOther than mutating joins, dplyr has filtering joins;\n\nsemi_join: keeps all observations in x that have a match in y\nanti_join drops all observations in x that have a match in y\n\nEssentially these function use information from the second data frame (y) to filter observations from the first data frame (x)."
+  },
+  {
+    "objectID": "lectures/10-slides.html#semi_join",
+    "href": "lectures/10-slides.html#semi_join",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "semi_join()",
+    "text": "semi_join()\nKeeps all obs. in x that have a match in y. Only keeps columns from the first table you pass in the code (x).\n\n\n\n\n    \n\n\nsemi_join(x, y, by = \"key\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#anti_join",
+    "href": "lectures/10-slides.html#anti_join",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "anti_join()",
+    "text": "anti_join()\nDrops all obs. in x that have a match in y. Only keeps columns from the first table you pass in the code (x).\n\n\n\n\n    \n\n\nanti_join(x, y, by = \"key\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#practice-working-with-relational-data-with-dplyr",
+    "href": "lectures/10-slides.html#practice-working-with-relational-data-with-dplyr",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "💻 Practice working with relational data with dplyr",
+    "text": "💻 Practice working with relational data with dplyr\nDownload today’s in-class materials from the website (relational-data.Rmd)"
+  },
+  {
+    "objectID": "lectures/10-slides.html#recap-what-we-learned-today",
+    "href": "lectures/10-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nHow to import data with read_csv and export data using write_csv\nHow to work with relational data using dplyr"
+  },
+  {
+    "objectID": "lectures/10-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/10-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf\n:::"
   }
 ]
