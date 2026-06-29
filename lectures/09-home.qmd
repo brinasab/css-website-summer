@@ -3,7 +3,7 @@ title: "Lecture 9: Week 2 Review"
 date: 2026-06-29
 summary: "Week 2 Review and Q&A"
 url_slides: 09-slides.qmd
-url_code: css-materials/review-lecture9
+url_code: css-materials/review-week2
 page-layout: full
 draft: false
 ---
