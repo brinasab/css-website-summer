@@ -11,9 +11,9 @@ format:
 <div class="my-4"></div>
 
 ::: {.callout-important}
-## Access the take-home assigments 
+## Access the Take-Home Assigments 
 
-Take-home assignments will be posted here when they are released. Open each assignment page for the instructions on how to access the files, complete the work, and submit it:
+Take-home assignments will be posted here when they are released. Open each assignment page for the instructions:
 
 - [Homework 1](hw01.qmd) due Monday, June 22 (11:59 PM Chicago Time)
 - [Homework 2](hw02.qmd) due Thursday, July 2nd (11:59 PM Chicago Time)
@@ -40,7 +40,7 @@ The course includes several types of assignments, each designed to support a dif
 - **Take-Home Assignments:** This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the *optional fifth assignment*, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this page (see top of the page) once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.
 
 
-::: callout-note
+::: callout
 
 **Further Info:**
 
