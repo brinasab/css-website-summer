@@ -2055,7 +2055,7 @@
     "href": "lectures/08-home.html#before-class",
     "title": "Lecture 8: Missing Data; Factors",
     "section": "Before Class",
-    "text": "Before Class\n\nIf you have not already done so, complete Lecture 7 participation questions. You can find them in the Lecture 7 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 8). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the reading below and come with questions!\nAssignments coming up:\n\nQuiz 2 will open right after this class, check Canvas and it’s due Monday of Week 3 before class\nAssignment 2 will open tomorrow (Friday 6/26) and it’s due next Thursday; you will find it under Assignments of this website as “Homework 2”"
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 7 participation questions. You can find them in the Lecture 7 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 8). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the reading below and come with questions!\nAssignments coming up:\n\nQuiz 2 will open today right after this class, check Canvas and it’s due Monday of Week 3 before class\nAssignment 2 will open tomorrow (Friday 6/26) and it’s due next Thursday; you will find it under Assignments of this website as “Homework 2”"
   },
   {
     "objectID": "lectures/06-slides.html",
@@ -2952,5 +2952,26 @@
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "Task: Plot the total number of schools in the U.S. by school type",
     "text": "Task: Plot the total number of schools in the U.S. by school type\nThis is the same question we did in class.\nSince type is a categorical variable, we use a bar chart, which takes each category \"Public\", \"Private nonprofit\", \"Private for profit\" and automatically applies a frequency count to aggregate the data.\nggplot(scorecard, mapping = aes(x = type)) +\n  geom_bar() \n\nOur goal: reorder the bars!"
+  },
+  {
+    "objectID": "lectures/10-home.html#before-class",
+    "href": "lectures/10-home.html#before-class",
+    "title": "Lecture 10: Importing Data with readr; Relational Data with dplyr",
+    "section": "Before Class",
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 9 participation questions. You can find them in the Lecture 9 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 10). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!"
+  },
+  {
+    "objectID": "lectures/12-home.html#before-class",
+    "href": "lectures/12-home.html#before-class",
+    "title": "Lecture 12: Strings and Regex with stringr; Dates with lubridate",
+    "section": "Before Class",
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!\nAssignments coming up:\n\nQuiz 3 will open today right after this class, check Canvas and it’s due Monday of Week 4 before class\nAssignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)"
+  },
+  {
+    "objectID": "lectures/11-home.html#before-class",
+    "href": "lectures/11-home.html#before-class",
+    "title": "Lecture 11: Tidydata with tidyr",
+    "section": "Before Class",
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 10 participation questions. You can find them in the Lecture 10 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 11). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!"
   }
 ]
