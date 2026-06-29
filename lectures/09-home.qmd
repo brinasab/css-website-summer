@@ -2,8 +2,8 @@
 title: "Lecture 9: Week 2 Review"
 date: 2026-06-29
 summary: "Week 2 Review and Q&A"
-url_slides:
-url_code:
+url_slides: 09-slides.qmd
+url_code: css-materials/review-lecture9
 page-layout: full
 draft: false
 ---
@@ -16,7 +16,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: To be posted before class
+* **Slides**: No slides see agenda below
 * **Code**: To be posted before class
 
 <!--
@@ -29,6 +29,16 @@ knitr::opts_chunk$set(echo = FALSE)
 Today, we will review key topics from Week 2. We will also make time to answer questions about Quiz 2 and Homework Assignment 2.
 
 We will still have Poll Everywhere participation questions, along with time for additional questions. Depending on how much review is needed, we may finish a bit early. Any remaining time will be used for individual office hours.
+
+Today's Agenda:
+
+1. **Quiz 2 Review**
+2. **Homework 2 Q&A**
+3. **[Breakout activity: Week 2 review teams](https://docs.google.com/document/d/1cE2ds4eMjMnSA3T-7ZTmPeTJ6s70gO-TQFTZr0e1h5E/edit?usp=sharing)** (similar to last week but shorter)
+4. **Code tutorials** (format: code along with the instructor + short individual practice; download the files using the purple code at the top of this page)  
+    - Topic: factors in R
+    - Topic: dplyr key functions + ggplot
+5. **Individual Q&A** (optional extra time for individual questions)
 
 
 ## Before Class
