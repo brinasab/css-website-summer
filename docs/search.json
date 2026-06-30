@@ -774,14 +774,14 @@
     "href": "lectures/10-home.html",
     "title": "Lecture 10: Importing Data with readr; Relational Data with dplyr",
     "section": "",
-    "text": "Date: June 30, 2026\nTopics: Importing Data; Relational Data\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 30, 2026\nTopics: Importing Data; Relational Data\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/relational-data\")"
   },
   {
     "objectID": "lectures/10-home.html#info-and-materials",
     "href": "lectures/10-home.html#info-and-materials",
     "title": "Lecture 10: Importing Data with readr; Relational Data with dplyr",
     "section": "",
-    "text": "Date: June 30, 2026\nTopics: Importing Data; Relational Data\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: June 30, 2026\nTopics: Importing Data; Relational Data\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/relational-data\")"
   },
   {
     "objectID": "lectures/10-home.html#learning-objectives",
