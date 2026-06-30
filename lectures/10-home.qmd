@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-- Importing and Exporting Data in R
+- Importing and Exporting Data into R
 - Managing Relational Data (e.g., linking and merging related tables)
 
 

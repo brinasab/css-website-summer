@@ -788,7 +788,7 @@
     "href": "lectures/10-home.html#learning-objectives",
     "title": "Lecture 10: Importing Data with readr; Relational Data with dplyr",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nImporting and Exporting Data in R\nManaging Relational Data (e.g., linking and merging related tables)"
+    "text": "Learning Objectives\n\nImporting and Exporting Data into R\nManaging Relational Data (e.g., linking and merging related tables)"
   },
   {
     "objectID": "lectures/10-home.html#readings",
