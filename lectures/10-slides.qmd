@@ -30,14 +30,15 @@ format:
 
 NOTE: SLIDES BELOW ARE ALREADY COPIED OVER FROM FALL 25, NEED TO REVIEW THEM BUT CONTENT IS HERE
 
-<span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **October 20, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
-</span>
--->
-
 ```{r, echo=FALSE, results='asis'}
 cat('<span style="font-size: 0.8em; color: #666;">These slides were last updated on', format(Sys.Date(), '%B %d, %Y'), '</span>')
 ```
+
+-->
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
 
 ```{r pkgs, include = FALSE, cache = FALSE}
 library(tidyverse)
@@ -52,18 +53,54 @@ library(knitr)
 
 ---
 
-## Importing CSV files
+## Importing files into R
 
-To load data into R we need **importing functions**. There are several of them depending on the **type of file** we want to import. See "R for Data Science" 2nd Ed. Chapter 7 for details.
+To load files with data into R, we need **importing functions**  
 
-**The most common importing functions read comma-separated values (csv) files.** Two main versions:
+There are several importing functions. The best one depends on the **type of file** we want to import. For an overview, see today's reading: [R for Data Science, Chapter 7](https://r4ds.hadley.nz/data-import.html) 
 
-- from **base-R** we have `read.csv()`
-- from **[`readr`](https://readr.tidyverse.org/)** we have `read_csv()`
+The most common type of file you will encounter is a **CSV file** (comma-separated values), so we will focus on the function that imports it: `read_csv()`
 
-They are similar, but we use `read_csv()` in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically). Type `?read.csv()` and `?read_csv()` in your Console for info.
+---
 
-<!-- `read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- r 
+## Importing CSV files into R
+
+To import CSV files into R, there are two functions. They are very similar, but use the second:
+
+:::{.columns}
+
+:::{.column width="50%"}
+
+```r
+read.csv("file.csv")
+```
+
+- Built into R (e.g., comes from base R)
+- Common in older code
+- Uses a period `read.csv()`
+
+:::
+
+:::{.column width="50%"}
+
+```r
+read_csv("file.csv") ✅
+```
+
+- From [readr](https://readr.tidyverse.org/) (e.g., comes from the tidyverse)
+- Faster and common in newer code
+- Uses an underscore `read_csv()`
+
+:::
+:::
+
+*Type `?read.csv()` and `?read_csv()` in your Console for more info.*
+
+<!--
+`read_csv()` in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically).
+
+`read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- r 
+
 difference between using one ? and ?? in searching for doc
 the ? find the exact match
 the ?? finds the general match
@@ -73,13 +110,27 @@ the ?? finds the general match
 
 ## The function read_csv()
 
-This function takes several arguments, all listed in the [documentation]( https://readr.tidyverse.org/reference/read_delim.html). Some of the most common arguments are:
+The `read_csv()` function has many arguments. The **file argument is required** because R needs to know where the file is. A few options to pass it:
 
 ```r
-read_csv(file, col_names = TRUE, col_types = NULL, na = c("", "NA"))
+library(readr)
+
+# Option 1: Use the full file path
+read_csv(file = "/home/nardin/testdata.csv")
+
+# Option 2 (best): Use only the file name
+# This works only if the file is in your current working directory
+read_csv(file = "testdata.csv")
+
+# Check your current working directory
+getwd()
+
+# Option 3: Choose the file manually
+# Not recommended for reproducible code
+read_csv(file = file.choose())
 ```
 
-**The `file` argument must always be passed, the other arguments can be left as default:**
+<!--
 
 ```r
 library(readr)
@@ -90,39 +141,53 @@ read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
 # load data into my Workbench, specifying the path
 read_csv(file = "/home/nardin/testdata.csv")
 
-# load data (local R Studio or Workbench) without specifying the path 
+# load data into my Workbench) without specifying the path 
 # where does R look for this file?
 read_csv("testdata.csv")
 
-# load data if you are not sure where it is located (not reccomended)
+# load data if you are not sure where it is located (not recommended)
 read_csv(file = file.choose())
 ```
 
-<!--
 Make sure the file is located in the given path and you are typing the path correctly. Let's practice!
+
+
+
 -->
 
 ---
 
 ## 💻 Practice: Load Data in R
 
-1. Create a `testdata.csv` file with four columns (id, name, age, food) with different data types and some missing data. Save it on your desktop with a `csv` extension.
+Complete these steps:
 
-1. Open Workbench: upload the file to the server. Skip this step if you are using R on your machine.
+1. Create a `testdata.csv` data file with four columns (id, name, age, food). We include different data types and a few missing data. 
 
-1. Look at your current working directory by typing `getwd()` in the console. That's where R looks at files by default.
+1. Save it on your desktop with a `csv` extension.
 
-1. Load `library(tidyverse)` and import the data into R using `read_csv()`. If you do not provide a path, R looks in your working directory.
+1. Open Workbench: upload the file to the server.
+
+1. Check your current working directory by typing `getwd()` in the Console. 
+
+1. Run `library(tidyverse)` and import the data into R using `read_csv()`. If you do not provide a path, R looks in your working directory by default.
 
 ---
 
-### Changing Default Arguments
+## Common Arguments of read_csv()
 
-In the next slides, we are going to modify some of the most common arguments of the `read_csv()` function. 
+The `read_csv()` function has many arguments. In the next slides, we will focus on the ones that address common import issues: file paths, column names, column types, and missing values.
 
-Let's start by using the function without modifying them, by simply typing `read_csv(file = "testdata.csv")`
+You can see the full list of arguments of this function in the [readr documentation](https://readr.tidyverse.org/reference/read_delim.html).
 
-What do you notice? 
+---
+
+Let's start by using `read_csv()` with the data you just created `testdata.csv` without changing any of the arguments. Like this:
+
+```r
+read_csv(file = "testdata.csv")
+```
+
+**YOUR TURN:** Run this code in your Console to import the data into R. What do you notice? 
 
 <!--
 This file is a good example of messy data!
@@ -133,20 +198,31 @@ type of column is shown at the top, e.g. id is double, name is char, but so is a
 
 ### Modify the col_types argument
 
-The default is `read_csv(file, col_types = NULL)`. We can change it to manually set the column types, as shown below (two options):
+By default, `read_csv()` guesses the column types:
 
 ```r
-# option 1
-read_csv(file = "testdata.csv",
-         col_types = cols(id = col_integer(),
-                          name = col_character(),
-                          age = col_integer(),
-                          food = col_character()))
-# option 2
-read_csv("testdata.csv", col_types = ("icic"))
+read_csv(file = "testdata.csv", col_types = NULL)
 ```
 
-Pick one option, and run the code in your Console to re-import the data. What do you notice?
+But we can also tell R what each column type should be:
+
+```r
+# Option 1: spell out each column type
+read_csv(
+  file = "testdata.csv",
+  col_types = cols(
+    id = col_integer(),
+    name = col_character(),
+    age = col_integer(),
+    food = col_character() ))
+
+# Option 2: use a shortcut
+read_csv(
+  file = "testdata.csv",
+  col_types = "icic")
+```
+
+**YOUR TURN:** Choose one option and run it in your Console. What do you notice about the imported data?
 
 <!-- all columns types have been converted to the datatype we specified. R is also guessing that the na in age is actually missing data and so converts it as such, but we get a warning message; type problems() to see more
 -->
@@ -155,122 +231,237 @@ Pick one option, and run the code in your Console to re-import the data. What do
 
 ### Modify the na argument
 
-The default is `read_csv(file, na = c("", "NA"))`. We can change it to add more missing data options, like that:
+By default, `read_csv()` treats empty cells and `"NA"` as missing values:
 
 ```r
-read_csv("testdata.csv", col_types = ("icic"), na = c("", "NA", "na", "None"))
+read_csv(file = "testdata.csv", na = c("", "NA"))
 ```
 
-What do you notice? You can customize what goes into the vector `c()`
+But we can add other values that should count as missing by costumizing what goes into the vector `c()`:
 
-<!-- we can enlarge the set of missing data to include everything we want -->
+```r
+read_csv(
+  file = "testdata.csv",
+  col_types = "icic",
+  na = c("", "NA", "na", "None"))
+```
 
+**YOUR TURN:** Run this code in your Console. What do you notice about the imported data?
+
+<!-- 
+We can customize which values R treats as missing data.
+Here, we expanded the set of missing values to include "", "NA", "na", and "None".
+This is useful because real datasets often use different codes for missing data.
+-->
 
 ---
 
 ### Modify the col_names argument
 
-The default is `read_csv(file, col_names = TRUE)`. We can change it to `col_names = FALSE`, like that:
+By default, `read_csv()` treats the first row as column names:
+
+```r
+read_csv(file = "testdata.csv", col_names = TRUE)
+```
+
+But we can tell R that the file does **not** have column names:
 
 ```r
 read_csv(file = "testdata.csv", col_names = FALSE)
-
 ```
 
-What do you notice?
+**YOUR TURN:** Run this code in your Console. What do you notice about the imported data?
 
-<!-- first line is not more read as variable names -->
+<!-- 
+The first row is no longer read as column names.
+Instead, it becomes part of the data, and R creates default column names such as X1, X2, X3, and X4.
+-->
 
 ---
 
 ### Modify the skip argument
 
+By default, `read_csv()` starts reading from the first row:
 
-The default is `read_csv(file, skip = 0)`. We can change it to `skip = 2` or any to any other integer.
+```r
+read_csv(file = "testdata.csv", skip = 0)
+```
+
+But we can tell R to skip rows at the top of the file:
 
 ```r
 read_csv(file = "testdata.csv", skip = 2)
-
 ```
 
-What do you notice?
+**YOUR TURN:** Run the code in your Console. What do you notice about the imported data?
 
-Useful when your data contain problematic rows. Note that `read.csv()` (base R) doesn’t support this option. If skipping lines doesn’t work, make sure you’re using `read_csv()` from `readr`
+:::{.callout-tip}
+Use `skip` when your CSV has extra or messy rows at the top!
+:::
 
----
-
-## Takehome
-
-Importing files correctly is important as it prevents problems that might emerge later!
-
-Check the function arguments: there are many of them available that can help you accomplish almost anything you need!
-
-*Let's clarify a few additional concepts related to importing and exporting data...*
+<!-- 
+R skips the first 2 rows and starts reading the file from row 3.
+This can be useful when a CSV file has extra notes, titles, or messy rows at the top.
+If `skip` does not work, check that you are using `read_csv()` from readr, not `read.csv()` from base R.
+-->
 
 ---
 
-## Working Directory
+## Takeaways from using read_csv()
 
-The working directory is the folder that R takes as **default directory** every time you try to load a file, script, etc.
+Importing files correctly matters because small import mistakes can create problems later.
 
-To check your current working directory: start a new session of R and type `getwd()`. In Workbench it should be `"/home/your_cnetid"`
+When something does not import correctly, the first thing to do is to check the function `read_csv()` arguments: there are many options that can help you tell R exactly how to read your file!
 
 ---
 
-## Relative Path vs. Absolute Path
+## Key Concepts for importing files
 
+**Now let's talk about a few related concepts about importing data...**
 
-When you import a file (for example, from the *Workbench “Files” tab*) into R, you should use a **relative path** instead of a **full (absolute) path**.
+In the next slides, we will introduce the following terms:
 
-::: {.columns}
+- **Working directory**
+- **Relative path**
+- **Absolute path**
+- **RStudio project**
 
-::: {.column width="50%"}
+---
 
-### Relative Path  
+## Working directory: where R looks first
 
-- Means relative to your R project folder (the one containing your `.Rproj` file)  
-- Recommended approach: easier and makes your code portable  
-- Works only if the file is inside R’s default working directory  
+**Working directory: the folder where R looks for files by default.**
+
+For example, this code only works if `testdata.csv` is located in your current working directory:
 
 ```r
 read_csv("testdata.csv")
 ```
 
+To check your current working, use:
+
+```r
+getwd()
+```
+---
+
+## Working directory: where R looks first
+
+If R says it “cannot find” a file, ask yourself: **Is the file in the folder where R is looking?**
+
+If the answer is **no**, you have two options:
+
+1. Move the file into the folder shown by `getwd()`
+2. Update the path so R knows where to find the file. When you do that, get into the habit of using a **relative path**
+
+---
+
+## Relative path vs. Absolute path
+
+Both are used to tell R where the file you want to load into R is located:
+
+:::{.columns}
+
+:::{.column width="50%"}
+
+### Relative path ✅
+
+Starts from the current working directory:
+
+```r
+read_csv("testdata.csv")
+```
+
+If the file is inside a folder:
+
+```r
+read_csv("data/testdata.csv")
+```
+
+Best practice for reproducibility and shared code.
+
 :::
 
-::: {.column width="50%"}
+:::{.column width="50%"}
 
-### Absolute Path  
+### Absolute path
 
-- Means you specify the entire path to reach the file, independent from specific folders  
-- Avoid this: it breaks if someone runs your code from another machine or folder  
-- Independent on R's default working directory  
+Gives the full location on one computer:
 
 ```r
 read_csv("/home/nardin/testdata.csv")
+```
+
+These paths can get long and hard to share. Avoid!
+
+```r
+read_csv("C:/Users/Sabrina/Desktop/css-website-summer/lectures/lecture10/data/testdata.csv")
 ```
 
 :::
 
 :::
 
+
+---
+
+## Why we prefer Relative paths
+
+**Relative path** means relative to (e.g., it starts from) your R project folder. Relative paths make your code easier to share and re-run.
+
+**Absolute path** means you specify the entire path to reach the file, independent from specific folders.  
+
+<br>
+
+### How do I make sure I am using a relative path correctly?
+
+1. Check where R is looking for a file using `getwd()`. Then make sure your file is in that location
+
+2. OR use RStudio Projects! (next slide)
+
+</br>
+
+---
+
+## RStudio Projects make using relative file paths easier!
+
+An **RStudio Project** is a folder that contains a `.Rproj` file.
+
+When you open the `.Rproj` file, RStudio automatically sets the working directory to that project folder.
+
+This makes relative paths easier to use.
+
+```text
+homework-05/
+├── homework-05.Rproj
+├── homework-05.rmd
+└── data/
+    └── testdata.csv
+```
+
+If you open `homework-05.Rproj`, R will automatically start from the `homework-05` folder as your default working directory.
+
+Then you can import the data using `read_csv("data/testdata.csv")`
+
 <!--
+Instructor note:
+For HW3, students will receive a folder with a .Rproj file.
+The main message is: open the correct project first, then use a relative path.
+
 You can also manually set your directory to an absolute path, for example using `setwd()` but that is not the best approach for reproducible. Use relative paths instead!
 -->
 
 ---
 
-## Easier Solution: Use RStudio Projects
-
 ::: {.callout-tip}
 
 ### RStudio Projects `.Rproj`
 
-RStudio Projects automatically set the working directory for you, based on the active project:
+RStudio Projects automatically set the working directory for you, based on your active project:
 
 - ensures portability across computers and a reliable behavior!
 - you do not need to set the working directory manually
-- but you need to check in which project you are working
+- *but* you do need to check in which project you are working
 
 :::
 
@@ -293,13 +484,13 @@ Step 3: Name your project and save it.
 
 Step 4: Click Create Project. RStudio will open a new session within your project environment. Done!
 
-Step 5: Let's test it! In your new project, create a new R script or R Markdown document and inside it type and run `getwd()`. What do you notice?
+Step 5: Let's test it. In your new project, create a new R script or R Markdown document. Inside it type and run `getwd()`. What do you notice?
 
 ---
 
 ## Other readr functions to import data 
 
-The `readr` package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a `csv` over other formats). 
+The `readr` package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a CSV over other formats). 
 
 For example:
 
@@ -313,7 +504,7 @@ For example:
 Cheat Sheet for `readr`:
 **Help > Cheat Sheets > Browse Cheat Sheets**
 
----
+<!--
 
 ## Using haven with SAS
 
@@ -324,42 +515,43 @@ read_sas(data_file = system.file("examples", "iris.sas7bdat",
   package = "haven"
 ))
 ```
+-->
 
 ---
 
-## Using haven with SPSS
+## Using haven with SPSS or Stata
+
+SPSS:
 
 ```r
 read_sav(file = system.file("examples", "iris.sav",
-  package = "haven"
-))
+  package = "haven"))
 ```
 
----
-
-## Using haven with Stata
+Stata:
 
 ```r 
 read_dta(file = system.file("examples", "iris.dta",
-  package = "haven"
-))
+  package = "haven"))
 ```
 
 ---
 
 ## Exporting data with write_csv()
 
-So far we talked about **IMPORTING DATA** with `read_csv()` from `readr`
+So far we talked about **IMPORTING DATA** into R with `read_csv()` from `readr`
 
-But`readr` has also several functions for **EXPORTING DATA**. The most common is `write_csv()` which **generates csv files from R data frames**: https://readr.tidyverse.org/reference/write_delim.html
+But `readr` has also several functions for **EXPORTING DATA** back to your computer. The most common is `write_csv()` which **generates csv files from R data frames**. 
 
-```
+Minimal Example:
+
+```r
 # import
 test <- read_csv("testdata.csv", col_types = ("icic"), na = c("", "NA", "na", "None"))
 
-# write your data analysis and visualization code etc.
+# then you write your data analysis and visualization code etc.
 
-# export 
+# once done, export 
 write_csv(test, file = "testdata_cleaned.csv")
 ```
 
@@ -369,11 +561,11 @@ write_csv(test, file = "testdata_cleaned.csv")
 
 ## Definition of Relational Data
 
-**Relational Database:** set of multiple "tables" that are linked based on data common to them. You can think of a "table" as a dataframe.
+**Relational Data** are typically organized in *relational databases* set of multiple "tables" that are linked based on data common to them. You can think of a single "table" as a single dataframe.
 
 **These tables provide meaningful insights only when combined together!**
 
-Answers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables.
+Answers to research questions are not defined by one in a single table; rather, they emerge from the relationships among tables.
 
 <!--
 why you want to do so? e.g. store data in different tables?
@@ -384,9 +576,9 @@ Data you need for the analysis is not and cannot be stored in one single table b
 
 ## Our Focus
 
-There are several software and languages to deal with relational databases. The most common is SQL but that's beyond our course. For more on this, see ["Chapter 21 Databases"](https://r4ds.hadley.nz/databases) from our book.
+There are several software and languages to deal with relational databases. For an overview, see ["Chapter 21 Databases"](https://r4ds.hadley.nz/databases) from our book.
 
-**R also allows you to join tables using the `dplyr` package. That's our focus!**
+**R allows us to work with tables using the `dplyr` package. That's our focus!**
 
 <!-- dplyr for relational data focuses on joining tables; it is basically merging data and no really needing sql terminology and concepts (e.g., table, attributes, relations) but there is value in using them, as explained in the assigned readings from today, which is Ch 19 joins from the book
 
@@ -397,9 +589,9 @@ So we do a mini theoretical intro to relational databases logic and terminology 
 
 ## We use the flights example from the readings
 
-`library(nycflights13)` in ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Edition. 
+We use data from `library(nycflights13)` in ["Chapter 19 Joins"](https://r4ds.hadley.nz/joins) from "R for Data Science" 2nd Ed. 
 
-We have five tables (e.g., five distinct datasets):  
+This database has five tables (e.g., five distinct datasets):  
 
 * `flights` info about flights, identified by multiple variables  
 * `airlines` each airplane company name, identified by the abbreviated `career` code  
@@ -407,11 +599,11 @@ We have five tables (e.g., five distinct datasets):
 * `planes` info about each plane, identified by its `tailnum` number  
 * `weather` info about the weather at each NYC airport for each hour, identified by various variables  
 
-Load the data into R (package already installed on Workbench): `library(nycflights13)`
+Load the data into R with `library(nycflights13)`
 
 ---
 
-## We use the flights example from the Readings
+## We use the flights example from the readings
 
 Visual representation of the relations among the 5 tables in `nycflights13`:
 
@@ -422,7 +614,7 @@ include_graphics(path = "10-pics/relational-nycflights.png")
 
 To understand diagrams like this, remember that each relation concerns a **pair of tables**. 
 
----
+<!--
 
 ### Formal definitions 
 
@@ -434,19 +626,17 @@ uniquely identifies an observation in its own table; e.g., `tailnum` is the prim
 * **FOREIGN KEY**
 matches the primary key of another table; e.g., `tailnum` is a foreign key in the `flights` table (it links each flight to a unique plane by matching the tantalum primary key from the planes table
 
-<!--
 A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
--->
+
 
 A **RELATION** is defined between **pairs of tables**: primary key + foreign key in another table.
 
-<!--
+
 Relations can be
 * one-to-one
 * one-to-many: each flight has one plane, but each plane has many flights
 * many-to-many
 -->
-
 
 ---
 
@@ -477,7 +667,7 @@ This group includes:
 Keeps obs. that appear in both tables, identified by keys (colored numbers). Unmatched rows are dropped.
 
 ::: {.columns}
-::: {.column width="45%"}
+::: {.column width="35%"}
 ![](10-pics/join-setup.png){width=90%}
 :::
 
@@ -490,20 +680,15 @@ Keeps obs. that appear in both tables, identified by keys (colored numbers). Unm
 :::
 :::
 
-<br>
 
 ```r
-# inner_join example
+# inner_join examples
 inner_join(x, y, by = "key")
-
-# with pipes
-x %>% inner_join(y, by = "key")
+x |> inner_join(y, by = "key") # same but with pipe
 
 # if the join columns have different names
 inner_join(x, y, by = c("a" = "b"))
 ```
-
-</br>
 
 <!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; 
 
@@ -672,7 +857,7 @@ anti_join(x, y, by = "key")
 
 ## 💻 Practice working with relational data with dplyr
 
-Download today's in-class materials from the website (`relational-data.Rmd`)
+Download today's in-class materials from the website for more practice!
 
 ---
 
@@ -686,6 +871,3 @@ Download today's in-class materials from the website (`relational-data.Rmd`)
 ## To print these slides as pdf
 
 Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
-
-
-:::

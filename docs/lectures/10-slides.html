@@ -223,11 +223,10 @@ Sabrina Nardin, Summer 2026
 
 NOTE: SLIDES BELOW ARE ALREADY COPIED OVER FROM FALL 25, NEED TO REVIEW THEM BUT CONTENT IS HERE
 
-<span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **October 20, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
-</span>
+<span style="font-size: 0.8em; color: #666;">These slides were last updated on June 30, 2026 </span>
+
 -->
-<p><span style="font-size: 0.8em; color: #666;">These slides were last updated on June 29, 2026 </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>June 30, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
 </section>
 
 <section>
@@ -235,16 +234,37 @@ NOTE: SLIDES BELOW ARE ALREADY COPIED OVER FROM FALL 25, NEED TO REVIEW THEM BUT
 <h1>1. Importing &amp; Exporting Data in R</h1>
 
 </section>
-<section id="importing-csv-files" class="slide level2 center">
-<h2>Importing CSV files</h2>
-<p>To load data into R we need <strong>importing functions</strong>. There are several of them depending on the <strong>type of file</strong> we want to import. See “R for Data Science” 2nd Ed. Chapter 7 for details.</p>
-<p><strong>The most common importing functions read comma-separated values (csv) files.</strong> Two main versions:</p>
+<section id="importing-files-into-r" class="slide level2 center">
+<h2>Importing files into R</h2>
+<p>To load files with data into R, we need <strong>importing functions</strong></p>
+<p>There are several importing functions. The best one depends on the <strong>type of file</strong> we want to import. For an overview, see today’s reading: <a href="https://r4ds.hadley.nz/data-import.html">R for Data Science, Chapter 7</a></p>
+<p>The most common type of file you will encounter is a <strong>CSV file</strong> (comma-separated values), so we will focus on the function that imports it: <code>read_csv()</code></p>
+</section>
+<section id="importing-csv-files-into-r" class="slide level2 center">
+<h2>Importing CSV files into R</h2>
+<p>To import CSV files into R, there are two functions. They are very similar, but use the second:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">read.csv</span>(<span class="st">"file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>from <strong>base-R</strong> we have <code>read.csv()</code></li>
-<li>from <strong><a href="https://readr.tidyverse.org/"><code>readr</code></a></strong> we have <code>read_csv()</code></li>
+<li>Built into R (e.g., comes from base R)</li>
+<li>Common in older code</li>
+<li>Uses a period <code>read.csv()</code></li>
 </ul>
-<p>They are similar, but we use <code>read_csv()</code> in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically). Type <code>?read.csv()</code> and <code>?read_csv()</code> in your Console for info.</p>
-<!-- `read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- r 
+</div><div class="column" style="width:50%;">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">read_csv</span>(<span class="st">"file.csv"</span>) ✅</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>From <a href="https://readr.tidyverse.org/">readr</a> (e.g., comes from the tidyverse)</li>
+<li>Faster and common in newer code</li>
+<li>Uses an underscore <code>read_csv()</code></li>
+</ul>
+</div></div>
+<p><em>Type <code>?read.csv()</code> and <code>?read_csv()</code> in your Console for more info.</em></p>
+<!--
+`read_csv()` in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically).
+
+`read.csv` is a special case of `read.table`, while `read_csv` is special case of `read_delim`. Look them up to check the differences -- r 
+
 difference between using one ? and ?? in searching for doc
 the ? find the exact match
 the ?? finds the general match
@@ -252,42 +272,68 @@ the ?? finds the general match
 </section>
 <section id="the-function-read_csv" class="slide level2 center">
 <h2>The function read_csv()</h2>
-<p>This function takes several arguments, all listed in the <a href="https://readr.tidyverse.org/reference/read_delim.html">documentation</a>. Some of the most common arguments are:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">read_csv</span>(file, <span class="at">col_names =</span> <span class="cn">TRUE</span>, <span class="at">col_types =</span> <span class="cn">NULL</span>, <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>The <code>file</code> argument must always be passed, the other arguments can be left as default:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb2-2"><a></a></span>
-<span id="cb2-3"><a></a><span class="co"># load data into my local R Studio, specifying the path</span></span>
-<span id="cb2-4"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"/Users/Sabrina Nardin/Desktop/testdata.csv"</span>)</span>
-<span id="cb2-5"><a></a></span>
-<span id="cb2-6"><a></a><span class="co"># load data into my Workbench, specifying the path</span></span>
-<span id="cb2-7"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"/home/nardin/testdata.csv"</span>)</span>
-<span id="cb2-8"><a></a></span>
-<span id="cb2-9"><a></a><span class="co"># load data (local R Studio or Workbench) without specifying the path </span></span>
-<span id="cb2-10"><a></a><span class="co"># where does R look for this file?</span></span>
-<span id="cb2-11"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>)</span>
-<span id="cb2-12"><a></a></span>
-<span id="cb2-13"><a></a><span class="co"># load data if you are not sure where it is located (not reccomended)</span></span>
-<span id="cb2-14"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="fu">file.choose</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>read_csv()</code> function has many arguments. The <strong>file argument is required</strong> because R needs to know where the file is. A few options to pass it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-2"><a></a></span>
+<span id="cb3-3"><a></a><span class="co"># Option 1: Use the full file path</span></span>
+<span id="cb3-4"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"/home/nardin/testdata.csv"</span>)</span>
+<span id="cb3-5"><a></a></span>
+<span id="cb3-6"><a></a><span class="co"># Option 2 (best): Use only the file name</span></span>
+<span id="cb3-7"><a></a><span class="co"># This works only if the file is in your current working directory</span></span>
+<span id="cb3-8"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>)</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a><span class="co"># Check your current working directory</span></span>
+<span id="cb3-11"><a></a><span class="fu">getwd</span>()</span>
+<span id="cb3-12"><a></a></span>
+<span id="cb3-13"><a></a><span class="co"># Option 3: Choose the file manually</span></span>
+<span id="cb3-14"><a></a><span class="co"># Not recommended for reproducible code</span></span>
+<span id="cb3-15"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="fu">file.choose</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!--
+
+```r
+library(readr)
+
+# load data into my local R Studio, specifying the path
+read_csv(file = "/Users/Sabrina Nardin/Desktop/testdata.csv")
+
+# load data into my Workbench, specifying the path
+read_csv(file = "/home/nardin/testdata.csv")
+
+# load data into my Workbench) without specifying the path 
+# where does R look for this file?
+read_csv("testdata.csv")
+
+# load data if you are not sure where it is located (not recommended)
+read_csv(file = file.choose())
+```
+
 Make sure the file is located in the given path and you are typing the path correctly. Let's practice!
+
+
+
 -->
 </section>
 <section id="practice-load-data-in-r" class="slide level2 center">
 <h2>💻 Practice: Load Data in R</h2>
+<p>Complete these steps:</p>
 <ol type="1">
-<li><p>Create a <code>testdata.csv</code> file with four columns (id, name, age, food) with different data types and some missing data. Save it on your desktop with a <code>csv</code> extension.</p></li>
-<li><p>Open Workbench: upload the file to the server. Skip this step if you are using R on your machine.</p></li>
-<li><p>Look at your current working directory by typing <code>getwd()</code> in the console. That’s where R looks at files by default.</p></li>
-<li><p>Load <code>library(tidyverse)</code> and import the data into R using <code>read_csv()</code>. If you do not provide a path, R looks in your working directory.</p></li>
+<li><p>Create a <code>testdata.csv</code> data file with four columns (id, name, age, food). We include different data types and a few missing data.</p></li>
+<li><p>Save it on your desktop with a <code>csv</code> extension.</p></li>
+<li><p>Open Workbench: upload the file to the server.</p></li>
+<li><p>Check your current working directory by typing <code>getwd()</code> in the Console.</p></li>
+<li><p>Run <code>library(tidyverse)</code> and import the data into R using <code>read_csv()</code>. If you do not provide a path, R looks in your working directory by default.</p></li>
 </ol>
+</section>
+<section id="common-arguments-of-read_csv" class="slide level2 center">
+<h2>Common Arguments of read_csv()</h2>
+<p>The <code>read_csv()</code> function has many arguments. In the next slides, we will focus on the ones that address common import issues: file paths, column names, column types, and missing values.</p>
+<p>You can see the full list of arguments of this function in the <a href="https://readr.tidyverse.org/reference/read_delim.html">readr documentation</a>.</p>
 </section>
 <section class="slide level2 center">
 
-<h3 id="changing-default-arguments">Changing Default Arguments</h3>
-<p>In the next slides, we are going to modify some of the most common arguments of the <code>read_csv()</code> function.</p>
-<p>Let’s start by using the function without modifying them, by simply typing <code>read_csv(file = "testdata.csv")</code></p>
-<p>What do you notice?</p>
+<p>Let’s start by using <code>read_csv()</code> with the data you just created <code>testdata.csv</code> without changing any of the arguments. Like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run this code in your Console to import the data into R. What do you notice?</p>
 <!--
 This file is a good example of messy data!
 type of column is shown at the top, e.g. id is double, name is char, but so is age, which should not be. Why so? the "na" is interpret as a character rather than missing data and all column values are forced to character.
@@ -296,85 +342,169 @@ type of column is shown at the top, e.g. id is double, name is char, but so is a
 <section class="slide level2 center">
 
 <h3 id="modify-the-col_types-argument">Modify the col_types argument</h3>
-<p>The default is <code>read_csv(file, col_types = NULL)</code>. We can change it to manually set the column types, as shown below (two options):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># option 1</span></span>
-<span id="cb3-2"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>,</span>
-<span id="cb3-3"><a></a>         <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">id =</span> <span class="fu">col_integer</span>(),</span>
-<span id="cb3-4"><a></a>                          <span class="at">name =</span> <span class="fu">col_character</span>(),</span>
-<span id="cb3-5"><a></a>                          <span class="at">age =</span> <span class="fu">col_integer</span>(),</span>
-<span id="cb3-6"><a></a>                          <span class="at">food =</span> <span class="fu">col_character</span>()))</span>
-<span id="cb3-7"><a></a><span class="co"># option 2</span></span>
-<span id="cb3-8"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>, <span class="at">col_types =</span> (<span class="st">"icic"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Pick one option, and run the code in your Console to re-import the data. What do you notice?</p>
+<p>By default, <code>read_csv()</code> guesses the column types:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">col_types =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can also tell R what each column type should be:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Option 1: spell out each column type</span></span>
+<span id="cb6-2"><a></a><span class="fu">read_csv</span>(</span>
+<span id="cb6-3"><a></a>  <span class="at">file =</span> <span class="st">"testdata.csv"</span>,</span>
+<span id="cb6-4"><a></a>  <span class="at">col_types =</span> <span class="fu">cols</span>(</span>
+<span id="cb6-5"><a></a>    <span class="at">id =</span> <span class="fu">col_integer</span>(),</span>
+<span id="cb6-6"><a></a>    <span class="at">name =</span> <span class="fu">col_character</span>(),</span>
+<span id="cb6-7"><a></a>    <span class="at">age =</span> <span class="fu">col_integer</span>(),</span>
+<span id="cb6-8"><a></a>    <span class="at">food =</span> <span class="fu">col_character</span>() ))</span>
+<span id="cb6-9"><a></a></span>
+<span id="cb6-10"><a></a><span class="co"># Option 2: use a shortcut</span></span>
+<span id="cb6-11"><a></a><span class="fu">read_csv</span>(</span>
+<span id="cb6-12"><a></a>  <span class="at">file =</span> <span class="st">"testdata.csv"</span>,</span>
+<span id="cb6-13"><a></a>  <span class="at">col_types =</span> <span class="st">"icic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Choose one option and run it in your Console. What do you notice about the imported data?</p>
 <!-- all columns types have been converted to the datatype we specified. R is also guessing that the na in age is actually missing data and so converts it as such, but we get a warning message; type problems() to see more
 -->
 </section>
 <section class="slide level2 center">
 
 <h3 id="modify-the-na-argument">Modify the na argument</h3>
-<p>The default is <code>read_csv(file, na = c("", "NA"))</code>. We can change it to add more missing data options, like that:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>, <span class="at">col_types =</span> (<span class="st">"icic"</span>), <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"na"</span>, <span class="st">"None"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>What do you notice? You can customize what goes into the vector <code>c()</code></p>
-<!-- we can enlarge the set of missing data to include everything we want -->
+<p>By default, <code>read_csv()</code> treats empty cells and <code>"NA"</code> as missing values:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can add other values that should count as missing by costumizing what goes into the vector <code>c()</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">read_csv</span>(</span>
+<span id="cb8-2"><a></a>  <span class="at">file =</span> <span class="st">"testdata.csv"</span>,</span>
+<span id="cb8-3"><a></a>  <span class="at">col_types =</span> <span class="st">"icic"</span>,</span>
+<span id="cb8-4"><a></a>  <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"na"</span>, <span class="st">"None"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run this code in your Console. What do you notice about the imported data?</p>
+<!-- 
+We can customize which values R treats as missing data.
+Here, we expanded the set of missing values to include "", "NA", "na", and "None".
+This is useful because real datasets often use different codes for missing data.
+-->
 </section>
 <section class="slide level2 center">
 
 <h3 id="modify-the-col_names-argument">Modify the col_names argument</h3>
-<p>The default is <code>read_csv(file, col_names = TRUE)</code>. We can change it to <code>col_names = FALSE</code>, like that:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>What do you notice?</p>
-<!-- first line is not more read as variable names -->
+<p>By default, <code>read_csv()</code> treats the first row as column names:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">col_names =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can tell R that the file does <strong>not</strong> have column names:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">col_names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run this code in your Console. What do you notice about the imported data?</p>
+<!-- 
+The first row is no longer read as column names.
+Instead, it becomes part of the data, and R creates default column names such as X1, X2, X3, and X4.
+-->
 </section>
 <section class="slide level2 center">
 
 <h3 id="modify-the-skip-argument">Modify the skip argument</h3>
-<p>The default is <code>read_csv(file, skip = 0)</code>. We can change it to <code>skip = 2</code> or any to any other integer.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">skip =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>What do you notice?</p>
-<p>Useful when your data contain problematic rows. Note that <code>read.csv()</code> (base R) doesn’t support this option. If skipping lines doesn’t work, make sure you’re using <code>read_csv()</code> from <code>readr</code></p>
+<p>By default, <code>read_csv()</code> starts reading from the first row:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">skip =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can tell R to skip rows at the top of the file:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">"testdata.csv"</span>, <span class="at">skip =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>YOUR TURN:</strong> Run the code in your Console. What do you notice about the imported data?</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Use <code>skip</code> when your CSV has extra or messy rows at the top!</p>
+</div>
+</div>
+</div>
+<!-- 
+R skips the first 2 rows and starts reading the file from row 3.
+This can be useful when a CSV file has extra notes, titles, or messy rows at the top.
+If `skip` does not work, check that you are using `read_csv()` from readr, not `read.csv()` from base R.
+-->
 </section>
-<section id="takehome" class="slide level2 center">
-<h2>Takehome</h2>
-<p>Importing files correctly is important as it prevents problems that might emerge later!</p>
-<p>Check the function arguments: there are many of them available that can help you accomplish almost anything you need!</p>
-<p><em>Let’s clarify a few additional concepts related to importing and exporting data…</em></p>
+<section id="takeaways-from-using-read_csv" class="slide level2 center">
+<h2>Takeaways from using read_csv()</h2>
+<p>Importing files correctly matters because small import mistakes can create problems later.</p>
+<p>When something does not import correctly, the first thing to do is to check the function <code>read_csv()</code> arguments: there are many options that can help you tell R exactly how to read your file!</p>
 </section>
-<section id="working-directory" class="slide level2 center">
-<h2>Working Directory</h2>
-<p>The working directory is the folder that R takes as <strong>default directory</strong> every time you try to load a file, script, etc.</p>
-<p>To check your current working directory: start a new session of R and type <code>getwd()</code>. In Workbench it should be <code>"/home/your_cnetid"</code></p>
+<section id="key-concepts-for-importing-files" class="slide level2 center">
+<h2>Key Concepts for importing files</h2>
+<p><strong>Now let’s talk about a few related concepts about importing data…</strong></p>
+<p>In the next slides, we will introduce the following terms:</p>
+<ul>
+<li><strong>Working directory</strong></li>
+<li><strong>Relative path</strong></li>
+<li><strong>Absolute path</strong></li>
+<li><strong>RStudio project</strong></li>
+</ul>
+</section>
+<section id="working-directory-where-r-looks-first" class="slide level2 center">
+<h2>Working directory: where R looks first</h2>
+<p><strong>Working directory: the folder where R looks for files by default.</strong></p>
+<p>For example, this code only works if <code>testdata.csv</code> is located in your current working directory:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To check your current working, use:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="working-directory-where-r-looks-first-1" class="slide level2 center">
+<h2>Working directory: where R looks first</h2>
+<p>If R says it “cannot find” a file, ask yourself: <strong>Is the file in the folder where R is looking?</strong></p>
+<p>If the answer is <strong>no</strong>, you have two options:</p>
+<ol type="1">
+<li>Move the file into the folder shown by <code>getwd()</code></li>
+<li>Update the path so R knows where to find the file. When you do that, get into the habit of using a <strong>relative path</strong></li>
+</ol>
 </section>
 <section id="relative-path-vs.-absolute-path" class="slide level2 center">
-<h2>Relative Path vs.&nbsp;Absolute Path</h2>
-<p>When you import a file (for example, from the <em>Workbench “Files” tab</em>) into R, you should use a <strong>relative path</strong> instead of a <strong>full (absolute) path</strong>.</p>
+<h2>Relative path vs.&nbsp;Absolute path</h2>
+<p>Both are used to tell R where the file you want to load into R is located:</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 id="relative-path">Relative Path</h3>
-<ul>
-<li>Means relative to your R project folder (the one containing your <code>.Rproj</code> file)<br>
-</li>
-<li>Recommended approach: easier and makes your code portable<br>
-</li>
-<li>Works only if the file is inside R’s default working directory</li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="relative-path">Relative path ✅</h3>
+<p>Starts from the current working directory:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If the file is inside a folder:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">read_csv</span>(<span class="st">"data/testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Best practice for reproducibility and shared code.</p>
 </div><div class="column" style="width:50%;">
-<h3 id="absolute-path">Absolute Path</h3>
-<ul>
-<li>Means you specify the entire path to reach the file, independent from specific folders<br>
-</li>
-<li>Avoid this: it breaks if someone runs your code from another machine or folder<br>
-</li>
-<li>Independent on R’s default working directory</li>
-</ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">read_csv</span>(<span class="st">"/home/nardin/testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<h3 id="absolute-path">Absolute path</h3>
+<p>Gives the full location on one computer:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">read_csv</span>(<span class="st">"/home/nardin/testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These paths can get long and hard to share. Avoid!</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">read_csv</span>(<span class="st">"C:/Users/Sabrina/Desktop/css-website-summer/lectures/lecture10/data/testdata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
+</section>
+<section id="why-we-prefer-relative-paths" class="slide level2 center">
+<h2>Why we prefer Relative paths</h2>
+<p><strong>Relative path</strong> means relative to (e.g., it starts from) your R project folder. Relative paths make your code easier to share and re-run.</p>
+<p><strong>Absolute path</strong> means you specify the entire path to reach the file, independent from specific folders.</p>
+<p><br></p>
+<h3 id="how-do-i-make-sure-i-am-using-a-relative-path-correctly">How do I make sure I am using a relative path correctly?</h3>
+<ol type="1">
+<li><p>Check where R is looking for a file using <code>getwd()</code>. Then make sure your file is in that location</p></li>
+<li><p>OR use RStudio Projects! (next slide)</p></li>
+</ol>
+<p><br></p>
+</section>
+<section id="rstudio-projects-make-using-relative-file-paths-easier" class="slide level2 center">
+<h2>RStudio Projects make using relative file paths easier!</h2>
+<p>An <strong>RStudio Project</strong> is a folder that contains a <code>.Rproj</code> file.</p>
+<p>When you open the <code>.Rproj</code> file, RStudio automatically sets the working directory to that project folder.</p>
+<p>This makes relative paths easier to use.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource text number-lines code-with-copy"><code class="sourceCode"><span id="cb19-1"><a></a>homework-05/</span>
+<span id="cb19-2"><a></a>├── homework-05.Rproj</span>
+<span id="cb19-3"><a></a>├── homework-05.rmd</span>
+<span id="cb19-4"><a></a>└── data/</span>
+<span id="cb19-5"><a></a>    └── testdata.csv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you open <code>homework-05.Rproj</code>, R will automatically start from the <code>homework-05</code> folder as your default working directory.</p>
+<p>Then you can import the data using <code>read_csv("data/testdata.csv")</code></p>
 <!--
+Instructor note:
+For HW3, students will receive a folder with a .Rproj file.
+The main message is: open the correct project first, then use a relative path.
+
 You can also manually set your directory to an absolute path, for example using `setwd()` but that is not the best approach for reproducible. Use relative paths instead!
 -->
 </section>
-<section id="easier-solution-use-rstudio-projects" class="slide level2 center">
-<h2>Easier Solution: Use RStudio Projects</h2>
+<section class="slide level2 center">
+
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -384,11 +514,11 @@ You can also manually set your directory to an absolute path, for example using 
 <p><strong>RStudio Projects <code>.Rproj</code></strong></p>
 </div>
 <div class="callout-content">
-<p>RStudio Projects automatically set the working directory for you, based on the active project:</p>
+<p>RStudio Projects automatically set the working directory for you, based on your active project:</p>
 <ul>
 <li>ensures portability across computers and a reliable behavior!</li>
 <li>you do not need to set the working directory manually</li>
-<li>but you need to check in which project you are working</li>
+<li><em>but</em> you do need to check in which project you are working</li>
 </ul>
 </div>
 </div>
@@ -404,11 +534,11 @@ You can also manually set your directory to an absolute path, for example using 
 <p>Step 2: Choose New Directory, then select New Project</p>
 <p>Step 3: Name your project and save it.</p>
 <p>Step 4: Click Create Project. RStudio will open a new session within your project environment. Done!</p>
-<p>Step 5: Let’s test it! In your new project, create a new R script or R Markdown document and inside it type and run <code>getwd()</code>. What do you notice?</p>
+<p>Step 5: Let’s test it. In your new project, create a new R script or R Markdown document. Inside it type and run <code>getwd()</code>. What do you notice?</p>
 </section>
 <section id="other-readr-functions-to-import-data" class="slide level2 center">
 <h2>Other readr functions to import data</h2>
-<p>The <code>readr</code> package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a <code>csv</code> over other formats).</p>
+<p>The <code>readr</code> package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a CSV over other formats).</p>
 <p>For example:</p>
 <ul>
 <li><strong>Comma separated csv</strong> use <code>read_csv()</code> from the <code>readr</code> package</li>
@@ -419,38 +549,40 @@ You can also manually set your directory to an absolute path, for example using 
 <li><strong>SAS/SPSS/Stata</strong> use the <code>haven</code> package (several functions)</li>
 </ul>
 <p>Cheat Sheet for <code>readr</code>: <strong>Help &gt; Cheat Sheets &gt; Browse Cheat Sheets</strong></p>
+<!--
+
+## Using haven with SAS
+
+```r
+library(haven)
+
+read_sas(data_file = system.file("examples", "iris.sas7bdat",
+  package = "haven"
+))
+```
+-->
 </section>
-<section id="using-haven-with-sas" class="slide level2 center">
-<h2>Using haven with SAS</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(haven)</span>
-<span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a><span class="fu">read_sas</span>(<span class="at">data_file =</span> <span class="fu">system.file</span>(<span class="st">"examples"</span>, <span class="st">"iris.sas7bdat"</span>,</span>
-<span id="cb9-4"><a></a>  <span class="at">package =</span> <span class="st">"haven"</span></span>
-<span id="cb9-5"><a></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="using-haven-with-spss" class="slide level2 center">
-<h2>Using haven with SPSS</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">read_sav</span>(<span class="at">file =</span> <span class="fu">system.file</span>(<span class="st">"examples"</span>, <span class="st">"iris.sav"</span>,</span>
-<span id="cb10-2"><a></a>  <span class="at">package =</span> <span class="st">"haven"</span></span>
-<span id="cb10-3"><a></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="using-haven-with-stata" class="slide level2 center">
-<h2>Using haven with Stata</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">read_dta</span>(<span class="at">file =</span> <span class="fu">system.file</span>(<span class="st">"examples"</span>, <span class="st">"iris.dta"</span>,</span>
-<span id="cb11-2"><a></a>  <span class="at">package =</span> <span class="st">"haven"</span></span>
-<span id="cb11-3"><a></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="using-haven-with-spss-or-stata" class="slide level2 center">
+<h2>Using haven with SPSS or Stata</h2>
+<p>SPSS:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">read_sav</span>(<span class="at">file =</span> <span class="fu">system.file</span>(<span class="st">"examples"</span>, <span class="st">"iris.sav"</span>,</span>
+<span id="cb20-2"><a></a>  <span class="at">package =</span> <span class="st">"haven"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Stata:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">read_dta</span>(<span class="at">file =</span> <span class="fu">system.file</span>(<span class="st">"examples"</span>, <span class="st">"iris.dta"</span>,</span>
+<span id="cb21-2"><a></a>  <span class="at">package =</span> <span class="st">"haven"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exporting-data-with-write_csv" class="slide level2 center">
 <h2>Exporting data with write_csv()</h2>
-<p>So far we talked about <strong>IMPORTING DATA</strong> with <code>read_csv()</code> from <code>readr</code></p>
-<p>But<code>readr</code> has also several functions for <strong>EXPORTING DATA</strong>. The most common is <code>write_csv()</code> which <strong>generates csv files from R data frames</strong>: https://readr.tidyverse.org/reference/write_delim.html</p>
-<pre><code># import
-test &lt;- read_csv("testdata.csv", col_types = ("icic"), na = c("", "NA", "na", "None"))
-
-# write your data analysis and visualization code etc.
-
-# export 
-write_csv(test, file = "testdata_cleaned.csv")</code></pre>
+<p>So far we talked about <strong>IMPORTING DATA</strong> into R with <code>read_csv()</code> from <code>readr</code></p>
+<p>But <code>readr</code> has also several functions for <strong>EXPORTING DATA</strong> back to your computer. The most common is <code>write_csv()</code> which <strong>generates csv files from R data frames</strong>.</p>
+<p>Minimal Example:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># import</span></span>
+<span id="cb22-2"><a></a>test <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"testdata.csv"</span>, <span class="at">col_types =</span> (<span class="st">"icic"</span>), <span class="at">na =</span> <span class="fu">c</span>(<span class="st">""</span>, <span class="st">"NA"</span>, <span class="st">"na"</span>, <span class="st">"None"</span>))</span>
+<span id="cb22-3"><a></a></span>
+<span id="cb22-4"><a></a><span class="co"># then you write your data analysis and visualization code etc.</span></span>
+<span id="cb22-5"><a></a></span>
+<span id="cb22-6"><a></a><span class="co"># once done, export </span></span>
+<span id="cb22-7"><a></a><span class="fu">write_csv</span>(test, <span class="at">file =</span> <span class="st">"testdata_cleaned.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section>
 <section>
 <section id="relational-data-with-dplyr" class="title-slide slide level1 center middle">
@@ -459,9 +591,9 @@ write_csv(test, file = "testdata_cleaned.csv")</code></pre>
 </section>
 <section id="definition-of-relational-data" class="slide level2 center">
 <h2>Definition of Relational Data</h2>
-<p><strong>Relational Database:</strong> set of multiple “tables” that are linked based on data common to them. You can think of a “table” as a dataframe.</p>
+<p><strong>Relational Data</strong> are typically organized in <em>relational databases</em> set of multiple “tables” that are linked based on data common to them. You can think of a single “table” as a single dataframe.</p>
 <p><strong>These tables provide meaningful insights only when combined together!</strong></p>
-<p>Answers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables.</p>
+<p>Answers to research questions are not defined by one in a single table; rather, they emerge from the relationships among tables.</p>
 <!--
 why you want to do so? e.g. store data in different tables?
 Data you need for the analysis is not and cannot be stored in one single table but it is split across tables; usually two but potentially more
@@ -469,8 +601,8 @@ Data you need for the analysis is not and cannot be stored in one single table b
 </section>
 <section id="our-focus" class="slide level2 center">
 <h2>Our Focus</h2>
-<p>There are several software and languages to deal with relational databases. The most common is SQL but that’s beyond our course. For more on this, see <a href="https://r4ds.hadley.nz/databases">“Chapter 21 Databases”</a> from our book.</p>
-<p><strong>R also allows you to join tables using the <code>dplyr</code> package. That’s our focus!</strong></p>
+<p>There are several software and languages to deal with relational databases. For an overview, see <a href="https://r4ds.hadley.nz/databases">“Chapter 21 Databases”</a> from our book.</p>
+<p><strong>R allows us to work with tables using the <code>dplyr</code> package. That’s our focus!</strong></p>
 <!-- dplyr for relational data focuses on joining tables; it is basically merging data and no really needing sql terminology and concepts (e.g., table, attributes, relations) but there is value in using them, as explained in the assigned readings from today, which is Ch 19 joins from the book
 
 So we do a mini theoretical intro to relational databases logic and terminology and then we move to dplyr
@@ -478,8 +610,8 @@ So we do a mini theoretical intro to relational databases logic and terminology 
 </section>
 <section id="we-use-the-flights-example-from-the-readings" class="slide level2 center">
 <h2>We use the flights example from the readings</h2>
-<p><code>library(nycflights13)</code> in <a href="https://r4ds.hadley.nz/joins">“Chapter 19 Joins”</a> from “R for Data Science” 2nd Edition.</p>
-<p>We have five tables (e.g., five distinct datasets):</p>
+<p>We use data from <code>library(nycflights13)</code> in <a href="https://r4ds.hadley.nz/joins">“Chapter 19 Joins”</a> from “R for Data Science” 2nd Ed.</p>
+<p>This database has five tables (e.g., five distinct datasets):</p>
 <ul>
 <li><code>flights</code> info about flights, identified by multiple variables<br>
 </li>
@@ -491,27 +623,31 @@ So we do a mini theoretical intro to relational databases logic and terminology 
 </li>
 <li><code>weather</code> info about the weather at each NYC airport for each hour, identified by various variables</li>
 </ul>
-<p>Load the data into R (package already installed on Workbench): <code>library(nycflights13)</code></p>
+<p>Load the data into R with <code>library(nycflights13)</code></p>
 </section>
 <section id="we-use-the-flights-example-from-the-readings-1" class="slide level2 center">
-<h2>We use the flights example from the Readings</h2>
+<h2>We use the flights example from the readings</h2>
 <p>Visual representation of the relations among the 5 tables in <code>nycflights13</code>:</p>
 
 <img data-src="10-pics/relational-nycflights.png" style="width:60.0%" class="r-stretch"><p>To understand diagrams like this, remember that each relation concerns a <strong>pair of tables</strong>.</p>
-</section>
-<section class="slide level2 center">
+<!--
 
-<h3 id="formal-definitions">Formal definitions</h3>
-<p>A <strong>KEY</strong> of a table is a one or a subset of columns (formally called “attributes”). Two types of keys:</p>
-<ul>
-<li><p><strong>PRIMARY KEY</strong> uniquely identifies an observation in its own table; e.g., <code>tailnum</code> is the primary key of the <code>planes</code> table; a primary key can be one or multiple columns.</p></li>
-<li><p><strong>FOREIGN KEY</strong> matches the primary key of another table; e.g., <code>tailnum</code> is a foreign key in the <code>flights</code> table (it links each flight to a unique plane by matching the tantalum primary key from the planes table</p></li>
-</ul>
-<!--
+### Formal definitions 
+
+A **KEY** of a table is a one or a subset of columns (formally called "attributes"). Two types of keys:
+
+* **PRIMARY KEY**
+uniquely identifies an observation in its own table; e.g., `tailnum` is the primary key of the `planes` table; a primary key can be one or multiple columns.
+
+* **FOREIGN KEY**
+matches the primary key of another table; e.g., `tailnum` is a foreign key in the `flights` table (it links each flight to a unique plane by matching the tantalum primary key from the planes table
+
 A variable can be both a primary key and a foreign key. For example, origin is part of the weather primary key, and is also a foreign key for the airports table. 
--->
-<p>A <strong>RELATION</strong> is defined between <strong>pairs of tables</strong>: primary key + foreign key in another table.</p>
-<!--
+
+
+A **RELATION** is defined between **pairs of tables**: primary key + foreign key in another table.
+
+
 Relations can be
 * one-to-one
 * one-to-many: each flight has one plane, but each plane has many flights
@@ -542,21 +678,17 @@ Relations can be
 <h2>inner_join()</h2>
 <p>Keeps obs. that appear in both tables, identified by keys (colored numbers). Unmatched rows are dropped.</p>
 <div class="columns">
-<div class="column" style="width:45%;">
+<div class="column" style="width:35%;">
 <p><img data-src="10-pics/join-setup.png" style="width:90.0%"></p>
 </div><div class="column" style="width:55%;">
 <p><br> <br> <img data-src="10-pics/join-inner.png" style="width:100.0%"> <br> <br></p>
 </div></div>
-<p><br></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># inner_join example</span></span>
-<span id="cb13-2"><a></a><span class="fu">inner_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span>
-<span id="cb13-3"><a></a></span>
-<span id="cb13-4"><a></a><span class="co"># with pipes</span></span>
-<span id="cb13-5"><a></a>x <span class="sc">%&gt;%</span> <span class="fu">inner_join</span>(y, <span class="at">by =</span> <span class="st">"key"</span>)</span>
-<span id="cb13-6"><a></a></span>
-<span id="cb13-7"><a></a><span class="co"># if the join columns have different names</span></span>
-<span id="cb13-8"><a></a><span class="fu">inner_join</span>(x, y, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"a"</span> <span class="ot">=</span> <span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="co"># inner_join examples</span></span>
+<span id="cb23-2"><a></a><span class="fu">inner_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span>
+<span id="cb23-3"><a></a>x <span class="sc">|&gt;</span> <span class="fu">inner_join</span>(y, <span class="at">by =</span> <span class="st">"key"</span>) <span class="co"># same but with pipe</span></span>
+<span id="cb23-4"><a></a></span>
+<span id="cb23-5"><a></a><span class="co"># if the join columns have different names</span></span>
+<span id="cb23-6"><a></a><span class="fu">inner_join</span>(x, y, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"a"</span> <span class="ot">=</span> <span class="st">"b"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- by convention, x is assigned as the first dataframe or left one, and y as the second or right one; 
 
 the by argument specifies that we are joining it based on the key column (which you cannot see from the slide but its the column name of the colored columns in each x and y). Compare this to the left_join() operation which is another form of mutating join
@@ -572,7 +704,7 @@ the by argument specifies that we are joining it based on the key column (which 
 <p><br> <img data-src="10-pics/join-outer-left.png" style="width:100.0%"> <br></p>
 </div></div>
 <p><br></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">left_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">left_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 </section>
 <section id="right_join" class="slide level2 center">
@@ -585,7 +717,7 @@ the by argument specifies that we are joining it based on the key column (which 
 <p><br> <img data-src="10-pics/join-outer-right.png" style="width:100.0%"> <br></p>
 </div></div>
 <p><br></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">right_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">right_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <!-- same thing as left join but reversing the order of the data frame or table
 typically right join is utilized less because by convention we think at the left or x table as the primary  data for these kind of operations 
@@ -601,7 +733,7 @@ typically right join is utilized less because by convention we think at the left
 <p><br> <img data-src="10-pics/join-outer-full.png" style="width:100.0%"> <br></p>
 </div></div>
 <p><br></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">full_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">full_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 </section>
 <section id="venn-diagram" class="slide level2 center">
@@ -627,7 +759,7 @@ typically right join is utilized less because by convention we think at the left
 <p><br> <br> <img data-src="10-pics/join-semi.png" style="width:100.0%"> <br> <br></p>
 </div></div>
 <p><br></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">semi_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">semi_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 </section>
 <section id="anti_join" class="slide level2 center">
@@ -640,12 +772,12 @@ typically right join is utilized less because by convention we think at the left
 <p><br> <br> <img data-src="10-pics/join-anti.png" style="width:100.0%"> <br> <br></p>
 </div></div>
 <p><br></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">anti_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">anti_join</span>(x, y, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 </section>
 <section id="practice-working-with-relational-data-with-dplyr" class="slide level2 center">
 <h2>💻 Practice working with relational data with dplyr</h2>
-<p>Download today’s in-class materials from the website (<code>relational-data.Rmd</code>)</p>
+<p>Download today’s in-class materials from the website for more practice!</p>
 </section>
 <section id="recap-what-we-learned-today" class="slide level2 center">
 <h2>Recap: What We Learned Today</h2>
@@ -657,7 +789,6 @@ typically right join is utilized less because by convention we think at the left
 <section id="to-print-these-slides-as-pdf" class="slide level2 center">
 <h2>To print these slides as pdf</h2>
 <p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
-<p>:::</p>
 
 
 </section></section>

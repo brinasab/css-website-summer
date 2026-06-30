@@ -613,7 +613,7 @@
     "href": "hw/index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Assignments Summer 2026\n\n\n\n\n\n\n\n\n\nAccess the take-home assigments\n\n\n\nTake-home assignments will be posted here when they are released. Open each assignment page for the instructions on how to access the files, complete the work, and submit it:\n\nHomework 1 due Monday, June 22 (11:59 PM Chicago Time)\nHomework 2 due Thursday, July 2nd (11:59 PM Chicago Time)\n\n\n\n\nThe course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the Syllabus. Below is an overview of what you can expect from each:\n\nQuizzes: Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.\nIn-Class Participation: You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for 3 of the 4 class meetings each week of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously before the start of the next class. Late submissions will not be accepted.\nOral Code Checks: Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course. More info, including the sign-up process and rubric, will be shared ahead of time.\nTake-Home Assignments: This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the optional fifth assignment, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this page (see top of the page) once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.\n\n\n\n\n\n\n\nNote\n\n\n\nFurther Info:\n\nSee the Course Schedule for details and due dates of all assignments.\nSee the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
+    "text": "Course Assignments Summer 2026\n\n\n\n\n\n\n\n\n\nAccess the Take-Home Assigments\n\n\n\nTake-home assignments will be posted here when they are released. Open each assignment page for the instructions:\n\nHomework 1 due Monday, June 22 (11:59 PM Chicago Time)\nHomework 2 due Thursday, July 2nd (11:59 PM Chicago Time)\n\n\n\n\nThe course includes several types of assignments, each designed to support a different part of your learning. The points assigned to each assessment, along with further details, are available on the Syllabus. Below is an overview of what you can expect from each:\n\nQuizzes: Short weekly quizzes, four in total, will assess your understanding of key concepts, syntax, and coding logic from recent lectures. You will have unlimited attempts to complete each quiz before its deadline, and only your highest score will be recorded. Late quiz submissions will not be accepted. Quizzes will be completed on Canvas and will be posted there when available.\nIn-Class Participation: You will receive credit for active participation during lectures, such as coding exercises, questions, and other engagement tasks. Class engagement are graded for each lecture. There will be opportunities to participate in every class but you need to complete participation activities for 3 of the 4 class meetings each week of your choice. These activities are designed for live/synchronous participation but may be completed asynchronously before the start of the next class. Late submissions will not be accepted.\nOral Code Checks: Each student is required to sign up for one oral code check. This will be a 10–15 minute, one-on-one conversation with the instructor held toward the end of the course (starting in Week 4). During the check, you may be asked to discuss code you wrote for take-home assignments, explain quiz answers, and connect your work to lectures and class materials. Oral code checks will be scheduled during the course. More info, including the sign-up process and rubric, will be shared ahead of time.\nTake-Home Assignments: This course has four required take-home assignments covering the main material taught in the course, plus one optional fifth assignment. The optional assignment gives you the opportunity to work on a topic of your own interest. If you submit the optional fifth assignment, you may either skip one of the four required assignments of your choice or use it as an extra submission to replace the grade received on one earlier take-home assignment. These assignments will be posted on this page (see top of the page) once they are released. Each assignment page will include instructions for accessing, completing, and submitting the assignment.\n\n\n\n\n\n\n\nNote\n\n\n\nFurther Info:\n\nSee the Course Schedule for details and due dates of all assignments.\nSee the Syllabus for assessment policies, including guidelines on late or missing submissions, grading rubric, AI policies, and more."
   },
   {
     "objectID": "lectures/01-home.html",
@@ -2979,21 +2979,21 @@
     "href": "lectures/10-slides.html#importing-csv-files",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Importing CSV files",
-    "text": "Importing CSV files\nTo load data into R we need importing functions. There are several of them depending on the type of file we want to import. See “R for Data Science” 2nd Ed. Chapter 7 for details.\nThe most common importing functions read comma-separated values (csv) files. Two main versions:\n\nfrom base-R we have read.csv()\nfrom readr we have read_csv()\n\nThey are similar, but we use read_csv() in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically). Type ?read.csv() and ?read_csv() in your Console for info."
+    "text": "Importing CSV files\nTo load data into R, we need importing functions. The best function to use depends on the type of file we want to import (see R for Data Science, Ch. 7).\nThe most common type of file you will encounter is a csv file (comma-separated values file). There are two functions you could use, we focus on the second:\n\n\nread.csv(\"file.csv\")\n\nBuilt into R\nCommon in older examples\nUses a period: read.csv()\n\n\nread_csv(\"file.csv\")\n\nFrom the tidyverse: readr\nFaster and more common\nUses an underscore: read_csv()"
   },
   {
     "objectID": "lectures/10-slides.html#the-function-read_csv",
     "href": "lectures/10-slides.html#the-function-read_csv",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "The function read_csv()",
-    "text": "The function read_csv()\nThis function takes several arguments, all listed in the documentation. Some of the most common arguments are:\nread_csv(file, col_names = TRUE, col_types = NULL, na = c(\"\", \"NA\"))\nThe file argument must always be passed, the other arguments can be left as default:\nlibrary(readr)\n\n# load data into my local R Studio, specifying the path\nread_csv(file = \"/Users/Sabrina Nardin/Desktop/testdata.csv\")\n\n# load data into my Workbench, specifying the path\nread_csv(file = \"/home/nardin/testdata.csv\")\n\n# load data (local R Studio or Workbench) without specifying the path \n# where does R look for this file?\nread_csv(\"testdata.csv\")\n\n# load data if you are not sure where it is located (not reccomended)\nread_csv(file = file.choose())"
+    "text": "The function read_csv()\nThe read_csv() function has many arguments. The file argument is required because R needs to know where the file is. A few options to pass it:\nlibrary(readr)\n\n# Option 1: Use the full file path\nread_csv(file = \"/home/nardin/testdata.csv\")\n\n# Option 2 (best): Use only the file name\n# This works only if the file is in your current working directory\nread_csv(file = \"testdata.csv\")\n\n# Check your current working directory\ngetwd()\n\n# Option 3: Choose the file manually\n# Not recommended for reproducible code\nread_csv(file = file.choose())"
   },
   {
     "objectID": "lectures/10-slides.html#practice-load-data-in-r",
     "href": "lectures/10-slides.html#practice-load-data-in-r",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "💻 Practice: Load Data in R",
-    "text": "💻 Practice: Load Data in R\n\nCreate a testdata.csv file with four columns (id, name, age, food) with different data types and some missing data. Save it on your desktop with a csv extension.\nOpen Workbench: upload the file to the server. Skip this step if you are using R on your machine.\nLook at your current working directory by typing getwd() in the console. That’s where R looks at files by default.\nLoad library(tidyverse) and import the data into R using read_csv(). If you do not provide a path, R looks in your working directory."
+    "text": "💻 Practice: Load Data in R\nComplete these steps:\n\nCreate a testdata.csv data file with four columns (id, name, age, food). We include different data types and a few missing data.\nSave it on your desktop with a csv extension.\nOpen Workbench: upload the file to the server.\nCheck your current working directory by typing getwd() in the Console.\nRun library(tidyverse) and import the data into R using read_csv(). If you do not provide a path, R looks in your working directory by default."
   },
   {
     "objectID": "lectures/10-slides.html#takehome",
@@ -3007,14 +3007,14 @@
     "href": "lectures/10-slides.html#working-directory",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Working Directory",
-    "text": "Working Directory\nThe working directory is the folder that R takes as default directory every time you try to load a file, script, etc.\nTo check your current working directory: start a new session of R and type getwd(). In Workbench it should be \"/home/your_cnetid\""
+    "text": "Working Directory\nThe working directory is the folder where R looks for files by default\nTo check your current working directory: start a new session of R and type getwd().\nIn Workbench it should be \"/home/your_cnetid\""
   },
   {
     "objectID": "lectures/10-slides.html#relative-path-vs.-absolute-path",
     "href": "lectures/10-slides.html#relative-path-vs.-absolute-path",
     "title": "Computing for the Social Sciences: Lecture 10",
-    "section": "Relative Path vs. Absolute Path",
-    "text": "Relative Path vs. Absolute Path\nWhen you import a file (for example, from the Workbench “Files” tab) into R, you should use a relative path instead of a full (absolute) path.\n\n\nRelative Path\n\nMeans relative to your R project folder (the one containing your .Rproj file)\n\nRecommended approach: easier and makes your code portable\n\nWorks only if the file is inside R’s default working directory\n\nread_csv(\"testdata.csv\")\n\nAbsolute Path\n\nMeans you specify the entire path to reach the file, independent from specific folders\n\nAvoid this: it breaks if someone runs your code from another machine or folder\n\nIndependent on R’s default working directory\n\nread_csv(\"/home/nardin/testdata.csv\")"
+    "section": "Relative path vs. Absolute path",
+    "text": "Relative path vs. Absolute path\nBoth are used to tell R where the file you want to load into R is located:\n\n\nRelative path ✅\nStarts from the current working directory:\nread_csv(\"testdata.csv\")\nIf the file is inside a folder:\nread_csv(\"data/testdata.csv\")\nBest practice for reproducibility and shared code.\n\nAbsolute path\nGives the full location on one computer:\nread_csv(\"/home/nardin/testdata.csv\")\nThese paths can get long and hard to share. Avoid!\nread_csv(\"C:/Users/Sabrina/Desktop/css-website-summer/lectures/lecture10/data/testdata.csv\")"
   },
   {
     "objectID": "lectures/10-slides.html#easier-solution-use-rstudio-projects",
@@ -3028,14 +3028,14 @@
     "href": "lectures/10-slides.html#practice-create-an-rstudio-project",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "💻 Practice: Create an RStudio Project",
-    "text": "💻 Practice: Create an RStudio Project\nStep 1: Open RStudio and navigate to the top-left menu. Then File &gt; New Project…\nStep 2: Choose New Directory, then select New Project\nStep 3: Name your project and save it.\nStep 4: Click Create Project. RStudio will open a new session within your project environment. Done!\nStep 5: Let’s test it! In your new project, create a new R script or R Markdown document and inside it type and run getwd(). What do you notice?"
+    "text": "💻 Practice: Create an RStudio Project\nStep 1: Open RStudio and navigate to the top-left menu. Then File &gt; New Project…\nStep 2: Choose New Directory, then select New Project\nStep 3: Name your project and save it.\nStep 4: Click Create Project. RStudio will open a new session within your project environment. Done!\nStep 5: Let’s test it. In your new project, create a new R script or R Markdown document. Inside it type and run getwd(). What do you notice?"
   },
   {
     "objectID": "lectures/10-slides.html#other-readr-functions-to-import-data",
     "href": "lectures/10-slides.html#other-readr-functions-to-import-data",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Other readr functions to import data",
-    "text": "Other readr functions to import data\nThe readr package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a csv over other formats).\nFor example:\n\nComma separated csv use read_csv() from the readr package\nSemi column separated csv use read_csv2()from the readr package\nTab separated files use read_tsv()from the readr package\nRDS use readRDS() or read_rds()\nExcel use read_excel() from the readxl package\nSAS/SPSS/Stata use the haven package (several functions)\n\nCheat Sheet for readr: Help &gt; Cheat Sheets &gt; Browse Cheat Sheets"
+    "text": "Other readr functions to import data\nThe readr package include several functions to load into R almost all possible file formats that you might encounter (when given an option though, choose a CSV over other formats).\nFor example:\n\nComma separated csv use read_csv() from the readr package\nSemi column separated csv use read_csv2()from the readr package\nTab separated files use read_tsv()from the readr package\nRDS use readRDS() or read_rds()\nExcel use read_excel() from the readxl package\nSAS/SPSS/Stata use the haven package (several functions)\n\nCheat Sheet for readr: Help &gt; Cheat Sheets &gt; Browse Cheat Sheets"
   },
   {
     "objectID": "lectures/10-slides.html#using-haven-with-sas",
@@ -3063,35 +3063,35 @@
     "href": "lectures/10-slides.html#exporting-data-with-write_csv",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Exporting data with write_csv()",
-    "text": "Exporting data with write_csv()\nSo far we talked about IMPORTING DATA with read_csv() from readr\nButreadr has also several functions for EXPORTING DATA. The most common is write_csv() which generates csv files from R data frames: https://readr.tidyverse.org/reference/write_delim.html\n# import\ntest &lt;- read_csv(\"testdata.csv\", col_types = (\"icic\"), na = c(\"\", \"NA\", \"na\", \"None\"))\n\n# write your data analysis and visualization code etc.\n\n# export \nwrite_csv(test, file = \"testdata_cleaned.csv\")"
+    "text": "Exporting data with write_csv()\nSo far we talked about IMPORTING DATA into R with read_csv() from readr\nBut readr has also several functions for EXPORTING DATA back to your computer. The most common is write_csv() which generates csv files from R data frames.\nMinimal Example:\n# import\ntest &lt;- read_csv(\"testdata.csv\", col_types = (\"icic\"), na = c(\"\", \"NA\", \"na\", \"None\"))\n\n# then you write your data analysis and visualization code etc.\n\n# once done, export \nwrite_csv(test, file = \"testdata_cleaned.csv\")"
   },
   {
     "objectID": "lectures/10-slides.html#definition-of-relational-data",
     "href": "lectures/10-slides.html#definition-of-relational-data",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Definition of Relational Data",
-    "text": "Definition of Relational Data\nRelational Database: set of multiple “tables” that are linked based on data common to them. You can think of a “table” as a dataframe.\nThese tables provide meaningful insights only when combined together!\nAnswers to research questions are not defined by individual rows or columns in a single table; rather, they emerge from the relationships among tables."
+    "text": "Definition of Relational Data\nRelational Data are typically organized in relational databases set of multiple “tables” that are linked based on data common to them. You can think of a single “table” as a single dataframe.\nThese tables provide meaningful insights only when combined together!\nAnswers to research questions are not defined by one in a single table; rather, they emerge from the relationships among tables."
   },
   {
     "objectID": "lectures/10-slides.html#our-focus",
     "href": "lectures/10-slides.html#our-focus",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Our Focus",
-    "text": "Our Focus\nThere are several software and languages to deal with relational databases. The most common is SQL but that’s beyond our course. For more on this, see “Chapter 21 Databases” from our book.\nR also allows you to join tables using the dplyr package. That’s our focus!"
+    "text": "Our Focus\nThere are several software and languages to deal with relational databases. For an overview, see “Chapter 21 Databases” from our book.\nR allows us to work with tables using the dplyr package. That’s our focus!"
   },
   {
     "objectID": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings",
     "href": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "We use the flights example from the readings",
-    "text": "We use the flights example from the readings\nlibrary(nycflights13) in “Chapter 19 Joins” from “R for Data Science” 2nd Edition.\nWe have five tables (e.g., five distinct datasets):\n\nflights info about flights, identified by multiple variables\n\nairlines each airplane company name, identified by the abbreviated career code\n\nairports info about each airport, identified by the faa code\n\nplanes info about each plane, identified by its tailnum number\n\nweather info about the weather at each NYC airport for each hour, identified by various variables\n\nLoad the data into R (package already installed on Workbench): library(nycflights13)"
+    "text": "We use the flights example from the readings\nWe use data from library(nycflights13) in “Chapter 19 Joins” from “R for Data Science” 2nd Ed.\nThis database has five tables (e.g., five distinct datasets):\n\nflights info about flights, identified by multiple variables\n\nairlines each airplane company name, identified by the abbreviated career code\n\nairports info about each airport, identified by the faa code\n\nplanes info about each plane, identified by its tailnum number\n\nweather info about the weather at each NYC airport for each hour, identified by various variables\n\nLoad the data into R with library(nycflights13)"
   },
   {
     "objectID": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings-1",
     "href": "lectures/10-slides.html#we-use-the-flights-example-from-the-readings-1",
     "title": "Computing for the Social Sciences: Lecture 10",
-    "section": "We use the flights example from the Readings",
-    "text": "We use the flights example from the Readings\nVisual representation of the relations among the 5 tables in nycflights13:\n\nTo understand diagrams like this, remember that each relation concerns a pair of tables."
+    "section": "We use the flights example from the readings",
+    "text": "We use the flights example from the readings\nVisual representation of the relations among the 5 tables in nycflights13:\n\nTo understand diagrams like this, remember that each relation concerns a pair of tables."
   },
   {
     "objectID": "lectures/10-slides.html#in-pratice-when-using-dplyr-to-work-with-relational-data-we-have",
@@ -3112,7 +3112,7 @@
     "href": "lectures/10-slides.html#inner_join",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "inner_join()",
-    "text": "inner_join()\nKeeps obs. that appear in both tables, identified by keys (colored numbers). Unmatched rows are dropped.\n\n\n\n\n    \n\n\n# inner_join example\ninner_join(x, y, by = \"key\")\n\n# with pipes\nx %&gt;% inner_join(y, by = \"key\")\n\n# if the join columns have different names\ninner_join(x, y, by = c(\"a\" = \"b\"))"
+    "text": "inner_join()\nKeeps obs. that appear in both tables, identified by keys (colored numbers). Unmatched rows are dropped.\n\n\n\n\n    \n\n# inner_join examples\ninner_join(x, y, by = \"key\")\nx |&gt; inner_join(y, by = \"key\") # same but with pipe\n\n# if the join columns have different names\ninner_join(x, y, by = c(\"a\" = \"b\"))"
   },
   {
     "objectID": "lectures/10-slides.html#left_join",
@@ -3168,7 +3168,7 @@
     "href": "lectures/10-slides.html#practice-working-with-relational-data-with-dplyr",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "💻 Practice working with relational data with dplyr",
-    "text": "💻 Practice working with relational data with dplyr\nDownload today’s in-class materials from the website (relational-data.Rmd)"
+    "text": "💻 Practice working with relational data with dplyr\nDownload today’s in-class materials from the website for more practice!"
   },
   {
     "objectID": "lectures/10-slides.html#recap-what-we-learned-today",
@@ -3182,6 +3182,118 @@
     "href": "lectures/10-slides.html#to-print-these-slides-as-pdf",
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "To print these slides as pdf",
-    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf\n:::"
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/10-slides.html#importing-csv-files-1",
+    "href": "lectures/10-slides.html#importing-csv-files-1",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Importing CSV files",
+    "text": "Importing CSV files\nTo load data into R we need importing functions. There are several of them depending on the type of file we want to import. “Chapter 7 Data import” from “R for Data Science” 2nd Ed. for details\nThe most common importing functions read comma-separated values (csv) files. Two main versions:\n\nfrom base-R we have read.csv()\nfrom readr we have read_csv()\n\nThey are similar, but we use read_csv() in this course because is more recent, faster, and does not automatically changes data types (e.g., does not convert characters into factors automatically). Type ?read.csv() and ?read_csv() in your Console for info."
+  },
+  {
+    "objectID": "lectures/10-slides.html#importing-files-into-r",
+    "href": "lectures/10-slides.html#importing-files-into-r",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Importing files into R",
+    "text": "Importing files into R\nTo load files with data into R, we need importing functions\nThere are several importing functions. The best one depends on the type of file we want to import. For an overview, see today’s reading: R for Data Science, Chapter 7\nThe most common type of file you will encounter is a CSV file (comma-separated values), so we will focus on the function that imports it: read_csv()"
+  },
+  {
+    "objectID": "lectures/10-slides.html#importing-csv-files-into-r",
+    "href": "lectures/10-slides.html#importing-csv-files-into-r",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Importing CSV files into R",
+    "text": "Importing CSV files into R\nTo import CSV files into R, there are two functions. They are very similar, but use the second:\n\n\nread.csv(\"file.csv\")\n\nBuilt into R (e.g., comes from base R)\nCommon in older code\nUses a period read.csv()\n\n\nread_csv(\"file.csv\") ✅\n\nFrom readr (e.g., comes from the tidyverse)\nFaster and common in newer code\nUses an underscore read_csv()\n\n\nType ?read.csv() and ?read_csv() in your Console for more info."
+  },
+  {
+    "objectID": "lectures/10-slides.html#common-arguments-of-read_csv",
+    "href": "lectures/10-slides.html#common-arguments-of-read_csv",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Common Arguments of read_csv()",
+    "text": "Common Arguments of read_csv()\nThe read_csv() function has many arguments. In the next slides, we will focus on the ones that address common import issues: file paths, column names, column types, and missing values.\nYou can see the full list of arguments of this function in the readr documentation."
+  },
+  {
+    "objectID": "lectures/10-slides.html#take-home-message",
+    "href": "lectures/10-slides.html#take-home-message",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Take-home Message",
+    "text": "Take-home Message\nImporting files correctly matters because small import mistakes can create problems later.\nWhen something does not import correctly, check the function arguments. There are many options that can help you tell R exactly how to read your file.\nBefore moving on, let’s clarify a few related concepts about importing and exporting data…"
+  },
+  {
+    "objectID": "lectures/10-slides.html#key-concepts-for-importing-files",
+    "href": "lectures/10-slides.html#key-concepts-for-importing-files",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Key Concepts for importing files",
+    "text": "Key Concepts for importing files\nNow let’s talk about a few related concepts about importing data…\nIn the next slides, we will introduce the following terms:\n\nWorking directory\nRelative path\nAbsolute path\nRStudio project"
+  },
+  {
+    "objectID": "lectures/10-slides.html#working-directory-where-r-looks-first",
+    "href": "lectures/10-slides.html#working-directory-where-r-looks-first",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Working directory: where R looks first",
+    "text": "Working directory: where R looks first\nWorking directory: the folder where R looks for files by default.\nFor example, this code only works if testdata.csv is located in your current working directory:\nread_csv(\"testdata.csv\")\nTo check your current working, use:\ngetwd()"
+  },
+  {
+    "objectID": "lectures/10-slides.html#why-we-prefer-relative-paths",
+    "href": "lectures/10-slides.html#why-we-prefer-relative-paths",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Why we prefer Relative paths",
+    "text": "Why we prefer Relative paths\nRelative path means relative to (e.g., it starts from) your R project folder. Relative paths make your code easier to share and re-run.\nAbsolute path means you specify the entire path to reach the file, independent from specific folders.\n\nHow do I make sure I am using a relative path correctly?\n\nCheck where R is looking for a file using getwd(). Then make sure your file is in that location\nOR use RStudio Projects! (next slide)"
+  },
+  {
+    "objectID": "lectures/10-slides.html#rstudio-projects-make-this-easier",
+    "href": "lectures/10-slides.html#rstudio-projects-make-this-easier",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "RStudio Projects make this easier!",
+    "text": "RStudio Projects make this easier!\nAn RStudio Project is a folder that contains a .Rproj file.\nWhen you open the .Rproj file, RStudio automatically sets the working directory to that project folder.\nThis means you usually do not need to use setwd().\n\n\n\n\n\n\nNote\n\n\nFor homework and in-class exercises, open the .Rproj file first. Then use a relative path to load your data.\n\n\n\nExample:\nlibrary(tidyverse)\nread_csv(\"data/testdata.csv\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#relative-path-vs.-absolute-path-1",
+    "href": "lectures/10-slides.html#relative-path-vs.-absolute-path-1",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Relative Path vs. Absolute Path",
+    "text": "Relative Path vs. Absolute Path\nWhen importing a file into R (or Workbench) use a relative path. Relative paths make your code easier to share because they do not depend on one specific computer:\n\n\nRelative path ✅\n\nMeans relative to (e.g., it starts from) your R project folder\nHow do you spot your R project folder: folder that contains your .Rproj file\n\nRecommended approach: easier and makes your code portable\n\nWorks only if the file is inside R’s default working directory\n\nread_csv(\"testdata.csv\")\n\nAbsolute Path\n\nMeans you specify the entire path to reach the file, independent from specific folders\n\nAvoid this: it breaks if someone runs your code from another machine or folder\n\nIndependent on R’s default working directory\n\nread_csv(\"/home/nardin/testdata.csv\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#takeaways-form-using-read_csv",
+    "href": "lectures/10-slides.html#takeaways-form-using-read_csv",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Takeaways form using read_csv()",
+    "text": "Takeaways form using read_csv()\nImporting files correctly matters because small import mistakes can create problems later.\nWhen something does not import correctly, check the function arguments. There are many options that can help you tell R exactly how to read your file.\nLet’s clarify a few related concepts about importing and exporting data…"
+  },
+  {
+    "objectID": "lectures/10-slides.html#takeaways-from-using-read_csv",
+    "href": "lectures/10-slides.html#takeaways-from-using-read_csv",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Takeaways from using read_csv()",
+    "text": "Takeaways from using read_csv()\nImporting files correctly matters because small import mistakes can create problems later.\nWhen something does not import correctly, the first thing to do is to check the function read_csv() arguments: there are many options that can help you tell R exactly how to read your file!"
+  },
+  {
+    "objectID": "lectures/10-slides.html#rstudio-projects-make-relative-file-paths-easier",
+    "href": "lectures/10-slides.html#rstudio-projects-make-relative-file-paths-easier",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "RStudio Projects make relative file paths easier!",
+    "text": "RStudio Projects make relative file paths easier!\nAn RStudio Project is a folder that contains a .Rproj file.\nWhen you open the .Rproj file, RStudio automatically sets the working directory to that project folder.\nThis makes relative paths easier to use.\nhomework-01/\n├── homework-01.Rproj\n├── homework-01.rmd\n└── data/\n    └── testdata.csv\nIf you open homework-01.Rproj, R will start from the homework-01 folder as your default working directory.\nThen you can import the data with: read_csv(\"data/testdata.csv\")\n\n\n\n\n\n\nNote\n\n\nFor homework and in-class exercises, always open the .Rproj file first.\nThen use relative paths to load your data."
+  },
+  {
+    "objectID": "lectures/10-slides.html#working-directory-where-r-looks-first-1",
+    "href": "lectures/10-slides.html#working-directory-where-r-looks-first-1",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Working directory: where R looks first",
+    "text": "Working directory: where R looks first\nIf R says it “cannot find” a file, ask yourself: Is the file in the folder where R is looking?\nIf the answer is no, you have two options:\n\nMove the file into the folder shown by getwd()\nUpdate the path so R knows where to find the file. When you do that, get into the habit of using a relative path"
+  },
+  {
+    "objectID": "lectures/10-slides.html#rstudio-projects-make-using-relative-file-paths-easier",
+    "href": "lectures/10-slides.html#rstudio-projects-make-using-relative-file-paths-easier",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "RStudio Projects make using relative file paths easier!",
+    "text": "RStudio Projects make using relative file paths easier!\nAn RStudio Project is a folder that contains a .Rproj file.\nWhen you open the .Rproj file, RStudio automatically sets the working directory to that project folder.\nThis makes relative paths easier to use.\nhomework-05/\n├── homework-05.Rproj\n├── homework-05.rmd\n└── data/\n    └── testdata.csv\nIf you open homework-05.Rproj, R will automatically start from the homework-05 folder as your default working directory.\nThen you can import the data using read_csv(\"data/testdata.csv\")"
+  },
+  {
+    "objectID": "lectures/10-slides.html#using-haven-with-spss-or-stata",
+    "href": "lectures/10-slides.html#using-haven-with-spss-or-stata",
+    "title": "Computing for the Social Sciences: Lecture 10",
+    "section": "Using haven with SPSS or Stata",
+    "text": "Using haven with SPSS or Stata\nSPSS:\nread_sav(file = system.file(\"examples\", \"iris.sav\",\n  package = \"haven\"))\nStata:\nread_dta(file = system.file(\"examples\", \"iris.dta\",\n  package = \"haven\"))"
   }
 ]
