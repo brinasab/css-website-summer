@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,7 +208,6 @@ Sabrina Nardin, Summer 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
@@ -150,10 +215,598 @@ Sabrina Nardin, Summer 2026
 <li>Tidydata with Tidyr</li>
 </ol>
 </div>
-</section>
-<section class="slide level2 center">
+<!--
+### Slides are in progress and will be updated before class.
 
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+::: {.content-hidden}
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **October 22, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+-->
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>July 01, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+</section>
+
+<section>
+<section id="tidydata-with-tidyr" class="title-slide slide level1 center middle">
+<h1>1. Tidydata with Tidyr</h1>
+
+</section>
+<section id="tidy-data" class="slide level2 center">
+<h2>Tidy Data</h2>
+<h3 id="tidy-data-is-a-particular-way-to-organize-data.">“Tidy data” is a particular way to organize data.</h3>
+<p><br></p>
+<p>Useful because:</p>
+<ul>
+<li><strong>standardized:</strong> every tidy dataset follows the same rules<br>
+</li>
+<li><strong>consistent:</strong> tidy data can be used directly by many <code>tidyverse</code> packages without extra manipulation<br>
+</li>
+<li><strong>clear:</strong> tidy data are easier to read, understand, and work with</li>
+</ul>
+</section>
+<section id="tidy-data-three-principles" class="slide level2 center">
+<h2>Tidy Data: Three Principles</h2>
+
+<img data-src="11-pics/tidydata_1.jpg" style="width:70.0%" alt="Stylized text providing an overview of Tidy Data. The top reads 'Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.' On the left reads 'In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.' There is an example table on the lower right with columns ‘id’, ‘name’ and ‘color’ with observations for different cats, illustrating tidy data structure." class="r-stretch"><div class="footnote">
+<p>Illustrations from the blog <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/"><em>Tidy Data for reproducibility, efficiency, and collaboration</em></a> by Julia Lowndes and Allison Horst</p>
+</div>
+<!-- 
+
+tidy data is a very SPECIFICY way of standardizing info in a dataframe
+but it is not the only way; we are going to see some examples
+the opposite of tidy would be messy data or untidy 
+
+the reason why tidy data is popular is because provides a STANDARDIZED form; all packages we have learned so far ggplot, dplyr work with tidy data which means you can simply load the dataset and start working on it without reshaping it or cleaning it up (if tidy)
+
+-->
+</section>
+<section id="tidy-datasets-are-all-alike" class="slide level2 center">
+<h2>Tidy Datasets Are All Alike</h2>
+
+<img data-src="11-pics/tidydata_2.jpg" style="width:70.0%" alt="There are two sets of anthropomorphized data tables. The top group of three tables are all rectangular and smiling, with a shared speech bubble reading 'our columns are variables and our rows are observations!'. Text to the left of that group reads 'The standard structure of tidy data means that 'tidy datasets are all alike…' The lower group of four tables are all different shapes, look ragged and concerned, and have different speech bubbles reading (from left to right) 'my column are values and my rows are variables', 'I have variables in columns AND in rows', 'I have multiple variables in a single column', and 'I don’t even KNOW what my deal is.' Next to the frazzled data tables is text '...but every messy dataset is messy in its own way. -Hadley Wickham.'" class="r-stretch"><div class="footnote">
+<p>Illustrations from the blog <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/"><em>Tidy Data for reproducibility, efficiency, and collaboration</em></a> by Julia Lowndes and Allison Horst</p>
+</div>
+<!-- pause think you are starting a research project and you have data as top or bottom; which one you want to be and why? -->
+</section>
+<section id="tidy-datasets-are-all-alike-1" class="slide level2 center">
+<h2>Tidy Datasets Are All Alike</h2>
+
+<img data-src="11-pics/tidydata_3.jpg" style="width:70.0%" alt="On the left is a happy cute fuzzy monster holding a rectangular data frame with a tool that fits the data frame shape. On the workbench behind the monster are other data frames of similar rectangular shape, and neatly arranged tools that also look like they would fit those data frames. The workbench looks uncluttered and tidy. The text above the tidy workbench reads 'When working with tidy data, we can use the same tools in similar ways for different datasets…' On the right is a cute monster looking very frustrated, using duct tape and other tools to haphazardly tie data tables together, each in a different way. The monster is in front of a messy, cluttered workbench. The text above the frustrated monster reads '...but working with untidy data often means reinventing the wheel with one-time approaches that are hard to iterate or reuse.'" class="r-stretch"><div class="footnote">
+<p>Illustrations from the blog <a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/"><em>Tidy Data for reproducibility, efficiency, and collaboration</em></a> by Julia Lowndes and Allison Horst</p>
+</div>
+</section>
+<section id="tidying-untidy-data" class="slide level2 center">
+<h2>Tidying untidy data</h2>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>It might sound counter intuitive, but most real-world data IS NOT stored in a tidy format!</p>
+<p><strong>Why?</strong><br>
+1. Many datasets are designed to make data entry, not analysis, easier<br>
+2. Tidy data principles take time and practice to master</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>When working with the <strong>tidyverse</strong> (<code>ggplot2</code>, <code>dplyr</code>, etc.), <strong>start by putting your data in tidy format.</strong> Most tidyverse functions assume data are tidy!</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="tidying-untidy-data-1" class="slide level2 center">
+<h2>Tidying Untidy Data</h2>
+<h3 id="ok-you-are-ready-to-start-a-project-and-loaded-some-data-into-r-but-they-are-untidy-what-should-you-do-to-tidy-them-up">OK, you are ready to start a project and loaded some data into R, but they are untidy! What should you do to tidy them up?</h3>
+</section>
+<section id="tidying-untidy-data-2" class="slide level2 center">
+<h2>Tidying Untidy Data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="first-diagnose-the-data">First, Diagnose the data</h3>
+<ul>
+<li>Identify the <strong>variables</strong></li>
+<li>Identify the <strong>observations</strong></li>
+<li>Spot <strong>what’s untidy</strong>
+<ul>
+<li>Multiple variables in one column<br>
+</li>
+<li>Variable values used as column names<br>
+</li>
+<li>Variable names stored in rows</li>
+<li>Etc.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:40%;">
+<h3 id="second-fix-it-with-tidyr">Second, Fix it with tidyr</h3>
+<ul>
+<li>Put <strong>each variable</strong> in its own <strong>column</strong></li>
+<li>Put <strong>each observation</strong> in its own <strong>row</strong></li>
+<li>Ensure <strong>each cell</strong> holds a <strong>single value</strong></li>
+</ul>
+</div></div>
+</section>
+<section id="things-you-can-do-with-the-tidyr-package" class="slide level2 center">
+<h2>Things You Can Do with the tidyr Package</h2>
+<p><a href="https://tidyr.tidyverse.org/">Tidyr documentation</a></p>
+<ul>
+<li><strong>Pivoting</strong>
+<ul>
+<li><code>pivot_longer()</code> makes the dataset <em>longer</em> by increasing rows<br>
+</li>
+<li><code>pivot_wider()</code> makes the dataset <em>wider</em> by increasing columns</li>
+</ul></li>
+<li><strong>Separating</strong>
+<ul>
+<li><code>separate()</code> splits one column into multiple columns</li>
+</ul></li>
+<li><strong>Uniting</strong>
+<ul>
+<li><code>unite()</code> combines multiple columns into one</li>
+</ul></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p>The tidyr package includes many other functions, but we focus on the most important. Each behaves a bit differently, so be sure to check the documentation for details on their arguments.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="example" class="slide level2 center">
+<h2>Example</h2>
+<p>We’ll illustrate these tidying tasks using one of the datasets from the readings (<a href="https://r4ds.hadley.nz/data-tidy">Chapter 5</a>). We are going to see different (untidy) ways to organize this dataset, and how to use <code>tidyr</code> to organize each of htem</p>
+<p>The dataset is longitudinal, with four variables:</p>
+<ul>
+<li><code>country</code><br>
+</li>
+<li><code>year</code><br>
+</li>
+<li><code>cases</code> (number of tuberculosis cases)</li>
+<li><code>population</code></li>
+</ul>
+<!--
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 6 × 4
+  country      year  cases population
+  <chr>       <dbl>  <dbl>      <dbl>
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583
+```
+
+
+:::
+:::
+
+-->
+</section>
+<section id="pivot-longer" class="slide level2 center">
+<h2>Pivot Longer</h2>
+<p>Why is this dataset untidy? How can we tidy it?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<ul>
+<li><em>“Each variable must have its own column”</em>: column names must be variables names, not variables values (here 1999 and 2000 are values of the year variable)</li>
+<li><em>“Each observation must have its own row”</em>: here we have one row for every country, but this is panel data, so we should have the country-year pair to define one observation, not just country</li>
+</ul>
+</div>
+<p><br></p>
+</section>
+<section id="pivot-longer-1" class="slide level2 center">
+<h2>Pivot Longer</h2>
+<p><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html" class="uri">https://tidyr.tidyverse.org/reference/pivot_longer.html</a></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">pivot_longer</span>(<span class="at">data =</span> table4a,</span>
+<span id="cb5-2"><a></a>             <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">`</span><span class="at">1999</span><span class="st">`</span>, <span class="st">`</span><span class="at">2000</span><span class="st">`</span>),</span>
+<span id="cb5-3"><a></a>             <span class="at">names_to =</span> <span class="st">"year"</span>,</span>
+<span id="cb5-4"><a></a>             <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+1 Afghanistan 1999     745
+2 Afghanistan 2000    2666
+3 Brazil      1999   37737
+4 Brazil      2000   80488
+5 China       1999  212258
+6 China       2000  213766</code></pre>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<!--
+We can reshape and tidy this data using `pivot_longer` form tidyr, which takes four main arguments:
+- data: data we are reshaping -- notice we go from a 3by3 to a 6by3 dataframe
+- cols: name of the columns in the original data that we want to change -- aka columns to use to make this pivot; note the use of back ticks! and we need to use two columns, thus we use the vector syntax with c() for concatenate
+- names_to column: new column we wish to create from column names
+- values_to column: new column we wish to create and fill with values
+-->
+</section>
+<section id="pivot-wider" class="slide level2 center">
+<h2>Pivot Wider</h2>
+<p>Why is this dataset untidy? How can we tidy it?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li><em>“Each variable must have its own column”</em>: the current values of <code>type</code> are actually variables names</li>
+<li><em>“Each observation must have its own row”</em>: here an observation is a country in a year, which is correct, but each observation is spread across two rows</li>
+</ul>
+</div>
+<!--
+Each observation must have its own row: each country-year observation is split across two rows because of type.
+-->
+</section>
+<section id="pivot-wider-1" class="slide level2 center">
+<h2>Pivot Wider</h2>
+<p><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html" class="uri">https://tidyr.tidyverse.org/reference/pivot_wider.html</a></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">pivot_wider</span>(<span class="at">data =</span> table2,</span>
+<span id="cb11-2"><a></a>            <span class="at">names_from =</span> type,</span>
+<span id="cb11-3"><a></a>            <span class="at">values_from =</span> count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div></div>
+<p><br></p>
+</section>
+<section id="separating" class="slide level2 center">
+<h2>Separating</h2>
+<p>Why is this dataset untidy? How can we tidy it?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+</section>
+<section id="separating-1" class="slide level2 center">
+<h2>Separating</h2>
+<p><a href="https://tidyr.tidyverse.org/reference/separate.html" class="uri">https://tidyr.tidyverse.org/reference/separate.html</a></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">separate</span>(<span class="at">data =</span> table3,</span>
+<span id="cb17-2"><a></a>         <span class="at">col =</span> rate,</span>
+<span id="cb17-3"><a></a>         <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>,<span class="st">"population"</span>),</span>
+<span id="cb17-4"><a></a>         <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<!-- convert = TRUE bcs the default is FALSE
+the original data are coded as chr but we want them as integer; if you do not convert it will leave them as chr
+-->
+</section>
+<section id="uniting" class="slide level2 center">
+<h2>Uniting</h2>
+<p>Why is this dataset untidy? How can we tidy it?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+</section>
+<section id="uniting-1" class="slide level2 center">
+<h2>Uniting</h2>
+<p><a href="https://tidyr.tidyverse.org/reference/unite.html" class="uri">https://tidyr.tidyverse.org/reference/unite.html</a></p>
+<p><br></p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">unite</span>(<span class="at">data =</span> table5,</span>
+<span id="cb23-2"><a></a>      <span class="at">col =</span> <span class="st">"year"</span>, century, year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year  rate             
+  &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19_99 745/19987071     
+2 Afghanistan 20_00 2666/20595360    
+3 Brazil      19_99 37737/172006362  
+4 Brazil      20_00 80488/174504898  
+5 China       19_99 212258/1272915272
+6 China       20_00 213766/1280428583</code></pre>
+</div>
+</div>
+</div></div>
+<!-- Unite multiple columns into one by pasting strings together -->
+<p><br></p>
+</section>
+<section id="uniting-2" class="slide level2 center">
+<h2>Uniting</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">unite</span>(<span class="at">data =</span> table5,</span>
+<span id="cb27-2"><a></a>      <span class="at">col =</span> <span class="st">"year"</span>, century, year,</span>
+<span id="cb27-3"><a></a>      <span class="at">sep =</span> <span class="st">""</span>) <span class="co"># remove underscore</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year  rate             
+  &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 1999  745/19987071     
+2 Afghanistan 2000  2666/20595360    
+3 Brazil      1999  37737/172006362  
+4 Brazil      2000  80488/174504898  
+5 China       1999  212258/1272915272
+6 China       2000  213766/1280428583</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="uniting-3" class="slide level2 center">
+<h2>Uniting</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">unite</span>(<span class="at">data =</span> table5,</span>
+<span id="cb31-2"><a></a>      <span class="at">col =</span> <span class="st">"year"</span>, century, year,</span>
+<span id="cb31-3"><a></a>      <span class="at">sep =</span> <span class="st">""</span>) <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year)) <span class="co"># store as numeric</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="use-pipes-to-chain-tidyr-functions" class="slide level2 center">
+<h2>Use Pipes to Chain tidyr functions</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>table5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country     century year  rate             
+  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            
+1 Afghanistan 19      99    745/19987071     
+2 Afghanistan 20      00    2666/20595360    
+3 Brazil      19      99    37737/172006362  
+4 Brazil      20      00    80488/174504898  
+5 China       19      99    212258/1272915272
+6 China       20      00    213766/1280428583</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">unite</span>(<span class="at">data =</span> table5,</span>
+<span id="cb35-2"><a></a>      <span class="at">col =</span> <span class="st">"year"</span>, century, year,</span>
+<span id="cb35-3"><a></a>      <span class="at">sep =</span> <span class="st">""</span>) <span class="sc">|&gt;</span></span>
+<span id="cb35-4"><a></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.integer</span>(year)) <span class="sc">|&gt;</span></span>
+<span id="cb35-5"><a></a>  <span class="fu">separate</span>(<span class="at">col =</span> rate,</span>
+<span id="cb35-6"><a></a>           <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"population"</span>),</span>
+<span id="cb35-7"><a></a>           <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div>
+</div></div>
+<!--
+
+# Let's get messy!
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](https://media.giphy.com/media/fCUCbWXe9JONVsJSUd/giphy.gif){width=50%}
+:::
+:::
+
+-->
+</section>
+<section id="practice-tidying-data" class="slide level2 center">
+<h2>💻 Practice Tidying Data</h2>
+<p>Download today’s in-class exercises from the website.</p>
 
 
 </section></section>

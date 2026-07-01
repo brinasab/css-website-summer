@@ -22,8 +22,7 @@ format:
 1. Tidydata with Tidyr
 :::
 
----
-
+<!--
 ### Slides are in progress and will be updated before class.
 
 ::: {.content-hidden}
@@ -31,6 +30,12 @@ format:
 <span style="font-size: 0.8em; color: #666;">
 *Slides last updated on **October 22, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
+-->
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
 
 ```{r pkgs, include = FALSE, cache = FALSE}
 library(tidyverse)
@@ -114,7 +119,7 @@ Illustrations from the blog [*Tidy Data for reproducibility, efficiency, and col
 ## Tidying untidy data
 
 ::: {.callout-important}
-It might sound counterintuitive, but **most real-world data isn't stored in a tidy format.**
+It might sound counter intuitive, but most real-world data IS NOT stored in a tidy format!
 
 **Why?**  
 1. Many datasets are designed to make data entry, not analysis, easier  
@@ -133,15 +138,17 @@ When working with the **tidyverse** (`ggplot2`, `dplyr`, etc.),  **start by putt
 
 ## Tidying Untidy Data
 
-### OK, you are ready to start a project and loaded some data into R: they are untidy! 
-### What should you do to tidy them up?
+### OK, you are ready to start a project and loaded some data into R, but they are untidy! What should you do to tidy them up?
 
+---
+
+## Tidying Untidy Data
 
 ::: {.columns}
 ::: {.column width="50%"}
 ### First, Diagnose the data
-- Identify the **variables** (what each column represents)
-- Identify the **observations** (what each row represents)
+- Identify the **variables** 
+- Identify the **observations** 
 - Spot **what’s untidy**  
   - Multiple variables in one column  
   - Variable values used as column names  
@@ -175,12 +182,12 @@ When working with the **tidyverse** (`ggplot2`, `dplyr`, etc.),  **start by putt
   * `unite()` combines multiple columns into one  
 
 ::: {.callout-note}
-The tidyr package includes many other functions, but we focus on the core ones for now. Each behaves a bit differently, so be sure to check the documentation for details on their arguments.
+The tidyr package includes many other functions, but we focus on the most important. Each behaves a bit differently, so be sure to check the documentation for details on their arguments.
 :::
 
 ---
 
-##  Example
+## Example
 
 We’ll illustrate these tidying tasks using one of the datasets from the readings ([Chapter 5](https://r4ds.hadley.nz/data-tidy)). We are going to see different (untidy) ways to organize this dataset, and how to use `tidyr` to organize each of htem
 
@@ -262,14 +269,14 @@ Why is this dataset untidy? How can we tidy it?
 table2
 ```
 
-<br>
-
 ::: {.fragment}
-- *"Each variable must have its own column"*: the current values of `type` are not values, but are variables names 
-- *"Each observation must have its own row"*: here an observation is a country in a year, which is correct, but each observation is spread across two rows due to how `type` is organanized
+- *"Each variable must have its own column"*: the current values of `type` are actually variables names 
+- *"Each observation must have its own row"*: here an observation is a country in a year, which is correct, but each observation is spread across two rows 
 :::
 
-</br>
+<!--
+Each observation must have its own row: each country-year observation is split across two rows because of type.
+--> 
 
 ---
 
@@ -419,7 +426,7 @@ unite(data = table5,
 
 ---
 
-## Chain tidyr functions!  
+## Use Pipes to Chain tidyr functions
 
 ::: {.columns}
 ::: {.column width="45%"}
@@ -455,5 +462,3 @@ include_graphics(path = "https://media.giphy.com/media/fCUCbWXe9JONVsJSUd/giphy.
 ## 💻 Practice Tidying Data
 
 Download today's in-class exercises from the website.
-
-:::

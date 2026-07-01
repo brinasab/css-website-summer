@@ -802,14 +802,14 @@
     "href": "lectures/11-home.html",
     "title": "Lecture 11: Tidydata with tidyr",
     "section": "",
-    "text": "Date: July 1, 2026\nTopics: Tidydata with tidyr\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: July 1, 2026\nTopics: Tidydata with tidyr\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/tidydata\")"
   },
   {
     "objectID": "lectures/11-home.html#info-and-materials",
     "href": "lectures/11-home.html#info-and-materials",
     "title": "Lecture 11: Tidydata with tidyr",
     "section": "",
-    "text": "Date: July 1, 2026\nTopics: Tidydata with tidyr\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: July 1, 2026\nTopics: Tidydata with tidyr\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/tidydata\")"
   },
   {
     "objectID": "lectures/11-home.html#learning-objectives",
@@ -3295,5 +3295,159 @@
     "title": "Computing for the Social Sciences: Lecture 10",
     "section": "Using haven with SPSS or Stata",
     "text": "Using haven with SPSS or Stata\nSPSS:\nread_sav(file = system.file(\"examples\", \"iris.sav\",\n  package = \"haven\"))\nStata:\nread_dta(file = system.file(\"examples\", \"iris.dta\",\n  package = \"haven\"))"
+  },
+  {
+    "objectID": "lectures/11-slides.html#tidy-data",
+    "href": "lectures/11-slides.html#tidy-data",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Tidy Data",
+    "text": "Tidy Data\n“Tidy data” is a particular way to organize data.\n\nUseful because:\n\nstandardized: every tidy dataset follows the same rules\n\nconsistent: tidy data can be used directly by many tidyverse packages without extra manipulation\n\nclear: tidy data are easier to read, understand, and work with"
+  },
+  {
+    "objectID": "lectures/11-slides.html#tidy-data-three-principles",
+    "href": "lectures/11-slides.html#tidy-data-three-principles",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Tidy Data: Three Principles",
+    "text": "Tidy Data: Three Principles\n\n\nIllustrations from the blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst"
+  },
+  {
+    "objectID": "lectures/11-slides.html#tidy-datasets-are-all-alike",
+    "href": "lectures/11-slides.html#tidy-datasets-are-all-alike",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Tidy Datasets Are All Alike",
+    "text": "Tidy Datasets Are All Alike\n\n\nIllustrations from the blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst"
+  },
+  {
+    "objectID": "lectures/11-slides.html#tidy-datasets-are-all-alike-1",
+    "href": "lectures/11-slides.html#tidy-datasets-are-all-alike-1",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Tidy Datasets Are All Alike",
+    "text": "Tidy Datasets Are All Alike\n\n\nIllustrations from the blog Tidy Data for reproducibility, efficiency, and collaboration by Julia Lowndes and Allison Horst"
+  },
+  {
+    "objectID": "lectures/11-slides.html#tidying-untidy-data",
+    "href": "lectures/11-slides.html#tidying-untidy-data",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Tidying untidy data",
+    "text": "Tidying untidy data\n\n\n\n\n\n\nImportant\n\n\nIt might sound counter intuitive, but most real-world data IS NOT stored in a tidy format!\nWhy?\n1. Many datasets are designed to make data entry, not analysis, easier\n2. Tidy data principles take time and practice to master\n\n\n\n\n\n\n\n\n\n\nTip\n\n\nWhen working with the tidyverse (ggplot2, dplyr, etc.), start by putting your data in tidy format. Most tidyverse functions assume data are tidy!"
+  },
+  {
+    "objectID": "lectures/11-slides.html#tidying-untidy-data-1",
+    "href": "lectures/11-slides.html#tidying-untidy-data-1",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Tidying Untidy Data",
+    "text": "Tidying Untidy Data\nOK, you are ready to start a project and loaded some data into R, but they are untidy! What should you do to tidy them up?"
+  },
+  {
+    "objectID": "lectures/11-slides.html#things-you-can-do-with-the-tidyr-package",
+    "href": "lectures/11-slides.html#things-you-can-do-with-the-tidyr-package",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Things You Can Do with the tidyr Package",
+    "text": "Things You Can Do with the tidyr Package\nTidyr documentation\n\nPivoting\n\npivot_longer() makes the dataset longer by increasing rows\n\npivot_wider() makes the dataset wider by increasing columns\n\nSeparating\n\nseparate() splits one column into multiple columns\n\nUniting\n\nunite() combines multiple columns into one\n\n\n\n\n\n\n\n\nNote\n\n\nThe tidyr package includes many other functions, but we focus on the most important. Each behaves a bit differently, so be sure to check the documentation for details on their arguments."
+  },
+  {
+    "objectID": "lectures/11-slides.html#example",
+    "href": "lectures/11-slides.html#example",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Example",
+    "text": "Example\nWe’ll illustrate these tidying tasks using one of the datasets from the readings (Chapter 5). We are going to see different (untidy) ways to organize this dataset, and how to use tidyr to organize each of htem\nThe dataset is longitudinal, with four variables:\n\ncountry\n\nyear\n\ncases (number of tuberculosis cases)\npopulation"
+  },
+  {
+    "objectID": "lectures/11-slides.html#pivot-longer",
+    "href": "lectures/11-slides.html#pivot-longer",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Pivot Longer",
+    "text": "Pivot Longer\nWhy is this dataset untidy? How can we tidy it?\n\ntable4a\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\n\n“Each variable must have its own column”: column names must be variables names, not variables values (here 1999 and 2000 are values of the year variable)\n“Each observation must have its own row”: here we have one row for every country, but this is panel data, so we should have the country-year pair to define one observation, not just country"
+  },
+  {
+    "objectID": "lectures/11-slides.html#pivot-longer-1",
+    "href": "lectures/11-slides.html#pivot-longer-1",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Pivot Longer",
+    "text": "Pivot Longer\nhttps://tidyr.tidyverse.org/reference/pivot_longer.html\n\n\n\n\ntable4a\n\n# A tibble: 3 × 3\n  country     `1999` `2000`\n  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;\n1 Afghanistan    745   2666\n2 Brazil       37737  80488\n3 China       212258 213766\n\n\n\n\npivot_longer(data = table4a,\n             cols = c(`1999`, `2000`),\n             names_to = \"year\",\n             values_to = \"cases\")\n\n# A tibble: 6 × 3\n  country     year   cases\n  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;\n1 Afghanistan 1999     745\n2 Afghanistan 2000    2666\n3 Brazil      1999   37737\n4 Brazil      2000   80488\n5 China       1999  212258\n6 China       2000  213766"
+  },
+  {
+    "objectID": "lectures/11-slides.html#pivot-wider",
+    "href": "lectures/11-slides.html#pivot-wider",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Pivot Wider",
+    "text": "Pivot Wider\nWhy is this dataset untidy? How can we tidy it?\n\ntable2\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\n\n\n“Each variable must have its own column”: the current values of type are actually variables names\n“Each observation must have its own row”: here an observation is a country in a year, which is correct, but each observation is spread across two rows"
+  },
+  {
+    "objectID": "lectures/11-slides.html#pivot-wider-1",
+    "href": "lectures/11-slides.html#pivot-wider-1",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Pivot Wider",
+    "text": "Pivot Wider\nhttps://tidyr.tidyverse.org/reference/pivot_wider.html\n\n\n\n\ntable2\n\n# A tibble: 12 × 4\n   country      year type            count\n   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;\n 1 Afghanistan  1999 cases             745\n 2 Afghanistan  1999 population   19987071\n 3 Afghanistan  2000 cases            2666\n 4 Afghanistan  2000 population   20595360\n 5 Brazil       1999 cases           37737\n 6 Brazil       1999 population  172006362\n 7 Brazil       2000 cases           80488\n 8 Brazil       2000 population  174504898\n 9 China        1999 cases          212258\n10 China        1999 population 1272915272\n11 China        2000 cases          213766\n12 China        2000 population 1280428583\n\n\n\n\npivot_wider(data = table2,\n            names_from = type,\n            values_from = count)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#separating",
+    "href": "lectures/11-slides.html#separating",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Separating",
+    "text": "Separating\nWhy is this dataset untidy? How can we tidy it?\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#separating-1",
+    "href": "lectures/11-slides.html#separating-1",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Separating",
+    "text": "Separating\nhttps://tidyr.tidyverse.org/reference/separate.html\n\n\n\n\ntable3\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583\n\n\n\n\nseparate(data = table3,\n         col = rate,\n         into = c(\"cases\",\"population\"),\n         convert = TRUE)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;int&gt;      &lt;int&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#uniting",
+    "href": "lectures/11-slides.html#uniting",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Uniting",
+    "text": "Uniting\nWhy is this dataset untidy? How can we tidy it?\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#uniting-1",
+    "href": "lectures/11-slides.html#uniting-1",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Uniting",
+    "text": "Uniting\nhttps://tidyr.tidyverse.org/reference/unite.html\n\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year)\n\n# A tibble: 6 × 3\n  country     year  rate             \n  &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19_99 745/19987071     \n2 Afghanistan 20_00 2666/20595360    \n3 Brazil      19_99 37737/172006362  \n4 Brazil      20_00 80488/174504898  \n5 China       19_99 212258/1272915272\n6 China       20_00 213766/1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#uniting-2",
+    "href": "lectures/11-slides.html#uniting-2",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Uniting",
+    "text": "Uniting\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year,\n      sep = \"\") # remove underscore\n\n# A tibble: 6 × 3\n  country     year  rate             \n  &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 1999  745/19987071     \n2 Afghanistan 2000  2666/20595360    \n3 Brazil      1999  37737/172006362  \n4 Brazil      2000  80488/174504898  \n5 China       1999  212258/1272915272\n6 China       2000  213766/1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#uniting-3",
+    "href": "lectures/11-slides.html#uniting-3",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Uniting",
+    "text": "Uniting\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year,\n      sep = \"\") |&gt;\n  mutate(year = as.integer(year)) # store as numeric\n\n# A tibble: 6 × 3\n  country      year rate             \n  &lt;chr&gt;       &lt;int&gt; &lt;chr&gt;            \n1 Afghanistan  1999 745/19987071     \n2 Afghanistan  2000 2666/20595360    \n3 Brazil       1999 37737/172006362  \n4 Brazil       2000 80488/174504898  \n5 China        1999 212258/1272915272\n6 China        2000 213766/1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#chain-tidyr-functions",
+    "href": "lectures/11-slides.html#chain-tidyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Chain tidyr functions!",
+    "text": "Chain tidyr functions!\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year,\n      sep = \"\") |&gt;\n  mutate(year = as.integer(year)) |&gt;\n  separate(col = rate,\n           into = c(\"cases\", \"population\"),\n           convert = TRUE)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
+  },
+  {
+    "objectID": "lectures/11-slides.html#practice-tidying-data",
+    "href": "lectures/11-slides.html#practice-tidying-data",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "💻 Practice Tidying Data",
+    "text": "💻 Practice Tidying Data\nDownload today’s in-class exercises from the website."
+  },
+  {
+    "objectID": "lectures/11-slides.html#tidying-untidy-data-2",
+    "href": "lectures/11-slides.html#tidying-untidy-data-2",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Tidying Untidy Data",
+    "text": "Tidying Untidy Data\n\n\nFirst, Diagnose the data\n\nIdentify the variables\nIdentify the observations\nSpot what’s untidy\n\nMultiple variables in one column\n\nVariable values used as column names\n\nVariable names stored in rows\nEtc.\n\n\n\nSecond, Fix it with tidyr\n\nPut each variable in its own column\nPut each observation in its own row\nEnsure each cell holds a single value"
+  },
+  {
+    "objectID": "lectures/11-slides.html#use-pipes-to-chain-tidyr-functions",
+    "href": "lectures/11-slides.html#use-pipes-to-chain-tidyr-functions",
+    "title": "Computing for the Social Sciences: Lecture 11",
+    "section": "Use Pipes to Chain tidyr functions",
+    "text": "Use Pipes to Chain tidyr functions\n\n\n\ntable5\n\n# A tibble: 6 × 4\n  country     century year  rate             \n  &lt;chr&gt;       &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;            \n1 Afghanistan 19      99    745/19987071     \n2 Afghanistan 20      00    2666/20595360    \n3 Brazil      19      99    37737/172006362  \n4 Brazil      20      00    80488/174504898  \n5 China       19      99    212258/1272915272\n6 China       20      00    213766/1280428583\n\n\n\n\nunite(data = table5,\n      col = \"year\", century, year,\n      sep = \"\") |&gt;\n  mutate(year = as.integer(year)) |&gt;\n  separate(col = rate,\n           into = c(\"cases\", \"population\"),\n           convert = TRUE)\n\n# A tibble: 6 × 4\n  country      year  cases population\n  &lt;chr&gt;       &lt;int&gt;  &lt;int&gt;      &lt;int&gt;\n1 Afghanistan  1999    745   19987071\n2 Afghanistan  2000   2666   20595360\n3 Brazil       1999  37737  172006362\n4 Brazil       2000  80488  174504898\n5 China        1999 212258 1272915272\n6 China        2000 213766 1280428583"
   }
 ]
