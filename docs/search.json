@@ -816,7 +816,7 @@
     "href": "lectures/11-home.html#learning-objectives",
     "title": "Lecture 11: Tidydata with tidyr",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nDefine the concept of tidy data and its characteristics\nPractice tidying data with tidyr"
+    "text": "Learning Objectives\n\nDefine the concept of tidy data and its characteristics\nPractice tidying data using tidyr"
   },
   {
     "objectID": "lectures/11-home.html#readings",

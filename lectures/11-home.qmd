@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Learning Objectives
 
 * Define the concept of tidy data and its characteristics
-* Practice tidying data with `tidyr`
+* Practice tidying data using `tidyr`
 
 
 ## Before Class
