@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Define Strings, Regular Expressions, and their uses
 * Introduce `stringr`
 * Practice using Regular Expressions in R to extract info from strings
-* Introduce `lubridate` to manipulate dates in R (Update: moved it to Monday 6/7!)
+* Introduce `lubridate` to manipulate dates in R (Update: moved it to Monday, July 6)
 
 
 ## Before Class

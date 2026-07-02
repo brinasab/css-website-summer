@@ -130,7 +130,7 @@
     "href": "lectures/12-home.html#learning-objectives",
     "title": "Lecture 12: Strings and Regex with stringr; Dates with lubridate",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nDefine Strings, Regular Expressions, and their uses\nIntroduce stringr\nPractice using Regular Expressions in R to extract info from strings\nIntroduce lubridate to manipulate dates in R (Update: moved it to Monday 6/7!)"
+    "text": "Learning Objectives\n\nDefine Strings, Regular Expressions, and their uses\nIntroduce stringr\nPractice using Regular Expressions in R to extract info from strings\nIntroduce lubridate to manipulate dates in R (Update: moved it to Monday, July 6)"
   },
   {
     "objectID": "lectures/12-home.html#before-class",
