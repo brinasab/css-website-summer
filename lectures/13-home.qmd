@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Learning Objectives
 
 Today, we will review key topics from Week 3. We will make time to answer questions about Quiz 3 and Homework Assignment 3, and we will still have Poll Everywhere participation questions. 
-
+https://canvas.uchicago.edu/courses/72552
 Today, we will also start the [online oral checks](oral-home.qmd), which will continue throughout weeks 4 and 5. 
 
 Agenda (~15 minutes per item):

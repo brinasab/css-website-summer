@@ -26,6 +26,7 @@ All checks must be scheduled (first come, first served) by **Sunday 7/5** using 
 
 Rescheduling isn't guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what's going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5. 
 
+All current slots fall during class time throughout Week 4 and Week 5. **Before the oral code checks start on a given day, we will have our regular lecture.** For example, on Monday of Week 4, we'll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11 AM, etc. If you are not scheduled for a check on that day, you are welcome to leave once it starts.
 
 ## Format and Rules
 
@@ -38,16 +39,15 @@ Each student signs up for one 15-minute conversation with the instructors about 
 
 Violating these rules disqualifies you from the check and results in a score of zero.
 
-All current slots **fall during class time throughout Week 4 and Week 5**. Before the oral code checks start on a given day, we will have our regular lecture (e.g., on Monday of Week 4, we'll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11 AM, etc.). If you are not scheduled for a check on that day, you are welcome to leave once it starts.
 
 
 ## Questions You Can Expect
 
 **Questions will draw from three areas:**
 
-1. *Take-home homework assignments*: one or two questions on the code you wrote, with follow-ups
-2. *Weekly quizzes*: one or two questions, with follow-ups
-3. *In-class code*: one question from the in-class code (e.g., the code you've been downloading with the purple `usethis::` command) before the day of your scheduled check; we focus on the in-class code explicitly covered during lectures
+1. **Take-home homework assignments:** one or two questions on the code you wrote, with follow-ups
+2. **Weekly quizzes:** one or two questions, with follow-ups
+3. **In-class code:** one question from the in-class code (e.g., the code you've been downloading with the purple `usethis::` command) before the day of your scheduled check; we focus on the in-class code explicitly covered during lectures
 
 **Some questions will be broad, for example:**
 
