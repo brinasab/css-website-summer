@@ -2692,7 +2692,7 @@
     "href": "lectures/12-home.html#before-class",
     "title": "Lecture 12: Strings and Regex with stringr; Dates with lubridate",
     "section": "Before Class",
-    "text": "Before Class\n\nIf you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!\nAssignments coming up:\n\nQuiz 3 will open today right after this class, check Canvas and it’s due Monday of Week 4 before class\nAssignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)"
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!\nAssignments coming up:\n\nQuiz 3 will open today right after this class, check Canvas and it’s due Monday of Week 4 before class\nAssignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)\nAssignment 3 and Assignment 5 (optional) will open tomorrow (Friday, July 3rd)\nCheck the Oral Code Check page and sign-up by Sunday, July 5th"
   },
   {
     "objectID": "lectures/12-home.html#readings",
@@ -2818,7 +2818,7 @@
     "href": "lectures/index.html",
     "title": "Computing for the Social Sciences",
     "section": "",
-    "text": "Course Schedule Summer 2026\n\n\n\n\n\n\n\n\n\nWeek\nDate\nLecture & Assessment\n\n\n\n\nWeek 1\nMon, Jun 15, 2026\nLecture 1: Course Logistics; Intro to R & Markdown\n\n\n\nTue, Jun 16, 2026\nLecture 2: Git & GitHub with RStudio\n\n\n\nWed, Jun 17, 2026\nLecture 3: Intro to `ggplot2`; Coding Style\n\n\n\nThu, Jun 18, 2026\nLecture 4: Graphs for Data Analysis with `ggplot2`\n\n\nWeek 2\nMon, Jun 22, 2026\nLecture 5: Week 1 Review\n\n\n\n\nQuiz 1 Due (before class)\n\n\n\n\nHomework 1 Due\n\n\n\nTue, Jun 23, 2026\nLecture 6: Intro to `dplyr`; Pipes\n\n\n\nWed, Jun 24, 2026\nLecture 7: Intermediate `dplyr`; Renaming & Recoding Variables\n\n\n\nThu, Jun 25, 2026\nLecture 8: Missing Data; Factors\n\n\nWeek 3\nMon, Jun 29, 2026\nLecture 9: Week 2 Review\n\n\n\n\nQuiz 2 Due (before class)\n\n\n\nTue, Jun 30, 2026\nLecture 10: Importing Data with `readr`; Relational Data with `dplyr`\n\n\n\nWed, Jul 01, 2026\nLecture 11: Tidy Data with `tidyr`\n\n\n\nThu, Jul 02, 2026\nLecture 12: Strings and Regex with `stringr`; Dates with `lubridate`\n\n\n\n\nHomework 2 Due\n\n\nWeek 4\nMon, Jul 06, 2026\nLecture 13: Week 3 Review\n\n\n\n\nQuiz 3 Due (before class)\n\n\n\n\nOral checks begin (cont. through Week 4 and 5)\n\n\n\nTue, Jul 07, 2026\nLecture 14: Data Structures and Base R\n\n\n\nWed, Jul 08, 2026\nLecture 15: Control Flow with Conditionals\n\n\n\nThu, Jul 09, 2026\nLecture 16: Control Flow with Loops\n\n\n\n\nHomework 3 Due\n\n\nWeek 5\nMon, Jul 13, 2026\nLecture 17: Week 4 Review\n\n\n\n\nQuiz 4 Due (before class)\n\n\n\nTue, Jul 14, 2026\nLecture 18: Control Flow with Loops (cont.); Functions\n\n\n\nWed, Jul 15, 2026\nLecture 19: Functions (cont.)\n\n\n\nThu, Jul 16, 2026\nLecture 20: Reproducible Workflow\n\n\n\n\nHomework 4 and 5 Due\n\n\n\n\n\nDownload the Excel version of this schedule"
+    "text": "Course Schedule Summer 2026\n\n\n\n\n\n\n\n\n\nWeek\nDate\nLecture & Assessment\n\n\n\n\nWeek 1\nMon, Jun 15, 2026\nLecture 1: Course Logistics; Intro to R & Markdown\n\n\n\nTue, Jun 16, 2026\nLecture 2: Git & GitHub with RStudio\n\n\n\nWed, Jun 17, 2026\nLecture 3: Intro to `ggplot2`; Coding Style\n\n\n\nThu, Jun 18, 2026\nLecture 4: Graphs for Data Analysis with `ggplot2`\n\n\nWeek 2\nMon, Jun 22, 2026\nLecture 5: Week 1 Review\n\n\n\n\nQuiz 1 Due (before class)\n\n\n\n\nHomework 1 Due\n\n\n\nTue, Jun 23, 2026\nLecture 6: Intro to `dplyr`; Pipes\n\n\n\nWed, Jun 24, 2026\nLecture 7: Intermediate `dplyr`; Renaming & Recoding Variables\n\n\n\nThu, Jun 25, 2026\nLecture 8: Missing Data; Factors\n\n\nWeek 3\nMon, Jun 29, 2026\nLecture 9: Week 2 Review\n\n\n\n\nQuiz 2 Due (before class)\n\n\n\nTue, Jun 30, 2026\nLecture 10: Importing Data with `readr`; Relational Data with `dplyr`\n\n\n\nWed, Jul 01, 2026\nLecture 11: Tidy Data with `tidyr`\n\n\n\nThu, Jul 02, 2026\nLecture 12: Strings and Regex with `stringr`; Dates with `lubridate`\n\n\n\n\nHomework 2 Due\n\n\nWeek 4\nMon, Jul 06, 2026\nLecture 13: Week 3 Review\n\n\n\n\nQuiz 3 Due (before class)\n\n\n\n\nOral Code Checks begin (cont. through Weeks 4-5)\n\n\n\nTue, Jul 07, 2026\nLecture 14: Data Structures and Base R\n\n\n\nWed, Jul 08, 2026\nLecture 15: Control Flow with Conditionals\n\n\n\nThu, Jul 09, 2026\nLecture 16: Control Flow with Loops\n\n\n\n\nHomework 3 Due\n\n\nWeek 5\nMon, Jul 13, 2026\nLecture 17: Week 4 Review\n\n\n\n\nQuiz 4 Due (before class)\n\n\n\nTue, Jul 14, 2026\nLecture 18: Control Flow with Loops (cont.); Functions\n\n\n\nWed, Jul 15, 2026\nLecture 19: Functions (cont.)\n\n\n\nThu, Jul 16, 2026\nLecture 20: Reproducible Workflow\n\n\n\n\nHomework 4 and 5 Due\n\n\n\n\n\nDownload the Excel version of this schedule"
   },
   {
     "objectID": "setup/setup-test.html",
@@ -2917,5 +2917,159 @@
     "title": "Tools for R Programming and Collaboration",
     "section": "Shell",
     "text": "Shell\nThe shell (or bash or terminal) is a program on your computer whose job is to run other programs, rather than do calculations itself. The shell is a very old program and in a time before the mouse it was the only way to interact with a computer. It is still extremely popular among programmers because it is fast and powerful at automating repetitive tasks.\nHere we use the shell for a more modest goal: to navigate the file system, confirm the present working directory, and cement the git to GitHub connection.\n\nStarting the shell\nIn RStudio, go to Tools &gt; Shell. This should take you to the shell (on Mac: Terminal, on Windows: GitBash or equivalent). It should be a simple blinking cursor, waiting for input (white text on black background, or black text on white background)\n\n\nUsing the shell\nThe most basic commands are listed below:\n\npwd (print working directory). Shows the folder (or directory) you are currently operating in. This is not necessarily the same as the R working directory you get from getwd().\nls (list all files). Shows all files in the current working directory. This is equivalent to looking at the files in your Finder/Explorer/File Manager. Use ls -a to also list hidden files, such as .Rhistory and .git.\ncd (change directory). Allows you to navigate through your folders by changing the shell’s working directory. You can navigate like so:\n\ngo to subfolder foo of current working directory: cd foo\ngo to parent folder of current working directory: cd ..\ngo to home folder: cd ~ or simply cd\ngo to folder using absolute path, works regardless of your current working directory: cd /home/my_username/Desktop. Windows uses a slightly different syntax with the slashes between the folder names reversed, \\, e.g. cd C:\\Users\\MY_USERNAME\\Desktop.\n\nTip 1: Dragging and dropping a file or folder into the terminal window will paste the absolute path into the window.\nTip 2: Use the tab key to autocomplete unambiguous folder and file names. Hit tab twice to see all ambiguous options.\n\n\nUse arrow-up and arrow-down to repeat previous commands. Or search for previous commands with CTRL+r.\ngit status is the most used git command and informs you of your current branch, any changes or untracked files, and whether you are in sync with your remotes.\ngit remote -v lists all remotes. Very useful for making sure git knows about your remote and that the remote address is correct.\ngit remote add origin GITHUB_URL adds the remote GITHUB_URL with nickname origin.\ngit remote set-url origin GITHUB_URL changes the remote url of origin to GITHUB_URL. This way you can fix typos in the remote url.\n\n\n\nA note for Windows users\nOn Windows, the program that runs the shell is called Command Prompt or cmd.exe.\nUnfortunately, the default Windows shell does not support all the commands that other operating systems do. This is where GitBash comes in handy: it installs a light version of a shell that does support all the above commands. When you access the shell through RStudio, RStudio actually tries to open GitBash if it can find it, but it will open the default Windows Command Prompt if GitBash is not found.\nIf you get an error message such as `pwd is not recognized as an internal or external command, operable program or batch file.` from any of the previous commands, that means that RStudio could not find GitBash. The most likely cause of this is that you did not install git using the recommended method so try re-installing git.\nIf you followed the installation instructions and still cannot run GitBash, you should find it under “Menu &gt; Git &gt; Git Bash”. If you’re still confused, go back and watch the first three minutes of this video tutorial on installing Git for Windows."
+  },
+  {
+    "objectID": "lectures/oral-home.html",
+    "href": "lectures/oral-home.html",
+    "title": "Oral Code Checks: Guidelines",
+    "section": "",
+    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
+  },
+  {
+    "objectID": "lectures/oral-home.html#info-and-sign-ups",
+    "href": "lectures/oral-home.html#info-and-sign-ups",
+    "title": "Oral Code Checks: Guidelines",
+    "section": "",
+    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
+  },
+  {
+    "objectID": "lectures/oral-home.html#scheduling-policy",
+    "href": "lectures/oral-home.html#scheduling-policy",
+    "title": "Oral Code Checks: Guidelines",
+    "section": "Scheduling Policy",
+    "text": "Scheduling Policy\nAll checks must be scheduled (first come, first served) by Sunday 7/5 using the spreadsheet linked above. If you haven’t picked a slot by then, I’ll assign you one from what’s left, so it’s worth signing up early to get a time that works best for you (all current slots fall during class time).\nRescheduling isn’t guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what’s going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5."
+  },
+  {
+    "objectID": "lectures/oral-home.html#format-and-rules",
+    "href": "lectures/oral-home.html#format-and-rules",
+    "title": "Oral Code Checks: Guidelines",
+    "section": "Format and Rules",
+    "text": "Format and Rules\nEach student signs up for one 15-minute conversation with the instructors about your own work in the course, held during Weeks 4 and 5. Check the rubric linked above to see how you will be evaluated.\n\nThe check runs on Zoom: Use the Zoom link for the instructor listed in your slot: both Sabrina’s and Ruben’s Zoom links are on the course homepage (use our OHs links)\nI will share my screen: you won’t be asked to share yours. I’ll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).\nCamera on for the full session; your torso and hands must be visible at all times.\nYou may not touch your screen, keyboard, or any other device during the check.\n\nViolating these rules disqualifies you from the check and results in a score of zero."
+  },
+  {
+    "objectID": "lectures/oral-home.html#questions-you-can-expect",
+    "href": "lectures/oral-home.html#questions-you-can-expect",
+    "title": "Oral Code Checks: Guidelines",
+    "section": "Questions You Can Expect",
+    "text": "Questions You Can Expect\nQuestions will draw from three areas:\n\nTake-home homework assignments: one or two questions on the code you wrote, with follow-ups\nWeekly quizzes: one or two questions, with follow-ups\nIn-class code: one question from any of the in-class code distributed before the day of your scheduled check\n\nSome questions will be broad, for example:\n\n“Walk me through your code / logic here.”\n“How did you break this problem down into steps?”\n\nOthers will be more specific, for example:\n\n“Why did you choose this approach instead of another one?”\n“What does this piece of code do?”\n“How else could you write this to get the same result, based on what we covered in class?”\n“Why is this the right answer on the quiz?”"
+  },
+  {
+    "objectID": "lectures/oral-home.html#how-to-prepare",
+    "href": "lectures/oral-home.html#how-to-prepare",
+    "title": "Oral Code Checks: Guidelines",
+    "section": "How to Prepare",
+    "text": "How to Prepare\nReview your take-home homework, quizzes, all lecture slides, and in-class code. Make sure you understand each piece and can explain it out loud.\nThe goal is to see your thinking and your familiarity with your own code and the class materials, not to trick you. I won’t ask about things we haven’t covered in class, and I won’t ask you to code live. I also won’t ask about readings directly, though skimming the readings is part of the expected workload and will help you understand the material better."
+  },
+  {
+    "objectID": "lectures/12-slides.html#introduction",
+    "href": "lectures/12-slides.html#introduction",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Introduction",
+    "text": "Introduction\nThese are strings:\nstring1 &lt;- \"This is a string\"\n\nstring2 &lt;- 'If I want to include a \"quote\" inside a string, I use single quotes'\nToday we focus on methods for manipulating strings: regular expressions!"
+  },
+  {
+    "objectID": "lectures/12-slides.html#string-and-character-vector",
+    "href": "lectures/12-slides.html#string-and-character-vector",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "String and Character Vector",
+    "text": "String and Character Vector\nA string is a sequence of characters (a piece of text) enclosed in either double \" or single quotes '. Strings can include letters, numbers, symbols, and whitespace characters.\nstring &lt;- \"Ciao, my name is Sabrina and I am 99 years old!!\"\nclass(string)\nlength(string)"
+  },
+  {
+    "objectID": "lectures/12-slides.html#string-and-character-vector-1",
+    "href": "lectures/12-slides.html#string-and-character-vector-1",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "String and Character Vector",
+    "text": "String and Character Vector\nA character vector is a collection of strings: each element of the vector is a string!\nchar_vect &lt;- c(\"Ciao come stai?\", \"Ciao\", \"Hello\", \"etc.\") \nclass(char_vect)\nlength(char_vect)\nThus single string, like in the previous examples, is also a character vector of length one.\nWe use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings vs. only one)."
+  },
+  {
+    "objectID": "lectures/12-slides.html#regular-expressions-definitions-and-uses",
+    "href": "lectures/12-slides.html#regular-expressions-definitions-and-uses",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Regular Expressions: definitions and uses",
+    "text": "Regular Expressions: definitions and uses\nRegular expressions (“regex” or “regexes”) are strings containing normal characters and/or special meta-characters. They describe a specific pattern to match in a given text.\nMore formally, regex: * is a language on its own right * used for pattern matching * adopted by many programming languages, such as R, Python, and others!\nExample:\nemail_pattern &lt;- \"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\""
+  },
+  {
+    "objectID": "lectures/12-slides.html#regular-expressions-definitions-and-uses-1",
+    "href": "lectures/12-slides.html#regular-expressions-definitions-and-uses-1",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Regular Expressions: definitions and uses",
+    "text": "Regular Expressions: definitions and uses\nRegular expressions are powerful! They allow us to find patterns in any task that deals with text, such as NLP (Natural Language Processing) or data-cleaning tasks that involve text.\nFor example, you can use regular expressions to:\n\nExtract specific elements from texts (e.g., find words that include a given set of letters, find all past tenses in a text, etc.)\nPerform textual substitutions (e.g. find and replace HTML tags after you scraped a page)\nVerify text format (e.g. “Is this email/phone-number/address valid?”)"
+  },
+  {
+    "objectID": "lectures/12-slides.html#the-stringr-package-in-r",
+    "href": "lectures/12-slides.html#the-stringr-package-in-r",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "The stringr() package in R",
+    "text": "The stringr() package in R\nToday we learn about the package stringr and regular expressions!\nWhen you use regular expressions, most likely you will need to use your them together with one of the functions from the stringr() package.\nThis package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc."
+  },
+  {
+    "objectID": "lectures/12-slides.html#the-stringr-package-in-r-1",
+    "href": "lectures/12-slides.html#the-stringr-package-in-r-1",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "The stringr() package in R",
+    "text": "The stringr() package in R\nFundamental stringr() functions and their use:\n\nstr_view() return the first regex match\nstr_view_all() return all regex matches (deprecated in the last version of stringr)\nstr_detect(): detect matches in a string\nstr_count(): count the number of matches\nstr_extract() and str_extract_all(): extract matches\nstr_replace() and str_replace_all(): replace matches\nstr_split(): split a string based on a match"
+  },
+  {
+    "objectID": "lectures/12-slides.html#resources",
+    "href": "lectures/12-slides.html#resources",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Resources",
+    "text": "Resources\n\nstringr() documentation and cheatsheet\nChapter 15 by Rochelle Terman, explains stringr() (using the R for Data Science textbook)\nRead Chapter 14 “Strings” in “R for Data Science” 2nd Edition (read it all, but especially 14.4 “Extracting data from strings”).\nRead Chapter 17 from R Programming for Data Science. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about stringr()\nFor more in-depth info on regular expressions check this excellent tutorial"
+  },
+  {
+    "objectID": "lectures/12-slides.html#practice",
+    "href": "lectures/12-slides.html#practice",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nDownload today’s class material from the website to learn more about regular expression and stringr()"
+  },
+  {
+    "objectID": "lectures/12-slides.html#date-and-times-with-lubridate",
+    "href": "lectures/12-slides.html#date-and-times-with-lubridate",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Date and Times with Lubridate",
+    "text": "Date and Times with Lubridate\nLubridate (also part of the tidyverse) is a handy package that makes it easier work with dates & times https://r4ds.hadley.nz/datetimes.html\n\nCommon Lubridate functions:\n\nTurn strings into dates or date-times with ymd(), mdy(), dmy(), ymd_hms()\n\nTurn variables into dates or date-times with make_datetime()\n\nExtract individual date components with year(), month(), day(), wday()\n\nRound the date to a nearby unit of time + days(1), floor_date(), round_date*()\n\nHandle time spans (multiple options, see Ch. 17)\nHandle time zones with_tz(), force_tz()"
+  },
+  {
+    "objectID": "lectures/12-slides.html#turn-strings-into-dates-or-date-times",
+    "href": "lectures/12-slides.html#turn-strings-into-dates-or-date-times",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Turn strings into dates or date-times",
+    "text": "Turn strings into dates or date-times\n\nlibrary(lubridate)\nymd(\"2017-01-31\")\n\n[1] \"2017-01-31\"\n\nmdy(\"January 31st, 2017\")\n\n[1] \"2017-01-31\"\n\ndmy(\"31-Jan-2017\")\n\n[1] \"2017-01-31\"\n\nymd_hms(\"2017-01-31 20:11:59\")\n\n[1] \"2017-01-31 20:11:59 UTC\""
+  },
+  {
+    "objectID": "lectures/12-slides.html#turn-variables-into-dates-or-date-times",
+    "href": "lectures/12-slides.html#turn-variables-into-dates-or-date-times",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Turn variables into dates or date-times",
+    "text": "Turn variables into dates or date-times\n\n\n\nlibrary(tidyverse)\nlibrary(nycflights13)\nflights |&gt; \n  select(year, month, day, hour, minute)\n\n# A tibble: 336,776 × 5\n    year month   day  hour minute\n   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1  2013     1     1     5     15\n 2  2013     1     1     5     29\n 3  2013     1     1     5     40\n 4  2013     1     1     5     45\n 5  2013     1     1     6      0\n 6  2013     1     1     5     58\n 7  2013     1     1     6      0\n 8  2013     1     1     6      0\n 9  2013     1     1     6      0\n10  2013     1     1     6      0\n# ℹ 336,766 more rows\n\n\n\n\n# create a date/time from this data with make_datetime()\nflights |&gt; \n  select(year, month, day, hour, minute) |&gt; \n  mutate(departure = make_datetime(year, month, day, hour, minute))\n\n# A tibble: 336,776 × 6\n    year month   day  hour minute departure          \n   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dttm&gt;             \n 1  2013     1     1     5     15 2013-01-01 05:15:00\n 2  2013     1     1     5     29 2013-01-01 05:29:00\n 3  2013     1     1     5     40 2013-01-01 05:40:00\n 4  2013     1     1     5     45 2013-01-01 05:45:00\n 5  2013     1     1     6      0 2013-01-01 06:00:00\n 6  2013     1     1     5     58 2013-01-01 05:58:00\n 7  2013     1     1     6      0 2013-01-01 06:00:00\n 8  2013     1     1     6      0 2013-01-01 06:00:00\n 9  2013     1     1     6      0 2013-01-01 06:00:00\n10  2013     1     1     6      0 2013-01-01 06:00:00\n# ℹ 336,766 more rows\n\n\n\n\nMore examples: https://r4ds.hadley.nz/datetimes.html#from-individual-components"
+  },
+  {
+    "objectID": "lectures/12-slides.html#extract-individual-date-components",
+    "href": "lectures/12-slides.html#extract-individual-date-components",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Extract individual date components",
+    "text": "Extract individual date components\n\ndatetime &lt;- ymd_hms(\"2025-10-22 12:30:33\")\n\nyear(datetime)\n\n[1] 2025\n\nmonth(datetime)\n\n[1] 10\n\nmday(datetime)\n\n[1] 22\n\nyday(datetime)\n\n[1] 295\n\nwday(datetime)\n\n[1] 4\n\n\nMore examples: https://r4ds.hadley.nz/datetimes.html#getting-components"
+  },
+  {
+    "objectID": "lectures/12-slides.html#round-the-date-to-a-nearby-unit-of-time",
+    "href": "lectures/12-slides.html#round-the-date-to-a-nearby-unit-of-time",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Round the date to a nearby unit of time",
+    "text": "Round the date to a nearby unit of time\n\n# create date object from string\ndt &lt;- ymd_hms(\"2025-10-22 12:45:00\")\ndt\n\n[1] \"2025-10-22 12:45:00 UTC\"\n\n# round down with floor_date() \nfloor_date(dt, \"day\")\n\n[1] \"2025-10-22 UTC\"\n\nfloor_date(dt, \"month\")\n\n[1] \"2025-10-01 UTC\"\n\n# round up with ceiling_date()\nceiling_date(dt, \"day\")\n\n[1] \"2025-10-23 UTC\"\n\nceiling_date(dt, \"month\")\n\n[1] \"2025-11-01 UTC\"\n\n\nMore examples: https://r4ds.hadley.nz/datetimes.html#rounding"
+  },
+  {
+    "objectID": "lectures/12-slides.html#handle-time-spans",
+    "href": "lectures/12-slides.html#handle-time-spans",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Handle Time Spans",
+    "text": "Handle Time Spans\n\n# How old are you?\nage &lt;- today() - ymd(\"2001-10-22\")\nage\n\nTime difference of 9019 days\n\nas.duration(age)\n\n[1] \"779241600s (~24.69 years)\"\n\n\nMore examples: https://r4ds.hadley.nz/datetimes.html#time-spans"
+  },
+  {
+    "objectID": "lectures/12-slides.html#handle-time-zones",
+    "href": "lectures/12-slides.html#handle-time-zones",
+    "title": "Computing for the Social Sciences: Lecture 12",
+    "section": "Handle Time Zones",
+    "text": "Handle Time Zones\n\ngreenwitch &lt;- ymd_hms(\"2025-10-22 6:45:00\")\n\n# display same instant in another time zone\n# shows local Central Time equivalent\nwith_tz(greenwitch, tzone = \"America/Chicago\")\n\n[1] \"2025-10-22 01:45:00 CDT\"\n\n# assign a time zone (without shifting actual clock time)\n# interprets existing time as if it were recorded in Chicago\nforce_tz(greenwitch, \"America/Chicago\")\n\n[1] \"2025-10-22 06:45:00 CDT\"\n\n\nMore examples: https://r4ds.hadley.nz/datetimes.html#time-zones"
   }
 ]

@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,7 +208,6 @@ Sabrina Nardin, Summer 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
@@ -152,10 +217,296 @@ Sabrina Nardin, Summer 2026
 </li>
 </ol>
 </div>
+<!--
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+-->
+</section>
+
+<section>
+<section id="strings-and-regular-expressions-with-stringr" class="title-slide slide level1 inverse middle center">
+<h1>1. Strings and Regular Expressions with stringr</h1>
+
+</section>
+<section id="introduction" class="slide level2 center">
+<h2>Introduction</h2>
+<p>These are strings:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>string1 <span class="ot">&lt;-</span> <span class="st">"This is a string"</span></span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>string2 <span class="ot">&lt;-</span> <span class="st">'If I want to include a "quote" inside a string, I use single quotes'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Today we focus on methods for manipulating strings: regular expressions!</p>
+<!-- Not 1:1 allignment but haver focus on Reg Expr because super important to know them! 
+So formally a string is... -->
+</section>
+<section id="string-and-character-vector" class="slide level2 center">
+<h2>String and Character Vector</h2>
+<p>A <strong>string</strong> is a sequence of characters (a piece of text) enclosed in either double <code>"</code> or single quotes <code>'</code>. Strings can include letters, numbers, symbols, and whitespace characters.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>string <span class="ot">&lt;-</span> <span class="st">"Ciao, my name is Sabrina and I am 99 years old!!"</span></span>
+<span id="cb2-2"><a></a><span class="fu">class</span>(string)</span>
+<span id="cb2-3"><a></a><span class="fu">length</span>(string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="string-and-character-vector-1" class="slide level2 center">
+<h2>String and Character Vector</h2>
+<p>A <strong>character vector</strong> is a collection of strings: each element of the vector is a string!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>char_vect <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ciao come stai?"</span>, <span class="st">"Ciao"</span>, <span class="st">"Hello"</span>, <span class="st">"etc."</span>) </span>
+<span id="cb3-2"><a></a><span class="fu">class</span>(char_vect)</span>
+<span id="cb3-3"><a></a><span class="fu">length</span>(char_vect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Thus single string, like in the previous examples, is also a character vector of length one.</p>
+<p>We use character vectors when we need to handle multiple pieces of text together (e.g., when we handle multiple strings vs.&nbsp;only one).</p>
+</section>
+<section id="regular-expressions-definitions-and-uses" class="slide level2 center">
+<h2>Regular Expressions: definitions and uses</h2>
+<p>Regular expressions (“regex” or “regexes”) <strong>are strings containing normal characters and/or special meta-characters.</strong> They describe a specific pattern to match in a given text.</p>
+<p>More formally, regex: * is a <em>language on its own right</em> * used for <em>pattern matching</em> * adopted by many programming languages, such as R, Python, and others!</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>email_pattern <span class="ot">&lt;-</span> <span class="st">"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+</span><span class="sc">\\</span><span class="st">.[a-zA-Z]{2,}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+But then you might ask yourself...
+given our ability to manipulate strings and our ability to test for equivalence (with the == operator) 
+or to test whether some string contains another (with the %in% operator), we don't technically need regular expressions... Not exactly! We want to use regex becasue they are POWERFUL
+-->
+</section>
+<section id="regular-expressions-definitions-and-uses-1" class="slide level2 center">
+<h2>Regular Expressions: definitions and uses</h2>
+<p>Regular expressions are powerful! They allow us to find patterns <strong>in any task that deals with text,</strong> such as NLP (Natural Language Processing) or data-cleaning tasks that involve text.</p>
+<p>For example, you can use regular expressions to:</p>
+<ul>
+<li>Extract specific elements from texts (e.g., find words that include a given set of letters, find all past tenses in a text, etc.)</li>
+<li>Perform textual substitutions (e.g.&nbsp;find and replace HTML tags after you scraped a page)</li>
+<li>Verify text format (e.g.&nbsp;“Is this email/phone-number/address valid?”)</li>
+</ul>
+</section>
+<section id="the-stringr-package-in-r" class="slide level2 center">
+<h2>The stringr() package in R</h2>
+<p>Today we learn about the package <code>stringr</code> and regular expressions!</p>
+<p>When you use regular expressions, most likely you will need to use your them together with one of the functions from the <code>stringr()</code> package.</p>
+<p>This package includes several functions that let you: detect matches in a string, count the number of matches, extract them, replace them with other values, split a string based on a match, etc.</p>
+</section>
+<section id="the-stringr-package-in-r-1" class="slide level2 center">
+<h2>The stringr() package in R</h2>
+<p>Fundamental <code>stringr()</code> functions and their use:</p>
+<ul>
+<li><code>str_view()</code> return the first regex match</li>
+<li><code>str_view_all()</code> return all regex matches (deprecated in the last version of <code>stringr</code>)</li>
+<li><code>str_detect()</code>: detect matches in a string</li>
+<li><code>str_count()</code>: count the number of matches</li>
+<li><code>str_extract()</code> and <code>str_extract_all()</code>: extract matches</li>
+<li><code>str_replace()</code> and <code>str_replace_all()</code>: replace matches</li>
+<li><code>str_split()</code>: split a string based on a match</li>
+</ul>
+</section>
+<section id="resources" class="slide level2 center">
+<h2>Resources</h2>
+<ul>
+<li><p><a href="https://stringr.tidyverse.org/"><code>stringr()</code> documentation and cheatsheet</a></p></li>
+<li><p><a href="https://plsc-31101.github.io/course/strings-and-regular-expressions.html#applying-regex">Chapter 15</a> by Rochelle Terman, explains <code>stringr()</code> (using the <em>R for Data Science</em> textbook)</p></li>
+<li><p>Read <a href="https://r4ds.hadley.nz/strings">Chapter 14 “Strings”</a> in “R for Data Science” 2nd Edition (read it all, but especially 14.4 “Extracting data from strings”).</p></li>
+<li><p>Read <a href="https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package">Chapter 17</a> from <em>R Programming for Data Science</em>. This book covers the entire range of regular expressions packages and functions: you do not need to understand everything, focus on the big picture. In-class we talk about <code>stringr()</code></p></li>
+<li><p>For more in-depth info on regular expressions check <a href="https://github.com/ziishaned/learn-regex/blob/master/README.md">this excellent tutorial</a></p></li>
+</ul>
+</section>
+<section id="practice" class="slide level2 inverse middle center">
+<h2>💻 Practice</h2>
+<p>Download today’s class material from the website to learn more about regular expression and <code>stringr()</code></p>
 </section>
 <section class="slide level2 center">
 
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+</section></section>
+<section>
+<section id="manipulating-dates-with-lubridate" class="title-slide slide level1 center middle">
+<h1>2. Manipulating Dates with Lubridate</h1>
+
+</section>
+<section id="date-and-times-with-lubridate" class="slide level2 center">
+<h2>Date and Times with Lubridate</h2>
+<p>Lubridate (also part of the <code>tidyverse</code>) is a handy package that makes it easier work with dates &amp; times <a href="https://r4ds.hadley.nz/datetimes.html" class="uri">https://r4ds.hadley.nz/datetimes.html</a></p>
+<div class="fragment">
+<h3 id="common-lubridate-functions">Common Lubridate functions:</h3>
+<ul>
+<li>Turn strings into dates or date-times with <code>ymd()</code>, <code>mdy()</code>, <code>dmy()</code>, <code>ymd_hms()</code><br>
+</li>
+<li>Turn variables into dates or date-times with <code>make_datetime()</code><br>
+</li>
+<li>Extract individual date components with <code>year()</code>, <code>month()</code>, <code>day()</code>, <code>wday()</code><br>
+</li>
+<li>Round the date to a nearby unit of time <code>+ days(1)</code>, <code>floor_date()</code>, <code>round_date*()</code><br>
+</li>
+<li>Handle time spans (multiple options, see Ch. 17)</li>
+<li>Handle time zones <code>with_tz()</code>, <code>force_tz()</code><br>
+</li>
+</ul>
+</div>
+</section>
+<section id="turn-strings-into-dates-or-date-times" class="slide level2 center">
+<h2>Turn strings into dates or date-times</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb5-2"><a></a><span class="fu">ymd</span>(<span class="st">"2017-01-31"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2017-01-31"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">mdy</span>(<span class="st">"January 31st, 2017"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2017-01-31"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">dmy</span>(<span class="st">"31-Jan-2017"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2017-01-31"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ymd_hms</span>(<span class="st">"2017-01-31 20:11:59"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2017-01-31 20:11:59 UTC"</code></pre>
+</div>
+</div>
+</section>
+<section id="turn-variables-into-dates-or-date-times" class="slide level2 center">
+<h2>Turn variables into dates or date-times</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-2"><a></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb13-3"><a></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a></a>  <span class="fu">select</span>(year, month, day, hour, minute)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 336,776 × 5
+    year month   day  hour minute
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;
+ 1  2013     1     1     5     15
+ 2  2013     1     1     5     29
+ 3  2013     1     1     5     40
+ 4  2013     1     1     5     45
+ 5  2013     1     1     6      0
+ 6  2013     1     1     5     58
+ 7  2013     1     1     6      0
+ 8  2013     1     1     6      0
+ 9  2013     1     1     6      0
+10  2013     1     1     6      0
+# ℹ 336,766 more rows</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># create a date/time from this data with make_datetime()</span></span>
+<span id="cb15-2"><a></a>flights <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a></a>  <span class="fu">select</span>(year, month, day, hour, minute) <span class="sc">|&gt;</span> </span>
+<span id="cb15-4"><a></a>  <span class="fu">mutate</span>(<span class="at">departure =</span> <span class="fu">make_datetime</span>(year, month, day, hour, minute))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 336,776 × 6
+    year month   day  hour minute departure          
+   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dttm&gt;             
+ 1  2013     1     1     5     15 2013-01-01 05:15:00
+ 2  2013     1     1     5     29 2013-01-01 05:29:00
+ 3  2013     1     1     5     40 2013-01-01 05:40:00
+ 4  2013     1     1     5     45 2013-01-01 05:45:00
+ 5  2013     1     1     6      0 2013-01-01 06:00:00
+ 6  2013     1     1     5     58 2013-01-01 05:58:00
+ 7  2013     1     1     6      0 2013-01-01 06:00:00
+ 8  2013     1     1     6      0 2013-01-01 06:00:00
+ 9  2013     1     1     6      0 2013-01-01 06:00:00
+10  2013     1     1     6      0 2013-01-01 06:00:00
+# ℹ 336,766 more rows</code></pre>
+</div>
+</div>
+</div></div>
+<p><br></p>
+<p>More examples: <a href="https://r4ds.hadley.nz/datetimes.html#from-individual-components" class="uri">https://r4ds.hadley.nz/datetimes.html#from-individual-components</a></p>
+<p><br></p>
+</section>
+<section id="extract-individual-date-components" class="slide level2 center">
+<h2>Extract individual date components</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>datetime <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">"2025-10-22 12:30:33"</span>)</span>
+<span id="cb17-2"><a></a></span>
+<span id="cb17-3"><a></a><span class="fu">year</span>(datetime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2025</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">month</span>(datetime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">mday</span>(datetime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 22</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">yday</span>(datetime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 295</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">wday</span>(datetime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<p>More examples: <a href="https://r4ds.hadley.nz/datetimes.html#getting-components" class="uri">https://r4ds.hadley.nz/datetimes.html#getting-components</a></p>
+</section>
+<section id="round-the-date-to-a-nearby-unit-of-time" class="slide level2 center">
+<h2>Round the date to a nearby unit of time</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># create date object from string</span></span>
+<span id="cb27-2"><a></a>dt <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">"2025-10-22 12:45:00"</span>)</span>
+<span id="cb27-3"><a></a>dt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-10-22 12:45:00 UTC"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="co"># round down with floor_date() </span></span>
+<span id="cb29-2"><a></a><span class="fu">floor_date</span>(dt, <span class="st">"day"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-10-22 UTC"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">floor_date</span>(dt, <span class="st">"month"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-10-01 UTC"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># round up with ceiling_date()</span></span>
+<span id="cb33-2"><a></a><span class="fu">ceiling_date</span>(dt, <span class="st">"day"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-10-23 UTC"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">ceiling_date</span>(dt, <span class="st">"month"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-11-01 UTC"</code></pre>
+</div>
+</div>
+<p>More examples: <a href="https://r4ds.hadley.nz/datetimes.html#rounding" class="uri">https://r4ds.hadley.nz/datetimes.html#rounding</a></p>
+</section>
+<section id="handle-time-spans" class="slide level2 center">
+<h2>Handle Time Spans</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="co"># How old are you?</span></span>
+<span id="cb37-2"><a></a>age <span class="ot">&lt;-</span> <span class="fu">today</span>() <span class="sc">-</span> <span class="fu">ymd</span>(<span class="st">"2001-10-22"</span>)</span>
+<span id="cb37-3"><a></a>age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time difference of 9019 days</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">as.duration</span>(age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "779241600s (~24.69 years)"</code></pre>
+</div>
+</div>
+<p>More examples: <a href="https://r4ds.hadley.nz/datetimes.html#time-spans" class="uri">https://r4ds.hadley.nz/datetimes.html#time-spans</a></p>
+</section>
+<section id="handle-time-zones" class="slide level2 center">
+<h2>Handle Time Zones</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>greenwitch <span class="ot">&lt;-</span> <span class="fu">ymd_hms</span>(<span class="st">"2025-10-22 6:45:00"</span>)</span>
+<span id="cb41-2"><a></a></span>
+<span id="cb41-3"><a></a><span class="co"># display same instant in another time zone</span></span>
+<span id="cb41-4"><a></a><span class="co"># shows local Central Time equivalent</span></span>
+<span id="cb41-5"><a></a><span class="fu">with_tz</span>(greenwitch, <span class="at">tzone =</span> <span class="st">"America/Chicago"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-10-22 01:45:00 CDT"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="co"># assign a time zone (without shifting actual clock time)</span></span>
+<span id="cb43-2"><a></a><span class="co"># interprets existing time as if it were recorded in Chicago</span></span>
+<span id="cb43-3"><a></a><span class="fu">force_tz</span>(greenwitch, <span class="st">"America/Chicago"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "2025-10-22 06:45:00 CDT"</code></pre>
+</div>
+</div>
+<p>More examples: <a href="https://r4ds.hadley.nz/datetimes.html#time-zones" class="uri">https://r4ds.hadley.nz/datetimes.html#time-zones</a></p>
 
 
 </section></section>

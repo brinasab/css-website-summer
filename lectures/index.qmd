@@ -59,7 +59,7 @@ lec <- tibble::tribble(
 
   "2026-07-06", "Lecture 13: Week 3 Review",                                             "13-home.qmd",
   "2026-07-06", "Quiz 3 Due (before class)",                                             "",
-  "2026-07-06", "Oral checks begin (cont. through Week 4 and 5)",                        "",
+  "2026-07-06", "Oral Code Checks begin (cont. through Weeks 4-5)",                     "oral-home.qmd",
   "2026-07-07", "Lecture 14: Data Structures and Base R",                                "14-home.qmd",
   "2026-07-08", "Lecture 15: Control Flow with Conditionals",                            "15-home.qmd",
   "2026-07-09", "Lecture 16: Control Flow with Loops",                                   "16-home.qmd",
@@ -89,9 +89,9 @@ schedule <- lec |>
     # classification
     is_lecture = grepl("^Lecture", event, ignore.case = TRUE),
 
-    # link lectures only
+    # link any row that has a page (lectures AND events like oral checks)
     `Lecture & Assessment` = case_when(
-      is_lecture & !is.na(page_html) ~ sprintf(
+      !is.na(page_html) ~ sprintf(
         '<a href="%s" target="_blank" rel="noopener">%s</a>',
         page_html,
         event

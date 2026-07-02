@@ -24,12 +24,11 @@ format:
 2. Manipulating Dates with lubridate  
 :::
 
----
-
+<!--
 ### Slides are in progress and will be updated before class.
 
 ::: {.content-hidden}
-
+-->
 
 # 1. Strings and Regular Expressions with stringr {.inverse .middle}
 
@@ -290,5 +289,3 @@ force_tz(greenwitch, "America/Chicago")
 ```
 
 More examples: <https://r4ds.hadley.nz/datetimes.html#time-zones>
-
-:::

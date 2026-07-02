@@ -1,0 +1,67 @@
+---
+title: "Oral Code Checks: Guidelines"
+when: "Week 4 and Week 5"
+summary: "What to expect and how to prepare"
+url_signup: "https://docs.google.com/spreadsheets/d/1kEhEwLhfhyi4_VdysEGjLAA8jFzczVQfn3oKrRFYE_4/edit?usp=sharing"
+url_rubric: "https://docs.google.com/spreadsheets/d/17Qd6Pb_lgS7i6gHu1JTQJ-PXhV7uV0BkizidNGQ2KSg/edit?usp=sharing"
+page-layout: full
+draft: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Info and Sign-ups
+
+- **When**: {{< meta when >}}
+- **Format**: 15-minute one-on-one conversation, online via Zoom
+- **Sign-up Sheet**: [Book your Slot]({{< meta url_signup >}})
+- **Rubric**: [View the Rubric]({{< meta url_rubric >}})
+
+
+## Scheduling Policy
+
+All checks must be scheduled (first come, first served) by **Sunday 7/5** using the spreadsheet linked above. If you haven't picked a slot by then, I'll assign you one from what's left, so it's worth signing up early to get a time that works best for you (all current slots fall during class time). 
+
+Rescheduling isn't guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what's going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5. 
+
+
+## Format and Rules
+
+Each student signs up for one 15-minute conversation with the instructors about your own work in the course, held during Weeks 4 and 5. Check the rubric linked above to see how you will be evaluated.
+
+- **The check runs on Zoom**: Use the Zoom link for the instructor listed in your slot: both Sabrina's and Ruben's Zoom links are [on the course homepage](https://brinasab.github.io/css-website-summer/) (use our OHs links)
+- **I will share my screen**: you won't be asked to share yours. I'll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).
+- **Camera on** for the full session; your torso and hands must be visible at all times.
+- You may **not touch your screen, keyboard, or any other device** during the check.
+
+Violating these rules disqualifies you from the check and results in a score of zero.
+
+
+## Questions You Can Expect
+
+**Questions will draw from three areas:**
+
+- *Take-home homework assignments*: one or two questions on the code you wrote, with follow-ups
+- *Weekly quizzes*: one or two questions, with follow-ups
+- *In-class code*: one question from any of the in-class code distributed before the day of your scheduled check
+
+**Some questions will be broad, for example:**
+
+- "Walk me through your code / logic here."
+- "How did you break this problem down into steps?"
+
+**Others will be more specific, for example:**
+
+- "Why did you choose this approach instead of another one?"
+- "What does this piece of code do?"
+- "How else could you write this to get the same result, based on what we covered in class?"
+- "Why is this the right answer on the quiz?"
+
+
+## How to Prepare
+
+Review your take-home homework, quizzes, all lecture slides, and in-class code. Make sure you understand each piece and can *explain it out loud*.
+
+The goal is to see your thinking and your familiarity with your own code and the class materials, not to trick you. I won't ask about things we haven't covered in class, and I won't ask you to code live. I also won't ask about readings directly, though skimming the readings is part of the expected workload and will help you understand the material better.
