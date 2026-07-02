@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-02">
+<meta name="author" content="Sabrina Nardin, Summer 2026">
 
-<title>Lecture 12: Strings and Regex with stringr; Dates with lubridate – css-website=summer</title>
+<title>Computing for the Social Sciences: Lecture 20 – css-website=summer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -126,32 +126,33 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#info-and-materials" id="toc-info-and-materials" class="nav-link active" data-scroll-target="#info-and-materials">Info and Materials</a></li>
-  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
-  <li><a href="#before-class" id="toc-before-class" class="nav-link" data-scroll-target="#before-class">Before Class</a></li>
-  <li><a href="#readings" id="toc-readings" class="nav-link" data-scroll-target="#readings">Readings</a></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a>
+  <ul class="collapse">
+  <li><a href="#slides-are-in-progress-and-will-be-updated-before-class." id="toc-slides-are-in-progress-and-will-be-updated-before-class." class="nav-link" data-scroll-target="#slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="20-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lecture 12: Strings and Regex with stringr; Dates with lubridate</h1>
+<h1 class="title">Computing for the Social Sciences: Lecture 20</h1>
+<p class="subtitle lead">Topics: Reproducible Workflow</p>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
-    
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 2, 2026</p>
-    </div>
+             <p>Sabrina Nardin, Summer 2026 </p>
+          </div>
   </div>
+    
   
     
   </div>
@@ -161,51 +162,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="info-and-materials" class="level2">
-<h2 class="anchored" data-anchor-id="info-and-materials">Info and Materials</h2>
-<ul>
-<li><strong>Date</strong>: July 2, 2026</li>
-<li><strong>Topics</strong>: Strings and Regex with stringr; Dates with lubridate</li>
-<li><strong>Slides</strong>: <a href="../lectures/12-slides.html">View Slides</a></li>
-<li><strong>Code</strong>: <code>usethis::use_course("css-materials/regular-expr")</code></li>
-</ul>
-</section>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Define Strings, Regular Expressions, and their uses</li>
-<li>Introduce <code>stringr</code></li>
-<li>Practice using Regular Expressions in R to extract info from strings</li>
-<li>Introduce <code>lubridate</code> to manipulate dates in R</li>
-</ul>
-</section>
-<section id="before-class" class="level2">
-<h2 class="anchored" data-anchor-id="before-class">Before Class</h2>
-<ul>
-<li>If you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in <a href="https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing">this document</a> after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).</li>
-<li>Check the readings below and come with questions!</li>
-<li><strong>Assignments coming up:</strong>
-<ul>
-<li>Quiz 3 will open today right after this class, check <a href="https://canvas.uchicago.edu/courses/72552">Canvas</a> and it’s due Monday of Week 4 before class</li>
-<li>Assignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)</li>
-<li>Assignment 3 and Assignment 5 (optional) will open tomorrow (Friday, July 3rd)</li>
-<li>Check the <a href="..\oral-home.html">Oral Code Check page</a> and sign-up by Sunday, July 5th</li>
-</ul></li>
-</ul>
-</section>
-<section id="readings" class="level2">
-<h2 class="anchored" data-anchor-id="readings">Readings</h2>
-<ul>
-<li><a href="https://r4ds.hadley.nz/strings">Chapter 14 “Strings”</a> in “R for Data Science” 2nd Edition (especially 14.4 “Extracting data from strings”)</li>
-<li><a href="https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package">Chapter 17</a> from <em>R Programming for Data Science</em>. Focus on the <code>stringr()</code> section — that’s all we cover in class, but the full chapter is a good reference if you want more</li>
-<li><a href="https://stringr.tidyverse.org/"><code>stringr()</code> documentation and cheatsheet</a></li>
-<li><a href="https://r4ds.hadley.nz/datetimes.html">“Chapter 17 Dates and times”</a> from “R for Data Science” 2nd Edition</li>
-</ul>
+<section id="agenda" class="level1 center">
+<h1 class="center">Agenda</h1>
+<div class="agenda-list">
+<ol type="1">
+<li>Tips to improve your R Workflow</li>
+<li>Deep-dive into R Markdown</li>
+</ol>
+</div>
+<hr>
+<section id="slides-are-in-progress-and-will-be-updated-before-class." class="level3">
+<h3 class="anchored" data-anchor-id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
+
+
+<script>
+
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+  // slide changes (different for each slide format).
+
+  (function () {
+
+    // dispatch for htmlwidgets
+
+    function fireSlideEnter() {
+
+      const event = window.document.createEvent("Event");
+
+      event.initEvent("slideenter", true, true);
+
+      window.document.dispatchEvent(event);
+
+    }
+
+
+
+    function fireSlideChanged(previousSlide, currentSlide) {
+
+      fireSlideEnter();
+
+
+
+      // dispatch for shiny
+
+      if (window.jQuery) {
+
+        if (previousSlide) {
+
+          window.jQuery(previousSlide).trigger("hidden");
+
+        }
+
+        if (currentSlide) {
+
+          window.jQuery(currentSlide).trigger("shown");
+
+        }
+
+      }
+
+    }
+
+
+
+    // hookup for slidy
+
+    if (window.w3c_slidy) {
+
+      window.w3c_slidy.add_observer(function (slide_num) {
+
+        // slide_num starts at position 1
+
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+      });
+
+    }
+
+
+
+  })();
+
+</script>
+
+
+
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
