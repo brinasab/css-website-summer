@@ -157,8 +157,6 @@ Fundamental `stringr()` functions and their use:
 
 Download today's class material from the website to learn more about regular expression and `stringr()`
 
----
-
 # 2. Manipulating Dates with Lubridate {.slide .center .middle}
 
 ---

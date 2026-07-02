@@ -137,7 +137,7 @@
     "href": "lectures/12-home.html#before-class",
     "title": "Lecture 12: Strings and Regex with stringr; Dates with lubridate",
     "section": "Before Class",
-    "text": "Before Class\n\nIf you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!\nAssignments coming up:\n\nQuiz 3 will open today right after this class, check Canvas and it’s due Monday of Week 4 before class\nAssignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)\nAssignment 3 and Assignment 5 (optional) will open tomorrow (Friday, July 3rd)\nCheck the Oral Code Check page and sign-up by Sunday, July 5th"
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!\nAssignments coming up:\n\nQuiz 3 will open today right after this class, check Canvas and it’s due Monday of Week 4 before class\nAssignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)\nAssignments 3 and 5 (the optional one) will open tomorrow (Friday, July 3rd); check the Lecture page for their respective due dates\nCheck the Oral Code Check page and sign-up by Sunday, July 5th"
   },
   {
     "objectID": "lectures/12-home.html#readings",
@@ -200,28 +200,28 @@
     "href": "lectures/oral-home.html#scheduling-policy",
     "title": "Oral Code Checks: Guidelines",
     "section": "Scheduling Policy",
-    "text": "Scheduling Policy\nAll checks must be scheduled (first come, first served) by Sunday 7/5 using the spreadsheet linked above. If you haven’t picked a slot by then, I’ll assign you one from what’s left, so it’s worth signing up early to get a time that works best for you (all current slots fall during class time).\nRescheduling isn’t guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what’s going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5."
+    "text": "Scheduling Policy\nAll checks must be scheduled (first come, first served) by Sunday 7/5 using the spreadsheet linked above. If you haven’t picked a slot by then, I’ll assign you one from what’s left, so it’s worth signing up early to get a time that works best for you.\nRescheduling isn’t guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what’s going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5."
   },
   {
     "objectID": "lectures/oral-home.html#format-and-rules",
     "href": "lectures/oral-home.html#format-and-rules",
     "title": "Oral Code Checks: Guidelines",
     "section": "Format and Rules",
-    "text": "Format and Rules\nEach student signs up for one 15-minute conversation with the instructors about your own work in the course, held during Weeks 4 and 5. Check the rubric linked above to see how you will be evaluated.\n\nThe check runs on Zoom: Use the Zoom link for the instructor listed in your slot: both Sabrina’s and Ruben’s Zoom links are on the course homepage (use our OHs links)\nI will share my screen: you won’t be asked to share yours. I’ll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).\nCamera on for the full session; your torso and hands must be visible at all times.\nYou may not touch your screen, keyboard, or any other device during the check.\n\nViolating these rules disqualifies you from the check and results in a score of zero."
+    "text": "Format and Rules\nEach student signs up for one 15-minute conversation with the instructors about your own work in the course, held during Weeks 4 and 5. Check the rubric linked above to see how you will be evaluated.\n\nThe check runs on Zoom: Use the Zoom link for the instructor listed in your slot: both Sabrina’s and Ruben’s Zoom links are on the course homepage (use our OHs links)\nI will share my screen: you won’t be asked to share yours. I’ll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).\nCamera on for the full session; your torso and hands must be visible at all times.\nYou may not touch your screen, keyboard, or any other device during the check.\n\nViolating these rules disqualifies you from the check and results in a score of zero.\nAll current slots fall during class time throughout Week 4 and Week 5. Before the oral code checks start on a given day, we will have our regular lecture (e.g., on Monday of Week 4, we’ll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11 AM, etc.). If you are not scheduled for a check on that day, you are welcome to leave once it starts."
   },
   {
     "objectID": "lectures/oral-home.html#questions-you-can-expect",
     "href": "lectures/oral-home.html#questions-you-can-expect",
     "title": "Oral Code Checks: Guidelines",
     "section": "Questions You Can Expect",
-    "text": "Questions You Can Expect\nQuestions will draw from three areas:\n\nTake-home homework assignments: one or two questions on the code you wrote, with follow-ups\nWeekly quizzes: one or two questions, with follow-ups\nIn-class code: one question from any of the in-class code distributed before the day of your scheduled check\n\nSome questions will be broad, for example:\n\n“Walk me through your code / logic here.”\n“How did you break this problem down into steps?”\n\nOthers will be more specific, for example:\n\n“Why did you choose this approach instead of another one?”\n“What does this piece of code do?”\n“How else could you write this to get the same result, based on what we covered in class?”\n“Why is this the right answer on the quiz?”"
+    "text": "Questions You Can Expect\nQuestions will draw from three areas:\n\nTake-home homework assignments: one or two questions on the code you wrote, with follow-ups\nWeekly quizzes: one or two questions, with follow-ups\nIn-class code: one question from the in-class code (e.g., the code you’ve been downloading with the purple usethis:: command) before the day of your scheduled check; we focus on the in-class code explicitly covered during lectures\n\nSome questions will be broad, for example:\n\n“Walk me through your code / logic here”\n“How did you break this problem down into steps? Why”\n\nOthers will be more specific, for example:\n\n“Why did you choose this approach instead of another one?”\n“What does this piece of code do?”\n“How else could you write this to get the same result, based on what we covered in class?”\n“Why is this the right answer on the quiz?”"
   },
   {
     "objectID": "lectures/oral-home.html#how-to-prepare",
     "href": "lectures/oral-home.html#how-to-prepare",
     "title": "Oral Code Checks: Guidelines",
     "section": "How to Prepare",
-    "text": "How to Prepare\nReview your take-home homework, quizzes, all lecture slides, and in-class code. Make sure you understand each piece and can explain it out loud.\nThe goal is to see your thinking and your familiarity with your own code and the class materials, not to trick you. I won’t ask about things we haven’t covered in class, and I won’t ask you to code live. I also won’t ask about readings directly, though skimming the readings is part of the expected workload and will help you understand the material better."
+    "text": "How to Prepare\nReview your take-home homework assignments, quizzes, all lecture slides, and in-class code. Make sure you understand each piece and can explain it out loud.\nThe goal is to see your thinking and your familiarity with your own code and the class materials, not to trick you. I won’t ask about things we haven’t covered in class, and I won’t ask you to code live. I also won’t ask about the readings directly, though skimming the readings is part of the expected course workload and will help you understand the material better."
   },
   {
     "objectID": "lectures/19-slides.html",
@@ -418,5 +418,33 @@
     "title": "Git within RStudio Tutorial",
     "section": "Alternative to Step 3",
     "text": "Alternative to Step 3\nRemember, Step 3 is the recommended approach (i.e., start with GitHub, then clone in RStudio). You don’t need to follow this alternative for this course, but we include it here in case it’s helpful for future projects.\nSometimes you cannot setup the GitHub repo first, or you already have an RStudio project you need to connect to a GitHub repo. This workflow is the reverse of the above and allows to connect a local RStudio project to a remote GitHub repository.\nUnlike the GitHub-first method, this requires using the Shell or Terminal — it can’t be completed entirely within RStudio.\n\nCreate a Local RStudio Project\nIn R Studio, start a new RStudio project: File &gt; New Project &gt; New Directory &gt; Empty Project and fill out these fields:\n\nDirectory name: myrepo (or whatever your GitHub repo is named)\nLocation: Choose where to store the local folder\nCheck: “Create a git repository”\n\nIf you do not see this option, return to Step 1 to confirm Git is configured correctly\n\nCheck: “Open in new session” (not required but good practice)\nClick Create Project to create a new sub-directory, which will be all of these three things: a directory on your computer; a Git repository (not yet linked to GitHub, we do this next); an RStudio Project\n\n\n\nLink the project to GitHub\nNow you need to initiate the “upstream” or “tracking” relationship between Git and GitHub by adding the remote GitHub.\nIn RStudio, open the Shell: Tools &gt; Shell\nRun one of the following commands to set the remote origin (use the SSH for this course if you configured R with it, see previous tutorial):\n\nFor HTTPS:\ngit remote add origin https://github.com/your-username/myrepo.git\nFor SSH (use this on Workbench):\ngit remote add origin git@github.com:your-username/myrepo.git\n\n\n\nSync with the GitHub repository\n\nPull (e.g. download) the current contents (right now it will be just the README.md file) from GitHub:\ngit pull origin main\nSet the upstream and push your local files to GitHub:\ngit push -u origin main\n\nYour local Git project is now fully linked to the remote GitHub repository!"
+  },
+  {
+    "objectID": "lectures/13-home.html",
+    "href": "lectures/13-home.html",
+    "title": "Lecture 13: Week 3 Review",
+    "section": "",
+    "text": "Date: July 6, 2026\nTopics: Week 3 Review and Q&A\nSlides: TBD\nCode: TBD"
+  },
+  {
+    "objectID": "lectures/13-home.html#info-and-materials",
+    "href": "lectures/13-home.html#info-and-materials",
+    "title": "Lecture 13: Week 3 Review",
+    "section": "",
+    "text": "Date: July 6, 2026\nTopics: Week 3 Review and Q&A\nSlides: TBD\nCode: TBD"
+  },
+  {
+    "objectID": "lectures/13-home.html#learning-objectives",
+    "href": "lectures/13-home.html#learning-objectives",
+    "title": "Lecture 13: Week 3 Review",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nToday, we will review key topics from Week 3. We will also make time to answer questions about Quiz 3 and Homework Assignment 3. We will still have Poll Everywhere participation questions, along with time for additional questions.\nToday, we will also start the online oral checks, which will continue throughout weeks 4 and 5.\nAgenda (~15 minutes per item):\n\nQuiz 3 Review\nHomework 3 Q&A\nFinish Lecture 12 Content: Manipulate dates with lubridate\nBreakout activity: Week 3 review teams\nClass ends at 10:30 AM, feel free to leave if you are not scheduled for your oral code check"
+  },
+  {
+    "objectID": "lectures/13-home.html#before-class",
+    "href": "lectures/13-home.html#before-class",
+    "title": "Lecture 13: Week 3 Review",
+    "section": "Before Class",
+    "text": "Before Class\n\nBring any questions you have about the Week 3 materials!\nIf you have not already done so, complete Lecture 12 participation questions, by Friday morning of Week 3 (around 9 AM). You can find them in the Lecture 12 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nAccept HW3 from the Assignments page and come with questions!\nComplete Quiz 3 from Canvas. You have unlimited attempts. This is due 1-hour before today’s class, no late submissions allowed."
   }
 ]

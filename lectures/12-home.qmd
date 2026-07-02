@@ -35,8 +35,8 @@ knitr::opts_chunk$set(echo = FALSE)
 - **Assignments coming up:**
   - Quiz 3 will open today right after this class, check [Canvas](https://canvas.uchicago.edu/courses/72552) and it's due Monday of Week 4 before class
   - Assignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)
-  - Assignment 3 and Assignment 5 (optional) will open tomorrow (Friday, July 3rd)
-  - Check the [Oral Code Check page](/oral-home.html) and sign-up by Sunday, July 5th
+  - Assignments 3 and 5 (the optional one) will open tomorrow (Friday, July 3rd); check the Lecture page for their respective due dates
+  - Check the [Oral Code Check page](/oral-home.qmd) and sign-up by Sunday, July 5th
   
   
 ## Readings
