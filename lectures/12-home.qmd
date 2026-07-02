@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Define Strings, Regular Expressions, and their uses
 * Introduce `stringr`
 * Practice using Regular Expressions in R to extract info from strings
-* Introduce `lubridate` to manipulate dates in R (Update: moved it to Monday, July 6)
+* Introduce `lubridate` to manipulate dates in R (Update: moved to Monday, July 6)
 
 
 ## Before Class
@@ -36,12 +36,13 @@ knitr::opts_chunk$set(echo = FALSE)
   - Quiz 3 will open today right after this class, check [Canvas](https://canvas.uchicago.edu/courses/72552) and it's due Monday of Week 4 before class
   - Assignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)
   - Assignments 3 and 5 (the optional one) will open tomorrow (Friday, July 3rd); check the Lecture page for their respective due dates
-  - Check the [Oral Code Check page](/oral-home.qmd) and sign-up by Sunday, July 5th
+  - Check the [Oral Code Check page](oral-home.qmd) and sign-up by Sunday, July 5
   
   
 ## Readings
 
-* [Chapter 14 "Strings"](https://r4ds.hadley.nz/strings) in "R for Data Science" 2nd Edition (especially 14.4 "Extracting data from strings")
+* [Chapter 14 "Strings"](https://r4ds.ha
+dley.nz/strings) in "R for Data Science" 2nd Edition (especially 14.4 "Extracting data from strings")
 * [Chapter 17](https://bookdown.org/rdpeng/rprogdatascience/regular-expressions.html#the-stringr-package) from *R Programming for Data Science*. Focus on the `stringr()` section — that’s all we cover in class, but the full chapter is a good reference if you want more
 * [`stringr()` documentation and cheatsheet](https://stringr.tidyverse.org/)
 * ["Chapter 17 Dates and times"](https://r4ds.hadley.nz/datetimes.html) from "R for Data Science" 2nd Edition

@@ -130,14 +130,14 @@
     "href": "lectures/12-home.html#learning-objectives",
     "title": "Lecture 12: Strings and Regex with stringr; Dates with lubridate",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\n\nDefine Strings, Regular Expressions, and their uses\nIntroduce stringr\nPractice using Regular Expressions in R to extract info from strings\nIntroduce lubridate to manipulate dates in R (Update: moved it to Monday, July 6)"
+    "text": "Learning Objectives\n\nDefine Strings, Regular Expressions, and their uses\nIntroduce stringr\nPractice using Regular Expressions in R to extract info from strings\nIntroduce lubridate to manipulate dates in R (Update: moved to Monday, July 6)"
   },
   {
     "objectID": "lectures/12-home.html#before-class",
     "href": "lectures/12-home.html#before-class",
     "title": "Lecture 12: Strings and Regex with stringr; Dates with lubridate",
     "section": "Before Class",
-    "text": "Before Class\n\nIf you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!\nAssignments coming up:\n\nQuiz 3 will open today right after this class, check Canvas and it’s due Monday of Week 4 before class\nAssignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)\nAssignments 3 and 5 (the optional one) will open tomorrow (Friday, July 3rd); check the Lecture page for their respective due dates\nCheck the Oral Code Check page and sign-up by Sunday, July 5th"
+    "text": "Before Class\n\nIf you have not already done so, complete Lecture 11 participation questions. You can find them in the Lecture 11 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 12). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nCheck the readings below and come with questions!\nAssignments coming up:\n\nQuiz 3 will open today right after this class, check Canvas and it’s due Monday of Week 4 before class\nAssignment 2 is due today (Thursday, July 2nd, 11:59 PM Chicago Time)\nAssignments 3 and 5 (the optional one) will open tomorrow (Friday, July 3rd); check the Lecture page for their respective due dates\nCheck the Oral Code Check page and sign-up by Sunday, July 5"
   },
   {
     "objectID": "lectures/12-home.html#readings",
@@ -186,28 +186,28 @@
     "href": "lectures/oral-home.html",
     "title": "Oral Code Checks: Guidelines",
     "section": "",
-    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
+    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom (Use the OHs links from the homepage)\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
   },
   {
     "objectID": "lectures/oral-home.html#info-and-sign-ups",
     "href": "lectures/oral-home.html#info-and-sign-ups",
     "title": "Oral Code Checks: Guidelines",
     "section": "",
-    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
+    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom (Use the OHs links from the homepage)\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
   },
   {
     "objectID": "lectures/oral-home.html#scheduling-policy",
     "href": "lectures/oral-home.html#scheduling-policy",
     "title": "Oral Code Checks: Guidelines",
     "section": "Scheduling Policy",
-    "text": "Scheduling Policy\nAll checks must be scheduled (first come, first served) by Sunday 7/5 using the spreadsheet linked above. If you haven’t picked a slot by then, I’ll assign you one from what’s left, so it’s worth signing up early to get a time that works best for you.\nRescheduling isn’t guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what’s going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5.\nAll current slots fall during class time throughout Week 4 and Week 5. Before the oral code checks start on a given day, we will have our regular lecture. For example, on Monday of Week 4, we’ll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11 AM, etc. If you are not scheduled for a check on that day, you are welcome to leave once it starts."
+    "text": "Scheduling Policy\nAll checks must be scheduled (first come, first served) by Sunday 7/5 using the sign up spreadsheet linked at the top of this page. If you haven’t picked a slot by then, I’ll assign you one from what’s left, so it’s worth signing up early to get a time that works best for you.\nRescheduling isn’t guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what’s going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5.\nAll current slots fall during class time throughout Week 4 and Week 5. Before the oral code checks start on a given day, we will have our regular lecture. For example, on Monday of Week 4, we’ll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11:00 AM, etc. In general, this means that regular class will run from 9:30–11:00 AM during Weeks 4 and 5, unless otherwise noted. I will make the best use of our time, and we won’t cut any of the scheduled course content."
   },
   {
     "objectID": "lectures/oral-home.html#format-and-rules",
     "href": "lectures/oral-home.html#format-and-rules",
     "title": "Oral Code Checks: Guidelines",
     "section": "Format and Rules",
-    "text": "Format and Rules\nEach student signs up for one 15-minute conversation with the instructors about your own work in the course, held during Weeks 4 and 5. Check the rubric linked above to see how you will be evaluated.\n\nThe check runs on Zoom: Use the Zoom link for the instructor listed in your slot: both Sabrina’s and Ruben’s Zoom links are on the course homepage (use our OHs links)\nI will share my screen: you won’t be asked to share yours. I’ll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).\nCamera on for the full session; your torso and hands must be visible at all times.\nYou may not touch your screen, keyboard, or any other device during the check.\n\nViolating these rules disqualifies you from the check and results in a score of zero."
+    "text": "Format and Rules\nEach student will sign up for one 15-minute conversation with the instructors about their own work in the course:\n\nThe check runs on Zoom: Use the Zoom link for the instructor listed in your slot: both Sabrina’s and Ruben’s Zoom links are on the course homepage (use our OHs links)\nI will share my screen: you won’t be asked to share yours. I’ll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).\nCamera on for the full session; your torso and hands must be visible at all times.\nYou may not touch your screen, keyboard, or any other device during the check.\n\nViolating these rules disqualifies you from the check and results in a score of zero. Please review the rubric linked at the top of this page before your meeting so you know what to expect and how you will be evaluated."
   },
   {
     "objectID": "lectures/oral-home.html#questions-you-can-expect",
@@ -438,7 +438,7 @@
     "href": "lectures/13-home.html#learning-objectives",
     "title": "Lecture 13: Week 3 Review",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nToday, we will review key topics from Week 3. We will make time to answer questions about Quiz 3 and Homework Assignment 3, and we will still have Poll Everywhere participation questions. https://canvas.uchicago.edu/courses/72552 Today, we will also start the online oral checks, which will continue throughout weeks 4 and 5.\nAgenda (~15 minutes per item):\n\nQuiz 3 Review\nHomework 3 Q&A\nFinish Lecture 12 Content: Manipulate dates with lubridate\nBreakout activity: Week 3 review teams\nClass ends at 10:30 AM: Feel free to leave if you are not scheduled for your oral code check"
+    "text": "Learning Objectives\nToday, we will review key topics from Week 3. We will make time to answer questions about Quiz 3 and Homework Assignment 3, and we will still have Poll Everywhere participation questions. https://canvas.uchicago.edu/courses/72552 Today, we will also start the online oral checks, which will continue throughout weeks 4 and 5.\nAgenda (~15 minutes per item):\n\nQuiz 3 Review\nHomework 3 Q&A\nFinish Lecture 12 Content: Manipulate dates with lubridate\nBreakout activity: Week 3 review teams [Link will be active on Monday]\nClass ends at 10:30 AM: Feel free to leave if you are not scheduled for your oral code check"
   },
   {
     "objectID": "lectures/13-home.html#before-class",

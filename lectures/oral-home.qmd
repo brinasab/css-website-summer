@@ -15,30 +15,30 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Info and Sign-ups
 
 - **When**: {{< meta when >}}
-- **Format**: 15-minute one-on-one conversation, online via Zoom
+- **Format**: 15-minute one-on-one conversation, online via Zoom ([Use the OHs links from the homepage](../index.qmd))
 - **Sign-up Sheet**: [Book your Slot]({{< meta url_signup >}})
 - **Rubric**: [View the Rubric]({{< meta url_rubric >}})
 
 
 ## Scheduling Policy
 
-All checks must be scheduled (first come, first served) by **Sunday 7/5** using the spreadsheet linked above. If you haven't picked a slot by then, I'll assign you one from what's left, so it's worth signing up early to get a time that works best for you. 
+All checks must be scheduled (first come, first served) by **Sunday 7/5 using the sign up spreadsheet linked at the top of this page**. If you haven't picked a slot by then, I'll assign you one from what's left, so it's worth signing up early to get a time that works best for you. 
 
 Rescheduling isn't guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what's going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5. 
 
-All current slots fall during class time throughout Week 4 and Week 5. **Before the oral code checks start on a given day, we will have our regular lecture.** For example, on Monday of Week 4, we'll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11 AM, etc. If you are not scheduled for a check on that day, you are welcome to leave once it starts.
+All current slots fall during class time throughout Week 4 and Week 5. **Before the oral code checks start on a given day, we will have our regular lecture.** For example, on Monday of Week 4, we'll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11:00 AM, etc. In general, this means that regular class will run from 9:30–11:00 AM during Weeks 4 and 5, unless otherwise noted. I will make the best use of our time, and we won't cut any of the scheduled course content.
+
 
 ## Format and Rules
 
-Each student signs up for one 15-minute conversation with the instructors about your own work in the course, held during Weeks 4 and 5. Check the rubric linked above to see how you will be evaluated.
+Each student will sign up for one 15-minute conversation with the instructors about their own work in the course:
 
 - **The check runs on Zoom**: Use the Zoom link for the instructor listed in your slot: both Sabrina's and Ruben's Zoom links are [on the course homepage](https://brinasab.github.io/css-website-summer/) (use our OHs links)
 - **I will share my screen**: you won't be asked to share yours. I'll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).
 - **Camera on** for the full session; your torso and hands must be visible at all times.
 - You may **not touch your screen, keyboard, or any other device** during the check.
 
-Violating these rules disqualifies you from the check and results in a score of zero.
-
+Violating these rules disqualifies you from the check and results in a score of zero.  Please **review the rubric linked at the top of this page** before your meeting so you know what to expect and how you will be evaluated.
 
 
 ## Questions You Can Expect
