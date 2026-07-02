@@ -16,8 +16,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: TBD
-* **Code**: TBD
+* **Slides**: No slides for today
+* **Code**: No in-class code for today
 
 <!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Learning Objectives
 
 Today, we will review key topics from Week 3. We will make time to answer questions about Quiz 3 and Homework Assignment 3, and we will still have Poll Everywhere participation questions. 
-https://canvas.uchicago.edu/courses/72552
+
 Today, we will also start the [online oral checks](oral-home.qmd), which will continue throughout weeks 4 and 5. 
 
 Agenda (~15 minutes per item):
@@ -36,13 +36,13 @@ Agenda (~15 minutes per item):
 2. **Homework 3 Q&A**
 3. **Finish Lecture 12 Content**: Manipulate dates with `lubridate`
 4. **[Breakout activity: Week 3 review teams]()** [Link will be active on Monday]
-5. **Class ends at 10:30 AM**: Feel free to leave if you are not scheduled for your oral code check
+5. **Class ends at 10:30 AM**
 
 
 ## Before Class
 
 - Bring any questions you have about the Week 3 materials!
-- If you have not already done so, complete Lecture 12 participation questions, by Friday morning of Week 3 (around 9 AM). You can find them in the Lecture 12 Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
+- If you have not already done so, complete Lecture 12 participation questions, by Friday morning (~9 AM) of Week 3. You can find them in the Lecture 12 Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
 - **Assignments coming up:**
-  - Accept HW3 from the [Assignments page](https://brinasab.github.io/css-website-summer/hw/) if you have not yet
+  - HW3 is posted on the [Assignments page](https://brinasab.github.io/css-website-summer/hw/)
   - Complete Quiz 3 from [Canvas](https://canvas.uchicago.edu/courses/72552). You have unlimited attempts. This is due 1-hour before today's class, no late submissions allowed.

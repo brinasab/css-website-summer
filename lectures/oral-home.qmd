@@ -15,14 +15,14 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Info and Sign-ups
 
 - **When**: {{< meta when >}}
-- **Format**: 15-minute one-on-one conversation, online via Zoom ([Use the OHs links from the homepage](../index.qmd))
+- **Format**: 15-minute 1:1 conversation via Zoom [Use the OHs links from Home](../index.qmd)
 - **Sign-up Sheet**: [Book your Slot]({{< meta url_signup >}})
 - **Rubric**: [View the Rubric]({{< meta url_rubric >}})
 
 
 ## Scheduling Policy
 
-All checks must be scheduled (first come, first served) by **Sunday 7/5 using the sign up spreadsheet linked at the top of this page**. If you haven't picked a slot by then, I'll assign you one from what's left, so it's worth signing up early to get a time that works best for you. 
+All checks must be scheduled (first come, first served) **by Sunday 7/5 using the sign up spreadsheet linked at the top of this page**. If you haven't picked a slot by then, I'll assign you one from what's left, so it's worth signing up early to get a time that works best for you. 
 
 Rescheduling isn't guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what's going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5. 
 
@@ -33,7 +33,7 @@ All current slots fall during class time throughout Week 4 and Week 5. **Before 
 
 Each student will sign up for one 15-minute conversation with the instructors about their own work in the course:
 
-- **The check runs on Zoom**: Use the Zoom link for the instructor listed in your slot: both Sabrina's and Ruben's Zoom links are [on the course homepage](https://brinasab.github.io/css-website-summer/) (use our OHs links)
+- **The check runs on Zoom**: Use the Zoom link for the instructor listed in your slot: both [Sabrina's and Ruben's Zoom links are on the course homepage](https://brinasab.github.io/css-website-summer/)
 - **I will share my screen**: you won't be asked to share yours. I'll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).
 - **Camera on** for the full session; your torso and hands must be visible at all times.
 - You may **not touch your screen, keyboard, or any other device** during the check.
@@ -52,7 +52,7 @@ Violating these rules disqualifies you from the check and results in a score of 
 **Some questions will be broad, for example:**
 
 - "Walk me through your code / logic here"
-- "How did you break this problem down into steps? Why"
+- "How did you break this problem down into steps? Why?"
 
 **Others will be more specific, for example:**
 
@@ -64,6 +64,6 @@ Violating these rules disqualifies you from the check and results in a score of 
 
 ## How to Prepare
 
-Review your take-home homework assignments, quizzes, all lecture slides, and in-class code. Make sure you understand each piece and can *explain it out loud*.
+Review your take-home homework assignments, quizzes, all lecture slides, and in-class code. Make sure you understand each piece and can **explain it out loud**.
 
 The goal is to see your thinking and your familiarity with your own code and the class materials, not to trick you. I won't ask about things we haven't covered in class, and I won't ask you to code live. I also won't ask about the readings directly, though skimming the readings is part of the expected course workload and will help you understand the material better.

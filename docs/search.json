@@ -186,14 +186,14 @@
     "href": "lectures/oral-home.html",
     "title": "Oral Code Checks: Guidelines",
     "section": "",
-    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom (Use the OHs links from the homepage)\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
+    "text": "When: Week 4 and Week 5\nFormat: 15-minute 1:1 conversation via Zoom Use the OHs links from Home\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
   },
   {
     "objectID": "lectures/oral-home.html#info-and-sign-ups",
     "href": "lectures/oral-home.html#info-and-sign-ups",
     "title": "Oral Code Checks: Guidelines",
     "section": "",
-    "text": "When: Week 4 and Week 5\nFormat: 15-minute one-on-one conversation, online via Zoom (Use the OHs links from the homepage)\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
+    "text": "When: Week 4 and Week 5\nFormat: 15-minute 1:1 conversation via Zoom Use the OHs links from Home\nSign-up Sheet: Book your Slot\nRubric: View the Rubric"
   },
   {
     "objectID": "lectures/oral-home.html#scheduling-policy",
@@ -207,14 +207,14 @@
     "href": "lectures/oral-home.html#format-and-rules",
     "title": "Oral Code Checks: Guidelines",
     "section": "Format and Rules",
-    "text": "Format and Rules\nEach student will sign up for one 15-minute conversation with the instructors about their own work in the course:\n\nThe check runs on Zoom: Use the Zoom link for the instructor listed in your slot: both Sabrina’s and Ruben’s Zoom links are on the course homepage (use our OHs links)\nI will share my screen: you won’t be asked to share yours. I’ll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).\nCamera on for the full session; your torso and hands must be visible at all times.\nYou may not touch your screen, keyboard, or any other device during the check.\n\nViolating these rules disqualifies you from the check and results in a score of zero. Please review the rubric linked at the top of this page before your meeting so you know what to expect and how you will be evaluated."
+    "text": "Format and Rules\nEach student will sign up for one 15-minute conversation with the instructors about their own work in the course:\n\nThe check runs on Zoom: Use the Zoom link for the instructor listed in your slot: both Sabrina’s and Ruben’s Zoom links are on the course homepage\nI will share my screen: you won’t be asked to share yours. I’ll pull up everything we need (your repo with homework, quizzes, in-class exercises, etc.).\nCamera on for the full session; your torso and hands must be visible at all times.\nYou may not touch your screen, keyboard, or any other device during the check.\n\nViolating these rules disqualifies you from the check and results in a score of zero. Please review the rubric linked at the top of this page before your meeting so you know what to expect and how you will be evaluated."
   },
   {
     "objectID": "lectures/oral-home.html#questions-you-can-expect",
     "href": "lectures/oral-home.html#questions-you-can-expect",
     "title": "Oral Code Checks: Guidelines",
     "section": "Questions You Can Expect",
-    "text": "Questions You Can Expect\nQuestions will draw from three areas:\n\nTake-home homework assignments: one or two questions on the code you wrote, with follow-ups\nWeekly quizzes: one or two questions, with follow-ups\nIn-class code: one question from the in-class code covered up until the day of your scheduled check (e.g., this the code you’ve been downloading during lectures with the purple usethis:: command); we focus on the in-class code explicitly covered during lectures\n\nSome questions will be broad, for example:\n\n“Walk me through your code / logic here”\n“How did you break this problem down into steps? Why”\n\nOthers will be more specific, for example:\n\n“Why did you choose this approach instead of another one?”\n“What does this piece of code do?”\n“How else could you write this to get the same result, based on what we covered in class?”\n“Why is this the right answer on the quiz?”"
+    "text": "Questions You Can Expect\nQuestions will draw from three areas:\n\nTake-home homework assignments: one or two questions on the code you wrote, with follow-ups\nWeekly quizzes: one or two questions, with follow-ups\nIn-class code: one question from the in-class code covered up until the day of your scheduled check (e.g., this the code you’ve been downloading during lectures with the purple usethis:: command); we focus on the in-class code explicitly covered during lectures\n\nSome questions will be broad, for example:\n\n“Walk me through your code / logic here”\n“How did you break this problem down into steps? Why?”\n\nOthers will be more specific, for example:\n\n“Why did you choose this approach instead of another one?”\n“What does this piece of code do?”\n“How else could you write this to get the same result, based on what we covered in class?”\n“Why is this the right answer on the quiz?”"
   },
   {
     "objectID": "lectures/oral-home.html#how-to-prepare",
@@ -424,27 +424,27 @@
     "href": "lectures/13-home.html",
     "title": "Lecture 13: Week 3 Review",
     "section": "",
-    "text": "Date: July 6, 2026\nTopics: Week 3 Review and Q&A + Oral Code Checks Start\nSlides: TBD\nCode: TBD"
+    "text": "Date: July 6, 2026\nTopics: Week 3 Review and Q&A + Oral Code Checks Start\nSlides: No slides for today\nCode: No in-class code for today"
   },
   {
     "objectID": "lectures/13-home.html#info-and-materials",
     "href": "lectures/13-home.html#info-and-materials",
     "title": "Lecture 13: Week 3 Review",
     "section": "",
-    "text": "Date: July 6, 2026\nTopics: Week 3 Review and Q&A + Oral Code Checks Start\nSlides: TBD\nCode: TBD"
+    "text": "Date: July 6, 2026\nTopics: Week 3 Review and Q&A + Oral Code Checks Start\nSlides: No slides for today\nCode: No in-class code for today"
   },
   {
     "objectID": "lectures/13-home.html#learning-objectives",
     "href": "lectures/13-home.html#learning-objectives",
     "title": "Lecture 13: Week 3 Review",
     "section": "Learning Objectives",
-    "text": "Learning Objectives\nToday, we will review key topics from Week 3. We will make time to answer questions about Quiz 3 and Homework Assignment 3, and we will still have Poll Everywhere participation questions. https://canvas.uchicago.edu/courses/72552 Today, we will also start the online oral checks, which will continue throughout weeks 4 and 5.\nAgenda (~15 minutes per item):\n\nQuiz 3 Review\nHomework 3 Q&A\nFinish Lecture 12 Content: Manipulate dates with lubridate\nBreakout activity: Week 3 review teams [Link will be active on Monday]\nClass ends at 10:30 AM: Feel free to leave if you are not scheduled for your oral code check"
+    "text": "Learning Objectives\nToday, we will review key topics from Week 3. We will make time to answer questions about Quiz 3 and Homework Assignment 3, and we will still have Poll Everywhere participation questions.\nToday, we will also start the online oral checks, which will continue throughout weeks 4 and 5.\nAgenda (~15 minutes per item):\n\nQuiz 3 Review\nHomework 3 Q&A\nFinish Lecture 12 Content: Manipulate dates with lubridate\nBreakout activity: Week 3 review teams [Link will be active on Monday]\nClass ends at 10:30 AM"
   },
   {
     "objectID": "lectures/13-home.html#before-class",
     "href": "lectures/13-home.html#before-class",
     "title": "Lecture 13: Week 3 Review",
     "section": "Before Class",
-    "text": "Before Class\n\nBring any questions you have about the Week 3 materials!\nIf you have not already done so, complete Lecture 12 participation questions, by Friday morning of Week 3 (around 9 AM). You can find them in the Lecture 12 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nAssignments coming up:\n\nAccept HW3 from the Assignments page if you have not yet\nComplete Quiz 3 from Canvas. You have unlimited attempts. This is due 1-hour before today’s class, no late submissions allowed."
+    "text": "Before Class\n\nBring any questions you have about the Week 3 materials!\nIf you have not already done so, complete Lecture 12 participation questions, by Friday morning (~9 AM) of Week 3. You can find them in the Lecture 12 Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”).\nAssignments coming up:\n\nHW3 is posted on the Assignments page\nComplete Quiz 3 from Canvas. You have unlimited attempts. This is due 1-hour before today’s class, no late submissions allowed."
   }
 ]
