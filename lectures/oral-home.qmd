@@ -47,7 +47,7 @@ Violating these rules disqualifies you from the check and results in a score of 
 
 1. **Take-home homework assignments:** one or two questions on the code you wrote, with follow-ups
 2. **Weekly quizzes:** one or two questions, with follow-ups
-3. **In-class code:** one question from the in-class code (e.g., the code you've been downloading with the purple `usethis::` command) before the day of your scheduled check; we focus on the in-class code explicitly covered during lectures
+3. **In-class code:** one question from the in-class code covered up until the day of your scheduled check (e.g., this the code you've been downloading during lectures with the purple `usethis::` command); we focus on the in-class code explicitly covered during lectures
 
 **Some questions will be broad, for example:**
 

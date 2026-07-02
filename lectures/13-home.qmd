@@ -44,5 +44,5 @@ Agenda (~15 minutes per item):
 - Bring any questions you have about the Week 3 materials!
 - If you have not already done so, complete Lecture 12 participation questions, by Friday morning of Week 3 (around 9 AM). You can find them in the Lecture 12 Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
 - **Assignments coming up:**
-  - Accept HW3 from the [Assignments page](https://brinasab.github.io/css-website-summer/hw/) and come with questions! 
+  - Accept HW3 from the [Assignments page](https://brinasab.github.io/css-website-summer/hw/) if you have not yet
   - Complete Quiz 3 from [Canvas](https://canvas.uchicago.edu/courses/72552). You have unlimited attempts. This is due 1-hour before today's class, no late submissions allowed.
