@@ -9,13 +9,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due: Sunday, December 07 by 11:59 PM (Chicago Time)**
+**Due: Thursday, July 16 (11:59 PM Chicago Time)**
 
-# Accessing and Cloning Your `project` Repository
+This assignment offers an opportunity to work on a research project of your choice. This assignment is optional: you can complete it instead of HW2, HW3, or HW4, or use it to replace the grade on any one of those previous assignments. It is released earlier than the others because, unlike HW2–4, you will need to find your own data and come up with your own research question. You are more than welcome to touch base with us if you are not sure or want to brainstorm your ideas with us.
+
+
+# Accessing and Cloning Your `hw05` Repository
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/G7TF9tmM) to accept the invitation and create your private `project` repository on GitHub. Your repository will be named `project-<USERNAME>` and will be ready within a few seconds. 
+1. Go at [this link](https://classroom.github.com/a/fzSs74Pl) to accept the invitation and create your private `project` repository on GitHub. Your repository will be named `project-<USERNAME>` and will be ready within a few seconds. 
 
 2. Once the repository has been created, click the link provided to access it.
 
@@ -26,8 +29,8 @@ knitr::opts_chunk$set(echo = FALSE)
    *File > New Project > Version Control > Git*
 
 2. In the *Repository URL* field:
-   - Paste the URL of your GitHub repository. To find the URL, go to your `project` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
-   - The project name should auto-fill. If not, type `project-<USERNAME>` manually.
+   - Paste the URL of your GitHub repository. To find the URL, go to your `hw05` repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).
+   - The project name should auto-fill. If not, type `hw05-<USERNAME>` manually.
 
 3. Choose where to save the project directory locally. *Tip:* Avoid moving folders after cloning them.  
 
@@ -51,7 +54,7 @@ See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignm
 
 ### 1. Assigment Goals
 
-In this final assignment, you’ll apply the skills learned in the course to a research question of your choice. **Your task is to find data (through scraping or downloading or other sources), ask a research question, and answer it descriptively using data and code.** Your main deliverable is a report with your code, graphs/tables, and interpretation.
+In this assignment, you have the opportunity to apply the skills learned in the course to a research question of your choice. **Your task is to find data, ask a research question, and answer it descriptively using data and code.** Your main deliverable is a report with your code, graphs/tables, and interpretation.
 
 The sections below walk you through the details of each part of the assignment.
 
@@ -66,8 +69,8 @@ The sections below walk you through the details of each part of the assignment.
   - Code outputs (tables, plots, descriptive stats)
   - Not all code you write is required to go in your report: you may place extra code in a separate R script or Rmd. If you do so, mention this in your `README.md`.
 - **Audience:** Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.
-- **Length:** Aim for *800-900 words* (minimum 700, maximum 1000).
-- **Use of R Markdown Syntax:** Use clear headings and subheadings and include a table of contents. Include some of the advanced R Markdown tools covered in Lecture 17.
+- **Length:** Aim for *~800 words* (minimum 600, maximum 1000).
+- **Use of R Markdown Syntax:** Use clear headings and subheadings and include a table of contents. If feasible, try to include some of the advanced R Markdown from the last lecture of the course.
 
 #### Required Sections
 
@@ -85,8 +88,8 @@ Specifically, your report should include the following sections:
   - Describe the main findings of each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research. We want to hear your explanation and interpretation of the analyses!
 
 - **Modeling is optional** 
-  - You are not expected or required to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots you did in HW2 and HW3.
-  - If you choose to add models (e.g., regression, ANOVA, text analysis, etc.), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question.
+  - You are not expected or required to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots in HW2 and HW3.
+  - If you choose to add models (e.g., regression, ANOVA, text analysis, etc.), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question. If you include a model, it will be evaluated for the insights it provides.
 
 
 ### 3. Code Instructions
@@ -94,8 +97,11 @@ Specifically, your report should include the following sections:
 This course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:
 
 - **Library Loading and Data Import**  
-  - Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere. 
+  - Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere.
+
+<!--
   - If you are scraping data, place your scraper in a separate script or Rmd file (see below).
+-->
 
 - **Data Cleaning, Wrangling, and Tidying**  
   - Include code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project. 
@@ -159,9 +165,9 @@ GitHub does not allow files larger than 100MB. If you try to push one, you’ll 
 - If it is close to or above 100MB, **do not** include it in your repo. Instead, store it outside GitHub (e.g., Google Drive) and include a link to it in your `README.md`.
 
 
-### I want to scrape data 
+### Can I collect my own data via scraping? 
 
-You may use already-collected data or collect your own, via scraping or download or other ways. If you want to scrape data but are unsure whether a website is appropriate, feel free to check with the instructor. Here are some guidelines:
+We recommend using already-collected data, given the tight timeline of summer courses. That said, you're welcome to collect or assemble your own data (via scraping or other methods) if you prefer. If you want to scrape data but aren't sure where to start, I'm happy to share resources and check with you whether the website you have in mind is appropriate. Here are some guidelines:
 
 - **What to Scrape:**  
   - If you plan to collect data through web-scraping, you can scrape any publicly available webpage that interests you. If you’re unsure where to start, past students have had success with: Wikipedia, University websites, Government sites, Examples mentioned in readings. If you build on in-class code, readings, tutorials, or AI-generated starter code, your work must go beyond simple edits.
@@ -171,6 +177,7 @@ You may use already-collected data or collect your own, via scraping or download
   - No private or restricted data: Do not scrape anything behind a login, password, or user account.  
   - No social media sites: as they typically require log-ins.  
   - No dynamic Javascript websites: that load content via scrolling or pop-ups—these require advanced techniques we do not cover.  
+
 
 # Submit the Assignment
 
@@ -185,12 +192,10 @@ To submit your assignment on Canvas, follow these steps:
    - the folder that contains all the graphs that you generated in your `.Rmd`
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/project-yourusername`
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-sum26/hw05-yourusername`
    - Submit that URL on Canvas. Do not upload any files to Canvas. We only need the repository link.
 
 
 # Assessment
 
-We’ll post the final project rubric here shortly. For more, see the *Assessment* section of the Syllabus.
-
-
+All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1gm2bbrG4hriL6Y9XZXZzyn0c_QSCSaLR/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). For more, see the *Assessment* section of the Syllabus. 
