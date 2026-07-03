@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due: Thursday, July 2nd (11:59 PM Chicago Time)**
+**Due: Thursday, July 2 (11:59 PM Chicago Time)**
 
 In the first assignment you worked with your software setup, Git/GitHub via RStudio, and R Markdown. The goal of this second assignment is to practice transforming and exploring data with `dplyr` and `ggplot2`.
 

@@ -16,7 +16,8 @@ format:
 Take-home assignments will be posted here when they are released. Open each assignment page for the instructions:
 
 - [Homework 1](hw01.qmd) due Monday, June 22 (11:59 PM Chicago Time)
-- [Homework 2](hw02.qmd) due Thursday, July 2nd (11:59 PM Chicago Time)
+- [Homework 2](hw02.qmd) due Thursday, July 2 (11:59 PM Chicago Time)
+- [Homework 3](hw03.qmd) due Thursday, July 9 (11:59 PM Chicago Time)
 
 <!--
 - [Homework 1](hw01.qmd)

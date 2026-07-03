@@ -9,16 +9,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due: Thursday, November 6th by 11:59 PM (Chicago Time)**
+**Due: Thursday, July 9 (11:59 PM Chicago Time)**
 
-In the previous assignment, you practiced working with `dplyr` and `ggplot2` using a clean and relatively small dataset. This assignment builds and expands on the previous assignment by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and more messy dataset.
+In the previous assignment, you practiced working with `dplyr` and `ggplot2` using a clean and relatively small dataset. This assignment builds and expands on the previous assignment by introducing a more realistic research context in computational social science: you’ll practice cleaning, wrangling, and exploring a larger and messier dataset.
 
 
 # Accessing and Cloning Your `hw03` Repository
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/UKzDKiqD) to accept the invitation and create your private `hw03` repository on GitHub. Your repository will be named `hw03-<USERNAME>` and will be ready within a few seconds. 
+1. Go at [this link](https://classroom.github.com/a/HHAWQ46x) to accept the invitation and create your private `hw03` repository on GitHub. Your repository will be named `hw03-<USERNAME>` and will be ready within a few seconds. 
 
 2. Once the repository has been created, click the link provided to access it.
 
@@ -85,11 +85,12 @@ Your repository includes specific and open-ended questions. Answer all of them.
 
 ::: {.callout-note}
 
-- The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this course.
+- The questions, especially the open-ended ones, are designed to help you think like a programmer and researcher: they won’t walk you through every step but encourage you to apply what you’ve learned independently. Translating what a question asks into code by breaking it down in smaller pieces is one of the learning goals of this exercise.
 
-- This homework is designed to be completed over multiple sessions—it will feel overwhelming otherwise. Start early, and remember to save, commit, and push your work regularly.
+- This homework is designed to be completed over multiple sessions. Start early, and remember to save, commit, and push your work regularly.
 
-- Do not use AI tools to generate R code from scratch or to think for you; that defeats the purpose of the assignment and violates our class policy on plagiarism. You may use AI to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!
+- Do not use AI tools to generate R code from scratch or to think for you. You may use it to debug (after trying on your own) or look up how functions work (check course materials first). Only submit code you fully understand. Reach out if you have questions, we are here to help!
+
 :::
 
 
@@ -106,16 +107,15 @@ To submit your assignment on Canvas, follow these steps:
 
    Your GitHub repository should include (make sure to stage-commit-push all these files):
    - `scotus.Rmd`: main file you will work on
-   - `scotus.md`: you will generate this file from the `.Rmd` by simply knitting it
-   - the folder that contains all the graphs that you generated in your `.Rmd` (we need this to be able to see your graphs and grade your homework)
+   - `scotus.md`: you will generate this file from the `.Rmd` by knitting it
+   - the folder that contains all the graphs that you generated in your `.Rmd` (we need this to be able to see your graphs and grade your work)
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw03-yourusername`
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-summer26/hw03-yourusername`
    - Submit that URL on Canvas under HW03. Do not upload any files to Canvas. We only need the repository link.
 
 
 # Assessment
 
-All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). Refer to it to assess your work before submitting. For more, see the *Assessment* section of the Syllabus.
-
+All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1gm2bbrG4hriL6Y9XZXZzyn0c_QSCSaLR/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). For more, see the *Assessment* section of the Syllabus. 
 
