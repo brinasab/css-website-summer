@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>HW04: Programming Skills – css-website=summer</title>
+<title>Final Project – css-website=summer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,6 +132,26 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#formatting-guide" id="toc-formatting-guide" class="nav-link" data-scroll-target="#formatting-guide">Formatting Guide</a></li>
   <li><a href="#submit-the-assignment" id="toc-submit-the-assignment" class="nav-link" data-scroll-target="#submit-the-assignment">Submit the Assignment</a></li>
   <li><a href="#assessment" id="toc-assessment" class="nav-link" data-scroll-target="#assessment">Assessment</a></li>
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a></li>
+  <li><a href="#accessing-and-cloning-your-hw05-repository" id="toc-accessing-and-cloning-your-hw05-repository" class="nav-link" data-scroll-target="#accessing-and-cloning-your-hw05-repository">Accessing and Cloning Your <code>hw05</code> Repository</a></li>
+  <li><a href="#general-homework-workflow-1" id="toc-general-homework-workflow-1" class="nav-link" data-scroll-target="#general-homework-workflow-1">General Homework Workflow</a></li>
+  <li><a href="#assignment-description-1" id="toc-assignment-description-1" class="nav-link" data-scroll-target="#assignment-description-1">Assignment Description</a>
+  <ul class="collapse">
+  <li><a href="#assigment-goals" id="toc-assigment-goals" class="nav-link" data-scroll-target="#assigment-goals">1. Assigment Goals</a></li>
+  <li><a href="#report-instructions" id="toc-report-instructions" class="nav-link" data-scroll-target="#report-instructions">2. Report Instructions</a></li>
+  <li><a href="#code-instructions" id="toc-code-instructions" class="nav-link" data-scroll-target="#code-instructions">3. Code Instructions</a></li>
+  <li><a href="#repository-and-readme.md-instructions" id="toc-repository-and-readme.md-instructions" class="nav-link" data-scroll-target="#repository-and-readme.md-instructions">4. Repository and <code>README.md</code> Instructions</a></li>
+  </ul></li>
+  <li><a href="#faqs" id="toc-faqs" class="nav-link" data-scroll-target="#faqs">FAQs</a>
+  <ul class="collapse">
+  <li><a href="#how-do-i-know-if-i-have-done-enough" id="toc-how-do-i-know-if-i-have-done-enough" class="nav-link" data-scroll-target="#how-do-i-know-if-i-have-done-enough">How do I know if I have “done enough”?</a></li>
+  <li><a href="#what-data-should-i-use" id="toc-what-data-should-i-use" class="nav-link" data-scroll-target="#what-data-should-i-use">What data should I use?</a></li>
+  <li><a href="#i-cant-think-of-anything-to-analyze" id="toc-i-cant-think-of-anything-to-analyze" class="nav-link" data-scroll-target="#i-cant-think-of-anything-to-analyze">I can’t think of anything to analyze!</a></li>
+  <li><a href="#what-if-my-data-file-is-too-large" id="toc-what-if-my-data-file-is-too-large" class="nav-link" data-scroll-target="#what-if-my-data-file-is-too-large">What if my data file is too large?</a></li>
+  <li><a href="#can-i-collect-my-own-data-via-scraping" id="toc-can-i-collect-my-own-data-via-scraping" class="nav-link" data-scroll-target="#can-i-collect-my-own-data-via-scraping">Can I collect my own data via scraping?</a></li>
+  </ul></li>
+  <li><a href="#submit-the-assignment-1" id="toc-submit-the-assignment-1" class="nav-link" data-scroll-target="#submit-the-assignment-1">Submit the Assignment</a></li>
+  <li><a href="#assessment-1" id="toc-assessment-1" class="nav-link" data-scroll-target="#assessment-1">Assessment</a></li>
   </ul>
 </nav>
     </div>
@@ -140,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">HW04: Programming Skills</h1>
+<h1 class="title">Final Project</h1>
 </div>
 
 
@@ -244,6 +264,229 @@ Note
 <p>All homework assignments are evaluated using <a href="https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&amp;ouid=112534119211880791899&amp;rtpof=true&amp;sd=true">this rubric</a>. Refer to it to assess your work before submitting. For more, see the <em>Assessment</em> section of the Syllabus.</p>
 
 
+<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = FALSE)</code></p>
+</section>
+<section id="overview-1" class="level1">
+<h1>Overview</h1>
+<p><strong>Due: Thursday, July 16 (11:59 PM Chicago Time)</strong></p>
+<p>This assignment offers an opportunity to work on a research project of your choice. This assignment is optional: you can complete it instead of HW2, HW3, or HW4, or use it to replace the grade on any one of those previous assignments. It is released earlier than the others because, unlike HW2–4, you will need to find your own data and come up with your own research question. You are more than welcome to touch base with us if you are not sure or want to brainstorm your ideas with us.</p>
+</section>
+<section id="accessing-and-cloning-your-hw05-repository" class="level1">
+<h1>Accessing and Cloning Your <code>hw05</code> Repository</h1>
+<p><strong>Accessing the repo:</strong></p>
+<ol type="1">
+<li><p>Go at <a href="https://classroom.github.com/a/fzSs74Pl">this link</a> to accept the invitation and create your private <code>project</code> repository on GitHub. Your repository will be named <code>project-&lt;USERNAME&gt;</code> and will be ready within a few seconds.</p></li>
+<li><p>Once the repository has been created, click the link provided to access it.</p></li>
+</ol>
+<p><strong>Cloning the repo into your Workbench:</strong></p>
+<ol type="1">
+<li><p>Log into <em>Workbench</em> and start a new project:<br>
+<em>File &gt; New Project &gt; Version Control &gt; Git</em></p></li>
+<li><p>In the <em>Repository URL</em> field:</p>
+<ul>
+<li>Paste the URL of your GitHub repository. To find the URL, go to your <code>hw05</code> repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).</li>
+<li>The project name should auto-fill. If not, type <code>hw05-&lt;USERNAME&gt;</code> manually.</li>
+</ul></li>
+<li><p>Choose where to save the project directory locally. <em>Tip:</em> Avoid moving folders after cloning them.</p></li>
+<li><p>Check the box <em>“Open in new session”</em> (recommended for keeping projects separate and organized)</p></li>
+<li><p>Click <em>Create Project</em>. This will:</p>
+<ul>
+<li>Create a new folder on your machine<br>
+</li>
+<li>Initialize a Git repository linked to GitHub<br>
+</li>
+<li>Open an RStudio Project in a new session</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The repo you clone for the final project is intentionally empty: you will need to add your own data and code, and push them. See the instructions below for what to submit. Remember to include the knitted <code>.md</code> file(s)!.</p>
+</div>
+</div>
+</section>
+<section id="general-homework-workflow-1" class="level1">
+<h1>General Homework Workflow</h1>
+<p>See <a href="../hw/hw01.html">Homework 1</a> for details. The workflow is the same for all assignments (e.g., accept the repo, edit the files, save, then Pull – Stage – Commit – Push).</p>
+</section>
+<section id="assignment-description-1" class="level1">
+<h1>Assignment Description</h1>
+<section id="assigment-goals" class="level3">
+<h3 class="anchored" data-anchor-id="assigment-goals">1. Assigment Goals</h3>
+<p>In this assignment, you have the opportunity to apply the skills learned in the course to a research question of your choice. <strong>Your task is to find data, ask a research question, and answer it descriptively using data and code.</strong> Your main deliverable is a report with your code, graphs/tables, and interpretation.</p>
+<p>The sections below walk you through the details of each part of the assignment.</p>
+</section>
+<section id="report-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="report-instructions">2. Report Instructions</h3>
+<section id="format-and-target" class="level4">
+<h4 class="anchored" data-anchor-id="format-and-target">Format and Target</h4>
+<ul>
+<li><strong>Format:</strong> the report must be written using a <code>.Rmd</code> file, and knitted to<code>.md</code> and to <code>.pdf</code></li>
+<li><strong>The report must include:</strong>
+<ul>
+<li>Written text</li>
+<li>Code chunks</li>
+<li>Code outputs (tables, plots, descriptive stats)</li>
+<li>Not all code you write is required to go in your report: you may place extra code in a separate R script or Rmd. If you do so, mention this in your <code>README.md</code>.</li>
+</ul></li>
+<li><strong>Audience:</strong> Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.</li>
+<li><strong>Length:</strong> Aim for <em>~800 words</em> (minimum 600, maximum 1000).</li>
+<li><strong>Use of R Markdown Syntax:</strong> Use clear headings and subheadings and include a table of contents. If feasible, try to include some of the advanced R Markdown from the last lecture of the course.</li>
+</ul>
+</section>
+<section id="required-sections" class="level4">
+<h4 class="anchored" data-anchor-id="required-sections">Required Sections</h4>
+<p>Specifically, your report should include the following sections:</p>
+<ul>
+<li><strong>Project description</strong>
+<ul>
+<li>Start by explaining what your project is about, its goals, and why it matters.</li>
+<li>Describe the dataset (number of observations, time period, key variables, data source). Store the data in your repo, if smaller than 100 MB; if larger, see below.</li>
+<li>State one or more questions, ideally with social science relevance, and your hypothesis or describe what you expect to find and why.</li>
+</ul></li>
+<li><strong>Descriptive statistics and plots</strong>
+<ul>
+<li>Include tables (format them with <code>kable</code>) and descriptive statistics (counts, percentages, contingency tables, etc.).</li>
+<li>Include 4 or 5 well-designed plots with clear titles, labels, scales, etc. Use different types of plots (do not use the same plot more than once) and ensure each one matches the underlying variable types.</li>
+<li>Use code to transform or prepare variables for your plots and analyses when needed (e.g., aggregating, recoding, standardizing, creating new variables, etc.).</li>
+<li>Describe the main findings of each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research. We want to hear your explanation and interpretation of the analyses!</li>
+</ul></li>
+<li><strong>Modeling is optional</strong>
+<ul>
+<li>You are not expected or required to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots in HW2 and HW3.</li>
+<li>If you choose to add models (e.g., regression, ANOVA, text analysis, etc.), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question. If you include a model, it will be evaluated for the insights it provides.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="code-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="code-instructions">3. Code Instructions</h3>
+<p>This course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:</p>
+<ul>
+<li><strong>Library Loading and Data Import</strong>
+<ul>
+<li>Load all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere.</li>
+</ul></li>
+</ul>
+<!--
+  - If you are scraping data, place your scraper in a separate script or Rmd file (see below).
+-->
+<ul>
+<li><strong>Data Cleaning, Wrangling, and Tidying</strong>
+<ul>
+<li>Include code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project.</li>
+<li>If your code for data prep and cleaning is extensive, place it in a separate script or Rmd file (see below).</li>
+</ul></li>
+<li><strong>Data Analysis and Plots</strong>
+<ul>
+<li>Include code for descriptive statistics (tables, summaries, counts, percentages, contingency tables, etc.).</li>
+<li>Include code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations.</li>
+</ul></li>
+<li><strong>Programming Techniques</strong>
+<ul>
+<li>Include at least one user-defined function AND either a loop (or a map/across/apply alternative) OR a conditional statement. If these don’t naturally fit your project, check in with us and we’ll help you find the best approach.</li>
+</ul></li>
+<li><strong>Code Organization</strong>
+<ul>
+<li>Include only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions over base R, where applicable (e.g., use <code>read_csv()</code> instead of <code>read.csv()</code>).<br>
+</li>
+<li>Extensive cleaning steps or extra plots can go in a separate script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Let us know the location of any additional code in your <code>README.md</code>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="repository-and-readme.md-instructions" class="level3">
+<h3 class="anchored" data-anchor-id="repository-and-readme.md-instructions">4. Repository and <code>README.md</code> Instructions</h3>
+<p>Your repository must include a <code>README.md</code> with the following information:</p>
+<ul>
+<li><p><strong>Purpose of the repository:</strong> A bullet point explanation of what the project is about (e.g., topic, data source, sample size).</p></li>
+<li><p><strong>List of files:</strong> A list of all R scripts and <code>.Rmd</code> files in the repo, each with a one-sentence description.</p></li>
+<li><p><strong>Required packages:</strong> Any non-basic packages needed to run your code (no need to list <code>tidyverse</code> or <code>rmarkdown</code>).</p></li>
+<li><p><strong>Additional information:</strong> Anything else a user needs to understand or replicate your work.</p></li>
+</ul>
+</section>
+</section>
+<section id="faqs" class="level1">
+<h1>FAQs</h1>
+<section id="how-do-i-know-if-i-have-done-enough" class="level3">
+<h3 class="anchored" data-anchor-id="how-do-i-know-if-i-have-done-enough">How do I know if I have “done enough”?</h3>
+<ul>
+<li>First, make sure you’ve met all requirements for the report, code, and <code>README.md</code>.</li>
+<li>As a rough benchmark, this assignment should take about as much time as an average previous one. It’s worth 20 points instead of 15, since finding data and developing your own question typically require a bit more work. Please take this only as a guideline, actual time will vary by student, project, and working style.</li>
+<li>Aim to review what you’ve learned and push a bit beyond your comfort zone. If you’re unsure whether your plan is sufficient, check in with us.</li>
+<li>This assignment should reflect your own work. You may seek advice by humans or robots, but your code must be written by you, understandable to you, and aligned with our AI policy.</li>
+</ul>
+</section>
+<section id="what-data-should-i-use" class="level3">
+<h3 class="anchored" data-anchor-id="what-data-should-i-use">What data should I use?</h3>
+<p>We encourage you to use social science data; other types of data can work too but check with us first. What matters most is applying the skills you learned to a topic that interests you: the best projects are the ones you are genuinely excited to work on.</p>
+</section>
+<section id="i-cant-think-of-anything-to-analyze" class="level3">
+<h3 class="anchored" data-anchor-id="i-cant-think-of-anything-to-analyze">I can’t think of anything to analyze!</h3>
+<p>You may use any dataset from class not used in previous homework and not tied to teaching examples (e.g., penguins, cars, iris datasets are not appropriate). Some options to consider:</p>
+<ul>
+<li><code>gun_deaths</code> from <code>library(rcis)</code>, or the raw data from FiveThirtyEight (it’s a similar topic but this is different dataset than HW2)</li>
+<li><code>scorecard</code> from <code>library(rcis)</code> or use the <a href="https://github.com/btskinner/rscorecard"><code>rscorecard</code></a> package to download your own subset</li>
+<li>Explore the <a href="https://docs.google.com/spreadsheets/d/1wZhPLMCHKJvwOkP4juclhjFgqIY8fQFMemwKL2c64vk/edit#gid=0"><strong>Data Is Plural</strong> dataset archive</a></li>
+<li>Explore the <a href="https://github.com/rfordatascience/tidytuesday"><strong>#TidyTuesday</strong> dataset archive</a></li>
+</ul>
+</section>
+<section id="what-if-my-data-file-is-too-large" class="level3">
+<h3 class="anchored" data-anchor-id="what-if-my-data-file-is-too-large">What if my data file is too large?</h3>
+<p>GitHub does not allow files larger than 100MB. If you try to push one, you’ll get an error and may have to remove the file from your Git history, which is a hassle. Thus:</p>
+<ul>
+<li>If your data is well under 100MB, include it in your repo.<br>
+</li>
+<li>If it is close to or above 100MB, <strong>do not</strong> include it in your repo. Instead, store it outside GitHub (e.g., Google Drive) and include a link to it in your <code>README.md</code>.</li>
+</ul>
+</section>
+<section id="can-i-collect-my-own-data-via-scraping" class="level3">
+<h3 class="anchored" data-anchor-id="can-i-collect-my-own-data-via-scraping">Can I collect my own data via scraping?</h3>
+<p>We recommend using already-collected data, given the tight timeline of summer courses. That said, you’re welcome to collect or assemble your own data (via scraping or other methods) if you prefer. If you want to scrape data but aren’t sure where to start, I’m happy to share resources and check with you whether the website you have in mind is appropriate. Here are some guidelines:</p>
+<ul>
+<li><strong>What to Scrape:</strong>
+<ul>
+<li>If you plan to collect data through web-scraping, you can scrape any publicly available webpage that interests you. If you’re unsure where to start, past students have had success with: Wikipedia, University websites, Government sites, Examples mentioned in readings. If you build on in-class code, readings, tutorials, or AI-generated starter code, your work must go beyond simple edits.</li>
+<li>You can use an API (vs.&nbsp;direct scraping), check in with the instructor if unsure.</li>
+</ul></li>
+<li><strong>What Not to Scrape:</strong>
+<ul>
+<li>No private or restricted data: Do not scrape anything behind a login, password, or user account.<br>
+</li>
+<li>No social media sites: as they typically require log-ins.<br>
+</li>
+<li>No dynamic Javascript websites: that load content via scrolling or pop-ups—these require advanced techniques we do not cover.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="submit-the-assignment-1" class="level1">
+<h1>Submit the Assignment</h1>
+<p>To submit your assignment on Canvas, follow these steps:</p>
+<ol type="1">
+<li><p>Before the deadline, push the final version of your work to your GitHub repository. <em>Tip:</em> don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.</p>
+<p>Your GitHub repository should include (make sure to stage-commit-push all these files):</p>
+<ul>
+<li>everything you have done to collect the data and produce your analyses, e.g., R Markdown files or R scripts, graphs, data (unless they are too large, see above for details)</li>
+<li>your report should be a <code>Rmd</code> file. Knit this file in two ways: as <code>md</code>, and as <code>pdf</code>. Submit all three of them ( <code>Rmd</code>, <code>md</code>, <code>pdf</code>)</li>
+<li>the folder that contains all the graphs that you generated in your <code>.Rmd</code></li>
+</ul></li>
+<li><p>When you’re ready to submit:</p>
+<ul>
+<li>Copy the URL of your GitHub repository. It will look something like: <code>https://github.com/css-sum26/hw05-yourusername</code></li>
+<li>Submit that URL on Canvas. Do not upload any files to Canvas. We only need the repository link.</li>
+</ul></li>
+</ol>
+</section>
+<section id="assessment-1" class="level1">
+<h1>Assessment</h1>
+<p>All homework assignments are evaluated using <a href="https://docs.google.com/spreadsheets/d/1gm2bbrG4hriL6Y9XZXZzyn0c_QSCSaLR/edit?usp=sharing&amp;ouid=112534119211880791899&amp;rtpof=true&amp;sd=true">this rubric</a>. For more, see the <em>Assessment</em> section of the Syllabus.</p>
 </section>
 
 </main> <!-- /main -->
