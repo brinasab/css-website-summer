@@ -35,8 +35,7 @@ Agenda (~15 minutes per item):
 1. **Quiz 3 Review**
 2. **Homework 3 Q&A**
 3. **Finish Lecture 12 Content**: Manipulate dates with `lubridate`
-4. **[Breakout activity: Week 3 review teams]()** [Link will be active on Monday]
-5. **Class ends at 10:30 AM**
+4. **Class ends at 10:30 AM**
 
 
 ## Before Class
