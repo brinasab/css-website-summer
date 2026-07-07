@@ -543,7 +543,7 @@
     "href": "lectures/14-slides.html#example-code-in-base-r-1",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Example Code in Base R",
-    "text": "Example Code in Base R\n# create new variables in twitter df\ntwitter$tot_likes_retweets &lt;- twitter$likes + twitter$retweets\ntwitter$high_engagement    &lt;- twitter$tot_likes_retweets &gt;= 80\n\n# create a new df with only rows that match conditions\ntw &lt;- twitter[twitter$language == \"en\" & twitter$high_engagement == TRUE, ]\n\n# bring in second df\ntw_full &lt;- merge(tw, state_lookup, by = \"state\", all = FALSE)\n\n# compute sum of one variable\nsum_inter &lt;- sum(tw_full$tot_likes_retweets)\n\n# compute sum of one variable by another\nsum_inter_by_vote &lt;- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)"
+    "text": "Example Code in Base R\n# create new variables in twitter df with total engagement\ntwitter$tot_likes_retweets &lt;- twitter$likes + twitter$retweets\n\n# create a logical variable TRUE / FALSE for high engagement\ntwitter$high_engagement &lt;- twitter$tot_likes_retweets &gt;= 80\n\n# create a new df with only rows that match both of these conditions\n# df[rows, columns]: code below says [keep selected rows, all columns]\ntw &lt;- twitter[twitter$language == \"en\" & twitter$high_engagement == TRUE, ]\n\n# bring in second df\n# all = FALSE keeps only states that appear in both data frames\ntw_full &lt;- merge(tw, state_lookup, by = \"state\", all = FALSE)\n\n# compute the total sum of likes + retweets\nsum_inter &lt;- sum(tw_full$tot_likes_retweets)\n\n# compute the sum of likes + retweets by each vote category\nsum_inter_by_vote &lt;- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)"
   },
   {
     "objectID": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse",
@@ -712,5 +712,12 @@
     "title": "Lecture 15: Control Flow with Conditionals",
     "section": "Before class",
     "text": "Before class\n\nComplete the practice from last lecture\nIf you have not already done so, complete Lecture 14 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 15). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
+  },
+  {
+    "objectID": "lectures/14-slides.html#from-the-tidyverse-to-base-r",
+    "href": "lectures/14-slides.html#from-the-tidyverse-to-base-r",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "From the Tidyverse to Base R",
+    "text": "From the Tidyverse to Base R\nSo far, we have learned several core Tidyverse packages:\n\n\n\nggplot2 → graphs\n\ndplyr → data wrangling\n\ntidyr → tidy data\n\nreadr → importing/exporting data\n\n\n\n\nforcats → factors\n\nstringr → text/regex\n\nlubridate → dates\n\n\n\n\n\n\n\n\n\nTip\n\n\nThe Tidyverse is often the most intuitive place to start when learning R and you’ll keep using it long after this course, but base R helps us understand how R works underneath."
   }
 ]

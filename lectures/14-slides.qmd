@@ -49,21 +49,31 @@ and https://libraryguides.mcgill.ca/c.php?g=699776&p=4968544
 
 ---
 
-## So far we learned several Tidyverse packages
+## From the Tidyverse to Base R
 
-Tidyverse <https://tidyverse.org/>:
+So far, we have learned several core **Tidyverse** packages:
 
-- `ggplot2`
-- `dplyr`
-- `forcats`
-- `tidyr`
-- `readr`
-- `stringr`
-- `lubridate`
+:::: {.columns}
 
-The Tidyverse is often the most intuitive place to start before diving into Base R.
+::: {.column width="50%"}
+- `ggplot2` → graphs  
+- `dplyr` → data wrangling  
+- `tidyr` → tidy data  
+- `readr` → importing/exporting data  
+:::
 
-You’ll keep using the Tidyverse long after this course, but Base R gives you a deeper understanding of how R works underneath.
+::: {.column width="50%"}
+- `forcats` → factors  
+- `stringr` → text/regex  
+- `lubridate` → dates  
+:::
+
+::::
+
+::: {.callout-tip}
+The **Tidyverse** is often the most intuitive place to start when learning R and you’ll keep using it long after this course, but **base R** helps us understand how R works underneath.
+:::
+
 
 ---
 
@@ -175,20 +185,24 @@ state_lookup <- data.frame(
 ## Example Code in Base R
 
 ```r
-# create new variables in twitter df
+# create new variables in twitter df with total engagement
 twitter$tot_likes_retweets <- twitter$likes + twitter$retweets
-twitter$high_engagement    <- twitter$tot_likes_retweets >= 80
 
-# create a new df with only rows that match conditions
+# create a logical variable TRUE / FALSE for high engagement
+twitter$high_engagement <- twitter$tot_likes_retweets >= 80
+
+# create a new df with only rows that match both of these conditions
+# df[rows, columns]: code below says [keep selected rows, all columns]
 tw <- twitter[twitter$language == "en" & twitter$high_engagement == TRUE, ]
 
 # bring in second df
+# all = FALSE keeps only states that appear in both data frames
 tw_full <- merge(tw, state_lookup, by = "state", all = FALSE)
 
-# compute sum of one variable
+# compute the total sum of likes + retweets
 sum_inter <- sum(tw_full$tot_likes_retweets)
 
-# compute sum of one variable by another
+# compute the sum of likes + retweets by each vote category
 sum_inter_by_vote <- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)
 ```
 
@@ -232,8 +246,11 @@ sum_inter <- tw_full |>
 sum_inter_by_vote <- tw_full |>
   group_by(vote) |>
   summarise(sum_inter_by_vote = sum(tot_likes_retweets))
+
 ```
 
+<!-- Inside mutate(), this condition creates a logical variable; inside filter(), conditions keep row
+-->
 
 # 2. R Data Types and Data Structures {.slide .center .middle}
 

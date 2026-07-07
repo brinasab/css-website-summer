@@ -239,20 +239,44 @@ and https://libraryguides.mcgill.ca/c.php?g=699776&p=4968544
 <h1>1. Base R &amp; the Tidyverse</h1>
 
 </section>
-<section id="so-far-we-learned-several-tidyverse-packages" class="slide level2 center">
-<h2>So far we learned several Tidyverse packages</h2>
-<p>Tidyverse <a href="https://tidyverse.org/" class="uri">https://tidyverse.org/</a>:</p>
+<section id="from-the-tidyverse-to-base-r" class="slide level2 center">
+<h2>From the Tidyverse to Base R</h2>
+<p>So far, we have learned several core <strong>Tidyverse</strong> packages:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li><code>ggplot2</code></li>
-<li><code>dplyr</code></li>
-<li><code>forcats</code></li>
-<li><code>tidyr</code></li>
-<li><code>readr</code></li>
-<li><code>stringr</code></li>
-<li><code>lubridate</code></li>
+<li><code>ggplot2</code> → graphs<br>
+</li>
+<li><code>dplyr</code> → data wrangling<br>
+</li>
+<li><code>tidyr</code> → tidy data<br>
+</li>
+<li><code>readr</code> → importing/exporting data<br>
+</li>
 </ul>
-<p>The Tidyverse is often the most intuitive place to start before diving into Base R.</p>
-<p>You’ll keep using the Tidyverse long after this course, but Base R gives you a deeper understanding of how R works underneath.</p>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><code>forcats</code> → factors<br>
+</li>
+<li><code>stringr</code> → text/regex<br>
+</li>
+<li><code>lubridate</code> → dates<br>
+</li>
+</ul>
+</div></div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>The <strong>Tidyverse</strong> is often the most intuitive place to start when learning R and you’ll keep using it long after this course, but <strong>base R</strong> helps us understand how R works underneath.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="today-we-start-a-new-module-on-base-r" class="slide level2 center">
 <h2>Today we start a new module on Base R</h2>
@@ -358,21 +382,25 @@ we come back to functions next week
 </section>
 <section id="example-code-in-base-r-1" class="slide level2 center">
 <h2>Example Code in Base R</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># create new variables in twitter df</span></span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># create new variables in twitter df with total engagement</span></span>
 <span id="cb2-2"><a></a>twitter<span class="sc">$</span>tot_likes_retweets <span class="ot">&lt;-</span> twitter<span class="sc">$</span>likes <span class="sc">+</span> twitter<span class="sc">$</span>retweets</span>
-<span id="cb2-3"><a></a>twitter<span class="sc">$</span>high_engagement    <span class="ot">&lt;-</span> twitter<span class="sc">$</span>tot_likes_retweets <span class="sc">&gt;=</span> <span class="dv">80</span></span>
-<span id="cb2-4"><a></a></span>
-<span id="cb2-5"><a></a><span class="co"># create a new df with only rows that match conditions</span></span>
-<span id="cb2-6"><a></a>tw <span class="ot">&lt;-</span> twitter[twitter<span class="sc">$</span>language <span class="sc">==</span> <span class="st">"en"</span> <span class="sc">&amp;</span> twitter<span class="sc">$</span>high_engagement <span class="sc">==</span> <span class="cn">TRUE</span>, ]</span>
-<span id="cb2-7"><a></a></span>
-<span id="cb2-8"><a></a><span class="co"># bring in second df</span></span>
-<span id="cb2-9"><a></a>tw_full <span class="ot">&lt;-</span> <span class="fu">merge</span>(tw, state_lookup, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-3"><a></a></span>
+<span id="cb2-4"><a></a><span class="co"># create a logical variable TRUE / FALSE for high engagement</span></span>
+<span id="cb2-5"><a></a>twitter<span class="sc">$</span>high_engagement <span class="ot">&lt;-</span> twitter<span class="sc">$</span>tot_likes_retweets <span class="sc">&gt;=</span> <span class="dv">80</span></span>
+<span id="cb2-6"><a></a></span>
+<span id="cb2-7"><a></a><span class="co"># create a new df with only rows that match both of these conditions</span></span>
+<span id="cb2-8"><a></a><span class="co"># df[rows, columns]: code below says [keep selected rows, all columns]</span></span>
+<span id="cb2-9"><a></a>tw <span class="ot">&lt;-</span> twitter[twitter<span class="sc">$</span>language <span class="sc">==</span> <span class="st">"en"</span> <span class="sc">&amp;</span> twitter<span class="sc">$</span>high_engagement <span class="sc">==</span> <span class="cn">TRUE</span>, ]</span>
 <span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a><span class="co"># compute sum of one variable</span></span>
-<span id="cb2-12"><a></a>sum_inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(tw_full<span class="sc">$</span>tot_likes_retweets)</span>
-<span id="cb2-13"><a></a></span>
-<span id="cb2-14"><a></a><span class="co"># compute sum of one variable by another</span></span>
-<span id="cb2-15"><a></a>sum_inter_by_vote <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tw_full<span class="sc">$</span>tot_likes_retweets, tw_full<span class="sc">$</span>vote, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a></a><span class="co"># bring in second df</span></span>
+<span id="cb2-12"><a></a><span class="co"># all = FALSE keeps only states that appear in both data frames</span></span>
+<span id="cb2-13"><a></a>tw_full <span class="ot">&lt;-</span> <span class="fu">merge</span>(tw, state_lookup, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-14"><a></a></span>
+<span id="cb2-15"><a></a><span class="co"># compute the total sum of likes + retweets</span></span>
+<span id="cb2-16"><a></a>sum_inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(tw_full<span class="sc">$</span>tot_likes_retweets)</span>
+<span id="cb2-17"><a></a></span>
+<span id="cb2-18"><a></a><span class="co"># compute the sum of likes + retweets by each vote category</span></span>
+<span id="cb2-19"><a></a>sum_inter_by_vote <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tw_full<span class="sc">$</span>tot_likes_retweets, tw_full<span class="sc">$</span>vote, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rewriting-the-same-code-with-the-tidyverse" class="slide level2 center">
 <h2>Rewriting the Same Code with the Tidyverse</h2>
@@ -407,6 +435,8 @@ we come back to functions next week
 <span id="cb4-11"><a></a>sum_inter_by_vote <span class="ot">&lt;-</span> tw_full <span class="sc">|&gt;</span></span>
 <span id="cb4-12"><a></a>  <span class="fu">group_by</span>(vote) <span class="sc">|&gt;</span></span>
 <span id="cb4-13"><a></a>  <span class="fu">summarise</span>(<span class="at">sum_inter_by_vote =</span> <span class="fu">sum</span>(tot_likes_retweets))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- Inside mutate(), this condition creates a logical variable; inside filter(), conditions keep row
+-->
 </section></section>
 <section>
 <section id="r-data-types-and-data-structures" class="title-slide slide level1 center middle">
