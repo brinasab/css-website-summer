@@ -71,7 +71,7 @@ So far, we have learned several core **Tidyverse** packages:
 ::::
 
 ::: {.callout-tip}
-The **Tidyverse** is often the most intuitive place to start when learning R and you’ll keep using it long after this course, but **base R** helps us understand how R works underneath.
+The **Tidyverse** is often the most intuitive place to start learning R and you’ll keep using it long after this course! But **base R** helps us understand how R works underneath.
 :::
 
 
@@ -79,9 +79,9 @@ The **Tidyverse** is often the most intuitive place to start when learning R and
 
 ## Today we start a new module on Base R
 
-Today we begin a **new module on [Base R](https://brinasab.github.io/css-website/lectures/)** What you will learn in these lectures:
+What you will learn in these lectures (this and next week):
 
-- Differences and similarities between Base R and Tidyverse
+- Differences and similarities between [Base R](https://brinasab.github.io/css-website/lectures/) and Tidyverse
 - R data types and data structures
 - Vector recycling 
 - Control flow: conditionals (e.g., if-else structures) 
@@ -92,9 +92,8 @@ Today we begin a **new module on [Base R](https://brinasab.github.io/css-website
 
 ## What is Base R?
 
-When people say **Base R**, they are referring to the core or basic features of the R language (hence the name), developed **before the tidyverse**.
-
-These include:
+When people say **Base R**, they are referring to the core or basic features of the R language (hence the name). 
+These were developed **before the tidyverse** and include:
 
 - **Data Types**: numeric, integer, character, logical, factor  
 - **Data Structures**: vectors, matrices, lists, data frames  
@@ -121,9 +120,9 @@ we come back to functions next week
 ::: {.column width="47%"}
 ### Base R
 - Developed in the *early 1990s* as part of R's core language  
-- Includes built-in functions like `mean()`, `length()`, etc. 
+- Includes built-in functions like `mean()`, `length()`,
 and key programming tools like loops, etc.
-- Offers more direct control, but code can be longer or harder to read    
+- Offers more direct control, but code can be longer and harder to read    
 :::
 
 ::: {.column width="6%"}
@@ -133,7 +132,7 @@ and key programming tools like loops, etc.
 ::: {.column width="47%"}
 ### Tidyverse
 - Formally introduced *after 2016* as a set of user-friendly packages 
-- Includes packages like `ggplot2`, `dplyr`, `forcats`, `tidyr`, `stringr`, `readr`, `lubridate` etc. 
+- Includes `ggplot2`, `dplyr`, `forcats`, `tidyr`, `stringr`, `readr`, `lubridate`, etc. 
 - Prioritizes readability and consistency, making code cleaner and easier to read
 :::
 
@@ -152,7 +151,7 @@ and key programming tools like loops, etc.
 <br>
 
 ::: {.callout-tip}
-Goal: use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!
+Use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!
 :::
 
 </br>
@@ -195,15 +194,14 @@ twitter$high_engagement <- twitter$tot_likes_retweets >= 80
 # df[rows, columns]: code below says [keep selected rows, all columns]
 tw <- twitter[twitter$language == "en" & twitter$high_engagement == TRUE, ]
 
-# bring in second df
-# all = FALSE keeps only states that appear in both data frames
+# bring in the second df using merge
 tw_full <- merge(tw, state_lookup, by = "state", all = FALSE)
 
-# compute the total sum of likes + retweets
-sum_inter <- sum(tw_full$tot_likes_retweets)
+# compute sum of likes + retweets
+sum(tw_full$tot_likes_retweets)
 
-# compute the sum of likes + retweets by each vote category
-sum_inter_by_vote <- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)
+# or compute sum of likes + retweets by each category of vote 
+tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)
 ```
 
 ---
@@ -212,8 +210,6 @@ sum_inter_by_vote <- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)
 
 ```r
 library(tidyverse)
-
-# create two dataframes
 
 twitter <- tibble(
   user     = c("alice","bob","carlos","diana","emily","lucia","gina","rick"),
@@ -240,16 +236,17 @@ tw_full <- twitter |>
   filter(language == "en" & high_engagement == TRUE) |>
   inner_join(state_lookup, by = "state")
 
-sum_inter <- tw_full |>
+tw_full |>
   summarise(sum_inter = sum(tot_likes_retweets))
 
-sum_inter_by_vote <- tw_full |>
+tw_full |>
   group_by(vote) |>
   summarise(sum_inter_by_vote = sum(tot_likes_retweets))
-
 ```
 
-<!-- Inside mutate(), this condition creates a logical variable; inside filter(), conditions keep row
+<!--
+A tibble behaves like a data frame, but it prints more nicely and is more predictable in tidyverse workflows.
+Inside mutate(), this condition creates a logical variable; inside filter(), conditions keep row
 -->
 
 # 2. R Data Types and Data Structures {.slide .center .middle}
@@ -265,7 +262,7 @@ Data Types and Data Structures are the fundamentals of R: the "ABC" of how R sto
 - **Data Type** — what kind of value it is  
 - **Data Structure** — how values are stored and organized  
 
-Now we look at each and at how they relate.
+We explore each and explain how they relate!
 
 ---
 
@@ -322,7 +319,7 @@ Every single element in R has a data type. That element is stored inside a large
 Examples:  
 ```r
 x <- c(1, 2, 3)      # a vector (structure) of three elements, all numeric values (type) 
-y <- list("a", 5)    # a list (structure) of two elements, one character value and one numeric value (type)
+y <- list("a", 5)    # a list (structure) of two elements, one character and one numeric value (type)
 ```
 
 <!-- In R, every single value (like "apple" or 3.14 or TRUE) has exactly one data type — it might be a character, numeric, logical, etc. This stays true even when that value is part of a larger structure, like a vector, list, or data frame. <br>
@@ -374,8 +371,7 @@ Use **vectors** and **matrices** when your data is uniform. Use **data frames** 
 
 ## 💻 Practice
 
-Run the code below to create different R objects. Then check their structure using `class()` and `str()` on each object.
-
+Run the code below to create several different R objects. Inspect each object by running both `class()` and `str()` on it. Pay attention to the output, and note any questions you have:
 
 ```r
 # create multiple vectors
@@ -406,7 +402,7 @@ l <- list(
 ```
 <!-- explore code
 call it to see how it looks like 
-run class() for each to see the datadype
+run class() for each to see the datatype
 create df also with tibble
 etc.
 -->

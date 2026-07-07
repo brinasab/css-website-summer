@@ -273,16 +273,16 @@ and https://libraryguides.mcgill.ca/c.php?g=699776&p=4968544
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>The <strong>Tidyverse</strong> is often the most intuitive place to start when learning R and you’ll keep using it long after this course, but <strong>base R</strong> helps us understand how R works underneath.</p>
+<p>The <strong>Tidyverse</strong> is often the most intuitive place to start learning R and you’ll keep using it long after this course! But <strong>base R</strong> helps us understand how R works underneath.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="today-we-start-a-new-module-on-base-r" class="slide level2 center">
 <h2>Today we start a new module on Base R</h2>
-<p>Today we begin a <strong>new module on <a href="https://brinasab.github.io/css-website/lectures/">Base R</a></strong> What you will learn in these lectures:</p>
+<p>What you will learn in these lectures (this and next week):</p>
 <ul>
-<li>Differences and similarities between Base R and Tidyverse</li>
+<li>Differences and similarities between <a href="https://brinasab.github.io/css-website/lectures/">Base R</a> and Tidyverse</li>
 <li>R data types and data structures</li>
 <li>Vector recycling</li>
 <li>Control flow: conditionals (e.g., if-else structures)</li>
@@ -292,8 +292,7 @@ and https://libraryguides.mcgill.ca/c.php?g=699776&p=4968544
 </section>
 <section id="what-is-base-r" class="slide level2 center">
 <h2>What is Base R?</h2>
-<p>When people say <strong>Base R</strong>, they are referring to the core or basic features of the R language (hence the name), developed <strong>before the tidyverse</strong>.</p>
-<p>These include:</p>
+<p>When people say <strong>Base R</strong>, they are referring to the core or basic features of the R language (hence the name). These were developed <strong>before the tidyverse</strong> and include:</p>
 <ul>
 <li><strong>Data Types</strong>: numeric, integer, character, logical, factor<br>
 </li>
@@ -321,8 +320,8 @@ we come back to functions next week
 <ul>
 <li>Developed in the <em>early 1990s</em> as part of R’s core language<br>
 </li>
-<li>Includes built-in functions like <code>mean()</code>, <code>length()</code>, etc. and key programming tools like loops, etc.</li>
-<li>Offers more direct control, but code can be longer or harder to read<br>
+<li>Includes built-in functions like <code>mean()</code>, <code>length()</code>, and key programming tools like loops, etc.</li>
+<li>Offers more direct control, but code can be longer and harder to read<br>
 </li>
 </ul>
 </div><div class="column" style="width:6%;">
@@ -331,7 +330,7 @@ we come back to functions next week
 <h3 id="tidyverse">Tidyverse</h3>
 <ul>
 <li>Formally introduced <em>after 2016</em> as a set of user-friendly packages</li>
-<li>Includes packages like <code>ggplot2</code>, <code>dplyr</code>, <code>forcats</code>, <code>tidyr</code>, <code>stringr</code>, <code>readr</code>, <code>lubridate</code> etc.</li>
+<li>Includes <code>ggplot2</code>, <code>dplyr</code>, <code>forcats</code>, <code>tidyr</code>, <code>stringr</code>, <code>readr</code>, <code>lubridate</code>, etc.</li>
 <li>Prioritizes readability and consistency, making code cleaner and easier to read</li>
 </ul>
 </div></div>
@@ -356,7 +355,7 @@ we come back to functions next week
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Goal: use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!</p>
+<p>Use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!</p>
 </div>
 </div>
 </div>
@@ -392,33 +391,30 @@ we come back to functions next week
 <span id="cb2-8"><a></a><span class="co"># df[rows, columns]: code below says [keep selected rows, all columns]</span></span>
 <span id="cb2-9"><a></a>tw <span class="ot">&lt;-</span> twitter[twitter<span class="sc">$</span>language <span class="sc">==</span> <span class="st">"en"</span> <span class="sc">&amp;</span> twitter<span class="sc">$</span>high_engagement <span class="sc">==</span> <span class="cn">TRUE</span>, ]</span>
 <span id="cb2-10"><a></a></span>
-<span id="cb2-11"><a></a><span class="co"># bring in second df</span></span>
-<span id="cb2-12"><a></a><span class="co"># all = FALSE keeps only states that appear in both data frames</span></span>
-<span id="cb2-13"><a></a>tw_full <span class="ot">&lt;-</span> <span class="fu">merge</span>(tw, state_lookup, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-14"><a></a></span>
-<span id="cb2-15"><a></a><span class="co"># compute the total sum of likes + retweets</span></span>
-<span id="cb2-16"><a></a>sum_inter <span class="ot">&lt;-</span> <span class="fu">sum</span>(tw_full<span class="sc">$</span>tot_likes_retweets)</span>
-<span id="cb2-17"><a></a></span>
-<span id="cb2-18"><a></a><span class="co"># compute the sum of likes + retweets by each vote category</span></span>
-<span id="cb2-19"><a></a>sum_inter_by_vote <span class="ot">&lt;-</span> <span class="fu">tapply</span>(tw_full<span class="sc">$</span>tot_likes_retweets, tw_full<span class="sc">$</span>vote, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a></a><span class="co"># bring in the second df using merge</span></span>
+<span id="cb2-12"><a></a>tw_full <span class="ot">&lt;-</span> <span class="fu">merge</span>(tw, state_lookup, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-13"><a></a></span>
+<span id="cb2-14"><a></a><span class="co"># compute sum of likes + retweets</span></span>
+<span id="cb2-15"><a></a><span class="fu">sum</span>(tw_full<span class="sc">$</span>tot_likes_retweets)</span>
+<span id="cb2-16"><a></a></span>
+<span id="cb2-17"><a></a><span class="co"># or compute sum of likes + retweets by each category of vote </span></span>
+<span id="cb2-18"><a></a><span class="fu">tapply</span>(tw_full<span class="sc">$</span>tot_likes_retweets, tw_full<span class="sc">$</span>vote, sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rewriting-the-same-code-with-the-tidyverse" class="slide level2 center">
 <h2>Rewriting the Same Code with the Tidyverse</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb3-2"><a></a></span>
-<span id="cb3-3"><a></a><span class="co"># create two dataframes</span></span>
-<span id="cb3-4"><a></a></span>
-<span id="cb3-5"><a></a>twitter <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-6"><a></a>  <span class="at">user     =</span> <span class="fu">c</span>(<span class="st">"alice"</span>,<span class="st">"bob"</span>,<span class="st">"carlos"</span>,<span class="st">"diana"</span>,<span class="st">"emily"</span>,<span class="st">"lucia"</span>,<span class="st">"gina"</span>,<span class="st">"rick"</span>),</span>
-<span id="cb3-7"><a></a>  <span class="at">likes    =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">80</span>, <span class="dv">22</span>, <span class="dv">130</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">30</span>),</span>
-<span id="cb3-8"><a></a>  <span class="at">retweets =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">25</span>,  <span class="dv">5</span>,  <span class="dv">50</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">58</span>),</span>
-<span id="cb3-9"><a></a>  <span class="at">language =</span> <span class="fu">c</span>(<span class="st">"en"</span>,<span class="st">"es"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>,<span class="st">"fr"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>),</span>
-<span id="cb3-10"><a></a>  <span class="at">state    =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"CA"</span>,<span class="st">"IL"</span>,<span class="st">"AZ"</span>))</span>
-<span id="cb3-11"><a></a></span>
-<span id="cb3-12"><a></a>state_lookup <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb3-13"><a></a>  <span class="at">state  =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"AZ"</span>),</span>
-<span id="cb3-14"><a></a>  <span class="at">region =</span> <span class="fu">c</span>(<span class="st">"West"</span>,<span class="st">"South"</span>,<span class="st">"Northeast"</span>,<span class="st">"Midwest"</span>,<span class="st">"West"</span>),</span>
-<span id="cb3-15"><a></a>  <span class="at">vote   =</span> <span class="fu">c</span>(<span class="st">"Dem"</span>,<span class="st">"Rep"</span>,<span class="st">"Dem"</span>,<span class="st">"Dem"</span>,<span class="st">"Rep"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-3"><a></a>twitter <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-4"><a></a>  <span class="at">user     =</span> <span class="fu">c</span>(<span class="st">"alice"</span>,<span class="st">"bob"</span>,<span class="st">"carlos"</span>,<span class="st">"diana"</span>,<span class="st">"emily"</span>,<span class="st">"lucia"</span>,<span class="st">"gina"</span>,<span class="st">"rick"</span>),</span>
+<span id="cb3-5"><a></a>  <span class="at">likes    =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">80</span>, <span class="dv">22</span>, <span class="dv">130</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">15</span>, <span class="dv">30</span>),</span>
+<span id="cb3-6"><a></a>  <span class="at">retweets =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">25</span>,  <span class="dv">5</span>,  <span class="dv">50</span>, <span class="dv">12</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">58</span>),</span>
+<span id="cb3-7"><a></a>  <span class="at">language =</span> <span class="fu">c</span>(<span class="st">"en"</span>,<span class="st">"es"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>,<span class="st">"fr"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>,<span class="st">"en"</span>),</span>
+<span id="cb3-8"><a></a>  <span class="at">state    =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"CA"</span>,<span class="st">"IL"</span>,<span class="st">"AZ"</span>))</span>
+<span id="cb3-9"><a></a></span>
+<span id="cb3-10"><a></a>state_lookup <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-11"><a></a>  <span class="at">state  =</span> <span class="fu">c</span>(<span class="st">"CA"</span>,<span class="st">"TX"</span>,<span class="st">"NY"</span>,<span class="st">"IL"</span>,<span class="st">"AZ"</span>),</span>
+<span id="cb3-12"><a></a>  <span class="at">region =</span> <span class="fu">c</span>(<span class="st">"West"</span>,<span class="st">"South"</span>,<span class="st">"Northeast"</span>,<span class="st">"Midwest"</span>,<span class="st">"West"</span>),</span>
+<span id="cb3-13"><a></a>  <span class="at">vote   =</span> <span class="fu">c</span>(<span class="st">"Dem"</span>,<span class="st">"Rep"</span>,<span class="st">"Dem"</span>,<span class="st">"Dem"</span>,<span class="st">"Rep"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rewriting-the-same-code-with-the-tidyverse-1" class="slide level2 center">
 <h2>Rewriting the Same Code with the Tidyverse</h2>
@@ -429,13 +425,15 @@ we come back to functions next week
 <span id="cb4-5"><a></a>  <span class="fu">filter</span>(language <span class="sc">==</span> <span class="st">"en"</span> <span class="sc">&amp;</span> high_engagement <span class="sc">==</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
 <span id="cb4-6"><a></a>  <span class="fu">inner_join</span>(state_lookup, <span class="at">by =</span> <span class="st">"state"</span>)</span>
 <span id="cb4-7"><a></a></span>
-<span id="cb4-8"><a></a>sum_inter <span class="ot">&lt;-</span> tw_full <span class="sc">|&gt;</span></span>
+<span id="cb4-8"><a></a>tw_full <span class="sc">|&gt;</span></span>
 <span id="cb4-9"><a></a>  <span class="fu">summarise</span>(<span class="at">sum_inter =</span> <span class="fu">sum</span>(tot_likes_retweets))</span>
 <span id="cb4-10"><a></a></span>
-<span id="cb4-11"><a></a>sum_inter_by_vote <span class="ot">&lt;-</span> tw_full <span class="sc">|&gt;</span></span>
+<span id="cb4-11"><a></a>tw_full <span class="sc">|&gt;</span></span>
 <span id="cb4-12"><a></a>  <span class="fu">group_by</span>(vote) <span class="sc">|&gt;</span></span>
 <span id="cb4-13"><a></a>  <span class="fu">summarise</span>(<span class="at">sum_inter_by_vote =</span> <span class="fu">sum</span>(tot_likes_retweets))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<!-- Inside mutate(), this condition creates a logical variable; inside filter(), conditions keep row
+<!--
+A tibble behaves like a data frame, but it prints more nicely and is more predictable in tidyverse workflows.
+Inside mutate(), this condition creates a logical variable; inside filter(), conditions keep row
 -->
 </section></section>
 <section>
@@ -451,7 +449,7 @@ we come back to functions next week
 </li>
 <li><strong>Data Structure</strong> — how values are stored and organized</li>
 </ul>
-<p>Now we look at each and at how they relate.</p>
+<p>We explore each and explain how they relate!</p>
 </section>
 <section id="r-data-types" class="slide level2 center">
 <h2>R Data Types</h2>
@@ -497,7 +495,7 @@ we come back to functions next week
 <p>Every single element in R has a data type. That element is stored inside a larger data structure.</p>
 <p>Examples:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)      <span class="co"># a vector (structure) of three elements, all numeric values (type) </span></span>
-<span id="cb5-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"a"</span>, <span class="dv">5</span>)    <span class="co"># a list (structure) of two elements, one character value and one numeric value (type)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"a"</span>, <span class="dv">5</span>)    <span class="co"># a list (structure) of two elements, one character and one numeric value (type)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- In R, every single value (like "apple" or 3.14 or TRUE) has exactly one data type — it might be a character, numeric, logical, etc. This stays true even when that value is part of a larger structure, like a vector, list, or data frame. <br>
 
 To work with data types (numeric, character, logical, etc.) in R, we need to store them inside a data structure (vector, list, etc.)!
@@ -581,7 +579,7 @@ Use **vectors** and **matrices** when your data is uniform. Use **data frames** 
 </section>
 <section id="practice" class="slide level2 center">
 <h2>💻 Practice</h2>
-<p>Run the code below to create different R objects. Then check their structure using <code>class()</code> and <code>str()</code> on each object.</p>
+<p>Run the code below to create several different R objects. Inspect each object by running both <code>class()</code> and <code>str()</code> on it. Pay attention to the output, and note any questions you have:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># create multiple vectors</span></span>
 <span id="cb6-2"><a></a>num_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>)</span>
 <span id="cb6-3"><a></a>char_v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"hello"</span>, <span class="st">"ciao"</span>, <span class="st">"hey"</span>)</span>
@@ -608,7 +606,7 @@ Use **vectors** and **matrices** when your data is uniform. Use **data frames** 
 <span id="cb6-24"><a></a>              <span class="at">var_2 =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- explore code
 call it to see how it looks like 
-run class() for each to see the datadype
+run class() for each to see the datatype
 create df also with tibble
 etc.
 -->

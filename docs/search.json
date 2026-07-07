@@ -508,28 +508,28 @@
     "href": "lectures/14-slides.html#today-we-start-a-new-module-on-base-r",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Today we start a new module on Base R",
-    "text": "Today we start a new module on Base R\nToday we begin a new module on Base R What you will learn in these lectures:\n\nDifferences and similarities between Base R and Tidyverse\nR data types and data structures\nVector recycling\nControl flow: conditionals (e.g., if-else structures)\nControl flow: loops\nFunctions"
+    "text": "Today we start a new module on Base R\nWhat you will learn in these lectures (this and next week):\n\nDifferences and similarities between Base R and Tidyverse\nR data types and data structures\nVector recycling\nControl flow: conditionals (e.g., if-else structures)\nControl flow: loops\nFunctions"
   },
   {
     "objectID": "lectures/14-slides.html#what-is-base-r",
     "href": "lectures/14-slides.html#what-is-base-r",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "What is Base R?",
-    "text": "What is Base R?\nWhen people say Base R, they are referring to the core or basic features of the R language (hence the name), developed before the tidyverse.\nThese include:\n\nData Types: numeric, integer, character, logical, factor\n\nData Structures: vectors, matrices, lists, data frames\n\nBasic Operations: indexing/subsetting, arithmetic/logical comparisons\nProgramming Tools: if-else statements, loops, functions"
+    "text": "What is Base R?\nWhen people say Base R, they are referring to the core or basic features of the R language (hence the name). These were developed before the tidyverse and include:\n\nData Types: numeric, integer, character, logical, factor\n\nData Structures: vectors, matrices, lists, data frames\n\nBasic Operations: indexing/subsetting, arithmetic/logical comparisons\nProgramming Tools: if-else statements, loops, functions"
   },
   {
     "objectID": "lectures/14-slides.html#base-r-vs.-the-tidyverse",
     "href": "lectures/14-slides.html#base-r-vs.-the-tidyverse",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Base R vs. the Tidyverse",
-    "text": "Base R vs. the Tidyverse\n\n\nBase R\n\nDeveloped in the early 1990s as part of R’s core language\n\nIncludes built-in functions like mean(), length(), etc. and key programming tools like loops, etc.\nOffers more direct control, but code can be longer or harder to read\n\n\n\n  \n\nTidyverse\n\nFormally introduced after 2016 as a set of user-friendly packages\nIncludes packages like ggplot2, dplyr, forcats, tidyr, stringr, readr, lubridate etc.\nPrioritizes readability and consistency, making code cleaner and easier to read"
+    "text": "Base R vs. the Tidyverse\n\n\nBase R\n\nDeveloped in the early 1990s as part of R’s core language\n\nIncludes built-in functions like mean(), length(), and key programming tools like loops, etc.\nOffers more direct control, but code can be longer and harder to read\n\n\n\n  \n\nTidyverse\n\nFormally introduced after 2016 as a set of user-friendly packages\nIncludes ggplot2, dplyr, forcats, tidyr, stringr, readr, lubridate, etc.\nPrioritizes readability and consistency, making code cleaner and easier to read"
   },
   {
     "objectID": "lectures/14-slides.html#how-base-r-and-the-tidyverse-work-together",
     "href": "lectures/14-slides.html#how-base-r-and-the-tidyverse-work-together",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "How Base R and the Tidyverse Work Together",
-    "text": "How Base R and the Tidyverse Work Together\n\nThe tidyverse is built on base R — it doesn’t replace it\n\nYou can combine base R and tidyverse functions in your code\n\nWhy we learn both? You’ll often see both styles in real-world scripts and examples\n\n\n\n\n\n\n\n\nTip\n\n\nGoal: use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!"
+    "text": "How Base R and the Tidyverse Work Together\n\nThe tidyverse is built on base R — it doesn’t replace it\n\nYou can combine base R and tidyverse functions in your code\n\nWhy we learn both? You’ll often see both styles in real-world scripts and examples\n\n\n\n\n\n\n\n\nTip\n\n\nUse the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!"
   },
   {
     "objectID": "lectures/14-slides.html#example-code-in-base-r",
@@ -543,28 +543,28 @@
     "href": "lectures/14-slides.html#example-code-in-base-r-1",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Example Code in Base R",
-    "text": "Example Code in Base R\n# create new variables in twitter df with total engagement\ntwitter$tot_likes_retweets &lt;- twitter$likes + twitter$retweets\n\n# create a logical variable TRUE / FALSE for high engagement\ntwitter$high_engagement &lt;- twitter$tot_likes_retweets &gt;= 80\n\n# create a new df with only rows that match both of these conditions\n# df[rows, columns]: code below says [keep selected rows, all columns]\ntw &lt;- twitter[twitter$language == \"en\" & twitter$high_engagement == TRUE, ]\n\n# bring in second df\n# all = FALSE keeps only states that appear in both data frames\ntw_full &lt;- merge(tw, state_lookup, by = \"state\", all = FALSE)\n\n# compute the total sum of likes + retweets\nsum_inter &lt;- sum(tw_full$tot_likes_retweets)\n\n# compute the sum of likes + retweets by each vote category\nsum_inter_by_vote &lt;- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)"
+    "text": "Example Code in Base R\n# create new variables in twitter df with total engagement\ntwitter$tot_likes_retweets &lt;- twitter$likes + twitter$retweets\n\n# create a logical variable TRUE / FALSE for high engagement\ntwitter$high_engagement &lt;- twitter$tot_likes_retweets &gt;= 80\n\n# create a new df with only rows that match both of these conditions\n# df[rows, columns]: code below says [keep selected rows, all columns]\ntw &lt;- twitter[twitter$language == \"en\" & twitter$high_engagement == TRUE, ]\n\n# bring in the second df using merge\ntw_full &lt;- merge(tw, state_lookup, by = \"state\", all = FALSE)\n\n# compute sum of likes + retweets\nsum(tw_full$tot_likes_retweets)\n\n# or compute sum of likes + retweets by each category of vote \ntapply(tw_full$tot_likes_retweets, tw_full$vote, sum)"
   },
   {
     "objectID": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse",
     "href": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Rewriting the Same Code with the Tidyverse",
-    "text": "Rewriting the Same Code with the Tidyverse\nlibrary(tidyverse)\n\n# create two dataframes\n\ntwitter &lt;- tibble(\n  user     = c(\"alice\",\"bob\",\"carlos\",\"diana\",\"emily\",\"lucia\",\"gina\",\"rick\"),\n  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),\n  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),\n  language = c(\"en\",\"es\",\"en\",\"en\",\"fr\",\"en\",\"en\",\"en\"),\n  state    = c(\"CA\",\"TX\",\"TX\",\"NY\",\"IL\",\"CA\",\"IL\",\"AZ\"))\n\nstate_lookup &lt;- tibble(\n  state  = c(\"CA\",\"TX\",\"NY\",\"IL\",\"AZ\"),\n  region = c(\"West\",\"South\",\"Northeast\",\"Midwest\",\"West\"),\n  vote   = c(\"Dem\",\"Rep\",\"Dem\",\"Dem\",\"Rep\"))"
+    "text": "Rewriting the Same Code with the Tidyverse\nlibrary(tidyverse)\n\ntwitter &lt;- tibble(\n  user     = c(\"alice\",\"bob\",\"carlos\",\"diana\",\"emily\",\"lucia\",\"gina\",\"rick\"),\n  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),\n  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),\n  language = c(\"en\",\"es\",\"en\",\"en\",\"fr\",\"en\",\"en\",\"en\"),\n  state    = c(\"CA\",\"TX\",\"TX\",\"NY\",\"IL\",\"CA\",\"IL\",\"AZ\"))\n\nstate_lookup &lt;- tibble(\n  state  = c(\"CA\",\"TX\",\"NY\",\"IL\",\"AZ\"),\n  region = c(\"West\",\"South\",\"Northeast\",\"Midwest\",\"West\"),\n  vote   = c(\"Dem\",\"Rep\",\"Dem\",\"Dem\",\"Rep\"))"
   },
   {
     "objectID": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse-1",
     "href": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse-1",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "Rewriting the Same Code with the Tidyverse",
-    "text": "Rewriting the Same Code with the Tidyverse\ntw_full &lt;- twitter |&gt;\n  mutate(\n    tot_likes_retweets = likes + retweets,\n    high_engagement = tot_likes_retweets &gt;= 80) |&gt;\n  filter(language == \"en\" & high_engagement == TRUE) |&gt;\n  inner_join(state_lookup, by = \"state\")\n\nsum_inter &lt;- tw_full |&gt;\n  summarise(sum_inter = sum(tot_likes_retweets))\n\nsum_inter_by_vote &lt;- tw_full |&gt;\n  group_by(vote) |&gt;\n  summarise(sum_inter_by_vote = sum(tot_likes_retweets))"
+    "text": "Rewriting the Same Code with the Tidyverse\ntw_full &lt;- twitter |&gt;\n  mutate(\n    tot_likes_retweets = likes + retweets,\n    high_engagement = tot_likes_retweets &gt;= 80) |&gt;\n  filter(language == \"en\" & high_engagement == TRUE) |&gt;\n  inner_join(state_lookup, by = \"state\")\n\ntw_full |&gt;\n  summarise(sum_inter = sum(tot_likes_retweets))\n\ntw_full |&gt;\n  group_by(vote) |&gt;\n  summarise(sum_inter_by_vote = sum(tot_likes_retweets))"
   },
   {
     "objectID": "lectures/14-slides.html#r-data-types-and-data-structures-1",
     "href": "lectures/14-slides.html#r-data-types-and-data-structures-1",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "R Data Types and Data Structures",
-    "text": "R Data Types and Data Structures\nData Types and Data Structures are the fundamentals of R: the “ABC” of how R stores and organizes data. They are part of Base R syntax.\n\nData Type — what kind of value it is\n\nData Structure — how values are stored and organized\n\nNow we look at each and at how they relate."
+    "text": "R Data Types and Data Structures\nData Types and Data Structures are the fundamentals of R: the “ABC” of how R stores and organizes data. They are part of Base R syntax.\n\nData Type — what kind of value it is\n\nData Structure — how values are stored and organized\n\nWe explore each and explain how they relate!"
   },
   {
     "objectID": "lectures/14-slides.html#r-data-types",
@@ -585,7 +585,7 @@
     "href": "lectures/14-slides.html#how-data-types-and-data-structures-relate",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "How Data Types and Data Structures Relate",
-    "text": "How Data Types and Data Structures Relate\nEvery single element in R has a data type. That element is stored inside a larger data structure.\nExamples:\nx &lt;- c(1, 2, 3)      # a vector (structure) of three elements, all numeric values (type) \ny &lt;- list(\"a\", 5)    # a list (structure) of two elements, one character value and one numeric value (type)\n\n \n\n\n\n\n\n\n\nThe data structure you use affects what data types you can store:\n\n\nNot all data structures support every combination of data types. Some allow only one type, while others can store many types together."
+    "text": "How Data Types and Data Structures Relate\nEvery single element in R has a data type. That element is stored inside a larger data structure.\nExamples:\nx &lt;- c(1, 2, 3)      # a vector (structure) of three elements, all numeric values (type) \ny &lt;- list(\"a\", 5)    # a list (structure) of two elements, one character and one numeric value (type)\n\n \n\n\n\n\n\n\n\nThe data structure you use affects what data types you can store:\n\n\nNot all data structures support every combination of data types. Some allow only one type, while others can store many types together."
   },
   {
     "objectID": "lectures/14-slides.html#how-data-types-and-data-structures-relate-1",
@@ -599,7 +599,7 @@
     "href": "lectures/14-slides.html#practice",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "💻 Practice",
-    "text": "💻 Practice\nRun the code below to create different R objects. Then check their structure using class() and str() on each object.\n# create multiple vectors\nnum_v &lt;- c(1:9)\nchar_v &lt;- c(\"hello\", \"ciao\", \"hey\")\nf_v &lt;- factor(c(\"low\", \"medium\", \"high\"))\ntest &lt;- c(\"hello\", 1, 2)\n\n# create two matrices\nnum_m &lt;- matrix(1:15, nrow = 3, ncol = 5, byrow = TRUE)\nchar_m &lt;- matrix(c(\"a\", \"b\", \"c\", \"d\"), nrow = 2, byrow = TRUE)\n\n# create one dataframe\ndf &lt;- data.frame(\n  id = 1:3,\n  name = c(\"Dave\", \"Ashley\", \"Rik\"),\n  age = c(15, 17, 20)) \n\n# create one list\nl &lt;- list(\n  num_v = c(1:3),\n  m = matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE),\n  another_num_v = c(1,2,4),\n  char_v = c(\"Sabrina\", \"Zach\"),\n  d = tibble(var_1 = c(1:4),\n              var_2 = c(2:5)))"
+    "text": "💻 Practice\nRun the code below to create several different R objects. Inspect each object by running both class() and str() on it. Pay attention to the output, and note any questions you have:\n# create multiple vectors\nnum_v &lt;- c(1:9)\nchar_v &lt;- c(\"hello\", \"ciao\", \"hey\")\nf_v &lt;- factor(c(\"low\", \"medium\", \"high\"))\ntest &lt;- c(\"hello\", 1, 2)\n\n# create two matrices\nnum_m &lt;- matrix(1:15, nrow = 3, ncol = 5, byrow = TRUE)\nchar_m &lt;- matrix(c(\"a\", \"b\", \"c\", \"d\"), nrow = 2, byrow = TRUE)\n\n# create one dataframe\ndf &lt;- data.frame(\n  id = 1:3,\n  name = c(\"Dave\", \"Ashley\", \"Rik\"),\n  age = c(15, 17, 20)) \n\n# create one list\nl &lt;- list(\n  num_v = c(1:3),\n  m = matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE),\n  another_num_v = c(1,2,4),\n  char_v = c(\"Sabrina\", \"Zach\"),\n  d = tibble(var_1 = c(1:4),\n              var_2 = c(2:5)))"
   },
   {
     "objectID": "lectures/14-slides.html#why-this-matters-understanding-when-to-use-each-data-structure",
@@ -718,6 +718,6 @@
     "href": "lectures/14-slides.html#from-the-tidyverse-to-base-r",
     "title": "Computing for the Social Sciences: Lecture 14",
     "section": "From the Tidyverse to Base R",
-    "text": "From the Tidyverse to Base R\nSo far, we have learned several core Tidyverse packages:\n\n\n\nggplot2 → graphs\n\ndplyr → data wrangling\n\ntidyr → tidy data\n\nreadr → importing/exporting data\n\n\n\n\nforcats → factors\n\nstringr → text/regex\n\nlubridate → dates\n\n\n\n\n\n\n\n\n\nTip\n\n\nThe Tidyverse is often the most intuitive place to start when learning R and you’ll keep using it long after this course, but base R helps us understand how R works underneath."
+    "text": "From the Tidyverse to Base R\nSo far, we have learned several core Tidyverse packages:\n\n\n\nggplot2 → graphs\n\ndplyr → data wrangling\n\ntidyr → tidy data\n\nreadr → importing/exporting data\n\n\n\n\nforcats → factors\n\nstringr → text/regex\n\nlubridate → dates\n\n\n\n\n\n\n\n\n\nTip\n\n\nThe Tidyverse is often the most intuitive place to start learning R and you’ll keep using it long after this course! But base R helps us understand how R works underneath."
   }
 ]
