@@ -16,12 +16,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
-* **Slides**: To be posted before class
-* **Code**: To be posted before class
-
-<!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
+
+<!--
+* **Slides**: To be posted before class
+* **Code**: To be posted before class
 -->
 
 ## Learning Objectives
@@ -30,6 +30,11 @@ knitr::opts_chunk$set(echo = FALSE)
 - Identify R data types and structures  
 - Explore R vectors 
 - Subset data using Base R syntax
+
+
+## Before class
+
+- If you have not already done so, complete Lecture 13 participation questions. You can find them in the Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 14). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
 
 
 ## Readings

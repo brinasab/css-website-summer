@@ -31,6 +31,12 @@ knitr::opts_chunk$set(echo = FALSE)
 - Introduce one type of control structure: conditional statements
 
 
+## Before class
+
+- Complete the practice from last lecture 
+- If you have not already done so, complete Lecture 14 participation questions. You can find them in the Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 15). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
+
+
 ## Readings
 
 - [Chapter 13 “Control Structures”](https://bookdown.org/rdpeng/rprogdatascience/control-structures.html) in "R programming for Data Science" (Notice this is not our regular book!)

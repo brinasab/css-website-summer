@@ -291,14 +291,14 @@
     "href": "lectures/14-home.html",
     "title": "Lecture 14: Data Structures and Base R",
     "section": "",
-    "text": "Date: July 7, 2026\nTopics: Intro to Data Structures, Data Types, and Base R\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: July 7, 2026\nTopics: Intro to Data Structures, Data Types, and Base R\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/subsetting\")"
   },
   {
     "objectID": "lectures/14-home.html#info-and-materials",
     "href": "lectures/14-home.html#info-and-materials",
     "title": "Lecture 14: Data Structures and Base R",
     "section": "",
-    "text": "Date: July 7, 2026\nTopics: Intro to Data Structures, Data Types, and Base R\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: July 7, 2026\nTopics: Intro to Data Structures, Data Types, and Base R\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/subsetting\")"
   },
   {
     "objectID": "lectures/14-home.html#learning-objectives",
@@ -488,5 +488,229 @@
     "title": "Final Project",
     "section": "",
     "text": "Overview\nDue: Monday, June 22 by 11:59 PM (Chicago Time)\nThis first homework assignment has three main goals: to make sure your computer setup works, practice the Git/GitHub workflow, and review the basics of R syntax, Markdown, and R Markdown.\nThis assignment workflow has several steps by design. All future take-home assignments will use a similar structure, so you will build fluency through repeated practice.\n\n\nAccessing and Cloning Your hw01 Repository\n\n\n\n\n\n\nImportant\n\n\n\nThis will work only if you have submitted your GitHub username (see Lecture 1) and accepted the email invitation to join our GitHub organization (check the email linked to your GitHub account). Make sure you’ve completed the setup under Software Setup and confirmed everything is working properly.\n\n\nAccessing the repo:\n\nGo at this new link to accept the invitation and create your private hw01 repository on GitHub. Your repository will be named hw01-new-&lt;USERNAME&gt; and will be ready within a few seconds. If this does not work, see the note in red above.\nOnce the repository has been created, click the link provided to access it.\n\nCloning the repo into your Workbench:\n\nLog into Workbench and start a new project:\nFile &gt; New Project &gt; Version Control &gt; Git\nIn the Repository URL field:\n\nPaste the URL of your GitHub repository. To find the URL, go to your hw01 repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).\nThe project name should auto-fill. If not, type hw01-new-&lt;USERNAME&gt; manually.\n\nChoose where to save the project directory locally. Tip: Avoid moving folders after cloning them.\nCheck the box “Open in new session” (recommended for keeping projects separate and organized)\nClick Create Project. This will:\n\nCreate a new folder on your machine\n\nInitialize a Git repository linked to GitHub\n\nOpen an RStudio Project in a new session\n\n\nYou’ll use this same process to access and set up each homework assignment throughout the course.\n\n\nGeneral Homework Workflow\nYour workflow for all homework assignments will follow these steps:\n\nAccept the GitHub repo invitation and clone the repo (see above)\nEdit the files included in the repo\nSave your changes locally in RStudio Workbench\nPull – Stage – Commit – Push:\n\nPull from GitHub: this should not change anything if you’re the only one working on the repo, but it’s a good habit to always pull first\nStage and commit your changes to your local Git repository\nPush your committed changes to your GitHub repository online\n\n\nFor this course, I assume you’ll be using the Git interface built into RStudio. If you haven’t yet, complete the Using Git within RStudio tutorial to get comfortable with the process.\n\n\n\n\n\n\nTip\n\n\n\n\nCommit and push your work often, multiple times per session if possible. Don’t wait until you’ve finished the entire assignment.\n\nNever edit files directly on GitHub. Always work in your local Git repository (e.g., on Workbench) and then push changes to GitHub. Think of your GitHub repo as a live online backup of your local project.\n\n\n\n\n\nFile Types we use for Homework Assigments\nAll assignments in this course will be completed and submitted using Markdown and R Markdown files (see Lecture 1 slides for details):\n\nMarkdown (.md) is a lightweight formatting language used to structure text.\n\nGitHub README files are typically written in Markdown (.md) or plain text (.txt).\nIn this course, we use Markdown files only for writing README files because GitHub renders them directly in the browser.\nYou can reference R code in Markdown, but you cannot run and execute it.\n\nR Markdown (.Rmd) is a format that allows you to combine R code, output, and text in one file.\n\nIt’s an extension of Markdown designed for dynamic analysis and reproducible reports specifically for R.\nYou’ll use R Markdown to complete most homework assignments.\n\n\nIn short, for this course:\n\nUse Markdown (.md) only for writing a short summary in the README.md file\nUse R Markdown (.Rmd) for completing the bulk of your assignment, e.g., analysis and code-based work\n\n\n\nHW1 Description\nFor this first assignment (HW1), you’ll edit and push the following two files to your GitHub repo: README.md and code.rmd\n\nEdit the README.md file\nYou will see a file named README.md in your repository.\nA README is usually a plain text (.txt) or Markdown (.md) file that provides important information about a project—such as a summary, installation steps, or example output. In this course, you’ll use it to document your work and reflect on your process.\nYour Task: edit the README.md file by replacing the placeholder text with a short biography of yourself. To achieve a “pass”, your biography must include the following elements:\n\nAt least one header\nSome emphasis (italic or bold text)\nAt least one list\nAn image (e.g., a photo of yourself or something meaningful to you)\n\nFirst, upload the image into your homework repo by importing it in Workbench\nSecond, embed it in the Markdown file using the correct syntax\n\nAt least one link (e.g., to a website or profile)\n\nAt the end of your README, add a short reflection that includes:\n\nA brief summary of your Git/GitHub workflow for this homework\n(Bullet points or a short narrative are both fine.)\nYour evaluation of the homework experience\n(E.g., something new you learned, what went well, what confused you, etc.)\nA list of resources you consulted and an AI narrative on how you used AI to debug (see Syllabus for details)\nInclude links, tools, names of any collaborators, and AI statement\n\n\n\nEdit the code.rmd file\nYou will see a file named code.rmd in your repository.\nYour task: edit the code.rmd file by making the following changes (all must be included for a “pass”):\n\nAdd at least two new YAML header options:\n\nDo not delete or modify the existing ones\nExample additions: author:, subtitle:, toc: true, etc\n\nFeel free to experiment, see readings and slides from Lecture 1 for ideas\n\nAdd at least two R code chunks with a short explanation in plain text (not as code comment):\n\nYour code can be simple (think at the examples from lecture 1), but it must run and produce the correct output\nYour final knitted .html .md file should show both code and output (we want the md as Github cannot read html, but if you submit both that’s fine)\nIf your code generates plots (not required, but possible), make sure these plots are also pushed to GitHub, else they won’t show up there\n\n\n\n\n\nHow to Submit this Assignment\nTo submit your assignment on Canvas, follow these steps:\n\nBefore the deadline, push the final version of your work to your GitHub repository. Tip: don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.\nYour GitHub repository should include at least these three files:\n\nThe updated README.md\nThe edited code.rmd\nA knitted output file that you generated from code.rmd (this must be a .md document, not anything else)\n\nWhen you’re ready to submit:\n\nCopy the URL of your GitHub repository. It will look something like: https://github.com/css-summer26/hw01-new-yourusername\nSubmit that URL on Canvas under HW01. Do not upload any files to Canvas. We only need the repository link.\n\n\n\n\nAssessment\nThis assignment is evaluated on a Pass/Fail basis. To earn a Pass:\nYour README.md should include a clear introduction that meets all specified requirements. It should demonstrate your ability to use Markdown syntax, such as headers, emphasis, lists, links, and images. You should also include a short description of how you edited and committed your changes, along with reflections on your experience using Git/GitHub, Markdown, and R Markdown.\nYour code.rmd file must knit successfully. It should contain at least two new YAML header fields and two R code chunks, each introduced with a brief explanation written as plain text (not as code comments).\nAll required files must be pushed to your GitHub repository (see above). If you have graphs, ensure they are visible in your knitted .md document\nFor more details, see the Assessment section of the Syllabus.\n\n\n{r setup, include=FALSE} knitr::opts_chunk$set(echo = FALSE)\n\n\nOverview\nDue: Thursday, July 16 (11:59 PM Chicago Time)\nThis assignment offers an opportunity to work on a research project of your choice. This assignment is optional: you can complete it instead of HW2, HW3, or HW4, or use it to replace the grade on any one of those previous assignments. It is released earlier than the others because, unlike HW2–4, you will need to find your own data and come up with your own research question. You are more than welcome to touch base with us if you are not sure or want to brainstorm your ideas with us.\n\n\nAccessing and Cloning Your hw05 Repository\nAccessing the repo:\n\nGo at this link to accept the invitation and create your private project repository on GitHub. Your repository will be named project-&lt;USERNAME&gt; and will be ready within a few seconds.\nOnce the repository has been created, click the link provided to access it.\n\nCloning the repo into your Workbench:\n\nLog into Workbench and start a new project:\nFile &gt; New Project &gt; Version Control &gt; Git\nIn the Repository URL field:\n\nPaste the URL of your GitHub repository. To find the URL, go to your hw05 repo on GitHub, click the green Code button, and copy the SSH or HTTPS link (use the method you configured during setup: Workbench users must select SSH).\nThe project name should auto-fill. If not, type hw05-&lt;USERNAME&gt; manually.\n\nChoose where to save the project directory locally. Tip: Avoid moving folders after cloning them.\nCheck the box “Open in new session” (recommended for keeping projects separate and organized)\nClick Create Project. This will:\n\nCreate a new folder on your machine\n\nInitialize a Git repository linked to GitHub\n\nOpen an RStudio Project in a new session\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe repo you clone for the final project is intentionally empty: you will need to add your own data and code, and push them. See the instructions below for what to submit. Remember to include the knitted .md file(s)!.\n\n\n\n\nGeneral Homework Workflow\nSee Homework 1 for details. The workflow is the same for all assignments (e.g., accept the repo, edit the files, save, then Pull – Stage – Commit – Push).\n\n\nAssignment Description\n\n1. Assigment Goals\nIn this assignment, you have the opportunity to apply the skills learned in the course to a research question of your choice. Your task is to find data, ask a research question, and answer it descriptively using data and code. Your main deliverable is a report with your code, graphs/tables, and interpretation.\nThe sections below walk you through the details of each part of the assignment.\n\n\n2. Report Instructions\n\nFormat and Target\n\nFormat: the report must be written using a .Rmd file, and knitted to.md and to .pdf\nThe report must include:\n\nWritten text\nCode chunks\nCode outputs (tables, plots, descriptive stats)\nNot all code you write is required to go in your report: you may place extra code in a separate R script or Rmd. If you do so, mention this in your README.md.\n\nAudience: Write your report as if you were preparing a polished analysis for either an academic audience or a professional industry setting.\nLength: Aim for ~800 words (minimum 600, maximum 1000).\nUse of R Markdown Syntax: Use clear headings and subheadings and include a table of contents. If feasible, try to include some of the advanced R Markdown from the last lecture of the course.\n\n\n\nRequired Sections\nSpecifically, your report should include the following sections:\n\nProject description\n\nStart by explaining what your project is about, its goals, and why it matters.\nDescribe the dataset (number of observations, time period, key variables, data source). Store the data in your repo, if smaller than 100 MB; if larger, see below.\nState one or more questions, ideally with social science relevance, and your hypothesis or describe what you expect to find and why.\n\nDescriptive statistics and plots\n\nInclude tables (format them with kable) and descriptive statistics (counts, percentages, contingency tables, etc.).\nInclude 4 or 5 well-designed plots with clear titles, labels, scales, etc. Use different types of plots (do not use the same plot more than once) and ensure each one matches the underlying variable types.\nUse code to transform or prepare variables for your plots and analyses when needed (e.g., aggregating, recoding, standardizing, creating new variables, etc.).\nDescribe the main findings of each graph, highlight patterns, discuss possible relationships between variables, note limitations, and suggest hypotheses or directions for future research. We want to hear your explanation and interpretation of the analyses!\n\nModeling is optional\n\nYou are not expected or required to include statistical models since we did not cover them in the course. Excellent projects can rely entirely on descriptive statistics and the types of plots in HW2 and HW3.\nIf you choose to add models (e.g., regression, ANOVA, text analysis, etc.), make sure to use them appropriately: check assumptions, interpret coefficients, and ensure the method fits your variables and research question. If you include a model, it will be evaluated for the insights it provides.\n\n\n\n\n\n3. Code Instructions\nThis course has a strong coding component, so the quality and organization of your code are an important part of the project. Specifically:\n\nLibrary Loading and Data Import\n\nLoad all required libraries and import your data once at the top of your Rmd. Do not reload libraries elsewhere.\n\n\n\n\nData Cleaning, Wrangling, and Tidying\n\nInclude code needed to prepare your data (renaming, recoding, aggregating, reshaping, tidying data, joining data etc.). The amount of cleaning will depend on your project.\nIf your code for data prep and cleaning is extensive, place it in a separate script or Rmd file (see below).\n\nData Analysis and Plots\n\nInclude code for descriptive statistics (tables, summaries, counts, percentages, contingency tables, etc.).\nInclude code for 4–5 well-designed plots. Use a variety of plot types and match each to the variable types. If your dataset requires little cleaning, we expect more complex and refined visualizations.\n\nProgramming Techniques\n\nInclude at least one user-defined function AND either a loop (or a map/across/apply alternative) OR a conditional statement. If these don’t naturally fit your project, check in with us and we’ll help you find the best approach.\n\nCode Organization\n\nInclude only relevant output (e.g., show the head of your dataset, not the full dataset) and follow coding practices from class: clean style, reproducible workflow, and Markdown formatting. Prefer tidyverse functions over base R, where applicable (e.g., use read_csv() instead of read.csv()).\n\nExtensive cleaning steps or extra plots can go in a separate script or Rmd. If you do so, in the main report, load the cleaned data and include only the required plots. Store all code in your repository to ensure reproducibility. Let us know the location of any additional code in your README.md.\n\n\n\n\n4. Repository and README.md Instructions\nYour repository must include a README.md with the following information:\n\nPurpose of the repository: A bullet point explanation of what the project is about (e.g., topic, data source, sample size).\nList of files: A list of all R scripts and .Rmd files in the repo, each with a one-sentence description.\nRequired packages: Any non-basic packages needed to run your code (no need to list tidyverse or rmarkdown).\nAdditional information: Anything else a user needs to understand or replicate your work.\n\n\n\n\nFAQs\n\nHow do I know if I have “done enough”?\n\nFirst, make sure you’ve met all requirements for the report, code, and README.md.\nAs a rough benchmark, this assignment should take about as much time as an average previous one. It’s worth 20 points instead of 15, since finding data and developing your own question typically require a bit more work. Please take this only as a guideline, actual time will vary by student, project, and working style.\nAim to review what you’ve learned and push a bit beyond your comfort zone. If you’re unsure whether your plan is sufficient, check in with us.\nThis assignment should reflect your own work. You may seek advice by humans or robots, but your code must be written by you, understandable to you, and aligned with our AI policy.\n\n\n\nWhat data should I use?\nWe encourage you to use social science data; other types of data can work too but check with us first. What matters most is applying the skills you learned to a topic that interests you: the best projects are the ones you are genuinely excited to work on.\n\n\nI can’t think of anything to analyze!\nYou may use any dataset from class not used in previous homework and not tied to teaching examples (e.g., penguins, cars, iris datasets are not appropriate). Some options to consider:\n\ngun_deaths from library(rcis), or the raw data from FiveThirtyEight (it’s a similar topic but this is different dataset than HW2)\nscorecard from library(rcis) or use the rscorecard package to download your own subset\nExplore the Data Is Plural dataset archive\nExplore the #TidyTuesday dataset archive\n\n\n\nWhat if my data file is too large?\nGitHub does not allow files larger than 100MB. If you try to push one, you’ll get an error and may have to remove the file from your Git history, which is a hassle. Thus:\n\nIf your data is well under 100MB, include it in your repo.\n\nIf it is close to or above 100MB, do not include it in your repo. Instead, store it outside GitHub (e.g., Google Drive) and include a link to it in your README.md.\n\n\n\nCan I collect my own data via scraping?\nWe recommend using already-collected data, given the tight timeline of summer courses. That said, you’re welcome to collect or assemble your own data (via scraping or other methods) if you prefer. If you want to scrape data but aren’t sure where to start, I’m happy to share resources and check with you whether the website you have in mind is appropriate. Here are some guidelines:\n\nWhat to Scrape:\n\nIf you plan to collect data through web-scraping, you can scrape any publicly available webpage that interests you. If you’re unsure where to start, past students have had success with: Wikipedia, University websites, Government sites, Examples mentioned in readings. If you build on in-class code, readings, tutorials, or AI-generated starter code, your work must go beyond simple edits.\nYou can use an API (vs. direct scraping), check in with the instructor if unsure.\n\nWhat Not to Scrape:\n\nNo private or restricted data: Do not scrape anything behind a login, password, or user account.\n\nNo social media sites: as they typically require log-ins.\n\nNo dynamic Javascript websites: that load content via scrolling or pop-ups—these require advanced techniques we do not cover.\n\n\n\n\n\nSubmit the Assignment\nTo submit your assignment on Canvas, follow these steps:\n\nBefore the deadline, push the final version of your work to your GitHub repository. Tip: don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.\nYour GitHub repository should include (make sure to stage-commit-push all these files):\n\neverything you have done to collect the data and produce your analyses, e.g., R Markdown files or R scripts, graphs, data (unless they are too large, see above for details)\nyour report should be a Rmd file. Knit this file in two ways: as md, and as pdf. Submit all three of them ( Rmd, md, pdf)\nthe folder that contains all the graphs that you generated in your .Rmd\n\nWhen you’re ready to submit:\n\nCopy the URL of your GitHub repository. It will look something like: https://github.com/css-sum26/hw05-yourusername\nSubmit that URL on Canvas. Do not upload any files to Canvas. We only need the repository link.\n\n\n\n\nAssessment\nAll homework assignments are evaluated using this rubric. For more, see the Assessment section of the Syllabus."
+  },
+  {
+    "objectID": "lectures/14-home.html#before-class",
+    "href": "lectures/14-home.html#before-class",
+    "title": "Lecture 14: Data Structures and Base R",
+    "section": "Before class",
+    "text": "Before class\n\nIf you have not already done so, complete Lecture 13 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 14). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
+  },
+  {
+    "objectID": "lectures/14-slides.html#so-far-we-learned-several-tidyverse-packages",
+    "href": "lectures/14-slides.html#so-far-we-learned-several-tidyverse-packages",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "So far we learned several Tidyverse packages",
+    "text": "So far we learned several Tidyverse packages\nTidyverse https://tidyverse.org/:\n\nggplot2\ndplyr\nforcats\ntidyr\nreadr\nstringr\nlubridate\n\nThe Tidyverse is often the most intuitive place to start before diving into Base R.\nYou’ll keep using the Tidyverse long after this course, but Base R gives you a deeper understanding of how R works underneath."
+  },
+  {
+    "objectID": "lectures/14-slides.html#today-we-start-a-new-module-on-base-r",
+    "href": "lectures/14-slides.html#today-we-start-a-new-module-on-base-r",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Today we start a new module on Base R",
+    "text": "Today we start a new module on Base R\nToday we begin a new module on Base R What you will learn in these lectures:\n\nDifferences and similarities between Base R and Tidyverse\nR data types and data structures\nVector recycling\nControl flow: conditionals (e.g., if-else structures)\nControl flow: loops\nFunctions"
+  },
+  {
+    "objectID": "lectures/14-slides.html#what-is-base-r",
+    "href": "lectures/14-slides.html#what-is-base-r",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "What is Base R?",
+    "text": "What is Base R?\nWhen people say Base R, they are referring to the core or basic features of the R language (hence the name), developed before the tidyverse.\nThese include:\n\nData Types: numeric, integer, character, logical, factor\n\nData Structures: vectors, matrices, lists, data frames\n\nBasic Operations: indexing/subsetting, arithmetic/logical comparisons\nProgramming Tools: if-else statements, loops, functions"
+  },
+  {
+    "objectID": "lectures/14-slides.html#base-r-vs.-the-tidyverse",
+    "href": "lectures/14-slides.html#base-r-vs.-the-tidyverse",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Base R vs. the Tidyverse",
+    "text": "Base R vs. the Tidyverse\n\n\nBase R\n\nDeveloped in the early 1990s as part of R’s core language\n\nIncludes built-in functions like mean(), length(), etc. and key programming tools like loops, etc.\nOffers more direct control, but code can be longer or harder to read\n\n\n\n  \n\nTidyverse\n\nFormally introduced after 2016 as a set of user-friendly packages\nIncludes packages like ggplot2, dplyr, forcats, tidyr, stringr, readr, lubridate etc.\nPrioritizes readability and consistency, making code cleaner and easier to read"
+  },
+  {
+    "objectID": "lectures/14-slides.html#how-base-r-and-the-tidyverse-work-together",
+    "href": "lectures/14-slides.html#how-base-r-and-the-tidyverse-work-together",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "How Base R and the Tidyverse Work Together",
+    "text": "How Base R and the Tidyverse Work Together\n\nThe tidyverse is built on base R — it doesn’t replace it\n\nYou can combine base R and tidyverse functions in your code\n\nWhy we learn both? You’ll often see both styles in real-world scripts and examples\n\n\n\n\n\n\n\n\nTip\n\n\nGoal: use the tidyverse (with some Base R) for most of your daily work, but understand enough Base R to follow and troubleshoot R code!"
+  },
+  {
+    "objectID": "lectures/14-slides.html#example-code-in-base-r",
+    "href": "lectures/14-slides.html#example-code-in-base-r",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Example Code in Base R",
+    "text": "Example Code in Base R\n# create two dataframes\n\ntwitter &lt;- data.frame(\n  user     = c(\"alice\",\"bob\",\"carlos\",\"diana\",\"emily\",\"lucia\",\"gina\", \"rick\"),\n  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),\n  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),\n  language = c(\"en\",\"es\",\"en\",\"en\",\"fr\",\"en\",\"en\", \"en\"),\n  state    = c(\"CA\",\"TX\",\"TX\",\"NY\",\"IL\",\"CA\",\"IL\", \"AZ\"),\n  stringsAsFactors = FALSE)\n\nstate_lookup &lt;- data.frame(\n  state  = c(\"CA\",\"TX\",\"NY\",\"IL\",\"AZ\"),\n  region = c(\"West\",\"South\",\"Northeast\",\"Midwest\",\"West\"),\n  vote = c(\"Dem\", \"Rep\", \"Dem\", \"Dem\", \"Rep\"),\n  stringsAsFactors = FALSE)"
+  },
+  {
+    "objectID": "lectures/14-slides.html#example-code-in-base-r-1",
+    "href": "lectures/14-slides.html#example-code-in-base-r-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Example Code in Base R",
+    "text": "Example Code in Base R\n# create new variables in twitter df\ntwitter$tot_likes_retweets &lt;- twitter$likes + twitter$retweets\ntwitter$high_engagement    &lt;- twitter$tot_likes_retweets &gt;= 80\n\n# create a new df with only rows that match conditions\ntw &lt;- twitter[twitter$language == \"en\" & twitter$high_engagement == TRUE, ]\n\n# bring in second df\ntw_full &lt;- merge(tw, state_lookup, by = \"state\", all = FALSE)\n\n# compute sum of one variable\nsum_inter &lt;- sum(tw_full$tot_likes_retweets)\n\n# compute sum of one variable by another\nsum_inter_by_vote &lt;- tapply(tw_full$tot_likes_retweets, tw_full$vote, sum)"
+  },
+  {
+    "objectID": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse",
+    "href": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Rewriting the Same Code with the Tidyverse",
+    "text": "Rewriting the Same Code with the Tidyverse\nlibrary(tidyverse)\n\n# create two dataframes\n\ntwitter &lt;- tibble(\n  user     = c(\"alice\",\"bob\",\"carlos\",\"diana\",\"emily\",\"lucia\",\"gina\",\"rick\"),\n  likes    = c(45, 80, 22, 130, 55, 60, 15, 30),\n  retweets = c(10, 25,  5,  50, 12, 20, 30, 58),\n  language = c(\"en\",\"es\",\"en\",\"en\",\"fr\",\"en\",\"en\",\"en\"),\n  state    = c(\"CA\",\"TX\",\"TX\",\"NY\",\"IL\",\"CA\",\"IL\",\"AZ\"))\n\nstate_lookup &lt;- tibble(\n  state  = c(\"CA\",\"TX\",\"NY\",\"IL\",\"AZ\"),\n  region = c(\"West\",\"South\",\"Northeast\",\"Midwest\",\"West\"),\n  vote   = c(\"Dem\",\"Rep\",\"Dem\",\"Dem\",\"Rep\"))"
+  },
+  {
+    "objectID": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse-1",
+    "href": "lectures/14-slides.html#rewriting-the-same-code-with-the-tidyverse-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Rewriting the Same Code with the Tidyverse",
+    "text": "Rewriting the Same Code with the Tidyverse\ntw_full &lt;- twitter |&gt;\n  mutate(\n    tot_likes_retweets = likes + retweets,\n    high_engagement = tot_likes_retweets &gt;= 80) |&gt;\n  filter(language == \"en\" & high_engagement == TRUE) |&gt;\n  inner_join(state_lookup, by = \"state\")\n\nsum_inter &lt;- tw_full |&gt;\n  summarise(sum_inter = sum(tot_likes_retweets))\n\nsum_inter_by_vote &lt;- tw_full |&gt;\n  group_by(vote) |&gt;\n  summarise(sum_inter_by_vote = sum(tot_likes_retweets))"
+  },
+  {
+    "objectID": "lectures/14-slides.html#r-data-types-and-data-structures-1",
+    "href": "lectures/14-slides.html#r-data-types-and-data-structures-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "R Data Types and Data Structures",
+    "text": "R Data Types and Data Structures\nData Types and Data Structures are the fundamentals of R: the “ABC” of how R stores and organizes data. They are part of Base R syntax.\n\nData Type — what kind of value it is\n\nData Structure — how values are stored and organized\n\nNow we look at each and at how they relate."
+  },
+  {
+    "objectID": "lectures/14-slides.html#r-data-types",
+    "href": "lectures/14-slides.html#r-data-types",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "R Data Types",
+    "text": "R Data Types\nData Type: describes the kind of value you’re working with.\n\n\nR has the following main data types (for more see here):\n\nNumeric – numbers, either with or without decimals\n\nDouble with decimals (default): 3.14, 2.0\n\nInteger whole numbers: 2L, 100L\n\nCharacter – text or strings (always in quotes): \"hello\"\nLogical – TRUE or FALSE values: TRUE, FALSE\nFactor – categorical values with levels: \"low\", \"medium\""
+  },
+  {
+    "objectID": "lectures/14-slides.html#r-data-structures",
+    "href": "lectures/14-slides.html#r-data-structures",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "R Data Structures",
+    "text": "R Data Structures\nData Structure: like a container that holds one or more values.\n\n\nR has the following main data structures (for more see here):\n\nVector – one-dimensional, all elements same type\nv &lt;- c(1, 2, 3)\nMatrix – two-dimensional, all elements same type\nm &lt;- matrix(1:6, nrow = 2)\nDataframe – two-dimensional, columns can have different types\ndf &lt;- data.frame(name = c(\"A\", \"B\"), age = c(25, 30))\nList – multi-dimensional, holds elements of any type, even mixed\nl &lt;- list(num = 1:3, name = c(\"Sabrina\", \"Laura\"))"
+  },
+  {
+    "objectID": "lectures/14-slides.html#how-data-types-and-data-structures-relate",
+    "href": "lectures/14-slides.html#how-data-types-and-data-structures-relate",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "How Data Types and Data Structures Relate",
+    "text": "How Data Types and Data Structures Relate\nEvery single element in R has a data type. That element is stored inside a larger data structure.\nExamples:\nx &lt;- c(1, 2, 3)      # a vector (structure) of three elements, all numeric values (type) \ny &lt;- list(\"a\", 5)    # a list (structure) of two elements, one character value and one numeric value (type)\n\n \n\n\n\n\n\n\n\nThe data structure you use affects what data types you can store:\n\n\nNot all data structures support every combination of data types. Some allow only one type, while others can store many types together."
+  },
+  {
+    "objectID": "lectures/14-slides.html#how-data-types-and-data-structures-relate-1",
+    "href": "lectures/14-slides.html#how-data-types-and-data-structures-relate-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "How Data Types and Data Structures Relate",
+    "text": "How Data Types and Data Structures Relate\n\n\n\n\n\n\n\n\n\nStructure\nDimensions\nAllow Mixed Types?\nNotes\n\n\n\n\nVector\n1D\nNo\nAll elements must be the same data type\n\n\nMatrix\n2D\nNo\nAll elements must be the same data type\n\n\nDataframe\n2D\nYes (by column)\nEach column is a vector; data types can vary by column\n\n\nList\nFlexible\nYes\nEach element can be anything: numbers, text, vectors, even data frames"
+  },
+  {
+    "objectID": "lectures/14-slides.html#practice",
+    "href": "lectures/14-slides.html#practice",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "💻 Practice",
+    "text": "💻 Practice\nRun the code below to create different R objects. Then check their structure using class() and str() on each object.\n# create multiple vectors\nnum_v &lt;- c(1:9)\nchar_v &lt;- c(\"hello\", \"ciao\", \"hey\")\nf_v &lt;- factor(c(\"low\", \"medium\", \"high\"))\ntest &lt;- c(\"hello\", 1, 2)\n\n# create two matrices\nnum_m &lt;- matrix(1:15, nrow = 3, ncol = 5, byrow = TRUE)\nchar_m &lt;- matrix(c(\"a\", \"b\", \"c\", \"d\"), nrow = 2, byrow = TRUE)\n\n# create one dataframe\ndf &lt;- data.frame(\n  id = 1:3,\n  name = c(\"Dave\", \"Ashley\", \"Rik\"),\n  age = c(15, 17, 20)) \n\n# create one list\nl &lt;- list(\n  num_v = c(1:3),\n  m = matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE),\n  another_num_v = c(1,2,4),\n  char_v = c(\"Sabrina\", \"Zach\"),\n  d = tibble(var_1 = c(1:4),\n              var_2 = c(2:5)))"
+  },
+  {
+    "objectID": "lectures/14-slides.html#why-this-matters-understanding-when-to-use-each-data-structure",
+    "href": "lectures/14-slides.html#why-this-matters-understanding-when-to-use-each-data-structure",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Why This Matters: Understanding When to Use Each Data Structure",
+    "text": "Why This Matters: Understanding When to Use Each Data Structure\nData Frames first!\nSo far, we’ve been working mostly with data frames — technically with tibbles, the tidyverse version of them.\nData frames are the best structure for working with real-world tabular data in R, and you’ll keep using them throughout the course and beyond.\nStrengths of data frames:\n\nCan store columns of different data types (e.g., character, numeric, logical)\nWork easily with dplyr, ggplot2, and other tidyverse packages\nMake your data easier to manipulate, filter, summarize, and visualize"
+  },
+  {
+    "objectID": "lectures/14-slides.html#why-this-matters-understanding-when-to-use-each-data-structure-1",
+    "href": "lectures/14-slides.html#why-this-matters-understanding-when-to-use-each-data-structure-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Why This Matters: Understanding When to Use Each Data Structure",
+    "text": "Why This Matters: Understanding When to Use Each Data Structure\nBeyond Data Frames…\nBut it’s helpful to understand the full set of R data structures, because each has its own strengths:\n\nVectors: The most basic structure in R; all elements must be the same type.\nYou are analyzing survey responses and want to store all participants’ ages in a separate vector for further manipulation.\nMatrices: Two-dimensional, all elements must be the same type.\nYou have numeric data that you want to analyze using matrix algebra or linear models.\nLists: Flexible containers that can hold anything — even other lists.\nYou are analyzing data and want to save multiple outputs (model results, plot, etc.) all in the same data structure.\nData Frames: Two-dimensional, columns can have different types.\nYou are analyzing survey responses with dplyr, ggplot, or other tidyverse packages."
+  },
+  {
+    "objectID": "lectures/14-slides.html#example-of-filtering-rows-in-a-dataframe-using-logical-vectors",
+    "href": "lectures/14-slides.html#example-of-filtering-rows-in-a-dataframe-using-logical-vectors",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Example of filtering rows in a dataframe using logical vectors",
+    "text": "Example of filtering rows in a dataframe using logical vectors\n# load libraries and data\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins)\n\n# use dplyr filter() to get penguins where body mass is greater than 4000 grams\nfiltered_penguins &lt;- penguins |&gt; filter(body_mass_g &gt; 4000)\nhead(filtered_penguins)"
+  },
+  {
+    "objectID": "lectures/14-slides.html#example-of-filtering-rows-in-a-dataframe-using-logical-vectors-1",
+    "href": "lectures/14-slides.html#example-of-filtering-rows-in-a-dataframe-using-logical-vectors-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Example of filtering rows in a dataframe using logical vectors",
+    "text": "Example of filtering rows in a dataframe using logical vectors\nLet’s analyze the previous code to see what’s happening under the hood: R defines a logical vector and applies it to the penguins dataframe:\n# use base R to get the column we need: gives a logical vector\nfilter_vector &lt;- penguins$body_mass_g &gt; 4000\n\n# check its structure\nis.vector(filter_vector)\nclass(filter_vector) \n\n# use this vector to manually filter the dataframe using base R\n# df[rows, columns]: code below says [rows to keep, all columns]\nfiltered_p &lt;- penguins[filter_vector, ]"
+  },
+  {
+    "objectID": "lectures/14-slides.html#a-particular-vector-scalar",
+    "href": "lectures/14-slides.html#a-particular-vector-scalar",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "A particular vector: Scalar",
+    "text": "A particular vector: Scalar\nIn math a scalar is defined as a single real number but in R, a scalar is simply a vector of length one\nLet’s try this code:\n# set up a vector x of length 10\nx &lt;- sample(10)\nx\n\n# add 100 to x using the long way\nx + c(100, 100, 100, 100, 100, 100, 100, 100, 100, 100)\n\n# add 100 to x using the \"R\" way: vector recycling!\nx + 100"
+  },
+  {
+    "objectID": "lectures/14-slides.html#vector-recycling-in-r",
+    "href": "lectures/14-slides.html#vector-recycling-in-r",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Vector Recycling in R",
+    "text": "Vector Recycling in R\nLet’s see another example. We define two numeric vectors x1 and x2:\n# x1 is sequence of numbers from 1 to 2\nx1 &lt;- seq(from = 1, to = 2)\n\n# x2 is a sequence of numbers from 1 to 10\nx2 &lt;- seq(from = 1, to = 10)\n\n# what happens if we add them?\nx1 + x2\nWhat happens? The shorter vector x1 is duplicated five times in order to match the length of the longer vector x2. The same behavior happens for other operations like subtraction, multiplication, logical comparison, etc.\n\n\n\n\n\n\nWarning\n\n\nIf the shorter vector is not a multiple of the longer one, R will print a warning message!"
+  },
+  {
+    "objectID": "lectures/14-slides.html#vector-recycling-in-r-1",
+    "href": "lectures/14-slides.html#vector-recycling-in-r-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Vector Recycling in R",
+    "text": "Vector Recycling in R\n\n\n\n\n\n\nNote\n\n\nThis behavior is called Vector Recycling and happens automatically in R: When two vectors of different lengths are used in an operation, R repeats (recycles) the elements of the shorter vector to match the longer vector!\n\n\n\nWhy It Matters: Vector recycling can cause unexpected results. Check if recycling is what you want R to do — if not, adjust the vector lengths manually, like this:\nx1 &lt;- c(1, 2, rep(0, 7))\n\nx1 + x2"
+  },
+  {
+    "objectID": "lectures/14-slides.html#subsetting-data-structures-in-r",
+    "href": "lectures/14-slides.html#subsetting-data-structures-in-r",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Subsetting Data Structures in R",
+    "text": "Subsetting Data Structures in R\nThere are different ways to access parts of data structures in R.\nWe’ll cover:\n\nVectors\nMatrices\nData Frames\nLists\n\nEach structure uses square brackets [ ], but how you use them depends on the structure."
+  },
+  {
+    "objectID": "lectures/14-slides.html#subsetting-vectors",
+    "href": "lectures/14-slides.html#subsetting-vectors",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Subsetting Vectors",
+    "text": "Subsetting Vectors\nv &lt;- c(10, 20, 30, 40)\n\nv[2]         # 20 (2nd element)\nv[c(1, 3)]   # 10 and 30\nv[-1]        # all but the first\nv[v &gt; 25]    # elements greater than 25\nVectors are 1D — you just specify positions or logical tests in [ ]"
+  },
+  {
+    "objectID": "lectures/14-slides.html#subsetting-matrices",
+    "href": "lectures/14-slides.html#subsetting-matrices",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Subsetting Matrices",
+    "text": "Subsetting Matrices\nm &lt;- matrix(1:9, nrow = 3, byrow = TRUE)\n\nm[1, 2]           # value at row 1, column 2\nm[ , 3]           # entire 3rd column\nm[2,  ]           # entire 2nd row\nm[1:2, 2:3]       # top-right submatrix (rows 1–2, cols 2–3)\nm[ , c(1, 3)]     # columns 1 and 3\nMatrices are 2D: use [row, column]"
+  },
+  {
+    "objectID": "lectures/14-slides.html#subsetting-lists",
+    "href": "lectures/14-slides.html#subsetting-lists",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Subsetting Lists",
+    "text": "Subsetting Lists\nmy_list &lt;- list(\n  a = c(20, 30, 40),\n  b = c(\"hello\", \"ciao\"),\n  c = TRUE)\n\nmy_list[1]         # first element of my_list, by position; returns a list\nmy_list[[1]]       # content of the first element: 20, 30, 40; returns a vector\nmy_list[[1]][1]    # first value of the first element: 20\n\nmy_list[2]         # second element of my_list, by position; returns a list\nmy_list[\"b\"]       # second element of my_list, by name; returns a list\nmy_list$b          # content of the second element, only works by name not by position; returns a vector\nmy_list[[\"c\"]]     # returns content of \"c\": TRUE\nRemember: use [ ] to extract a sublist from the original list, and [[ ]] or $ to extract actual elements.\nWhat do my_list[[\"b\"]][1] and my_list[[2]][1] return? And what about my_list[[\"b\"]][3] and why?"
+  },
+  {
+    "objectID": "lectures/14-slides.html#subsetting-data-frames",
+    "href": "lectures/14-slides.html#subsetting-data-frames",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Subsetting Data Frames",
+    "text": "Subsetting Data Frames\ndf &lt;- data.frame(\n  name = c(\"Alex\", \"Betty\", \"Chad\", \"J\"),\n  age = c(20, 21, 22, 23))\n\ndf[1, ]            # first row (all columns)\ndf[ , 1]           # first column by index\ndf[ , \"name\"]      # first column by label\ndf$name            # same as above\ndf[[\"name\"]]       # same as above\n\ndf[1, 2]           # single value at row 1, column 2\ndf[2:3, \"name\"]    # values in rows 2 and 3 of column name\n\ndf[df$age &gt; 20, ]            # filter rows where age &gt; 20\ndf[df$name == \"J\", ]         # filter rows where name is \"J\"\ndf[df$age == max(df$age), ]  # filter rows with highest age\nEach column of a data frame is a vector of a specific data type (e.g., numeric, character, etc.)\nAs a whole, a data frame behaves similarly to a list: it contains multiple elements of different data types (like a list), but all elements must be the same length (unlike a list)."
+  },
+  {
+    "objectID": "lectures/14-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/14-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/14-slides.html#why-this-matters-when-to-use-each-data-structure",
+    "href": "lectures/14-slides.html#why-this-matters-when-to-use-each-data-structure",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Why This Matters: When to Use Each Data Structure",
+    "text": "Why This Matters: When to Use Each Data Structure\nData Frames first!\nSo far, we’ve been working mostly with data frames, technically with tibbles, the tidyverse version of them. Data frames are the best structure for working with real-world tabular data in R, why?\n\nCan store columns of different data types (e.g., character, numeric, logical)\nWork easily with dplyr, ggplot2, and other tidyverse packages\nMake your data easier to manipulate, filter, summarize, and visualize"
+  },
+  {
+    "objectID": "lectures/14-slides.html#why-this-matters-when-to-use-each-data-structure-1",
+    "href": "lectures/14-slides.html#why-this-matters-when-to-use-each-data-structure-1",
+    "title": "Computing for the Social Sciences: Lecture 14",
+    "section": "Why This Matters: When to Use Each Data Structure",
+    "text": "Why This Matters: When to Use Each Data Structure\nBeyond Data Frames…\nBut it’s helpful to understand the full set of R data structures, because each has its own strengths:\n\nVectors: The most basic structure in R; all elements must be the same type.\nYou are analyzing survey responses and want to store all participants’ ages in a separate vector for further manipulation.\nMatrices: Two-dimensional, all elements must be the same type.\nYou have numeric data that you want to analyze using matrix algebra or linear models.\nLists: Flexible containers that can hold anything — even other lists.\nYou are analyzing data and want to save multiple outputs (model results, plot, etc.) all in the same data structure.\nData Frames: Two-dimensional, columns can have different types.\nYou are analyzing survey responses with dplyr, ggplot, or other tidyverse packages."
+  },
+  {
+    "objectID": "lectures/15-home.html#before-class",
+    "href": "lectures/15-home.html#before-class",
+    "title": "Lecture 15: Control Flow with Conditionals",
+    "section": "Before class",
+    "text": "Before class\n\nComplete the practice from last lecture\nIf you have not already done so, complete Lecture 14 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 15). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
   }
 ]

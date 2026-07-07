@@ -25,16 +25,18 @@ format:
 4. Subset Data Structures with Base R
 :::
 
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+
+<!--
 ---
 
 ### Slides are in progress and will be updated before class.
 
 ::: {.content-hidden}
-
-<span style="font-size: 0.8em; color: #666;">
-*Slides last updated on **October 29, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
-</span>
-
 
 <!-- NOTE TO IMPROVE THESE SLIDES FOR CSS:
 Add all data structures and data types
@@ -67,7 +69,7 @@ You’ll keep using the Tidyverse long after this course, but Base R gives you a
 
 ## Today we start a new module on Base R
 
-Today we begin a **5-lecture module on [Base R](https://brinasab.github.io/css-website/lectures/)** What you will learn in these lectures:
+Today we begin a **new module on [Base R](https://brinasab.github.io/css-website/lectures/)** What you will learn in these lectures:
 
 - Differences and similarities between Base R and Tidyverse
 - R data types and data structures
@@ -394,15 +396,11 @@ etc.
 
 ---
 
-## Why This Matters: Understanding When to Use Each Data Structure
+## Why This Matters: When to Use Each Data Structure
 
 ###  Data Frames first!
 
-So far, we’ve been working mostly with data frames — technically with tibbles, the tidyverse version of them. 
-
-Data frames are the best structure for working with real-world tabular data in R, and you’ll keep using them throughout the course and beyond.
-
-Strengths of data frames:
+So far, we’ve been working mostly with data frames, technically with tibbles, the tidyverse version of them. Data frames are the best structure for working with real-world tabular data in R, why?
 
 - Can store columns of different data types (e.g., character, numeric, logical)
 - Work easily with `dplyr`, `ggplot2`, and other tidyverse packages
@@ -411,7 +409,7 @@ Strengths of data frames:
 
 ---
 
-## Why This Matters: Understanding When to Use Each Data Structure
+## Why This Matters:  When to Use Each Data Structure
 
 ### Beyond Data Frames...
 
@@ -665,4 +663,3 @@ x[c(-1,2,3)]   # error! do not mix negative and positive subscripts
 
 Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 
-:::
