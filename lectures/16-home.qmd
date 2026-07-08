@@ -31,6 +31,12 @@ knitr::opts_chunk$set(echo = FALSE)
 - Use for loop with if-else statements and within dataframes
 
 
+## Before Class
+
+- Review last lecture's materials, and complete the in-class code tutorials (downloadable from the lecture page)
+- If you have not already done so, complete Lecture 15 participation questions. You can find them in the Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 16). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
+
+
 ## Readings
 
 - ["Chapter 27.5 For Loops"](https://r4ds.hadley.nz/base-R.html#for-loops) (high level intro here, slides unpack the details)

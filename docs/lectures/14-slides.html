@@ -813,6 +813,50 @@ filtered_p |> drop_na(body_mass_g)
 <p>Each column of a data frame is a vector of a specific data type (e.g., numeric, character, etc.)</p>
 <p>As a whole, a data frame behaves similarly to a list: it contains multiple elements of different data types (like a list), but all elements must be the same length (unlike a list).</p>
 <!--
+
+FOR FALL 26: ADD A COUPLE OF SLIDES ON DIRECT APPLICATION OF SUBSETTING A DF AND HOW YOU WOULD DO IT BOTH IN BASE R AND IN TIDYVRESE
+FOR EXAMPLE
+
+library(tidyverse)
+
+qualify <- tibble(
+  Athlete = c("Noah", "Julio", "Nick", "Maria"), 
+  Scores  = c(32, 37, 28, 30)
+)
+
+# Tidyverse subsetting: select() returns a tibble
+qualify %>%
+  select(Scores)
+
+# Tidyverse subsetting: pull() returns a vector
+qualify %>%
+  pull(Scores)
+
+# Use the pulled vector inside ifelse()
+ifelse(
+  qualify %>% pull(Scores) > 30,
+  "Admitted",
+  "Rejected"
+)
+
+# Same idea inside mutate()
+qualify %>%
+  mutate(status = ifelse(Scores > 30,
+                         "Admitted",
+                         "Rejected"))
+
+
+**Tidyverse takeaway:**  
+Use `select()` when you want to keep a column as a data frame/tibble.  
+Use `pull()` when you want to extract a column as a vector.
+Since `ifelse()` works element by element, it needs a vector of TRUE/FALSE values.
+
+This is similar to the base R difference between `[ ]` and `[[ ]]`:
+- `[ ]` keeps the result as a data frame/list-like object
+- `[[ ]]` extracts the actual vector
+- In tidyverse, `select()` keeps a tibble, while `pull()` extracts a vector
+
+
 ### Subsetting vectors: slicing
 
 To subset a vector we use the index location of its elements:
