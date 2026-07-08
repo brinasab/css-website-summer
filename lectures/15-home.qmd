@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Learning Objectives
 
-- Define what control structures are and why they matter
+- Define control structures and why they matter
 - Introduce one type of control structure: conditional statements
 
 
