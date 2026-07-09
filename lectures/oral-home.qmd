@@ -26,7 +26,7 @@ All checks must be scheduled (first come, first served) **by Sunday 7/5 using th
 
 Rescheduling isn't guaranteed, and will only be considered for documented circumstances or emergencies: reach out ASAP and explain what's going on if that happens. Regardless, oral code checks cannot be scheduled after Week 5. 
 
-All current slots fall during class time throughout Week 4 and Week 5. **Before the oral code checks start on a given day, we will have our regular lecture.** For example, on Monday of Week 4, we'll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11:00 AM, etc. In general, this means that regular class will run from 9:30–11:00 AM during Weeks 4 and 5, unless otherwise noted. I will make the best use of our time, and we won't cut any of the scheduled course content.
+All current slots fall during class time, **Before the oral code checks start on a given day, we will have our regular lecture.** For example, on Monday of Week 4, we'll review Week 3 materials from 9:30–10:30 AM before starting the oral code checks; on Tuesday of Week 4, there is regular class from 9:30–11:00 AM, etc. In general, this means that regular class will run from 9:30–11:00 AM during Weeks 4 and 5, unless otherwise noted. I will make the best use of our time, and we won't cut any of the scheduled course content.
 
 
 ## Format and Rules
@@ -38,7 +38,7 @@ Each student will sign up for one 15-minute conversation with the instructors ab
 - **Camera on** for the full session; your torso and hands must be visible at all times.
 - You may **not touch your screen, keyboard, or any other device** during the check.
 
-Violating these rules disqualifies you from the check and results in a score of zero.  Please **review the rubric linked at the top of this page** before your meeting so you know what to expect and how you will be evaluated.
+Violating these rules disqualifies you from the check and results in a score of zero. Please **review the rubric linked at the top of this page** before your meeting so you know what to expect and how you will be evaluated.
 
 
 ## Questions You Can Expect
@@ -66,4 +66,4 @@ Violating these rules disqualifies you from the check and results in a score of 
 
 Review your take-home homework assignments, quizzes, all lecture slides, and in-class code. Make sure you understand each piece and can **explain it out loud**.
 
-The goal is to see your thinking and your familiarity with your own code and the class materials, not to trick you. I won't ask about things we haven't covered in class, and I won't ask you to code live. I also won't ask about the readings directly, though skimming the readings is part of the expected course workload and will help you understand the material better.
+The goal is to see your thinking and your familiarity with your own code and the class materials, not to trick you. We won't ask about things we haven't covered in class, and we won't ask you to code live. We also won't ask about the readings directly, though skimming the readings is part of the expected course workload and will help you understand the material better.
