@@ -770,15 +770,15 @@ Use `case_when()` when:
 
 ---
 
-## 4. Vectorized tests with ifelse() 
+## 4. Using ifelse() to recode variables in a dataframe
 
-People often use `ifelse()` to recode variables in a dataframe. 
+You might run into code that uses `ifelse()` to recode variables in a dataframe. 
 
-For example, the variable `decisionDirection` takes four values: 1 = Conservative, 2 = Liberal, 3 = Other, and NA.  This code recodes it to three values: 0 = Conservative, 1 = Liberal, and NA for both NA and Other.  
+For example, the variable `decisionDirection` takes four values: *1 = Conservative; 2 = Liberal; 3 = Other; NA*.  The code below recodes it to three: *0 = Conservative; 1 = Liberal; NA for both NA and Other*.  
 
 ```r
 data |>
-  mutate(decisionDirection = ifelse(
+  mutate(decision_direction = ifelse(
     decisionDirection == 3, # condition to evaluate
     NA,                     # if true, set to NA
     decisionDirection - 1   # if false, subtract one to value
@@ -794,7 +794,6 @@ Prefer `case_when()` over `ifelse()` for recoding variables: it is easier to rea
 </br>
 
 
-
 <!--
 More on this:
 https://docs.ycrc.yale.edu/r-novice-gapminder/07-control-flow/
@@ -804,13 +803,19 @@ https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
 
 ---
 
+## 4. Using ifelse() to recode variables in a dataframe
+
+![](15-ifelse-recoding.png)
+
+---
+
 ## 4. Vectorized tests with ifelse() 
 
-**Note there is also a tidyverse version of the base R `ifelse()` function!**
+**Note there is also a tidyverse version of the base R `ifelse()` function, called `if_else()` <https://dplyr.tidyverse.org/reference/if_else.html>**
 
-The tidyverse version is called `if_else()` <https://dplyr.tidyverse.org/reference/if_else.html>
+The two are similar, hence I introduced only the base R version here.
 
-The two are very similar, hence I introduced only on here, pick the one you prefer.
+In similar past cases (e.g., `read_csv()` vs. `read.csv()`), I suggested defaulting to the tidyverse, and that guidance still generally holds. The tidyverse version `if_else()` does a slightly better job warning us against missteps, but `ifelse()` is widely used.
 
 ---
 

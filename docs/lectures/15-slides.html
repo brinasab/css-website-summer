@@ -903,12 +903,12 @@ Use `case_when()` when:
 
 -->
 </section>
-<section id="vectorized-tests-with-ifelse-6" class="slide level2 center">
-<h2>4. Vectorized tests with ifelse()</h2>
-<p>People often use <code>ifelse()</code> to recode variables in a dataframe.</p>
-<p>For example, the variable <code>decisionDirection</code> takes four values: 1 = Conservative, 2 = Liberal, 3 = Other, and NA. This code recodes it to three values: 0 = Conservative, 1 = Liberal, and NA for both NA and Other.</p>
+<section id="using-ifelse-to-recode-variables-in-a-dataframe" class="slide level2 center">
+<h2>4. Using ifelse() to recode variables in a dataframe</h2>
+<p>You might run into code that uses <code>ifelse()</code> to recode variables in a dataframe.</p>
+<p>For example, the variable <code>decisionDirection</code> takes four values: <em>1 = Conservative; 2 = Liberal; 3 = Other; NA</em>. The code below recodes it to three: <em>0 = Conservative; 1 = Liberal; NA for both NA and Other</em>.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>data <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a></a>  <span class="fu">mutate</span>(<span class="at">decisionDirection =</span> <span class="fu">ifelse</span>(</span>
+<span id="cb20-2"><a></a>  <span class="fu">mutate</span>(<span class="at">decision_direction =</span> <span class="fu">ifelse</span>(</span>
 <span id="cb20-3"><a></a>    decisionDirection <span class="sc">==</span> <span class="dv">3</span>, <span class="co"># condition to evaluate</span></span>
 <span id="cb20-4"><a></a>    <span class="cn">NA</span>,                     <span class="co"># if true, set to NA</span></span>
 <span id="cb20-5"><a></a>    decisionDirection <span class="sc">-</span> <span class="dv">1</span>   <span class="co"># if false, subtract one to value</span></span>
@@ -937,11 +937,15 @@ Comparing ifelse() and for loop:
 https://www.r-bloggers.com/2020/02/if-else-and-ifelse/
 -->
 </section>
-<section id="vectorized-tests-with-ifelse-7" class="slide level2 center">
+<section id="using-ifelse-to-recode-variables-in-a-dataframe-1" class="slide level2 center">
+<h2>4. Using ifelse() to recode variables in a dataframe</h2>
+
+<img data-src="15-ifelse-recoding.png" class="r-stretch"></section>
+<section id="vectorized-tests-with-ifelse-6" class="slide level2 center">
 <h2>4. Vectorized tests with ifelse()</h2>
-<p><strong>Note there is also a tidyverse version of the base R <code>ifelse()</code> function!</strong></p>
-<p>The tidyverse version is called <code>if_else()</code> <a href="https://dplyr.tidyverse.org/reference/if_else.html" class="uri">https://dplyr.tidyverse.org/reference/if_else.html</a></p>
-<p>The two are very similar, hence I introduced only on here, pick the one you prefer.</p>
+<p><strong>Note there is also a tidyverse version of the base R <code>ifelse()</code> function, called <code>if_else()</code> <a href="https://dplyr.tidyverse.org/reference/if_else.html" class="uri">https://dplyr.tidyverse.org/reference/if_else.html</a></strong></p>
+<p>The two are similar, hence I introduced only the base R version here.</p>
+<p>In similar past cases (e.g., <code>read_csv()</code> vs.&nbsp;<code>read.csv()</code>), I suggested defaulting to the tidyverse, and that guidance still generally holds. The tidyverse version <code>if_else()</code> does a slightly better job warning us against missteps, but <code>ifelse()</code> is widely used.</p>
 </section>
 <section id="practice" class="slide level2 center">
 <h2>💻 Practice</h2>
