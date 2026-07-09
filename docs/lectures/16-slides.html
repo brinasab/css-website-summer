@@ -368,7 +368,7 @@ rm(list = ls())
 </section>
 <section id="accumulating-a-running-total" class="slide level2 center">
 <h2>Accumulating a Running Total</h2>
-<p>Loops are very useful for tracking <strong>running totals</strong>: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.</p>
+<p><strong>For loops are very useful for tracking running totals</strong>: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.</p>
 <p>This is the same code as the previous slide, but simplified. I removed the extra print statements so we focus on one thing: how <code>my_sum</code> updates after each pass through the loop. Run the code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
@@ -576,7 +576,7 @@ R won’t throw an error if you assign a value to an index beyond a vector’s o
 <p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
-<p>Loop over indexes, using <code>for (i in seq_along(x)</code>, instead of looping over elements/values.</p>
+<p>Loop over indexes, using <code>for (i in seq_along(x))</code>, instead of looping over elements/values.</p>
 <p>Advantages of looping over indexes:</p>
 <ul>
 <li>You can modify, save, or assign values by position (e.g., <code>output[i] &lt;- ...</code>) without writing extra code</li>
@@ -770,7 +770,7 @@ $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 
 </div>
 </div>
 <p><br></p>
-<p>Our task is to <strong>calculate the mean value of several columns in this data frame</strong>. We show how to do this without a for loop and with a for loop.</p>
+<p><strong>Our task is to calculate the mean value of several columns in this data frame</strong>. We show how to do this without a for loop and with a for loop.</p>
 <p><br></p>
 </section>
 <section id="calculate-the-mean-value-of-several-columns-without-a-loop" class="slide level2 center">
@@ -839,25 +839,17 @@ output
 <span id="cb20-6"><a></a></span>
 <span id="cb20-7"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-none no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
-<p><strong><code>output</code> is a vector where we store the loop results:</strong></p>
+<p><strong>The object <code>output</code> is a vector where we store the loop results:</strong></p>
 <ul>
 <li>To access elements of a vector, use single square brackets <code>[]</code></li>
 <li>So <code>output[i]</code> assigns the computed value into the <em>i-th position</em> of that vector</li>
 </ul>
-<p><strong><code>penguins</code> is a dataframe (or tibble):</strong></p>
+<p><strong>The object <code>penguins</code> is a dataframe (or tibble):</strong></p>
 <ul>
-<li>But <code>mean()</code> needs a numeric vector<br>
-</li>
-<li>To access a dataframe column <em>as a vector</em>, use double brackets <code>[[]]</code><br>
+<li>But <code>mean()</code> needs a numeric vector! To access a dataframe column <em>as a vector</em>, use double brackets <code>[[]]</code><br>
 </li>
 <li>So <code>penguins[[i]]</code> gets the <em>i-th column</em> of the dataframe, and turns it into a vector</li>
 </ul>
-</div>
-</div>
-</div>
 </section>
 <section id="why-outputi-and-penguinsi-1" class="slide level2 center">
 <h2>Why output[i] and penguins[[i]]?</h2>
@@ -872,8 +864,8 @@ output
 <div class="callout callout-none no-icon callout-style-simple">
 <div class="callout-body">
 <div class="callout-content">
-<p><strong>With data frames:</strong> <code>[[ ]]</code> returns the column itself as a vector, while <code>[ ]</code> returns a one-column data frame or tibble</p>
-<p><strong>With vectors:</strong> <code>[]</code> and <code>[[ ]]</code> behave the same, but is good practice to consistently use <code>[]</code> when subsetting vectors</p>
+<p><strong>With data frames:</strong> <code>[[ ]]</code> returns the column itself as a vector; <code>[ ]</code> returns a one-column data frame</p>
+<p><strong>With vectors:</strong> <code>[]</code> and <code>[[ ]]</code> behave the same, but is best to use <code>[]</code> when subsetting vectors</p>
 </div>
 </div>
 </div>
@@ -918,7 +910,7 @@ The first approach does not preallocate by creating an empty space to store the 
 <section id="coming-next-week-beyond-for-loops-with-data-frames" class="slide level2 center">
 <h2>Coming Next Week: Beyond For Loops with Data frames</h2>
 <p>For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.</p>
-<p><strong>But R is a vectorized language</strong>, built to operate on a whole column at once rather than element by element.</p>
+<p><strong>But R is a VECTORIZED language, built to operate on a whole column at once rather than element by element.</strong></p>
 <p>That means it has functions that can do the <em>same job</em> as a for loop, just in a way that fits R’s strengths better. Next week we’ll explore them:</p>
 <ul>
 <li><code>across()</code> (dplyr): apply a function to many columns in one line</li>

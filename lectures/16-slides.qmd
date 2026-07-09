@@ -212,7 +212,7 @@ for (i in c(1, 2, 3)) {
 
 ## Accumulating a Running Total 
 
-Loops are very useful for tracking **running totals**: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.
+**For loops are very useful for tracking running totals**: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.
 
 This is the same code as the previous slide, but simplified. I removed the extra print statements so we focus on one thing: how `my_sum` updates after each pass through the loop. Run the code:
 
@@ -426,7 +426,7 @@ output
 
 ::: {.callout-tip}
 
-Loop over indexes, using `for (i in seq_along(x)`, instead of looping over elements/values. 
+Loop over indexes, using `for (i in seq_along(x))`, instead of looping over elements/values. 
 
 Advantages of looping over indexes:
 
@@ -613,7 +613,7 @@ glimpse(penguins)
 
 <br>
 
-Our task is to **calculate the mean value of several columns in this data frame**. We show how to do this without a for loop and with a for loop.
+**Our task is to calculate the mean value of several columns in this data frame**. We show how to do this without a for loop and with a for loop.
 
 </br>
 
@@ -700,20 +700,17 @@ for (i in seq_along(penguins)) {
 output
 ```
 
-::: {.callout}
 
-**`output` is a vector where we store the loop results:**
+**The object `output` is a vector where we store the loop results:**
 
 - To access elements of a vector, use single square brackets `[]` 
 - So `output[i]` assigns the computed value into the *i-th position* of that vector 
 
-**`penguins` is a dataframe (or tibble):**
+**The object `penguins` is a dataframe (or tibble):**
 
-- But `mean()` needs a numeric vector  
-- To access a dataframe column *as a vector*, use double brackets `[[]]`  
+- But `mean()` needs a numeric vector! To access a dataframe column *as a vector*, use double brackets `[[]]`  
 - So `penguins[[i]]` gets the *i-th column* of the dataframe, and turns it into a vector 
 
-:::
 
 
 ---
@@ -732,9 +729,9 @@ mean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)
 
 ::: callout 
 
-**With data frames:** `[[ ]]` returns the column itself as a vector, while `[ ]` returns a one-column data frame or tibble
+**With data frames:** `[[ ]]` returns the column itself as a vector; `[ ]` returns a one-column data frame
 
-**With vectors:** `[]` and `[[ ]]` behave the same, but is good practice to consistently use `[]` when subsetting vectors 
+**With vectors:** `[]` and `[[ ]]` behave the same, but is best to use `[]` when subsetting vectors 
 
 :::
 
@@ -784,7 +781,7 @@ The first approach does not preallocate by creating an empty space to store the 
 
 For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.
 
-**But R is a vectorized language**, built to operate on a whole column at once rather than element by element. 
+**But R is a VECTORIZED language, built to operate on a whole column at once rather than element by element.** 
 
 That means it has functions that can do the *same job* as a for loop, just in a way that fits R's strengths better. Next week we'll explore them:
 

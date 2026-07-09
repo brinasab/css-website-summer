@@ -319,14 +319,14 @@
     "href": "lectures/16-home.html",
     "title": "Lecture 16: Control Flow with Loops",
     "section": "",
-    "text": "Date: July 9, 2026\nTopics: Writing Loops\nSlides: To be posted before class\nCode: No in-class code to download"
+    "text": "Date: July 9, 2026\nTopics: Writing Loops\nSlides: View Slides\nCode: No in-class code to download"
   },
   {
     "objectID": "lectures/16-home.html#info-and-materials",
     "href": "lectures/16-home.html#info-and-materials",
     "title": "Lecture 16: Control Flow with Loops",
     "section": "",
-    "text": "Date: July 9, 2026\nTopics: Writing Loops\nSlides: To be posted before class\nCode: No in-class code to download"
+    "text": "Date: July 9, 2026\nTopics: Writing Loops\nSlides: View Slides\nCode: No in-class code to download"
   },
   {
     "objectID": "lectures/16-home.html#learning-objectives",
@@ -963,7 +963,7 @@
     "href": "lectures/16-home.html#before-class",
     "title": "Lecture 16: Control Flow with Loops",
     "section": "Before Class",
-    "text": "Before Class\n\nReview last lecture’s materials, and complete the in-class code tutorials (downloadable from the lecture page)\nIf you have not already done so, complete Lecture 15 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 16). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
+    "text": "Before Class\n\nReview last lecture’s materials, and complete the in-class code tutorials (downloadable from the lecture page; Lecture 15 tutorial titled if-else-exercise.Rmd will be particularly helpful for HW4)\nIf you have not already done so, complete Lecture 15 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 16). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
   },
   {
     "objectID": "lectures/15-slides.html#vectorized-tests-with-ifelse-8",
@@ -1026,7 +1026,7 @@
     "href": "lectures/16-slides.html#accumulating-a-running-total",
     "title": "Computing for the Social Sciences: Lecture 16",
     "section": "Accumulating a Running Total",
-    "text": "Accumulating a Running Total\nLoops are very useful for tracking running totals: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.\nThis is the same code as the previous slide, but simplified. I removed the extra print statements so we focus on one thing: how my_sum updates after each pass through the loop. Run the code:\n\nmy_sum &lt;- 0\n\nfor (i in c(1, 2, 3)) {\n  my_sum &lt;- my_sum + i\n  print(my_sum)\n}\n\nmy_sum\n\n\nThe problem is that this code prints the updated sum value each time, BUT only saves the final value!"
+    "text": "Accumulating a Running Total\nFor loops are very useful for tracking running totals: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.\nThis is the same code as the previous slide, but simplified. I removed the extra print statements so we focus on one thing: how my_sum updates after each pass through the loop. Run the code:\n\nmy_sum &lt;- 0\n\nfor (i in c(1, 2, 3)) {\n  my_sum &lt;- my_sum + i\n  print(my_sum)\n}\n\nmy_sum\n\n\nThe problem is that this code prints the updated sum value each time, BUT only saves the final value!"
   },
   {
     "objectID": "lectures/16-slides.html#saving-results-from-a-for-loop",
@@ -1075,7 +1075,7 @@
     "href": "lectures/16-slides.html#best-practice-loop-over-indexes",
     "title": "Computing for the Social Sciences: Lecture 16",
     "section": "Best Practice: Loop Over Indexes",
-    "text": "Best Practice: Loop Over Indexes\n\n\n\n\n\n\nTip\n\n\nLoop over indexes, using for (i in seq_along(x), instead of looping over elements/values.\nAdvantages of looping over indexes:\n\nYou can modify, save, or assign values by position (e.g., output[i] &lt;- ...) without writing extra code\nYour loop works regardless of the values in the vector x\nYou have full control over both: the position i and the value at that position x[i]\nLooping over indexes followw R best practices"
+    "text": "Best Practice: Loop Over Indexes\n\n\n\n\n\n\nTip\n\n\nLoop over indexes, using for (i in seq_along(x)), instead of looping over elements/values.\nAdvantages of looping over indexes:\n\nYou can modify, save, or assign values by position (e.g., output[i] &lt;- ...) without writing extra code\nYour loop works regardless of the values in the vector x\nYou have full control over both: the position i and the value at that position x[i]\nLooping over indexes followw R best practices"
   },
   {
     "objectID": "lectures/16-slides.html#practice-fix-the-bug-in-this-for-loop",
@@ -1152,14 +1152,14 @@
     "href": "lectures/16-slides.html#why-outputi-and-penguinsi",
     "title": "Computing for the Social Sciences: Lecture 16",
     "section": "Why output[i] and penguins[[i]]?",
-    "text": "Why output[i] and penguins[[i]]?\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput\n\n\n\n\noutput is a vector where we store the loop results:\n\nTo access elements of a vector, use single square brackets []\nSo output[i] assigns the computed value into the i-th position of that vector\n\npenguins is a dataframe (or tibble):\n\nBut mean() needs a numeric vector\n\nTo access a dataframe column as a vector, use double brackets [[]]\n\nSo penguins[[i]] gets the i-th column of the dataframe, and turns it into a vector"
+    "text": "Why output[i] and penguins[[i]]?\n\noutput &lt;- vector(mode = \"double\", length = ncol(penguins))\n\nfor (i in seq_along(penguins)) {\n  output[i] &lt;- mean(penguins[[i]], na.rm = TRUE)\n}\n\noutput\n\nThe object output is a vector where we store the loop results:\n\nTo access elements of a vector, use single square brackets []\nSo output[i] assigns the computed value into the i-th position of that vector\n\nThe object penguins is a dataframe (or tibble):\n\nBut mean() needs a numeric vector! To access a dataframe column as a vector, use double brackets [[]]\n\nSo penguins[[i]] gets the i-th column of the dataframe, and turns it into a vector"
   },
   {
     "objectID": "lectures/16-slides.html#why-outputi-and-penguinsi-1",
     "href": "lectures/16-slides.html#why-outputi-and-penguinsi-1",
     "title": "Computing for the Social Sciences: Lecture 16",
     "section": "Why output[i] and penguins[[i]]?",
-    "text": "Why output[i] and penguins[[i]]?\n\nis.vector(penguins[[3]])           # TRUE (the raw vector)\nis.data.frame(penguins[3])         # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[3]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)\n\n\n\n\n\nWith data frames: [[ ]] returns the column itself as a vector, while [ ] returns a one-column data frame or tibble\nWith vectors: [] and [[ ]] behave the same, but is good practice to consistently use [] when subsetting vectors"
+    "text": "Why output[i] and penguins[[i]]?\n\nis.vector(penguins[[3]])           # TRUE (the raw vector)\nis.data.frame(penguins[3])         # TRUE (a 1-col tibble/data frame)\n\nmean(penguins[[3]], na.rm = TRUE)  # works, correct type (vector)\nmean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)\n\n\n\n\n\nWith data frames: [[ ]] returns the column itself as a vector; [ ] returns a one-column data frame\nWith vectors: [] and [[ ]] behave the same, but is best to use [] when subsetting vectors"
   },
   {
     "objectID": "lectures/16-slides.html#practice-subsetting-data-frames",
@@ -1180,6 +1180,6 @@
     "href": "lectures/16-slides.html#coming-next-week-beyond-for-loops-with-data-frames",
     "title": "Computing for the Social Sciences: Lecture 16",
     "section": "Coming Next Week: Beyond For Loops with Data frames",
-    "text": "Coming Next Week: Beyond For Loops with Data frames\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.\nBut R is a vectorized language, built to operate on a whole column at once rather than element by element.\nThat means it has functions that can do the same job as a for loop, just in a way that fits R’s strengths better. Next week we’ll explore them:\n\nacross() (dplyr): apply a function to many columns in one line\nmap() (purrr): apply a function to every element of a list or column\napply() family (base R): the classic vectorized alternative to for loops"
+    "text": "Coming Next Week: Beyond For Loops with Data frames\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.\nBut R is a VECTORIZED language, built to operate on a whole column at once rather than element by element.\nThat means it has functions that can do the same job as a for loop, just in a way that fits R’s strengths better. Next week we’ll explore them:\n\nacross() (dplyr): apply a function to many columns in one line\nmap() (purrr): apply a function to every element of a list or column\napply() family (base R): the classic vectorized alternative to for loops"
   }
 ]
