@@ -28,6 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
   <link rel="stylesheet" href="../style/styles.css">
@@ -142,21 +208,738 @@ Sabrina Nardin, Summer 2026
 </div>
 
 </section>
-<section>
 <section id="agenda" class="title-slide slide level1 center">
 <h1>Agenda</h1>
 <div class="agenda-list">
 <ol type="1">
-<li>For Loops</li>
+<li>Intro to For Loops</li>
 <li>Tracking and Saving For Loops Output</li>
 <li>Looping Over Elements vs.&nbsp;Indexes</li>
-<li>Using For Loops with Dataframes</li>
+<li>From Last Lecture: if / else + For Loop</li>
+<li>Using For Loops with Data frames</li>
 </ol>
 </div>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>July 09, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<!--
+---
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **November 5, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+Added a few slides that show the differences of looping over indexes or looping over elements and 
+teach that concept form the slides; then leave the in-class demo code with the key and let students explore it in team and go around for questions. Total time 10 min slides and 10 go over code + 5 review
+
+In the demo for loop: add code on data structure, e.g. show how to access columns of a df and their elements with the double and single square brackets 
+
+Show difference of accessing single column in a df (that is a vector so use []) or elements of columns for which you need to use [[]]
+
+When you teach for loops add the break and continue statements (currently not in slides!)
+
+-->
+</section>
+
+<section>
+<section id="intro-to-for-loops" class="title-slide slide level1 center middle">
+<h1>1. Intro to For Loops</h1>
+
+</section>
+<section id="what-are-control-structures" class="slide level2 center">
+<h2>What Are Control Structures?</h2>
+<p>Control structures let us write code that can:</p>
+<ul>
+<li><p><strong>Make decisions</strong> → with <strong>conditional statements</strong> like <code>if</code>, <code>if...else</code>, etc.</p></li>
+<li><p><strong>Repeat actions</strong> → with <strong>loops</strong> like <code>for</code>, <code>while</code></p></li>
+</ul>
+<p><em>Conditional statements and loops are control structures. Last lecture we focused on conditional statements. Today we focus on loops (specifically for loops), and we continue next lecture.</em></p>
+</section>
+<section id="definition-of-for-loops" class="slide level2 center">
+<h2>Definition of For Loops</h2>
+<p>For loops let you repeat an action for each element of an object, usually a vector or list.</p>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="cf">for</span> (item <span class="cf">in</span> sequence of items) {</span>
+<span id="cb1-2"><a></a>  action to be repeated <span class="cf">for</span> each item   </span>
+<span id="cb1-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="cf">for</span> (item <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</span>
+<span id="cb2-2"><a></a>  <span class="fu">print</span>(item)</span>
+<span id="cb2-3"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What’s the repeated action here? How many times? What’s item?</p>
+<!--
+Let's break this code down:
+
+- The repeated action here is simple: `print(item)`
+
+- `item` is a placeholder: its value changes with each loop iteration
+
+- the number of times the statement block repeats depends on the number of items in the sequence — in this example: three items, thus three times
+-->
+</section>
+<section id="nested-for-loops" class="slide level2 center">
+<h2>Nested For Loops</h2>
+<p>In nested for loops the outer loop controls how many times the entire inner loop runs from start to end:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</span>
+<span id="cb3-2"><a></a>  <span class="fu">print</span>(i)</span>
+<span id="cb3-3"><a></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">c</span>(<span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"squirrel"</span>, <span class="st">"rabbit"</span>)) {</span>
+<span id="cb3-4"><a></a>    <span class="fu">print</span>(j)</span>
+<span id="cb3-5"><a></a>  }</span>
+<span id="cb3-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What’s going on here?</p>
+<ul>
+<li><p>The outer loop runs 3 times</p></li>
+<li><p>For each execution of the outer loop, the inner loop runs 4 times</p></li>
+</ul>
+<!--
+for (i in c(1,2,3)) {
+  print(i)
+  for (j in c("cat", "dog", "squirrel", "rabbit")) {
+    print(j)
+     for (x in c(10:11)) {
+        print(x)
+     }
+  }
+}
+-->
+</section></section>
+<section>
+<section id="tracking-and-saving-for-loops-output" class="title-slide slide level1 center middle">
+<h1>2. Tracking and Saving For Loops Output</h1>
+
+</section>
+<section id="tracing-execution-in-a-for-loop" class="slide level2 center">
+<h2>Tracing Execution in a For Loop</h2>
+<p>Observe this code. What does each run print?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) {</span>
+<span id="cb4-2"><a></a>  <span class="fu">print</span>(i)</span>
+<span id="cb4-3"><a></a>  <span class="fu">print</span>(<span class="st">"Hello"</span>)</span>
+<span id="cb4-4"><a></a>  my_sum <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">+</span> i</span>
+<span id="cb4-5"><a></a>  <span class="fu">print</span>(my_sum)</span>
+<span id="cb4-6"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"End of Loop"</span>, i))</span>
+<span id="cb4-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="fragment">
+<h4 id="change-the-code-and-predict-what-happens">💻 Change the code and predict what happens</h4>
+<p><em>For each change below: start from the original code and clear the environment</em></p>
+<ol type="1">
+<li>Add another <code>print(my_sum)</code> right before <code>my_sum &lt;- 100 + i</code>. <em>What happens?</em></li>
+<li>Add <code>my_sum &lt;- my_sum + i</code> and <code>print(my_sum)</code> right before the last line. <em>What happens?</em></li>
+</ol>
+<!-- Learning goals, in order by bullet point:
+1. Accessing a variable before assignment (point 1 error message)
+2. Reassigning a value and using a variable in its own reassignment (point 2)
+rm(list = ls())
+-->
+</div>
+<p><br></p>
+</section>
+<section id="tracing-execution-in-a-for-loop-1" class="slide level2 center">
+<h2>Tracing Execution in a For Loop</h2>
+<p>Same code but this time <code>my_sum</code> is defined outside the loop and updated it inside.</p>
+<p>Clear the environment and run this code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb5-2"><a></a></span>
+<span id="cb5-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) {</span>
+<span id="cb5-4"><a></a>  <span class="fu">print</span>(i)</span>
+<span id="cb5-5"><a></a>  <span class="fu">print</span>(<span class="st">"Hello"</span>)</span>
+<span id="cb5-6"><a></a>  my_sum <span class="ot">&lt;-</span> my_sum <span class="sc">+</span> i</span>
+<span id="cb5-7"><a></a>  <span class="fu">print</span>(my_sum)</span>
+<span id="cb5-8"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"End of Loop"</span>, i))</span>
+<span id="cb5-9"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="fragment">
+<h4 id="change-the-code-and-predict-what-happens-1">💻 Change the code and predict what happens</h4>
+<p><em>For each change below: start from the original code and clear the environment</em></p>
+<ol type="1">
+<li>Comment out <code>my_sum &lt;- my_sum + i</code>. <em>What happens?</em></li>
+<li>Go back the original code, then move <code>my_sum &lt;- 0</code> inside the loop after <code>print("Hello")</code>. <em>What happens?</em></li>
+</ol>
+</div>
+<p><br></p>
+</section>
+<section id="accumulating-a-running-total" class="slide level2 center">
+<h2>Accumulating a Running Total</h2>
+<p>Loops are very useful for tracking <strong>running totals</strong>: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.</p>
+<p>This is the same code as the previous slide, but simplified. I removed the extra print statements so we focus on one thing: how <code>my_sum</code> updates after each pass through the loop. Run the code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-2"><a></a></span>
+<span id="cb6-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)) {</span>
+<span id="cb6-4"><a></a>  my_sum <span class="ot">&lt;-</span> my_sum <span class="sc">+</span> i</span>
+<span id="cb6-5"><a></a>  <span class="fu">print</span>(my_sum)</span>
+<span id="cb6-6"><a></a>}</span>
+<span id="cb6-7"><a></a></span>
+<span id="cb6-8"><a></a>my_sum</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p><strong>The problem is that this code prints the updated sum value each time, BUT only saves the final value!</strong></p>
+</div>
+<!--
+This is the same code of the previous slide, but with more informative print statements to make each step easier to follow. 
+
+my_sum <- 0
+
+for (i in c(1,2,3)) {
+  print(paste("Current i is", i))
+  print("Hello")
+  my_sum <- my_sum + i
+  print(paste("Current sum is", my_sum))
+  print(paste("End of Loop", i))
+}
+
+my_sum
+-->
+</section>
+<section id="saving-results-from-a-for-loop" class="slide level2 center">
+<h2>Saving Results from a For Loop</h2>
+<p>To save all intermediate sum values instead of just the last one, we need to store them in a vector (here <code>output</code>) with one slot per loop iteration. Like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb7-2"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"integer"</span>, <span class="at">length =</span> <span class="dv">3</span>)  <span class="co"># new!</span></span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)) {</span>
+<span id="cb7-5"><a></a>  my_sum <span class="ot">&lt;-</span> my_sum <span class="sc">+</span> i</span>
+<span id="cb7-6"><a></a>  <span class="fu">print</span>(my_sum)</span>
+<span id="cb7-7"><a></a>  output[i] <span class="ot">&lt;-</span> my_sum     <span class="co"># new!</span></span>
+<span id="cb7-8"><a></a>}</span>
+<span id="cb7-9"><a></a></span>
+<span id="cb7-10"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment small-text" title="`output[i] <- my_sum`">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><code>output[i] &lt;- my_sum</code></strong></p>
+</div>
+<div class="callout-content">
+<p>When <code>i = 1</code>, <code>my_sum = 0 + 1 = 1</code> → store <code>1</code> in <code>output[1]</code> → output becomes: <code>1 0 0</code><br>
+When <code>i = 2</code>, <code>my_sum = 1 + 2 = 3</code> → store <code>3</code> in <code>output[2]</code> → output becomes: <code>1 3 0</code><br>
+When <code>i = 3</code>, <code>my_sum = 3 + 3 = 6</code> → store <code>6</code> in <code>output[3]</code> → output becomes: <code>1 3 6</code></p>
+<p>This saves the running total at each position <code>i</code> in the vector output!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-results-from-a-for-loop-1" class="slide level2 center">
+<h2>Saving Results from a For Loop</h2>
+<p><strong>Our current code works but it’s NOT YET optimal:</strong></p>
+<ul>
+<li>It only behaves correctly because the looping input vector is exactly <code>c(1, 2, 3)</code></li>
+<li>If the values in that vector change, the current code may produce incorrect or unexpected results</li>
+</ul>
+<p><strong>💻 Try this:</strong></p>
+<p>Take the code from the previous slide and change the looping input vector to <code>c(1, 4, 6)</code>. Clear the environment and run the code. Observe what happens to <code>output</code> and try to explain why.</p>
+</section>
+<section id="saving-results-from-a-for-loop-2" class="slide level2 center">
+<h2>Saving Results from a For Loop</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb8-2"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"integer"</span>, <span class="at">length =</span> <span class="dv">3</span>)</span>
+<span id="cb8-3"><a></a></span>
+<span id="cb8-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">6</span>)) {</span>
+<span id="cb8-5"><a></a>  my_sum <span class="ot">&lt;-</span> my_sum <span class="sc">+</span> i</span>
+<span id="cb8-6"><a></a>  <span class="fu">print</span>(my_sum)</span>
+<span id="cb8-7"><a></a>  output[i] <span class="ot">&lt;-</span> my_sum </span>
+<span id="cb8-8"><a></a>}</span>
+<span id="cb8-9"><a></a></span>
+<span id="cb8-10"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment small" title="What Happens in Each Iteration of this Loop">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>What Happens in Each Iteration of this Loop</strong></p>
+</div>
+<div class="callout-content">
+<p>When <code>i = 1</code> → <code>my_sum = 0 + 1 = 1</code> → store <code>1</code> in <code>output[1]</code> → output becomes: <code>1 0 0</code></p>
+<p>When <code>i = 4</code> → <code>my_sum = 1 + 4 = 5</code> → store <code>5</code> in <code>output[4]</code> → output becomes: <code>1 0 0 5</code></p>
+<p>When <code>i = 6</code> → <code>my_sum = 5 + 6 = 11</code> → store 11 in <code>output[6]</code> → output becomes: <code>1 0 0 5 NA 11</code></p>
+<p><strong>This does not look right! Why?</strong><br>
+To see why, we need to understand the difference between looping over elements vs.&nbsp;indexes…</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 
+Why the output is not [1, 5, 11]
+R won’t throw an error if you assign a value to an index beyond a vector’s original length: it silently extends the vector, which can lead to unexpected results.-->
+</section></section>
+<section>
+<section id="looping-over-elements-vs.-indexes" class="title-slide slide level1 center middle">
+<h1>3. Looping Over Elements vs.&nbsp;Indexes</h1>
+
+</section>
+<section id="elements-vs.-indexes-why-it-matters" class="slide level2 center">
+<h2>Elements vs.&nbsp;Indexes: Why It Matters</h2>
+<p>Run these examples and spot the differences:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Version A: Looping over elements/values</span></span>
+<span id="cb9-2"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb9-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb9-4"><a></a>  <span class="fu">print</span>(i) }    <span class="co"># value</span></span>
+<span id="cb9-5"><a></a></span>
+<span id="cb9-6"><a></a><span class="co"># Version B: Looping over indexes</span></span>
+<span id="cb9-7"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb9-8"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb9-9"><a></a>  <span class="fu">print</span>(i)        <span class="co"># index</span></span>
+<span id="cb9-10"><a></a>  <span class="fu">print</span>(x[i]) }   <span class="co"># value at that index</span></span>
+<span id="cb9-11"><a></a></span>
+<span id="cb9-12"><a></a><span class="co"># Same as Version B just using seq_along (recommended)</span></span>
+<span id="cb9-13"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb9-14"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb9-15"><a></a>  <span class="fu">print</span>(i)</span>
+<span id="cb9-16"><a></a>  <span class="fu">print</span>(x[i]) }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment small" title="`i` and `x[i]`">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><code>i</code> and <code>x[i]</code></strong></p>
+</div>
+<div class="callout-content">
+<p><code>i</code> is the loop’s <strong>index</strong> or “counter” and it just counts positions, so it should always go 1, 2, 3, 4, etc.<br>
+<code>x[i]</code> is the <strong>element</strong> or value of the vector <code>x</code> at position <code>i</code> and can be any value</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="elements-vs.-indexes-why-it-matters-1" class="slide level2 center">
+<h2>Elements vs.&nbsp;Indexes: Why It Matters</h2>
+<p>Let’s see what happens to our previous codes when we save the output instead of just printing:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="version-a">❌ Version A</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb10-2"><a></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb10-3"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"integer"</span>, </span>
+<span id="cb10-4"><a></a>                 <span class="at">length =</span> <span class="fu">length</span>(x))</span>
+<span id="cb10-5"><a></a></span>
+<span id="cb10-6"><a></a><span class="co"># looping over elements</span></span>
+<span id="cb10-7"><a></a><span class="cf">for</span> (i <span class="cf">in</span> x) {</span>
+<span id="cb10-8"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Current i is:"</span>, i))</span>
+<span id="cb10-9"><a></a>  my_sum <span class="ot">&lt;-</span> my_sum <span class="sc">+</span> i</span>
+<span id="cb10-10"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Current sum is:"</span>, my_sum))</span>
+<span id="cb10-11"><a></a>  output[i] <span class="ot">&lt;-</span> my_sum</span>
+<span id="cb10-12"><a></a>}</span>
+<span id="cb10-13"><a></a></span>
+<span id="cb10-14"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<h3 id="version-b">✅ Version B</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb11-2"><a></a>my_sum <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb11-3"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"integer"</span>, </span>
+<span id="cb11-4"><a></a>                 <span class="at">length =</span> <span class="fu">length</span>(x))</span>
+<span id="cb11-5"><a></a></span>
+<span id="cb11-6"><a></a><span class="co"># looping over indexes</span></span>
+<span id="cb11-7"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb11-8"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Current i is:"</span>, i))</span>
+<span id="cb11-9"><a></a>  my_sum <span class="ot">&lt;-</span> my_sum <span class="sc">+</span> x[i]</span>
+<span id="cb11-10"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Current sum is:"</span>, my_sum))</span>
+<span id="cb11-11"><a></a>  output[i] <span class="ot">&lt;-</span> my_sum</span>
+<span id="cb11-12"><a></a>}</span>
+<span id="cb11-13"><a></a></span>
+<span id="cb11-14"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div></div>
+</section>
+<section id="best-practice-loop-over-indexes" class="slide level2 center">
+<h2>Best Practice: Loop Over Indexes</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Loop over indexes, using <code>for (i in seq_along(x)</code>, instead of looping over elements/values.</p>
+<p>Advantages of looping over indexes:</p>
+<ul>
+<li>You can modify, save, or assign values by position (e.g., <code>output[i] &lt;- ...</code>) without writing extra code</li>
+<li>Your loop works regardless of the values in the vector <code>x</code></li>
+<li>You have full control over both: the position <code>i</code> and the value at that position <code>x[i]</code></li>
+<li>Looping over indexes followw R best practices</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="practice-fix-the-bug-in-this-for-loop" class="slide level2 center">
+<h2>💻 Practice: Fix the Bug in this For Loop</h2>
+<p>You are writing for loop to track <code>tomatoes</code> sold over four days. You want to add up the number of tomatoes sold each day, and store the running total in the vector <code>output</code>.</p>
+<p>But something is wrong with the code! Can you fix it? First, <em>predict</em> what the <code>output</code> vector should be, then <em>check</em> the code to find the bug.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>tomatoes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">2</span>, <span class="dv">100</span>, <span class="dv">50</span>) </span>
+<span id="cb12-2"><a></a>total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb12-3"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"integer"</span>, <span class="at">length =</span> <span class="fu">length</span>(tomatoes))</span>
+<span id="cb12-4"><a></a></span>
+<span id="cb12-5"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(tomatoes)) {</span>
+<span id="cb12-6"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Current i is:"</span>, i))</span>
+<span id="cb12-7"><a></a>  total <span class="ot">&lt;-</span> total <span class="sc">+</span> i</span>
+<span id="cb12-8"><a></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Current running total is:"</span>, total))</span>
+<span id="cb12-9"><a></a>  output[i] <span class="ot">&lt;-</span> total</span>
+<span id="cb12-10"><a></a>}</span>
+<span id="cb12-11"><a></a></span>
+<span id="cb12-12"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!--
+That's the buggy version's output — it's the triangular numbers: 1, 1+2=3, 1+2+3=6, 1+2+3+4=10.
+That's the tell for the bug: the code adds up the index i (1, 2, 3, 4) instead of the element tomatoes[i] (10, 2, 100, 50). So running_total is just accumulating "which iteration am I on" rather than "how many tomatoes have I sold so far."
+
+
+::: {.cell}
+
+```{.r .cell-code}
+tomatoes <- c(10, 2, 100, 50) 
+total <- 0
+output <- vector(mode = "integer", length = length(tomatoes))
+
+for (i in seq_along(tomatoes)) {
+  print(paste("Current i is:", i))
+  total <- total + tomatoes[i]
+  print(paste("Current running total is:", total))
+  output[i] <- total
+}
+
+output
+```
+:::
+
+
+
+::: {.cell}
+::: {.cell-output .cell-output-stdout}
+
+```
+[1] "Current i is: 10"
+[1] "Current sum is: 10"
+[1] 10
+[1] "Current i is: 2"
+[1] "Current sum is: 12"
+[1] 12
+[1] "Current i is: 100"
+[1] "Current sum is: 112"
+[1] 112
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stdout}
+
+```
+[1]  10  12 112
+```
+
+
+:::
+:::
+
+
+## 💻 More Practice
+
+You run a store and want to keep track of how many items were sold each day: you sold 5 items in day 1, 3 items on day 2, and 7 items on day 3. 
+
+```r
+daily_sales <- c(5, 3, 7)
+```
+
+Your Task:
+
+- Use a for loop to go through each day’s sales 
+- For each day, print something like: "Day 2 - Items sold: 3" (the message should change accordingly)
+- Create an object called `total` to store a running total of all sales
+- Create an object called `output` to store the total after each day (e.g. `output[2]` should store the total sales after day 2)
+
+<!--
+daily_sales <- c(5, 3, 7)
+
+total <- 0
+output <- vector(mode = "integer", length = length(daily_sales))
+
+for (i in seq_along(daily_sales)) {
+  print(paste("Day", i, "- Items sold:", daily_sales[i]))
+  total <- total + daily_sales[i]
+  output[i] <- total
+}
+
+-->
+</section></section>
+<section>
+<section id="from-last-lecture-if-else-for-loop" class="title-slide slide level1 center middle">
+<h1>4. From Last Lecture: if / else + For Loop</h1>
+
 </section>
 <section class="slide level2 center">
 
-<h3 id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+<p>This is code from our last lecture:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb13-2"><a></a><span class="fu">ifelse</span>(numbers <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>, </span>
+<span id="cb13-3"><a></a>       <span class="st">"odd"</span>,</span>
+<span id="cb13-4"><a></a>       <span class="st">"even"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can try to rewrite it using <code>if-else</code> statement, but we will get an error (recall why?):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb14-2"><a></a><span class="cf">if</span> (numbers <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>) { </span>
+<span id="cb14-3"><a></a>  <span class="fu">print</span>(<span class="st">"odd"</span>)</span>
+<span id="cb14-4"><a></a>} <span class="cf">else</span> {</span>
+<span id="cb14-5"><a></a>  <span class="fu">print</span>(<span class="st">"even"</span>) }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But now we know how to fix that error: with a for loop! This way, the <code>if-else</code> runs one element at a time:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">6</span>, <span class="dv">7</span>)</span>
+<span id="cb15-2"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(numbers)) {</span>
+<span id="cb15-3"><a></a>  <span class="co">#print(i)</span></span>
+<span id="cb15-4"><a></a>  <span class="co">#print(numbers[i])</span></span>
+<span id="cb15-5"><a></a>  <span class="cf">if</span> (numbers[i] <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb15-6"><a></a>    <span class="fu">print</span>(<span class="st">"odd"</span>)</span>
+<span id="cb15-7"><a></a>  } <span class="cf">else</span> {</span>
+<span id="cb15-8"><a></a>    <span class="fu">print</span>(<span class="st">"even"</span>)</span>
+<span id="cb15-9"><a></a>  } }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- for (i in 1:length(numbers)) 
+
+The loop lets if-else handle one element at a time, since each if only ever sees a single value
+-->
+</section></section>
+<section>
+<section id="using-for-loops-with-data-frames" class="title-slide slide level1 center middle">
+<h1>5. Using For Loops with Data frames</h1>
+
+</section>
+<section id="for-loop-in-data-frames" class="slide level2 center">
+<h2>For Loop in Data frames</h2>
+<p>So far we’ve looped over vectors, one element at a time.</p>
+<p>What about looping over data frames?</p>
+<p>A data frame can be looped over <em>row by row</em> or <em>column by column</em>, and both are possible in R.</p>
+<p>But since a data frame is really a collection of vectors (each variable is one), <strong>R defaults to looping over columns</strong>, so that’s what we’ll do here.</p>
+<!--
+You can see this directly: if we loop over the data frame itself, R hands you one column at a time
+```r
+for (i in penguins) {
+  print(head(i, 2))
+}
+```
+That's because a data frame is stored internally as a **list of columns**. The general-purpose tools we use to loop — `length()`, `seq_along()`, `[[i]]` — all "see" that list, so they naturally walk over columns rather than rows.
+-->
+</section>
+<section id="observe-the-same-task-with-and-without-a-loop" class="slide level2 center">
+<h2>Observe the same task with and without a loop</h2>
+<p>Let’s go back to the penguins:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb16-2"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb16-3"><a></a><span class="fu">data</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+<p><br></p>
+<p>Our task is to <strong>calculate the mean value of several columns in this data frame</strong>. We show how to do this without a for loop and with a for loop.</p>
+<p><br></p>
+</section>
+<section id="calculate-the-mean-value-of-several-columns-without-a-loop" class="slide level2 center">
+<h2>Calculate the mean value of several columns <em>without a loop</em></h2>
+<p>We can take the <code>mean()</code> function, and apply it to each column:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_bill_length =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb18-2"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_bill_depth =</span> <span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb18-3"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb18-4"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!--
+```r
+mean(penguins_clean$bill_length_mm)
+mean(penguins_clean$bill_depth_mm)
+mean(penguins_clean$flipper_length_mm)
+mean(penguins_clean$body_mass_g)
+```
+-->
+<p>This works, but requires a lot of copy/paste! How can we do the same thing with a for loop?</p>
+</section>
+<section id="automate-the-same-task-with-a-loop" class="slide level2 center">
+<h2>Automate the same task <em>with a loop</em></h2>
+<p>First, initialize an empty vector to store the results.</p>
+<p>Second, use a for loop to calculate the mean of each (numeric) column of this dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"double"</span>, <span class="at">length =</span> <span class="fu">ncol</span>(penguins))</span>
+<span id="cb19-2"><a></a></span>
+<span id="cb19-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(penguins)) {</span>
+<span id="cb19-4"><a></a>  <span class="co">#print(i)</span></span>
+<span id="cb19-5"><a></a>  <span class="co">#print(penguins[i])</span></span>
+<span id="cb19-6"><a></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins[[i]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb19-7"><a></a>}</span>
+<span id="cb19-8"><a></a></span>
+<span id="cb19-9"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s examine this code…</p>
+<ul>
+<li><code>i</code> will index each column</li>
+<li><code>output[i]</code> saves the results in the output vector at the correct position</li>
+<li><code>penguins[[i]]</code> ` pulls out the column’s values as a plain vector</li>
+</ul>
+<!--
+
+```r
+output <- vector(mode = "double", length = ncol(penguins))
+
+for (i in seq_along(penguins)) {
+  if (is.numeric(penguins[[i]])) {
+    output[i] <- mean(penguins[[i]], na.rm = TRUE)
+  }
+}
+
+output
+```
+-->
+</section>
+<section id="why-outputi-and-penguinsi" class="slide level2 center">
+<h2>Why output[i] and penguins[[i]]?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"double"</span>, <span class="at">length =</span> <span class="fu">ncol</span>(penguins))</span>
+<span id="cb20-2"><a></a></span>
+<span id="cb20-3"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(penguins)) {</span>
+<span id="cb20-4"><a></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins[[i]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-5"><a></a>}</span>
+<span id="cb20-6"><a></a></span>
+<span id="cb20-7"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong><code>output</code> is a vector where we store the loop results:</strong></p>
+<ul>
+<li>To access elements of a vector, use single square brackets <code>[]</code></li>
+<li>So <code>output[i]</code> assigns the computed value into the <em>i-th position</em> of that vector</li>
+</ul>
+<p><strong><code>penguins</code> is a dataframe (or tibble):</strong></p>
+<ul>
+<li>But <code>mean()</code> needs a numeric vector<br>
+</li>
+<li>To access a dataframe column <em>as a vector</em>, use double brackets <code>[[]]</code><br>
+</li>
+<li>So <code>penguins[[i]]</code> gets the <em>i-th column</em> of the dataframe, and turns it into a vector</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="why-outputi-and-penguinsi-1" class="slide level2 center">
+<h2>Why output[i] and penguins[[i]]?</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">is.vector</span>(penguins[[<span class="dv">3</span>]])           <span class="co"># TRUE (the raw vector)</span></span>
+<span id="cb21-2"><a></a><span class="fu">is.data.frame</span>(penguins[<span class="dv">3</span>])         <span class="co"># TRUE (a 1-col tibble/data frame)</span></span>
+<span id="cb21-3"><a></a></span>
+<span id="cb21-4"><a></a><span class="fu">mean</span>(penguins[[<span class="dv">3</span>]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  <span class="co"># works, correct type (vector)</span></span>
+<span id="cb21-5"><a></a><span class="fu">mean</span>(penguins[<span class="dv">3</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)    <span class="co"># error, wrong type (1-col tibble)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>With data frames:</strong> <code>[[ ]]</code> returns the column itself as a vector, while <code>[ ]</code> returns a one-column data frame or tibble</p>
+<p><strong>With vectors:</strong> <code>[]</code> and <code>[[ ]]</code> behave the same, but is good practice to consistently use <code>[]</code> when subsetting vectors</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<!-- 
+## 💻 Practice Subsetting Data frames 
+
+### Answer these questions:
+
+1. What does `is.vector(penguins[["bill_len"]])` return, and why are there quotation marks around the column name? And what does `penguins[["bill_len"]]` return? 
+
+2. Write code to access the fourth column of the penguins dataset in four ways:
+
+    - By column name, returned as a vector
+    - By index, returned as a vector
+    - By column name, returned as a dataframe
+    - By index, returned as a dataframe
+
+For each object, check its data structure using  `is.vector()` or `is.data.frame()` (which return true or false) or `str()` which provides an overview of the object. 
+
+3. What does `is.vector(penguins[[1]])` return and why the output is not what we expect? What about `is.data.frame(penguins[1])`?
+-->
+<!-- 
+
+### Let's unpack this example: open the **demo.Rmd** from today's class materials!
+
+### Benefits of preallocation
+
+This explains why we are pre-allocating in the first place, and why we do so with a vector:
+having an object that is already of the same length of the output, where we are just plugging in  individual values increases speed, rather the more naive approach in which we store reuslts using an  mpty vector or an empty other object (e.g. a dataframe) of length zero, and then append or add on each of the values as we calculate them
+
+For example, let's take this mpg data (built in dataframe in R about auto, we do not really care about the content of the data); here what we are doing is creating duplicates of that dataframe 100 times and we are then putting them together into a single data frame. 
+
+Without preallocation: we can create an empty dataframe (here with the tibble function), iterate over 100 times, take this empty dataframe and combine the rows of it with the rows of the original dataframe, and replace the original object with the new copy and save in output (so we are appending 100 rows every time we iterate!) 
+
+If we do proper preallocation: we create a list of 100 empty elements, every time we store the results in the list, then we use the bind_rows() functions at the end
+
+The first approach does not preallocate by creating an empty space to store the output, the second does. See the difference in time of execution. From 80 milliseconds to less than 3. So you can see how inefficient is not to allocate since most of our data will have more than 100 rows!
+
+-->
+</section>
+<section id="coming-next-week-beyond-for-loops-with-data-frames" class="slide level2 center">
+<h2>Coming Next Week: Beyond For Loops with Data frames</h2>
+<p>For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.</p>
+<p><strong>But R is a vectorized language</strong>, built to operate on a whole column at once rather than element by element.</p>
+<p>That means it has functions that can do the <em>same job</em> as a for loop, just in a way that fits R’s strengths better. Next week we’ll explore them:</p>
+<ul>
+<li><code>across()</code> (dplyr): apply a function to many columns in one line</li>
+<li><code>map()</code> (purrr): apply a function to every element of a list or column</li>
+<li><code>apply()</code> family (base R): the classic vectorized alternative to for loops</li>
+</ul>
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>How for loops work and how to trace what happens at each iteration</li>
+<li>How to track and save values (like running totals) during a for loop</li>
+<li>Why it’s important to loop over indexes instead of elements when saving or modifying values</li>
+<li>Common mistakes with loop output and how to fix them</li>
+<li>Combining if-else statements with for loops</li>
+<li>Using for Loops in a Dataframes (more on this next lecture!)</li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
 
 
 </section></section>

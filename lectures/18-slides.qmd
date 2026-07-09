@@ -20,10 +20,9 @@ format:
 # Agenda {.center}
 
 ::: {.agenda-list}
-1. Using For Loops with Dataframes 
-2. Alternatives to For Loops in R
-3. While Loops
-4. Introduction to Functions
+1. Alternatives to For Loops in R
+2. While Loops
+3. Introduction to Functions
 :::
 
 ---
@@ -36,153 +35,7 @@ format:
 *Slides last updated on **November 11, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
-# 1. Using For Loops with Dataframes {.slide .center .middle}
-
----
-
-## Same Task With and Without a For Loop
-
-```{r echo = TRUE, results = "hide"}
-
-library(tidyverse)
-library(palmerpenguins)
-data(penguins)
-```
-
-```{r}
-glimpse(penguins)
-```
-
-<br>
-
-#### Task: Calculate the mean value of several columns in this data
-
-</br>
-
----
-
-## Calculate the mean value of several columns *without a loop*
-
-We can take the `mean()` function, and apply it to each column:
-
-```{r echo = TRUE, results = "hide"}
-
-penguins %>% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))
-penguins %>% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))
-penguins %>% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))
-penguins %>% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))
-                       
-```
-
-<!--
-```r
-mean(penguins_clean$bill_length_mm)
-mean(penguins_clean$bill_depth_mm)
-mean(penguins_clean$flipper_length_mm)
-mean(penguins_clean$body_mass_g)
-```
--->
-
-This works, but requires a lot of copy/paste! How can we do the same thing with a for loop?
-
----
-
-## Automate the same task *with a loop*
-
-First, initialize an empty vector to store the results. 
-
-Second, use a for loop to calculate the mean of each (numeric) column of this penguins dataframe. 
-
-Let's run this code:
-
-```{r echo = TRUE, results = "hide"}
-
-output <- vector(mode = "double", length = ncol(penguins))
-
-for (i in seq_along(penguins)) {
-  output[i] <- mean(penguins[[i]], na.rm = TRUE)
-}
-
-output
-```
-
----
-
-## Why output[i] and penguins[[i]]?
-
-```{r echo = TRUE, results = "hide"}
-
-output <- vector(mode = "double", length = ncol(penguins))
-
-for (i in seq_along(penguins)) {
-  output[i] <- mean(penguins[[i]], na.rm = TRUE)
-}
-
-output
-```
-
-::: {.callout}
-
-**`output` is a vector where we store the loop results:**
-
-- To access elements of a vector, use single square brackets `[]` 
-- So `output[i]` assigns the computed value into the *i-th position* of that vector 
-
-**`penguins` is a dataframe (or tibble):**
-
-- But `mean()` needs a numeric vector  
-- To access a dataframe column *as a vector*, use double brackets `[[]]`  
-- So `penguins[[i]]` gets the *i-th column* of the dataframe, and turns it into a vector 
-
-:::
-
-
----
-
-## Why output[i] and penguins[[i]]?
-
-```{r echo=TRUE, results="hide"}
-is.vector(penguins[[3]])           # TRUE (the raw vector)
-is.data.frame(penguins[3])         # TRUE (a 1-col tibble/data frame)
-
-mean(penguins[[3]], na.rm = TRUE)  # works, correct type (vector)
-mean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)
-```
-
-<br>
-
-::: callout 
-
-**With data frames:** `[[ ]]` returns the column itself as a vector, while `[ ]` returns a one-column data frame or tibble
-
-**With vectors:** `[]` and `[[ ]]` behave the same, but is good practice to consistently use `[]` when subsetting vectors 
-
-*Review Lecture 10 and the Data Structures quiz for details.*
-
-:::
-
-</br>
-
----
-
-## 💻 Practice Subsetting Data frames 
-
-### Answer these questions:
-
-1. What does `is.vector(penguins[["bill_len"]])` return, and why are there quotation marks around the column name? And what does `penguins[["bill_len"]]` return? 
-
-2. Write code to access the fourth column of the penguins dataset in four ways:
-
-    - By column name, returned as a vector
-    - By index, returned as a vector
-    - By column name, returned as a dataframe
-    - By index, returned as a dataframe
-
-For each object, check its data structure using  `is.vector()` or `is.data.frame()` (which return true or false) or `str()` which provides an overview of the object. 
-
-3. What does `is.vector(penguins[[1]])` return and why the output is not what we expect? What about `is.data.frame(penguins[1])`?
-
-# 2. Alternatives to For Loops in R {.slide .center .middle}
+# 1. Alternatives to For Loops in R {.slide .center .middle}
 
 ---
 
@@ -197,9 +50,34 @@ Still, understanding loops is important:
 - to build **logic and control flow** skills
 - for **non-vectorized tasks**, like row-by-row operations
 - to **debug** more complex workflows
+- for general literacy on programing
 
 <!--
 > Even if you don’t use loops every day, knowing how they work will strengthen your ability to write efficient and readable R code.
+
+SO WHY A FOR LOOP ?? 
+
+The honest answer for a dataframe-column context is closer to:
+
+1. You'll read loops in other people's/older code, even if you rarely write them yourself for this kind of task — that's a literacy argument, not a capability one.
+
+2. across() only fits when the tidy-select + one-function pattern fits. The moment the task per column is a genuinely custom, multi-step, branching procedure (rather than "apply this one function"), a loop becomes clearer than contorting it into across().
+
+3. The real can't-do-it-with-across() cases tend to live outside single-dataframe, column-independent tasks — R4DS's own examples for "why iterate" are things like reading in many files, fitting many models and saving each one, or writing out many objects — tasks with side effects, not a column transformation.
+
+Given that, I'd suggest replacing the running-total-over-columns slide with something more defensible — want me to draft a slide built around one of R4DS's actual examples (e.g., looping to read/fit/save several things), or would you rather just soften the claim to "loops are the general tool and you'll need to recognize them in the wild," without insisting on a dataframe-specific counterexample?
+
+ALso add example or looping over rows
+
+data <- data.frame(
+  name = c("Alice", "Bob", "Carlos"),
+  score = c(85, 92, 78)
+)
+
+for (i in seq_len(nrow(data))) {
+  print(data[i, ])
+}
+
 -->
 
 ---
@@ -299,6 +177,21 @@ penguins %>% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))
 
 Now we rewrite it again but this time using `across()`
 
+<!--
+
+We just wrote a for loop to avoid copy/paste, and it works!
+
+BUT you might recall that `dplyr` has a function that does exactly this in one line: `across()` applies the same function to every selected column, with no for loop required
+
+```{r echo = TRUE, results = "hide"}
+penguins %>%
+  summarize(across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
+```
+
+::: {.fragment}
+Notice: `where(is.numeric)` selects only the numeric columns — so `species`, `island`, and `sex` are skipped automatically, instead of quietly returning `NA` like our for loop did.
+:::
+--->
 ---
 
 ## Option 2: Replacing for loops with across()

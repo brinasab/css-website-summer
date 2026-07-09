@@ -20,12 +20,18 @@ format:
 # Agenda {.center}
 
 ::: {.agenda-list}
-1. For Loops
+1. Intro to For Loops
 2. Tracking and Saving For Loops Output
 3. Looping Over Elements vs. Indexes
-4. Using For Loops with Dataframes
+4. From Last Lecture: if / else + For Loop
+5. Using For Loops with Data frames
 :::
 
+<span style="font-size: 0.8em; color: #666;">
+*Slides last updated on **`r format(Sys.Date(), '%B %d, %Y')`**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
+</span>
+
+<!--
 ---
 
 ### Slides are in progress and will be updated before class.
@@ -36,9 +42,7 @@ format:
 *Slides last updated on **November 5, 2025**. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.*
 </span>
 
-<!-- NOTES TO IMPROVE CURRENT LOOP SLIDES
-
-Add a few slides that show the differences of looping over indexes or looping over elements and 
+Added a few slides that show the differences of looping over indexes or looping over elements and 
 teach that concept form the slides; then leave the in-class demo code with the key and let students explore it in team and go around for questions. Total time 10 min slides and 10 go over code + 5 review
 
 In the demo for loop: add code on data structure, e.g. show how to access columns of a df and their elements with the double and single square brackets 
@@ -50,27 +54,25 @@ When you teach for loops add the break and continue statements (currently not in
 -->
 
 
-# 1. For Loops {.slide .center .middle}
+# 1. Intro to For Loops {.slide .center .middle}
 
 ---
 
-### What Are Control Structures?
+## What Are Control Structures?
 
 Control structures let us write code that can:
 
 - **Make decisions** → with **conditional statements** like `if`, `if...else`, etc.
 
-- **Repeat actions**  → with **loops** like `for`, `while` (today's topic)
+- **Repeat actions**  → with **loops** like `for`, `while`
 
-Conditional statements and loops (e.g., control structures) let our code responds dynamically to different situations.
-
-Today we focus on loops, and specifically on "For loops"!
+*Conditional statements and loops are control structures. Last lecture we focused on conditional statements. Today we focus on loops (specifically for loops), and we continue next lecture.*
 
 ---
 
 ## Definition of For Loops
 
-For loops let you repeat an action for each element of an object, usually a vector or list. They’re a common way to iterate in many programming languages.
+For loops let you repeat an action for each element of an object, usually a vector or list.
 
 Syntax:
 ```r
@@ -101,7 +103,7 @@ Let's break this code down:
 
 ## Nested For Loops
 
-For loops can be nested, so the outer loop controls how many times the entire inner loop runs from start to finish: 
+In nested for loops the outer loop controls how many times the entire inner loop runs from start to end: 
 
 ```{r echo = TRUE, results = "hide"}
 
@@ -137,7 +139,7 @@ for (i in c(1,2,3)) {
 
 ## Tracing Execution in a For Loop
 
-Observe this code. What does it output in each run?
+Observe this code. What does each run print?
 
 ```{r echo = TRUE, results = "hide"}
 
@@ -154,16 +156,17 @@ for (i in c(1, 2, 3)) {
 
 ::: {.fragment}
 
-#### 💻 Change the code and predict what happens:
+#### 💻 Change the code and predict what happens
+*For each change below: start from the original code and clear the environment*
 
-- Add another `print(my_sum)` before the line `my_sum <- 100 + i`. *Clear the environment and run the code: What happens?*
-- Remove that line, and add these two lines `my_sum <- my_sum + i` and `print(my_sum)` right after the last `print(my_sum)`. *Clear the environment and run the code: What happens?*
+1. Add another `print(my_sum)` right before `my_sum <- 100 + i`. *What happens?*
+2. Add `my_sum <- my_sum + i` and `print(my_sum)` right before the last line. *What happens?*
+
 
 <!-- Learning goals, in order by bullet point:
-- Accessing a variable before assignment
-- Reassigning a value
-- Using a variable in its own reassignment
-- Explore
+1. Accessing a variable before assignment (point 1 error message)
+2. Reassigning a value and using a variable in its own reassignment (point 2)
+rm(list = ls())
 -->
 
 :::
@@ -175,12 +178,11 @@ for (i in c(1, 2, 3)) {
 
 ## Tracing Execution in a For Loop
 
-This is similar to the previous code, BUT defines `my_sum` outside the loop and updates it inside with `my_sum <- my_sum + i`
+Same code but this time `my_sum` is defined outside the loop and updated it inside.
 
-Clear the environment and run the code:
+Clear the environment and run this code:
 
 ```{r echo = TRUE, results = "hide"}
-
 my_sum <- 0
 
 for (i in c(1, 2, 3)) {
@@ -190,17 +192,17 @@ for (i in c(1, 2, 3)) {
   print(my_sum)
   print(paste("End of Loop", i))
 }
-
 ```
 
 <br>
 
 ::: {.fragment}
 
-#### 💻 Change the code and predict what happens:
+#### 💻 Change the code and predict what happens
+*For each change below: start from the original code and clear the environment*
 
-- Comment out `my_sum <- my_sum + i`. *Clear the environment and run the code: What happens?*
-- Go back the original code, then move `my_sum <- 0` inside the loop after `print("Hello")`. *Clear the environment and run the code: What happens?*
+1. Comment out `my_sum <- my_sum + i`. *What happens?*
+2. Go back the original code, then move `my_sum <- 0` inside the loop after `print("Hello")`. *What happens?*
 
 :::
 
@@ -210,11 +212,28 @@ for (i in c(1, 2, 3)) {
 
 ## Accumulating a Running Total 
 
-Loops are very useful for accumulating a running total — for example, **when you are adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop**.
+Loops are very useful for tracking **running totals**: adding up scores, votes, or anything else one at a time, and tracking how the total grows with each loop.
 
-This is the same code as in the previous slide, but with more informative print statements to make each step easier to follow. Clear the environment and run the code:
+This is the same code as the previous slide, but simplified. I removed the extra print statements so we focus on one thing: how `my_sum` updates after each pass through the loop. Run the code:
 
 ```{r echo = TRUE, results = "hide"}
+my_sum <- 0
+
+for (i in c(1, 2, 3)) {
+  my_sum <- my_sum + i
+  print(my_sum)
+}
+
+my_sum
+```
+
+::: {.fragment}
+**The problem is that this code prints the updated sum value each time, BUT only saves the final value!** 
+:::
+
+
+<!--
+This is the same code of the previous slide, but with more informative print statements to make each step easier to follow. 
 
 my_sum <- 0
 
@@ -227,46 +246,13 @@ for (i in c(1,2,3)) {
 }
 
 my_sum
-```
+-->
 
 ---
 
 ## Saving Results from a For Loop
 
-Our previous code printed the updated sum value each time, but only saved the final value! Like this:
-
-```{r echo = TRUE, results = "hide"}
-my_sum <- 0
-
-for (i in c(1,2,3)) {
-  my_sum <- my_sum + i
-  print(my_sum)
-}
-
-my_sum
-```
-
-To save all intermediate sum values, we need to store them in a vector (here `output`). Like this:
-
-```{r echo = TRUE, results = "hide"}
-
-my_sum <- 0
-output <- vector(mode = "integer", length = 3)  # new!
-
-for (i in c(1,2,3)) {
-  my_sum <- my_sum + i
-  print(my_sum)
-  output[i] <- my_sum     # new!
-}
-
-output
-```
-
----
-
-## Saving Results from a For Loop
-
-To save all intermediate sum values, we need to store them in a vector (here `output`). Like this:
+To save all intermediate sum values instead of just the last one, we need to store them in a vector (here `output`) with one slot per loop iteration. Like this:
 
 ```{r echo = TRUE, results = "hide"}
 
@@ -304,7 +290,7 @@ This saves the running total at each position `i` in the vector output!
 
 **💻 Try this:** 
 
-Take the code from the previous slide and change the looping input vector to `c(1, 4, 6)`. Clear the environment and run the code. Observe what happens to `output`. Why?
+Take the code from the previous slide and change the looping input vector to `c(1, 4, 6)`. Clear the environment and run the code. Observe what happens to `output` and try to explain why.
 
 ---
 
@@ -332,11 +318,13 @@ When `i = 4` → `my_sum = 1 + 4 = 5` → store `5` in `output[4]` → output be
 
 When `i = 6` → `my_sum = 5 + 6 = 11` → store 11 in `output[6]` → output becomes: `1 0 0 5 NA 11`
 
-**This does not look right! Why the output is not [1, 5, 11]?**   
+**This does not look right! Why?**   
 To see why, we need to understand the difference between looping over elements vs. indexes...
 :::
 
-<!-- R won’t throw an error if you assign a value to an index beyond a vector’s original length: it silently extends the vector, which can lead to unexpected results.-->
+<!-- 
+Why the output is not [1, 5, 11]
+R won’t throw an error if you assign a value to an index beyond a vector’s original length: it silently extends the vector, which can lead to unexpected results.-->
 
 
 # 3. Looping Over Elements vs. Indexes {.slide .center .middle}
@@ -349,30 +337,27 @@ Run these examples and spot the differences:
 
 ```{r echo = TRUE, results = "hide"}
 
-# Version A: Looping over values/elements
+# Version A: Looping over elements/values
 x <- c(1, 4, 6)
 for (i in x) {
-  print(i)        # value
-}
+  print(i) }    # value
 
 # Version B: Looping over indexes
 x <- c(1, 4, 6)
 for (i in 1:length(x)) {
   print(i)        # index
-  print(x[i])     # value at that index
-}
+  print(x[i]) }   # value at that index
 
 # Same as Version B just using seq_along (recommended)
 x <- c(1, 4, 6)
 for (i in seq_along(x)) {
   print(i)
-  print(x[i])
-}
+  print(x[i]) }
 ```
 
 ::: {.callout-note .fragment .small title="`i` and `x[i]`"}
 
-`i` is the loop **index** or "counter" and should always go 1, 2, 3, 4, etc.  
+`i` is the loop's **index** or "counter" and it just counts positions, so it should always go 1, 2, 3, 4, etc.  
 `x[i]` is the **element** or value of the vector `x` at position `i` and can be any value
 
 :::
@@ -381,7 +366,7 @@ for (i in seq_along(x)) {
 
 ## Elements vs. Indexes: Why It Matters
 
-Let’s see what happens to our previous two codes when we save the output of them instead of just printing:
+Let’s see what happens to our previous codes when we save the output instead of just printing:
 
 ::: {.columns}
 
@@ -441,7 +426,7 @@ output
 
 ::: {.callout-tip}
 
-Loop over indexes (preferably using `for (i in seq_along(x)`) instead of looping over elements/values. 
+Loop over indexes, using `for (i in seq_along(x)`, instead of looping over elements/values. 
 
 Advantages of looping over indexes:
 
@@ -456,21 +441,21 @@ Advantages of looping over indexes:
 
 ## 💻 Practice: Fix the Bug in this For Loop
 
-You are writing for loop to track `tomatoes` sold over three days. You want to add up the number of tomatoes sold and store the running total in the vector `output`. 
+You are writing for loop to track `tomatoes` sold over four days. You want to add up the number of tomatoes sold each day, and store the running total in the vector `output`. 
 
-But something is wrong with the code — can you fix it? First, *predict* what the `output` vector should be, then *check* the code to find the bug.
+But something is wrong with the code! Can you fix it? First, *predict* what the `output` vector should be, then *check* the code to find the bug.
 
 ```{r echo = TRUE, results = "hide"}
 
-tomatoes <- c(10, 2, 100) 
-s <- 0
+tomatoes <- c(10, 2, 100, 50) 
+total <- 0
 output <- vector(mode = "integer", length = length(tomatoes))
 
 for (i in seq_along(tomatoes)) {
   print(paste("Current i is:", i))
-  s <- s + i
-  print(paste("Current sum is:", s))
-  output[i] <- s
+  total <- total + i
+  print(paste("Current running total is:", total))
+  output[i] <- total
 }
 
 output
@@ -478,17 +463,20 @@ output
 ```
 
 <!--
+That's the buggy version's output — it's the triangular numbers: 1, 1+2=3, 1+2+3=6, 1+2+3+4=10.
+That's the tell for the bug: the code adds up the index i (1, 2, 3, 4) instead of the element tomatoes[i] (10, 2, 100, 50). So running_total is just accumulating "which iteration am I on" rather than "how many tomatoes have I sold so far."
+
 ```{r echo = TRUE, results = "hide"}
 
-tomatoes <- c(10, 2, 100) 
-s <- 0
+tomatoes <- c(10, 2, 100, 50) 
+total <- 0
 output <- vector(mode = "integer", length = length(tomatoes))
 
 for (i in seq_along(tomatoes)) {
   print(paste("Current i is:", i))
-  s <- s + tomatoes[i]
-  print(paste("Current sum is:", s))
-  output[i] <- s
+  total <- total + tomatoes[i]
+  print(paste("Current running total is:", total))
+  output[i] <- total
 }
 
 output
@@ -544,9 +532,9 @@ for (i in seq_along(daily_sales)) {
 
 -->
 
----
+# 4. From Last Lecture: if / else + For Loop {.slide .center .middle}
 
-## Loops + Conditional Statements
+---
 
 This is code from our last lecture:
 ```{r, echo = TRUE, results = "hide"}
@@ -562,32 +550,58 @@ numbers <- c(10, 6, 7)
 if (numbers %% 2 == 1) { 
   print("odd")
 } else {
-  print("even")
-}
+  print("even") }
 ```
 
 But now we know how to fix that error: with a for loop! This way, the `if-else` runs one element at a time:
 ```{r, echo = TRUE, results = "hide"}
 numbers <- c(10, 6, 7)
-for (i in 1:length(numbers)) {
+for (i in seq_along(numbers)) {
   #print(i)
   #print(numbers[i])
   if (numbers[i] %% 2 == 1) {
     print("odd")
   } else {
     print("even")
-  }
-}
+  } }
 ```
 
-# 4. Using For Loops with Dataframes {.slide .center .middle}
+<!-- for (i in 1:length(numbers)) 
+
+The loop lets if-else handle one element at a time, since each if only ever sees a single value
+-->
+
+# 5. Using For Loops with Data frames {.slide .center .middle}
 
 ---
 
-## Same Task With and Without a For Loop
+## For Loop in Data frames
+
+So far we've looped over vectors, one element at a time.
+
+What about looping over data frames?
+
+A data frame can be looped over *row by row* or *column by column*, and both are possible in R.
+
+But since a data frame is really a collection of vectors (each variable is one), **R defaults to looping over columns**, so that's what we'll do here.
+
+<!--
+You can see this directly: if we loop over the data frame itself, R hands you one column at a time
+```r
+for (i in penguins) {
+  print(head(i, 2))
+}
+```
+That's because a data frame is stored internally as a **list of columns**. The general-purpose tools we use to loop — `length()`, `seq_along()`, `[[i]]` — all "see" that list, so they naturally walk over columns rather than rows.
+-->
+
+---
+
+## Observe the same task with and without a loop
+
+Let's go back to the penguins:
 
 ```{r echo = TRUE, results = "hide"}
-
 library(tidyverse)
 library(palmerpenguins)
 data(penguins)
@@ -599,7 +613,7 @@ glimpse(penguins)
 
 <br>
 
-#### Task: Calculate the mean value of several columns in this data
+Our task is to **calculate the mean value of several columns in this data frame**. We show how to do this without a for loop and with a for loop.
 
 </br>
 
@@ -611,10 +625,10 @@ We can take the `mean()` function, and apply it to each column:
 
 ```{r echo = TRUE, results = "hide"}
 
-penguins %>% summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))
-penguins %>% summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))
-penguins %>% summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))
-penguins %>% summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))
+penguins |> summarize(avg_bill_length = mean(bill_length_mm, na.rm = TRUE))
+penguins |> summarize(avg_bill_depth = mean(bill_depth_mm, na.rm = TRUE))
+penguins |> summarize(avg_flipper_length = mean(flipper_length_mm, na.rm = TRUE))
+penguins |> summarize(avg_body_mass = mean(body_mass_g, na.rm = TRUE))
                        
 ```
 
@@ -635,9 +649,7 @@ This works, but requires a lot of copy/paste! How can we do the same thing with 
 
 First, initialize an empty vector to store the results. 
 
-Second, use a for loop to calculate the mean of each (numeric) column of this penguins dataframe. 
-
-Let's run this code:
+Second, use a for loop to calculate the mean of each (numeric) column of this dataframe: 
 
 ```{r echo = TRUE, results = "hide"}
 
@@ -652,6 +664,12 @@ for (i in seq_along(penguins)) {
 output
 ```
 
+Let's examine this code...
+
+- `i` will index each column
+- `output[i]` saves the results in the output vector at the correct position
+- `penguins[[i]]` ` pulls out the column's values as a plain vector 
+
 <!--
 
 ```r
@@ -665,6 +683,80 @@ for (i in seq_along(penguins)) {
 
 output
 ```
+-->
+
+---
+
+## Why output[i] and penguins[[i]]?
+
+```{r echo = TRUE, results = "hide"}
+
+output <- vector(mode = "double", length = ncol(penguins))
+
+for (i in seq_along(penguins)) {
+  output[i] <- mean(penguins[[i]], na.rm = TRUE)
+}
+
+output
+```
+
+::: {.callout}
+
+**`output` is a vector where we store the loop results:**
+
+- To access elements of a vector, use single square brackets `[]` 
+- So `output[i]` assigns the computed value into the *i-th position* of that vector 
+
+**`penguins` is a dataframe (or tibble):**
+
+- But `mean()` needs a numeric vector  
+- To access a dataframe column *as a vector*, use double brackets `[[]]`  
+- So `penguins[[i]]` gets the *i-th column* of the dataframe, and turns it into a vector 
+
+:::
+
+
+---
+
+## Why output[i] and penguins[[i]]?
+
+```{r echo=TRUE, results="hide"}
+is.vector(penguins[[3]])           # TRUE (the raw vector)
+is.data.frame(penguins[3])         # TRUE (a 1-col tibble/data frame)
+
+mean(penguins[[3]], na.rm = TRUE)  # works, correct type (vector)
+mean(penguins[3], na.rm = TRUE)    # error, wrong type (1-col tibble)
+```
+
+<br>
+
+::: callout 
+
+**With data frames:** `[[ ]]` returns the column itself as a vector, while `[ ]` returns a one-column data frame or tibble
+
+**With vectors:** `[]` and `[[ ]]` behave the same, but is good practice to consistently use `[]` when subsetting vectors 
+
+:::
+
+</br>
+
+<!-- 
+## 💻 Practice Subsetting Data frames 
+
+### Answer these questions:
+
+1. What does `is.vector(penguins[["bill_len"]])` return, and why are there quotation marks around the column name? And what does `penguins[["bill_len"]]` return? 
+
+2. Write code to access the fourth column of the penguins dataset in four ways:
+
+    - By column name, returned as a vector
+    - By index, returned as a vector
+    - By column name, returned as a dataframe
+    - By index, returned as a dataframe
+
+For each object, check its data structure using  `is.vector()` or `is.data.frame()` (which return true or false) or `str()` which provides an overview of the object. 
+
+3. What does `is.vector(penguins[[1]])` return and why the output is not what we expect? What about `is.data.frame(penguins[1])`?
 -->
 
 <!-- 
@@ -684,55 +776,21 @@ If we do proper preallocation: we create a list of 100 empty elements, every tim
 
 The first approach does not preallocate by creating an empty space to store the output, the second does. See the difference in time of execution. From 80 milliseconds to less than 3. So you can see how inefficient is not to allocate since most of our data will have more than 100 rows!
 
-.panelset[
-.panel[.panel-name[Code]
-```r
-# no preallocation
-mpg_no_preall <- tibble()
-for(i in 1:100){
-  mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
-}
-
-# with preallocation using a list
-mpg_preall <- vector(mode = "list", length = 100)
-for(i in 1:100){
-  mpg_preall[[i]] <- mpg
-}
-mpg_preall <- bind_rows(mpg_preall)
-```
-]
-
-.panel[.panel-name[Plot]
-```r
-#| out.width = "70%",
-#| echo = FALSE
-# load microbenchmark library to time code
-library(microbenchmark)
-# bind together 100 copies of mpg
-times <- microbenchmark(
-  `No preallocation` = {
-    mpg_no_preall <- tibble()
-    
-    for(i in 1:100){
-      mpg_no_preall <- bind_rows(mpg_no_preall, mpg)
-    }
-  },
-  `Preallocation` = {
-    mpg_preall <- vector(mode = "list", length = 100)
-    
-    for(i in 1:100){
-      mpg_preall[[i]] <- mpg
-    }
-    
-    mpg_preall <- bind_rows(mpg_preall)
-  }
-)
-autoplot(times)
-```
-]
-]
 -->
 
+---
+
+## Coming Next Week: Beyond For Loops with Data frames
+
+For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.
+
+**But R is a vectorized language**, built to operate on a whole column at once rather than element by element. 
+
+That means it has functions that can do the *same job* as a for loop, just in a way that fits R's strengths better. Next week we'll explore them:
+
+- `across()` (dplyr): apply a function to many columns in one line
+- `map()` (purrr): apply a function to every element of a list or column
+- `apply()` family (base R): the classic vectorized alternative to for loops
 
 ---
 
@@ -743,7 +801,7 @@ autoplot(times)
 - Why it's important to loop over indexes instead of elements when saving or modifying values
 - Common mistakes with loop output and how to fix them
 - Combining if-else statements with for loops
-- Using for Loops within a Dataframes (more on this next time!)
+- Using for Loops in a Dataframes (more on this next lecture!)
 
 ---
 
@@ -751,4 +809,3 @@ autoplot(times)
 
 Click on the icon bottom-left corner (the three lines) \> Tools \> PDF Export Mode \> Print as a Pdf
 
-:::
