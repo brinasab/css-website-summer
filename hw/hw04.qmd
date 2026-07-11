@@ -49,7 +49,7 @@ See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignm
 
 # Assignment Description
 
-In this homework assignment you will practice programming concepts in R that we covered in this module through guided exercises
+In this homework assignment you will practice programming concepts in R that we covered in this module.
 
 ::: {.callout-note}
 
