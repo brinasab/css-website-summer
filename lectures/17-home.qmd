@@ -24,18 +24,30 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Code**: `usethis::use_course("{{< meta url_code >}}")`
 -->
 
+
 ## Learning Objectives
 
-Today, we will review the following topics and answer any questions you may have:
+Today, we will review key topics from Week 4. We will make time to answer questions about Quiz 4 and Homework Assignment 4, and we will still have Poll Everywhere participation questions. 
 
-- Quiz 4 answers
-- Week 4 course content
-- Homework Assignment
+Today, we will also continue with the [online oral checks](oral-home.qmd), which will continue throughout this week. 
 
-Today and throughout this week, we will continue with the in-class oral checks. I will share a sign-up sheet and more details ahead of time.
+Agenda:
+
+1. **Quiz 4 Review**
+2. **Homework 4 Q&A**
+3. **Review Activity** (TBD based on Thursday’s Poll Everywhere survey)
+4. **Class ends at 10:15 AM** (oral code checks begin at 10:15 a.m., see sign up sheet)
+
+
+<!-- 
+For the review activity, we will focus on the top-ranked topics from the Poll Everywhere survey: “looping over elements vs. indexes” (1st), “subsetting data structures” (2nd), and using the `ifelse()` function (3rd). We will use a step-by-step, instructor-led live-coding format—for example, walking through coding problems—which received 62% of the votes in the poll.
+https://www.polleverywhere.com/surveys/UmwQKNgszOnBragoPdgVo
+-->
 
 
 ## Before Class
 
-- Complete Quiz 4
 - Bring any questions you have about the Week 4 materials!
+- **Assignments coming up:**
+  - HW4 is posted on the [Assignments page](https://brinasab.github.io/css-website-summer/hw/), and it is due Friday, July 17th.
+  - Complete Quiz 4 from [Canvas](https://canvas.uchicago.edu/courses/72552). You have unlimited attempts. This is due 1-hour before today's class, no late submissions allowed.
