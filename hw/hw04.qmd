@@ -9,16 +9,16 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Overview
 
-**Due: ~~Thursday, November 20~~ Friday, November 21 by 11:59 PM (Chicago Time)**
+**Due: ~~Thursday, July 16~~ Friday, July 17 (11:59 PM Chicago Time) **
 
-In this last assignment, you will practice the programming techniques from Lectures 10–14 and review core tools from earlier in the course. Part 1 includes guided exercises with a built-in dataset. Part 2 applies and extends those skills in a more realistic social science setting, where you work with many raw CSV files and assemble them into a usable dataset.
+In this last assignment, you will practice the programming techniques learned in class.
 
 
 # Accessing and Cloning Your `hw04` Repository
 
 **Accessing the repo:** 
 
-1. Go at [this link](https://classroom.github.com/a/sG7VKBdb) to accept the invitation and create your private `hw04` repository on GitHub. Your repository will be named `hw04-<USERNAME>` and will be ready within a few seconds. 
+1. Go at [this link](https://classroom.github.com/a/sEo5OPEc) to accept the invitation and create your private `hw04` repository on GitHub. Your repository will be named `hw04-<USERNAME>` and will be ready within a few seconds. 
 
 2. Once the repository has been created, click the link provided to access it.
 
@@ -49,16 +49,9 @@ See [Homework 1](hw01.qmd) for details. The workflow is the same for all assignm
 
 # Assignment Description
 
-This homework assignment has two parts, each with its own Rmd file:
-
-**PART 1:** Practice programming in R by applying the techniques we covered in this module (Lectures 10–14) through guided exercises using a built-in dataset. Use the file `hw4_part1.Rmd`
-
-**PART 2:** Practice programming in R and review previous content (tidyr, dplyr, ggplot2, etc.) using a real, complex social science dataset. Use the file `hw4_part2.Rmd`
-
+In this homework assignment you will practice programming concepts in R that we covered in this module through guided exercises
 
 ::: {.callout-note}
-
-- The questions—especially the open-ended ones—are designed to help you think like a programmer and data analyst. They won’t walk you through every step but encourage you to apply what you’ve learned and work independently. Translating what a question asks into code by breaking it down in smaller pieces is one important learning goal of this course.
 
 - This homework is designed to be completed over multiple sessions—it will feel overwhelming otherwise. Start early, and remember to save, commit, and push your work regularly.
 
@@ -78,17 +71,16 @@ To submit your assignment on Canvas, follow these steps:
 1. Before the deadline, push the final version of your work to your GitHub repository. *Tip:* don’t wait until the end to make your first commit—commit, stage, and push your work regularly as you go.
 
    Your GitHub repository should include (make sure to stage-commit-push all these files):
-   - `hw4_part1.Rmd` and `hw4_part2.Rmd` main files you will work on
-   - `hw4_part1.md` and `hw4_part2.md`: you will generate these file from the `.Rmd` by simply knitting each of them
-   - the folder that contains all the graphs that you generated in your `.Rmd` (we need this to be able to see your graphs and grade your homework)
+   - `programming.Rmd`: main file you will work on
+   - `programming.md`: you will generate this from the `.Rmd` by simply knitting it
+   - the folder that contains the graphs that you generated in your `.Rmd`, if any
 
 2. When you're ready to submit:
-   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-fall25/hw04-yourusername`
+   - Copy the URL of your GitHub repository. It will look something like: `https://github.com/css-sum26/hw04-yourusername`
    - Submit that URL on Canvas under HW04. Do not upload any files to Canvas. We only need the repository link.
 
 
 # Assessment
 
-All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1RAgv09Wn62X7-xsSb5bGBmEqAMFKh_om/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). Refer to it to assess your work before submitting. For more, see the *Assessment* section of the Syllabus.
-
+All homework assignments are evaluated using [this rubric](https://docs.google.com/spreadsheets/d/1gm2bbrG4hriL6Y9XZXZzyn0c_QSCSaLR/edit?usp=sharing&ouid=112534119211880791899&rtpof=true&sd=true). For more, see the *Assessment* section of the Syllabus. 
 
