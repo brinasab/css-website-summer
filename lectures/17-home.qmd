@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * **Date**: {{< meta date >}}
 * **Topics**: {{< meta summary >}}
 * **Slides**: No slides for this session
-* **Code**: No in-class code for this session
+* **Code**: TBD
 
 <!--
 * **Slides**: [View Slides]({{< meta url_slides >}})
@@ -38,9 +38,11 @@ Agenda:
 3. **Review Activity** (TBD based on Thursday’s Poll Everywhere survey)
 4. **Class ends at 10:15 AM** (oral code checks begin at 10:15 a.m., see sign up sheet)
 
+<!--
+For the review activity, we will focus on the top-ranked topics from the Poll Everywhere survey: "looping over elements vs. indexes" (1st), "subsetting data structures" (2nd), and using the ifelse() function (3rd). We will use a step-by-step, instructor-led live-coding format, which received 62% of the votes in the poll. How much time we spend on each topic will be flexible: we'll go deeper wherever your questions take us, so bring them!
+-->
 
-<!-- 
-For the review activity, we will focus on the top-ranked topics from the Poll Everywhere survey: “looping over elements vs. indexes” (1st), “subsetting data structures” (2nd), and using the `ifelse()` function (3rd). We will use a step-by-step, instructor-led live-coding format—for example, walking through coding problems—which received 62% of the votes in the poll.
+<!--
 https://www.polleverywhere.com/surveys/UmwQKNgszOnBragoPdgVo
 -->
 
