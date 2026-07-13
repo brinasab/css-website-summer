@@ -1181,5 +1181,40 @@
     "title": "Computing for the Social Sciences: Lecture 16",
     "section": "Coming Next Week: Beyond For Loops with Data frames",
     "text": "Coming Next Week: Beyond For Loops with Data frames\nFor loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.\nBut R is a VECTORIZED language, built to operate on a whole column at once rather than element by element.\nThat means it has functions that can do the same job as a for loop, just in a way that fits R’s strengths better. Next week we’ll explore them:\n\nacross() (dplyr): apply a function to many columns in one line\nmap() (purrr): apply a function to every element of a list or column\napply() family (base R): the classic vectorized alternative to for loops"
+  },
+  {
+    "objectID": "lectures/18-home.html",
+    "href": "lectures/18-home.html",
+    "title": "Lecture 18: Control Flow with Loops (cont.); Functions",
+    "section": "",
+    "text": "Date: July 14, 2026\nTopics: Finish Loops; Introduce Functions\nSlides: To be posted before class\nCode: To be posted before class"
+  },
+  {
+    "objectID": "lectures/18-home.html#info-and-materials",
+    "href": "lectures/18-home.html#info-and-materials",
+    "title": "Lecture 18: Control Flow with Loops (cont.); Functions",
+    "section": "",
+    "text": "Date: July 14, 2026\nTopics: Finish Loops; Introduce Functions\nSlides: To be posted before class\nCode: To be posted before class"
+  },
+  {
+    "objectID": "lectures/18-home.html#learning-objectives",
+    "href": "lectures/18-home.html#learning-objectives",
+    "title": "Lecture 18: Control Flow with Loops (cont.); Functions",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\nLoops (cont. from last lecture):\n\nReview of using for loops within a data frame\nIdentify and apply alternatives to for loops in R, such as map(), across(), and apply()\nIntroduce while loops\n\nFunctions:\n\nDefine functions and their purposes\n\nUnderstand the difference between built-in and user-written functions\n\nLearn the syntax of user-written functions"
+  },
+  {
+    "objectID": "lectures/18-home.html#before-class",
+    "href": "lectures/18-home.html#before-class",
+    "title": "Lecture 18: Control Flow with Loops (cont.); Functions",
+    "section": "Before class",
+    "text": "Before class\n\nReview Lecture 16\nIf you have not already done so, complete Lecture 17 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 18). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
+  },
+  {
+    "objectID": "lectures/18-home.html#readings",
+    "href": "lectures/18-home.html#readings",
+    "title": "Lecture 18: Control Flow with Loops (cont.); Functions",
+    "section": "Readings",
+    "text": "Readings\n\nLoops: See previous lecture\nFunctions: Chapter 15 “Functions” in “R for Data Science” 2nd Edition"
   }
 ]

@@ -30,7 +30,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 **Loops (cont. from last lecture):**
 
-- Using for loops within a data frame 
+- Review of using for loops within a data frame 
 - Identify and apply alternatives to for loops in R, such as `map()`, `across()`, and `apply()`
 - Introduce while loops
 
@@ -39,6 +39,12 @@ knitr::opts_chunk$set(echo = FALSE)
 - Define functions and their purposes  
 - Understand the difference between built-in and user-written functions  
 - Learn the syntax of user-written functions  
+
+
+## Before class
+
+- Review [Lecture 16](https://brinasab.github.io/css-website-summer/lectures/16-home.html)
+- If you have not already done so, complete Lecture 17 participation questions. You can find them in the Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 18). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
 
 
 ## Readings
