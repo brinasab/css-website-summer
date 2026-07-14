@@ -1,669 +1,1623 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Sabrina Nardin, Summer 2026">
-
-<title>Computing for the Social Sciences: Lecture 18 – css-website=summer</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-</style>
-
-
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<html lang="en"><head>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-4a990d8dcb58f517c7c86712b8f2ac7c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
 
-
-<link rel="stylesheet" href="../style/styles.css">
+  <meta name="author" content="Sabrina Nardin, Summer 2026">
+  <title>css-website=summer – Computing for the Social Sciences: Lecture 18</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-864c5404f4710dceefb0a9fe440f50a1.css">
+  <link rel="stylesheet" href="../style/styles.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
 </head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
 
-<body class="nav-fixed quarto-light">
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Computing for the Social Sciences: Lecture 18</h1>
+  <p class="subtitle">Topics: Control Flow with Loops (cont.); Functions</p>
 
-<div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Computing for the Social Sciences</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../syllabus.html"> 
-<span class="menu-text">Syllabus</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../lectures/index.html"> 
-<span class="menu-text">Lectures</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../hw/index.html"> 
-<span class="menu-text">Assignments</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../setup/index.html"> 
-<span class="menu-text">Software Setup</span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Sabrina Nardin, Summer 2026 
 </div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a>
-  <ul class="collapse">
-  <li><a href="#slides-are-in-progress-and-will-be-updated-before-class." id="toc-slides-are-in-progress-and-will-be-updated-before-class." class="nav-link" data-scroll-target="#slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</a></li>
-  </ul></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="18-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
-    </div>
-<!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Computing for the Social Sciences: Lecture 18</h1>
-<p class="subtitle lead">Topics: Control Flow with Loops (cont.); Functions</p>
+</div>
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Sabrina Nardin, Summer 2026 </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="agenda" class="level1 center">
-<h1 class="center">Agenda</h1>
+</section>
+<section id="agenda" class="title-slide slide level1 center">
+<h1>Agenda</h1>
 <div class="agenda-list">
 <ol type="1">
-<li>Using For Loops with Dataframes</li>
 <li>Alternatives to For Loops in R</li>
 <li>While Loops</li>
 <li>Introduction to Functions</li>
 </ol>
 </div>
-<hr>
-<section id="slides-are-in-progress-and-will-be-updated-before-class." class="level3">
-<h3 class="anchored" data-anchor-id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>July 14, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<!--
 
+---
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+-->
+</section>
+
+<section>
+<section id="alternatives-to-for-loops-in-r" class="title-slide slide level1 center middle">
+<h1>1. Alternatives to For Loops in R</h1>
 
 </section>
+<section id="last-lecture-we-used-a-for-loop-with-a-dataframe" class="slide level2 center">
+<h2>Last Lecture: we used a for loop with a dataframe</h2>
+<p>In <a href="https://brinasab.github.io/css-website-summer/lectures/16-slides.html#/using-for-loops-with-data-frames">lecture 16</a> we learned how to apply a for loop to calculate mean value of several columns in a dataframe. Like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a>output <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="at">mode =</span> <span class="st">"double"</span>, <span class="at">length =</span> <span class="fu">ncol</span>(penguins))</span>
+<span id="cb1-5"><a></a></span>
+<span id="cb1-6"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(penguins)) {</span>
+<span id="cb1-7"><a></a>  <span class="co">#print(i)</span></span>
+<span id="cb1-8"><a></a>  <span class="co">#print(penguins[i])</span></span>
+<span id="cb1-9"><a></a>  output[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(penguins[[i]], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-10"><a></a>}</span>
+<span id="cb1-11"><a></a></span>
+<span id="cb1-12"><a></a>output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s examine this code…</p>
+<ul>
+<li><code>i</code> will index each column</li>
+<li><code>output[i]</code> saves the results in the output vector at the correct position</li>
+<li><code>penguins[[i]]</code> ` pulls out the column’s values as a plain vector</li>
+</ul>
 </section>
+<section id="last-lecture-we-ended-with-this-slide" class="slide level2 center">
+<h2>Last Lecture we ended with this slide</h2>
+<p>For loops make iteration explicit and are an important programming tool. You will encounter them in many programming languages.</p>
+<p><strong>But R is a VECTORIZED language, built to operate on a whole dataframe column at once rather than element by element.</strong></p>
+<p>That means it has functions that can do the <em>same job</em> as a for loop, just in a way that fits R’s strengths better. Next week we’ll explore them:</p>
+<ul>
+<li><code>across()</code> (dplyr): apply a function to many columns in one line</li>
+<li><code>map()</code> (purrr): apply a function to every element of a list or column</li>
+<li><code>apply()</code> family (base R): the classic vectorized alternative to for loops</li>
+</ul>
+</section>
+<section id="why-we-even-learn-loops-in-r" class="slide level2 center">
+<h2>Why We Even Learn Loops in R?</h2>
+<p>Many tasks in R can and should be done <strong>without writing a for loop</strong>.</p>
+<p>So why do we even learn loops in R? Because understanding loops is important:</p>
+<ul>
+<li>to build logic and control flow skills</li>
+<li>for non-vectorized tasks**, like row-by-row operations</li>
+<li>to build more complex workflows</li>
+<li>to be able to read and understand other people code</li>
+<li>for general literacy on programming</li>
+</ul>
+<blockquote>
+<p>Even if you don’t use loops every day, knowing how they work will strengthen your skills as coder.</p>
+</blockquote>
+<!--
 
-</main> <!-- /main -->
+SO WHY A FOR LOOP ?? 
+
+The honest answer for a dataframe-column context is closer to:
+
+1. You'll read loops in other people's/older code, even if you rarely write them yourself for this kind of task — that's a literacy argument, not a capability one.
+
+2. across() only fits when the tidy-select + one-function pattern fits. The moment the task per column is a genuinely custom, multi-step, branching procedure (rather than "apply this one function"), a loop becomes clearer than contorting it into across().
+
+3. The real can't-do-it-with-across() cases tend to live outside single-dataframe, column-independent tasks — R4DS's own examples for "why iterate" are things like reading in many files, fitting many models and saving each one, or writing out many objects — tasks with side effects, not a column transformation.
+
+Given that, I'd suggest replacing the running-total-over-columns slide with something more defensible — want me to draft a slide built around one of R4DS's actual examples (e.g., looping to read/fit/save several things), or would you rather just soften the claim to "loops are the general tool and you'll need to recognize them in the wild," without insisting on a dataframe-specific counterexample?
+
+ALso add example or looping over rows
+
+data <- data.frame(
+  name = c("Alice", "Bob", "Carlos"),
+  score = c(85, 92, 78)
+)
+
+for (i in seq_len(nrow(data))) {
+  print(data[i, ])
+}
+
+-->
+</section>
+<section id="three-main-alternatives-to-for-loops-in-r" class="slide level2 center">
+<h2>Three Main Alternatives to For Loops in R</h2>
+<p><strong>When working with dataframes</strong>, R provides the following alternatives to for loop:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Function Family</th>
+<th>Package</th>
+<th>Best Used For</th>
+<th>Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>map_*()</code></td>
+<td>purrr</td>
+<td>Applying functions to elements of lists or columns</td>
+<td><a href="https://purrr.tidyverse.org/reference/map.html">map docs</a></td>
+</tr>
+<tr class="even">
+<td><code>across()</code></td>
+<td>dplyr</td>
+<td>Applying the same function to multiple columns inside <code>mutate()</code> or <code>summarize()</code></td>
+<td><a href="https://dplyr.tidyverse.org/reference/across.html">across docs</a></td>
+</tr>
+<tr class="odd">
+<td><code>*apply()</code></td>
+<td>base R</td>
+<td>Row/column-wise operations on matrices or data frames</td>
+<td><a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/apply.html">apply docs</a></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>The asterisk <code>*</code> is a placeholder for a family of related functions (e.g., <code>map_dbl()</code>, <code>map_chr()</code>, <code>sapply()</code>, etc.)</p>
+<p><br></p>
+<!--
+1. `map_*()` functions from `purr` <https://purrr.tidyverse.org/reference/map.html>
+2. `across()` function from `dplyr` <https://dplyr.tidyverse.org/reference/across.html>
+3. `*apply()` functions from base R <https://stat.ethz.ch/R-manual/R-devel/library/base/html/apply.html>
+
+The asterisk `*` is a placeholder indicating a *family* of related functions (e.g., `map_dbl()`, `map_chr()`, `sapply()`, etc.).
+
+- Use the `map_*()` functions from the *purrr* package for flexible iteration  
+- Use `across()` with `summarize()` or `mutate()` for column-wise operations  
+- Use `apply()` to iterate over rows or columns in a matrix or data frame
+-->
+</section>
+<section id="option-1-replacing-for-loops-with-map-functions" class="slide level2 center">
+<h2>Option 1: Replacing for loops with map() functions</h2>
+<!-- INTRO: 
+As we have seen in the slides and practice, we have to write a lot of code for a for loop, for example to calculate a straightforward operation like the mean or median etc. so R gives us a shortcut: map functions which come from the purrr package in R and are much more compact (go to the documentation page)
+-->
+<p><strong>The first option to replace a for loop is the family of <code>map_*()</code> functions from the <code>purrr</code> package.</strong></p>
+<p><strong>What it does:</strong> applies a function to each element of a list or vector (for a data frame: each column), and returns the results in the type of output you choose</p>
+<p><strong>Best use:</strong> flexible, all-purpose iteration; unlike <code>across()</code>, it does not need to live inside a <code>dplyr</code> verb like <code>summarize()</code> or <code>mutate()</code></p>
+</section>
+<section id="option-1-replacing-for-loops-with-map-functions-1" class="slide level2 center">
+<h2>Option 1: Replacing for loops with map() functions</h2>
+<p>The so-called “map functions” come from the <code>purr</code> package in R: <a href="https://purrr.tidyverse.org/reference/map.html" class="uri">https://purrr.tidyverse.org/reference/map.html</a></p>
+<p><strong>There are several <code>map_*()</code> functions</strong> each creates a different type of output:</p>
+<ul>
+<li><code>map()</code> makes a list</li>
+<li><code>map_lgl()</code> makes a logical vector</li>
+<li><code>map_int()</code> makes an integer vector</li>
+<li><code>map_dbl()</code> makes a double vector</li>
+<li><code>map_chr()</code> makes a character vector</li>
+</ul>
+<p>This is the same idea as in the <code>for loop</code> when we specify the <code>mode</code> of our output vector.</p>
+<p>Let’s see a few examples using the <code>penguins</code> data.</p>
+</section>
+<section id="option-1-replacing-for-loops-with-map-functions-2" class="slide level2 center">
+<h2>Option 1: Replacing for loops with map() functions</h2>
+<p>To use these properly, you need to pick the appropriate <code>map()</code> function (see previous slide) and specify at least two main arguments:</p>
+<ul>
+<li>what you are iterating over</li>
+<li>what you are calculating</li>
+</ul>
+<p>Here we are calculating the mean of all numeric columns of the penguins dataframe:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a></a>  <span class="fu">map_dbl</span>(mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>what does <code>select(where(is.numeric))</code> do? And why we picked <code>map_dbl()</code> here?</p>
+<!-- 
+answers:
+- we are selecting only numeric columns
+- expect mean to have numbers afer comma
+also note:
+everything easier than a loop to both write and understand 
+operates well with dplyr -->
+</section>
+<section id="option-1-practice-using-functions-from-the-map-family" class="slide level2 center">
+<h2>💻 Option 1 Practice: using functions from the map family</h2>
+<p>Copy and paste this code (from the previous slide) into R and run it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb3-3"><a></a></span>
+<span id="cb3-4"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb3-5"><a></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)) <span class="sc">|&gt;</span></span>
+<span id="cb3-6"><a></a>  <span class="fu">map_dbl</span>(mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Your tasks:</strong></p>
+<ol type="1">
+<li>Modify the code to compute the <em>median</em> (instead of the mean) of each numeric column</li>
+<li>In the original code, replace <code>map_dbl()</code> with <code>map()</code>. What changes in the output?</li>
+</ol>
+<!--
+```
+# 1. median of each numeric column
+penguins |> 
+  select(where(is.numeric)) |>
+  map_dbl(median, na.rm = TRUE)
+  
+# 2. map() returns a list, map_dbl() returns a named double vector
+penguins |> 
+  select(where(is.numeric)) |>
+  map(mean, na.rm = TRUE)
 
 
-<script>
+SKIPPED THIS 
 
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+3. Challenge: Use a map function to count the *number of missing values (`NA`) every column* of `penguins`. Hint: `sum(is.na(.x))` counts the `NA`s in a column; which `map_*()` variant returns integers?
+  
+# 3. number of NAs in every column (integers, so map_int)
+penguins |> 
+  map_int(~ sum(is.na(.x)))
 
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+# or "col" is just a name we choose: it stands for the current column
+penguins |> 
+  map_int(function(col) sum(is.na(col)))
+  
+"Count the NAs" is not one existing function — it's two chained together: is.na() then sum()
+Since there's no built-in function to name, you write the recipe yourself
+In the shorthand: ~ means "here comes a mini-function," and .x is the placeholder for the current column (it plays the same role as col in the explicit version)
+  
+```
+-->
+</section>
+<section id="option-2-replacing-for-loops-with-across" class="slide level2 center">
+<h2>Option 2: Replacing for loops with across()</h2>
+<p><strong>Another option to replace a for loop is the <code>across()</code> function from <code>dplyr</code></strong></p>
+<p><strong>What it does:</strong> applies the same operation (e.g., mean) to multiple columns at once</p>
+<p><strong>Best use:</strong> since it comes from <code>dplyr</code>, it works seamlessly inside <code>dplyr</code> verbs like <code>mutate()</code> and <code>summarize()</code> which these are its favorite verbs to work with! You might remember this function from <a href="https://brinasab.github.io/css-website-summer/lectures/07-slides.html#/across">Lecture 7</a></p>
+</section>
+<section id="option-2-replacing-for-loops-with-across-1" class="slide level2 center">
+<h2>Option 2: Replacing for loops with across()</h2>
+<p>This example calculates the mean of several columns in a data frame. We used it in Lecture 16, when we rewrote it using a for loop:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_bill_length =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-2"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_bill_depth =</span> <span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-3"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-4"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, we rewrite it again but this time using <code>across()</code></p>
+</section>
+<section id="option-2-replacing-for-loops-with-across-2" class="slide level2 center">
+<h2>Option 2: Replacing for loops with across()</h2>
+<p>Rewrite previous example using <code>across()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb5-3"><a></a>    <span class="fu">across</span>(</span>
+<span id="cb5-4"><a></a>      <span class="at">.cols =</span> <span class="fu">where</span>(is.numeric),           <span class="co"># select columns by type</span></span>
+<span id="cb5-5"><a></a>      <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))    <span class="co"># apply mean, skipping NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>The function <code>across()</code> has two main arguments:</strong></p>
+<ul>
+<li><p><strong><code>.cols</code></strong>: the columns to operate on. You can select them by position, name, or type - in this example, by type using <code>where(is.numeric)</code></p></li>
+<li><p><strong><code>.fns</code></strong>: the function, or list of functions, to apply to each column (in this example, we use <code>mean()</code> and <code>.x</code> is a placeholder for the current column being processed)</p></li>
+</ul>
+<p>You can omit <code>.cols</code> and <code>.fns</code> if you pass the arguments in the correct order, like that: <code>penguins |&gt; summarize(across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))</code></p>
+<!--
+TEACHING INSIGHT
 
-  // slide changes (different for each slide format).
+penguins |> 
+  summarize(across(where(is.numeric), mean)) |>   # works! (but NAs give NA results)
+  print(width = Inf)
+  
+"In across(), the moment your function needs any extra argument (like na.rm = TRUE), you must wrap it: ~ mean(.x, na.rm = TRUE). Passing the argument loose after the function name is the old way and is now deprecated. In map(), both styles still work
+-->
+<p><br></p>
+</section>
+<section id="option-2-replacing-for-loops-with-across-3" class="slide level2 center">
+<h2>Option 2: Replacing for loops with across()</h2>
+<p><em>Tip:</em> you can also add names to the newly computed means to improve readabilty</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb6-3"><a></a>    <span class="fu">across</span>(</span>
+<span id="cb6-4"><a></a>      <span class="at">.cols =</span> <span class="fu">where</span>(is.numeric),                   </span>
+<span id="cb6-5"><a></a>      <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),             </span>
+<span id="cb6-6"><a></a>      <span class="at">.names =</span> <span class="st">"avg_{.col}"</span>                   </span>
+<span id="cb6-7"><a></a>    )</span>
+<span id="cb6-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><strong>What does <code>\"avg_{.col}\"</code> mean?</strong></p>
+<ul>
+<li><code>"avg_"</code> is a literal prefix that will be added to each new column name.<br>
+</li>
+<li><code>{.col}</code> is a placeholder that will be replaced with the original column name.</li>
+</ul>
+<p>So if you’re applying <code>mean()</code> to a column named <code>bill_length_mm</code>, the result will be named <code>avg_bill_length_mm</code></p>
+<p><br></p>
+</section>
+<section id="option-2-practice-using-across" class="slide level2 center">
+<h2>💻 Option 2 Practice: using across</h2>
+<p>Copy and paste this code (from the previous slide) into R and run it:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a></a>  <span class="fu">summarize</span>(</span>
+<span id="cb7-3"><a></a>    <span class="fu">across</span>(</span>
+<span id="cb7-4"><a></a>      <span class="at">.cols =</span> <span class="fu">where</span>(is.numeric),                   </span>
+<span id="cb7-5"><a></a>      <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),             </span>
+<span id="cb7-6"><a></a>      <span class="at">.names =</span> <span class="st">"avg_{.col}"</span>                   </span>
+<span id="cb7-7"><a></a>    )</span>
+<span id="cb7-8"><a></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Your tasks:</strong></p>
+<ol type="1">
+<li>Compute these means <strong>separately for each species</strong>. Hint: add one <code>dplyr</code> verb before <code>summarize()</code></li>
+<li>Change the code to compute the <strong>median</strong>, and rename the new columns <code>"med_{.col}"</code></li>
+<li>Bonus: apply the mean only to the columns whose name <strong>ends with <code>"_mm"</code></strong>. Hint: Select columns by name patterns instead of type with <code>ends_with()</code> in <code>.cols</code></li>
+</ol>
+<!--  SOLUTIONS 
+# 1. and 2. median by species, with new names
+penguins |> 
+  group_by(species) |>
+  summarize(
+    across(
+      .cols = where(is.numeric),
+      .fns = ~ median(.x, na.rm = TRUE),
+      .names = "med_{.col}"
+    )
+  )
 
-  (function () {
-
-    // dispatch for htmlwidgets
-
-    function fireSlideEnter() {
-
-      const event = window.document.createEvent("Event");
-
-      event.initEvent("slideenter", true, true);
-
-      window.document.dispatchEvent(event);
-
-    }
+# 3. select columns by name pattern instead of type
+penguins |> 
+  summarize(
+    across(
+      .cols = ends_with("_mm"),
+      .fns = ~ mean(.x, na.rm = TRUE),
+      .names = "avg_{.col}"
+    )
+  )
 
 
+FOR FUTURE: add one practice with across and filter + if_any()
 
-    function fireSlideChanged(previousSlide, currentSlide) {
+-->
+</section>
+<section id="option-3-replacing-for-loops-with-apply-functions" class="slide level2 center">
+<h2>Option 3: Replacing for loops with apply() functions</h2>
+<p><strong>Finally, a third option to replace a for loop in R is using one of the <code>apply()</code> functions from base R</strong></p>
+<p><strong>What it does:</strong> applies the same operation (e.g., mean) across the rows or the columns of a data frame</p>
+<p><strong>Best use:</strong> when working outside tidyverse verbs (this is from base R!); applying a function across columns is the most common use</p>
+</section>
+<section id="option-3-replacing-for-loops-with-apply-functions-1" class="slide level2 center">
+<h2>Option 3: Replacing for loops with apply() functions</h2>
+<p>We looked at this example earlier (which calculates the mean of several columns in a data frame) and rewrote it using a <code>for</code> loop. Now we rewrite it again but this time using <code>apply()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_bill_length =</span> <span class="fu">mean</span>(bill_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-2"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_bill_depth =</span> <span class="fu">mean</span>(bill_depth_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-3"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_flipper_length =</span> <span class="fu">mean</span>(flipper_length_mm, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-4"><a></a>penguins <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg_body_mass =</span> <span class="fu">mean</span>(body_mass_g, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="option-3-replacing-for-loops-with-apply-functions-2" class="slide level2 center">
+<h2>Option 3: Replacing for loops with apply() functions</h2>
+<p>Rewrite the previous example using <code>apply()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># manually select only numeric column using base R syntax</span></span>
+<span id="cb9-2"><a></a>penguins_numeric <span class="ot">&lt;-</span> penguins[ , <span class="fu">c</span>(<span class="st">"bill_length_mm"</span>, <span class="st">"bill_depth_mm"</span>, </span>
+<span id="cb9-3"><a></a>                                  <span class="st">"flipper_length_mm"</span>, <span class="st">"body_mass_g"</span>)]</span>
+<span id="cb9-4"><a></a></span>
+<span id="cb9-5"><a></a><span class="co"># apply mean to these columns</span></span>
+<span id="cb9-6"><a></a><span class="fu">apply</span>(penguins_numeric, <span class="dv">2</span>, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note the <code>2</code> stays for <code>MARGIN = 2</code> (apply on the columns). If you write 1 it means rows.</p>
+<p>Type <code>?apply</code> in your Console for more info.</p>
+</section>
+<section id="option-3-replacing-for-loops-with-apply-functions-3" class="slide level2 center">
+<h2>Option 3: Replacing for loops with apply() functions</h2>
+<p>The <code>apply()</code> family refers to several related functions you can use:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 7%">
+<col style="width: 31%">
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Use Case</th>
+<th>Input Type</th>
+<th>Output Type</th>
+<th>Why Use It</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>apply()</code></td>
+<td>Apply a function across <strong>rows or columns</strong></td>
+<td>Matrix, data frame</td>
+<td>Vector or matrix</td>
+<td>For row/column-wise operations</td>
+</tr>
+<tr class="even">
+<td><code>lapply()</code></td>
+<td>Apply a function to <strong>each element</strong></td>
+<td>List, data frame</td>
+<td>List</td>
+<td>Keeps outputs as list (safe, flexible)</td>
+</tr>
+<tr class="odd">
+<td><code>sapply()</code></td>
+<td>Like <code>lapply()</code> but <strong>simplifies</strong> output</td>
+<td>List, data frame</td>
+<td>Vector or matrix</td>
+<td>Shorter output, easier to read</td>
+</tr>
+<tr class="even">
+<td><code>vapply()</code></td>
+<td>Like <code>sapply()</code>, but <strong>requires output type</strong></td>
+<td>List, data frame</td>
+<td>Vector or matrix</td>
+<td>Safer than <code>sapply()</code> (explicit type checking)</td>
+</tr>
+<tr class="odd">
+<td><code>tapply()</code></td>
+<td>Apply a function to <strong>vector values by group</strong></td>
+<td>Vector + Factor(s)</td>
+<td>Vector</td>
+<td>For group-wise summaries (e.g., mean by sex)</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>You don’t need to memorize each one — but remember there are multiple <code>apply()</code> options (like there are multiple <code>map()</code> options). Look them up and pick the one that fits your task!</p>
+<p><br></p>
+</section>
+<section id="option-3-replacing-for-loops-with-apply-functions-4" class="slide level2 center">
+<h2>Option 3: Replacing for loops with apply() functions</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Use numeric columns from penguins dataset</span></span>
+<span id="cb10-2"><a></a>num_data <span class="ot">&lt;-</span> penguins[ , <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb10-3"><a></a></span>
+<span id="cb10-4"><a></a><span class="co"># apply(): function across columns (MARGIN = 2)</span></span>
+<span id="cb10-5"><a></a><span class="fu">apply</span>(num_data, <span class="dv">2</span>, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-6"><a></a></span>
+<span id="cb10-7"><a></a><span class="co"># lapply(): list output</span></span>
+<span id="cb10-8"><a></a><span class="fu">lapply</span>(num_data, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-9"><a></a></span>
+<span id="cb10-10"><a></a><span class="co"># sapply(): simplified vector output</span></span>
+<span id="cb10-11"><a></a><span class="fu">sapply</span>(num_data, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-12"><a></a></span>
+<span id="cb10-13"><a></a><span class="co"># vapply(): safe version of sapply()</span></span>
+<span id="cb10-14"><a></a><span class="fu">vapply</span>(num_data, mean, <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">FUN.VALUE =</span> <span class="fu">numeric</span>(<span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tips for the <code>apply()</code> Family</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><code>apply()</code> works best with <strong>matrix-like</strong> structures<br>
+</li>
+<li><code>lapply()</code> is <strong>list-safe</strong>, but <code>sapply()</code> is more <strong>concise</strong></li>
+<li><code>vapply()</code> avoids surprises (e.g.&nbsp;unpredictable output type) by <strong>enforcing output type</strong> (here returns a single numeric value)</li>
+</ul>
+</div>
+</div>
+</div>
+<!--
+The "surprises" are sapply()'s unpredictable output type. 
+sapply() tries to guess how to simplify its result, and what you get back depends on the data:
 
-      fireSlideEnter();
+If every element returns one value → you get a vector
+If every element returns the same number of values (>1) → you get a matrix
+If elements return different lengths → simplification fails silently and you get a list (same as lapply())
+-->
+</section>
+<section id="option-3-practice-using-functions-from-the-apply-family" class="slide level2 center">
+<h2>💻 Option 3 Practice: using functions from the apply family</h2>
+<p>Copy and paste this code into your script and run it:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>num_data <span class="ot">&lt;-</span> penguins[ , <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>]</span>
+<span id="cb11-2"><a></a><span class="fu">sapply</span>(num_data, median, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Your tasks:</strong></p>
+<ol type="1">
+<li>Rewrite the code above using <code>lapply()</code>. How is the output different?</li>
+<li>A common pitfall! Run <code>apply()</code> on the <strong>full</strong> dataset: <code>apply(penguins, 2, mean, na.rm = TRUE)</code>. What do you get, and why? Hint: <code>apply()</code> first converts its input to a <strong>matrix</strong>, and a matrix can hold only <strong>one</strong> data type. What happens when a data frame mixes numbers and text?</li>
+</ol>
+<!-- SOLUTIONS
+
+```r
+# 1. lapply() returns a list (one element per column),
+#    while sapply() simplifies the result to a named vector
+lapply(num_data, median, na.rm = TRUE)
+
+# 2. every column comes back NA (with warnings!)
+apply(penguins, 2, mean, na.rm = TRUE)
+```
+
+**Why task 2 fails:** `penguins` mixes numeric and non-numeric columns (e.g., `species`, `island`). When `apply()` converts it to a matrix, *everything* is coerced to character, and `mean()` of a character vector returns `NA` with a warning.
+
+**Takeaway:** with data frames of mixed types, select the numeric columns first — or use `sapply()`/`lapply()`, which work column by column without converting to a matrix.
+-->
+</section></section>
+<section>
+<section id="while-loops" class="title-slide slide level1 center middle">
+<h1>2. While Loops</h1>
+
+</section>
+<section id="definition-of-while-loops" class="slide level2 center">
+<h2>Definition of While Loops</h2>
+<p>We focused on “for loops” because they are the most common, but R, and many other programming languages, also supports “while loops”</p>
+<p><strong>How while loops work:</strong></p>
+<ul>
+<li>Evaluate a condition</li>
+<li>If the condition is <code>TRUE</code>, run the loop body</li>
+<li>Start over: re-evaluate the condition</li>
+<li>Repeat until the condition turns into <code>FALSE</code> (then the while loop is over)</li>
+</ul>
+</section>
+<section id="while-loop-syntax" class="slide level2 center">
+<h2>While Loop Syntax</h2>
+<p>Syntax:</p>
+<pre><code>while (condition to be evaluated) {
+  statement(s)
+}</code></pre>
+<p>Example:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb13-2"><a></a></span>
+<span id="cb13-3"><a></a><span class="cf">while</span>(counter <span class="sc">&lt;=</span> <span class="dv">4</span>) {</span>
+<span id="cb13-4"><a></a>  <span class="fu">print</span>(counter)</span>
+<span id="cb13-5"><a></a>  counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb13-6"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--  TEACHING NOTES
+set the counter outside the loop, usually to 1
+set a condition to be evaluated: here the condition says the counter has to be smaller or equal to 4
+if the condition is TRUE, the loop is executed, here we only print(counter)
+thus the first time it prints 1
+but if we leave it as it is (without the last line of code), the while loops will keep going infinitely: we need a way to break the loop
+thus we increment our counter inside the loop by redefining it as counter + 1
+-->
+</section>
+<section id="while-loop-examples" class="slide level2 center">
+<h2>While Loop Examples</h2>
+<p>Take the previous code, but this time print <code>counter</code> also at the end:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb14-2"><a></a></span>
+<span id="cb14-3"><a></a><span class="cf">while</span>(counter <span class="sc">&lt;=</span> <span class="dv">3</span>) {</span>
+<span id="cb14-4"><a></a>  <span class="fu">print</span>(counter)</span>
+<span id="cb14-5"><a></a>  counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb14-6"><a></a>  <span class="fu">print</span>(counter)</span>
+<span id="cb14-7"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Why are the results different from the previous code?</p>
+</section>
+<section id="while-loop-examples-1" class="slide level2 center">
+<h2>While Loop Examples</h2>
+<p>Take the previous code, but this time we do not increment our <code>counter</code> variable. What is the output of this code?</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb15-2"><a></a><span class="cf">while</span>(counter <span class="sc">&lt;</span> <span class="dv">3</span>){</span>
+<span id="cb15-3"><a></a>  <span class="fu">print</span>(counter)</span>
+<span id="cb15-4"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="while-loop-examples-2" class="slide level2 center">
+<h2>While Loop Examples</h2>
+<p>Observe this last one. What is the output of this code?</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>counter <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb16-2"><a></a><span class="cf">while</span>(counter <span class="sc">&lt;</span> <span class="dv">4</span>){</span>
+<span id="cb16-3"><a></a>  <span class="fu">print</span>(counter)</span>
+<span id="cb16-4"><a></a>  multiply <span class="ot">&lt;-</span> counter <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb16-5"><a></a>  <span class="fu">print</span>(multiply)</span>
+<span id="cb16-6"><a></a>  counter <span class="ot">&lt;-</span> counter <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb16-7"><a></a>  <span class="fu">print</span>(counter)</span>
+<span id="cb16-8"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="while-loop-uses" class="slide level2 center">
+<h2>While Loop Uses</h2>
+<p>While Loops are useful <strong>when you don’t know in advance how many times to iterate:</strong> you want the loop to continue <strong>until a condition is met.</strong></p>
+<h4 id="example-use-cases">Example use cases:</h4>
+<ul>
+<li>Keep looping until you get three heads in a row from random coin flips<br>
+</li>
+<li>Keep accepting user input until you reach a target number of responses</li>
+</ul>
+<p>While loops typically require a <strong>counter variable</strong>: set it <em>outside</em> the loop, and update it <em>inside</em> the loop, otherwise the loop never ends.</p>
+<p>While loops are important but less common than for loops, especially for the types of tasks we do in this course.</p>
+</section></section>
+<section>
+<section id="introduction-to-functions" class="title-slide slide level1 center middle">
+<h1>3. Introduction to Functions</h1>
+
+</section>
+<section id="from-using-to-writing-functions" class="slide level2 center">
+<h2>From using to writing functions</h2>
+<p>Today we learn the following concepts:</p>
+<ul>
+<li>Using existing functions</li>
+<li>Writing your own function</li>
+<li>The return statement</li>
+<li>stop()</li>
+</ul>
+</section>
+<section id="using-existing-functions" class="slide level2 center">
+<h2>Using existing functions</h2>
+<p>Functions are all over R! We have been <strong>using functions</strong> from day 1 of this course. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb17-2"><a></a>a</span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a><span class="fu">sum</span>(a)</span>
+<span id="cb17-5"><a></a><span class="fu">mean</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-is-a-function" class="slide level2 center">
+<h2>What is a function?</h2>
+<p>A function:</p>
+<ul>
+<li><p>is a block of code that accomplishes a task</p></li>
+<li><p>has a name that typically describes the task, like <code>sum()</code> or <code>mean()</code></p></li>
+<li><p>takes one or more inputs arguments), processes them, and returns one or more outputs</p></li>
+</ul>
+</section>
+<section id="using-existing-functions-1" class="slide level2 center">
+<h2>Using existing functions</h2>
+<p>To <strong>use</strong> a function, we need to know its arguments.</p>
+<p>In the console, type <code>help()</code> with the function’s name in parenthesis to learn more about a function behavior and its arguments:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">help</span>(sum)</span>
+<span id="cb18-2"><a></a><span class="fu">help</span>(mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- mean(c(100, 1, 2, 3, 4, 5, 100, trim = 0.1)) -->
+<p>Some functions come from base R, like <code>sum()</code> or <code>mean()</code></p>
+<p>Other functions belong to specific packages, like <code>summarize()</code> or <code>mutate()</code> which belong to <code>dplyr</code></p>
+</section>
+<section id="writing-custom-functions" class="slide level2 center">
+<h2>Writing custom functions</h2>
+<p>Other than <strong>using</strong> functions created by others, we can also <strong>write our own functions!</strong></p>
+<p>To do that we need the following:</p>
+<ul>
+<li><strong>name</strong>: something that describes the task that the function performs</li>
+<li><strong>arguments (input)</strong>: at least one data structure (e.g., vector, etc.)</li>
+<li><strong>body</strong>: self-contained lines of code that manipulate the input, defining what the function does</li>
+<li><strong>return (output):</strong> statement that returns the result of the function’s calculations</li>
+</ul>
+<p>Syntax:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>name <span class="ot">&lt;-</span> <span class="cf">function</span>(arg1, arg2, ...) { </span>
+<span id="cb19-2"><a></a>    result <span class="ot">&lt;-</span> body with code that does things using arg1, arg2, etc.</span>
+<span id="cb19-3"><a></a>    <span class="fu">return</span>(result)</span>
+<span id="cb19-4"><a></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+Note: 
+* we can assign the function to a named object like any other object
+* typically the body is multiple lines with multiple intermediate variables
+-->
+</section>
+<section id="writing-custom-functions-1" class="slide level2 center">
+<h2>Writing custom functions</h2>
+<p>In R we can also write our own function!</p>
+<p>For example, we could <strong>write our own sum function</strong> to calculate the sum of the elements of a numeric vector, like this:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb20-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb20-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb20-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb20-5"><a></a>  }</span>
+<span id="cb20-6"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb20-7"><a></a>}</span>
+<span id="cb20-8"><a></a></span>
+<span id="cb20-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb20-10"><a></a><span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s unpack this code…</p>
+</section>
+<section id="writing-custom-functions-2" class="slide level2 center">
+<h2>Writing custom functions</h2>
+<p><strong>Tip!</strong> Write and test the code outside a function to make sure it works, like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb21-2"><a></a></span>
+<span id="cb21-3"><a></a>total <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># start with zero, we'll add elements to this</span></span>
+<span id="cb21-4"><a></a></span>
+<span id="cb21-5"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb21-6"><a></a>  total <span class="ot">&lt;-</span> total <span class="sc">+</span> x[i]  <span class="co"># add the i-th value of x to total</span></span>
+<span id="cb21-7"><a></a>}</span>
+<span id="cb21-8"><a></a></span>
+<span id="cb21-9"><a></a>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then wrap the code into a function and test it again with different inputs:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb22-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb22-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb22-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb22-5"><a></a>  }</span>
+<span id="cb22-6"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb22-7"><a></a>}</span>
+<span id="cb22-8"><a></a></span>
+<span id="cb22-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>)</span>
+<span id="cb22-10"><a></a><span class="fu">my_sum</span>(<span class="at">vector =</span> x)</span>
+<span id="cb22-11"><a></a></span>
+<span id="cb22-12"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>)</span>
+<span id="cb22-13"><a></a><span class="fu">my_sum</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- LET'S STOP A SECOND AN UNPACK THIS CODE! DO THIS ON WORKBENCH. SEE code lecture13_functions.Rmd -->
+</section>
+<section id="writing-custom-functions-3" class="slide level2 center">
+<h2>Writing custom functions</h2>
+<p>To use a function, we need to <strong>call it</strong> with specific values.</p>
+<p>Our custom function <code>my_sum()</code> takes one argument, <code>vector</code>. When we call the function, this will be a specific vector, such as <code>x</code>, <code>y</code>, etc.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb23-2"><a></a><span class="fu">my_sum</span>(<span class="at">vector =</span> x)</span>
+<span id="cb23-3"><a></a></span>
+<span id="cb23-4"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">3</span>,<span class="dv">7</span>)</span>
+<span id="cb23-5"><a></a><span class="fu">my_sum</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="advantages-of-writing-custom-functions" class="slide level2 center">
+<h2>Advantages of writing custom functions</h2>
+<p>We wrote a sum function to illustrate how user-written functions work, but typically if there is already a built-in function in R , it’s best to use it (vs.&nbsp;rewriting it)</p>
+<p><strong>Instead write your own function when…</strong></p>
+<ul>
+<li><p>there is no a built-in function</p></li>
+<li><p>you want to reduce repetitive code and chances for mistakes</p></li>
+<li><p>you want to reuse code</p></li>
+<li><p>you want organize code (e.g., one function imports the data, another cleans the data, etc.)</p></li>
+</ul>
+</section>
+<section id="tips-for-writing-functions-name" class="slide level2 center">
+<h2>Tips for writing functions: name</h2>
+<p>Use <strong>unique names</strong>:</p>
+<ul>
+<li>If your function name matches the name of an existing R function, your function will replace the existing function for your current session (e.g., write <code>my_sum</code>, do not re-write <code>sum</code>)</li>
+<li>Unless there is a specific reason (e.g.&nbsp;learning purposes, etc.), do not create a new function like <code>my_sum()</code> when R already has a built-in <code>sum()</code> function you can use</li>
+</ul>
+<p>Use <strong>informative names</strong>:</p>
+<ul>
+<li>The name should suggest what the function does</li>
+<li>It should be short</li>
+<li>Avoid reserved words like <code>if</code>, <code>else</code>, <code>for</code>, <code>function</code>, etc. To see the full list: type <code>help(reserved)</code> in the Console</li>
+</ul>
+</section>
+<section id="tips-for-writing-functions-variables-scope" class="slide level2 center">
+<h2>Tips for writing functions: variables scope</h2>
+<p>Variables defined inside a function are <strong>not available outside it.</strong> Their scope lies within and is limited to the function itself.</p>
+<p>Run this in a fresh R session: <code>total</code> exists only <em>inside</em> <code>my_sum()</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb24-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb24-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb24-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb24-5"><a></a>  }</span>
+<span id="cb24-6"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb24-7"><a></a>}</span>
+<span id="cb24-8"><a></a></span>
+<span id="cb24-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb24-10"><a></a><span class="fu">my_sum</span>(x)</span>
+<span id="cb24-11"><a></a>total   <span class="co"># Error: object 'total' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-return-statements" class="slide level2 center">
+<h2>The return statement(s)</h2>
+<p>If you do not write a <code>return</code> statement, your output will be the last statement in your code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb25-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb25-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb25-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb25-5"><a></a>  }</span>
+<span id="cb25-6"><a></a>  total</span>
+<span id="cb25-7"><a></a>}</span>
+<span id="cb25-8"><a></a></span>
+<span id="cb25-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb25-10"><a></a><span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This works, but it’s best practice to use <code>return</code> statements for code clarity and readability. <strong>Remember that any code after <code>return</code> will be ignored!</strong> Let’s see a couple of examples…</p>
+</section>
+<section id="write-multiple-return-statements-example-1" class="slide level2 center">
+<h2>Write multiple return statements: Example 1</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>describe_number <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb26-2"><a></a>  <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb26-3"><a></a>    <span class="fu">return</span>(<span class="st">"x is zero (special case!)"</span>)</span>
+<span id="cb26-4"><a></a>  }</span>
+<span id="cb26-5"><a></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb26-6"><a></a>    <span class="fu">return</span>(<span class="st">"x is positive"</span>)</span>
+<span id="cb26-7"><a></a>  } <span class="cf">else</span> {</span>
+<span id="cb26-8"><a></a>    <span class="fu">return</span>(<span class="st">"x is negative"</span>)</span>
+<span id="cb26-9"><a></a>  }</span>
+<span id="cb26-10"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="write-multiple-return-statements-example-2" class="slide level2 center">
+<h2>Write multiple return statements: Example 2</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb27-2"><a></a>  </span>
+<span id="cb27-3"><a></a>  <span class="co"># check 1: input must not be missing</span></span>
+<span id="cb27-4"><a></a>  <span class="cf">if</span> (<span class="fu">missing</span>(vector)) {</span>
+<span id="cb27-5"><a></a>    <span class="fu">return</span>(<span class="st">"Error: you must provide a vector"</span>)</span>
+<span id="cb27-6"><a></a>  }</span>
+<span id="cb27-7"><a></a>  </span>
+<span id="cb27-8"><a></a>  <span class="co"># check 2: input must be numeric</span></span>
+<span id="cb27-9"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(vector)) {</span>
+<span id="cb27-10"><a></a>    <span class="fu">return</span>(<span class="st">"Error: input must be a numeric vector"</span>)</span>
+<span id="cb27-11"><a></a>  }</span>
+<span id="cb27-12"><a></a>  </span>
+<span id="cb27-13"><a></a>  <span class="co"># compute the sum</span></span>
+<span id="cb27-14"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-15"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb27-16"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb27-17"><a></a>  }</span>
+<span id="cb27-18"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb27-19"><a></a>}</span>
+<span id="cb27-20"><a></a></span>
+<span id="cb27-21"><a></a><span class="co"># examples</span></span>
+<span id="cb27-22"><a></a><span class="fu">my_sum</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>))</span>
+<span id="cb27-23"><a></a><span class="fu">my_sum</span>(<span class="fu">c</span>(<span class="st">"one"</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb27-24"><a></a><span class="fu">my_sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Questions:</strong> Why we do not write the “else” in this example? Can you do the same with the previous one?</p>
+</section>
+<section id="write-one-return-statement-with-multiple-outputs" class="slide level2 center">
+<h2>Write one return statement with multiple outputs</h2>
+<p>Sometimes you want to return multiple objects and collect them into a list or a vector:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb28-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb28-3"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb28-4"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb28-5"><a></a>  }</span>
+<span id="cb28-6"><a></a>  <span class="fu">return</span>(<span class="fu">list</span>(total, i))</span>
+<span id="cb28-7"><a></a>}</span>
+<span id="cb28-8"><a></a></span>
+<span id="cb28-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
+<span id="cb28-10"><a></a>y <span class="ot">&lt;-</span> <span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Questions:</strong> Can we return a vector rather than list here? How? Why a list would generally be a better choice when your function returns multiple objects?</p>
+<!-- stop here change to vector with c() and return different elements with y[1] and y[2] change back to list and return different elements again -->
+</section>
+<section id="using-stop-when-writing-a-function" class="slide level2 center">
+<h2>Using stop() when writing a function</h2>
+<p>Define a function <code>celsius_to_fahr()</code> that converts temperatures from Celsius to Fahrenheit using the formula <code>fahrenheit = (celsius * 9/5) + 32</code></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>celsius_to_fahr <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
+<span id="cb29-2"><a></a>  fahr <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb29-3"><a></a>  <span class="fu">return</span>(fahr)</span>
+<span id="cb29-4"><a></a>}</span>
+<span id="cb29-5"><a></a></span>
+<span id="cb29-6"><a></a><span class="fu">celsius_to_fahr</span>(<span class="dv">0</span>)</span>
+<span id="cb29-7"><a></a><span class="fu">celsius_to_fahr</span>(<span class="sc">-</span><span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="using-stop-when-writing-a-function-1" class="slide level2 center">
+<h2>Using stop() when writing a function</h2>
+<p>To ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.</p>
+<p>Solution: use <code>if-else</code> to verify if the provided argument is numeric; if not, use <code>stop()</code> to raise an error and stop the function execution</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>celsius_to_fahr <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
+<span id="cb30-2"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(celsius)) {</span>
+<span id="cb30-3"><a></a>    <span class="fu">stop</span>(<span class="st">"error: input must be a number, try again"</span>)</span>
+<span id="cb30-4"><a></a>  } <span class="cf">else</span> {</span>
+<span id="cb30-5"><a></a>    fahr <span class="ot">&lt;-</span> (celsius <span class="sc">*</span> <span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">+</span> <span class="dv">32</span></span>
+<span id="cb30-6"><a></a>    <span class="fu">return</span>(fahr) </span>
+<span id="cb30-7"><a></a>  }</span>
+<span id="cb30-8"><a></a>}</span>
+<span id="cb30-9"><a></a></span>
+<span id="cb30-10"><a></a><span class="fu">celsius_to_fahr</span>(<span class="st">"zero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Question:</strong> What is the difference between <code>stop()</code> and <code>return()</code>?</p>
+<!-- 
+`stop():` interrupts the execution of the function and throw an error message when a condition is not met 
+
+`print()`: doesnt stop the function execution just print the message
+so the first enforces a condition that must be met for the function to execute, and prints a message (which is optional); the other is only a message
+-->
+</section>
+<section id="using-stop-when-writing-a-function-2" class="slide level2 center">
+<h2>Using stop() when writing a function</h2>
+<p>Most functions exit in one of two ways: they either <code>return()</code> a value, indicating success, or they <code>stop()</code> and throw an error, indicating failure. Therefore:</p>
+<ul>
+<li><code>return()</code>: exits the function NORMALLY, handing back a value</li>
+<li><code>stop()</code>: exits the function WITH AN ERROR, so execution halts, and the console shows <code>Error:</code>, and no misleading value is returned.</li>
+</ul>
+</section>
+<section id="using-stop-when-writing-a-function-obseve-this-comparison" class="slide level2 center">
+<h2>Using stop() when writing a function: obseve this comparison</h2>
+<p><strong>Approach 1: using <code>return()</code> for errors</strong> ❌</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb31-2"><a></a>  </span>
+<span id="cb31-3"><a></a>  <span class="co"># input check with return(): the error message is just a regular value</span></span>
+<span id="cb31-4"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(vector)) {</span>
+<span id="cb31-5"><a></a>    <span class="fu">return</span>(<span class="st">"Error: input must be a numeric vector"</span>)</span>
+<span id="cb31-6"><a></a>  }</span>
+<span id="cb31-7"><a></a>  </span>
+<span id="cb31-8"><a></a>  <span class="co"># compute the sum</span></span>
+<span id="cb31-9"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb31-10"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb31-11"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb31-12"><a></a>  }</span>
+<span id="cb31-13"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb31-14"><a></a>}</span>
+<span id="cb31-15"><a></a></span>
+<span id="cb31-16"><a></a>result <span class="ot">&lt;-</span> <span class="fu">my_sum</span>(<span class="fu">c</span>(<span class="st">"one"</span>, <span class="dv">2</span>, <span class="dv">3</span>))  <span class="co"># no error shown!</span></span>
+<span id="cb31-17"><a></a>result                            <span class="co"># only now we see something is off</span></span>
+<span id="cb31-18"><a></a>result <span class="sc">+</span> <span class="dv">10</span>                       <span class="co"># fails HERE, with a confusing message</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="using-stop-when-writing-a-function-obseve-this-comparison-1" class="slide level2 center">
+<h2>Using stop() when writing a function: obseve this comparison</h2>
+<p><strong>Approach 2: using <code>stop()</code> for errors</strong> ✅</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
+<span id="cb32-2"><a></a>  </span>
+<span id="cb32-3"><a></a>  <span class="co"># input check with stop(): raise a real error</span></span>
+<span id="cb32-4"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(vector)) {</span>
+<span id="cb32-5"><a></a>    <span class="fu">stop</span>(<span class="st">"input must be a numeric vector"</span>)</span>
+<span id="cb32-6"><a></a>  }</span>
+<span id="cb32-7"><a></a>  </span>
+<span id="cb32-8"><a></a>  <span class="co"># compute the sum (identical to above)</span></span>
+<span id="cb32-9"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb32-10"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
+<span id="cb32-11"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
+<span id="cb32-12"><a></a>  }</span>
+<span id="cb32-13"><a></a>  <span class="fu">return</span>(total)</span>
+<span id="cb32-14"><a></a>}</span>
+<span id="cb32-15"><a></a></span>
+<span id="cb32-16"><a></a>result <span class="ot">&lt;-</span> <span class="fu">my_sum</span>(<span class="fu">c</span>(<span class="st">"one"</span>, <span class="dv">2</span>, <span class="dv">3</span>))  <span class="co"># Error: input must be a numeric vector, halts immediately</span></span>
+<span id="cb32-17"><a></a>                                  <span class="co"># with OUR message; result is never created</span></span>
+<span id="cb32-18"><a></a>result <span class="sc">+</span> <span class="dv">10</span>                       <span class="co"># in a script, this line is never reached</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+Note the stop() message is just "input must be a numeric vector" — no "Error:" prefix inside it, since R adds that automatically when the error prints. And the final return(total) stays as return() in both versions: the convention isn't "never use return()," it's return for results, stop for problems.Want to be notified when Claude responds?
+-->
+</section>
+<section id="practice-writing-functions" class="slide level2 center">
+<h2>💻 Practice writing functions</h2>
+<h3 id="download-todays-class-materials-from-the-website-for-more-practice-on-writing-functions">Download today’s class materials from the website for more practice on writing functions</h3>
+</section>
+<section id="recap-what-we-learned-today" class="slide level2 center">
+<h2>Recap: What We Learned Today</h2>
+<ul>
+<li>Using alternatives to for loops: <code>map_*()</code> (purrr), <code>across()</code> (dplyr), and the <code>*apply()</code> family (base R)</li>
+<li>How while loops work: check a condition, run the body, repeat until the condition is <code>FALSE</code></li>
+<li>How to write custom functions: name, arguments, body, and return</li>
+<li>Using <code>return()</code> and <code>stop()</code> to check inputs and raise errors</li>
+</ul>
+</section>
+<section id="to-print-these-slides-as-pdf" class="slide level2 center">
+<h2>To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
+<p>:::</p>
 
 
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
 
-      // dispatch for shiny
+</div>
+</div></div>
 
-      if (window.jQuery) {
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
 
-        if (previousSlide) {
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
-          window.jQuery(previousSlide).trigger("hidden");
+  <script>
 
-        }
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
 
-        if (currentSlide) {
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
 
-          window.jQuery(currentSlide).trigger("shown");
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
 
-        }
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
 
-      }
+        // Display a presentation progress bar
+        progress: true,
 
-    }
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
 
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
 
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
 
-    // hookup for slidy
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
 
-    if (window.w3c_slidy) {
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
 
-      window.w3c_slidy.add_observer(function (slide_num) {
+        // Push each slide change to the browser history
+        history: true,
 
-        // slide_num starts at position 1
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
 
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+        // Enable the slide overview mode
+        overview: true,
 
-      });
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
 
-    }
+        // Vertical centering of slides
+        center: true,
 
+        // Enables touch navigation on devices with touch input
+        touch: true,
 
+        // Loop the presentation
+        loop: false,
 
-  })();
+        // Change the presentation direction to be RTL
+        rtl: false,
 
-</script>
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
 
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
 
+        // Turns fragments on and off globally
+        fragments: true,
 
-<script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
-        }
-      }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
-    });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
-    }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
-        }
-      }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
         },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
-    }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
       });
-    }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
         }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
             }
           }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
           }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
           }
-          return note.innerHTML;
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
         }
-      } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
-      }
-    }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
             }
           } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
             });
           }
-        } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
-            if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
         }
-      }, function(instance) {
       });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
-      } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
-            }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
-        });
-      }
-    }
-  });
-  </script>
-</div> <!-- /content -->
-
-
-
+      </script>
+    
 
 </body></html>
