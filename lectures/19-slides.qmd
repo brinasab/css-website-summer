@@ -292,7 +292,7 @@ You need the following:
    * bang-bang `!!`  with `enquo()` (this is the old method)
    * curly-curly or embracing `{{ }}` (this replaced the former method!)
 
-Check out Chapter 25 of our book for details <https://r4ds.hadley.nz/functions.html>
+Check out Chapter 25 for details <https://r4ds.hadley.nz/functions.html>
 
 ---
 
