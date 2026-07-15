@@ -1523,7 +1523,7 @@
     "href": "lectures/18-slides.html#to-print-these-slides-as-pdf",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "To print these slides as pdf",
-    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf\n:::"
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   },
   {
     "objectID": "lectures/18-slides.html#last-lecture-we-ended-with-this-slide",
@@ -1579,6 +1579,41 @@
     "href": "lectures/18-slides.html#using-stop-when-writing-a-function-obseve-this-comparison-1",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Using stop() when writing a function: obseve this comparison",
-    "text": "Using stop() when writing a function: obseve this comparison\nApproach 2: using stop() for errors ✅\nmy_sum &lt;- function(vector) {\n  \n  # input check with stop(): raise a real error\n  if (!is.numeric(vector)) {\n    stop(\"input must be a numeric vector\")\n  }\n  \n  # compute the sum (identical to above)\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult &lt;- my_sum(c(\"one\", 2, 3))  # Error: input must be a numeric vector, halts immediately\n                                  # with OUR message; result is never created\nresult + 10                       # in a script, this line is never reached"
+    "text": "Using stop() when writing a function: obseve this comparison\nApproach 2: using stop() for errors ✅\nmy_sum &lt;- function(vector) {\n  \n  # input check with stop(): raise a real error\n  if (!is.numeric(vector)) {\n    stop(\"input must be a numeric vector\")\n  }\n  \n  # compute the sum (identical to previous code)\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nresult &lt;- my_sum(c(\"one\", 2, 3))  # Error: input must be a numeric vector, halts immediately\n                                  # with OUR message; result is never created\nresult + 10                       # in a script, this line is never reached"
+  },
+  {
+    "objectID": "lectures/19-home.html",
+    "href": "lectures/19-home.html",
+    "title": "Lecture 19: Functions (cont.)",
+    "section": "",
+    "text": "Date: July 15, 2026\nTopics: Functions (cont.)\nSlides: To be posted before class\nCode: No in-class code to download"
+  },
+  {
+    "objectID": "lectures/19-home.html#info-and-materials",
+    "href": "lectures/19-home.html#info-and-materials",
+    "title": "Lecture 19: Functions (cont.)",
+    "section": "",
+    "text": "Date: July 15, 2026\nTopics: Functions (cont.)\nSlides: To be posted before class\nCode: No in-class code to download"
+  },
+  {
+    "objectID": "lectures/19-home.html#learning-objectives",
+    "href": "lectures/19-home.html#learning-objectives",
+    "title": "Lecture 19: Functions (cont.)",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nReview and continue the lecture on Functions"
+  },
+  {
+    "objectID": "lectures/19-home.html#before-class",
+    "href": "lectures/19-home.html#before-class",
+    "title": "Lecture 19: Functions (cont.)",
+    "section": "Before class",
+    "text": "Before class\n\nReview Lecture 18, and especially the last session of the slides on functions and come with questions. We will start class from that part!\nIf you have not already done so, complete Lecture 18 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 18). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
+  },
+  {
+    "objectID": "lectures/19-home.html#readings",
+    "href": "lectures/19-home.html#readings",
+    "title": "Lecture 19: Functions (cont.)",
+    "section": "Readings",
+    "text": "Readings\n\nSee the previous lecture for the readings on Functions"
   }
 ]

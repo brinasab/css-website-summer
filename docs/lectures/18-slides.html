@@ -1033,6 +1033,18 @@ Note:
 <span id="cb27-24"><a></a><span class="fu">my_sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Questions:</strong> Why we do not write the “else” in this example? Can you do the same with the previous one?</p>
+<!--
+
+my_sum <- function(vector) {
+  if (missing(vector))     return("Error: you must provide a vector")   # gate 1: exit or pass
+  if (!is.numeric(vector)) return("Error: input must be a numeric vector") # gate 2: exit or pass
+  
+  # reaching this line PROVES both checks passed — no else needed
+  total <- 0
+  for (i in seq_along(vector)) total <- total + vector[i]
+  return(total)
+}
+-->
 </section>
 <section id="write-one-return-statement-with-multiple-outputs" class="slide level2 center">
 <h2>Write one return statement with multiple outputs</h2>
@@ -1123,7 +1135,7 @@ so the first enforces a condition that must be met for the function to execute, 
 <span id="cb32-5"><a></a>    <span class="fu">stop</span>(<span class="st">"input must be a numeric vector"</span>)</span>
 <span id="cb32-6"><a></a>  }</span>
 <span id="cb32-7"><a></a>  </span>
-<span id="cb32-8"><a></a>  <span class="co"># compute the sum (identical to above)</span></span>
+<span id="cb32-8"><a></a>  <span class="co"># compute the sum (identical to previous code)</span></span>
 <span id="cb32-9"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb32-10"><a></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(vector)) {</span>
 <span id="cb32-11"><a></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> vector[i]</span>
@@ -1140,7 +1152,7 @@ Note the stop() message is just "input must be a numeric vector" — no "Error:"
 </section>
 <section id="practice-writing-functions" class="slide level2 center">
 <h2>💻 Practice writing functions</h2>
-<h3 id="download-todays-class-materials-from-the-website-for-more-practice-on-writing-functions">Download today’s class materials from the website for more practice on writing functions</h3>
+<p><strong>Download today’s class materials from the website for more practice on writing functions</strong></p>
 </section>
 <section id="recap-what-we-learned-today" class="slide level2 center">
 <h2>Recap: What We Learned Today</h2>
@@ -1154,7 +1166,6 @@ Note the stop() message is just "input must be a numeric vector" — no "Error:"
 <section id="to-print-these-slides-as-pdf" class="slide level2 center">
 <h2>To print these slides as pdf</h2>
 <p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
-<p>:::</p>
 
 
 </section></section>
