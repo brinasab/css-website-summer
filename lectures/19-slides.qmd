@@ -285,7 +285,7 @@ CalculateSampleCovariance <- function(x, y, verbose = TRUE) {
 
 You can write custom functions and use them together with `dplyr` or `ggplot` functions!
 
-You need the following: 
+You need the following elements: 
 
 * syntax to write a custom function
 * special operators that allows R to evaluate your custom functions correctly: 

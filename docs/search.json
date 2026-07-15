@@ -1705,7 +1705,7 @@
     "href": "lectures/19-slides.html#functions-and",
     "title": "Computing for the Social Sciences: Lecture 19",
     "section": "Functions and {{ }}",
-    "text": "Functions and {{ }}\nYou can write custom functions and use them together with dplyr or ggplot functions!\nYou need the following:\n\nsyntax to write a custom function\nspecial operators that allows R to evaluate your custom functions correctly:\n\nbang-bang !! with enquo() (this is the old method)\ncurly-curly or embracing { } (this replaced the former method!)\n\n\nCheck out Chapter 25 for details https://r4ds.hadley.nz/functions.html"
+    "text": "Functions and {{ }}\nYou can write custom functions and use them together with dplyr or ggplot functions!\nYou need the following elements:\n\nsyntax to write a custom function\nspecial operators that allows R to evaluate your custom functions correctly:\n\nbang-bang !! with enquo() (this is the old method)\ncurly-curly or embracing { } (this replaced the former method!)\n\n\nCheck out Chapter 25 for details https://r4ds.hadley.nz/functions.html"
   },
   {
     "objectID": "lectures/19-slides.html#functions-and-1",
