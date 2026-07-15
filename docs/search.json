@@ -1762,5 +1762,292 @@
     "title": "Computing for the Social Sciences: Lecture 19",
     "section": "To print these slides as pdf",
     "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/08-slides.html#what-are-missing-data",
+    "href": "lectures/08-slides.html#what-are-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "What Are Missing Data?",
+    "text": "What Are Missing Data?\nR distinguishes two types of missing data:\n\nExplicit missing data: the missing value is recorded in the data, typically as NA (Not Available)\nImplicit missing data: the missing value was never recorded in the data\n\nWe focus on explicit missing data. For implicit missing data, see R for Data Science Ch. 18"
+  },
+  {
+    "objectID": "lectures/08-slides.html#how-missing-data-behave",
+    "href": "lectures/08-slides.html#how-missing-data-behave",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "How Missing Data Behave",
+    "text": "How Missing Data Behave\nAny operation involving a missing value will return a missing value (see Ch. 12.2.2 Missing values):\nNA &gt; 5\n\nsum(c(3, 1, 4, NA))\nsum(c(3, 1, 4, NA), na.rm = TRUE)\n\nmean(c(3,1,4,NA))\nmean(c(3, 1, 4, NA), na.rm = TRUE)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#common-ways-to-handle-missing-data",
+    "href": "lectures/08-slides.html#common-ways-to-handle-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Common Ways to Handle Missing Data",
+    "text": "Common Ways to Handle Missing Data\nWorking with (explicit) missing data is usually a decision process:\n\nA. is.na() to find missing values\nB. na.rm = TRUE to ignore missing values in calculations\nC. drop_na() to remove missing values; use carefully\nLet’s examine each step…"
+  },
+  {
+    "objectID": "lectures/08-slides.html#a.-find-missing-data-with-is.na",
+    "href": "lectures/08-slides.html#a.-find-missing-data-with-is.na",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "A. Find Missing Data with is.na()",
+    "text": "A. Find Missing Data with is.na()\nUse is.na() to find missing values. It returns TRUE when a value is missing, and FALSE when is present.\nFor example, this code uses is.na() to check for missing values in one variable from penguins_raw\n# load libries and data\nlibrary(tidyverse)\nlibrary(palmerpenguins)\ndata(penguins_raw)\n\n# check for missing using base R syntax\nis.na(penguins_raw$Sex)\nsum(is.na(penguins_raw$Sex))\ntable(is.na(penguins_raw$Sex))\n\n# check for missing data using tidyverse syntax\npenguins_raw |&gt; summarize(sum(is.na(Sex)))\npenguins_raw |&gt; count(is.na(Sex)) \npenguins_raw |&gt; summarize(across(everything(), ~ sum(is.na(.)))) |&gt; print(width = Inf)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#a.-find-missing-data-with-is.na-1",
+    "href": "lectures/08-slides.html#a.-find-missing-data-with-is.na-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "A. Find Missing Data with is.na()",
+    "text": "A. Find Missing Data with is.na()\nTo pull out the rows where a value is missing, use is.na() inside filter() to keep rows where a value is missing or is not missing, as follows:\n# keep rows where sex is missing\nfilter(penguins_raw, is.na(Sex)) |&gt; View()   # correct  \nfilter(penguins_raw, Sex == NA)  |&gt; View()   # incorrect\n\n# keep rows where sex is NOT missing\nfilter(penguins_raw, !is.na(sex))\n\n\n\n\n\n\n\nNote\n\n\nYou cannot use == NA to check for missing values: NA means “unknown,” so R cannot evaluate it. Use is.na() instead."
+  },
+  {
+    "objectID": "lectures/08-slides.html#b.-ignore-missing-data-with-na.rm-true",
+    "href": "lectures/08-slides.html#b.-ignore-missing-data-with-na.rm-true",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "B. Ignore Missing Data with na.rm = TRUE",
+    "text": "B. Ignore Missing Data with na.rm = TRUE\nUse na.rm = TRUE to exclude missing values when performing calculations. Often used together with summarize() when calculating things like mean, sum, standard deviation:\npenguins_raw |&gt; summarize(avg_mass = mean(`Body Mass (g)`, na.rm = TRUE))\npenguins_raw |&gt; summarize(sum_mass = sum(`Body Mass (g)`, na.rm = TRUE))\n\n\n\n\n\n\n\n\nTip\n\n\nThe command na.rm = TRUE does not remove missing data from the variable(s), It only tells R to skip missing values for that specific calculation."
+  },
+  {
+    "objectID": "lectures/08-slides.html#c.-remove-missing-data-with-drop_na",
+    "href": "lectures/08-slides.html#c.-remove-missing-data-with-drop_na",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "C. Remove Missing Data with drop_na()",
+    "text": "C. Remove Missing Data with drop_na()\nUse drop_na() to remove rows with missing values. Either across all columns or in specific columns (safer/most common):\npenguins_raw |&gt;\n  drop_na(`Body Mass (g)`) |&gt;\n  summarize(avg_mass = mean(`Body Mass (g)`))\n\n\n\n\n\n\n\n\nWarning\n\n\nBe careful, drop_na() removes rows from the data you are working with. It removes the entire row, not just the missing cell. This can accidentally remove useful data from other variables in the same row. Before using it, check the variable (see previous slides)."
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-handling-missing-data",
+    "href": "lectures/08-slides.html#practice-handling-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice: Handling Missing Data",
+    "text": "💻 Practice: Handling Missing Data\nLet’s practice…\n\nFirst, rename: use the penguins_raw dataset and rename Flipper Length (mm) to flipper_length_mm. Save the result as a new dataframe (call it penguins_clean or p)\nThen, use the new dataframe for the steps below (copy/adapt code from these slides):\n\nDetect missing values: use is.na() and sum() to count how many are missing in flipper length\nExclude from calculations: use na.rm = TRUE inside mean() to calculate the average flipper length\nDrop missing values: use drop_na() to remove rows with missing values in flipper length\n\n\nOnce done, share your code here."
+  },
+  {
+    "objectID": "lectures/08-slides.html#ways-to-fill-or-replace-missing-data",
+    "href": "lectures/08-slides.html#ways-to-fill-or-replace-missing-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Ways to Fill or Replace Missing Data",
+    "text": "Ways to Fill or Replace Missing Data\nBeloa are the main functions in R to replace or fill missing values:\n\nreplace_na() – replace missing values with a specified value\n\nfill() – carry values forward or backward (from the package tidyr)\n\ncoalesce() – return the first non-missing value across multiple columns\n\nSee Chapter 18 of R for Data Science for more."
+  },
+  {
+    "objectID": "lectures/08-slides.html#what-are-factors-in-r",
+    "href": "lectures/08-slides.html#what-are-factors-in-r",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "What are Factors in R?",
+    "text": "What are Factors in R?\nAt the most basic level a factor is a specific data structure in R.\nBut to fully understand factors, we first need to think about variables with categories: variables whose values come from a limited set of labels.\nFor example, the variable species in the penguins data has three possible labels or categories: \"Adelie\", \"Chinstrap\", and \"Gentoo\"."
+  },
+  {
+    "objectID": "lectures/08-slides.html#real-world-examples-of-variables-with-categories",
+    "href": "lectures/08-slides.html#real-world-examples-of-variables-with-categories",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Real-world Examples of Variables with Categories",
+    "text": "Real-world Examples of Variables with Categories\nSome common examples of variables with categories are:\n\nMonths of the year (January → December)\nLikert scales (Strongly Agree → Strongly Disagree)\nEducational attainment levels (High School → Graduate)\nPolitical parties\nRace/ethnicity categories\nMovies genre\nEtc.\n\nWhen we analyze data, we often want these categories to appear in a specific order. Sometimes that order is natural, such as months of the year. Other times, we define the order based on our analytic purpose. Factors in R allow us to control such order!"
+  },
+  {
+    "objectID": "lectures/08-slides.html#how-r-stores-variables-with-categories",
+    "href": "lectures/08-slides.html#how-r-stores-variables-with-categories",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "How R Stores Variables with Categories",
+    "text": "How R Stores Variables with Categories\n\n\n\n\n\n\n\nR Data Structures for Categorical Data\n\n\nR has three main data structures to store variables with categories:\n\nCharacter vector (default): Data type for storing categorical data as plain strings (e.g., variable months with values “Jan”, “Feb”, “Mar”, etc.). Values have no built-in order or grouping.\nNumeric vector (occasionally): Sometimes these are used to store categorical data as numbers (e.g., variable months with values 1, 2, 3), but lacks category labels or order.\nFactor (preferred when order matters): Data type for storing categorical data with defined levels. Values can be ordered according to the researcher needs."
+  },
+  {
+    "objectID": "lectures/08-slides.html#why-use-factors",
+    "href": "lectures/08-slides.html#why-use-factors",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Why use Factors?",
+    "text": "Why use Factors?\nLet’s define a character vector (e.g., the first of the three data structures mentioned in the previous slide) with four months and sort it. Run this code in R. What do you notice?\n# Define\nx1 &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\n\n# Check\nx1\nclass(x1)\n\n# Sort\nsort(x1)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#why-use-factors-1",
+    "href": "lectures/08-slides.html#why-use-factors-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Why use Factors?",
+    "text": "Why use Factors?\nFrom the output of the previous code we can see that by default, R sorts character vectors alphabetically!\nThat works in some cases, but it is not ideal for months. Months have a meaningful chronological order: January, February, March, etc. and we want to preserve it.\nTo tell R to use that order, we need to convert that character vector into a factor."
+  },
+  {
+    "objectID": "lectures/08-slides.html#why-use-factors-2",
+    "href": "lectures/08-slides.html#why-use-factors-2",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Why use Factors?",
+    "text": "Why use Factors?\n\n\n\nIn the next slides, we learn two cases that you will likely encounter when working with factors:\n\n\n\nConverting a Character Vector to a Factor (most common)\nConverting a Numeric Vector to a Factor (sometimes needed when categories are stored as numbers)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#converting-a-character-vector-to-a-factor",
+    "href": "lectures/08-slides.html#converting-a-character-vector-to-a-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "1. Converting a Character Vector to a Factor",
+    "text": "1. Converting a Character Vector to a Factor\nVariables with categories are often stored in R as character vectors. By default, R sorts character vectors alphabetically. To use a different order, convert the character vector to a factor and define its levels in the order you want:\n# Character vector with month names\nx1 &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\nclass(x1)\n\n# Define all set of possibile levels in desired order\nmonth_levels &lt;- c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \n                  \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\")\n\n# Convert to factor using those levels\ny1 &lt;- factor(x1, levels = month_levels)\n\n# Check\ny1\nclass(y1)\nlevels(y1)\n\n# Compare sorting\nsort(x1)  # Alphabetical\nsort(y1)  # Chronological (by factor levels)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#converting-a-numeric-vector-to-a-factor",
+    "href": "lectures/08-slides.html#converting-a-numeric-vector-to-a-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "2. Converting a Numeric Vector to a Factor",
+    "text": "2. Converting a Numeric Vector to a Factor\nSometimes variables with categories are stored in numeric vectors (as numbers, e.g., months as 1, 2, 12). To convert a numeric vector to a factor you need to specify both levels and labels:\n# Numeric vector with values representing months\nx2 &lt;- c(12, 4, 1, 3)\nclass(x2)\n\n# Define all set of possibile numeric values we expect\nmonth_levels &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n\n# Define all labels we want to show for each value\nmonth_labels &lt;- c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\", \n                  \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\") \n\n# Convert to factor using levels and labels\ny2 &lt;- factor(x2, levels = month_levels,\n                 labels = month_labels)\n\n# Check\ny2\nclass(y2)\nlevels(y2)\n\n# Compare sorting\nsort(x2)  # Numeric\nsort(y2)  # Chronological (by factor levels)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#levels-and-labels-in-factors",
+    "href": "lectures/08-slides.html#levels-and-labels-in-factors",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Levels and Labels in Factors",
+    "text": "Levels and Labels in Factors\n\n\nLevels\n\nDefine all possible factor categories\nUse to tell R the order of each category\nUse only levels when your input data is already human readable, as in our first example (e.g., \"Jan\", \"Feb\", etc.)\n\n\nLabels\n\nDefine optional names for each category\nUse to tell R what to display for each category\n\nUse labels and levels when your input data uses codes, as in our second example (e.g., 1 to mean \"Jan\"), and you want to see more human readable labels. Labels are matched to levels."
+  },
+  {
+    "objectID": "lectures/08-slides.html#levels-and-labels-in-factors-1",
+    "href": "lectures/08-slides.html#levels-and-labels-in-factors-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Levels and Labels in Factors",
+    "text": "Levels and Labels in Factors\n\n\nWhen you input is a Character Vector\nExample values: \"Jan\", \"May\", \"Oct\"\n\nAlready human-readable\n(Often) only want to control the order\n\nConvert to factor using only levels to order and label\nExample: \"May\" stays \"May\"\n\n\nWhen you input is a Numeric Vector\nExample values: 1, 7, 12\n\nNot already human-readable\nWant to control the order & add readable labels\nConvert to factor using levels to order & labels to label\nExample: 1 becomes \"Jan\", 2 becomes \"Feb\", etc."
+  },
+  {
+    "objectID": "lectures/08-slides.html#levels-and-labels-in-factors-examples",
+    "href": "lectures/08-slides.html#levels-and-labels-in-factors-examples",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Levels and Labels in Factors: Examples",
+    "text": "Levels and Labels in Factors: Examples\nBefore you run the code below in R, take a moment to guess the output of lines 5 and 12). What do you expect each code chunk to return, and why?\n# Example 1 with Input as Character Vector\na &lt;- c(\"Low\", \"High\", \"Medium\", \"Low\")\nb &lt;- factor(a, levels = c(\"Low\", \"Medium\", \"High\"))\nb\nsort(b)\n\n# Example 2 with Input as Numeric vector\ni &lt;- c(1, 3, 2, 1)\nj &lt;- factor(i, levels = c(1, 2, 3),\n               labels = c(\"Low\", \"Medium\", \"High\"))\nj\nsort(j)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-1-character-vector-factor",
+    "href": "lectures/08-slides.html#practice-1-character-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice 1: Character Vector → Factor",
+    "text": "💻 Practice 1: Character Vector → Factor\nYou are working with a character vector. Your goal is to convert it into a factor so, when you sort it, months follow their chronological order rather than alphabetical order.\nThe code below is not correct. Run it in R, identify the problem, and fix it:\n# Define a character vector representing months\nm &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\nclass(m)\n\n# Attempt\nmf &lt;- factor(m, \n            levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12),\n            labels = c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\",\n                       \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\nmf\n\n# Compare sorting\nsort(m)  \nsort(mf)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#solution-1-character-vector-factor",
+    "href": "lectures/08-slides.html#solution-1-character-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Solution 1: Character Vector → Factor",
+    "text": "Solution 1: Character Vector → Factor\nThe input vector is made of characters (“Jan”, “Feb”…) but the levels are given as numbers (1 to 12). R cannot match character values to numeric levels. The levels must match the actual values in the input vector.\nmf &lt;- factor(m, \n             levels = c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\",\n                        \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\"))\nmf\nsort(mf)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#practice-2-numeric-vector-factor",
+    "href": "lectures/08-slides.html#practice-2-numeric-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Practice 2: Numeric Vector → Factor",
+    "text": "💻 Practice 2: Numeric Vector → Factor\nYou are working with a numeric vector representing months as numbers. Your goal is the same: convert it into a factor, so when you sort it, months are in chronological order.\nNone of the attempts below is correct. Run each in R, explain why each does not work, and write one solution that works:\n# Define a numeric vector representing months\nx &lt;- c(12, 4, 1, 3, 1)\nclass(x)\n\n   \n# Attempt 1\ny1 &lt;- factor(x, levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), \n                labels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\"))\n              \n# Attempt 2\ny2 &lt;- factor(x, levels = c(1, 2, 3, 4),\n                labels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\"))"
+  },
+  {
+    "objectID": "lectures/08-slides.html#solution-2-numeric-vector-factor",
+    "href": "lectures/08-slides.html#solution-2-numeric-vector-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Solution 2: Numeric Vector → Factor",
+    "text": "Solution 2: Numeric Vector → Factor\n\nAttempt 1: mismatch between the number of labels and the levels. R throws an error.\nAttempt 2: R doesn’t throw an error, but the code is incorrect because it forces levels 1 to 4, even though the input vector has values like 12. Since 12 isn’t among the defined levels, it becomes NA, leading to incorrect matches.\n\nYou can fix the code from the previous slide in the following ways:\n# Numeric vector representing months\nx &lt;- c(12, 4, 1, 3, 1)\nclass(x)\n\n# Option 1 (reccomended)\nmonth_labels &lt;- c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"June\", \"July\", \"Aug\", \"Sept\", \"Oct\", \"Nov\", \"Dec\")\nmonth_levels = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\ny1 &lt;- factor(x, levels = month_levels,  \n                labels = month_labels)\nclass(y1)\n\n# Option 2 (works but not reccomended, why?)\ny2 &lt;- factor(x, levels = c(1, 3, 4, 12),\n                labels = c(\"Jan\", \"Mar\", \"Apr\", \"Dec\"))"
+  },
+  {
+    "objectID": "lectures/08-slides.html#apply-these-concepts-to-a-dataframe-scorecard",
+    "href": "lectures/08-slides.html#apply-these-concepts-to-a-dataframe-scorecard",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Apply these concepts to a dataframe: scorecard",
+    "text": "Apply these concepts to a dataframe: scorecard\nIn most of your work, you deal with dataframes. We worked with the scorecard data to practice ggplot2. Now we use the same data to learn how we can use factors in a dataframe.\nLoad libraries and explore data:\nlibrary(tidyverse)\nlibrary(rcis)\ndata(scorecard)\n\nglimpse(scorecard)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#task-plot-the-total-number-of-schools-in-the-u.s.-by-school-type",
+    "href": "lectures/08-slides.html#task-plot-the-total-number-of-schools-in-the-u.s.-by-school-type",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Task: Plot the total number of schools in the U.S. by school type",
+    "text": "Task: Plot the total number of schools in the U.S. by school type\nThis is the same question we did in class.\nSince type is a categorical variable, we use a bar chart, which takes each category \"Public\", \"Private nonprofit\", \"Private for profit\" and automatically applies a frequency count to aggregate the data.\nggplot(scorecard, mapping = aes(x = type)) +\n  geom_bar() \n\nOur goal: reorder the bars!"
+  },
+  {
+    "objectID": "lectures/08-slides.html#method-1-reorder-bars-manually-with-factor",
+    "href": "lectures/08-slides.html#method-1-reorder-bars-manually-with-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Method 1: Reorder bars manually with factor()",
+    "text": "Method 1: Reorder bars manually with factor()\nThis is the method we used in the previous slide. It more technical, but it gives you full control because you manually define the order of the factor levels.\ns &lt;- scorecard |&gt;\n  mutate(type = factor(type,\n                       levels = c(\"Private, nonprofit\", \"Public\", \"Private, for-profit\")))\n\nggplot(s, aes(x = type)) +\n  geom_bar()\nRemember:\n\ncheck the column type (character or numeric) before transforming to factor using factor() as shown in the previous examples\nuse it inside mutate() since you are working on column of a dataframe (and not a standalone vector like in the previous examples)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#method-2-reorder-the-bars-using-tidyverse-fct_relevel",
+    "href": "lectures/08-slides.html#method-2-reorder-the-bars-using-tidyverse-fct_relevel",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Method 2: Reorder the bars using tidyverse fct_relevel()",
+    "text": "Method 2: Reorder the bars using tidyverse fct_relevel()\nfct_relevel(): allows to reorder factor levels by hand; this function behave similarly to factor()\nscorecard |&gt; \n  mutate(type = fct_relevel(type, \n                           \"Private, nonprofit\", \"Public\", \"Private, for-profit\")) |&gt;\nggplot(mapping = aes(x = type)) +\n  geom_bar()\nNote: you can write code also by “piping” the results of the dplyr code into ggplot2 code, as illustrated here."
+  },
+  {
+    "objectID": "lectures/08-slides.html#method-3-reorder-the-bars-using-tidyverse-fct_infreq",
+    "href": "lectures/08-slides.html#method-3-reorder-the-bars-using-tidyverse-fct_infreq",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Method 3: Reorder the bars using tidyverse fct_infreq()",
+    "text": "Method 3: Reorder the bars using tidyverse fct_infreq()\nfct_infreq() sorts bars automatically by how common each category is (most to least frequent)\nscorecard |&gt;\n  mutate(type = fct_infreq(type)) |&gt;\nggplot(aes(x = type)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "lectures/08-slides.html#the-forcats-package",
+    "href": "lectures/08-slides.html#the-forcats-package",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "The “forcats” Package",
+    "text": "The “forcats” Package\n\n\n\n\n\n\n\nUsing factor() or a function from forcats?\n\n\nThe example from Method 1 uses factor(), the base R function for creating and managing factors. It is worth understanding because it shows the basic logic: a factor stores category labels together with an order of levels.\nBut because factors are so common in data analysis, the tidyverse includes a package called forcats, which provides simpler and more flexible tools for working with factors. Methods 2 and 3 from the previous slides use two forcats functions.\nYou are welcome to use the forcats tools, but learning factor() first helps you understand what’s happening behind the scenes."
+  },
+  {
+    "objectID": "lectures/08-slides.html#the-forcats-package-1",
+    "href": "lectures/08-slides.html#the-forcats-package-1",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "The “forcats” Package",
+    "text": "The “forcats” Package\n\n\n\n\n\n\n\n\nFunction\nWhat it does\nWhen to use\n\n\n\n\nfct_relevel()\nManually sets the order of levels\nWhen you need full manual control (similar to factor(..., levels = ...) in base R)\n\n\nfct_infreq()\nReorders factor levels by frequency (most to least common)\nWhen you want categories ordered by how often they appear\n\n\nfct_reorder()\nReorders levels based on another variable (e.g., a numeric value)\nIdeal for ordering bars by a summary statistic in ggplot2\n\n\n\nFor more functions, see the forcats documentation"
+  },
+  {
+    "objectID": "lectures/08-slides.html#challenge-exercise-plot-tips-by-weekday",
+    "href": "lectures/08-slides.html#challenge-exercise-plot-tips-by-weekday",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "💻 Challenge Exercise: Plot Tips by Weekday",
+    "text": "💻 Challenge Exercise: Plot Tips by Weekday\nIn this exercise, you learn two things:\n\nto correctly use stat = identity with bar plots in ggplot2\nto control the order of categories in bar plots, using both factor() and the forcats function called fct_relevel()"
+  },
+  {
+    "objectID": "lectures/08-slides.html#create-the-data",
+    "href": "lectures/08-slides.html#create-the-data",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Create the Data",
+    "text": "Create the Data\nCopy and run the code below to create this dataset:\nlibrary(tidyverse)\n\ndf &lt;- tibble(\n  week = c(\"Mon\", \"Wed\", \"Fri\", \"Wed\", \"Thu\", \"Sat\", \"Sat\"),\n  tip = c(10, 12, 20, 8, 25, 25, 30)\n)\n\ndf\nOur Goal: Create a bar plot with days of the week on the x-axis and the total tip amount on the y-axis (e.g., Saturday should display a bar with a height of $55, etc.)."
+  },
+  {
+    "objectID": "lectures/08-slides.html#whats-wrong-with-this-plot",
+    "href": "lectures/08-slides.html#whats-wrong-with-this-plot",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "What’s Wrong With This Plot?",
+    "text": "What’s Wrong With This Plot?\nTry this code. What does the height of each bar represent?\nggplot(df, aes(x = week)) +\n  geom_bar()\n\n\n\n\n\n\n\n\nWhy the bars do not show the actual tip amounts?\n\n\nWhy aren’t the bars showing the actual tip amounts?\n- Because by default, geom_bar() uses stat = \"count\" to count how many rows fall into each category and puts those counts on the y-axis - To plot the actual values (not counts), use stat = \"identity\" with both a x and y"
+  },
+  {
+    "objectID": "lectures/08-slides.html#fix-the-y-axis-on-this-bar-plot",
+    "href": "lectures/08-slides.html#fix-the-y-axis-on-this-bar-plot",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Fix the y-axis on this bar plot",
+    "text": "Fix the y-axis on this bar plot\nTo fix this plot, we need to change the default stat from count to identity and manually specify both the x and y aesthetics. See the documentation or type ?geom_bar in your R Console.\nggplot(df, aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")\nThis is much better, but we still do not have the bars nicely ordered…."
+  },
+  {
+    "objectID": "lectures/08-slides.html#fix-the-order-of-the-bars-using-factor",
+    "href": "lectures/08-slides.html#fix-the-order-of-the-bars-using-factor",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Fix the order of the bars using factor()",
+    "text": "Fix the order of the bars using factor()\nFirst, use base R’s factor() to control the order of weekdays.\nReplace the blank with the correct weekday order in the code below:\ndf |&gt;\n  mutate(week = factor(week, levels = _____ )) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")"
+  },
+  {
+    "objectID": "lectures/08-slides.html#do-the-same-but-using-fct_relevel",
+    "href": "lectures/08-slides.html#do-the-same-but-using-fct_relevel",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Do the same but using fct_relevel()",
+    "text": "Do the same but using fct_relevel()\nNow, make the same plot using fct_relevel()\nReplace the correct weekday order in the code below:\ndf |&gt;\n  mutate(week = fct_relevel(week, ______ )) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")"
+  },
+  {
+    "objectID": "lectures/08-slides.html#solutions",
+    "href": "lectures/08-slides.html#solutions",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Solutions",
+    "text": "Solutions\n# With factor\ndays &lt;- c(\"Mon\", \"Wed\", \"Thu\", \"Fri\", \"Sat\")\ndf |&gt;\n  mutate(week = factor(week, levels = c(\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\"))) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")\n\n# With fct_relevel\ndays &lt;- c(\"Mon\", \"Wed\", \"Thu\", \"Fri\", \"Sat\")\ndf |&gt;\n  mutate(week = fct_relevel(week, days)) |&gt;\n  ggplot(aes(x = week, y = tip)) +\n  geom_bar(stat = \"identity\") +\n  labs(title = \"Tips by Weekday\", x = \"Weekday\", y = \"Tip ($)\")\n\n\n\nQ: Why don’t we use labels in factor()? Because the values (\"Mon\", etc.) are already readable. You don’t need to change them, unless you want different names (e.g., \"Monday\", etc.).\nQ: Why doesn’t days include all 7 days of the week? We should include all possible levels when using factor(). But fct_relevel() behave differently and does not need it."
+  },
+  {
+    "objectID": "lectures/08-slides.html#reflections",
+    "href": "lectures/08-slides.html#reflections",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Reflections",
+    "text": "Reflections\n\n\n\n\n\n\nTip\n\n\n\nWhat happens when you don’t set the factor order?\nWhich method among factor() or fct_relevel() do you prefer and why? Check the forcats package documentation for more functions, especially fct_reorder() which is straightforward to use\nWhy was stat = \"identity\" necessary for this kind of plot?\n\n\n\n\nWant more practice? Download today’s in-class materials for more practice exercises on working with factors!"
+  },
+  {
+    "objectID": "lectures/08-slides.html#recap-what-we-learned-today",
+    "href": "lectures/08-slides.html#recap-what-we-learned-today",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "Recap: What We Learned Today",
+    "text": "Recap: What We Learned Today\n\nWhat factors are and how to convert character or numeric vectors to factors\n\nHow to control the order of categories using levels and labels\n\nHow to fix common geom_bar() plotting issues (e.g., bar heights and order)"
+  },
+  {
+    "objectID": "lectures/08-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/08-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 8",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   }
 ]

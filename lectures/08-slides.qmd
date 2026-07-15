@@ -36,6 +36,14 @@ library(knitr)
 ```
 
 
+<!--
+UPDATE FOR FALL 2026 ON FACTORS:
+ADD ONE EXAMPLE WHEN THEN NEED TO PASS THE LABELS AND LEVELS NOT BY HAND USING DISTINCT() OR UNIQUE()
+SEE THIS AS EXAMPLES 
+https://github.com/css-summer26/hw03-carolinaporto/blob/main/scotus.md
+https://github.com/css-summer26/hw03-sara-jayakumar/tree/main
+-->
+
 # 1. Missing Data {.slide .center .middle}
 
 ---
