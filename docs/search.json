@@ -1607,7 +1607,7 @@
     "href": "lectures/19-home.html#before-class",
     "title": "Lecture 19: Functions (cont.)",
     "section": "Before class",
-    "text": "Before class\n\nReview Lecture 18, and especially the last session of the slides on functions and come with questions. We will start class from that part!\nIf you have not already done so, complete Lecture 18 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 18). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
+    "text": "Before class\n\nReview Lecture 18, and especially the last session of the slides on functions and come with questions. We will start class from that part!\nIf you have not already done so, complete Lecture 18 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 19). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
   },
   {
     "objectID": "lectures/19-home.html#readings",
@@ -2049,5 +2049,40 @@
     "title": "Computing for the Social Sciences: Lecture 8",
     "section": "To print these slides as pdf",
     "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/20-home.html",
+    "href": "lectures/20-home.html",
+    "title": "Lecture 20: Reproducible Workflow",
+    "section": "",
+    "text": "Date: July 16, 2026\nTopics: Reproducible Workflow\nSlides: To be posted before class\nCode: To be posted before class"
+  },
+  {
+    "objectID": "lectures/20-home.html#info-and-materials",
+    "href": "lectures/20-home.html#info-and-materials",
+    "title": "Lecture 20: Reproducible Workflow",
+    "section": "",
+    "text": "Date: July 16, 2026\nTopics: Reproducible Workflow\nSlides: To be posted before class\nCode: To be posted before class"
+  },
+  {
+    "objectID": "lectures/20-home.html#learning-objectives",
+    "href": "lectures/20-home.html#learning-objectives",
+    "title": "Lecture 20: Reproducible Workflow",
+    "section": "Learning Objectives",
+    "text": "Learning Objectives\n\nDefine a project-oriented workflow in R and identify best R procedures\nExpand our current knowledge of R Markdown\nLearn the basics of Git/GitHub via terminal/command line"
+  },
+  {
+    "objectID": "lectures/20-home.html#before-class",
+    "href": "lectures/20-home.html#before-class",
+    "title": "Lecture 20: Reproducible Workflow",
+    "section": "Before class",
+    "text": "Before class\n\nCome with questions regarding the admin/logistic of the course or about the content we covered!\nIf you have not already done so, complete Lecture 19 participation questions. You can find them in the Zoom chat (the recording is available on Canvas &gt; UChicago Main Zoom &gt; Cloud Recordings) or in this document after class. They will remain open until the start of this lecture (e.g., Lecture 20). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a “guest”)."
+  },
+  {
+    "objectID": "lectures/20-home.html#readings",
+    "href": "lectures/20-home.html#readings",
+    "title": "Lecture 20: Reproducible Workflow",
+    "section": "Readings",
+    "text": "Readings\nNot required before class, refer to them as you see fit”\n\nGood Enough Practices in Scientific Computing\nChapters 1, 2, 3, 7 in What They Forgot to Teach You About R\nChapters 27 “R Markdown”, 28 “Graphics for communication”, and 29 “R Markdown formats” in R for Data Science 1st Edition\nArticle on Project-oriented workflow"
   }
 ]
