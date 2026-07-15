@@ -217,7 +217,7 @@ Sabrina Nardin, Summer 2026
 <li>Introduction to Functions</li>
 </ol>
 </div>
-<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>July 14, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>July 15, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos. Minor updates after class</em> </span></p>
 <!--
 
 ---
@@ -893,15 +893,13 @@ Note:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb21-2"><a></a></span>
-<span id="cb21-3"><a></a>total <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># start with zero, we'll add elements to this</span></span>
-<span id="cb21-4"><a></a></span>
-<span id="cb21-5"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
-<span id="cb21-6"><a></a>  total <span class="ot">&lt;-</span> total <span class="sc">+</span> x[i]  <span class="co"># add the i-th value of x to total</span></span>
-<span id="cb21-7"><a></a>}</span>
-<span id="cb21-8"><a></a></span>
-<span id="cb21-9"><a></a>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-3"><a></a>total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb21-4"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(x)) {</span>
+<span id="cb21-5"><a></a>  total <span class="ot">&lt;-</span> total <span class="sc">+</span> x[i]</span>
+<span id="cb21-6"><a></a>}</span>
+<span id="cb21-7"><a></a>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then wrap the code into a function and test it again with different inputs:</p>
+<p>Then wrap the code into a function and test it with different inputs:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>my_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(vector) {</span>
 <span id="cb22-2"><a></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
@@ -911,7 +909,7 @@ Note:
 <span id="cb22-6"><a></a>  <span class="fu">return</span>(total)</span>
 <span id="cb22-7"><a></a>}</span>
 <span id="cb22-8"><a></a></span>
-<span id="cb22-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>)</span>
+<span id="cb22-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb22-10"><a></a><span class="fu">my_sum</span>(<span class="at">vector =</span> x)</span>
 <span id="cb22-11"><a></a></span>
 <span id="cb22-12"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>)</span>
@@ -922,7 +920,7 @@ Note:
 <section id="writing-custom-functions-3" class="slide level2 center">
 <h2>Writing custom functions</h2>
 <p>To use a function, we need to <strong>call it</strong> with specific values.</p>
-<p>Our custom function <code>my_sum()</code> takes one argument, <code>vector</code>. When we call the function, this will be a specific vector, such as <code>x</code>, <code>y</code>, etc.</p>
+<p>In the example from the previous slide, our custom function <code>my_sum()</code> takes one argument, <code>vector</code>. When we call the function, this will be a specific vector, such as <code>x</code>, <code>y</code>, etc.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb23-2"><a></a><span class="fu">my_sum</span>(<span class="at">vector =</span> x)</span>
@@ -972,6 +970,10 @@ Note:
 <span id="cb24-10"><a></a><span class="fu">my_sum</span>(x)</span>
 <span id="cb24-11"><a></a>total   <span class="co"># Error: object 'total' not found</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+<section id="practice-writing-functions" class="slide level2 center">
+<h2>💻 Practice writing functions</h2>
+<p><strong>Download the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2. Once done, share your code <a href="https://codeshare.io/5QJvWx">here</a></strong></p>
+</section>
 <section id="the-return-statements" class="slide level2 center">
 <h2>The return statement(s)</h2>
 <p>If you do not write a <code>return</code> statement, your output will be the last statement in your code:</p>
@@ -987,7 +989,7 @@ Note:
 <span id="cb25-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb25-10"><a></a><span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This works, but it’s best practice to use <code>return</code> statements for code clarity and readability. <strong>Remember that any code after <code>return</code> will be ignored!</strong> Let’s see a couple of examples…</p>
+<p>This works, but it’s best practice to use <code>return</code> for clarity and readability. <strong>Remember that any code after <code>return</code> will be ignored!</strong> Let’s see a couple of examples…</p>
 </section>
 <section id="write-multiple-return-statements-example-1" class="slide level2 center">
 <h2>Write multiple return statements: Example 1</h2>
@@ -1039,7 +1041,7 @@ my_sum <- function(vector) {
   if (missing(vector))     return("Error: you must provide a vector")   # gate 1: exit or pass
   if (!is.numeric(vector)) return("Error: input must be a numeric vector") # gate 2: exit or pass
   
-  # reaching this line PROVES both checks passed — no else needed
+  # reaching this line PROVES both checks passed: NO ELSE NEEDED
   total <- 0
   for (i in seq_along(vector)) total <- total + vector[i]
   return(total)
@@ -1059,7 +1061,7 @@ my_sum <- function(vector) {
 <span id="cb28-8"><a></a></span>
 <span id="cb28-9"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">2</span>)</span>
 <span id="cb28-10"><a></a>y <span class="ot">&lt;-</span> <span class="fu">my_sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Questions:</strong> Can we return a vector rather than list here? How? Why a list would generally be a better choice when your function returns multiple objects?</p>
+<p><strong>Questions:</strong> Can we return a vector rather than list here? How? A list is generally be a better choice when your function returns multiple objects. Why?</p>
 <!-- stop here change to vector with c() and return different elements with y[1] and y[2] change back to list and return different elements again -->
 </section>
 <section id="using-stop-when-writing-a-function" class="slide level2 center">
@@ -1076,7 +1078,7 @@ my_sum <- function(vector) {
 <section id="using-stop-when-writing-a-function-1" class="slide level2 center">
 <h2>Using stop() when writing a function</h2>
 <p>To ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.</p>
-<p>Solution: use <code>if-else</code> to verify if the provided argument is numeric; if not, use <code>stop()</code> to raise an error and stop the function execution</p>
+<p>Thus, we use <code>if-else</code> to verify if the provided argument is numeric. If not, we use <code>stop()</code> to raise an error and stop the function execution!</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>celsius_to_fahr <span class="ot">&lt;-</span> <span class="cf">function</span>(celsius) {</span>
 <span id="cb30-2"><a></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.numeric</span>(celsius)) {</span>
 <span id="cb30-3"><a></a>    <span class="fu">stop</span>(<span class="st">"error: input must be a number, try again"</span>)</span>
@@ -1087,7 +1089,7 @@ my_sum <- function(vector) {
 <span id="cb30-8"><a></a>}</span>
 <span id="cb30-9"><a></a></span>
 <span id="cb30-10"><a></a><span class="fu">celsius_to_fahr</span>(<span class="st">"zero"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Question:</strong> What is the difference between <code>stop()</code> and <code>return()</code>?</p>
+<p><strong>Question:</strong> Based on what you see in this code, what’s the difference between <code>stop()</code> and <code>return()</code>?</p>
 <!-- 
 `stop():` interrupts the execution of the function and throw an error message when a condition is not met 
 
@@ -1097,10 +1099,10 @@ so the first enforces a condition that must be met for the function to execute, 
 </section>
 <section id="using-stop-when-writing-a-function-2" class="slide level2 center">
 <h2>Using stop() when writing a function</h2>
-<p>Most functions exit in one of two ways: they either <code>return()</code> a value, indicating success, or they <code>stop()</code> and throw an error, indicating failure. Therefore:</p>
+<p>Most functions exit in one of two ways. They either <code>return()</code> a value, indicating success, or they <code>stop()</code> and throw an error, indicating failure. Therefore:</p>
 <ul>
 <li><code>return()</code>: exits the function NORMALLY, handing back a value</li>
-<li><code>stop()</code>: exits the function WITH AN ERROR, so execution halts, and the console shows <code>Error:</code>, and no misleading value is returned.</li>
+<li><code>stop()</code>: exits the function WITH AN ERROR, so execution halts, the console shows <code>Error:</code>, and no misleading value is returned</li>
 </ul>
 </section>
 <section id="using-stop-when-writing-a-function-obseve-this-comparison" class="slide level2 center">
@@ -1150,7 +1152,7 @@ so the first enforces a condition that must be met for the function to execute, 
 Note the stop() message is just "input must be a numeric vector" — no "Error:" prefix inside it, since R adds that automatically when the error prints. And the final return(total) stays as return() in both versions: the convention isn't "never use return()," it's return for results, stop for problems.Want to be notified when Claude responds?
 -->
 </section>
-<section id="practice-writing-functions" class="slide level2 center">
+<section id="practice-writing-functions-1" class="slide level2 center">
 <h2>💻 Practice writing functions</h2>
 <p><strong>Download today’s class materials from the website for more practice on writing functions</strong></p>
 </section>

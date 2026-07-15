@@ -1432,14 +1432,14 @@
     "href": "lectures/18-slides.html#writing-custom-functions-2",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Writing custom functions",
-    "text": "Writing custom functions\nTip! Write and test the code outside a function to make sure it works, like this:\n\nx &lt;- c(2,1,5,2)\n\ntotal &lt;- 0  # start with zero, we'll add elements to this\n\nfor (i in seq_along(x)) {\n  total &lt;- total + x[i]  # add the i-th value of x to total\n}\n\ntotal\n\nThen wrap the code into a function and test it again with different inputs:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2, 1, 5, 2)\nmy_sum(vector = x)\n\ny &lt;- c(4,4)\nmy_sum(y)"
+    "text": "Writing custom functions\nTip! Write and test the code outside a function to make sure it works, like this:\n\nx &lt;- c(2,1,5,2)\n\ntotal &lt;- 0\nfor (i in seq_along(x)) {\n  total &lt;- total + x[i]\n}\ntotal\n\nThen wrap the code into a function and test it with different inputs:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(total)\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(vector = x)\n\ny &lt;- c(4,4)\nmy_sum(y)"
   },
   {
     "objectID": "lectures/18-slides.html#writing-custom-functions-3",
     "href": "lectures/18-slides.html#writing-custom-functions-3",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Writing custom functions",
-    "text": "Writing custom functions\nTo use a function, we need to call it with specific values.\nOur custom function my_sum() takes one argument, vector. When we call the function, this will be a specific vector, such as x, y, etc.\n\nx &lt;- c(2,1,5,2)\nmy_sum(vector = x)\n\ny &lt;- c(4,3,7)\nmy_sum(y)"
+    "text": "Writing custom functions\nTo use a function, we need to call it with specific values.\nIn the example from the previous slide, our custom function my_sum() takes one argument, vector. When we call the function, this will be a specific vector, such as x, y, etc.\n\nx &lt;- c(2,1,5,2)\nmy_sum(vector = x)\n\ny &lt;- c(4,3,7)\nmy_sum(y)"
   },
   {
     "objectID": "lectures/18-slides.html#advantages-of-writing-custom-functions",
@@ -1467,7 +1467,7 @@
     "href": "lectures/18-slides.html#the-return-statements",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "The return statement(s)",
-    "text": "The return statement(s)\nIf you do not write a return statement, your output will be the last statement in your code:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\n\nThis works, but it’s best practice to use return statements for code clarity and readability. Remember that any code after return will be ignored! Let’s see a couple of examples…"
+    "text": "The return statement(s)\nIf you do not write a return statement, your output will be the last statement in your code:\n\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}\n\nx &lt;- c(2,1,5,2)\nmy_sum(x)\n\nThis works, but it’s best practice to use return for clarity and readability. Remember that any code after return will be ignored! Let’s see a couple of examples…"
   },
   {
     "objectID": "lectures/18-slides.html#write-multiple-return-statements-example-1",
@@ -1488,7 +1488,7 @@
     "href": "lectures/18-slides.html#write-one-return-statement-with-multiple-outputs",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Write one return statement with multiple outputs",
-    "text": "Write one return statement with multiple outputs\nSometimes you want to return multiple objects and collect them into a list or a vector:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(list(total, i))\n}\n\nx &lt;- c(2,1,5,2)\ny &lt;- my_sum(x)\nQuestions: Can we return a vector rather than list here? How? Why a list would generally be a better choice when your function returns multiple objects?"
+    "text": "Write one return statement with multiple outputs\nSometimes you want to return multiple objects and collect them into a list or a vector:\nmy_sum &lt;- function(vector) {\n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  return(list(total, i))\n}\n\nx &lt;- c(2,1,5,2)\ny &lt;- my_sum(x)\nQuestions: Can we return a vector rather than list here? How? A list is generally be a better choice when your function returns multiple objects. Why?"
   },
   {
     "objectID": "lectures/18-slides.html#using-stop-when-writing-a-function",
@@ -1502,14 +1502,14 @@
     "href": "lectures/18-slides.html#using-stop-when-writing-a-function-1",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Using stop() when writing a function",
-    "text": "Using stop() when writing a function\nTo ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.\nSolution: use if-else to verify if the provided argument is numeric; if not, use stop() to raise an error and stop the function execution\ncelsius_to_fahr &lt;- function(celsius) {\n  if (!is.numeric(celsius)) {\n    stop(\"error: input must be a number, try again\")\n  } else {\n    fahr &lt;- (celsius * 9/5) + 32\n    return(fahr) \n  }\n}\n\ncelsius_to_fahr(\"zero\")\nQuestion: What is the difference between stop() and return()?"
+    "text": "Using stop() when writing a function\nTo ensure this function works properly, the argument must be numeric. Otherwise, the conversion between the two temperature scales will not work.\nThus, we use if-else to verify if the provided argument is numeric. If not, we use stop() to raise an error and stop the function execution!\ncelsius_to_fahr &lt;- function(celsius) {\n  if (!is.numeric(celsius)) {\n    stop(\"error: input must be a number, try again\")\n  } else {\n    fahr &lt;- (celsius * 9/5) + 32\n    return(fahr) \n  }\n}\n\ncelsius_to_fahr(\"zero\")\nQuestion: Based on what you see in this code, what’s the difference between stop() and return()?"
   },
   {
     "objectID": "lectures/18-slides.html#practice-writing-functions",
     "href": "lectures/18-slides.html#practice-writing-functions",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "💻 Practice writing functions",
-    "text": "💻 Practice writing functions\nDownload today’s class materials from the website for more practice on writing functions"
+    "text": "💻 Practice writing functions\nDownload the class materials from the website (see Lecture 18 homepage): complete QUESTION 1 and QUESTION 2. Once done, share your code here"
   },
   {
     "objectID": "lectures/18-slides.html#recap-what-we-learned-today",
@@ -1565,7 +1565,7 @@
     "href": "lectures/18-slides.html#using-stop-when-writing-a-function-2",
     "title": "Computing for the Social Sciences: Lecture 18",
     "section": "Using stop() when writing a function",
-    "text": "Using stop() when writing a function\nMost functions exit in one of two ways: they either return() a value, indicating success, or they stop() and throw an error, indicating failure. Therefore:\n\nreturn(): exits the function NORMALLY, handing back a value\nstop(): exits the function WITH AN ERROR, so execution halts, and the console shows Error:, and no misleading value is returned."
+    "text": "Using stop() when writing a function\nMost functions exit in one of two ways. They either return() a value, indicating success, or they stop() and throw an error, indicating failure. Therefore:\n\nreturn(): exits the function NORMALLY, handing back a value\nstop(): exits the function WITH AN ERROR, so execution halts, the console shows Error:, and no misleading value is returned"
   },
   {
     "objectID": "lectures/18-slides.html#using-stop-when-writing-a-function-obseve-this-comparison",
@@ -1615,5 +1615,152 @@
     "title": "Lecture 19: Functions (cont.)",
     "section": "Readings",
     "text": "Readings\n\nSee the previous lecture for the readings on Functions"
+  },
+  {
+    "objectID": "lectures/18-slides.html#practice-writing-functions-1",
+    "href": "lectures/18-slides.html#practice-writing-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 18",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload today’s class materials from the website for more practice on writing functions"
+  },
+  {
+    "objectID": "lectures/19-slides.html#anonymous-functions-1",
+    "href": "lectures/19-slides.html#anonymous-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Anonymous Functions",
+    "text": "Anonymous Functions\nAnonymous functions are functions without a name\nWhen to use them:\n\nWhen the function is very short and you need it only once\nWhen another function (like those in the apply() family) expects another function as input\n\nWhenever you can: write the function explicitly instead!"
+  },
+  {
+    "objectID": "lectures/19-slides.html#anonymous-functions-with-a-number-as-input",
+    "href": "lectures/19-slides.html#anonymous-functions-with-a-number-as-input",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Anonymous Functions with a number as input",
+    "text": "Anonymous Functions with a number as input\nImagine we have the following function:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(2)\n\nRe-write it as an anonymous function. Note: one line, no name, and call it with ():\n\n(function(x) {x + 3}) (2)\n\nOften anonymous functions are written without the {}, like this:\n\n(function(x) x + 3) (2)"
+  },
+  {
+    "objectID": "lectures/19-slides.html#anonymous-functions-with-a-vector-as-input",
+    "href": "lectures/19-slides.html#anonymous-functions-with-a-vector-as-input",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Anonymous Functions with a vector as input",
+    "text": "Anonymous Functions with a vector as input\nSame function as before but here we pass a vector as input rather than a single number:\n\nadd &lt;- function(x) {\n  return(x + 3) }\nadd(c(1,2,3))\n\nTo rewrite it as anonymous function, the following code won’t work because the vector isn’t passed correctly:\n(function(x) x + 3) c(1, 2, 3)\nInstead, this works correctly, since the entire vector is passed as a single argument:\n\n(function(x) x + 3) (c(1, 2, 3))"
+  },
+  {
+    "objectID": "lectures/19-slides.html#anonymous-functions-with-sapply-and-lapply",
+    "href": "lectures/19-slides.html#anonymous-functions-with-sapply-and-lapply",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Anonymous Functions with sapply() and lapply()",
+    "text": "Anonymous Functions with sapply() and lapply()\nYou can also rewrite the previous code using sapply() or lapply(). Remember them from last time? They can be used instead of for loops in R.\nBoth belong to the apply() family and have the same basic structure:\nlapply(X, FUN)\nsapply(X, FUN)\n\nX is a vector or list (the input)\nFUN is a function to apply to each element of X\n\nThey both loop through the elements of X, apply FUN to each element…"
+  },
+  {
+    "objectID": "lectures/19-slides.html#anonymous-functions-with-sapply-and-lapply-1",
+    "href": "lectures/19-slides.html#anonymous-functions-with-sapply-and-lapply-1",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Anonymous Functions with sapply() and lapply()",
+    "text": "Anonymous Functions with sapply() and lapply()\n…But then differ in how they return the result:\n\nlapply means “list apply”, always returns the output as a list\nsapply() means “simplify apply”, returns a simplified version of the list (usually a vector, sometimes a matrix)\n\n\n# previous anonymous function\n(function(x) x + 1) (c(1, 2, 3))\n\n# re-written with sapply\nsapply(c(1,2,3), function(x) x + 1)\n\n# re-written with lapply\nlapply(c(1,2,3), function(x) x + 1)\n\nTip: Using sapply() is more common because it returns a vector, which is easier to work with that a list!"
+  },
+  {
+    "objectID": "lectures/19-slides.html#anonymous-functions-the-purrr-way",
+    "href": "lectures/19-slides.html#anonymous-functions-the-purrr-way",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Anonymous Functions the purrr way",
+    "text": "Anonymous Functions the purrr way\nThe purrr package (remember the map(), map_dbl() from last lecture? same package!) provides another way to write anonymous functions.\nSame function as before that adds 1 to each element of the input:\n\nadd &lt;- function(x) {\n  x + 1\n}\nadd(c(1,2,3))\n\nRewrite it as anonymous function in purrr in two ways:\n\nlibrary(purrr)\nmap_dbl(c(1, 2, 3), function(x) x + 1)\nmap_dbl(c(1,2,3), ~.x + 1)\n\nTip: map() has several versions like map_dbl(), map_chr(), and map_df() which let you control the output type directly"
+  },
+  {
+    "objectID": "lectures/19-slides.html#practice-writing-functions",
+    "href": "lectures/19-slides.html#practice-writing-functions",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload the class materials from the website (see Lecture 18 homepage): complete QUESTION 3. Once done, share your code here"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-should-be-well-documented-how",
+    "href": "lectures/19-slides.html#functions-should-be-well-documented-how",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions should be well-documented! How?",
+    "text": "Functions should be well-documented! How?\nEach function should include the following:\n\na one-sentence description of the function summarizing what it does\nall function’s arguments, denoted as Args:, with their data types\na description of the return value, denoted by Returns:\n\nDo not use AI do generate your documentation: it overly complicate things"
+  },
+  {
+    "objectID": "lectures/19-slides.html#codying-style-document-your-function",
+    "href": "lectures/19-slides.html#codying-style-document-your-function",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Codying style: document your function",
+    "text": "Codying style: document your function\n\nmy_sum &lt;- function(vector) {\n  \n  # Calculates the sum of all numbers in a numeric vector using a `for` loop.\n  # Args:\n  #   vector (num): a numeric vector whose elements will be summed\n  # Returns:\n  #  value (num): single numeric value.\n  # Example use:\n  #   x &lt;- c(3, 1, 4)\n  #   my_sum(x)\n    \n  total &lt;- 0\n  for (i in seq_along(vector)) {\n    total &lt;- total + vector[i]\n  }\n  total\n}"
+  },
+  {
+    "objectID": "lectures/19-slides.html#example-from-googles-r-style-guide-here",
+    "href": "lectures/19-slides.html#example-from-googles-r-style-guide-here",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Example from Google’s R Style Guide here",
+    "text": "Example from Google’s R Style Guide here\n\nCalculateSampleCovariance &lt;- function(x, y, verbose = TRUE) {\n\n  # Computes the sample covariance between two vectors.\n  # Args:\n  #   x: One of two vectors whose sample covariance is to be calculated.\n  #   y: The other vector. x and y must have the same length, greater than one,\n  #      with no missing values.\n  #   verbose: If TRUE, prints sample covariance; if not, not. Default is TRUE.\n  # Returns:\n  #   The sample covariance between x and y.\n  \n  n &lt;- length(x)\n  if (n &lt;= 1 || n != length(y)) {\n    stop(\"Arguments x and y have invalid lengths: \",\n         length(x), \" and \", length(y), \".\") }\n  if (TRUE %in% is.na(x) || TRUE %in% is.na(y)) {\n    stop(\" Arguments x and y must not have missing values.\") }\n  covariance &lt;- var(x, y)\n  if (verbose)\n    cat(\"Covariance = \", round(covariance, 4), \".\\n\", sep = \"\")\n  return(covariance)\n}"
+  },
+  {
+    "objectID": "lectures/19-slides.html#practice-writing-functions-1",
+    "href": "lectures/19-slides.html#practice-writing-functions-1",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload the class materials from the website (see Lecture 18 homepage)\nAFTER CLASS CHALLENGE: complete QUESTION 5 and QUESTION 6 on writing a more complex function and adding documentation to it"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-and",
+    "href": "lectures/19-slides.html#functions-and",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nYou can write custom functions and use them together with dplyr or ggplot functions!\nYou need the following:\n\nsyntax to write a custom function\nspecial operators that allows R to evaluate your custom functions correctly:\n\nbang-bang !! with enquo() (this is the old method)\ncurly-curly or embracing { } (this replaced the former method!)\n\n\nCheck out Chapter 25 of our book for details https://r4ds.hadley.nz/functions.html"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-and-1",
+    "href": "lectures/19-slides.html#functions-and-1",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nExample: create a data frame of age and height of 5 individuals:\n\nlibrary(dplyr)\n\ndf &lt;- tibble(age = c(10, 12, 13, 14, 10), \n             height = c(110, 140, 155, 170, 130))\ndf\n\n# A tibble: 5 × 2\n    age height\n  &lt;dbl&gt;  &lt;dbl&gt;\n1    10    110\n2    12    140\n3    13    155\n4    14    170\n5    10    130"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-and-2",
+    "href": "lectures/19-slides.html#functions-and-2",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nUse summarize() from dplyr to compute the mean and standard deviation on the column age of this data frame:\n\ndf %&gt;%\n  summarize(mean_age = mean(age),\n            sd_age = sd(age))\n\n# A tibble: 1 × 2\n  mean_age sd_age\n     &lt;dbl&gt;  &lt;dbl&gt;\n1     11.8   1.79"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-and-3",
+    "href": "lectures/19-slides.html#functions-and-3",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nRewrite the previous code using a function and the curly-curly operator (embracing):\n\ncustom_summary &lt;- function(data, col) {\n  data %&gt;%\n    summarize(mean_value = mean({{ col }}),\n              sd_value = sd({{ col }}))\n}\n\ncustom_summary(df, age)\n\n# A tibble: 1 × 2\n  mean_value sd_value\n       &lt;dbl&gt;    &lt;dbl&gt;\n1       11.8     1.79\n\n\nThe { } operator tells dplyr not to treat “col” as the literal variable name, but instead to look inside it for the variable we actually need (here “age”)"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-and-4",
+    "href": "lectures/19-slides.html#functions-and-4",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nEmbracing a variable means to wrap it in braces so var becomes { var } when using functions dplyr or ggplot code.\nIt tells dplyr to use the value stored inside the argument, not the argument as the literal variable name\nFrom the book: “one way to remember what’s happening is to think of { } as looking down a tunnel — { var } will make a dplyr function look inside of var rather than looking for a variable called var”"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-and-5",
+    "href": "lectures/19-slides.html#functions-and-5",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nRewrite it with multiple columns as arguments:\n\ncustom_summary &lt;- function(data, col1, col2) {\n  results &lt;- list(\n    summarise(data, \n              mean_value = mean({{ col1 }}),\n              sd_value = sd({{ col1 }})),\n    summarise(data, \n              mean_value = mean({{ col2 }}),\n              sd_value = sd({{ col2 }}))\n  )\n  # Combine output into a single data frame\n  bind_rows(results)\n}\ncustom_summary(df, age, height)\n\n# A tibble: 2 × 2\n  mean_value sd_value\n       &lt;dbl&gt;    &lt;dbl&gt;\n1       11.8     1.79\n2      141      23.0"
+  },
+  {
+    "objectID": "lectures/19-slides.html#functions-and-6",
+    "href": "lectures/19-slides.html#functions-and-6",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "Functions and {{ }}",
+    "text": "Functions and {{ }}\nWhen do you need to embrace when writing a function?\nIn all cases of “tidy evaluation,” which has two main types (see the readings, Chapter 25 for details):\n\nData Masking: in functions such as arrange(), filter(), summarize() from dplyr and in aes() from ggplot2 often when you need to pass a variable name\nTidy Selection: in functions such as select(), relocate(), rename() when you need to select variables by name"
+  },
+  {
+    "objectID": "lectures/19-slides.html#practice-writing-functions-2",
+    "href": "lectures/19-slides.html#practice-writing-functions-2",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "💻 Practice writing functions",
+    "text": "💻 Practice writing functions\nDownload the class materials from the website (see Lecture 18 homepage): complete QUESTION 7. Once done share your code here"
+  },
+  {
+    "objectID": "lectures/19-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/19-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 19",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
   }
 ]

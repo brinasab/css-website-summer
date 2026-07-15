@@ -26,11 +26,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <!-- `usethis::use_course("css-materials/functions-bugs")` -->
 
+
 ## Learning Objectives
 
 * Review and continue the lecture on Functions  
-* Practice debugging code  
-* Distinguish between errors, warnings, and messages  
+ 
+
+## Before class
+
+- Review [Lecture 18](https://brinasab.github.io/css-website-summer/lectures/18-home.html), and especially the [last session of the slides on functions](https://brinasab.github.io/css-website-summer/lectures/18-slides.html#/introduction-to-functions) and come with questions. We will start class from that part!
+- If you have not already done so, complete Lecture 18 participation questions. You can find them in the Zoom chat (the recording is available on Canvas > UChicago Main Zoom > Cloud Recordings) or in [this document](https://docs.google.com/document/d/1f5jZ1ynOMV-axF-toNtec-KyOwhLvSYZCx0BlPaslxQ/edit?usp=sharing) after class. They will remain open until the start of this lecture (e.g., Lecture 18). Make sure to enter your name as you answer, so we can properly record your participation (do not answer a "guest").
+
 
 ## Readings
 
