@@ -663,7 +663,7 @@ For more, see also [R for Data Science 1st Edition](http://r4ds.had.co.nz):
 
 # 3. Git/Github from the command line {.slide .center .middle}
 
-### Download it from [here](https://drive.google.com/file/d/1cY48ez1rirI4qDhNccWqzisRfAigi4fB/view?usp=sharing) to follow along
+Download the *Git/Github from the command line tutorial* from [here](https://drive.google.com/file/d/1cY48ez1rirI4qDhNccWqzisRfAigi4fB/view?usp=sharing) to follow along or try it out after class! 
 
 ---
 
