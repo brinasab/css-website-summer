@@ -106,7 +106,7 @@ First come, first served. If many students plan to attend, a sign-up link will b
 
 ---
 
-## The Main Idea: Reproducibilty
+## Main Idea: Reproducibilty
 
 Reproducibility: **you, or anyone else, can re-run your analysis from scratch and get the same result.**
 

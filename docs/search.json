@@ -2118,7 +2118,7 @@
     "href": "lectures/20-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "Tip 2: Use a project-based workflow and relative paths",
-    "text": "Tip 2: Use a project-based workflow and relative paths\nIn this class, we use a project-based workflow by creating an .Rproj file in every repo! Value of this approach:\n\nkeeps all files for one project together in one folder\nsets the working directory automatically, so relative paths just work\nlets you switch between projects (or open several) without confusion\n\n\n\n\n\n\n\nNote\n\n\n\nIf you complete HW5, remember to create .Rproj file in your repo: see these slides from Lecture 10."
+    "text": "Tip 2: Use a project-based workflow and relative paths\nIn this class, we use a project-based workflow by creating an .Rproj file in every repo! Value of this approach:\n\nkeeps all files for one project together in one folder\nsets the working directory automatically, so relative paths just work\nlets you switch between projects (or open several) without confusion\n\n\n\n\n\n\n\nNote\n\n\nIf you complete HW5, remember to create .Rproj file in your repo: see these slides from Lecture 10."
   },
   {
     "objectID": "lectures/20-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths-1",
@@ -2132,7 +2132,7 @@
     "href": "lectures/20-slides.html#tip-3-treat-raw-data-as-read-only",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "Tip 3: Treat raw data as read-only",
-    "text": "Tip 3: Treat raw data as read-only\nYour raw data files are your starting point: never edit them by hand, and never let a script overwrite them.\n\nkeep raw files in their own folder (e.g., data/raw/) and treat it as untouchable\ndo all cleaning in a script, so every change is recorded and repeatable\nsave cleaned/processed versions to a separate folder (e.g., data/processed/)\n\n\n\n\n\n\n\nTest\n\n\n\nIf you deleted everything in data/processed/, could you regenerate it by re-running your scripts on the raw data? If yes, your pipeline is reproducible. See Wilson et al. (2017), Good Enough Practices in Scientific Computing"
+    "text": "Tip 3: Treat raw data as read-only\nYour raw data files are your starting point: never edit them by hand, and never let a script overwrite them.\n\nkeep raw files in their own folder (e.g., data/raw/) and treat it as untouchable\ndo all cleaning in a script, so every change is recorded and repeatable\nsave cleaned/processed versions to a separate folder (e.g., data/processed/)\n\n\n\n\n\n\n\nTest\n\n\nIf you deleted everything in data/processed/, could you regenerate it by re-running your scripts on the raw data? If yes, your pipeline is reproducible. See Wilson et al. (2017), Good Enough Practices in Scientific Computing"
   },
   {
     "objectID": "lectures/20-slides.html#tip-4-build-debugging-skills",
@@ -2153,7 +2153,7 @@
     "href": "lectures/20-slides.html#tip-6-restart-r-often-session-restart-r",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "Tip 6: Restart R often (Session → Restart R)",
-    "text": "Tip 6: Restart R often (Session → Restart R)\nStuck with a bug, but you’re 100% sure the code is correct? Restart R:\n\nMore reliable than rm(list = ls()) or the broom icon. Those only delete user objects; packages you loaded, options you changed, and other session state all survive invisibly\nrestarting keeps RStudio open but clears everything underneath, giving you a truly clean session\nif your script still works after a restart, run top to bottom, that’s evidence it is reproducible\n\n\n\n\n\n\n\nNote\n\n\n\nRestart early, restart often. If restarting feels costly, that is a sign your workflow depends on hidden state, exactly what Tips 1 and 2 prevent."
+    "text": "Tip 6: Restart R often (Session → Restart R)\nStuck with a bug, but you’re 100% sure the code is correct? Restart R:\n\nMore reliable than rm(list = ls()) or the broom icon. Those only delete user objects; packages you loaded, options you changed, and other session state all survive invisibly\nrestarting keeps RStudio open but clears everything underneath, giving you a truly clean session\nif your script still works after a restart, run top to bottom, that’s evidence it is reproducible\n\n\n\n\n\n\n\nNote\n\n\nRestart early, restart often. If restarting feels costly, that is a sign your workflow depends on hidden state, exactly what Tips 1 and 2 prevent."
   },
   {
     "objectID": "lectures/20-slides.html#tip-7-use-auto-formatting-in-rstudio",
@@ -2167,7 +2167,7 @@
     "href": "lectures/20-slides.html#recap-habits-for-reproducible-work",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "Recap: habits for reproducible work",
-    "text": "Recap: habits for reproducible work\n\nStart every session with a clean, empty workspace\nUse a project-based workflow (.Rproj in every repo)\nTreat raw data as read-only; clean it with scripts\nBuild debugging skills\nDistinguish errors, warnings, and messages\nRestart R often\nAuto-format your code\n\n\n\n\n\n\n\nImportant\n\n\n\nFINAL TEST: Close R, reopen the project, run your script top to bottom. Does it work?"
+    "text": "Recap: habits for reproducible work\n\nStart every session with a clean, empty workspace\nUse a project-based workflow (.Rproj in every repo)\nTreat raw data as read-only; clean it with scripts\nBuild debugging skills\nDistinguish errors, warnings, and messages\nRestart R often\nAuto-format your code\n\n\n\n\n\n\n\nImportant\n\n\nFINAL TEST: Close R, reopen the project, run your script top to bottom. Does it work?"
   },
   {
     "objectID": "lectures/20-slides.html#resources",
@@ -2188,14 +2188,14 @@
     "href": "lectures/20-slides.html#r-markdown-recap-1",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "R Markdown Recap",
-    "text": "R Markdown Recap\n\nThree Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+    "text": "R Markdown Recap\nThree Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
   },
   {
     "objectID": "lectures/20-slides.html#r-markdown-vs-r-script",
     "href": "lectures/20-slides.html#r-markdown-vs-r-script",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "R Markdown vs R Script",
-    "text": "R Markdown vs R Script\n\nWhen to use a script vs. a Rmd\n\nWhen you want to experiment, test functions, debug code\nWhen you do not need to communicate output or results to others\nFor scripts that need to run top-to-bottom without narrative\nFor larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file"
+    "text": "R Markdown vs R Script\nWhen to use a script vs. a Rmd\n\nWhen you want to experiment, test functions, debug code\nWhen you do not need to communicate output or results to others\nFor scripts that need to run top-to-bottom without narrative\nFor larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file"
   },
   {
     "objectID": "lectures/20-slides.html#r-markdown-what-we-know",
@@ -2237,7 +2237,7 @@
     "href": "lectures/20-slides.html#r-markdown-code-chunks-names",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "R Markdown: Code Chunks Names",
-    "text": "R Markdown: Code Chunks Names\nA named code chunk:\n```{r youth-distribution}\n# code goes here\n```\nAdvantages:\n\nEasier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.\nGraphics produced by the chunks have useful names\nUse it with cache = TRUE to avoid re-performing expensive computations on every run\n\n\n\n\n\n\n\nTip\n\n\n\ncache = TRUE saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)"
+    "text": "R Markdown: Code Chunks Names\nA named code chunk:\n```{r youth-distribution}\n# code goes here\n```\nAdvantages:\n\nEasier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.\nGraphics produced by the chunks have useful names\nUse it with cache = TRUE to avoid re-performing expensive computations on every run\n\n\n\n\n\n\n\nTip\n\n\ncache = TRUE saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)"
   },
   {
     "objectID": "lectures/20-slides.html#r-markdown-code-chunk-options",
@@ -2392,5 +2392,12 @@
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "Tip 7: Use code auto-formatting in RStudio",
     "text": "Tip 7: Use code auto-formatting in RStudio\nConsistent style makes bugs easier to see (yours and others). RStudio helps:\n\noption 1: Code &gt; Reformat Code (Shift + Cmd/Ctrl + A)\noption 2: Code &gt; Reindent Lines (Cmd/Ctrl + I)\noption 3: install the styler package for more on restyling\n\nOpen an R script and try this out:\n y&lt;-10\n  if (y &lt; 20) {\nx &lt;- \"Too low\" }\nelse {\n  x &lt;-\"Too high\"}"
+  },
+  {
+    "objectID": "lectures/20-slides.html#main-idea-reproducibilty",
+    "href": "lectures/20-slides.html#main-idea-reproducibilty",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Main Idea: Reproducibilty",
+    "text": "Main Idea: Reproducibilty\nReproducibility: you, or anyone else, can re-run your analysis from scratch and get the same result.\nThe tips in the next slides all serve one principle:\n\n\n\n\n\n\nImportant\n\n\nDon’t preserve the workspace. Preserve the code that creates the workspace.\nYour scripts are the product. Everything else (objects in memory, the console history, the current session) is disposable. See Bryan & Hester, What They Forgot to Teach You About R"
   }
 ]
