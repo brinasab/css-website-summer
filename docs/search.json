@@ -354,7 +354,7 @@
     "href": "lectures/20-slides.html",
     "title": "Computing for the Social Sciences: Lecture 20",
     "section": "",
-    "text": "Agenda\n\n\nTips to improve your R Workflow\nDeep-dive into R Markdown\n\n\n\n\nSlides are in progress and will be updated before class."
+    "text": "Tips to improve your R Workflow\nDeep-dive into R Markdown\nGit/Github with the command line\n\n\n Slides last updated on July 16, 2026. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos."
   },
   {
     "objectID": "setup/setup-test.html",
@@ -2055,14 +2055,14 @@
     "href": "lectures/20-home.html",
     "title": "Lecture 20: Reproducible Workflow",
     "section": "",
-    "text": "Date: July 16, 2026\nTopics: Reproducible Workflow\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: July 16, 2026\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/deep-dive-reproducible-git-rmd\")"
   },
   {
     "objectID": "lectures/20-home.html#info-and-materials",
     "href": "lectures/20-home.html#info-and-materials",
     "title": "Lecture 20: Reproducible Workflow",
     "section": "",
-    "text": "Date: July 16, 2026\nTopics: Reproducible Workflow\nSlides: To be posted before class\nCode: To be posted before class"
+    "text": "Date: July 16, 2026\nTopics: Reproducible Workflow\nSlides: View Slides\nCode: usethis::use_course(\"css-materials/deep-dive-reproducible-git-rmd\")"
   },
   {
     "objectID": "lectures/20-home.html#learning-objectives",
@@ -2083,6 +2083,314 @@
     "href": "lectures/20-home.html#readings",
     "title": "Lecture 20: Reproducible Workflow",
     "section": "Readings",
-    "text": "Readings\nNot required before class, refer to them as you see fit”\n\nGood Enough Practices in Scientific Computing\nChapters 1, 2, 3, 7 in What They Forgot to Teach You About R\nChapters 27 “R Markdown”, 28 “Graphics for communication”, and 29 “R Markdown formats” in R for Data Science 1st Edition\nArticle on Project-oriented workflow"
+    "text": "Readings\nNot required, refer to them as you see fit:\n\nGood Enough Practices in Scientific Computing\nChapters 1, 2, 3, 7 in What They Forgot to Teach You About R\nChapters 27 “R Markdown”, 28 “Graphics for communication”, and 29 “R Markdown formats” in R for Data Science 1st Edition\nArticle on Project-oriented workflow"
+  },
+  {
+    "objectID": "lectures/20-slides.html#the-main-idea-reproducibilty",
+    "href": "lectures/20-slides.html#the-main-idea-reproducibilty",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "The Main Idea: Reproducibilty",
+    "text": "The Main Idea: Reproducibilty\nReproducibility: you, or anyone else, can re-run your analysis from scratch and get the same result.\nThe tips in the next slides all serve one principle:\n\n\n\n\n\n\nImportant\n\n\n\nDon’t preserve the workspace. Preserve the code that creates the workspace.\nYour scripts are the product. Everything else (objects in memory, the console history, the current session) is disposable. See Bryan & Hester, What They Forgot to Teach You About R"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-1-start-every-session-with-a-clean-empty-workspace",
+    "href": "lectures/20-slides.html#tip-1-start-every-session-with-a-clean-empty-workspace",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 1: Start every session with a clean, empty workspace",
+    "text": "Tip 1: Start every session with a clean, empty workspace\nWhen you run an R session, your workspace includes everything created during that session:\n\npackages you loaded with library()\nall user-created objects (data, vectors, functions, models, …)\n\nBy default, R offers to save this workspace when you quit and restore it when you return. This is convenient in the short run, but not in the long run."
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-1-how",
+    "href": "lectures/20-slides.html#tip-1-how",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 1: How?",
+    "text": "Tip 1: How?\nWhen closing a session, R asks: “Do you want to save your workspace?” → Answer No.\nEven better, change the defaults so R never asks again: Tools → Global Options → General\n\nUncheck “Restore .RData into workspace at startup”\nSet “Save workspace to .RData on exit” to Never"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-1-why",
+    "href": "lectures/20-slides.html#tip-1-why",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 1: Why?",
+    "text": "Tip 1: Why?\nA restored workspace can hide objects you forgot about or that your current script never creates:\n\nobjects created by other scripts may still be lurking\npackages or data may be loaded that your script never loads\nyou may have modified objects directly in the Console without updating the script\n\nIf your script only “works” because of leftovers in the workspace, it is silently broken. That hurts reproducibility"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths",
+    "href": "lectures/20-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 2: Use a project-based workflow and relative paths",
+    "text": "Tip 2: Use a project-based workflow and relative paths\nIn this class, we use a project-based workflow by creating an .Rproj file in every repo! Value of this approach:\n\nkeeps all files for one project together in one folder\nsets the working directory automatically, so relative paths just work\nlets you switch between projects (or open several) without confusion\n\n\n\n\n\n\n\nNote\n\n\n\nIf you complete HW5, remember to create .Rproj file in your repo: see these slides from Lecture 10."
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths-1",
+    "href": "lectures/20-slides.html#tip-2-use-a-project-based-workflow-and-relative-paths-1",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 2: Use a project-based workflow and relative paths",
+    "text": "Tip 2: Use a project-based workflow and relative paths\nAvoid this pattern:\n# fragile: works only on this computer, only today\nsetwd(\"/Users/sabrina/Documents/css/hw5/data\")\ndf &lt;- read_csv(\"survey.csv\")\nAn absolute path or a path hard-wired like this example will not work on anyone else’s computer, or on yours a year from now.\nRely on the project root using the .Rproj folders. For more tips, explore the here package builds paths from the top-level project folder, no matter which script or subfolder you are in."
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-3-treat-raw-data-as-read-only",
+    "href": "lectures/20-slides.html#tip-3-treat-raw-data-as-read-only",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 3: Treat raw data as read-only",
+    "text": "Tip 3: Treat raw data as read-only\nYour raw data files are your starting point: never edit them by hand, and never let a script overwrite them.\n\nkeep raw files in their own folder (e.g., data/raw/) and treat it as untouchable\ndo all cleaning in a script, so every change is recorded and repeatable\nsave cleaned/processed versions to a separate folder (e.g., data/processed/)\n\n\n\n\n\n\n\nTest\n\n\n\nIf you deleted everything in data/processed/, could you regenerate it by re-running your scripts on the raw data? If yes, your pipeline is reproducible. See Wilson et al. (2017), Good Enough Practices in Scientific Computing"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-4-build-debugging-skills",
+    "href": "lectures/20-slides.html#tip-4-build-debugging-skills",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 4: Build debugging skills",
+    "text": "Tip 4: Build debugging skills\nWhat debugging tips have you learned from working with R so far?"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-5-learn-to-read-what-r-tells-you",
+    "href": "lectures/20-slides.html#tip-5-learn-to-read-what-r-tells-you",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 5: Learn to read what R tells you",
+    "text": "Tip 5: Learn to read what R tells you\nR communicates in three distinct ways, and they are not all bad news:\n\nErrors stop your code. R could not do what you asked: this must be fixed.\nWarnings let the code run, but flag that something may be off. Ceck the result before trusting it.\nMessages are informative. Nothing is wrong, R is just telling you what it did."
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-6-restart-r-often-session-restart-r",
+    "href": "lectures/20-slides.html#tip-6-restart-r-often-session-restart-r",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 6: Restart R often (Session → Restart R)",
+    "text": "Tip 6: Restart R often (Session → Restart R)\nStuck with a bug, but you’re 100% sure the code is correct? Restart R:\n\nMore reliable than rm(list = ls()) or the broom icon. Those only delete user objects; packages you loaded, options you changed, and other session state all survive invisibly\nrestarting keeps RStudio open but clears everything underneath, giving you a truly clean session\nif your script still works after a restart, run top to bottom, that’s evidence it is reproducible\n\n\n\n\n\n\n\nNote\n\n\n\nRestart early, restart often. If restarting feels costly, that is a sign your workflow depends on hidden state, exactly what Tips 1 and 2 prevent."
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-7-use-auto-formatting-in-rstudio",
+    "href": "lectures/20-slides.html#tip-7-use-auto-formatting-in-rstudio",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 7: Use auto-formatting in RStudio",
+    "text": "Tip 7: Use auto-formatting in RStudio\nConsistent style makes bugs easier to see (yours and others). RStudio helps:\n\noption 1: Code &gt; Reformat Code (Shift + Cmd/Ctrl + A)\noption 2: Code &gt; Reindent Lines (Cmd/Ctrl + I)\noption 3: install the styler package for more on restyling\n\nOpen an R script and try this out:\n y&lt;-10\n  if (y &lt; 20) {\nx &lt;- \"Too low\" }\nelse {\n  x &lt;-\"Too high\"}"
+  },
+  {
+    "objectID": "lectures/20-slides.html#recap-habits-for-reproducible-work",
+    "href": "lectures/20-slides.html#recap-habits-for-reproducible-work",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Recap: habits for reproducible work",
+    "text": "Recap: habits for reproducible work\n\nStart every session with a clean, empty workspace\nUse a project-based workflow (.Rproj in every repo)\nTreat raw data as read-only; clean it with scripts\nBuild debugging skills\nDistinguish errors, warnings, and messages\nRestart R often\nAuto-format your code\n\n\n\n\n\n\n\nImportant\n\n\n\nFINAL TEST: Close R, reopen the project, run your script top to bottom. Does it work?"
+  },
+  {
+    "objectID": "lectures/20-slides.html#resources",
+    "href": "lectures/20-slides.html#resources",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Resources",
+    "text": "Resources\n\nBryan & Hester, What They Forgot to Teach You About R on clean workspaces, safe paths, debugging\nBryan, “Project-oriented workflow” (tidyverse blog)\nWickham, Çetinkaya-Rundel & Grolemund, R for Data Science, “Workflow: scripts and projects”\nWilson et al. (2017), Good Enough Practices in Scientific Computing, for general tips on the topic of reproducibility\nThe here and styler packages"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-recap",
+    "href": "lectures/20-slides.html#r-markdown-recap",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown Recap",
+    "text": "R Markdown Recap\nR Markdown is a file format (with extension .Rmd) that:\n\ncombines R code, using code chunks, and text in a single document\nmakes it easy to create reproducible reports, analyses, and presentations\nyou might hear about Quarto (with extension .qmd): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-recap-1",
+    "href": "lectures/20-slides.html#r-markdown-recap-1",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown Recap",
+    "text": "R Markdown Recap\n\nThree Main Components\n\nYAML header for document title, author, output format, etc. Insert it at the top between ---\nText regular Markdown for headers, lists, links, etc.\nCode chunks for code. Insert it with triple backticks ```\n\n\n\n\n\n\n\nCode Chunk Tips\n\n\n\nThree ways to insert a code chunk in your R Markdown:\n\nUse the RStudio toolbar\n\nType manually ```{r} and ```\nUse a shortcut\n\nMac: ⌘ + ⌥ + I\n\nWindows: Ctrl + Alt + I"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-vs-r-script",
+    "href": "lectures/20-slides.html#r-markdown-vs-r-script",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown vs R Script",
+    "text": "R Markdown vs R Script\n\nWhen to use a script vs. a Rmd\n\nWhen you want to experiment, test functions, debug code\nWhen you do not need to communicate output or results to others\nFor scripts that need to run top-to-bottom without narrative\nFor larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-what-we-know",
+    "href": "lectures/20-slides.html#r-markdown-what-we-know",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: What We Know",
+    "text": "R Markdown: What We Know\n\nInserting a YAML Header with basic elements\nFormatting text (italics, bold, etc.)\nFormatting titles\nInserting lists (ordered and unordered)\nInserting images, tables, and hyperlinks\nRendering a Rmd into pdf, html, md, etc."
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-what-we-learn-today",
+    "href": "lectures/20-slides.html#r-markdown-what-we-learn-today",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: What We Learn Today",
+    "text": "R Markdown: What We Learn Today\n\nHow the knitting process works\nInline code\nCode chunks names\nCode chunks options\nGlobal options\nNew YAML header elements"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-the-knitting-process",
+    "href": "lectures/20-slides.html#r-markdown-the-knitting-process",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: The Knitting Process",
+    "text": "R Markdown: The Knitting Process\nWhen you “knit” your document, the following sequential things happen, as illustarated here\n\nR Markdown sends the .Rmd file to knitr http://yihui.name/knitr/\nKnitr executes all of the code chunks and creates a new plain Markdown .md file which includes the code and its output\nThis plain Markdown file is then converted by pandoc into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-inline-code",
+    "href": "lectures/20-slides.html#r-markdown-inline-code",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: Inline Code",
+    "text": "R Markdown: Inline Code\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---\n\n```{r setup, include = FALSE}\nlibrary(tidyverse)\nlibrary(rcis)\n```\n\n## Gun deaths by age\n\nThe `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.\n\n```{r youth, echo = FALSE}\nyouth &lt;- gun_deaths %&gt;% filter(age &lt;= 65)\n```\n\nWe have `r nrow(youth)` individuals who are 65 or younger. \nOnly `r nrow(gun_deaths) - nrow(youth)` are older than 65."
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-inline-code-1",
+    "href": "lectures/20-slides.html#r-markdown-inline-code-1",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: Inline Code",
+    "text": "R Markdown: Inline Code\nThe gun_deaths dataset includes data for 100798 individuals killed by guns.\nWe have 85111 individuals who are 65 or younger. Only 15687 are older than 65."
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-code-chunks-names",
+    "href": "lectures/20-slides.html#r-markdown-code-chunks-names",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: Code Chunks Names",
+    "text": "R Markdown: Code Chunks Names\nA named code chunk:\n```{r youth-distribution}\n# code goes here\n```\nAdvantages:\n\nEasier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.\nGraphics produced by the chunks have useful names\nUse it with cache = TRUE to avoid re-performing expensive computations on every run\n\n\n\n\n\n\n\nTip\n\n\n\ncache = TRUE saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-code-chunk-options",
+    "href": "lectures/20-slides.html#r-markdown-code-chunk-options",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: Code Chunk Options",
+    "text": "R Markdown: Code Chunk Options\n\n\n\n\n\n\n\n\n\nOption\nWhat it does\nDefault\n\n\n\n\neval = FALSE\nCode is not run, only shown; results do not appear. Useful for code examples or showing code with errors.\neval = TRUE\n\n\ninclude = FALSE\nCode is run, but both code and results are hidden. Useful for setup code you don’t want to display.\ninclude = TRUE\n\n\necho = FALSE\nCode is run, results are shown, but code is hidden. Good when readers only need the output.\necho = TRUE\n\n\nerror = TRUE\nCode is run and shown, even if it throws an error. Useful when demonstrating broken code.\nerror = FALSE\n\n\nmessage = FALSE / warning = FALSE\nCode is run, but messages and warnings are hidden from the output.\nmessage = TRUE / warning = TRUE\n\n\n\n\nCheck this table and options for more."
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-global-options",
+    "href": "lectures/20-slides.html#r-markdown-global-options",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: Global Options",
+    "text": "R Markdown: Global Options\nUse global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.\nGlobal options are defined in a code chunk at the top of your Rmd file with knitr::opts_chunk$set()\nFor example, if you want to hide the code by default in your entire Rmd:\nknitr::opts_chunk$set(\n  echo = FALSE    # shows results but hide codes \n)"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-new-yaml-header-elements",
+    "href": "lectures/20-slides.html#r-markdown-new-yaml-header-elements",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: New YAML Header Elements",
+    "text": "R Markdown: New YAML Header Elements\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---"
+  },
+  {
+    "objectID": "lectures/20-slides.html#yaml-header-table-of-contents",
+    "href": "lectures/20-slides.html#yaml-header-table-of-contents",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "YAML Header: Table of Contents",
+    "text": "YAML Header: Table of Contents\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: \n  html_document\n    toc: true\n    toc_depth: 2\n---"
+  },
+  {
+    "objectID": "lectures/20-slides.html#yaml-header-apparence-and-style",
+    "href": "lectures/20-slides.html#yaml-header-apparence-and-style",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "YAML Header: Apparence and Style",
+    "text": "YAML Header: Apparence and Style\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: \n  html_document\n    theme: readable\n    fig_width: 8\n    fig_height: 6\n---"
+  },
+  {
+    "objectID": "lectures/20-slides.html#yaml-header-date-as-string",
+    "href": "lectures/20-slides.html#yaml-header-date-as-string",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "YAML Header: Date as string",
+    "text": "YAML Header: Date as string\nWe can add a date as a simple string, and manually modify it every time we modify our file:\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"December 1, 2025\"\n---\nBut we can also add it automatically!"
+  },
+  {
+    "objectID": "lectures/20-slides.html#yaml-header-date-with-lubridate",
+    "href": "lectures/20-slides.html#yaml-header-date-with-lubridate",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "YAML Header: Date with lubridate",
+    "text": "YAML Header: Date with lubridate\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r lubridate::today()`\"\n---\nFor more on the lubridate package, see Chapter 16 of R for Data Science and Lecture 12 slides"
+  },
+  {
+    "objectID": "lectures/20-slides.html#yaml-header-date-with-sys.date",
+    "href": "lectures/20-slides.html#yaml-header-date-with-sys.date",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "YAML Header: Date with Sys.Date",
+    "text": "YAML Header: Date with Sys.Date\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r Sys.Date()`\"\n---\nSys.Date returns the current day in the current time zone. The default uses the format year/month/day."
+  },
+  {
+    "objectID": "lectures/20-slides.html#yaml-header-date-with-sys.time",
+    "href": "lectures/20-slides.html#yaml-header-date-with-sys.time",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "YAML Header: Date with Sys.time",
+    "text": "YAML Header: Date with Sys.time\n---\ntitle: \"Gun deaths\"\noutput: html_document\ndate: \"`r format (Sys.time(), '%d, %B, %Y')`\"\n---\nSys.time returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed"
+  },
+  {
+    "objectID": "lectures/20-slides.html#practice-with-rmd",
+    "href": "lectures/20-slides.html#practice-with-rmd",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "💻 Practice with Rmd",
+    "text": "💻 Practice with Rmd\nDownload today’s class materials and complete the tutorial!"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-more-info-and-tips",
+    "href": "lectures/20-slides.html#r-markdown-more-info-and-tips",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown More Info and Tips",
+    "text": "R Markdown More Info and Tips\nIf you do the final project (HW5), try to experiment with a couple of the R Markdown options we have seen today!\nFor more, see also R for Data Science 1st Edition:\n\nChapter 27 “R Markdown”\nChapter 28 “Graphics for communication”\nChapter 29 “R Markdown formats”"
+  },
+  {
+    "objectID": "lectures/20-slides.html#to-print-these-slides-as-pdf",
+    "href": "lectures/20-slides.html#to-print-these-slides-as-pdf",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "To print these slides as pdf",
+    "text": "To print these slides as pdf\nClick on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-4-build-debugging-skills-1",
+    "href": "lectures/20-slides.html#tip-4-build-debugging-skills-1",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 4: Build debugging skills",
+    "text": "Tip 4: Build debugging skills\n1. Realize that you have a bug:\n\na bug can be syntactic (like a typo)\nor conceptual (a misunderstanding of R’s rules)"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-4-build-debugging-skills-2",
+    "href": "lectures/20-slides.html#tip-4-build-debugging-skills-2",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 4: Build debugging skills",
+    "text": "Tip 4: Build debugging skills\n2. Figure out where it is:\n\nread your code out loud\nuse print() statements to check each line\nrun one piece of code at a time\nif it comes from misuse of a specific function, check its documentation with ?function_name\nask AI to identify it and explain why\ntake a break!\n\n3. Fix it: then re-run the whole script in a fresh session to confirm\nMore in “Debugging R code” from What They Forgot to Teach You About R"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-5-see-them-in-action",
+    "href": "lectures/20-slides.html#tip-5-see-them-in-action",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 5: See them in action",
+    "text": "Tip 5: See them in action\nlog(\"a\")\n#&gt; Error in log(\"a\"): non-numeric argument to mathematical function\n→ code stopped: fix it before moving on\nlog(-1)\n#&gt; Warning message: NaNs produced\n→ code ran, but the result is NaN: check your input\nlibrary(tidyverse)\n#&gt; ── Attaching core tidyverse packages ──────────────\n→ nothing is wrong: just useful information"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-5-learn-to-read-what-r-tells-you-1",
+    "href": "lectures/20-slides.html#tip-5-learn-to-read-what-r-tells-you-1",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 5: Learn to read what R tells you",
+    "text": "Tip 5: Learn to read what R tells you\nlog(\"a\")\n#&gt; Error in log(\"a\"): non-numeric argument to mathematical function\nErrors: code stopped: fix it before moving on\nlog(-1)\n#&gt; Warning message: NaNs produced\nWarning: code ran, but the result is NaN (check your input)\n\nlibrary(tidyverse)\n#&gt; ── Attaching core tidyverse packages ──────────────\nMessage: nothing is wrong, just useful info"
+  },
+  {
+    "objectID": "lectures/20-slides.html#resources-for-reproducible-work",
+    "href": "lectures/20-slides.html#resources-for-reproducible-work",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Resources for reproducible work",
+    "text": "Resources for reproducible work\n\nBryan & Hester, What They Forgot to Teach You About R on clean workspaces, safe paths, debugging\nBryan, “Project-oriented workflow” (tidyverse blog)\nWickham, Çetinkaya-Rundel & Grolemund, R for Data Science, “Workflow: scripts and projects”\nWilson et al. (2017), Good Enough Practices in Scientific Computing, for general tips on the topic of reproducibility\nThe here and styler packages"
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-inline-code---how-it-looks-like-in-your-rmd",
+    "href": "lectures/20-slides.html#r-markdown-inline-code---how-it-looks-like-in-your-rmd",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: Inline Code - How it looks like in your Rmd",
+    "text": "R Markdown: Inline Code - How it looks like in your Rmd\n---\ntitle: \"Gun deaths\"\nauthor: \"Sabrina Nardin\"\noutput: html_document\n---\n\n```{r setup, include = FALSE}\nlibrary(tidyverse)\nlibrary(rcis)\n```\n\n## Gun deaths by age\n\nThe `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.\n\n```{r youth, echo = FALSE}\nyouth &lt;- gun_deaths %&gt;% filter(age &lt;= 65)\n```\n\nWe have `r nrow(youth)` individuals who are 65 or younger. \nOnly `r nrow(gun_deaths) - nrow(youth)` are older than 65."
+  },
+  {
+    "objectID": "lectures/20-slides.html#r-markdown-inline-code---how-is-rendered-once-knitted",
+    "href": "lectures/20-slides.html#r-markdown-inline-code---how-is-rendered-once-knitted",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "R Markdown: Inline Code - How is rendered once knitted",
+    "text": "R Markdown: Inline Code - How is rendered once knitted\nThe gun_deaths dataset includes data for 100798 individuals killed by guns.\nWe have 85111 individuals who are 65 or younger. Only 15687 are older than 65."
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-5-read-and-understand-what-r-tells-you",
+    "href": "lectures/20-slides.html#tip-5-read-and-understand-what-r-tells-you",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 5: Read and understand what R tells you",
+    "text": "Tip 5: Read and understand what R tells you\nR communicates in three distinct ways, and they are not all bad news:\n\nErrors stop your code. R could not do what you asked: this must be fixed.\nWarnings let the code run, but flag that something may be off. Ceck the result before trusting it.\nMessages are informative. Nothing is wrong, R is just telling you what it did."
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-5-read-and-understand-what-r-tells-you-1",
+    "href": "lectures/20-slides.html#tip-5-read-and-understand-what-r-tells-you-1",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 5: Read and understand what R tells you",
+    "text": "Tip 5: Read and understand what R tells you\nlog(\"a\")\n#&gt; Error in log(\"a\"): non-numeric argument to mathematical function\nErrors: code stopped: fix it before moving on\nlog(-1)\n#&gt; Warning message: NaNs produced\nWarning: code ran, but the result is NaN (check your input)\n\nlibrary(tidyverse)\n#&gt; ── Attaching core tidyverse packages ──────────────\nMessage: nothing is wrong, just useful info"
+  },
+  {
+    "objectID": "lectures/20-slides.html#tip-7-use-code-auto-formatting-in-rstudio",
+    "href": "lectures/20-slides.html#tip-7-use-code-auto-formatting-in-rstudio",
+    "title": "Computing for the Social Sciences: Lecture 20",
+    "section": "Tip 7: Use code auto-formatting in RStudio",
+    "text": "Tip 7: Use code auto-formatting in RStudio\nConsistent style makes bugs easier to see (yours and others). RStudio helps:\n\noption 1: Code &gt; Reformat Code (Shift + Cmd/Ctrl + A)\noption 2: Code &gt; Reindent Lines (Cmd/Ctrl + I)\noption 3: install the styler package for more on restyling\n\nOpen an R script and try this out:\n y&lt;-10\n  if (y &lt; 20) {\nx &lt;- \"Too low\" }\nelse {\n  x &lt;-\"Too high\"}"
   }
 ]

@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -126,9 +161,59 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#tips-to-improve-your-r-workflow" id="toc-tips-to-improve-your-r-workflow" class="nav-link" data-scroll-target="#tips-to-improve-your-r-workflow">1. Tips to improve your R workflow</a>
   <ul class="collapse">
-  <li><a href="#slides-are-in-progress-and-will-be-updated-before-class." id="toc-slides-are-in-progress-and-will-be-updated-before-class." class="nav-link" data-scroll-target="#slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</a></li>
+  <li><a href="#the-main-idea-reproducibilty" id="toc-the-main-idea-reproducibilty" class="nav-link" data-scroll-target="#the-main-idea-reproducibilty">The Main Idea: Reproducibilty</a></li>
+  <li><a href="#tip-1-start-every-session-with-a-clean-empty-workspace" id="toc-tip-1-start-every-session-with-a-clean-empty-workspace" class="nav-link" data-scroll-target="#tip-1-start-every-session-with-a-clean-empty-workspace">Tip 1: Start every session with a clean, empty workspace</a></li>
+  <li><a href="#tip-1-how" id="toc-tip-1-how" class="nav-link" data-scroll-target="#tip-1-how">Tip 1: How?</a></li>
+  <li><a href="#tip-1-why" id="toc-tip-1-why" class="nav-link" data-scroll-target="#tip-1-why">Tip 1: Why?</a></li>
+  <li><a href="#tip-2-use-a-project-based-workflow-and-relative-paths" id="toc-tip-2-use-a-project-based-workflow-and-relative-paths" class="nav-link" data-scroll-target="#tip-2-use-a-project-based-workflow-and-relative-paths">Tip 2: Use a project-based workflow and relative paths</a></li>
+  <li><a href="#tip-2-use-a-project-based-workflow-and-relative-paths-1" id="toc-tip-2-use-a-project-based-workflow-and-relative-paths-1" class="nav-link" data-scroll-target="#tip-2-use-a-project-based-workflow-and-relative-paths-1">Tip 2: Use a project-based workflow and relative paths</a></li>
+  <li><a href="#tip-3-treat-raw-data-as-read-only" id="toc-tip-3-treat-raw-data-as-read-only" class="nav-link" data-scroll-target="#tip-3-treat-raw-data-as-read-only">Tip 3: Treat raw data as read-only</a></li>
+  <li><a href="#tip-4-build-debugging-skills" id="toc-tip-4-build-debugging-skills" class="nav-link" data-scroll-target="#tip-4-build-debugging-skills">Tip 4: Build debugging skills</a></li>
+  <li><a href="#tip-4-build-debugging-skills-1" id="toc-tip-4-build-debugging-skills-1" class="nav-link" data-scroll-target="#tip-4-build-debugging-skills-1">Tip 4: Build debugging skills</a></li>
+  <li><a href="#tip-4-build-debugging-skills-2" id="toc-tip-4-build-debugging-skills-2" class="nav-link" data-scroll-target="#tip-4-build-debugging-skills-2">Tip 4: Build debugging skills</a></li>
+  <li><a href="#tip-5-read-and-understand-what-r-tells-you" id="toc-tip-5-read-and-understand-what-r-tells-you" class="nav-link" data-scroll-target="#tip-5-read-and-understand-what-r-tells-you">Tip 5: Read and understand what R tells you</a></li>
+  <li><a href="#tip-5-read-and-understand-what-r-tells-you-1" id="toc-tip-5-read-and-understand-what-r-tells-you-1" class="nav-link" data-scroll-target="#tip-5-read-and-understand-what-r-tells-you-1">Tip 5: Read and understand what R tells you</a></li>
+  <li><a href="#tip-6-restart-r-often-session-restart-r" id="toc-tip-6-restart-r-often-session-restart-r" class="nav-link" data-scroll-target="#tip-6-restart-r-often-session-restart-r">Tip 6: Restart R often (Session → Restart R)</a></li>
+  <li><a href="#tip-7-use-code-auto-formatting-in-rstudio" id="toc-tip-7-use-code-auto-formatting-in-rstudio" class="nav-link" data-scroll-target="#tip-7-use-code-auto-formatting-in-rstudio">Tip 7: Use code auto-formatting in RStudio</a></li>
+  <li><a href="#recap-habits-for-reproducible-work" id="toc-recap-habits-for-reproducible-work" class="nav-link" data-scroll-target="#recap-habits-for-reproducible-work">Recap: habits for reproducible work</a></li>
+  <li><a href="#resources-for-reproducible-work" id="toc-resources-for-reproducible-work" class="nav-link" data-scroll-target="#resources-for-reproducible-work">Resources for reproducible work</a></li>
+  </ul></li>
+  <li><a href="#deep-dive-into-r-markdown" id="toc-deep-dive-into-r-markdown" class="nav-link" data-scroll-target="#deep-dive-into-r-markdown">2. Deep-dive into R Markdown</a>
+  <ul class="collapse">
+  <li><a href="#r-markdown-recap" id="toc-r-markdown-recap" class="nav-link" data-scroll-target="#r-markdown-recap">R Markdown Recap</a></li>
+  <li><a href="#r-markdown-recap-1" id="toc-r-markdown-recap-1" class="nav-link" data-scroll-target="#r-markdown-recap-1">R Markdown Recap</a>
+  <ul class="collapse">
+  <li><a href="#three-main-components" id="toc-three-main-components" class="nav-link" data-scroll-target="#three-main-components">Three Main Components</a></li>
+  </ul></li>
+  <li><a href="#r-markdown-vs-r-script" id="toc-r-markdown-vs-r-script" class="nav-link" data-scroll-target="#r-markdown-vs-r-script">R Markdown vs R Script</a>
+  <ul class="collapse">
+  <li><a href="#when-to-use-a-script-vs.-a-rmd" id="toc-when-to-use-a-script-vs.-a-rmd" class="nav-link" data-scroll-target="#when-to-use-a-script-vs.-a-rmd">When to use a script vs.&nbsp;a Rmd</a></li>
+  </ul></li>
+  <li><a href="#r-markdown-what-we-know" id="toc-r-markdown-what-we-know" class="nav-link" data-scroll-target="#r-markdown-what-we-know">R Markdown: What We Know</a></li>
+  <li><a href="#r-markdown-what-we-learn-today" id="toc-r-markdown-what-we-learn-today" class="nav-link" data-scroll-target="#r-markdown-what-we-learn-today">R Markdown: What We Learn Today</a></li>
+  <li><a href="#r-markdown-the-knitting-process" id="toc-r-markdown-the-knitting-process" class="nav-link" data-scroll-target="#r-markdown-the-knitting-process">R Markdown: The Knitting Process</a></li>
+  <li><a href="#r-markdown-inline-code---how-it-looks-like-in-your-rmd" id="toc-r-markdown-inline-code---how-it-looks-like-in-your-rmd" class="nav-link" data-scroll-target="#r-markdown-inline-code---how-it-looks-like-in-your-rmd">R Markdown: Inline Code - How it looks like in your Rmd</a></li>
+  <li><a href="#r-markdown-inline-code---how-is-rendered-once-knitted" id="toc-r-markdown-inline-code---how-is-rendered-once-knitted" class="nav-link" data-scroll-target="#r-markdown-inline-code---how-is-rendered-once-knitted">R Markdown: Inline Code - How is rendered once knitted</a></li>
+  <li><a href="#r-markdown-code-chunks-names" id="toc-r-markdown-code-chunks-names" class="nav-link" data-scroll-target="#r-markdown-code-chunks-names">R Markdown: Code Chunks Names</a></li>
+  <li><a href="#r-markdown-code-chunk-options" id="toc-r-markdown-code-chunk-options" class="nav-link" data-scroll-target="#r-markdown-code-chunk-options">R Markdown: Code Chunk Options</a></li>
+  <li><a href="#r-markdown-global-options" id="toc-r-markdown-global-options" class="nav-link" data-scroll-target="#r-markdown-global-options">R Markdown: Global Options</a></li>
+  <li><a href="#r-markdown-new-yaml-header-elements" id="toc-r-markdown-new-yaml-header-elements" class="nav-link" data-scroll-target="#r-markdown-new-yaml-header-elements">R Markdown: New YAML Header Elements</a></li>
+  <li><a href="#yaml-header-table-of-contents" id="toc-yaml-header-table-of-contents" class="nav-link" data-scroll-target="#yaml-header-table-of-contents">YAML Header: Table of Contents</a></li>
+  <li><a href="#yaml-header-apparence-and-style" id="toc-yaml-header-apparence-and-style" class="nav-link" data-scroll-target="#yaml-header-apparence-and-style">YAML Header: Apparence and Style</a></li>
+  <li><a href="#yaml-header-date-as-string" id="toc-yaml-header-date-as-string" class="nav-link" data-scroll-target="#yaml-header-date-as-string">YAML Header: Date as string</a></li>
+  <li><a href="#yaml-header-date-with-lubridate" id="toc-yaml-header-date-with-lubridate" class="nav-link" data-scroll-target="#yaml-header-date-with-lubridate">YAML Header: Date with lubridate</a></li>
+  <li><a href="#yaml-header-date-with-sys.date" id="toc-yaml-header-date-with-sys.date" class="nav-link" data-scroll-target="#yaml-header-date-with-sys.date">YAML Header: Date with Sys.Date</a></li>
+  <li><a href="#yaml-header-date-with-sys.time" id="toc-yaml-header-date-with-sys.time" class="nav-link" data-scroll-target="#yaml-header-date-with-sys.time">YAML Header: Date with Sys.time</a></li>
+  <li><a href="#practice-with-rmd" id="toc-practice-with-rmd" class="nav-link" data-scroll-target="#practice-with-rmd">💻 Practice with Rmd</a></li>
+  <li><a href="#r-markdown-more-info-and-tips" id="toc-r-markdown-more-info-and-tips" class="nav-link" data-scroll-target="#r-markdown-more-info-and-tips">R Markdown More Info and Tips</a></li>
+  </ul></li>
+  <li><a href="#gitgithub-from-the-command-line" id="toc-gitgithub-from-the-command-line" class="nav-link" data-scroll-target="#gitgithub-from-the-command-line">3. Git/Github from the command line</a>
+  <ul class="collapse">
+  <li><a href="#download-it-from-here-to-follow-along" id="toc-download-it-from-here-to-follow-along" class="nav-link" data-scroll-target="#download-it-from-here-to-follow-along">Download it from here to follow along</a></li>
+  <li><a href="#to-print-these-slides-as-pdf" id="toc-to-print-these-slides-as-pdf" class="nav-link" data-scroll-target="#to-print-these-slides-as-pdf">To print these slides as pdf</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="20-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
@@ -168,93 +253,707 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Tips to improve your R Workflow</li>
 <li>Deep-dive into R Markdown</li>
+<li>Git/Github with the command line</li>
 </ol>
 </div>
+<p><span style="font-size: 0.8em; color: #666;"> <em>Slides last updated on <strong>July 16, 2026</strong>. Slides authored by Sabrina Nardin. AI used to polish slides style and fix typos.</em> </span></p>
+<!--
+
+## Reflecting on AI Use for Programming
+
+One part of my job is teaching you R fundamentals. Another (new) part is helping you learn how to use AI as a learning tool, as I think AI is here to stay.
+
+I'd like to do an activity on reflecting on your AI use in this course using this [Google Doc](https://docs.google.com/document/d/1RyzfQ022OdChYVKWW6VPhEnJgjUmdyYmhtumHld-cso/edit?usp=sharing)
+
+
+### Slides are in progress and will be updated before class.
+
+::: {.content-hidden}
+
+# 1. Exam 2 Overview + Final Project Check-in {.slide .center .middle}
+
+---
+
+## Exam Format
+
+### Identical to Exam 1 or very similar. Multiple-choice questions and short open-ended questions, such as:
+
+- *Classical multiple choice* — select the correct answer from several options  
+- *Spot the typo* — identify and fix syntax or logic errors
+- *Matching questions* — pair code snippets with their descriptions or outputs  
+- *Debugging questions* — code runs but gives unexpected results; explain *why*  
+- *Predict the output* — given a short R snippet determine what the code will return
+- *Open-ended questions or write code questions* — brief written explanations and interpretations of results; write code (possible topics: conditionals, loops, functions, base R, data structures)  
+
+---
+
+## Exam Logistics
+
+- Topics covered: Lectures 9-17 (inclusive)
+
+- Time: 60 minutes
+
+- It is closed-book, but you may bring pen and paper for scratch work. See Syllabus for details
+
+- Arrive on time: If you arrive late, you can still take the exam, but no additional time can be given
+
+- Make-up and absence policy: See Syllabus
+
+---
+
+## How to Prepare for the Exam
+
+1. **Review class materials:** slides, in-class code, and assigned readings  
+
+2. **Review previous homework (especially 3 and 4)** re-run your code and check you understand each step  
+
+3. **Review the in-class prep quizzes we have done** exam questions will be similar 
+
+4. **Use AI strategically:** once you’ve done all the above, ask AI to generate additional practice questions of different types and level of difficulty. Starting with AI before reviewing materials can backfires
+
+::: {.callout-tip}
+Preparation works best when you write and run code yourself, review your mistakes, and make sure you can explain *why* each answer is correct.
+:::
+
+---
+
+## Final Project Check-In
+
+### When: 
+Wednesday, December 3, 2025 after the exam (~2:30–3:20 PM)
+
+### What: 
+Optional 1:1 meetings (~10 minutes) with the instructor or TA to discuss your final project. Please come with whatever you’ve completed so far and any questions you’d like to go over.
+
+### Sign up:
+First come, first served. If many students plan to attend, a sign-up link will be provided.
+
+-->
+</section>
+<section id="tips-to-improve-your-r-workflow" class="level1 slide center middle">
+<h1 class="slide center middle">1. Tips to improve your R workflow</h1>
 <hr>
-<section id="slides-are-in-progress-and-will-be-updated-before-class." class="level3">
-<h3 class="anchored" data-anchor-id="slides-are-in-progress-and-will-be-updated-before-class.">Slides are in progress and will be updated before class.</h3>
+<section id="the-main-idea-reproducibilty" class="level2">
+<h2 class="anchored" data-anchor-id="the-main-idea-reproducibilty">The Main Idea: Reproducibilty</h2>
+<p>Reproducibility: <strong>you, or anyone else, can re-run your analysis from scratch and get the same result.</strong></p>
+<p>The tips in the next slides all serve one principle:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Don’t preserve the workspace. Preserve the code that creates the workspace.</strong></p>
+<p>Your scripts are the product. Everything else (objects in memory, the console history, the current session) is disposable. See Bryan &amp; Hester, <a href="https://rstats.wtf/"><em>What They Forgot to Teach You About R</em></a></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="tip-1-start-every-session-with-a-clean-empty-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="tip-1-start-every-session-with-a-clean-empty-workspace">Tip 1: Start every session with a clean, empty workspace</h2>
+<p>When you run an R session, your <strong>workspace</strong> includes everything created during that session:</p>
+<ul>
+<li>packages you loaded with <code>library()</code></li>
+<li>all user-created objects (data, vectors, functions, models, …)</li>
+</ul>
+<p>By default, R offers to <em>save</em> this workspace when you quit and <em>restore</em> it when you return. This is convenient in the short run, but not in the long run.</p>
+<hr>
+</section>
+<section id="tip-1-how" class="level2">
+<h2 class="anchored" data-anchor-id="tip-1-how">Tip 1: How?</h2>
+<p>When closing a session, R asks: <em>“Do you want to save your workspace?”</em> → <strong>Answer No.</strong></p>
+<p>Even better, change the defaults so R never asks again: <strong>Tools → Global Options → General</strong></p>
+<ul>
+<li>Uncheck “Restore .RData into workspace at startup”</li>
+<li>Set “Save workspace to .RData on exit” to <strong>Never</strong></li>
+</ul>
+<!--
+::: {.callout-tip}
+You can also run `usethis::use_blank_slate()` to apply these settings for you.
+:::
+-->
+<hr>
+</section>
+<section id="tip-1-why" class="level2">
+<h2 class="anchored" data-anchor-id="tip-1-why">Tip 1: Why?</h2>
+<p>A restored workspace can hide objects you forgot about or that your current script never creates:</p>
+<ul>
+<li>objects created by <em>other</em> scripts may still be lurking</li>
+<li>packages or data may be loaded that your script never loads</li>
+<li>you may have modified objects directly in the Console without updating the script</li>
+</ul>
+<p>If your script only “works” because of leftovers in the workspace, it is silently broken. That hurts reproducibility</p>
+<!-- When everything lives in the code, you, and anyone else, can rebuild the entire workspace from scratch, on any machine, at any time. -->
+<hr>
+</section>
+<section id="tip-2-use-a-project-based-workflow-and-relative-paths" class="level2">
+<h2 class="anchored" data-anchor-id="tip-2-use-a-project-based-workflow-and-relative-paths">Tip 2: Use a project-based workflow and relative paths</h2>
+<p>In this class, we use a project-based workflow <strong>by creating an <code>.Rproj</code> file in every repo!</strong> Value of this approach:</p>
+<ul>
+<li>keeps all files for one project together in one folder</li>
+<li>sets the working directory automatically, so <strong>relative paths just work</strong></li>
+<li>lets you switch between projects (or open several) without confusion</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you complete HW5, remember to create <code>.Rproj</code> file in your repo: see <a href="https://brinasab.github.io/css-website-summer/lectures/10-slides.html#/rstudio-projects-make-using-relative-file-paths-easier">these slides from Lecture 10</a>.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="tip-2-use-a-project-based-workflow-and-relative-paths-1" class="level2">
+<h2 class="anchored" data-anchor-id="tip-2-use-a-project-based-workflow-and-relative-paths-1">Tip 2: Use a project-based workflow and relative paths</h2>
+<p><strong>Avoid this pattern:</strong></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fragile: works only on this computer, only today</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/Users/sabrina/Documents/css/hw5/data"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"survey.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>An absolute path or a path hard-wired like this example will not work on anyone else’s computer, or on yours a year from now.</p>
+<p>Rely on the project root using the <code>.Rproj</code> folders. For more tips, explore the <a href="https://here.r-lib.org/"><code>here</code> package</a> builds paths from the top-level project folder, no matter which script or subfolder you are in.</p>
+<!--
+```r
+# robust: relative to the .Rproj folder, works anywhere
+library(here)
+df <- read_csv(here("data", "survey.csv"))
+```
+-->
+<hr>
+</section>
+<section id="tip-3-treat-raw-data-as-read-only" class="level2">
+<h2 class="anchored" data-anchor-id="tip-3-treat-raw-data-as-read-only">Tip 3: Treat raw data as read-only</h2>
+<p>Your raw data files are your starting point: never edit them by hand, and never let a script overwrite them.</p>
+<ul>
+<li>keep raw files in their own folder (e.g., <code>data/raw/</code>) and treat it as untouchable</li>
+<li>do all cleaning <strong>in a script</strong>, so every change is recorded and repeatable</li>
+<li>save cleaned/processed versions to a separate folder (e.g., <code>data/processed/</code>)</li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Test
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you deleted everything in <code>data/processed/</code>, could you regenerate it by re-running your scripts on the raw data? If yes, your pipeline is reproducible. See Wilson et al.&nbsp;(2017), <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510"><em>Good Enough Practices in Scientific Computing</em></a></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="tip-4-build-debugging-skills" class="level2">
+<h2 class="anchored" data-anchor-id="tip-4-build-debugging-skills">Tip 4: Build debugging skills</h2>
+<p><strong>What debugging tips have you learned from working with R so far?</strong></p>
+<hr>
+</section>
+<section id="tip-4-build-debugging-skills-1" class="level2">
+<h2 class="anchored" data-anchor-id="tip-4-build-debugging-skills-1">Tip 4: Build debugging skills</h2>
+<p><strong>1. Realize that you have a bug:</strong></p>
+<ul>
+<li>a bug can be syntactic (like a typo)</li>
+<li>or conceptual (a misunderstanding of R’s rules)</li>
+</ul>
+<!--
+We all encounter both types of bugs. Fixing the latter requires time and experience, but we can address syntactic bugs faster by improving our coding style!
+-->
+<hr>
+</section>
+<section id="tip-4-build-debugging-skills-2" class="level2">
+<h2 class="anchored" data-anchor-id="tip-4-build-debugging-skills-2">Tip 4: Build debugging skills</h2>
+<p><strong>2. Figure out where it is:</strong></p>
+<ul>
+<li>read your code out loud</li>
+<li>use <code>print()</code> statements to check each line</li>
+<li>run one piece of code at a time</li>
+<li>if it comes from misuse of a specific function, check its documentation with <code>?function_name</code></li>
+<li>ask AI to identify it and explain why</li>
+<li>take a break!</li>
+</ul>
+<p><strong>3. Fix it:</strong> then re-run the <em>whole</em> script in a fresh session to confirm</p>
+<p>More in <a href="https://rstats.wtf/debugging-r">“Debugging R code”</a> from <em>What They Forgot to Teach You About R</em></p>
+<hr>
+</section>
+<section id="tip-5-read-and-understand-what-r-tells-you" class="level2">
+<h2 class="anchored" data-anchor-id="tip-5-read-and-understand-what-r-tells-you">Tip 5: Read and understand what R tells you</h2>
+<p>R communicates in three distinct ways, and they are <strong>not</strong> all bad news:</p>
+<ul>
+<li><p><strong>Errors</strong> stop your code. R could not do what you asked: this must be fixed.</p></li>
+<li><p><strong>Warnings</strong> let the code run, but flag that something may be off. Ceck the result before trusting it.</p></li>
+<li><p><strong>Messages</strong> are informative. Nothing is wrong, R is just telling you what it did.</p></li>
+</ul>
+<hr>
+</section>
+<section id="tip-5-read-and-understand-what-r-tells-you-1" class="level2">
+<h2 class="anchored" data-anchor-id="tip-5-read-and-understand-what-r-tells-you-1">Tip 5: Read and understand what R tells you</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="st">"a"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in log("a"): non-numeric argument to mathematical function</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Errors: code stopped: fix it before moving on</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning message: NaNs produced</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Warning: code ran, but the result is <code>NaN</code> (check your input)</p>
+<!--
+log(-1) has no answer in the real numbers. But from R's perspective, the call itself is legitimate: log() expects a number, and you gave it a number. So R can carry out the computation — it just produces NaN ("Not a Number"), which is a real value in R that represents an undefined mathematical result. The code ran and returned something, so R warns you rather than stopping.
+-->
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ── Attaching core tidyverse packages ──────────────</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Message: nothing is wrong, just useful info</p>
+<!--
+For example, plotting with geom_smooth() prints a message because it automatically decides which smoothing algorithm to use (default depends on sample size):
+
+
+::: {.cell}
+
+```{.r .cell-code}
+library(tidyverse)
+```
+
+::: {.cell-output .cell-output-stderr}
+
+```
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+```
+
+
+:::
+
+```{.r .cell-code}
+ggplot(diamonds, aes(carat, price)) +
+  geom_point() +
+  geom_smooth()
+```
+
+::: {.cell-output .cell-output-stderr}
+
+```
+`geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
+```
+
+
+:::
+
+::: {.cell-output-display}
+![](20-slides_files/figure-html/unnamed-chunk-1-1.png){width=35%}
+:::
+:::
+
+-->
+<hr>
+</section>
+<section id="tip-6-restart-r-often-session-restart-r" class="level2">
+<h2 class="anchored" data-anchor-id="tip-6-restart-r-often-session-restart-r">Tip 6: Restart R often (Session → Restart R)</h2>
+<p>Stuck with a bug, but you’re 100% sure the code is correct? Restart R:</p>
+<ul>
+<li>More reliable than <code>rm(list = ls())</code> or the broom icon. Those only delete user objects; packages you loaded, options you changed, and other session state all survive invisibly</li>
+<li>restarting keeps RStudio open but clears everything underneath, giving you a truly clean session</li>
+<li>if your script still works after a restart, run top to bottom, that’s evidence it is reproducible</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Restart early, restart often. If restarting feels costly, that is a sign your workflow depends on hidden state, exactly what Tips 1 and 2 prevent.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="tip-7-use-code-auto-formatting-in-rstudio" class="level2">
+<h2 class="anchored" data-anchor-id="tip-7-use-code-auto-formatting-in-rstudio">Tip 7: Use code auto-formatting in RStudio</h2>
+<p>Consistent style makes bugs easier to see (yours <em>and</em> others). RStudio helps:</p>
+<ul>
+<li>option 1: <code>Code &gt; Reformat Code</code> (Shift + Cmd/Ctrl + A)</li>
+<li>option 2: <code>Code &gt; Reindent Lines</code> (Cmd/Ctrl + I)</li>
+<li>option 3: install the <a href="http://styler.r-lib.org/"><code>styler</code></a> package for more on restyling</li>
+</ul>
+<p>Open an R script and try this out:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> y<span class="ot">&lt;-</span><span class="dv">10</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (y <span class="sc">&lt;</span> <span class="dv">20</span>) {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"Too low"</span> }</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span> {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span><span class="st">"Too high"</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="recap-habits-for-reproducible-work" class="level2">
+<h2 class="anchored" data-anchor-id="recap-habits-for-reproducible-work">Recap: habits for reproducible work</h2>
+<ol type="1">
+<li>Start every session with a <strong>clean, empty workspace</strong></li>
+<li>Use a <strong>project-based</strong> workflow (<code>.Rproj</code> in every repo)</li>
+<li>Treat raw data as <strong>read-only</strong>; clean it with scripts</li>
+<li>Build <strong>debugging</strong> skills</li>
+<li>Distinguish <strong>errors, warnings, and messages</strong></li>
+<li><strong>Restart R</strong> often</li>
+<li><strong>Auto-format</strong> your code</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>FINAL TEST: Close R, reopen the project, run your script top to bottom. Does it work?</strong></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="resources-for-reproducible-work" class="level2">
+<h2 class="anchored" data-anchor-id="resources-for-reproducible-work">Resources for reproducible work</h2>
+<ul>
+<li>Bryan &amp; Hester, <a href="https://rstats.wtf/"><em>What They Forgot to Teach You About R</em></a> on clean workspaces, safe paths, debugging</li>
+<li>Bryan, <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">“Project-oriented workflow”</a> (tidyverse blog)</li>
+<li>Wickham, Çetinkaya-Rundel &amp; Grolemund, <a href="https://r4ds.hadley.nz/workflow-scripts.html"><em>R for Data Science</em>, “Workflow: scripts and projects”</a></li>
+<li>Wilson et al.&nbsp;(2017), <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510"><em>Good Enough Practices in Scientific Computing</em></a>, for general tips on the topic of reproducibility</li>
+<li>The <a href="https://here.r-lib.org/"><code>here</code></a> and <a href="http://styler.r-lib.org/"><code>styler</code></a> packages</li>
+</ul>
+</section>
+</section>
+<section id="deep-dive-into-r-markdown" class="level1 slide center middle">
+<h1 class="slide center middle">2. Deep-dive into R Markdown</h1>
+<hr>
+<section id="r-markdown-recap" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-recap">R Markdown Recap</h2>
+<p><strong>R Markdown is a file format (with extension <code>.Rmd</code>) that:</strong></p>
+<ul>
+<li>combines R code, using code chunks, and text in a single document</li>
+<li>makes it easy to create reproducible reports, analyses, and presentations</li>
+<li>you might hear about Quarto (with extension <code>.qmd</code>): a newer alternative to R Markdown (if you learn R Markdown, you can quickly adjust to Quarto)</li>
+</ul>
+<hr>
+</section>
+<section id="r-markdown-recap-1" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-recap-1">R Markdown Recap</h2>
+<section id="three-main-components" class="level3">
+<h3 class="anchored" data-anchor-id="three-main-components">Three Main Components</h3>
+<ol type="1">
+<li><p><strong>YAML header</strong> for document title, author, output format, etc. Insert it at the top between <code>---</code></p></li>
+<li><p><strong>Text</strong> regular Markdown for headers, lists, links, etc.</p></li>
+<li><p><strong>Code chunks</strong> for code. Insert it with triple backticks <code>```</code></p></li>
+</ol>
+<div class="fragment setup-box callout callout-style-default callout-tip callout-titled" title="Code Chunk Tips">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code Chunk Tips
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Three ways to insert a code chunk in your R Markdown:</strong></p>
+<ul>
+<li>Use the RStudio toolbar<br>
+</li>
+<li>Type manually <code>```{r}</code> and <code>```</code></li>
+<li>Use a shortcut
+<ul>
+<li>Mac: ⌘ + ⌥ + I<br>
+</li>
+<li>Windows: Ctrl + Alt + I</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="r-markdown-vs-r-script" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-vs-r-script">R Markdown vs R Script</h2>
+<section id="when-to-use-a-script-vs.-a-rmd" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-a-script-vs.-a-rmd">When to use a script vs.&nbsp;a Rmd</h3>
+<ul>
+<li><p>When you want to experiment, test functions, debug code</p></li>
+<li><p>When you do not need to communicate output or results to others</p></li>
+<li><p>For scripts that need to run top-to-bottom without narrative</p></li>
+<li><p>For larger projects where you could have some code in R scripts (e.g., data cleaning, analysis pipelines, tests, etc.), and others (e.g., the final-narrated versions) in a Rmd file</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="r-markdown-what-we-know" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-what-we-know">R Markdown: What We Know</h2>
+<ul>
+<li>Inserting a YAML Header with basic elements</li>
+<li>Formatting text (italics, bold, etc.)</li>
+<li>Formatting titles</li>
+<li>Inserting lists (ordered and unordered)</li>
+<li>Inserting images, tables, and hyperlinks</li>
+<li>Rendering a Rmd into pdf, html, md, etc.</li>
+</ul>
+<hr>
+</section>
+<section id="r-markdown-what-we-learn-today" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-what-we-learn-today">R Markdown: What We Learn Today</h2>
+<ul>
+<li>How the knitting process works</li>
+<li>Inline code</li>
+<li>Code chunks names</li>
+<li>Code chunks options</li>
+<li>Global options</li>
+<li>New YAML header elements</li>
+</ul>
+<hr>
+</section>
+<section id="r-markdown-the-knitting-process" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-the-knitting-process">R Markdown: The Knitting Process</h2>
+<p>When you “knit” your document, the following sequential things happen, as <a href="https://bookdown.org/yihui/rmarkdown-cookbook/rmarkdown-process.html">illustarated here</a></p>
+<ol type="1">
+<li><p>R Markdown sends the <code>.Rmd</code> file to <code>knitr</code> http://yihui.name/knitr/</p></li>
+<li><p>Knitr executes all of the code chunks and creates a new plain Markdown <code>.md</code> file which includes the code and its output</p></li>
+<li><p>This plain Markdown file is then converted by <code>pandoc</code> into any number of output types including html, PDF, Word document, etc.: http://pandoc.org/</p></li>
+</ol>
+<hr>
+</section>
+<section id="r-markdown-inline-code---how-it-looks-like-in-your-rmd" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-inline-code---how-it-looks-like-in-your-rmd">R Markdown: Inline Code - How it looks like in your Rmd</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>author: "Sabrina Nardin"</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>output: html_document</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>```{r setup, include = FALSE}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>library(rcis)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>## Gun deaths by age</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>The `gun_deaths` dataset includes data for `r nrow(gun_deaths)` individuals killed by guns.</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>```{r youth, echo = FALSE}</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>youth &lt;- gun_deaths %&gt;% filter(age &lt;= 65)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>```</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>We have `r nrow(youth)` individuals who are 65 or younger. </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="r-markdown-inline-code---how-is-rendered-once-knitted" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-inline-code---how-is-rendered-once-knitted">R Markdown: Inline Code - How is rendered once knitted</h2>
+<p>The <code>gun_deaths</code> dataset includes data for 100798 individuals killed by guns.</p>
+<p>We have 85111 individuals who are 65 or younger. Only 15687 are older than 65.</p>
+<hr>
+</section>
+<section id="r-markdown-code-chunks-names" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-code-chunks-names">R Markdown: Code Chunks Names</h2>
+<p>A named code chunk:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r youth-distribution}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># code goes here</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Advantages:</p>
+<ol type="1">
+<li><p>Easier to navigate to specific chunks (using the drop-down code navigator in the script editor). Note: Two code chunks should not have the same name.</p></li>
+<li><p>Graphics produced by the chunks have useful names</p></li>
+<li><p>Use it with <code>cache = TRUE</code> to avoid re-performing expensive computations on every run</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>cache = TRUE</code> saves a chunk’s output to a file on memory. On future renders, R checks if the code chunk has changed; if not, R skips re-running the chunk and reuses the cached results (see Ch. 27 R for Data Science)</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="r-markdown-code-chunk-options" class="level2 center">
+<h2 class="center anchored" data-anchor-id="r-markdown-code-chunk-options">R Markdown: Code Chunk Options</h2>
+<div class="small">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>What it does</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eval = FALSE</code></td>
+<td>Code is not run, only shown; results do not appear. Useful for code examples or showing code with errors.</td>
+<td><code>eval = TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>include = FALSE</code></td>
+<td>Code is run, but both code and results are hidden. Useful for setup code you don’t want to display.</td>
+<td><code>include = TRUE</code></td>
+</tr>
+<tr class="odd">
+<td><code>echo = FALSE</code></td>
+<td>Code is run, results are shown, but code is hidden. Good when readers only need the output.</td>
+<td><code>echo = TRUE</code></td>
+</tr>
+<tr class="even">
+<td><code>error = TRUE</code></td>
+<td>Code is run and shown, even if it throws an error. Useful when demonstrating broken code.</td>
+<td><code>error = FALSE</code></td>
+</tr>
+<tr class="odd">
+<td><code>message = FALSE</code> / <code>warning = FALSE</code></td>
+<td>Code is run, but messages and warnings are hidden from the output.</td>
+<td><code>message = TRUE</code> / <code>warning = TRUE</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Check <a href="https://r4ds.had.co.nz/r-markdown.html#chunk-options">this table</a> and <a href="http://yihui.name/knitr/options/">options</a> for more.</p>
+<hr>
+</section>
+<section id="r-markdown-global-options" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-global-options">R Markdown: Global Options</h2>
+<p>Use global chunk options when you want the same settings to apply to ALL code chunks in your R Markdown file.</p>
+<p>Global options are defined in a code chunk at the top of your Rmd file with <code>knitr::opts_chunk$set()</code></p>
+<p>For example, if you want to hide the code by default in your entire Rmd:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">FALSE</span>    <span class="co"># shows results but hide codes </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="r-markdown-new-yaml-header-elements" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-new-yaml-header-elements">R Markdown: New YAML Header Elements</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>author: "Sabrina Nardin"</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>output: html_document</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="yaml-header-table-of-contents" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header-table-of-contents">YAML Header: Table of Contents</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>author: "Sabrina Nardin"</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>output: </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  html_document</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    toc: true</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    toc_depth: 2</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="yaml-header-apparence-and-style" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header-apparence-and-style">YAML Header: Apparence and Style</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>author: "Sabrina Nardin"</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>output: </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  html_document</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    theme: readable</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    fig_width: 8</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    fig_height: 6</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+</section>
+<section id="yaml-header-date-as-string" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header-date-as-string">YAML Header: Date as string</h2>
+<p>We can add a date as a simple string, and manually modify it every time we modify our file:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>output: html_document</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>date: "December 1, 2025"</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we can also add it automatically!</p>
+<hr>
+</section>
+<section id="yaml-header-date-with-lubridate" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header-date-with-lubridate">YAML Header: Date with lubridate</h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>output: html_document</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>date: "`r lubridate::today()`"</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For more on the <code>lubridate</code> package, see Chapter 16 of R for Data Science and <a href="https://brinasab.github.io/css-website-summer/lectures/12-home.html">Lecture 12 slides</a></p>
+<hr>
+</section>
+<section id="yaml-header-date-with-sys.date" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header-date-with-sys.date">YAML Header: Date with Sys.Date</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>output: html_document</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>date: "`r Sys.Date()`"</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sys.Date</code> returns the current day in the current time zone. The default uses the format year/month/day.</p>
+<hr>
+</section>
+<section id="yaml-header-date-with-sys.time" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header-date-with-sys.time">YAML Header: Date with Sys.time</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>title: "Gun deaths"</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>output: html_document</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>date: "`r format (Sys.time(), '%d, %B, %Y')`"</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>---</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>Sys.time</code> returns an absolute date-time value which can be converted to various time zones, and it more easily is customizable. This format says we want the date as: numeric day, full name of the month, and full (4-digit) year, but it can be changed</p>
+<hr>
+</section>
+<section id="practice-with-rmd" class="level2">
+<h2 class="anchored" data-anchor-id="practice-with-rmd">💻 Practice with Rmd</h2>
+<p>Download today’s class materials and complete the tutorial!</p>
+<hr>
+</section>
+<section id="r-markdown-more-info-and-tips" class="level2">
+<h2 class="anchored" data-anchor-id="r-markdown-more-info-and-tips">R Markdown More Info and Tips</h2>
+<p>If you do the final project (HW5), try to experiment with a couple of the R Markdown options we have seen today!</p>
+<p>For more, see also <a href="http://r4ds.had.co.nz">R for Data Science 1st Edition</a>:</p>
+<ul>
+<li>Chapter 27 “R Markdown”</li>
+<li>Chapter 28 “Graphics for communication”</li>
+<li>Chapter 29 “R Markdown formats”</li>
+</ul>
+</section>
+</section>
+<section id="gitgithub-from-the-command-line" class="level1 slide center middle">
+<h1 class="slide center middle">3. Git/Github from the command line</h1>
+<section id="download-it-from-here-to-follow-along" class="level3">
+<h3 class="anchored" data-anchor-id="download-it-from-here-to-follow-along">Download it from <a href="https://drive.google.com/file/d/1cY48ez1rirI4qDhNccWqzisRfAigi4fB/view?usp=sharing">here</a> to follow along</h3>
+<hr>
+</section>
+<section id="to-print-these-slides-as-pdf" class="level2">
+<h2 class="anchored" data-anchor-id="to-print-these-slides-as-pdf">To print these slides as pdf</h2>
+<p>Click on the icon bottom-left corner (the three lines) &gt; Tools &gt; PDF Export Mode &gt; Print as a Pdf</p>
 
 
 </section>
 </section>
 
 </main> <!-- /main -->
-
-
-<script>
-
-  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-
-  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-
-  // slide changes (different for each slide format).
-
-  (function () {
-
-    // dispatch for htmlwidgets
-
-    function fireSlideEnter() {
-
-      const event = window.document.createEvent("Event");
-
-      event.initEvent("slideenter", true, true);
-
-      window.document.dispatchEvent(event);
-
-    }
-
-
-
-    function fireSlideChanged(previousSlide, currentSlide) {
-
-      fireSlideEnter();
-
-
-
-      // dispatch for shiny
-
-      if (window.jQuery) {
-
-        if (previousSlide) {
-
-          window.jQuery(previousSlide).trigger("hidden");
-
-        }
-
-        if (currentSlide) {
-
-          window.jQuery(currentSlide).trigger("shown");
-
-        }
-
-      }
-
-    }
-
-
-
-    // hookup for slidy
-
-    if (window.w3c_slidy) {
-
-      window.w3c_slidy.add_observer(function (slide_num) {
-
-        // slide_num starts at position 1
-
-        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-
-      });
-
-    }
-
-
-
-  })();
-
-</script>
-
-
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
